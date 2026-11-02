@@ -206,10 +206,10 @@ export default function AdminProductsPage() {
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
             <h1 className="font-serif font-bold text-2xl sm:text-3xl text-stone-900">
-              Product Catalogue
+              Modify Product Data
             </h1>
             <p className="text-xs text-stone-500 mt-0.5">
-              Manage devotional wall art, LED variants, dimensions, pricing, and stock.
+              Update product titles, selling prices, MRP discounts, 3000K LED options, and in-stock inventory.
             </p>
           </div>
 

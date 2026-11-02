@@ -5,6 +5,7 @@ import {
   Search,
   Download,
   X,
+  MessageCircle,
 } from 'lucide-react';
 import AdminLayout from '@/components/admin/AdminLayout';
 import { Order, OrderStatus } from '@/types';
@@ -312,7 +313,20 @@ export default function AdminOrdersPage() {
                   <p className="text-stone-600">
                     {selectedOrder.customer.city}, {selectedOrder.customer.state} - {selectedOrder.customer.pincode}
                   </p>
-                  <p className="text-stone-700 font-mono mt-1">Phone: {selectedOrder.customer.mobile}</p>
+                  <div className="flex items-center gap-2 mt-2 pt-2 border-t border-stone-200">
+                    <span className="text-stone-700 font-mono font-semibold">Phone: {selectedOrder.customer.mobile}</span>
+                    <a
+                      href={`https://wa.me/${selectedOrder.customer.mobile.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(
+                        `Hi ${selectedOrder.customer.fullName}, update regarding your Abhi's Gifts order #${selectedOrder.id}: Status is ${selectedOrder.orderStatus}.`
+                      )}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white text-[10px] font-bold transition-colors shadow-sm ml-auto"
+                    >
+                      <MessageCircle className="w-3 h-3" />
+                      <span>WhatsApp Customer</span>
+                    </a>
+                  </div>
                 </div>
 
                 <div className="bg-stone-50 p-4 rounded-xl border border-stone-200 space-y-1">

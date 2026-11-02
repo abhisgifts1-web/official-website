@@ -26,14 +26,10 @@ interface AdminLayoutProps {
 }
 
 const NAV_ITEMS = [
-  { label: 'Overview', href: '/admin', icon: LayoutDashboard },
-  { label: 'Products', href: '/admin/products', icon: Package },
-  { label: 'Orders', href: '/admin/orders', icon: ShoppingBag },
-  { label: 'Categories', href: '/admin/categories', icon: Layers },
-  { label: 'Coupons', href: '/admin/coupons', icon: Tag },
-  { label: 'Customers', href: '/admin/customers', icon: Users },
-  { label: 'Reviews', href: '/admin/reviews', icon: Star },
-  { label: 'Store Settings', href: '/admin/settings', icon: Settings },
+  { label: 'Staff Overview', href: '/admin', icon: LayoutDashboard },
+  { label: 'Modify Products', href: '/admin/products', icon: Package },
+  { label: 'Customer Orders', href: '/admin/orders', icon: ShoppingBag },
+  { label: 'Ordered Customers', href: '/admin/customers', icon: Users },
 ];
 
 export default function AdminLayout({ children }: AdminLayoutProps) {
@@ -103,12 +99,15 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
           <Link href="/admin" className="flex items-center group">
             <Image
               src="/images/brand/logo-gold.png"
-              alt="Abhi's Gifts Admin"
+              alt="Abhi's Gifts Staff Portal"
               width={160}
               height={32}
               className="h-8 w-auto object-contain brightness-110 group-hover:scale-105 transition-transform"
             />
           </Link>
+          <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-amber-500/15 border border-amber-500/30 text-amber-300 text-[10px] font-bold tracking-wider uppercase w-fit mt-2">
+            <span>Staff Portal</span>
+          </div>
         </div>
 
         {/* Navigation Links */}
@@ -182,7 +181,7 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
               <Menu className="w-5 h-5" />
             </button>
             <div className="flex items-center gap-2 text-xs text-stone-500">
-              <Link href="/admin" className="hover:text-stone-900">Admin</Link>
+              <Link href="/admin" className="hover:text-stone-900 font-medium">Staff Portal</Link>
               <ChevronRight className="w-3.5 h-3.5 text-stone-400" />
               <span className="text-stone-900 font-bold capitalize">
                 {pathname.replace('/admin/', '').replace('/admin', 'Overview') || 'Dashboard'}

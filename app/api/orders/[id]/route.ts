@@ -1,6 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getOrderById, updateOrderStatus } from '@/lib/store';
 import { getAuthenticatedAdmin } from '@/lib/auth';
+import { connectToDatabase } from '@/lib/db/mongodb';
+import { OrderModel } from '@/lib/db/models/Order';
+
+export const dynamic = 'force-dynamic';
 
 export async function GET(
   req: NextRequest,
@@ -33,6 +37,19 @@ export async function PUT(
     const updated = updateOrderStatus(params.id, orderStatus, trackingNumber, courierPartner);
     if (!updated) {
       return NextResponse.json({ success: false, error: 'Order not found' }, { status: 404 });
+    }
+
+    // Persist to MongoDB Atlas if connected
+    try {
+      const conn = await connectToDatabase();
+      if (conn) {
+        await OrderModel.findOneAndUpdate(
+          { $or: [{ id: params.id }, { orderId: params.id }] },
+          { orderStatus, trackingNumber, courierPartner }
+        );
+      }
+    } catch (dbErr) {
+      console.warn('MongoDB order update error (in-memory updated):', dbErr);
     }
 
     return NextResponse.json({ success: true, order: updated });

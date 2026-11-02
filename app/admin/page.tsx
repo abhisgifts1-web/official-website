@@ -8,6 +8,9 @@ import {
   Package,
   ArrowRight,
   TrendingUp,
+  Users,
+  Edit,
+  CheckCircle2,
 } from 'lucide-react';
 import AdminLayout from '@/components/admin/AdminLayout';
 import { Order } from '@/types';
@@ -45,28 +48,93 @@ export default function AdminDashboardPage() {
         {/* Top welcome */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
+            <div className="flex items-center gap-2 mb-1">
+              <span className="px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-900 border border-amber-300 font-bold text-[10px] tracking-wider uppercase">
+                Staff Operations Portal
+              </span>
+            </div>
             <h1 className="font-serif font-bold text-2xl sm:text-3xl text-stone-900">
-              Dashboard Overview
+              Staff Portal Overview
             </h1>
             <p className="text-xs text-stone-500 mt-0.5">
-              Real-time sales, order fulfilment, and catalog stock indicators.
+              Dedicated tools to modify product data and manage customers who have ordered.
             </p>
           </div>
 
           <div className="flex items-center gap-2">
             <Link
               href="/admin/products"
-              className="bg-stone-900 hover:bg-amber-800 text-white text-xs font-semibold px-4 py-2 rounded-xl transition-colors shadow-sm flex items-center gap-1.5"
+              className="bg-stone-900 hover:bg-amber-800 text-white text-xs font-semibold px-4 py-2.5 rounded-xl transition-colors shadow-sm flex items-center gap-1.5"
             >
-              <Package className="w-3.5 h-3.5" />
-              <span>Manage Products</span>
+              <Package className="w-4 h-4 text-amber-300" />
+              <span>Modify Products</span>
             </Link>
             <Link
               href="/admin/orders"
-              className="bg-white hover:bg-stone-50 text-stone-800 border border-stone-300 text-xs font-semibold px-4 py-2 rounded-xl transition-colors shadow-sm"
+              className="bg-white hover:bg-stone-50 text-stone-800 border border-stone-300 text-xs font-semibold px-4 py-2.5 rounded-xl transition-colors shadow-sm flex items-center gap-1.5"
             >
-              <span>View All Orders</span>
+              <ShoppingBag className="w-4 h-4 text-amber-800" />
+              <span>Customer Orders</span>
             </Link>
+          </div>
+        </div>
+
+        {/* Two Primary Staff Action Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+          {/* Card 1: Product Data Modifier */}
+          <div className="bg-gradient-to-br from-amber-900/10 via-stone-50 to-white p-6 rounded-3xl border border-amber-800/20 shadow-sm flex flex-col justify-between space-y-4">
+            <div className="space-y-2">
+              <div className="w-10 h-10 rounded-2xl bg-stone-900 text-amber-300 flex items-center justify-center shadow-sm">
+                <Edit className="w-5 h-5" />
+              </div>
+              <h2 className="font-serif font-bold text-lg text-stone-900">
+                Modify Product Data
+              </h2>
+              <p className="text-xs text-stone-600 leading-relaxed">
+                Update product titles, selling prices, MRP, 3000K LED options, high-resolution product photos, and stock status.
+              </p>
+            </div>
+
+            <div className="pt-2 border-t border-stone-200/60 flex items-center justify-between">
+              <span className="text-xs font-semibold text-stone-500">
+                {stats?.totalProducts || 0} Products in Catalog
+              </span>
+              <Link
+                href="/admin/products"
+                className="inline-flex items-center gap-1 bg-stone-900 hover:bg-amber-800 text-white text-xs font-bold px-4 py-2 rounded-xl transition-colors"
+              >
+                <span>Edit Products</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+            </div>
+          </div>
+
+          {/* Card 2: Ordered Customers & Orders */}
+          <div className="bg-gradient-to-br from-emerald-900/10 via-stone-50 to-white p-6 rounded-3xl border border-emerald-800/20 shadow-sm flex flex-col justify-between space-y-4">
+            <div className="space-y-2">
+              <div className="w-10 h-10 rounded-2xl bg-emerald-800 text-white flex items-center justify-center shadow-sm">
+                <Users className="w-5 h-5" />
+              </div>
+              <h2 className="font-serif font-bold text-lg text-stone-900">
+                Customers Who Ordered
+              </h2>
+              <p className="text-xs text-stone-600 leading-relaxed">
+                Review buyers who placed orders, customer shipping addresses, order amounts, and initiate 1-click WhatsApp order updates.
+              </p>
+            </div>
+
+            <div className="pt-2 border-t border-stone-200/60 flex items-center justify-between">
+              <span className="text-xs font-semibold text-stone-500">
+                {stats?.totalOrders || 0} Orders Received
+              </span>
+              <Link
+                href="/admin/customers"
+                className="inline-flex items-center gap-1 bg-emerald-800 hover:bg-emerald-900 text-white text-xs font-bold px-4 py-2 rounded-xl transition-colors"
+              >
+                <span>View Customers</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+            </div>
           </div>
         </div>
 
@@ -83,7 +151,7 @@ export default function AdminDashboardPage() {
               ₹{(stats?.totalRevenue || 0).toLocaleString('en-IN')}
             </p>
             <span className="text-[11px] text-[#651E2D] font-semibold flex items-center gap-1">
-              <TrendingUp className="w-3 h-3" /> Verified Payments
+              <TrendingUp className="w-3 h-3" /> Customer Sales
             </span>
           </div>
 
@@ -97,12 +165,12 @@ export default function AdminDashboardPage() {
             <p className="font-serif text-2xl sm:text-3xl font-bold text-stone-900">
               {stats?.totalOrders || 0}
             </p>
-            <span className="text-[11px] text-stone-500">Across all Indian states</span>
+            <span className="text-[11px] text-stone-500">Placed orders</span>
           </div>
 
           <div className="bg-white p-5 rounded-2xl border border-stone-200 shadow-sm space-y-1">
             <div className="flex items-center justify-between text-stone-400">
-              <span className="text-xs font-bold uppercase tracking-wider text-stone-500">In Production / Pending</span>
+              <span className="text-xs font-bold uppercase tracking-wider text-stone-500">Pending Fulfillment</span>
               <div className="w-8 h-8 rounded-lg bg-orange-50 text-orange-700 flex items-center justify-center">
                 <Clock className="w-4 h-4" />
               </div>
@@ -110,7 +178,7 @@ export default function AdminDashboardPage() {
             <p className="font-serif text-2xl sm:text-3xl font-bold text-orange-900">
               {stats?.pendingOrders || 0}
             </p>
-            <span className="text-[11px] text-stone-500">Requires framing & dispatch</span>
+            <span className="text-[11px] text-stone-500">Requires framing &amp; dispatch</span>
           </div>
 
           <div className="bg-white p-5 rounded-2xl border border-stone-200 shadow-sm space-y-1">
@@ -123,16 +191,21 @@ export default function AdminDashboardPage() {
             <p className="font-serif text-2xl sm:text-3xl font-bold text-stone-900">
               {stats?.totalProducts || 0}
             </p>
-            <span className="text-[11px] text-stone-500">Acrylic & LED collections</span>
+            <span className="text-[11px] text-stone-500">Ready for editing</span>
           </div>
         </div>
 
         {/* Recent Orders Section */}
         <div className="bg-white rounded-3xl border border-stone-200 shadow-sm overflow-hidden space-y-4 p-6">
           <div className="flex items-center justify-between">
-            <h3 className="font-serif font-bold text-base sm:text-lg text-stone-900">
-              Recent Store Orders
-            </h3>
+            <div>
+              <h3 className="font-serif font-bold text-base sm:text-lg text-stone-900">
+                Recent Customer Orders
+              </h3>
+              <p className="text-xs text-stone-500">
+                Latest customer orders requiring packaging, printing, or courier dispatch.
+              </p>
+            </div>
             <Link
               href="/admin/orders"
               className="text-xs font-semibold text-amber-800 hover:underline flex items-center gap-1"
@@ -163,7 +236,7 @@ export default function AdminDashboardPage() {
                     </td>
                     <td className="py-3 px-4">
                       <p className="font-semibold text-stone-800">{order.customer.fullName}</p>
-                      <p className="text-[11px] text-stone-400">{order.customer.city}</p>
+                      <p className="text-[11px] text-stone-400 font-mono">{order.customer.mobile} • {order.customer.city}</p>
                     </td>
                     <td className="py-3 px-4">
                       {order.items.length} {order.items.length > 1 ? 'pieces' : 'piece'}
