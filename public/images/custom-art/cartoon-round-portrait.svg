@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="100%" height="100%">
+  <defs>
+    <radialGradient id="round_bg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#3A0D23"/>
+      <stop offset="60%" stop-color="#230614"/>
+      <stop offset="100%" stop-color="#100208"/>
+    </radialGradient>
+    <radialGradient id="round_glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFE082" stop-opacity="0.9"/>
+      <stop offset="45%" stop-color="#FFB300" stop-opacity="0.45"/>
+      <stop offset="85%" stop-color="#FF6F00" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="gold_circ" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF9C4"/>
+      <stop offset="35%" stop-color="#FFD54F"/>
+      <stop offset="70%" stop-color="#FF8F00"/>
+      <stop offset="100%" stop-color="#B26A00"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Perfect Circular Medallion Boundary -->
+  <circle cx="400" cy="400" r="395" fill="url(#round_bg)" stroke="url(#gold_circ)" stroke-width="10"/>
+  <circle cx="400" cy="400" r="360" fill="url(#round_glow)"/>
+  <circle cx="400" cy="400" r="350" fill="none" stroke="url(#gold_circ)" stroke-width="3" stroke-dasharray="12,8"/>
+
+  <!-- Floral Garland Around Perimeter -->
+  <g opacity="0.8">
+    <circle cx="150" cy="200" r="14" fill="#FF4081"/>
+    <circle cx="650" cy="200" r="14" fill="#FF4081"/>
+    <circle cx="100" cy="400" r="16" fill="#FFD600"/>
+    <circle cx="700" cy="400" r="16" fill="#FFD600"/>
+    <circle cx="180" cy="620" r="14" fill="#FF4081"/>
+    <circle cx="620" cy="620" r="14" fill="#FF4081"/>
+    <circle cx="400" cy="80" r="18" fill="#FFAB00"/>
+  </g>
+
+  <!-- Stylized Cartoon Couple in Circular Portal -->
+  <!-- Groom (Left) -->
+  <g transform="translate(320, 420)">
+    <path d="M -70 80 C -70 10, 0 10, 0 80 L 10 240 L -80 240 Z" fill="#FFF8E1"/>
+    <path d="M -30 25 Q -45 100 -25 240" stroke="url(#gold_circ)" stroke-width="8" fill="none"/>
+    <ellipse cx="-35" cy="-20" rx="55" ry="65" fill="#FFD7AA"/>
+    <!-- Groom Pagdi -->
+    <path d="M -85 -55 C -85 -115, 20 -115, 20 -55 Z" fill="#C2185B"/>
+    <circle cx="-35" cy="-90" r="10" fill="#FFD600"/>
+    <!-- Groom Eyes & Smile -->
+    <ellipse cx="-50" cy="-25" rx="12" ry="16" fill="#FFF"/>
+    <ellipse cx="-15" cy="-25" rx="12" ry="16" fill="#FFF"/>
+    <circle cx="-48" cy="-25" r="7" fill="#212121"/>
+    <circle cx="-13" cy="-25" r="7" fill="#212121"/>
+    <path d="M -45 10 Q -32 25 -18 10" stroke="#C2185B" stroke-width="3" fill="none"/>
+  </g>
+
+  <!-- Bride (Right) -->
+  <g transform="translate(480, 420)">
+    <path d="M 0 80 C 0 10, 70 10, 70 80 L 80 240 L -10 240 Z" fill="#D50000"/>
+    <path d="M 15 30 Q 55 100 45 240" stroke="url(#gold_circ)" stroke-width="10" fill="none"/>
+    <ellipse cx="35" cy="-20" rx="52" ry="62" fill="#FFE0B2"/>
+    <!-- Bride Dupatta & Hair -->
+    <path d="M -15 -55 C -15 -115, 85 -115, 85 -55 Z" fill="#212121"/>
+    <path d="M -15 -55 C -15 -125, 95 -115, 95 -35 C 95 60, 60 120, 60 120" stroke="url(#gold_circ)" stroke-width="8" fill="none"/>
+    <circle cx="35" cy="-75" r="6" fill="#D50000"/>
+    <!-- Bride Anime Eyes & Jhumkas -->
+    <ellipse cx="18" cy="-25" rx="12" ry="16" fill="#FFF"/>
+    <ellipse cx="52" cy="-25" rx="12" ry="16" fill="#FFF"/>
+    <circle cx="20" cy="-24" r="7" fill="#3E2723"/>
+    <circle cx="54" cy="-24" r="7" fill="#3E2723"/>
+    <path d="M 22 10 Q 35 25 48 10" fill="#D81B60" stroke="#880E4F" stroke-width="2.5"/>
+    <ellipse cx="5" cy="-2" rx="10" ry="6" fill="#FF4081" opacity="0.6"/>
+    <ellipse cx="65" cy="-2" rx="10" ry="6" fill="#FF4081" opacity="0.6"/>
+  </g>
+
+  <!-- Golden Center Medallion Banner -->
+  <g transform="translate(400, 640)">
+    <rect x="-240" y="-30" width="480" height="60" rx="16" fill="#1C0512" stroke="url(#gold_circ)" stroke-width="3"/>
+    <text x="0" y="8" font-family="serif" font-size="20" font-weight="bold" fill="#FFE082" text-anchor="middle" letter-spacing="2">
+      ✦ TOGETHER FOREVER • EST. 2026 ✦
+    </text>
+  </g>
+</svg>

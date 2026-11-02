@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="100%" height="100%">
+  <defs>
+    <linearGradient id="d_bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#09142E"/>
+      <stop offset="50%" stop-color="#152B5A"/>
+      <stop offset="100%" stop-color="#050C1D"/>
+    </linearGradient>
+    <radialGradient id="prism_glow" cx="50%" cy="45%" r="60%">
+      <stop offset="0%" stop-color="#E0F7FA" stop-opacity="0.95"/>
+      <stop offset="30%" stop-color="#80DEEA" stop-opacity="0.6"/>
+      <stop offset="65%" stop-color="#00BCD4" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="diamond_shimmer" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="30%" stop-color="#E1F5FE"/>
+      <stop offset="60%" stop-color="#81D4FA"/>
+      <stop offset="100%" stop-color="#29B6F6"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="1000" fill="url(#d_bg)"/>
+  <circle cx="400" cy="460" r="380" fill="url(#prism_glow)"/>
+
+  <!-- Prismatic Holographic Diamond Sparkles -->
+  <g opacity="0.9">
+    <polygon points="160,150 170,175 195,185 170,195 160,220 150,195 125,185 150,175" fill="#FFF"/>
+    <polygon points="650,180 658,200 678,208 658,216 650,236 642,216 622,208 642,200" fill="#E1F5FE"/>
+    <polygon points="210,340 215,355 230,360 215,365 210,380 205,365 190,360 205,355" fill="#B388FF"/>
+    <polygon points="600,320 605,335 620,340 605,345 600,360 595,345 580,340 595,335" fill="#FF80AB"/>
+    <circle cx="120" cy="310" r="4" fill="#80D8FF"/>
+    <circle cx="690" cy="300" r="5" fill="#FFF"/>
+    <circle cx="280" cy="120" r="4.5" fill="#EA80FC"/>
+    <circle cx="520" cy="110" r="5" fill="#84FFFF"/>
+  </g>
+
+  <!-- Frame Outer Box -->
+  <rect x="140" y="200" width="520" height="640" rx="28" fill="#0C1B3B" stroke="url(#diamond_shimmer)" stroke-width="8"/>
+  <rect x="156" y="216" width="488" height="608" rx="20" fill="none" stroke="#80D8FF" stroke-width="2" stroke-dasharray="10,6" opacity="0.8"/>
+
+  <!-- Inside Artwork: Cartoon Wedding Couple in Diamond Aura -->
+  <g transform="translate(320, 520)">
+    <path d="M -75 80 C -75 20, 10 20, 10 80 L 15 240 L -80 240 Z" fill="#1A237E"/>
+    <ellipse cx="-35" cy="-20" rx="55" ry="65" fill="#FFD7AA"/>
+    <path d="M -80 -45 C -80 -105, 10 -105, 10 -45 Z" fill="#212121"/>
+    <ellipse cx="-50" cy="-25" rx="12" ry="16" fill="#FFF"/>
+    <ellipse cx="-18" cy="-25" rx="12" ry="16" fill="#FFF"/>
+    <circle cx="-48" cy="-25" r="7" fill="#212121"/>
+    <circle cx="-16" cy="-25" r="7" fill="#212121"/>
+    <path d="M -42 12 Q -30 25 -18 12" stroke="#C2185B" stroke-width="3" fill="none"/>
+  </g>
+  <g transform="translate(480, 520)">
+    <path d="M -10 80 C -10 15, 75 15, 75 80 L 85 240 L -20 240 Z" fill="#00838F"/>
+    <ellipse cx="32" cy="-20" rx="52" ry="62" fill="#FFE0B2"/>
+    <path d="M -15 -45 C -15 -115, 80 -115, 80 -45 Z" fill="#212121"/>
+    <ellipse cx="16" cy="-25" rx="12" ry="16" fill="#FFF"/>
+    <ellipse cx="48" cy="-25" rx="12" ry="16" fill="#FFF"/>
+    <circle cx="18" cy="-24" r="7" fill="#3E2723"/>
+    <circle cx="50" cy="-24" r="7" fill="#3E2723"/>
+    <path d="M 22 10 Q 32 24 44 10" fill="#D81B60" stroke="#880E4F" stroke-width="2.5"/>
+  </g>
+
+  <!-- Bottom Keepsake Plaque -->
+  <g transform="translate(100, 890)">
+    <rect width="600" height="75" rx="20" fill="#050C1D" stroke="url(#diamond_shimmer)" stroke-width="3"/>
+    <text x="300" y="40" font-family="serif" font-size="22" font-weight="bold" fill="#E1F5FE" text-anchor="middle" letter-spacing="3">
+      ✦ SPARKLE DIAMOND GLITTER HEIRLOOM ✦
+    </text>
+    <text x="300" y="60" font-family="sans-serif" font-size="12" font-weight="bold" fill="#80D8FF" text-anchor="middle" letter-spacing="4">
+      HOLOGRAPHIC CELEBRATION FRAME • ABHI'S GIFTS
+    </text>
+  </g>
+</svg>

@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="100%" height="100%">
+  <defs>
+    <linearGradient id="t_bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#140A02"/>
+      <stop offset="50%" stop-color="#2D1705"/>
+      <stop offset="100%" stop-color="#0F0601"/>
+    </linearGradient>
+    <radialGradient id="t_glow" cx="50%" cy="50%" r="55%">
+      <stop offset="0%" stop-color="#FFF9C4" stop-opacity="0.95"/>
+      <stop offset="35%" stop-color="#FFD54F" stop-opacity="0.65"/>
+      <stop offset="70%" stop-color="#FF6F00" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="t_gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFDE7"/>
+      <stop offset="35%" stop-color="#FFD54F"/>
+      <stop offset="70%" stop-color="#FFA000"/>
+      <stop offset="100%" stop-color="#E65100"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="1000" fill="url(#t_bg)"/>
+  <circle cx="400" cy="500" r="390" fill="url(#t_glow)"/>
+
+  <!-- 6-Sided Hexagonal Tower Structure -->
+  <!-- Upper Cap -->
+  <polygon points="400,200 560,240 560,260 400,290 240,260 240,240" fill="#3E2723" stroke="url(#t_gold)" stroke-width="4"/>
+  <polygon points="400,195 560,235 400,265 240,235" fill="url(#t_gold)"/>
+
+  <!-- Left Facet -->
+  <polygon points="240,260 400,290 400,690 240,650" fill="#2E1C0C" stroke="url(#t_gold)" stroke-width="4" opacity="0.9"/>
+  <!-- Right Facet -->
+  <polygon points="400,290 560,260 560,650 400,690" fill="#3E2723" stroke="url(#t_gold)" stroke-width="4"/>
+
+  <!-- Front Left Artwork (Cartoon Baby Milestone) -->
+  <g transform="translate(320, 460)">
+    <ellipse cx="0" cy="-40" rx="35" ry="42" fill="#FFE0B2"/>
+    <circle cx="-10" cy="-42" r="5" fill="#212121"/>
+    <circle cx="10" cy="-42" r="5" fill="#212121"/>
+    <path d="M -8 -20 Q 0 -12 8 -20" stroke="#E91E63" stroke-width="3" fill="none"/>
+    <text x="0" y="50" font-family="serif" font-size="14" font-weight="bold" fill="#FFE082" text-anchor="middle">FACET 1</text>
+  </g>
+
+  <!-- Front Right Artwork (Cartoon Wedding Couple) -->
+  <g transform="translate(480, 460)">
+    <ellipse cx="-18" cy="-40" rx="26" ry="32" fill="#FFD7AA"/>
+    <circle cx="-18" cy="-42" r="4" fill="#212121"/>
+    <ellipse cx="22" cy="-40" rx="24" ry="30" fill="#FFE0B2"/>
+    <circle cx="22" cy="-42" r="4" fill="#3E2723"/>
+    <text x="0" y="50" font-family="serif" font-size="14" font-weight="bold" fill="#FFE082" text-anchor="middle">FACET 2</text>
+  </g>
+
+  <!-- Revolving Hexagonal Pedestal Base -->
+  <polygon points="400,690 580,720 580,770 400,810 220,770 220,720" fill="#2E1C0C" stroke="url(#t_gold)" stroke-width="5"/>
+  <polygon points="400,810 580,770 580,790 400,830 220,790 220,770" fill="#1A0D04"/>
+
+  <!-- Rotating Indicator Ring -->
+  <ellipse cx="400" cy="800" rx="260" ry="35" fill="none" stroke="url(#t_gold)" stroke-width="3" stroke-dasharray="14,10"/>
+
+  <!-- Bottom Keepsake Plaque -->
+  <g transform="translate(100, 890)">
+    <rect width="600" height="75" rx="20" fill="#140A02" stroke="url(#t_gold)" stroke-width="3"/>
+    <text x="300" y="40" font-family="serif" font-size="22" font-weight="bold" fill="#FFE082" text-anchor="middle" letter-spacing="3">
+      ✦ CRYSTAL TOWER HEXAGONAL PHOTO LAMP ✦
+    </text>
+    <text x="300" y="60" font-family="sans-serif" font-size="12" font-weight="bold" fill="#E8D1A5" text-anchor="middle" letter-spacing="4">
+      6-SIDED REVOLVING PEDESTAL • ABHI'S GIFTS
+    </text>
+  </g>
+</svg>

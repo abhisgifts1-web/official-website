@@ -1,0 +1,85 @@
+'use client';
+
+import React, { useState } from 'react';
+import { ChevronDown, Sparkles, HelpCircle } from 'lucide-react';
+
+export interface FaqItem {
+  q: string;
+  a: string;
+}
+
+export const HOMEPAGE_FAQS: FaqItem[] = [
+  {
+    q: 'What material is used in Abhi Gifts art pieces?',
+    a: 'We use 4mm imported, museum-grade cast acrylic with diamond-polished CNC beveled edges. Unlike cheap glass that poses heavy breakage hazards, our crystal acrylic is shatterproof, UV-resistant, and reproduces sacred colors with immense optical depth that will never fade for 25+ years.',
+  },
+  {
+    q: 'How does the 3000K LED backlighting work? What is included?',
+    a: 'Our LED backlit art arrives fully assembled with energy-efficient 3000K warm golden Epistar SMD LED diodes pre-fitted behind the acrylic panel. Every piece includes a 12V 2A BIS-certified wall adapter with a 2.5-meter discreet transparent power cable and an inline ON/OFF switch.',
+  },
+  {
+    q: 'How safe is shipping? What if it gets damaged in transit?',
+    a: 'We back every single order with our 100% Transit Safe Guarantee. Artworks are packaged with scratch-resistant film, corner air-cushion guards, and a rigid 5-layer honeycomb wooden reinforcement crate. If any item arrives damaged, simply WhatsApp us unboxing photos within 48 hours for a free instant replacement.',
+  },
+  {
+    q: 'How does custom photo frame ordering and proof approval work?',
+    a: 'Visit our dedicated Customizer Studio (/customise). You can upload your high-resolution photo (JPEG, PNG, WebP up to 15MB), preview it on walls, and select your frame style. Before manufacturing, our artisan team shares an exact 1:1 digital proof on WhatsApp for your sign-off.',
+  },
+  {
+    q: 'How does ordering and delivery work?',
+    a: 'We offer hassle-free direct WhatsApp ordering as well as online checkout. You can choose your artwork, dimensions, and click Order to connect with our artisan team with your details pre-filled. Orders above ₹1,999 qualify for Free Express Pan-India Delivery across 19,000+ pincodes via BlueDart, Delhivery, and DTDC.',
+  },
+];
+
+export default function FaqSection() {
+  const [openFaq, setOpenFaq] = useState<number | null>(0);
+
+  return (
+    <section className="w-full max-w-4xl mx-auto px-4 sm:px-8 py-8 sm:py-12">
+      <div className="text-center max-w-xl mx-auto mb-8">
+        <div className="inline-flex items-center gap-1.5 text-xs uppercase tracking-widest font-bold text-[#511B2A] bg-white border border-[#D6AA55] px-3.5 py-1 rounded-full shadow-2xs mb-2">
+          <HelpCircle className="w-3.5 h-3.5 text-[#D6AA55]" />
+          <span>Collector Knowledge Base</span>
+        </div>
+        <h2 className="font-serif font-bold text-2xl sm:text-3xl text-[#511B2A] tracking-tight">
+          FREQUENTLY ASKED QUESTIONS
+        </h2>
+        <p className="text-xs sm:text-sm text-[#533C36] mt-1 font-sans">
+          Everything you need to know about our sacred craftsmanship, LED power safety, and pan-India delivery.
+        </p>
+      </div>
+
+      <div className="space-y-3">
+        {HOMEPAGE_FAQS.map((faq, i) => {
+          const isOpen = openFaq === i;
+          return (
+            <div
+              key={i}
+              className="bg-white rounded-2xl border border-[#E8D5BD] overflow-hidden shadow-2xs transition-all"
+            >
+              <button
+                type="button"
+                onClick={() => setOpenFaq(isOpen ? null : i)}
+                className="w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 cursor-pointer"
+              >
+                <span className="font-serif font-bold text-sm sm:text-base text-[#511B2A]">
+                  {faq.q}
+                </span>
+                <ChevronDown
+                  className={`w-4 h-4 text-[#D6AA55] shrink-0 transition-transform duration-300 ${
+                    isOpen ? 'rotate-180' : ''
+                  }`}
+                />
+              </button>
+              {isOpen && (
+                <div className="px-4 pb-4 sm:px-5 sm:pb-5 pt-0 text-xs sm:text-[13px] text-[#533C36] leading-relaxed font-sans border-t border-[#E8D5BD]/60">
+                  {faq.a}
+                </div>
+              )}
+            </div>
+          );
+        })}
+      </div>
+    </section>
+  );
+}

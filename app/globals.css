@@ -3,21 +3,738 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --primary: #641E2E;
+  --primary-dark: #32151D;
+  --secondary: #B88A35;
+  --accent: #E8C77E;
+  --background: #FFF7ED;
+  --dark-background: #32151D;
+  --card: #FFFFFF;
+  --card-foreground: #641E2E;
+  --border: #E8D5BD;
+  --input: #E8D5BD;
+  --ring: #B88A35;
+  --primary-text: #641E2E;
+  --secondary-text: #795D58;
+  --led-glow: #FFD58A;
+  --foreground: #641E2E;
+  --muted: #F5EFEB;
+  --muted-foreground: #795D58;
+  --destructive: #DC2626;
+  --destructive-foreground: #FFFFFF;
+  --radius: 0.625rem;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  overflow-x: hidden;
+  max-width: 100vw;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
-  color: var(--foreground);
+  color: var(--primary-text);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
+}
+
+h1, h2, h3, h4, .font-serif {
+  font-family: var(--font-cinzel), var(--font-marcellus), var(--font-serif), Georgia, "Times New Roman", serif;
+  letter-spacing: -0.015em;
+}
+
+.font-cinzel {
+  font-family: var(--font-cinzel), Georgia, serif;
+}
+
+.font-marcellus {
+  font-family: var(--font-marcellus), Georgia, serif;
+}
+
+.font-telugu {
+  font-family: 'Gautami', 'Nirmala UI', 'Tiro Telugu', 'Noto Sans Telugu', system-ui, sans-serif;
+}
+
+/* Custom scrollbar in Royal Burgundy & Champagne Gold */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #FFF7ED;
+}
+::-webkit-scrollbar-thumb {
+  background: #B88A35;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #641E2E;
+}
+
+/* ==========================================================================
+   REUSABLE THEME UTILITY HELPERS — LUXURY DIVINE ART PALETTE
+   ========================================================================== */
+.bg-deep-burgundy {
+  background-color: #511B2A;
+}
+.bg-royal-maroon {
+  background-color: #641D30;
+}
+.bg-champagne-gold {
+  background-color: #D6AA55;
+}
+.bg-warm-ivory {
+  background-color: #FFF7EC;
+}
+.bg-soft-cream {
+  background-color: #F9EFE0;
+}
+.bg-antique-gold {
+  background-color: #B8893D;
+}
+.text-deep-burgundy {
+  color: #511B2A;
+}
+.text-royal-maroon {
+  color: #641D30;
+}
+.text-champagne-gold {
+  color: #D6AA55;
+}
+.text-antique-gold {
+  color: #B8893D;
+}
+.text-warm-content {
+  color: #533C36;
+}
+.border-champagne-gold {
+  border-color: #D6AA55;
+}
+.border-antique-gold {
+  border-color: #B8893D;
+}
+.bg-royal-burgundy {
+  background-color: #641E2E;
+}
+.bg-royal-dark {
+  background-color: #32151D;
+}
+.text-royal-burgundy {
+  color: #641E2E;
+}
+.text-secondary-muted {
+  color: #795D58;
+}
+.text-champagne-gold {
+  color: #B88A35;
+}
+.text-champagne-accent {
+  color: #E8C77E;
+}
+.border-gold-subtle {
+  border-color: #E8D5BD;
+}
+.border-gold-accent {
+  border-color: #B88A35;
+}
+
+/* ==========================================================================
+   CROSS-BROWSER HARDWARE-ACCELERATED DEVOTIONAL LED & ACRYLIC ANIMATIONS
+   ========================================================================== */
+
+/* LED glow static fallbacks */
+.led-glow-amber {
+  filter: drop-shadow(0 0 16px rgba(255, 213, 138, 0.55)) drop-shadow(0 0 35px rgba(184, 138, 53, 0.35));
+}
+
+.led-glow-warm {
+  filter: drop-shadow(0 0 18px rgba(255, 213, 138, 0.65)) drop-shadow(0 0 40px rgba(184, 138, 53, 0.40));
+}
+
+/* 1. Divine Floating Levitation (Smooth vertical micro-movement) */
+@keyframes divineFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+@-webkit-keyframes divineFloat {
+  0%, 100% {
+    -webkit-transform: translateY(0px);
+  }
+  50% {
+    -webkit-transform: translateY(-8px);
+  }
+}
+
+.animate-divine-float {
+  -webkit-animation: divineFloat 5s ease-in-out infinite;
+  animation: divineFloat 5s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* 2. LED Ambient Halo Backlight Glow (3000K warm pulse aura) */
+@keyframes ledHaloPulse {
+  0%, 100% {
+    opacity: 0.70;
+    transform: scale(0.98);
+    filter: blur(24px);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.04);
+    filter: blur(34px);
+  }
+}
+@-webkit-keyframes ledHaloPulse {
+  0%, 100% {
+    opacity: 0.70;
+    -webkit-transform: scale(0.98);
+    -webkit-filter: blur(24px);
+  }
+  50% {
+    opacity: 1;
+    -webkit-transform: scale(1.04);
+    -webkit-filter: blur(34px);
+  }
+}
+
+.animate-led-halo {
+  -webkit-animation: ledHaloPulse 3.5s ease-in-out infinite;
+  animation: ledHaloPulse 3.5s ease-in-out infinite;
+  will-change: opacity, transform;
+}
+
+/* 3. Golden Corona Border Shimmer */
+@keyframes coronaGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(255, 213, 138, 0.40), 0 0 40px rgba(184, 138, 53, 0.25);
+  }
+  50% {
+    box-shadow: 0 0 32px rgba(255, 213, 138, 0.70), 0 0 60px rgba(232, 199, 126, 0.45), 0 0 85px rgba(184, 138, 53, 0.25);
+  }
+}
+@-webkit-keyframes coronaGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(255, 213, 138, 0.40), 0 0 40px rgba(184, 138, 53, 0.25);
+  }
+  50% {
+    box-shadow: 0 0 32px rgba(255, 213, 138, 0.70), 0 0 60px rgba(232, 199, 126, 0.45), 0 0 85px rgba(184, 138, 53, 0.25);
+  }
+}
+
+.animate-corona-glow {
+  -webkit-animation: coronaGlow 4s ease-in-out infinite;
+  animation: coronaGlow 4s ease-in-out infinite;
+}
+
+/* 4. Crystal Acrylic Glass Light Sweep / Sheen */
+@keyframes acrylicShineSweep {
+  0% {
+    transform: translateX(-150%) skewX(-25deg);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.65;
+  }
+  35% {
+    transform: translateX(250%) skewX(-25deg);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(250%) skewX(-25deg);
+    opacity: 0;
+  }
+}
+@-webkit-keyframes acrylicShineSweep {
+  0% {
+    -webkit-transform: translateX(-150%) skewX(-25deg);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.65;
+  }
+  35% {
+    -webkit-transform: translateX(250%) skewX(-25deg);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(250%) skewX(-25deg);
+    opacity: 0;
+  }
+}
+
+.animate-acrylic-shine {
+  -webkit-animation: acrylicShineSweep 5s ease-in-out infinite;
+  animation: acrylicShineSweep 5s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+/* 5. Sacred Mantra Ribbon Infinite Loop */
+@keyframes sacredMarqueeAnim {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-sacred-marquee {
+  display: flex;
+  width: max-content;
+  animation: sacredMarqueeAnim 38s linear infinite;
+}
+.animate-sacred-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* 5b. Announcement Bar Scrolling Ticker */
+@keyframes announcementMarquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-announcement-ticker {
+  display: flex;
+  width: max-content;
+  animation: announcementMarquee 32s linear infinite;
+  will-change: transform;
+}
+.animate-announcement-ticker:hover {
+  animation-play-state: paused;
+}
+
+/* 6. Gold Foil Metallic Shimmer */
+@keyframes goldShimmerSweep {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.gold-gradient-text {
+  background: linear-gradient(90deg, #B88A35 0%, #E8C77E 25%, #FFF0AA 50%, #E8C77E 75%, #B88A35 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: goldShimmerSweep 7s linear infinite;
+}
+
+/* 7. Floating Stardust Sparkle */
+@keyframes sparkleFloat {
+  0%, 100% {
+    transform: translateY(0px) scale(0.9);
+    opacity: 0.35;
+  }
+  50% {
+    transform: translateY(-12px) scale(1.15);
+    opacity: 0.95;
+  }
+}
+
+.animate-sparkle-float,
+.animate-sunburst-rays,
+.animate-golden-burst,
+.animate-vortex-ring {
+  animation: sparkleFloat 4s ease-in-out infinite;
+}
+
+/* 8. Rotating Divine Sunburst Rays */
+@keyframes sunburstRays {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-sunburst-rays {
+  animation: sunburstRays 48s linear infinite;
+  will-change: transform;
+}
+
+/* 9. Golden Light Sweep & Radial Pulse Burst (Deity Switching) */
+@keyframes goldenPulseBurst {
+  0% {
+    transform: scale(0.65);
+    opacity: 0.95;
+    filter: blur(8px);
+  }
+  50% {
+    opacity: 0.8;
+    filter: blur(16px);
+  }
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+    filter: blur(28px);
+  }
+}
+
+.animate-golden-burst {
+  animation: goldenPulseBurst 0.95s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* 10. Golden Energy Vortex Ring (Signature Transformation) */
+@keyframes vortexRingPulse {
+  0% {
+    transform: scale(0.6) rotate(0deg);
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.9;
+  }
+  65% {
+    opacity: 0.75;
+  }
+  100% {
+    transform: scale(1.3) rotate(220deg);
+    opacity: 0;
+  }
+}
+
+.animate-vortex-ring {
+  animation: vortexRingPulse 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+/* 11. Hero Auto-Scroll 5s Progress, Breathing LED and Sheen Animations */
+@keyframes heroTabProgress {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.animate-hero-progress {
+  animation: heroTabProgress 5s linear forwards;
+}
+
+@keyframes heroLandscapeFade {
+  0% {
+    opacity: 0.7;
+    transform: scale(0.975);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-hero-landscape-fade {
+  animation: heroLandscapeFade 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes ledBreathe {
+  0%, 100% {
+    box-shadow: 
+      0 0 32px rgba(214, 170, 85, 0.65),
+      0 0 70px rgba(255, 213, 138, 0.40),
+      0 20px 40px rgba(0, 0, 0, 0.65);
+  }
+  50% {
+    box-shadow: 
+      0 0 52px rgba(214, 170, 85, 0.85),
+      0 0 95px rgba(255, 213, 138, 0.60),
+      0 25px 50px rgba(0, 0, 0, 0.75);
+  }
+}
+
+.animate-led-breathe {
+  animation: ledBreathe 3.5s ease-in-out infinite;
+}
+
+@keyframes acrylicSheenSweep {
+  0% {
+    transform: translateX(-160%) skewX(-25deg);
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  45% {
+    transform: translateX(260%) skewX(-25deg);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(260%) skewX(-25deg);
+    opacity: 0;
+  }
+}
+
+.animate-acrylic-sheen-sweep {
+  animation: acrylicSheenSweep 5s ease-in-out infinite;
+}
+
+@keyframes badgeFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+.animate-badge-float {
+  animation: badgeFloat 4s ease-in-out infinite;
+}
+
+/* 11b. Divine Sanctum Unique Showcase Animations */
+@keyframes celestialSanctumReveal {
+  0% {
+    opacity: 0.55;
+    transform: scale(1.04);
+    filter: brightness(1.22) contrast(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    filter: brightness(1) contrast(1);
+  }
+}
+
+.animate-sanctum-reveal {
+  animation: celestialSanctumReveal 0.65s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes aartiCoronaGlow {
+  0%, 100% {
+    opacity: 0.65;
+    transform: scale(0.98);
+    filter: blur(36px);
+  }
+  50% {
+    opacity: 0.95;
+    transform: scale(1.05);
+    filter: blur(48px);
+  }
+}
+
+.animate-aarti-corona {
+  animation: aartiCoronaGlow 4s ease-in-out infinite;
+}
+
+@keyframes goldStudTwinkle {
+  0%, 100% {
+    filter: brightness(1);
+    box-shadow: 0 0 2px rgba(255, 213, 138, 0.3);
+  }
+  50% {
+    filter: brightness(1.7);
+    box-shadow: 0 0 10px rgba(255, 213, 138, 0.95);
+  }
+}
+
+.animate-stud-twinkle-1 {
+  animation: goldStudTwinkle 2.4s ease-in-out infinite;
+  animation-delay: 0s;
+}
+.animate-stud-twinkle-2 {
+  animation: goldStudTwinkle 2.4s ease-in-out infinite;
+  animation-delay: 0.6s;
+}
+.animate-stud-twinkle-3 {
+  animation: goldStudTwinkle 2.4s ease-in-out infinite;
+  animation-delay: 1.2s;
+}
+.animate-stud-twinkle-4 {
+  animation: goldStudTwinkle 2.4s ease-in-out infinite;
+  animation-delay: 1.8s;
+}
+
+@keyframes emberDrift {
+  0% {
+    transform: translateY(0px) scale(0.7);
+    opacity: 0;
+  }
+  30% {
+    opacity: 0.85;
+  }
+  80% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-50px) scale(1.1);
+    opacity: 0;
+  }
+}
+
+.animate-ember-1 {
+  animation: emberDrift 4.5s ease-in-out infinite;
+  animation-delay: 0s;
+}
+.animate-ember-2 {
+  animation: emberDrift 5.2s ease-in-out infinite;
+  animation-delay: 1.3s;
+}
+.animate-ember-3 {
+  animation: emberDrift 4.8s ease-in-out infinite;
+  animation-delay: 2.5s;
+}
+.animate-ember-4 {
+  animation: emberDrift 5.5s ease-in-out infinite;
+  animation-delay: 3.2s;
+}
+
+@keyframes activeThumbnailPulse {
+  0%, 100% {
+    box-shadow: 0 0 8px rgba(214, 170, 85, 0.55), inset 0 0 6px rgba(214, 170, 85, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 18px rgba(214, 170, 85, 0.9), inset 0 0 10px rgba(214, 170, 85, 0.55);
+  }
+}
+
+.animate-thumbnail-active {
+  animation: activeThumbnailPulse 2.6s ease-in-out infinite;
+}
+
+/* 12. Editorial Headline Text Animations */
+@keyframes goldTextShimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.animate-gold-text-shimmer {
+  background: linear-gradient(
+    90deg,
+    #D6AA55 0%,
+    #B8893D 20%,
+    #FFE8A3 45%,
+    #FFFDF5 50%,
+    #FFE8A3 55%,
+    #B8893D 80%,
+    #D6AA55 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: goldTextShimmer 4.5s ease-in-out infinite;
+}
+
+@keyframes goldAuraBreathe {
+  0%, 100% {
+    filter: drop-shadow(0 0 1px rgba(214, 170, 85, 0.2));
+  }
+  50% {
+    filter: drop-shadow(0 0 12px rgba(214, 170, 85, 0.5));
+  }
+}
+
+.animate-gold-aura {
+  animation: goldAuraBreathe 3.5s ease-in-out infinite;
+}
+
+@keyframes headlineLineReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-headline-line-1 {
+  animation: headlineLineReveal 0.75s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: 0.1s;
+}
+
+.animate-headline-line-2 {
+  animation: headlineLineReveal 0.75s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: 0.25s;
+}
+
+.animate-headline-line-3 {
+  animation: headlineLineReveal 0.75s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: 0.4s;
+}
+
+.animate-headline-line-4 {
+  animation: headlineLineReveal 0.75s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: 0.55s;
+}
+
+/* 13. Multi-layered 3000K LED Glow Elevation */
+.led-frame-glow-aarti {
+  box-shadow: 
+    0 0 16px rgba(255, 213, 138, 0.65),
+    0 0 35px rgba(232, 199, 126, 0.50),
+    0 0 65px rgba(184, 138, 53, 0.40),
+    0 20px 45px -8px rgba(100, 30, 46, 0.45);
+}
+
+.led-frame-glow-day {
+  box-shadow: 
+    0 12px 32px -6px rgba(100, 30, 46, 0.22),
+    0 0 12px rgba(232, 213, 189, 0.35);
+}
+
+/* Reduced motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .animate-divine-float,
+  .animate-led-halo,
+  .animate-corona-glow,
+  .animate-acrylic-shine,
+  .animate-sacred-marquee,
+  .animate-announcement-ticker,
+  .gold-gradient-text,
+  .animate-sparkle-float,
+  .animate-sunburst-rays,
+  .animate-golden-burst,
+  .animate-vortex-ring {
+    -webkit-animation: none !important;
+    animation: none !important;
+  }
+}
+
+.acrylic-reflection {
+  position: relative;
+  overflow: hidden;
+}
+
+.acrylic-reflection::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 80%;
+  height: 100%;
+  background: linear-gradient(
+    105deg,
+    transparent 20%,
+    rgba(255, 255, 255, 0.25) 45%,
+    rgba(255, 255, 255, 0.05) 60%,
+    transparent 80%
+  );
+  transform: skewX(-25deg);
+  transition: all 0.75s ease;
+  pointer-events: none;
+}
+
+.acrylic-reflection:hover::after {
+  left: 200%;
 }
 
 @layer utilities {
@@ -25,3 +742,59 @@ body {
     text-wrap: balance;
   }
 }
+
+/* 14. Luxury Hero Showcase Cinematic Animations */
+@keyframes kenBurnsZoom {
+  0% {
+    transform: scale(1) translate3d(0, 0, 0);
+  }
+  50% {
+    transform: scale(1.045) translate3d(0, -2px, 0);
+  }
+  100% {
+    transform: scale(1) translate3d(0, 0, 0);
+  }
+}
+.animate-ken-burns {
+  animation: kenBurnsZoom 10s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+@keyframes goldGlowBloom {
+  0%, 100% {
+    filter: drop-shadow(0 0 20px rgba(214, 170, 85, 0.45)) drop-shadow(0 0 45px rgba(240, 215, 155, 0.25));
+    opacity: 0.9;
+  }
+  50% {
+    filter: drop-shadow(0 0 35px rgba(214, 170, 85, 0.8)) drop-shadow(0 0 75px rgba(240, 215, 155, 0.5));
+    opacity: 1;
+  }
+}
+.animate-gold-bloom {
+  animation: goldGlowBloom 3.5s ease-in-out infinite;
+}
+
+@keyframes goldenButtonShine {
+  0% {
+    transform: translateX(-150%) skewX(-25deg);
+  }
+  30%, 100% {
+    transform: translateX(250%) skewX(-25deg);
+  }
+}
+.animate-btn-shine {
+  animation: goldenButtonShine 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes subtleFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+.animate-subtle-float {
+  animation: subtleFloat 5s ease-in-out infinite;
+}
+

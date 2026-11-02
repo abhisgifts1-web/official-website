@@ -1,0 +1,141 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bday_bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1A0A2A"/>
+      <stop offset="50%" stop-color="#2D114D"/>
+      <stop offset="100%" stop-color="#120524"/>
+    </linearGradient>
+    <radialGradient id="cake_glow" cx="50%" cy="65%" r="50%">
+      <stop offset="0%" stop-color="#FFE082" stop-opacity="0.9"/>
+      <stop offset="40%" stop-color="#FF9800" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="gold_bday" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF59D"/>
+      <stop offset="50%" stop-color="#FBC02D"/>
+      <stop offset="100%" stop-color="#F57F17"/>
+    </linearGradient>
+    <linearGradient id="cake_icing" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FF4081"/>
+      <stop offset="50%" stop-color="#F50057"/>
+      <stop offset="100%" stop-color="#C51162"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="1000" fill="url(#bday_bg)"/>
+  <circle cx="400" cy="650" r="380" fill="url(#cake_glow)"/>
+
+  <!-- Colorful Confetti Floating -->
+  <g opacity="0.85">
+    <rect x="120" y="100" width="14" height="24" rx="4" fill="#FF5252" transform="rotate(25 120 100)"/>
+    <rect x="250" y="70" width="16" height="26" rx="4" fill="#448AFF" transform="rotate(-35 250 70)"/>
+    <rect x="380" y="120" width="15" height="22" rx="4" fill="#69F0AE" transform="rotate(45 380 120)"/>
+    <rect x="520" y="80" width="14" height="25" rx="4" fill="#FFD740" transform="rotate(-20 520 80)"/>
+    <rect x="680" y="110" width="18" height="28" rx="4" fill="#E040FB" transform="rotate(15 680 110)"/>
+    <rect x="180" y="240" width="12" height="20" rx="3" fill="#FFAB40" transform="rotate(55 180 240)"/>
+    <rect x="620" y="220" width="15" height="22" rx="4" fill="#00E676" transform="rotate(-40 620 220)"/>
+    <circle cx="90" cy="180" r="8" fill="#FF4081"/>
+    <circle cx="710" cy="190" r="10" fill="#40C4FF"/>
+    <circle cx="310" cy="160" r="7" fill="#FFD740"/>
+    <circle cx="480" cy="170" r="9" fill="#FF5252"/>
+  </g>
+
+  <!-- Big Colorful Balloons at Corners -->
+  <g>
+    <!-- Left Balloon Bundle -->
+    <path d="M 120 300 Q 140 460 200 520" stroke="#FFE082" stroke-width="2" fill="none" opacity="0.6"/>
+    <ellipse cx="110" cy="220" rx="45" ry="58" fill="#FF1744" filter="drop-shadow(0px 8px 16px rgba(255,23,68,0.4))"/>
+    <ellipse cx="100" cy="200" rx="14" ry="24" fill="#FFF" opacity="0.3"/>
+    
+    <path d="M 170 320 Q 180 460 200 520" stroke="#FFE082" stroke-width="2" fill="none" opacity="0.6"/>
+    <ellipse cx="170" cy="260" rx="42" ry="54" fill="#00B0FF" filter="drop-shadow(0px 8px 16px rgba(0,176,255,0.4))"/>
+    <ellipse cx="160" cy="242" rx="12" ry="20" fill="#FFF" opacity="0.3"/>
+
+    <!-- Right Balloon Bundle -->
+    <path d="M 680 300 Q 660 460 600 520" stroke="#FFE082" stroke-width="2" fill="none" opacity="0.6"/>
+    <ellipse cx="690" cy="220" rx="45" ry="58" fill="#FFD600" filter="drop-shadow(0px 8px 16px rgba(255,214,0,0.4))"/>
+    <ellipse cx="680" cy="200" rx="14" ry="24" fill="#FFF" opacity="0.4"/>
+
+    <path d="M 630 320 Q 620 460 600 520" stroke="#FFE082" stroke-width="2" fill="none" opacity="0.6"/>
+    <ellipse cx="630" cy="260" rx="42" ry="54" fill="#76FF03" filter="drop-shadow(0px 8px 16px rgba(118,255,3,0.4))"/>
+    <ellipse cx="620" cy="242" rx="12" ry="20" fill="#FFF" opacity="0.3"/>
+  </g>
+
+  <!-- Happy Cartoon Birthday Child (Center) -->
+  <g transform="translate(400, 420)">
+    <!-- Body -->
+    <path d="M -80 120 C -80 60, 80 60, 80 120 L 90 260 L -90 260 Z" fill="#2979FF"/>
+    <!-- Yellow Shirt Collar -->
+    <path d="M -30 65 L 0 110 L 30 65 Z" fill="#FFEA00"/>
+
+    <!-- Head & Neck -->
+    <rect x="-25" y="10" width="50" height="60" rx="15" fill="#FFCC99"/>
+    <ellipse cx="0" cy="-20" rx="70" ry="80" fill="#FFD7AA"/>
+    <!-- Cute Ears -->
+    <ellipse cx="-72" cy="-20" rx="15" ry="20" fill="#FFCC99"/>
+    <ellipse cx="72" cy="-20" rx="15" ry="20" fill="#FFCC99"/>
+
+    <!-- Fluffy Cartoon Hair -->
+    <path d="M -70 -40 C -70 -110, 70 -110, 70 -40 C 70 -10, 50 10, 50 10 C 20 -20, -20 -20, -50 10 C -50 10, -70 -10, -70 -40 Z" fill="#4E342E"/>
+
+    <!-- Festive Colorful Party Hat with Pom-pom -->
+    <polygon points="0,-180 -45,-85 45,-85" fill="#FF007F"/>
+    <path d="M -35 -115 L 35 -115" stroke="#FFEA00" stroke-width="8"/>
+    <path d="M -25 -145 L 25 -145" stroke="#00E5FF" stroke-width="8"/>
+    <!-- Pom-pom on hat top -->
+    <circle cx="0" cy="-185" r="16" fill="#FFD600" filter="drop-shadow(0px 0px 8px #FFD600)"/>
+
+    <!-- Big Anime Eyes Smiling -->
+    <ellipse cx="-26" cy="-30" rx="18" ry="22" fill="#FFF"/>
+    <ellipse cx="26" cy="-30" rx="18" ry="22" fill="#FFF"/>
+    <ellipse cx="-24" cy="-28" rx="12" ry="14" fill="#1A237E"/>
+    <ellipse cx="28" cy="-28" rx="12" ry="14" fill="#1A237E"/>
+    <circle cx="-28" cy="-34" r="5" fill="#FFF"/>
+    <circle cx="24" cy="-34" r="5" fill="#FFF"/>
+
+    <!-- Big Joyful Open Smile -->
+    <path d="M -26 15 Q 0 52 26 15 Z" fill="#D50000"/>
+    <path d="M -15 15 Q 0 30 15 15" fill="#FF80AB"/>
+    <!-- Rosy Cheeks -->
+    <ellipse cx="-50" cy="0" rx="14" ry="8" fill="#FF4081" opacity="0.6"/>
+    <ellipse cx="50" cy="0" rx="14" ry="8" fill="#FF4081" opacity="0.6"/>
+  </g>
+
+  <!-- Large Multi-Tier Cartoon Birthday Cake with Glowing Candle -->
+  <g transform="translate(400, 700)">
+    <!-- Bottom Cake Tier -->
+    <rect x="-180" y="30" width="360" height="90" rx="16" fill="#FFF8E1" stroke="#FFD54F" stroke-width="4"/>
+    <path d="M -180 55 Q -140 70 -100 55 Q -60 70 -20 55 Q 20 70 60 55 Q 100 70 140 55 Q 160 65 180 55 L 180 30 L -180 30 Z" fill="url(#cake_icing)"/>
+    <!-- Sprinkles on bottom tier -->
+    <rect x="-120" y="80" width="10" height="4" rx="2" fill="#00E5FF"/>
+    <rect x="-40" y="85" width="10" height="4" rx="2" fill="#76FF03"/>
+    <rect x="60" y="80" width="10" height="4" rx="2" fill="#FFD600"/>
+    <rect x="120" y="88" width="10" height="4" rx="2" fill="#FF1744"/>
+
+    <!-- Top Cake Tier -->
+    <rect x="-120" y="-40" width="240" height="70" rx="14" fill="#FFFDE7" stroke="#FFD54F" stroke-width="4"/>
+    <path d="M -120 -20 Q -90 -10 -60 -20 Q -30 -10 0 -20 Q 30 -10 60 -20 Q 90 -10 120 -20 L 120 -40 L -120 -40 Z" fill="url(#cake_icing)"/>
+
+    <!-- Birthday Candle with Glowing Flame -->
+    <rect x="-8" y="-90" width="16" height="50" rx="4" fill="#00E5FF"/>
+    <path d="M -8 -80 L 8 -70" stroke="#FFF" stroke-width="3"/>
+    <path d="M -8 -60 L 8 -50" stroke="#FFF" stroke-width="3"/>
+    <!-- Candle Wick -->
+    <line x1="0" y1="-90" x2="0" y2="-100" stroke="#212121" stroke-width="3"/>
+    <!-- Glowing Candle Flame -->
+    <ellipse cx="0" cy="-115" rx="14" ry="22" fill="#FF6D00" filter="drop-shadow(0px 0px 14px #FFD600)"/>
+    <ellipse cx="0" cy="-112" rx="8" ry="14" fill="#FFEA00"/>
+    <ellipse cx="0" cy="-108" rx="4" ry="7" fill="#FFF"/>
+  </g>
+
+  <!-- Bottom Keepsake Plaque -->
+  <g transform="translate(100, 880)">
+    <rect width="600" height="80" rx="20" fill="#1A0A2A" stroke="url(#gold_bday)" stroke-width="3"/>
+    <text x="300" y="44" font-family="serif" font-size="24" font-weight="bold" fill="#FFE082" text-anchor="middle" letter-spacing="3">
+      ✦ HAPPY BIRTHDAY • WISHES & MEMORIES ✦
+    </text>
+    <text x="300" y="66" font-family="sans-serif" font-size="13" font-weight="bold" fill="#E8D1A5" text-anchor="middle" letter-spacing="4">
+      PERSONALISED BIRTHDAY FRAME • ABHI'S GIFTS
+    </text>
+  </g>
+</svg>

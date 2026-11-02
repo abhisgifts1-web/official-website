@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="100%" height="100%">
+  <defs>
+    <linearGradient id="lamp_bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#120412"/>
+      <stop offset="50%" stop-color="#240B24"/>
+      <stop offset="100%" stop-color="#0A010A"/>
+    </linearGradient>
+    <radialGradient id="lamp_warm_glow" cx="50%" cy="50%" r="55%">
+      <stop offset="0%" stop-color="#FFF59D" stop-opacity="0.95"/>
+      <stop offset="35%" stop-color="#FFD54F" stop-opacity="0.65"/>
+      <stop offset="70%" stop-color="#FF8F00" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="wood_base" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#3E2723"/>
+      <stop offset="30%" stop-color="#5D4037"/>
+      <stop offset="70%" stop-color="#4E342E"/>
+      <stop offset="100%" stop-color="#271612"/>
+    </linearGradient>
+    <linearGradient id="gold_lamp" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF9C4"/>
+      <stop offset="40%" stop-color="#FFD54F"/>
+      <stop offset="100%" stop-color="#FFA000"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="1000" fill="url(#lamp_bg)"/>
+
+  <!-- Immense 3000K Warm Golden Radiant Aura -->
+  <circle cx="400" cy="500" r="390" fill="url(#lamp_warm_glow)"/>
+
+  <!-- Rotating Motion Orbit Paths & Curved Arrows (Indicating 360° Motorized Rotation) -->
+  <g opacity="0.85">
+    <ellipse cx="400" cy="180" rx="260" ry="45" fill="none" stroke="url(#gold_lamp)" stroke-width="3" stroke-dasharray="14,10"/>
+    <!-- Top Orbit Rotation Arrow -->
+    <path d="M 640 185 L 670 178 L 655 208 Z" fill="#FFD54F" filter="drop-shadow(0px 0px 8px #FFD54F)"/>
+
+    <ellipse cx="400" cy="740" rx="280" ry="50" fill="none" stroke="url(#gold_lamp)" stroke-width="4"/>
+    <!-- Bottom Orbit Rotation Arrow -->
+    <path d="M 140 735 L 110 742 L 125 712 Z" fill="#FFD54F" filter="drop-shadow(0px 0px 8px #FFD54F)"/>
+  </g>
+
+  <!-- ================= THE 360° CYLINDRICAL LAMP TOWER ================= -->
+  <!-- Top Lid / Beveled Cap -->
+  <ellipse cx="400" cy="240" rx="180" ry="40" fill="url(#wood_base)" stroke="url(#gold_lamp)" stroke-width="5"/>
+  <ellipse cx="400" cy="235" rx="160" ry="32" fill="#FFE082" opacity="0.6"/>
+
+  <!-- Transparent Acrylic Cylinder Body with Multiple Photo Facets -->
+  <path d="M 220 240 L 220 680 C 220 720, 580 720, 580 680 L 580 240 Z" fill="#1C0924" stroke="url(#gold_lamp)" stroke-width="6"/>
+
+  <!-- Inner Warm Illuminated Core (Center Column Bulb) -->
+  <rect x="360" y="250" width="80" height="420" rx="20" fill="#FFF9C4" filter="drop-shadow(0px 0px 30px #FFD54F)"/>
+
+  <!-- Left Photo Panel (Curved Perspective): Cartoon Baby Milestone -->
+  <g transform="translate(260, 420)" opacity="0.85">
+    <rect x="-30" y="-120" width="100" height="260" rx="12" fill="#2A0B33" stroke="#FFD54F" stroke-width="2"/>
+    <!-- Baby on Moon Silhouette -->
+    <path d="M 30 -60 A 25 25 0 1 0 30 -10 A 18 18 0 1 1 30 -60 Z" fill="#FFF59D"/>
+    <ellipse cx="20" y="40" rx="22" ry="26" fill="#FFE0B2"/>
+    <circle cx="15" cy="38" r="4" fill="#212121"/>
+    <circle cx="28" cy="38" r="4" fill="#212121"/>
+    <text x="20" y="100" font-family="sans-serif" font-size="10" font-weight="bold" fill="#FFE082" text-anchor="middle">BABY</text>
+  </g>
+
+  <!-- Center Primary Photo Panel: Cartoon Romantic Couple -->
+  <g transform="translate(400, 440)">
+    <rect x="-70" y="-150" width="140" height="300" rx="16" fill="#3D0B2E" stroke="url(#gold_lamp)" stroke-width="3"/>
+    
+    <!-- Boy & Girl Cartoon Face -->
+    <ellipse cx="-25" cy="-50" rx="24" ry="28" fill="#FFD7AA"/>
+    <path d="M -45 -60 C -45 -85, -5 -85, -5 -60 Z" fill="#212121"/>
+    <circle cx="-30" cy="-52" r="3.5" fill="#212121"/>
+    <circle cx="-16" cy="-52" r="3.5" fill="#212121"/>
+
+    <ellipse cx="25" cy="-50" rx="22" ry="26" fill="#FFE0B2"/>
+    <path d="M 5 -60 C 5 -85, 45 -85, 45 -60 Z" fill="#212121"/>
+    <circle cx="18" cy="-52" r="3.5" fill="#3E2723"/>
+    <circle cx="32" cy="-52" r="3.5" fill="#3E2723"/>
+
+    <!-- Glowing Heart -->
+    <path d="M -5 -90 C -5 -100, 5 -105, 10 -95 C 15 -105, 25 -100, 25 -90 C 25 -80, 10 -70, 10 -70 C 10 -70, -5 -80, -5 -90 Z" fill="#FF1744" filter="drop-shadow(0px 0px 6px #FF1744)"/>
+
+    <!-- Gold Foil Inscription on Lamp Panel -->
+    <text x="0" y="30" font-family="serif" font-size="12" font-weight="bold" fill="#FFE082" text-anchor="middle" letter-spacing="1">TOGETHER</text>
+    <text x="0" y="48" font-family="sans-serif" font-size="9" font-weight="bold" fill="#FFF" text-anchor="middle" letter-spacing="2">ALWAYS</text>
+  </g>
+
+  <!-- Right Photo Panel: Cartoon Family Portrait -->
+  <g transform="translate(540, 420)" opacity="0.85">
+    <rect x="-70" y="-120" width="100" height="260" rx="12" fill="#2A0B33" stroke="#FFD54F" stroke-width="2"/>
+    <ellipse cx="-20" cy="-30" rx="18" ry="22" fill="#FFD7AA"/>
+    <ellipse cx="10" cy="-30" rx="16" ry="20" fill="#FFE0B2"/>
+    <ellipse cx="-5" cy="20" rx="14" ry="16" fill="#FFCC80"/>
+    <text x="-5" y="80" font-family="sans-serif" font-size="10" font-weight="bold" fill="#FFE082" text-anchor="middle">FAMILY</text>
+  </g>
+
+  <!-- Heavy Motorized Pedestal Base with Metallic Trim & Switch -->
+  <ellipse cx="400" cy="680" rx="190" ry="42" fill="url(#wood_base)" stroke="url(#gold_lamp)" stroke-width="5"/>
+  <rect x="210" y="680" width="380" height="60" fill="url(#wood_base)"/>
+  <ellipse cx="400" cy="740" rx="190" ry="42" fill="#271612" stroke="url(#gold_lamp)" stroke-width="4"/>
+
+  <!-- Glowing Touch On/Off Switch Button -->
+  <circle cx="400" cy="710" r="14" fill="#FFD54F" stroke="#FFF" stroke-width="3" filter="drop-shadow(0px 0px 8px #FFD54F)"/>
+
+  <!-- 360 Rotation Badge -->
+  <g transform="translate(400, 810)">
+    <rect x="-140" y="-22" width="280" height="44" rx="22" fill="#511B2A" stroke="url(#gold_lamp)" stroke-width="2.5"/>
+    <text x="0" y="6" font-family="sans-serif" font-size="13" font-weight="bold" fill="#FFD782" text-anchor="middle" letter-spacing="2">
+      ↻ 360° MOTORIZED ROTATION
+    </text>
+  </g>
+
+  <!-- Bottom Keepsake Plaque -->
+  <g transform="translate(100, 890)">
+    <rect width="600" height="75" rx="20" fill="#120412" stroke="url(#gold_lamp)" stroke-width="3"/>
+    <text x="300" y="40" font-family="serif" font-size="22" font-weight="bold" fill="#FFE082" text-anchor="middle" letter-spacing="3">
+      ✦ MOTORIZED 360° ROTATING PHOTO LAMP ✦
+    </text>
+    <text x="300" y="60" font-family="sans-serif" font-size="12" font-weight="bold" fill="#E8D1A5" text-anchor="middle" letter-spacing="4">
+      4-5 MULTI-MEMORY CAROUSEL • ABHI'S GIFTS
+    </text>
+  </g>
+</svg>

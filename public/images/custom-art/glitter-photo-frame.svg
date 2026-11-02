@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="100%" height="100%">
+  <defs>
+    <linearGradient id="g_bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1F0712"/>
+      <stop offset="50%" stop-color="#3B1024"/>
+      <stop offset="100%" stop-color="#14030B"/>
+    </linearGradient>
+    <radialGradient id="glitter_glow" cx="50%" cy="45%" r="60%">
+      <stop offset="0%" stop-color="#FFF9C4" stop-opacity="0.9"/>
+      <stop offset="35%" stop-color="#FFD54F" stop-opacity="0.55"/>
+      <stop offset="70%" stop-color="#FF8F00" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="gold_glit" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFDE7"/>
+      <stop offset="25%" stop-color="#FFF176"/>
+      <stop offset="50%" stop-color="#FFD54F"/>
+      <stop offset="75%" stop-color="#FFA000"/>
+      <stop offset="100%" stop-color="#FF6F00"/>
+    </linearGradient>
+    <filter id="sparkle_blur" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <rect width="800" height="1000" fill="url(#g_bg)"/>
+  <circle cx="400" cy="460" r="380" fill="url(#glitter_glow)"/>
+
+  <!-- Shimmering Golden Glitter Particles & Floating Stars -->
+  <g opacity="0.95">
+    <!-- Starburst 1 -->
+    <path d="M 160 180 L 165 195 L 180 200 L 165 205 L 160 220 L 155 205 L 140 200 L 155 195 Z" fill="#FFF9C4" filter="url(#sparkle_blur)"/>
+    <!-- Starburst 2 -->
+    <path d="M 640 160 L 646 178 L 664 184 L 646 190 L 640 208 L 634 190 L 616 184 L 634 178 Z" fill="#FFD54F" filter="url(#sparkle_blur)"/>
+    <!-- Starburst 3 -->
+    <path d="M 220 320 L 224 332 L 236 336 L 224 340 L 220 352 L 216 340 L 204 336 L 216 332 Z" fill="#FFF" filter="url(#sparkle_blur)"/>
+    <!-- Starburst 4 -->
+    <path d="M 590 340 L 594 352 L 606 356 L 594 360 L 590 372 L 586 360 L 574 356 L 586 352 Z" fill="#FFECB3" filter="url(#sparkle_blur)"/>
+    <!-- Starburst 5 -->
+    <path d="M 400 120 L 406 140 L 426 146 L 406 152 L 400 172 L 394 152 L 374 146 L 394 140 Z" fill="#FFFDE7" filter="url(#sparkle_blur)"/>
+    
+    <!-- Fine Golden Glitter Dust -->
+    <circle cx="110" cy="280" r="4" fill="#FFD54F"/>
+    <circle cx="130" cy="140" r="3" fill="#FFF59D"/>
+    <circle cx="280" cy="110" r="5" fill="#FFE082"/>
+    <circle cx="520" cy="100" r="4.5" fill="#FFF59D"/>
+    <circle cx="680" cy="240" r="6" fill="#FFD54F"/>
+    <circle cx="710" cy="360" r="3.5" fill="#FFF"/>
+    <circle cx="90" cy="420" r="4" fill="#FFE082"/>
+    <circle cx="670" cy="520" r="5" fill="#FFD54F"/>
+    <circle cx="120" cy="620" r="4" fill="#FFF59D"/>
+    <circle cx="210" cy="720" r="5" fill="#FFE082"/>
+    <circle cx="590" cy="710" r="6" fill="#FFD54F"/>
+    <circle cx="690" cy="680" r="3" fill="#FFF"/>
+    <circle cx="310" cy="780" r="4" fill="#FFD54F"/>
+    <circle cx="480" cy="790" r="5" fill="#FFE082"/>
+  </g>
+
+  <!-- Cascading Shimmer Liquid Waves -->
+  <path d="M 80 200 Q 250 160 400 210 Q 550 260 720 190" fill="none" stroke="url(#gold_glit)" stroke-width="3" opacity="0.4"/>
+  <path d="M 80 780 Q 240 820 400 770 Q 560 720 720 790" fill="none" stroke="url(#gold_glit)" stroke-width="3" opacity="0.4"/>
+
+  <!-- Acrylic Floating Frame Border with Glitter Inset -->
+  <rect x="140" y="200" width="520" height="640" rx="28" fill="#18040E" stroke="url(#gold_glit)" stroke-width="8"/>
+  <rect x="156" y="216" width="488" height="608" rx="20" fill="none" stroke="url(#gold_glit)" stroke-width="2" stroke-dasharray="10,6" opacity="0.7"/>
+
+  <!-- 4 Brushed Standoff Studs -->
+  <circle cx="175" cy="235" r="12" fill="#E0E0E0" stroke="#9E9E9E" stroke-width="2"/>
+  <circle cx="625" cy="235" r="12" fill="#E0E0E0" stroke="#9E9E9E" stroke-width="2"/>
+  <circle cx="175" cy="795" r="12" fill="#E0E0E0" stroke="#9E9E9E" stroke-width="2"/>
+  <circle cx="625" cy="795" r="12" fill="#E0E0E0" stroke="#9E9E9E" stroke-width="2"/>
+
+  <!-- Inside Artwork: Cartoon Couple with Gold Glitter Radiance -->
+  <!-- Boy (Left) -->
+  <g transform="translate(320, 520)">
+    <path d="M -75 80 C -75 20, 10 20, 10 80 L 15 240 L -80 240 Z" fill="#2E112D"/>
+    <!-- Gold Trim Jacket -->
+    <path d="M -40 25 L -35 240" stroke="url(#gold_glit)" stroke-width="6"/>
+    <ellipse cx="-35" cy="-20" rx="55" ry="65" fill="#FFD7AA"/>
+    <!-- Hair -->
+    <path d="M -80 -45 C -80 -105, 10 -105, 10 -45 Z" fill="#212121"/>
+    <!-- Smiling Eyes -->
+    <ellipse cx="-50" cy="-25" rx="12" ry="16" fill="#FFF"/>
+    <ellipse cx="-18" cy="-25" rx="12" ry="16" fill="#FFF"/>
+    <circle cx="-48" cy="-25" r="7" fill="#212121"/>
+    <circle cx="-16" cy="-25" r="7" fill="#212121"/>
+    <path d="M -42 12 Q -30 25 -18 12" stroke="#C2185B" stroke-width="3" fill="none"/>
+  </g>
+
+  <!-- Bride / Girl (Right) with Glitter Lehenga -->
+  <g transform="translate(480, 520)">
+    <path d="M -10 80 C -10 15, 75 15, 75 80 L 85 240 L -20 240 Z" fill="#880E4F"/>
+    <!-- Shimmering Gold Zari on Lehenga -->
+    <path d="M -15 210 L 80 210" stroke="url(#gold_glit)" stroke-width="10"/>
+    <path d="M -10 180 L 75 180" stroke="url(#gold_glit)" stroke-width="5"/>
+    <ellipse cx="32" cy="-20" rx="52" ry="62" fill="#FFE0B2"/>
+    <!-- Long Hair with Jhumka -->
+    <path d="M -15 -45 C -15 -115, 80 -115, 80 -45 Z" fill="#212121"/>
+    <ellipse cx="16" cy="-25" rx="12" ry="16" fill="#FFF"/>
+    <ellipse cx="48" cy="-25" rx="12" ry="16" fill="#FFF"/>
+    <circle cx="18" cy="-24" r="7" fill="#3E2723"/>
+    <circle cx="50" cy="-24" r="7" fill="#3E2723"/>
+    <path d="M 22 10 Q 32 24 44 10" fill="#D81B60" stroke="#880E4F" stroke-width="2.5"/>
+    <circle cx="32" cy="-55" r="5" fill="#D50000"/>
+    <ellipse cx="5" cy="-2" rx="10" ry="6" fill="#FF4081" opacity="0.6"/>
+    <ellipse cx="60" cy="-2" rx="10" ry="6" fill="#FF4081" opacity="0.6"/>
+  </g>
+
+  <!-- Big Floating Shimmer Heart with Glitters -->
+  <path d="M 375 410 C 375 385, 395 375, 405 395 C 415 375, 435 385, 435 410 C 435 435, 405 455, 405 455 C 405 455, 375 435, 375 410 Z" fill="#FF1744" filter="drop-shadow(0px 0px 14px rgba(255,23,68,0.9))"/>
+
+  <!-- Bottom Keepsake Plaque -->
+  <g transform="translate(100, 890)">
+    <rect width="600" height="75" rx="20" fill="#14030B" stroke="url(#gold_glit)" stroke-width="3"/>
+    <text x="300" y="40" font-family="serif" font-size="22" font-weight="bold" fill="#FFE082" text-anchor="middle" letter-spacing="3">
+      ✦ ENCHANTED LIQUID GOLD GLITTER ✦
+    </text>
+    <text x="300" y="60" font-family="sans-serif" font-size="12" font-weight="bold" fill="#E8D1A5" text-anchor="middle" letter-spacing="4">
+      METALLIC SHIMMER HEIRLOOM • ABHI'S GIFTS
+    </text>
+  </g>
+</svg>

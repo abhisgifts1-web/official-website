@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="100%" height="100%">
+  <defs>
+    <linearGradient id="fam_bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1B263B"/>
+      <stop offset="50%" stop-color="#2D3A54"/>
+      <stop offset="100%" stop-color="#0D1B2A"/>
+    </linearGradient>
+    <radialGradient id="sun_glow" cx="50%" cy="40%" r="55%">
+      <stop offset="0%" stop-color="#FFE082" stop-opacity="0.8"/>
+      <stop offset="40%" stop-color="#FFB300" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="gold_metallic2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF2A3"/>
+      <stop offset="50%" stop-color="#D4AF37"/>
+      <stop offset="100%" stop-color="#AA771C"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="1000" fill="url(#fam_bg)"/>
+  <circle cx="400" cy="420" r="380" fill="url(#sun_glow)"/>
+
+  <!-- Animated Sparkles & Hearts -->
+  <g fill="#FFD54F" opacity="0.6">
+    <circle cx="150" cy="180" r="14"/>
+    <circle cx="650" cy="190" r="18"/>
+    <circle cx="200" cy="300" r="10"/>
+    <circle cx="620" cy="320" r="12"/>
+    <circle cx="400" cy="120" r="22"/>
+  </g>
+
+  <!-- ================= FATHER (LEFT) ================= -->
+  <path d="M 170 520 C 170 440, 250 410, 300 410 C 350 410, 380 440, 380 520 L 390 840 L 160 840 Z" fill="#1E3A8A"/>
+  <rect x="270" y="380" width="60" height="60" rx="14" fill="#FFCC99"/>
+  <ellipse cx="300" cy="340" rx="60" ry="70" fill="#FFD7AA"/>
+  <!-- Glasses -->
+  <rect x="260" y="325" width="35" height="25" rx="6" fill="none" stroke="#D4AF37" stroke-width="4"/>
+  <rect x="305" y="325" width="35" height="25" rx="6" fill="none" stroke="#D4AF37" stroke-width="4"/>
+  <line x1="295" y1="337" x2="305" y2="337" stroke="#D4AF37" stroke-width="4"/>
+  <!-- Father Eyes -->
+  <circle cx="277" cy="337" r="7" fill="#1E1E1E"/>
+  <circle cx="322" cy="337" r="7" fill="#1E1E1E"/>
+  <circle cx="275" cy="334" r="2.5" fill="#FFFFFF"/>
+  <circle cx="320" cy="334" r="2.5" fill="#FFFFFF"/>
+  <!-- Smile -->
+  <path d="M 285 375 Q 300 395 315 375" fill="#C2185B" stroke="#880E4F" stroke-width="3"/>
+  <!-- Hair -->
+  <path d="M 240 310 C 240 250, 360 250, 360 310 Z" fill="#263238"/>
+
+  <!-- ================= MOTHER (RIGHT) ================= -->
+  <path d="M 430 520 C 430 440, 510 410, 560 410 C 610 410, 650 440, 650 520 L 670 840 L 410 840 Z" fill="#9C27B0"/>
+  <rect x="530" y="380" width="55" height="55" rx="14" fill="#FFE0B2"/>
+  <ellipse cx="558" cy="340" rx="58" ry="68" fill="#FFE0B2"/>
+  <!-- Mother Eyes -->
+  <ellipse cx="535" cy="332" rx="12" ry="15" fill="#FFFFFF"/>
+  <ellipse cx="578" cy="332" rx="12" ry="15" fill="#FFFFFF"/>
+  <circle cx="537" cy="332" r="8" fill="#3E2723"/>
+  <circle cx="580" cy="332" r="8" fill="#3E2723"/>
+  <circle cx="534" cy="328" r="3" fill="#FFFFFF"/>
+  <circle cx="577" cy="328" r="3" fill="#FFFFFF"/>
+  <!-- Bindi & Smile -->
+  <circle cx="558" cy="305" r="4.5" fill="#C2185B"/>
+  <path d="M 545 375 Q 558 395 572 375" fill="#E91E63" stroke="#880E4F" stroke-width="3"/>
+  <!-- Mother Hair -->
+  <path d="M 495 320 C 495 240, 620 240, 620 320 Z" fill="#212121"/>
+  <!-- Gold Jhumkas -->
+  <circle cx="496" cy="360" r="6" fill="#FFD54F"/>
+  <circle cx="620" cy="360" r="6" fill="#FFD54F"/>
+
+  <!-- ================= CUTE CHILD (CENTER) ================= -->
+  <!-- Child Body -->
+  <path d="M 330 620 C 330 550, 470 550, 470 620 L 485 840 L 315 840 Z" fill="#E65100"/>
+  <!-- Child Face -->
+  <rect x="380" y="520" width="40" height="40" rx="10" fill="#FFD7AA"/>
+  <ellipse cx="400" cy="490" rx="55" ry="60" fill="#FFD7AA"/>
+  <!-- Child Big Sparkling Anime Eyes -->
+  <ellipse cx="378" cy="485" rx="14" ry="17" fill="#FFFFFF"/>
+  <ellipse cx="422" cy="485" rx="14" ry="17" fill="#FFFFFF"/>
+  <ellipse cx="380" cy="485" rx="9" ry="12" fill="#212121"/>
+  <ellipse cx="424" cy="485" rx="9" ry="12" fill="#212121"/>
+  <circle cx="377" cy="480" r="4" fill="#FFFFFF"/>
+  <circle cx="421" cy="480" r="4" fill="#FFFFFF"/>
+  <!-- Big Laughing Smile -->
+  <path d="M 382 515 Q 400 545 418 515 Z" fill="#D81B60"/>
+  <path d="M 386 517 Q 400 527 414 517" fill="#FFFFFF"/>
+  <!-- Rosy Cheeks -->
+  <ellipse cx="360" cy="505" rx="10" ry="6" fill="#FF8A80"/>
+  <ellipse cx="440" cy="505" rx="10" ry="6" fill="#FF8A80"/>
+  <!-- Cute Hair with Tuft -->
+  <path d="M 350 460 C 350 410, 450 410, 450 460 Z" fill="#37474F"/>
+  <path d="M 395 420 Q 400 390 415 410" stroke="#37474F" stroke-width="6" fill="none" stroke-linecap="round"/>
+
+  <!-- Child Holding Gold Balloon -->
+  <line x1="430" y1="620" x2="490" y2="400" stroke="#FFE082" stroke-width="3"/>
+  <ellipse cx="500" cy="380" rx="35" ry="45" fill="url(#gold_metallic2)"/>
+  <path d="M 495 425 L 505 425 L 500 435 Z" fill="#AA771C"/>
+
+  <!-- Bottom Gold Plaque -->
+  <g transform="translate(100, 880)">
+    <rect width="600" height="80" rx="20" fill="#0D1B2A" stroke="url(#gold_metallic2)" stroke-width="3"/>
+    <text x="300" y="44" font-family="serif" font-size="24" font-weight="bold" fill="#FFE082" text-anchor="middle" letter-spacing="3">
+      ✦ THE LOVING FAMILY • EST. 2026 ✦
+    </text>
+    <text x="300" y="66" font-family="sans-serif" font-size="13" font-weight="bold" fill="#E8D1A5" text-anchor="middle" letter-spacing="4">
+      PERSONALIZED HEIRLOOM • ABHI'S GIFTS
+    </text>
+  </g>
+</svg>

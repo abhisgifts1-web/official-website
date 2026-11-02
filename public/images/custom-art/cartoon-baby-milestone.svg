@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="100%" height="100%">
+  <defs>
+    <linearGradient id="baby_bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1A102F"/>
+      <stop offset="50%" stop-color="#3A1C52"/>
+      <stop offset="100%" stop-color="#150826"/>
+    </linearGradient>
+    <radialGradient id="moon_glow" cx="50%" cy="35%" r="55%">
+      <stop offset="0%" stop-color="#FFF9C4" stop-opacity="0.9"/>
+      <stop offset="40%" stop-color="#FFE082" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="cloud_grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#E1BEE7"/>
+    </linearGradient>
+    <linearGradient id="gold_b" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF59D"/>
+      <stop offset="50%" stop-color="#FBC02D"/>
+      <stop offset="100%" stop-color="#F57F17"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="1000" fill="url(#baby_bg)"/>
+  <circle cx="400" cy="400" r="380" fill="url(#moon_glow)"/>
+
+  <!-- Smiling Crescent Moon -->
+  <g transform="translate(180, 160)">
+    <path d="M 120 0 A 120 120 0 1 0 120 240 A 90 90 0 1 1 120 0 Z" fill="url(#gold_b)"/>
+    <circle cx="160" cy="110" r="6" fill="#795548"/>
+    <path d="M 150 140 Q 165 155 180 140" stroke="#795548" stroke-width="4" fill="none"/>
+    <!-- Sleeping Cap on Moon -->
+    <path d="M 130 10 Q 180 -30 240 -10 Q 180 30 140 30 Z" fill="#AB47BC"/>
+    <circle cx="240" cy="-10" r="10" fill="#FFF"/>
+  </g>
+
+  <!-- Twinkling Stars -->
+  <g fill="#FFF59D">
+    <polygon points="560,180 565,195 580,200 565,205 560,220 555,205 540,200 555,195"/>
+    <polygon points="660,300 663,310 675,313 663,316 660,326 657,316 645,313 657,310"/>
+    <polygon points="120,380 123,390 135,393 123,396 120,406 117,396 105,393 117,390"/>
+    <polygon points="680,120 683,130 695,133 683,136 680,146 677,136 665,133 677,130"/>
+  </g>
+
+  <!-- Big Dreamy Cloud Platform -->
+  <g fill="url(#cloud_grad)" opacity="0.95">
+    <ellipse cx="400" cy="650" rx="260" ry="90"/>
+    <circle cx="280" cy="610" r="85"/>
+    <circle cx="520" cy="610" r="85"/>
+    <circle cx="400" cy="570" r="95"/>
+  </g>
+
+  <!-- ================= ADORABLE CARTOON BABY ================= -->
+  <!-- Baby Body (Pastel Onesie) -->
+  <ellipse cx="400" cy="530" rx="90" ry="80" fill="#B3E5FC"/>
+  <circle cx="400" cy="500" r="5" fill="#0288D1"/>
+  <circle cx="400" cy="530" r="5" fill="#0288D1"/>
+
+  <!-- Baby Head -->
+  <circle cx="400" cy="420" r="85" fill="#FFD7AA"/>
+  <!-- Baby Ears -->
+  <circle cx="315" cy="420" r="18" fill="#FFCC99"/>
+  <circle cx="485" cy="420" r="18" fill="#FFCC99"/>
+
+  <!-- Big Giant Cute Sparkling Eyes -->
+  <ellipse cx="365" cy="415" rx="22" ry="26" fill="#FFFFFF"/>
+  <ellipse cx="435" cy="415" rx="22" ry="26" fill="#FFFFFF"/>
+  <ellipse cx="368" cy="415" rx="14" ry="18" fill="#2E1C0C"/>
+  <ellipse cx="438" cy="415" rx="14" ry="18" fill="#2E1C0C"/>
+  <circle cx="363" cy="406" r="6" fill="#FFFFFF"/>
+  <circle cx="433" cy="406" r="6" fill="#FFFFFF"/>
+  <circle cx="372" cy="422" r="3" fill="#FFFFFF"/>
+  <circle cx="442" cy="422" r="3" fill="#FFFFFF"/>
+
+  <!-- Flushed Baby Cheeks -->
+  <ellipse cx="340" cy="445" rx="16" ry="10" fill="#FF80AB" opacity="0.7"/>
+  <ellipse cx="460" cy="445" rx="16" ry="10" fill="#FF80AB" opacity="0.7"/>
+
+  <!-- Sweet Open Mouth with Tiny Tooth -->
+  <path d="M 388 455 Q 400 480 412 455 Z" fill="#D81B60"/>
+  <rect x="397" y="455" width="6" height="5" rx="2" fill="#FFFFFF"/>
+
+  <!-- Baby Golden Crown -->
+  <path d="M 370 345 L 380 320 L 400 335 L 420 320 L 430 345 Z" fill="url(#gold_b)" stroke="#E65100" stroke-width="2"/>
+  <circle cx="380" cy="320" r="3" fill="#E91E63"/>
+  <circle cx="400" cy="335" r="4" fill="#00E676"/>
+  <circle cx="420" cy="320" r="3" fill="#2979FF"/>
+
+  <!-- Floating Baby Milestone Blocks -->
+  <g transform="translate(160, 680)">
+    <rect width="60" height="60" rx="12" fill="#FF80AB" stroke="#FFF" stroke-width="3"/>
+    <text x="30" y="42" font-family="sans-serif" font-size="32" font-weight="bold" fill="#FFF" text-anchor="middle">A</text>
+  </g>
+  <g transform="translate(580, 670)">
+    <rect width="60" height="60" rx="12" fill="#80D8FF" stroke="#FFF" stroke-width="3"/>
+    <text x="30" y="42" font-family="sans-serif" font-size="32" font-weight="bold" fill="#FFF" text-anchor="middle">1</text>
+  </g>
+
+  <!-- Bottom Gold Plaque -->
+  <g transform="translate(100, 880)">
+    <rect width="600" height="80" rx="20" fill="#150826" stroke="url(#gold_b)" stroke-width="3"/>
+    <text x="300" y="44" font-family="serif" font-size="24" font-weight="bold" fill="#FFE082" text-anchor="middle" letter-spacing="3">
+      ✦ WELCOME LITTLE ANGEL • BORN 2026 ✦
+    </text>
+    <text x="300" y="66" font-family="sans-serif" font-size="13" font-weight="bold" fill="#E8D1A5" text-anchor="middle" letter-spacing="4">
+      BABY MILESTONE KEEPSAKE • ABHI'S GIFTS
+    </text>
+  </g>
+</svg>
