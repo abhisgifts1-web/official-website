@@ -52,6 +52,12 @@ const ProductSchema = new Schema(
     rating: { type: Number, default: 0 },
     reviewCount: { type: Number, default: 0 },
     variants: [VariantSchema],
+    orientationVariants: {
+      portrait: [VariantSchema],
+      landscape: [VariantSchema],
+      square: [VariantSchema],
+      round: [VariantSchema],
+    },
     specifications: [{ label: String, value: String }],
     materialAndCare: [{ type: String }],
     shippingHighlights: [{ type: String }],

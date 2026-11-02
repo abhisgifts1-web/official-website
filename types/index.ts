@@ -1,4 +1,12 @@
 export type ProductOrientation = 'vertical' | 'horizontal' | 'square' | 'round';
+export type OrientationShape = 'portrait' | 'landscape' | 'square' | 'round';
+
+export interface OrientationVariantsMap {
+  portrait: ProductVariant[];
+  landscape: ProductVariant[];
+  square: ProductVariant[];
+  round: ProductVariant[];
+}
 export type ArtworkFinish = 'Acrylic Ultra-Gloss' | 'Floating Framed Canvas' | 'Matte Fine Wood' | 'Brushed Gold Aluminum';
 export type LightingType = 'Warm LED Backlit (12V Adapter)' | 'RGB Multi-Color Remote' | 'No Lighting (Pure Art)';
 
@@ -59,6 +67,7 @@ export interface Product {
   rating: number;
   reviewCount: number;
   variants: ProductVariant[];
+  orientationVariants?: Partial<OrientationVariantsMap>;
   specifications: ProductSpecification[];
   materialAndCare: string[];
   shippingHighlights: string[];

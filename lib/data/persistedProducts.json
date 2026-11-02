@@ -41,52 +41,52 @@
     "reviewCount": 0,
     "variants": [
       {
-        "id": "var-b1",
+        "id": "var-pt-1",
         "size": "12 x 18 inches",
         "dimensionsCm": "30 x 45 cm",
         "finish": "Acrylic Ultra-Gloss",
         "lighting": "Warm LED Backlit (12V Adapter)",
         "price": 2499,
         "mrp": 4999,
-        "sku": "AG-BALAJI-1",
+        "sku": "AG-BALAJI-PT-1",
         "inStock": true,
-        "stockCount": 50
+        "stockCount": 45
       },
       {
-        "id": "var-b2",
+        "id": "var-pt-2",
         "size": "18 x 24 inches",
         "dimensionsCm": "45 x 60 cm",
         "finish": "Acrylic Ultra-Gloss",
         "lighting": "Warm LED Backlit (12V Adapter)",
         "price": 3499,
         "mrp": 6999,
-        "sku": "AG-BALAJI-2",
+        "sku": "AG-BALAJI-PT-2",
         "inStock": true,
-        "stockCount": 40
+        "stockCount": 50
       },
       {
-        "id": "var-b3",
+        "id": "var-pt-3",
         "size": "24 x 36 inches",
         "dimensionsCm": "60 x 90 cm",
         "finish": "Acrylic Ultra-Gloss",
         "lighting": "Warm LED Backlit (12V Adapter)",
         "price": 5499,
         "mrp": 9999,
-        "sku": "AG-BALAJI-3",
+        "sku": "AG-BALAJI-PT-3",
         "inStock": true,
         "stockCount": 30
       },
       {
-        "id": "var-b4",
+        "id": "var-pt-4",
         "size": "30 x 48 inches (Grand Wall Size)",
         "dimensionsCm": "75 x 120 cm",
         "finish": "Acrylic Ultra-Gloss",
         "lighting": "Warm LED Backlit (12V Adapter)",
         "price": 7999,
         "mrp": 14999,
-        "sku": "AG-BALAJI-4",
+        "sku": "AG-BALAJI-PT-4",
         "inStock": true,
-        "stockCount": 20
+        "stockCount": 15
       }
     ],
     "specifications": [
@@ -127,7 +127,209 @@
       "100% Transit Safe Guarantee: Free immediate replacement if received damaged."
     ],
     "reviews": [],
-    "createdAt": "2026-08-01"
+    "createdAt": "2026-08-01",
+    "orientationVariants": {
+      "portrait": [
+        {
+          "id": "var-pt-1",
+          "size": "12 x 18 inches",
+          "dimensionsCm": "30 x 45 cm",
+          "finish": "Acrylic Ultra-Gloss",
+          "lighting": "Warm LED Backlit (12V Adapter)",
+          "price": 2499,
+          "mrp": 4999,
+          "sku": "AG-BALAJI-PT-1",
+          "inStock": true,
+          "stockCount": 45
+        },
+        {
+          "id": "var-pt-2",
+          "size": "18 x 24 inches",
+          "dimensionsCm": "45 x 60 cm",
+          "finish": "Acrylic Ultra-Gloss",
+          "lighting": "Warm LED Backlit (12V Adapter)",
+          "price": 3499,
+          "mrp": 6999,
+          "sku": "AG-BALAJI-PT-2",
+          "inStock": true,
+          "stockCount": 50
+        },
+        {
+          "id": "var-pt-3",
+          "size": "24 x 36 inches",
+          "dimensionsCm": "60 x 90 cm",
+          "finish": "Acrylic Ultra-Gloss",
+          "lighting": "Warm LED Backlit (12V Adapter)",
+          "price": 5499,
+          "mrp": 9999,
+          "sku": "AG-BALAJI-PT-3",
+          "inStock": true,
+          "stockCount": 30
+        },
+        {
+          "id": "var-pt-4",
+          "size": "30 x 48 inches (Grand Wall Size)",
+          "dimensionsCm": "75 x 120 cm",
+          "finish": "Acrylic Ultra-Gloss",
+          "lighting": "Warm LED Backlit (12V Adapter)",
+          "price": 7999,
+          "mrp": 14999,
+          "sku": "AG-BALAJI-PT-4",
+          "inStock": true,
+          "stockCount": 15
+        }
+      ],
+      "landscape": [
+        {
+          "id": "var-ls-1",
+          "size": "18 x 12 inches",
+          "dimensionsCm": "45 x 30 cm",
+          "finish": "Acrylic Ultra-Gloss",
+          "lighting": "Warm LED Backlit (12V Adapter)",
+          "price": 2599,
+          "mrp": 5199,
+          "sku": "AG-BALAJI-LS-1",
+          "inStock": true,
+          "stockCount": 40
+        },
+        {
+          "id": "var-ls-2",
+          "size": "24 x 18 inches",
+          "dimensionsCm": "60 x 45 cm",
+          "finish": "Acrylic Ultra-Gloss",
+          "lighting": "Warm LED Backlit (12V Adapter)",
+          "price": 3599,
+          "mrp": 7199,
+          "sku": "AG-BALAJI-LS-2",
+          "inStock": true,
+          "stockCount": 45
+        },
+        {
+          "id": "var-ls-3",
+          "size": "36 x 24 inches",
+          "dimensionsCm": "90 x 60 cm",
+          "finish": "Acrylic Ultra-Gloss",
+          "lighting": "Warm LED Backlit (12V Adapter)",
+          "price": 5599,
+          "mrp": 10199,
+          "sku": "AG-BALAJI-LS-3",
+          "inStock": true,
+          "stockCount": 25
+        },
+        {
+          "id": "var-ls-4",
+          "size": "48 x 30 inches (Grand Wall Size)",
+          "dimensionsCm": "120 x 75 cm",
+          "finish": "Acrylic Ultra-Gloss",
+          "lighting": "Warm LED Backlit (12V Adapter)",
+          "price": 8199,
+          "mrp": 15499,
+          "sku": "AG-BALAJI-LS-4",
+          "inStock": true,
+          "stockCount": 10
+        }
+      ],
+      "square": [
+        {
+          "id": "var-sq-1",
+          "size": "12 x 12 inches",
+          "dimensionsCm": "30 x 30 cm",
+          "finish": "Acrylic Ultra-Gloss",
+          "lighting": "Warm LED Backlit (12V Adapter)",
+          "price": 2299,
+          "mrp": 4599,
+          "sku": "AG-BALAJI-SQ-1",
+          "inStock": true,
+          "stockCount": 35
+        },
+        {
+          "id": "var-sq-2",
+          "size": "18 x 18 inches",
+          "dimensionsCm": "45 x 45 cm",
+          "finish": "Acrylic Ultra-Gloss",
+          "lighting": "Warm LED Backlit (12V Adapter)",
+          "price": 3299,
+          "mrp": 6399,
+          "sku": "AG-BALAJI-SQ-2",
+          "inStock": true,
+          "stockCount": 40
+        },
+        {
+          "id": "var-sq-3",
+          "size": "24 x 24 inches",
+          "dimensionsCm": "60 x 60 cm",
+          "finish": "Acrylic Ultra-Gloss",
+          "lighting": "Warm LED Backlit (12V Adapter)",
+          "price": 4999,
+          "mrp": 9199,
+          "sku": "AG-BALAJI-SQ-3",
+          "inStock": true,
+          "stockCount": 20
+        },
+        {
+          "id": "var-sq-4",
+          "size": "30 x 30 inches (Grand Sanctum)",
+          "dimensionsCm": "75 x 75 cm",
+          "finish": "Acrylic Ultra-Gloss",
+          "lighting": "Warm LED Backlit (12V Adapter)",
+          "price": 7199,
+          "mrp": 13499,
+          "sku": "AG-BALAJI-SQ-4",
+          "inStock": true,
+          "stockCount": 10
+        }
+      ],
+      "round": [
+        {
+          "id": "var-rd-1",
+          "size": "12\" Dia Circular",
+          "dimensionsCm": "30 cm Diameter",
+          "finish": "Acrylic Ultra-Gloss",
+          "lighting": "Warm LED Backlit (12V Adapter)",
+          "price": 2399,
+          "mrp": 4799,
+          "sku": "AG-BALAJI-RD-1",
+          "inStock": true,
+          "stockCount": 30
+        },
+        {
+          "id": "var-rd-2",
+          "size": "18\" Dia Circular",
+          "dimensionsCm": "45 cm Diameter",
+          "finish": "Acrylic Ultra-Gloss",
+          "lighting": "Warm LED Backlit (12V Adapter)",
+          "price": 3399,
+          "mrp": 6599,
+          "sku": "AG-BALAJI-RD-2",
+          "inStock": true,
+          "stockCount": 35
+        },
+        {
+          "id": "var-rd-3",
+          "size": "20\" Dia Circular",
+          "dimensionsCm": "50 cm Diameter",
+          "finish": "Acrylic Ultra-Gloss",
+          "lighting": "Warm LED Backlit (12V Adapter)",
+          "price": 5199,
+          "mrp": 9499,
+          "sku": "AG-BALAJI-RD-3",
+          "inStock": true,
+          "stockCount": 15
+        },
+        {
+          "id": "var-rd-4",
+          "size": "24\" Dia Circular Halo",
+          "dimensionsCm": "60 cm Diameter",
+          "finish": "Acrylic Ultra-Gloss",
+          "lighting": "Warm LED Backlit (12V Adapter)",
+          "price": 7399,
+          "mrp": 13999,
+          "sku": "AG-BALAJI-RD-4",
+          "inStock": true,
+          "stockCount": 10
+        }
+      ]
+    }
   },
   {
     "id": "prod-shiva-adiyogi-led",

@@ -460,12 +460,22 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
   const [selectedShape, setSelectedShape] = useState<ShapeOptionType>(initialShape);
 
   // Available sizes calibrated for the selected shape & product variants
+  // Available sizes calibrated for the selected shape & product variants
   const availableSizes = useMemo(() => {
     const defaultList = SHAPE_SIZES[selectedShape] || SHAPE_SIZES.portrait;
 
-    if (liveProduct.variants && liveProduct.variants.length > 0) {
+    // Check if product has custom variants configured specifically for this orientation
+    const shapeVariants = liveProduct.orientationVariants?.[selectedShape];
+    const sourceVariants =
+      shapeVariants && shapeVariants.length > 0
+        ? shapeVariants
+        : liveProduct.variants && liveProduct.variants.length > 0
+        ? liveProduct.variants
+        : null;
+
+    if (sourceVariants && sourceVariants.length > 0) {
       return defaultList.map((sizeObj, idx) => {
-        const v = liveProduct.variants[idx];
+        const v = sourceVariants[idx];
         if (!v || !v.price) return sizeObj;
         const vPrice = Number(v.price);
         const vMrp = Number(v.mrp) || Math.round(vPrice * 1.8);
@@ -485,7 +495,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
     }
 
     return defaultList;
-  }, [selectedShape, liveProduct.variants]);
+  }, [selectedShape, liveProduct.orientationVariants, liveProduct.variants]);
 
   // Selected frame & size state
   const [selectedFrame, setSelectedFrame] = useState<FrameType>('gold');
