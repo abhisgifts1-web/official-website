@@ -1,4 +1,13 @@
 import mongoose from 'mongoose';
+import dns from 'dns';
+
+// Ensure Google and Cloudflare DNS resolvers are used for resilient MongoDB SRV resolution
+try {
+  dns.setServers(['8.8.8.8', '8.8.4.4', '1.1.1.1']);
+} catch {
+  // Ignored in runtimes without setServers
+}
+
 
 const MONGODB_URI = process.env.MONGODB_URI;
 

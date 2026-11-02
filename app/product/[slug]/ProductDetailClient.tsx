@@ -431,6 +431,24 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
   const { addToCart, closeCart } = useCart();
   const { isInWishlist, toggleWishlist } = useWishlist();
 
+  // Live product synchronization with API to reflect instant admin changes
+  const [liveProduct, setLiveProduct] = useState<Product>(product);
+
+  useEffect(() => {
+    let isMounted = true;
+    fetch(`/api/products/${product.slug}`)
+      .then((res) => res.json())
+      .then((data) => {
+        if (isMounted && data.success && data.product) {
+          setLiveProduct(data.product);
+        }
+      })
+      .catch(() => {});
+    return () => {
+      isMounted = false;
+    };
+  }, [product.slug]);
+
   // Selected shape & layout state
   const initialShape: ShapeOptionType = useMemo(() => {
     if (product.shape === 'round' || product.orientation === 'round') return 'round';
@@ -444,33 +462,30 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
   // Available sizes calibrated for the selected shape & product variants
   const availableSizes = useMemo(() => {
     const defaultList = SHAPE_SIZES[selectedShape] || SHAPE_SIZES.portrait;
-    const isMatchingShape =
-      (selectedShape === 'portrait' && (product.orientation === 'vertical' || (product.orientation as string) === 'portrait' || product.shape === 'portrait')) ||
-      (selectedShape === 'landscape' && (product.orientation === 'horizontal' || (product.orientation as string) === 'landscape' || product.shape === 'landscape')) ||
-      (selectedShape === 'square' && (product.orientation === 'square' || product.shape === 'square')) ||
-      (selectedShape === 'round' && (product.orientation === 'round' || product.shape === 'round'));
 
-    if (isMatchingShape && product.variants && product.variants.length > 0) {
+    if (liveProduct.variants && liveProduct.variants.length > 0) {
       return defaultList.map((sizeObj, idx) => {
-        const v = product.variants[idx];
+        const v = liveProduct.variants[idx];
         if (!v || !v.price) return sizeObj;
+        const vPrice = Number(v.price);
+        const vMrp = Number(v.mrp) || Math.round(vPrice * 1.8);
         return {
           ...sizeObj,
           label: v.size.replace(' (Grand Wall Size)', '').replace(' (Grand Sanctum)', ''),
           dimensionsCm: v.dimensionsCm || sizeObj.dimensionsCm,
           prices: {
             ...sizeObj.prices,
-            without_3mm: { price: v.price, mrp: v.mrp || Math.round(v.price * 1.8) },
-            without_5mm: { price: v.price + 200, mrp: (v.mrp || Math.round(v.price * 1.8)) + 300 },
-            gold: { price: v.price + 500, mrp: (v.mrp || Math.round(v.price * 1.8)) + 800 },
-            black: { price: v.price + 500, mrp: (v.mrp || Math.round(v.price * 1.8)) + 800 },
+            gold: { price: vPrice, mrp: vMrp },
+            black: { price: vPrice, mrp: vMrp },
+            without_5mm: { price: Math.max(999, vPrice - 300), mrp: vMrp },
+            without_3mm: { price: Math.max(799, vPrice - 500), mrp: vMrp },
           },
         };
       });
     }
 
     return defaultList;
-  }, [selectedShape, product.orientation, product.shape, product.variants]);
+  }, [selectedShape, liveProduct.variants]);
 
   // Selected frame & size state
   const [selectedFrame, setSelectedFrame] = useState<FrameType>('gold');
@@ -583,7 +598,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
   // Active pricing calculation
   const currentPricing = useMemo(() => {
     if (!currentSizeObj) {
-      return { price: product.basePrice, mrp: product.baseMrp, isRange: true };
+      return { price: liveProduct.basePrice, mrp: liveProduct.baseMrp, isRange: true };
     }
 
     if (selectedFrame === 'gold') {
@@ -611,7 +626,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
       }
     }
 
-    return { price: product.basePrice, mrp: product.baseMrp, isRange: false };
+    return { price: liveProduct.basePrice, mrp: liveProduct.baseMrp, isRange: false };
   }, [currentSizeObj, selectedFrame, selectedThickness, product.basePrice, product.baseMrp]);
 
   // Hardware helper text

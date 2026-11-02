@@ -1,3 +1,5 @@
+import fs from 'fs';
+import path from 'path';
 import {
   Product,
   Category,
@@ -13,6 +15,31 @@ import { INITIAL_CATEGORIES } from '../data/categories';
 import { INITIAL_ORDERS } from '../data/mockOrders';
 import { INITIAL_COUPONS } from '../data/coupons';
 import { INITIAL_SETTINGS } from '../data/settings';
+
+const PERSISTENCE_FILE = path.join(process.cwd(), 'lib', 'data', 'persistedProducts.json');
+
+function loadPersistedProducts(): Product[] {
+  try {
+    if (fs.existsSync(PERSISTENCE_FILE)) {
+      const raw = fs.readFileSync(PERSISTENCE_FILE, 'utf8');
+      const parsed = JSON.parse(raw);
+      if (Array.isArray(parsed) && parsed.length > 0) {
+        return parsed;
+      }
+    }
+  } catch (err) {
+    console.warn('Error reading persistedProducts.json:', err);
+  }
+  return JSON.parse(JSON.stringify(INITIAL_PRODUCTS));
+}
+
+function savePersistedProducts(products: Product[]) {
+  try {
+    fs.writeFileSync(PERSISTENCE_FILE, JSON.stringify(products, null, 2), 'utf8');
+  } catch (err) {
+    console.warn('Error saving persistedProducts.json:', err);
+  }
+}
 
 // Global singleton cache in memory across fast refresh in dev
 interface GlobalDataStore {
@@ -206,20 +233,26 @@ export function createProduct(productData: Omit<Product, 'id' | 'createdAt'>): P
     createdAt: new Date().toISOString(),
   };
   store.products.unshift(newProduct);
+  savePersistedProducts(store.products);
   return newProduct;
 }
 
 export function updateProduct(id: string, updates: Partial<Product>): Product | null {
-  const index = store.products.findIndex((p) => p.id === id);
+  const index = store.products.findIndex((p) => p.id === id || p.slug === id || (updates.slug && p.slug === updates.slug));
   if (index === -1) return null;
   store.products[index] = { ...store.products[index], ...updates };
+  savePersistedProducts(store.products);
   return store.products[index];
 }
 
 export function deleteProduct(id: string): boolean {
   const initialLen = store.products.length;
-  store.products = store.products.filter((p) => p.id !== id);
-  return store.products.length < initialLen;
+  store.products = store.products.filter((p) => p.id !== id && p.slug !== id);
+  if (store.products.length < initialLen) {
+    savePersistedProducts(store.products);
+    return true;
+  }
+  return false;
 }
 
 export function addProductReview(productSlug: string, review: Omit<ProductReview, 'id' | 'createdAt'>): ProductReview | null {

@@ -7,6 +7,9 @@ import { getCategoryBySlug, getAllCategories, getAllProducts } from '@/lib/store
 import CategoryClientView from '@/components/category/CategoryClientView';
 import { getBreadcrumbSchema } from '@/lib/seo/schema';
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 interface CategoryPageProps {
   params: {
     slug: string;

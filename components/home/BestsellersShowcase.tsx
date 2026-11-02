@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import Link from 'next/link';
 import { Sparkles, ArrowRight, Flame, Layers, Award } from 'lucide-react';
 import { INITIAL_PRODUCTS } from '@/lib/data/mockProducts';
@@ -30,18 +30,36 @@ export default function BestsellersShowcase() {
       .filter((p): p is (typeof INITIAL_PRODUCTS)[0] => !!p);
   }, [bestsellerSlugs]);
 
+  const [bestsellerProducts, setBestsellerProducts] = useState(allBestsellers);
+
+  useEffect(() => {
+    fetch('/api/products?bestseller=true')
+      .then((r) => r.json())
+      .then((d) => {
+        if (d.success && d.products?.length) {
+          const mapped = bestsellerSlugs
+            .map((slug) => d.products.find((p: any) => p.slug === slug))
+            .filter(Boolean);
+          if (mapped.length > 0) {
+            setBestsellerProducts(mapped);
+          }
+        }
+      })
+      .catch(() => {});
+  }, [bestsellerSlugs]);
+
   const filteredProducts = useMemo(() => {
     switch (activeFilter) {
       case 'led':
-        return allBestsellers.filter((p) => p.hasLedBacklight);
+        return bestsellerProducts.filter((p) => p.hasLedBacklight);
       case 'deities':
-        return allBestsellers.filter((p) => p.deity || p.categorySlug.includes('devotional') || p.categorySlug.includes('lord'));
+        return bestsellerProducts.filter((p) => p.deity || p.categorySlug.includes('devotional') || p.categorySlug.includes('lord'));
       case 'vastu':
-        return allBestsellers.filter((p) => p.categorySlug.includes('abstract') || p.tags.includes('Vastu'));
+        return bestsellerProducts.filter((p) => p.categorySlug.includes('abstract') || p.tags.includes('Vastu'));
       default:
-        return allBestsellers;
+        return bestsellerProducts;
     }
-  }, [activeFilter, allBestsellers]);
+  }, [activeFilter, bestsellerProducts]);
 
   return (
     <section className="w-full max-w-[1760px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 py-6 sm:py-8 lg:py-10">

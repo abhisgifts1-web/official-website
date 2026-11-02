@@ -5,6 +5,9 @@ import { getProductBySlug, getAllProducts } from '@/lib/store';
 import ProductDetailClient from './ProductDetailClient';
 import { getBreadcrumbSchema } from '@/lib/seo/schema';
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 interface Props {
   params: {
     slug: string;

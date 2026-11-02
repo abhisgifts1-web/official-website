@@ -43,7 +43,7 @@ export async function PUT(
     try {
       const conn = await connectToDatabase();
       if (conn) {
-        await ProductModel.findOneAndUpdate({ slug: params.slug }, updates, { new: true });
+        await ProductModel.findOneAndUpdate({ slug: params.slug }, updates, { new: true, upsert: true });
       }
     } catch (dbErr) {
       console.warn('MongoDB update error (in-memory updated):', dbErr);

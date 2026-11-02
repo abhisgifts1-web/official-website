@@ -32,10 +32,22 @@ function ShopContent() {
   const [priceRange, setPriceRange] = useState<number>(10000);
   const [sortBy, setSortBy] = useState<string>(initialSort);
   const [mobileFilterOpen, setMobileFilterOpen] = useState(false);
+  const [liveProducts, setLiveProducts] = useState(INITIAL_PRODUCTS);
 
-  const totalArtworksCount = INITIAL_PRODUCTS.length;
-  const ledArtworksCount = INITIAL_PRODUCTS.filter((p) => p.hasLedBacklight).length;
-  const normalArtworksCount = INITIAL_PRODUCTS.filter((p) => !p.hasLedBacklight).length;
+  useEffect(() => {
+    fetch('/api/products')
+      .then((r) => r.json())
+      .then((d) => {
+        if (d.success && d.products?.length) {
+          setLiveProducts(d.products);
+        }
+      })
+      .catch(() => {});
+  }, []);
+
+  const totalArtworksCount = liveProducts.length;
+  const ledArtworksCount = liveProducts.filter((p) => p.hasLedBacklight).length;
+  const normalArtworksCount = liveProducts.filter((p) => !p.hasLedBacklight).length;
 
   const handleCategorySelect = (categorySlug: string) => {
     setSelectedCategory(categorySlug);
@@ -49,7 +61,7 @@ function ShopContent() {
   }, [initialSearch, initialCategory, initialShape]);
 
   const filteredProducts = useMemo(() => {
-    let list = [...INITIAL_PRODUCTS];
+    let list = [...liveProducts];
 
     if (search.trim()) {
       const q = search.trim().toLowerCase();
@@ -139,7 +151,7 @@ function ShopContent() {
     }
 
     return list;
-  }, [search, selectedCategory, selectedShape, selectedOrientation, selectedLighting, priceRange, sortBy]);
+  }, [liveProducts, search, selectedCategory, selectedShape, selectedOrientation, selectedLighting, priceRange, sortBy]);
 
   const resetFilters = () => {
     setSearch('');
