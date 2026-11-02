@@ -18,8 +18,22 @@ if (!global.mongooseCache) {
   global.mongooseCache = cached;
 }
 
+// Fallback direct hosts for cluster0.omzhahh.mongodb.net if local Windows DNS blocks SRV queries
+function getDirectFallbackUri(uri: string): string | null {
+  if (uri.includes('cluster0.omzhahh.mongodb.net')) {
+    const credsMatch = uri.match(/mongodb\+srv:\/\/([^:]+):([^@]+)@/);
+    if (credsMatch) {
+      const user = credsMatch[1];
+      const pass = credsMatch[2];
+      return `mongodb://${user}:${pass}@ac-n16qdkb-shard-00-00.omzhahh.mongodb.net:27017,ac-n16qdkb-shard-00-01.omzhahh.mongodb.net:27017,ac-n16qdkb-shard-00-02.omzhahh.mongodb.net:27017/abhi_gifts?ssl=true&replicaSet=atlas-vepnoc-shard-0&authSource=admin&retryWrites=true&w=majority`;
+    }
+  }
+  return null;
+}
+
 export async function connectToDatabase(): Promise<typeof mongoose | null> {
-  if (!MONGODB_URI) {
+  const uri = process.env.MONGODB_URI || MONGODB_URI;
+  if (!uri) {
     // MongoDB URI not set; fallback in-memory store will be used
     return null;
   }
@@ -31,14 +45,34 @@ export async function connectToDatabase(): Promise<typeof mongoose | null> {
   if (!cached.promise) {
     const opts = {
       bufferCommands: false,
+      serverSelectionTimeoutMS: 8000,
     };
 
-    cached.promise = mongoose.connect(MONGODB_URI, opts).then((mongooseInstance) => {
-      return mongooseInstance;
-    }).catch((err) => {
-      console.warn('MongoDB connection error, falling back to resilient local store:', err.message);
-      return null;
-    });
+    cached.promise = (async () => {
+      try {
+        const instance = await mongoose.connect(uri, opts);
+        console.log('MongoDB Atlas: Successfully connected to database');
+        return instance;
+      } catch (err: any) {
+        // If SRV DNS resolution is blocked by Windows/local ISP, retry with direct replicaSet URI
+        if (err.message && err.message.includes('querySrv')) {
+          const fallbackUri = getDirectFallbackUri(uri);
+          if (fallbackUri) {
+            console.log('MongoDB: Retrying with direct replicaSet connection...');
+            try {
+              const fallbackInstance = await mongoose.connect(fallbackUri, opts);
+              console.log('MongoDB Atlas: Connected via direct replicaSet connection');
+              return fallbackInstance;
+            } catch (fallbackErr: any) {
+              console.warn('MongoDB fallback connection error:', fallbackErr.message);
+            }
+          }
+        }
+        console.warn('MongoDB connection error, falling back to resilient local store:', err.message);
+        cached.promise = null;
+        return null;
+      }
+    })();
   }
 
   try {
