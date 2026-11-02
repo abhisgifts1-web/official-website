@@ -441,10 +441,36 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
 
   const [selectedShape, setSelectedShape] = useState<ShapeOptionType>(initialShape);
 
-  // Available sizes calibrated for the selected shape
+  // Available sizes calibrated for the selected shape & product variants
   const availableSizes = useMemo(() => {
-    return SHAPE_SIZES[selectedShape] || SHAPE_SIZES.portrait;
-  }, [selectedShape]);
+    const defaultList = SHAPE_SIZES[selectedShape] || SHAPE_SIZES.portrait;
+    const isMatchingShape =
+      (selectedShape === 'portrait' && (product.orientation === 'vertical' || (product.orientation as string) === 'portrait' || product.shape === 'portrait')) ||
+      (selectedShape === 'landscape' && (product.orientation === 'horizontal' || (product.orientation as string) === 'landscape' || product.shape === 'landscape')) ||
+      (selectedShape === 'square' && (product.orientation === 'square' || product.shape === 'square')) ||
+      (selectedShape === 'round' && (product.orientation === 'round' || product.shape === 'round'));
+
+    if (isMatchingShape && product.variants && product.variants.length > 0) {
+      return defaultList.map((sizeObj, idx) => {
+        const v = product.variants[idx];
+        if (!v || !v.price) return sizeObj;
+        return {
+          ...sizeObj,
+          label: v.size.replace(' (Grand Wall Size)', '').replace(' (Grand Sanctum)', ''),
+          dimensionsCm: v.dimensionsCm || sizeObj.dimensionsCm,
+          prices: {
+            ...sizeObj.prices,
+            without_3mm: { price: v.price, mrp: v.mrp || Math.round(v.price * 1.8) },
+            without_5mm: { price: v.price + 200, mrp: (v.mrp || Math.round(v.price * 1.8)) + 300 },
+            gold: { price: v.price + 500, mrp: (v.mrp || Math.round(v.price * 1.8)) + 800 },
+            black: { price: v.price + 500, mrp: (v.mrp || Math.round(v.price * 1.8)) + 800 },
+          },
+        };
+      });
+    }
+
+    return defaultList;
+  }, [selectedShape, product.orientation, product.shape, product.variants]);
 
   // Selected frame & size state
   const [selectedFrame, setSelectedFrame] = useState<FrameType>('gold');
