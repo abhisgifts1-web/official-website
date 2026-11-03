@@ -147,7 +147,7 @@ export default function GuidesIndexPage() {
       </div>
 
       {/* Local Consultation Callout */}
-      <div className="bg-[#511B2A] text-white rounded-3xl p-6 sm:p-10 border border-[#EAB308] flex flex-col md:flex-row items-center justify-between gap-6">
+      <div className="bg-[#181818] text-white rounded-3xl p-6 sm:p-10 border border-[#EAB308] flex flex-col md:flex-row items-center justify-between gap-6">
         <div className="space-y-2 text-center md:text-left">
           <span className="text-xs font-bold uppercase tracking-widest text-[#FACC15] flex items-center justify-center md:justify-start gap-1.5">
             <MapPin className="w-3.5 h-3.5" />

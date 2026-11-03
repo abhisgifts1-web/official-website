@@ -410,7 +410,7 @@ export default function HeroShowcase() {
                 onClick={() => setIsLedGlowOn(!isLedGlowOn)}
                 className={`px-3.5 py-1.5 rounded-full text-xs font-bold shadow-md border transition-all duration-300 flex items-center gap-1.5 cursor-pointer shrink-0 active:scale-95 ${
                   isLedGlowOn
-                    ? 'bg-[#511B2A] text-[#FFFFFF] border-[#EAB308] shadow-[0_0_20px_rgba(214,170,85,0.55)]'
+                    ? 'bg-[#EAB308] text-[#000000] border-[#EAB308] shadow-[0_0_20px_rgba(234,179,8,0.55)]'
                     : 'bg-[#181818]/95 text-[#D1D5DB] border-[#2D2D2D] hover:text-[#FFFFFF]'
                 }`}
                 title="Toggle 3000K Warm LED Backlight Simulation"
@@ -437,7 +437,7 @@ export default function HeroShowcase() {
               onMouseMove={handleMouseMove}
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
-              className={`relative w-full max-w-[760px] rounded-3xl overflow-hidden bg-gradient-to-b from-[#1E0911] via-[#2D0F1A] to-[#120409] border-2 border-[#EAB308]/80 transition-all duration-700 flex flex-col items-center justify-between p-4 sm:p-7 shadow-[0_30px_70px_rgba(30,9,17,0.55)] group select-none ${
+              className={`relative w-full max-w-[760px] rounded-3xl overflow-hidden bg-gradient-to-b from-[#0A0A0A] via-[#141414] to-[#0A0A0A] border-2 border-[#EAB308]/80 transition-all duration-700 flex flex-col items-center justify-between p-4 sm:p-7 shadow-[0_30px_70px_rgba(0,0,0,0.85)] group select-none ${
                 isLedGlowOn ? 'ring-4 ring-[#EAB308]/40 shadow-[0_0_50px_rgba(214,170,85,0.3)]' : ''
               }`}
             >
@@ -473,7 +473,7 @@ export default function HeroShowcase() {
                   <Sparkles className="w-3.5 h-3.5 text-[#FACC15]" />
                   <span>{currentDeity.dimension} • 4mm Cast Crystal Acrylic</span>
                 </div>
-                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gradient-to-r from-[#121212] to-[#641D30] border border-[#EAB308]/80 text-[#FFFFFF] text-xs font-bold shadow-xs">
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gradient-to-r from-[#181818] to-[#222222] border border-[#EAB308]/80 text-[#FFFFFF] text-xs font-bold shadow-xs">
                   <span className="text-[#FACC15]">{currentDeity.price}</span>
                   <span className="line-through text-white/50 text-[10px]">{currentDeity.originalPrice}</span>
                 </div>
@@ -536,7 +536,7 @@ export default function HeroShowcase() {
                       <div className="absolute bottom-3 right-3 z-20 opacity-0 group-hover/pane:opacity-100 transition-all duration-300 translate-y-2 group-hover/pane:translate-y-0">
                         <Link
                           href={`/product/${currentDeity.slug}`}
-                          className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#511B2A]/95 hover:bg-[#681E32] text-[#FFFFFF] text-xs font-bold shadow-xl border border-[#EAB308] hover:scale-105 transition-all backdrop-blur-md"
+                          className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#EAB308] hover:bg-[#FACC15] text-[#000000] text-xs font-bold shadow-xl border border-[#EAB308] hover:scale-105 transition-all backdrop-blur-md"
                         >
                           <Eye className="w-3.5 h-3.5 text-[#FACC15]" />
                           <span>View Sizes &amp; Pricing →</span>
@@ -551,7 +551,7 @@ export default function HeroShowcase() {
               {/* =========================================================
                   CONSECRATED GOLDEN INSCRIPTION PEDESTAL (NON-WRAPPING & BALANCED)
                   ========================================================= */}
-              <div className="w-full mt-3.5 p-2.5 sm:p-3 rounded-2xl bg-gradient-to-r from-[#2B0E18] via-[#3F1424] to-[#2B0E18] border border-[#EAB308]/70 shadow-lg text-center space-y-1 z-30">
+              <div className="w-full mt-3.5 p-2.5 sm:p-3 rounded-2xl bg-gradient-to-r from-[#141414] via-[#1E1E1E] to-[#141414] border border-[#EAB308]/70 shadow-lg text-center space-y-1 z-30">
                 <div className="flex items-center justify-center gap-2">
                   <span className="text-amber-400 text-xs sm:text-sm">🪔</span>
                   <h3 className="font-serif font-bold text-xs sm:text-sm md:text-[15px] text-[#F0D79B] tracking-wider animate-gold-text-shimmer leading-normal">

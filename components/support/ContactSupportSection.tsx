@@ -108,7 +108,7 @@ export default function ContactSupportSection() {
           <div className="mt-5 pt-4 border-t border-[#2D2D2D]/60">
             <a
               href={`tel:${INITIAL_SETTINGS.supportPhone.replace(/\s+/g, '')}`}
-              className="inline-flex items-center justify-center gap-1.5 w-full bg-[#511B2A] hover:bg-[#181818] text-[#FFFFFF] text-xs font-bold py-2.5 rounded-full transition-colors"
+              className="inline-flex items-center justify-center gap-1.5 w-full bg-[#EAB308] hover:bg-[#FACC15] text-[#000000] text-xs font-bold py-2.5 rounded-full transition-colors"
             >
               <Phone className="w-3.5 h-3.5 text-[#EAB308]" />
               <span>{INITIAL_SETTINGS.supportPhone}</span>
@@ -152,7 +152,7 @@ export default function ContactSupportSection() {
           <div className="mt-5 pt-4 border-t border-[#2D2D2D]/60">
             <Link
               href="/track-order"
-              className="inline-flex items-center justify-center gap-1.5 w-full bg-[#121212] hover:bg-[#511B2A] text-[#FFFFFF] hover:text-[#FFFFFF] border border-[#EAB308] text-xs font-bold py-2.5 rounded-full transition-colors"
+              className="inline-flex items-center justify-center gap-1.5 w-full bg-[#121212] hover:bg-[#1E1E1E] text-[#FFFFFF] hover:text-[#FFFFFF] border border-[#EAB308] text-xs font-bold py-2.5 rounded-full transition-colors"
             >
               <Truck className="w-3.5 h-3.5 text-[#EAB308]" />
               <span>Track Your Order →</span>

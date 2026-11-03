@@ -199,15 +199,15 @@ export default function AboutPage() {
       {/* =========================================================================
           1. SHORT BUSINESS INTRODUCTION & HERO BANNER
           ========================================================================= */}
-      <section className="relative w-full pt-12 sm:pt-16 pb-14 sm:pb-20 px-4 sm:px-6 lg:px-12 xl:px-16 overflow-hidden bg-gradient-to-b from-[#FFFDF9] via-[#FFF7ED] to-[#FCE7EA] border-b border-[#2D2D2D]">
+      <section className="relative w-full pt-12 sm:pt-16 pb-14 sm:pb-20 px-4 sm:px-6 lg:px-12 xl:px-16 overflow-hidden bg-gradient-to-b from-[#121212] via-[#161616] to-[#121212] border-b border-[#2D2D2D]">
         {/* Soft Background Accents */}
         <div className="absolute top-10 right-10 w-96 h-96 bg-[#FACC15]/15 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-10 left-10 w-96 h-96 bg-[#8B3A4C]/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-10 left-10 w-96 h-96 bg-[#EAB308]/10 rounded-full blur-3xl pointer-events-none" />
 
         <div className="max-w-5xl mx-auto text-center space-y-6 relative z-10">
           
           {/* Official Brand Logo */}
-          <div className="inline-flex items-center justify-center px-6 py-3 rounded-2xl bg-gradient-to-r from-[#2F0B18] via-[#481223] to-[#2F0B18] border border-[#EAB308]/60 shadow-xl mx-auto mb-2">
+          <div className="inline-flex items-center justify-center px-6 py-3 rounded-2xl bg-gradient-to-r from-[#181818] via-[#222222] to-[#181818] border border-[#EAB308]/60 shadow-xl mx-auto mb-2">
             <Image
               src="/images/brand/logo-gold.png"
               alt="Abhi's Gifts - We Create Memorable Movements"
@@ -219,7 +219,7 @@ export default function AboutPage() {
           </div>
 
           {/* Overline Badge */}
-          <div className="inline-flex items-center gap-2 bg-[#511B2A] border border-[#EAB308] px-4 py-1.5 rounded-full text-xs font-bold text-[#FACC15] shadow-sm">
+          <div className="inline-flex items-center gap-2 bg-[#181818] border border-[#EAB308] px-4 py-1.5 rounded-full text-xs font-bold text-[#FACC15] shadow-sm">
             <Sparkles className="w-3.5 h-3.5 text-[#FACC15] animate-pulse" />
             <span className="uppercase tracking-[0.2em] text-[11px] sm:text-xs">
               ESTABLISHED 2022 • DILSUKHNAGAR, HYDERABAD
@@ -237,7 +237,7 @@ export default function AboutPage() {
           </div>
 
           {/* Short Business Introduction Card */}
-          <div className="p-6 sm:p-8 rounded-3xl bg-white/90 backdrop-blur-md border border-[#2D2D2D] shadow-xl max-w-3xl mx-auto space-y-4 text-left">
+          <div className="p-6 sm:p-8 rounded-3xl bg-[#181818]/90 backdrop-blur-md border border-[#2D2D2D] shadow-xl max-w-3xl mx-auto space-y-4 text-left">
             <div className="flex items-center gap-2 text-xs font-mono font-bold text-[#EAB308] uppercase tracking-wider">
               <Building2 className="w-4 h-4 text-[#EAB308]" />
               <span>1. Short Business Introduction</span>
@@ -274,7 +274,7 @@ export default function AboutPage() {
           <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
             <Link
               href="/shop"
-              className="inline-flex items-center gap-2 bg-[#511B2A] hover:bg-[#681E32] text-[#FFFFFF] font-bold text-xs sm:text-sm px-7 py-3.5 rounded-full border border-[#EAB308] shadow-lg uppercase tracking-wider transition-all hover:scale-105 active:scale-95"
+              className="inline-flex items-center gap-2 bg-[#EAB308] hover:bg-[#FACC15] text-[#000000] font-bold text-xs sm:text-sm px-7 py-3.5 rounded-full border border-[#EAB308] shadow-lg uppercase tracking-wider transition-all hover:scale-105 active:scale-95"
             >
               <span>EXPLORE ALL COLLECTIONS</span>
               <ArrowRight className="w-4 h-4 text-[#FACC15]" />
@@ -324,10 +324,10 @@ export default function AboutPage() {
               return (
                 <div
                   key={i}
-                  className="group p-5 rounded-2xl bg-white border border-[#2D2D2D] hover:border-[#EAB308] shadow-xs hover:shadow-lg transition-all duration-300 hover:-translate-y-1 space-y-3"
+                  className="group p-5 rounded-2xl bg-[#181818] border border-[#2D2D2D] hover:border-[#EAB308] shadow-xs hover:shadow-lg transition-all duration-300 hover:-translate-y-1 space-y-3"
                 >
                   <div className="flex items-center justify-between">
-                    <div className="w-10 h-10 rounded-xl bg-[#511B2A] text-[#FACC15] flex items-center justify-center border border-[#EAB308]/50 group-hover:scale-110 transition-transform">
+                    <div className="w-10 h-10 rounded-xl bg-[#1E1E1E] text-[#FACC15] flex items-center justify-center border border-[#EAB308]/50 group-hover:scale-110 transition-transform">
                       <Icon className="w-5 h-5" />
                     </div>
                     <span className="font-mono text-xs font-bold text-[#EAB308] bg-[#121212] px-2 py-0.5 rounded-full border border-[#2D2D2D]">
@@ -360,10 +360,10 @@ export default function AboutPage() {
       {/* =========================================================================
           3. OUR MISSION AND VISION (Side-by-Side Dual Pillar Cards)
           ========================================================================= */}
-      <section className="relative w-full py-16 sm:py-20 px-4 sm:px-6 lg:px-12 xl:px-16 bg-[#511B2A] text-[#FFFFFF] overflow-hidden">
+      <section className="relative w-full py-16 sm:py-20 px-4 sm:px-6 lg:px-12 xl:px-16 bg-[#121212] text-[#FFFFFF] overflow-hidden">
         {/* Ambient Glows */}
         <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#EAB308]/15 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-[#8B3A4C]/30 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-[#EAB308]/15 rounded-full blur-3xl pointer-events-none" />
 
         <div className="max-w-6xl mx-auto space-y-12 relative z-10">
           <div className="text-center max-w-2xl mx-auto space-y-2">
@@ -380,7 +380,7 @@ export default function AboutPage() {
             {/* Mission Card */}
             <div className="relative p-8 sm:p-10 rounded-3xl bg-[#181818] border-2 border-[#EAB308]/60 shadow-2xl flex flex-col justify-between space-y-6 group hover:border-[#FACC15] transition-all">
               <div className="space-y-4">
-                <div className="w-14 h-14 rounded-2xl bg-[#511B2A] text-[#FACC15] flex items-center justify-center border border-[#EAB308] shadow-lg">
+                <div className="w-14 h-14 rounded-2xl bg-[#1E1E1E] text-[#FACC15] flex items-center justify-center border border-[#EAB308] shadow-lg">
                   <Compass className="w-7 h-7" />
                 </div>
                 <div className="space-y-1">
@@ -391,7 +391,7 @@ export default function AboutPage() {
                     Our Mission
                   </h3>
                 </div>
-                <p className="text-sm sm:text-base text-[#FCE7EA] leading-relaxed">
+                <p className="text-sm sm:text-base text-[#D1D5DB] leading-relaxed">
                   Our mission is to transform customers&apos; precious photographs into beautiful personalized frames and meaningful gifts through quality products, creative designs and reliable service.
                 </p>
                 <div className="p-4 rounded-2xl bg-black/30 border border-white/10 text-xs sm:text-sm font-serif italic text-[#FACC15]">
@@ -403,7 +403,7 @@ export default function AboutPage() {
             {/* Vision Card */}
             <div className="relative p-8 sm:p-10 rounded-3xl bg-[#181818] border-2 border-[#EAB308]/60 shadow-2xl flex flex-col justify-between space-y-6 group hover:border-[#FACC15] transition-all">
               <div className="space-y-4">
-                <div className="w-14 h-14 rounded-2xl bg-[#511B2A] text-[#FACC15] flex items-center justify-center border border-[#EAB308] shadow-lg">
+                <div className="w-14 h-14 rounded-2xl bg-[#1E1E1E] text-[#FACC15] flex items-center justify-center border border-[#EAB308] shadow-lg">
                   <Eye className="w-7 h-7" />
                 </div>
                 <div className="space-y-1">
@@ -414,7 +414,7 @@ export default function AboutPage() {
                     Our Vision
                   </h3>
                 </div>
-                <p className="text-sm sm:text-base text-[#FCE7EA] leading-relaxed">
+                <p className="text-sm sm:text-base text-[#D1D5DB] leading-relaxed">
                   Our vision is to become a trusted and recognized personalized photo frame and gifting brand in Hyderabad and expand our presence across India.
                 </p>
                 <div className="p-4 rounded-2xl bg-black/30 border border-white/10 text-xs sm:text-sm font-serif italic text-[#FACC15]">
@@ -466,7 +466,7 @@ export default function AboutPage() {
           })}
 
           {/* 8th Closing Quote Card */}
-          <div className="p-6 rounded-2xl bg-gradient-to-br from-[#121212] to-[#3D1420] text-[#FFFFFF] border border-[#EAB308] shadow-md flex flex-col justify-center space-y-2">
+          <div className="p-6 rounded-2xl bg-gradient-to-br from-[#121212] to-[#1E1E1E] text-[#FFFFFF] border border-[#EAB308] shadow-md flex flex-col justify-center space-y-2">
             <span className="text-[11px] font-mono text-[#FACC15] uppercase tracking-wider font-bold">
               OUR PROMISE
             </span>
@@ -500,7 +500,7 @@ export default function AboutPage() {
                 key={i}
                 className="flex items-start gap-3.5 p-4 sm:p-5 rounded-2xl bg-[#121212] border border-[#2D2D2D] hover:border-[#EAB308] transition-all"
               >
-                <div className="w-6 h-6 rounded-full bg-[#511B2A] text-[#FACC15] flex items-center justify-center shrink-0 mt-0.5">
+                <div className="w-6 h-6 rounded-full bg-[#1E1E1E] text-[#FACC15] flex items-center justify-center shrink-0 mt-0.5">
                   <Check className="w-3.5 h-3.5" />
                 </div>
                 <span className="text-xs sm:text-sm text-[#D1D5DB] font-medium leading-relaxed">
@@ -511,7 +511,7 @@ export default function AboutPage() {
           </div>
 
           <div className="text-center pt-2">
-            <div className="inline-block bg-[#1E1E1E] border border-[#8B3A4C]/30 px-6 py-3 rounded-full text-sm font-serif italic text-[#FFFFFF] font-bold shadow-xs">
+            <div className="inline-block bg-[#1E1E1E] border border-[#EAB308]/30 px-6 py-3 rounded-full text-sm font-serif italic text-[#FFFFFF] font-bold shadow-xs">
               ✦ Every frame is created to make your memories look special.
             </div>
           </div>
@@ -531,7 +531,7 @@ export default function AboutPage() {
           </h2>
         </div>
 
-        <div className="p-8 sm:p-12 rounded-3xl bg-white border border-[#2D2D2D] shadow-xl space-y-6 text-[#D1D5DB] text-sm sm:text-base leading-relaxed">
+        <div className="p-8 sm:p-12 rounded-3xl bg-[#181818] border border-[#2D2D2D] shadow-xl space-y-6 text-[#D1D5DB] text-sm sm:text-base leading-relaxed">
           <p className="text-base sm:text-lg font-serif italic text-[#FFFFFF] font-semibold">
             Abhi&apos;s Gifts started in 2022 with a simple idea: to turn ordinary photographs into extraordinary memories.
           </p>
@@ -548,7 +548,7 @@ export default function AboutPage() {
             Today, Abhi&apos;s Gifts continues to focus on creativity, product quality and customer satisfaction.
           </p>
 
-          <div className="p-6 rounded-2xl bg-gradient-to-r from-[#121212] to-[#681E32] text-[#FFFFFF] text-center border border-[#EAB308] shadow-lg space-y-1">
+          <div className="p-6 rounded-2xl bg-gradient-to-r from-[#121212] to-[#1E1E1E] text-[#FFFFFF] text-center border border-[#EAB308] shadow-lg space-y-1">
             <span className="text-xs font-mono text-[#FACC15] uppercase tracking-widest font-bold">
               OUR GUIDING BELIEF
             </span>
@@ -562,7 +562,7 @@ export default function AboutPage() {
       {/* =========================================================================
           7. OUR EXPERIENCE IN THIS INDUSTRY
           ========================================================================= */}
-      <section className="relative w-full py-16 sm:py-24 px-4 sm:px-6 lg:px-12 xl:px-16 bg-gradient-to-b from-[#FFF7ED] to-[#FFFDF9] border-t border-b border-[#2D2D2D]">
+      <section className="relative w-full py-16 sm:py-24 px-4 sm:px-6 lg:px-12 xl:px-16 bg-gradient-to-b from-[#121212] to-[#141414] border-t border-b border-[#2D2D2D]">
         <div className="max-w-6xl mx-auto space-y-12">
           <div className="text-center max-w-3xl mx-auto space-y-3">
             <span className="text-xs font-mono font-bold uppercase tracking-[0.25em] text-[#EAB308] block">
@@ -583,7 +583,7 @@ export default function AboutPage() {
                 className="p-6 rounded-2xl bg-white border border-[#2D2D2D] hover:border-[#EAB308] shadow-sm hover:shadow-lg transition-all space-y-2.5"
               >
                 <div className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-[#A06E28]" />
+                  <span className="w-2 h-2 rounded-full bg-[#EAB308]" />
                   <h3 className="font-serif font-bold text-base text-[#FFFFFF]">
                     {exp.title}
                   </h3>
@@ -605,7 +605,7 @@ export default function AboutPage() {
           8. OFFICIAL BUSINESS DETAILS & CONTACT HUB
           ========================================================================= */}
       <section className="relative w-full py-16 sm:py-24 px-4 sm:px-6 lg:px-12 xl:px-16 max-w-5xl mx-auto">
-        <div className="p-8 sm:p-12 rounded-3xl bg-gradient-to-br from-[#121212] via-[#3D1420] to-[#250A11] text-[#FFFFFF] border-2 border-[#EAB308] shadow-2xl space-y-8 relative overflow-hidden">
+        <div className="p-8 sm:p-12 rounded-3xl bg-gradient-to-br from-[#121212] via-[#181818] to-[#141414] text-[#FFFFFF] border-2 border-[#EAB308] shadow-2xl space-y-8 relative overflow-hidden">
           {/* Subtle Ambient Glow */}
           <div className="absolute top-0 right-0 w-80 h-80 bg-[#EAB308]/15 rounded-full blur-3xl pointer-events-none" />
 
@@ -632,7 +632,7 @@ export default function AboutPage() {
                 <span className="text-[11px] font-mono text-[#FACC15] uppercase block font-bold">
                   Location
                 </span>
-                <p className="text-[#FCE7EA] mt-0.5">
+                <p className="text-[#D1D5DB] mt-0.5">
                   Dilsukhnagar, Hyderabad, Telangana – 500036.
                 </p>
               </div>
@@ -649,7 +649,7 @@ export default function AboutPage() {
                   href="https://wa.me/919032372782"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[#FCE7EA] hover:text-[#FACC15] transition-colors mt-0.5 block font-semibold"
+                  className="text-[#D1D5DB] hover:text-[#FACC15] transition-colors mt-0.5 block font-semibold"
                 >
                   +91 9032372782
                 </a>
@@ -665,7 +665,7 @@ export default function AboutPage() {
                 </span>
                 <a
                   href="mailto:abhisgifts@gmail.com"
-                  className="text-[#FCE7EA] hover:text-[#FACC15] transition-colors mt-0.5 block font-semibold"
+                  className="text-[#D1D5DB] hover:text-[#FACC15] transition-colors mt-0.5 block font-semibold"
                 >
                   abhisgifts@gmail.com
                 </a>
@@ -683,7 +683,7 @@ export default function AboutPage() {
                   href="https://instagram.com/abhis_gifts_"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[#FCE7EA] hover:text-[#FACC15] transition-colors mt-0.5 block font-semibold"
+                  className="text-[#D1D5DB] hover:text-[#FACC15] transition-colors mt-0.5 block font-semibold"
                 >
                   @abhis_gifts_
                 </a>
@@ -700,7 +700,7 @@ export default function AboutPage() {
             <div className="flex flex-wrap items-center gap-3">
               <Link
                 href="/shop"
-                className="inline-flex items-center gap-2 bg-[#EAB308] hover:bg-[#FACC15] text-[#FFFFFF] font-bold text-xs uppercase tracking-wider px-6 py-3 rounded-full shadow-md transition-all hover:scale-105 active:scale-95"
+                className="inline-flex items-center gap-2 bg-[#EAB308] hover:bg-[#FACC15] text-[#000000] font-bold text-xs uppercase tracking-wider px-6 py-3 rounded-full shadow-md transition-all hover:scale-105 active:scale-95"
               >
                 <span>Shop Frames</span>
                 <ArrowRight className="w-4 h-4" />

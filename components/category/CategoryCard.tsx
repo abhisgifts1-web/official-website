@@ -74,7 +74,7 @@ export default function CategoryCard({ category, priority = false }: CategoryCar
 
           {/* Real Design Count badge */}
           {category.itemCount && category.itemCount > 0 ? (
-            <span className="text-[10px] font-bold bg-[#641E2E]/90 backdrop-blur-md text-[#FFFFFF] px-2.5 py-1 rounded-full border border-[#EAB308]/40 shadow-md flex items-center gap-1">
+            <span className="text-[10px] font-bold bg-[#181818]/90 backdrop-blur-md text-[#FFFFFF] px-2.5 py-1 rounded-full border border-[#EAB308]/40 shadow-md flex items-center gap-1">
               <Sparkles className="w-2.5 h-2.5 text-[#EAB308]" />
               <span>{category.itemCount} {category.itemCount === 1 ? 'Design' : 'Designs'}</span>
             </span>
@@ -100,7 +100,7 @@ export default function CategoryCard({ category, priority = false }: CategoryCar
         </div>
 
         {/* Attractive Interactive CTA Button */}
-        <div className="mt-3.5 w-full py-2.5 px-3.5 rounded-xl bg-[#641E2E] group-hover:bg-[#121212] text-[#FFFFFF] group-hover:text-[#EAB308] text-xs font-bold flex items-center justify-center gap-2 transition-all duration-300 shadow-xs group-hover:shadow-md border border-[#EAB308]/40">
+        <div className="mt-3.5 w-full py-2.5 px-3.5 rounded-xl bg-[#181818] group-hover:bg-[#EAB308] text-[#FFFFFF] group-hover:text-[#000000] text-xs font-bold flex items-center justify-center gap-2 transition-all duration-300 shadow-xs group-hover:shadow-md border border-[#EAB308]/40">
           <span>{buttonLabel}</span>
           <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform text-[#EAB308]" />
         </div>

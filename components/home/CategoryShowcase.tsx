@@ -190,7 +190,7 @@ export default function CategoryShowcase() {
               />
 
               {/* Multi-Stop Cinematic Gradient Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#250912]/95 via-[#3D1420]/50 to-transparent transition-opacity duration-300" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A]/95 via-[#121212]/60 to-transparent transition-opacity duration-300" />
 
               {/* Subtle Golden Sheen on Hover */}
               <div className="absolute inset-0 bg-[#EAB308]/0 group-hover:bg-[#EAB308]/10 transition-colors duration-500 pointer-events-none" />
@@ -198,7 +198,7 @@ export default function CategoryShowcase() {
               {/* Top Badge */}
               <div className="absolute top-4 left-4 z-20 flex items-center gap-2">
                 {cat.badge && (
-                  <span className="bg-[#511B2A]/90 text-[#FFFFFF] text-[11px] font-bold px-3 py-1 rounded-full border border-[#EAB308]/60 shadow-md backdrop-blur-xs flex items-center gap-1.5">
+                  <span className="bg-[#181818]/90 text-[#FFFFFF] text-[11px] font-bold px-3 py-1 rounded-full border border-[#EAB308]/60 shadow-md backdrop-blur-xs flex items-center gap-1.5">
                     {cat.hasLedBadge ? (
                       <Flame className="w-3.5 h-3.5 text-[#EAB308] animate-pulse" />
                     ) : (

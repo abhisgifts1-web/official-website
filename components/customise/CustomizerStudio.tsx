@@ -735,7 +735,7 @@ export default function CustomizerStudio() {
           ========================================================= */}
       <section className="relative overflow-hidden bg-gradient-to-b from-[#121212] via-[#161616] to-[#121212] border-b border-[#2D2D2D]/70 py-12 sm:py-16 lg:py-20">
         <div className="absolute -top-32 -right-32 w-96 h-96 bg-amber-200/20 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute -bottom-32 -left-32 w-96 h-96 bg-[#641E2E]/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute -bottom-32 -left-32 w-96 h-96 bg-[#EAB308]/10 rounded-full blur-3xl pointer-events-none" />
 
         <div className="w-full max-w-[1720px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-14">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-14">
@@ -763,7 +763,7 @@ export default function CustomizerStudio() {
                 <button
                   type="button"
                   onClick={() => studioSectionRef.current?.scrollIntoView({ behavior: 'smooth' })}
-                  className="inline-flex items-center gap-2 bg-[#511B2A] hover:bg-[#641E2E] text-[#FFFFFF] font-bold text-xs sm:text-sm px-7 py-3.5 rounded-full shadow-md hover:shadow-lg transition-all duration-300 group uppercase tracking-wider cursor-pointer"
+                  className="inline-flex items-center gap-2 bg-[#EAB308] hover:bg-[#FACC15] text-[#000000] font-bold text-xs sm:text-sm px-7 py-3.5 rounded-full shadow-md hover:shadow-lg transition-all duration-300 group uppercase tracking-wider cursor-pointer"
                 >
                   <span>Start Customizing</span>
                   <ArrowRight className="w-4 h-4 text-[#FACC15] group-hover:translate-x-1 transition-transform" />
@@ -1165,7 +1165,7 @@ export default function CustomizerStudio() {
                 )}
                 <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
                 <div className="flex items-center gap-3">
-                  <div className="w-11 h-11 rounded-xl bg-[#511B2A] text-[#FFFFFF] flex items-center justify-center shrink-0 shadow-xs">
+                  <div className="w-11 h-11 rounded-xl bg-[#181818] text-[#EAB308] border border-[#EAB308]/40 flex items-center justify-center shrink-0 shadow-xs">
                     <Upload className="w-5 h-5 text-[#FACC15]" />
                   </div>
                   <div>
@@ -1190,7 +1190,7 @@ export default function CustomizerStudio() {
                   <button
                     type="button"
                     onClick={() => fileInputRef.current?.click()}
-                    className="flex-1 sm:flex-none bg-[#511B2A] hover:bg-[#641E2E] text-[#FFFFFF] border border-[#EAB308]/50 px-5 py-2.5 rounded-xl text-xs font-bold shadow-xs transition-colors whitespace-nowrap cursor-pointer uppercase tracking-wider"
+                    className="flex-1 sm:flex-none bg-[#EAB308] hover:bg-[#FACC15] text-[#000000] border border-[#EAB308] px-5 py-2.5 rounded-xl text-xs font-bold shadow-xs transition-colors whitespace-nowrap cursor-pointer uppercase tracking-wider"
                   >
                     {isUserUploaded ? 'Change Photo' : 'Choose Photo File'}
                   </button>
@@ -1517,7 +1517,7 @@ export default function CustomizerStudio() {
                 <button
                   type="button"
                   onClick={handleOrderNow}
-                  className="w-full bg-[#511B2A] hover:bg-[#641E2E] text-[#FFFFFF] border border-[#EAB308]/50 py-3.5 rounded-xl font-bold text-sm shadow-md transition-all cursor-pointer flex items-center justify-center gap-2 uppercase tracking-wider"
+                  className="w-full bg-[#EAB308] hover:bg-[#FACC15] text-[#000000] border border-[#EAB308] py-3.5 rounded-xl font-bold text-sm shadow-md transition-all cursor-pointer flex items-center justify-center gap-2 uppercase tracking-wider"
                 >
                   <span>Order Now • ₹{pricing.price.toLocaleString('en-IN')}</span>
                   <ArrowRight className="w-4 h-4 text-[#FACC15]" />
@@ -1568,7 +1568,7 @@ export default function CustomizerStudio() {
                     alt={prod.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute top-3 left-3 bg-[#511B2A]/90 text-[#FFFFFF] text-[10px] font-bold px-2.5 py-0.5 rounded-full shadow-md border border-[#EAB308]/50 backdrop-blur-xs">
+                  <div className="absolute top-3 left-3 bg-[#181818]/90 text-[#FFFFFF] text-[10px] font-bold px-2.5 py-0.5 rounded-full shadow-md border border-[#EAB308]/50 backdrop-blur-xs">
                     {prod.badge}
                   </div>
                   <div className="absolute bottom-3 right-3 bg-[#181818]/95 text-[#FFFFFF] text-xs font-bold px-2.5 py-1 rounded-full shadow-md border border-[#2D2D2D]">
@@ -1594,7 +1594,7 @@ export default function CustomizerStudio() {
                 <button
                   type="button"
                   onClick={() => handleApplyPreset(prod.preset, prod.title)}
-                  className="w-full bg-[#181818] hover:bg-[#511B2A] text-[#FFFFFF] hover:text-[#FFFFFF] border border-[#EAB308] font-bold text-xs py-2.5 rounded-xl transition-all flex items-center justify-center gap-2 cursor-pointer uppercase tracking-wider group-hover:shadow-sm"
+                  className="w-full bg-[#181818] hover:bg-[#222222] text-[#FFFFFF] hover:text-[#FFFFFF] border border-[#EAB308] font-bold text-xs py-2.5 rounded-xl transition-all flex items-center justify-center gap-2 cursor-pointer uppercase tracking-wider group-hover:shadow-sm"
                 >
                   <span>Customize This Style</span>
                   <ArrowRight className="w-3.5 h-3.5 text-[#EAB308] group-hover:text-[#FACC15]" />
@@ -1626,7 +1626,7 @@ export default function CustomizerStudio() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {/* Step 1 */}
             <div className="bg-[#181818] p-6 rounded-3xl border border-[#2D2D2D] shadow-xs hover:border-[#EAB308] transition-all space-y-3">
-              <div className="w-10 h-10 rounded-2xl bg-[#511B2A] text-[#FFFFFF] font-serif font-bold text-base flex items-center justify-center shadow-xs">
+              <div className="w-10 h-10 rounded-2xl bg-[#181818] text-[#EAB308] border border-[#EAB308]/40 font-serif font-bold text-base flex items-center justify-center shadow-xs">
                 01
               </div>
               <h3 className="font-serif font-bold text-base text-[#FFFFFF]">
@@ -1660,7 +1660,7 @@ export default function CustomizerStudio() {
 
             {/* Step 3 */}
             <div className="bg-[#181818] p-6 rounded-3xl border border-[#2D2D2D] shadow-xs hover:border-[#EAB308] transition-all space-y-3">
-              <div className="w-10 h-10 rounded-2xl bg-[#641E2E] text-[#FFFFFF] font-serif font-bold text-base flex items-center justify-center shadow-xs">
+              <div className="w-10 h-10 rounded-2xl bg-[#181818] text-[#EAB308] border border-[#EAB308]/40 font-serif font-bold text-base flex items-center justify-center shadow-xs">
                 03
               </div>
               <h3 className="font-serif font-bold text-base text-[#FFFFFF]">
@@ -1719,7 +1719,7 @@ export default function CustomizerStudio() {
               rel="noopener noreferrer"
               className="bg-[#EAB308] hover:bg-[#FACC15] text-[#FFFFFF] font-bold text-xs sm:text-sm px-7 py-3.5 rounded-full shadow-md transition-all hover:scale-105 flex items-center gap-2 uppercase tracking-wider"
             >
-              <MessageCircle className="w-4 h-4 text-[#FFFFFF] fill-[#511B2A]" />
+              <MessageCircle className="w-4 h-4 text-[#FFFFFF] fill-[#EAB308]" />
               <span>Need Help? Chat With Our Artisans</span>
             </a>
 

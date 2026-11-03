@@ -88,13 +88,13 @@ export default function LocalLandingPageView({
       </nav>
 
       {/* Hero Banner with Rich Local Context */}
-      <section className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-[#2E141D] via-[#1E0910] to-[#120409] text-white p-6 sm:p-10 lg:p-14 border-2 border-[#EAB308]/50 shadow-2xl">
+      <section className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-[#0A0A0A] via-[#141414] to-[#0A0A0A] text-white p-6 sm:p-10 lg:p-14 border-2 border-[#EAB308]/50 shadow-2xl">
         <div className="absolute top-0 right-0 w-96 h-96 bg-[#EAB308]/15 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#641E2E]/30 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#EAB308]/15 rounded-full blur-3xl pointer-events-none" />
 
         <div className="relative z-10 max-w-4xl space-y-4">
           <div className="flex flex-wrap items-center gap-2">
-            <span className="text-xs uppercase tracking-widest font-bold text-[#FACC15] bg-[#511B2A]/90 border border-[#EAB308]/60 px-3.5 py-1 rounded-full inline-flex items-center gap-1.5 shadow-sm">
+            <span className="text-xs uppercase tracking-widest font-bold text-[#FACC15] bg-[#181818]/90 border border-[#EAB308]/60 px-3.5 py-1 rounded-full inline-flex items-center gap-1.5 shadow-sm">
               <MapPin className="w-3.5 h-3.5 text-[#FACC15]" />
               <span>{locationName} • Telangana Certified Studio</span>
             </span>
@@ -137,7 +137,7 @@ export default function LocalLandingPageView({
       {/* Local Store Highlights Bar */}
       <section className="grid grid-cols-2 md:grid-cols-4 gap-4">
         <div className="bg-[#121212] border border-[#2D2D2D] rounded-2xl p-4 flex items-center gap-3 shadow-xs">
-          <div className="w-10 h-10 rounded-xl bg-[#641E2E] text-[#FACC15] flex items-center justify-center shrink-0">
+          <div className="w-10 h-10 rounded-xl bg-[#181818] text-[#FACC15] border border-[#EAB308]/40 flex items-center justify-center shrink-0">
             <Clock className="w-5 h-5" />
           </div>
           <div>
@@ -147,7 +147,7 @@ export default function LocalLandingPageView({
         </div>
 
         <div className="bg-[#121212] border border-[#2D2D2D] rounded-2xl p-4 flex items-center gap-3 shadow-xs">
-          <div className="w-10 h-10 rounded-xl bg-[#641E2E] text-[#FACC15] flex items-center justify-center shrink-0">
+          <div className="w-10 h-10 rounded-xl bg-[#181818] text-[#FACC15] border border-[#EAB308]/40 flex items-center justify-center shrink-0">
             <Layers className="w-5 h-5" />
           </div>
           <div>
@@ -157,7 +157,7 @@ export default function LocalLandingPageView({
         </div>
 
         <div className="bg-[#121212] border border-[#2D2D2D] rounded-2xl p-4 flex items-center gap-3 shadow-xs">
-          <div className="w-10 h-10 rounded-xl bg-[#641E2E] text-[#FACC15] flex items-center justify-center shrink-0">
+          <div className="w-10 h-10 rounded-xl bg-[#181818] text-[#FACC15] border border-[#EAB308]/40 flex items-center justify-center shrink-0">
             <Truck className="w-5 h-5" />
           </div>
           <div>
@@ -167,7 +167,7 @@ export default function LocalLandingPageView({
         </div>
 
         <div className="bg-[#121212] border border-[#2D2D2D] rounded-2xl p-4 flex items-center gap-3 shadow-xs">
-          <div className="w-10 h-10 rounded-xl bg-[#641E2E] text-[#FACC15] flex items-center justify-center shrink-0">
+          <div className="w-10 h-10 rounded-xl bg-[#181818] text-[#FACC15] border border-[#EAB308]/40 flex items-center justify-center shrink-0">
             <ShieldCheck className="w-5 h-5" />
           </div>
           <div>
@@ -250,7 +250,7 @@ export default function LocalLandingPageView({
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs sm:text-sm border-collapse bg-white rounded-2xl overflow-hidden shadow-xs">
             <thead>
-              <tr className="bg-[#511B2A] text-[#FFFFFF]">
+              <tr className="bg-[#181818] text-[#FFFFFF] border-b border-[#2D2D2D]">
                 <th className="py-3 px-4 font-semibold">Frame Dimensions</th>
                 <th className="py-3 px-4 font-semibold">Recommended Space / Purpose</th>
                 <th className="py-3 px-4 font-semibold">Workshop Price</th>
@@ -318,7 +318,7 @@ export default function LocalLandingPageView({
               href="https://maps.google.com/?q=Dilsukhnagar+Hyderabad+Telangana"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-[#511B2A] text-white px-5 py-2.5 rounded-full text-xs font-bold hover:bg-[#641E2E] transition-colors"
+              className="bg-[#EAB308] text-[#000000] px-5 py-2.5 rounded-full text-xs font-bold hover:bg-[#FACC15] transition-colors"
             >
               Get Google Maps Directions
             </a>

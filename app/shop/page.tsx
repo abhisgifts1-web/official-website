@@ -174,7 +174,7 @@ function ShopContent() {
   return (
     <div className="w-full max-w-[1760px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 py-8 sm:py-12">
       {/* Page Header Banner */}
-      <div className="bg-gradient-to-r from-[#0A0A0A] via-[#181818] to-[#451420] text-[#FFFFFF] rounded-3xl p-8 sm:p-12 mb-8 sm:mb-12 border border-[#EAB308]/40 relative overflow-hidden shadow-[0_12px_40px_rgba(50,21,28,0.35)]">
+      <div className="bg-gradient-to-r from-[#0A0A0A] via-[#181818] to-[#141414] text-[#FFFFFF] rounded-3xl p-8 sm:p-12 mb-8 sm:mb-12 border border-[#EAB308]/40 relative overflow-hidden shadow-[0_12px_40px_rgba(0,0,0,0.7)]">
         {/* Ambient Gold Halo */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-[#EAB308]/15 rounded-full blur-3xl pointer-events-none" />
 
@@ -254,7 +254,7 @@ function ShopContent() {
                       name="lighting"
                       checked={selectedLighting === item.id}
                       onChange={() => setSelectedLighting(item.id)}
-                      className="text-[#FFFFFF] focus:ring-[#EAB308] accent-[#641E2E]"
+                      className="text-[#FFFFFF] focus:ring-[#EAB308] accent-[#EAB308]"
                     />
                     <span className={`font-semibold ${selectedLighting === item.id ? 'text-[#FFFFFF]' : 'text-[#D1D5DB]'}`}>
                       {item.label}
@@ -274,7 +274,7 @@ function ShopContent() {
                   type="button"
                   onClick={() => setSelectedCategory('')}
                   className={`w-full text-left px-2.5 py-1.5 rounded-lg transition-colors flex items-center justify-between ${
-                    !selectedCategory ? 'bg-[#641E2E] text-[#EAB308] font-bold' : 'text-[#D1D5DB] hover:bg-[#121212]'
+                    !selectedCategory ? 'bg-[#EAB308] text-[#000000] font-bold' : 'text-[#D1D5DB] hover:bg-[#121212]'
                   }`}
                 >
                   <span>All Categories</span>
@@ -295,7 +295,7 @@ function ShopContent() {
                         onClick={() => handleCategorySelect(c.slug)}
                         className={`w-full text-left px-2.5 py-1 rounded-lg transition-colors flex items-center justify-between text-xs ${
                           selectedCategory === c.slug
-                            ? 'bg-[#641E2E] text-[#EAB308] font-bold shadow-2xs'
+                            ? 'bg-[#EAB308] text-[#000000] font-bold shadow-2xs'
                             : 'text-[#D1D5DB] hover:bg-[#121212]'
                         }`}
                       >
@@ -320,7 +320,7 @@ function ShopContent() {
                         onClick={() => handleCategorySelect(c.slug)}
                         className={`w-full text-left px-2.5 py-1 rounded-lg transition-colors flex items-center justify-between text-xs ${
                           selectedCategory === c.slug
-                            ? 'bg-[#641E2E] text-[#EAB308] font-bold shadow-2xs'
+                            ? 'bg-[#EAB308] text-[#000000] font-bold shadow-2xs'
                             : 'text-[#D1D5DB] hover:bg-[#121212]'
                         }`}
                       >
@@ -379,7 +379,7 @@ function ShopContent() {
                 step={250}
                 value={priceRange}
                 onChange={(e) => setPriceRange(Number(e.target.value))}
-                className="w-full accent-[#641E2E]"
+                className="w-full accent-[#EAB308]"
               />
               <div className="flex justify-between text-[10px] text-[#D1D5DB] mt-1">
                 <span>₹1,499</span>
@@ -401,7 +401,7 @@ function ShopContent() {
               }}
               className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
                 selectedLighting === 'all'
-                  ? 'bg-[#641E2E] text-[#FFFFFF] shadow-xs border border-[#EAB308]'
+                  ? 'bg-[#EAB308] text-[#000000] shadow-xs border border-[#EAB308]'
                   : 'bg-[#181818] text-[#FFFFFF] hover:bg-[#1E1E1E] border border-[#2D2D2D]'
               }`}
             >
@@ -433,7 +433,7 @@ function ShopContent() {
               }}
               className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
                 selectedLighting === 'none'
-                  ? 'bg-[#641E2E] text-[#FFFFFF] shadow-md border border-[#EAB308] ring-2 ring-[#641E2E]/30 scale-102'
+                  ? 'bg-[#EAB308] text-[#000000] shadow-md border border-[#EAB308] ring-2 ring-[#EAB308]/30 scale-102'
                   : 'bg-[#181818] text-[#FFFFFF] hover:bg-[#121212] border border-[#2D2D2D]'
               }`}
             >

@@ -235,7 +235,7 @@ export default function PersonalizedPhotoSection() {
       <div className="relative overflow-hidden bg-gradient-to-br from-[#181818] via-[#141414] to-[#181818] rounded-3xl sm:rounded-[40px] p-6 sm:p-10 lg:p-14 border border-[#2D2D2D] shadow-[0_16px_60px_rgba(81,27,42,0.07)]">
         {/* Ambient Decorative Shimmer Orbs */}
         <div className="absolute -top-40 -right-40 w-[500px] h-[500px] bg-amber-200/20 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute -bottom-40 -left-40 w-[500px] h-[500px] bg-[#641E2E]/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute -bottom-40 -left-40 w-[500px] h-[500px] bg-[#EAB308]/10 rounded-full blur-3xl pointer-events-none" />
 
         {/* =========================================================
             1. SECTION HERO HEADER & VALUE PROPOSITION
@@ -263,7 +263,7 @@ export default function PersonalizedPhotoSection() {
           <div className="flex flex-wrap items-center gap-3 shrink-0">
             <Link
               href="/customise"
-              className="inline-flex items-center gap-2 bg-[#511B2A] hover:bg-[#641E2E] text-[#FFFFFF] font-bold text-xs sm:text-sm px-6 py-3 rounded-full shadow-md hover:shadow-lg transition-all duration-300 group uppercase tracking-wider"
+              className="inline-flex items-center gap-2 bg-[#EAB308] hover:bg-[#FACC15] text-[#000000] font-bold text-xs sm:text-sm px-6 py-3 rounded-full shadow-md hover:shadow-lg transition-all duration-300 group uppercase tracking-wider"
             >
               <span>Open Customizer Studio</span>
               <ArrowRight className="w-4 h-4 text-[#FACC15] group-hover:translate-x-1 transition-transform" />
@@ -315,7 +315,7 @@ export default function PersonalizedPhotoSection() {
 
                   <div className="space-y-1.5">
                     <div className="flex items-center justify-between">
-                      <span className="text-[10px] font-bold uppercase tracking-wider text-[#FFFFFF] bg-[#511B2A] px-2.5 py-0.5 rounded-full shadow-2xs">
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-[#FFFFFF] bg-[#181818] px-2.5 py-0.5 rounded-full border border-[#EAB308]/40 shadow-2xs">
                         {frame.badge}
                       </span>
                       {frame.hasLed && (
@@ -454,7 +454,7 @@ export default function PersonalizedPhotoSection() {
                 : wallMode === 'living'
                 ? 'bg-cover bg-center shadow-inner'
                 : isLedOn && (selectedFrame.hasLed || selectedArt.hasLed)
-                ? 'bg-gradient-to-b from-[#14040B] via-[#220914] to-[#0F0208]'
+                ? 'bg-gradient-to-b from-[#0A0A0A] via-[#141414] to-[#0A0A0A]'
                 : 'bg-gradient-to-b from-[#141414] via-[#181818] to-[#141414]'
             }`}
             style={{
@@ -672,7 +672,7 @@ export default function PersonalizedPhotoSection() {
             ========================================================= */}
         <div className="relative z-10 pt-10">
           <div className="text-center max-w-2xl mx-auto mb-8 space-y-2">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#FFFFFF] bg-[#511B2A] px-3.5 py-1 rounded-full shadow-2xs">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#FFFFFF] bg-[#181818] px-3.5 py-1 rounded-full border border-[#EAB308]/40 shadow-2xs">
               Effortless Custom Fabrication
             </span>
             <h3 className="font-serif font-bold text-2xl sm:text-3xl text-[#FFFFFF]">
@@ -686,7 +686,7 @@ export default function PersonalizedPhotoSection() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {/* Step 1 */}
             <div className="bg-white p-6 rounded-3xl border border-[#2D2D2D] shadow-sm hover:border-[#EAB308] hover:shadow-md transition-all space-y-3">
-              <div className="w-10 h-10 rounded-2xl bg-[#511B2A] text-[#FFFFFF] font-serif font-bold text-base flex items-center justify-center shadow-xs">
+              <div className="w-10 h-10 rounded-2xl bg-[#181818] text-[#EAB308] border border-[#EAB308]/40 font-serif font-bold text-base flex items-center justify-center shadow-xs">
                 01
               </div>
               <h4 className="font-serif font-bold text-lg text-[#FFFFFF]">
@@ -720,7 +720,7 @@ export default function PersonalizedPhotoSection() {
 
             {/* Step 3 */}
             <div className="bg-white p-6 rounded-3xl border border-[#2D2D2D] shadow-sm hover:border-[#EAB308] hover:shadow-md transition-all space-y-3">
-              <div className="w-10 h-10 rounded-2xl bg-[#641E2E] text-[#FFFFFF] font-serif font-bold text-base flex items-center justify-center shadow-xs">
+              <div className="w-10 h-10 rounded-2xl bg-[#181818] text-[#EAB308] border border-[#EAB308]/40 font-serif font-bold text-base flex items-center justify-center shadow-xs">
                 03
               </div>
               <h4 className="font-serif font-bold text-lg text-[#FFFFFF]">

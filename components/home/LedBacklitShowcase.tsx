@@ -121,7 +121,7 @@ export default function LedBacklitShowcase() {
 
   return (
     <section className="w-full max-w-[1760px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 py-4 sm:py-6">
-      <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden bg-gradient-to-br from-[#0A0A0A] via-[#240B12] to-[#140508] p-5 sm:p-7 lg:p-9 border border-[#EAB308]/35 shadow-xl">
+      <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden bg-gradient-to-br from-[#0A0A0A] via-[#181818] to-[#121212] p-5 sm:p-7 lg:p-9 border border-[#EAB308]/35 shadow-xl">
         {/* Dynamic animated ambient background aura */}
         <div
           className={`absolute top-1/2 right-1/4 -translate-y-1/2 w-[420px] h-[260px] rounded-full blur-3xl pointer-events-none transition-all duration-700 ${

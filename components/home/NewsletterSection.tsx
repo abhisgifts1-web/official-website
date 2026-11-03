@@ -18,12 +18,12 @@ export default function NewsletterSection() {
 
   return (
     <section className="w-full max-w-5xl 2xl:max-w-6xl mx-auto px-4 sm:px-8 py-6 sm:py-10">
-      <div className="bg-gradient-to-br from-[#0A0A0A] via-[#511B2A] to-[#641D30] text-[#FFFFFF] rounded-3xl p-8 sm:p-12 text-center shadow-[0_16px_45px_rgba(50,21,29,0.45)] border-2 border-[#EAB308]/50 relative overflow-hidden">
+      <div className="bg-gradient-to-br from-[#0A0A0A] via-[#161616] to-[#0A0A0A] text-[#FFFFFF] rounded-3xl p-8 sm:p-12 text-center shadow-[0_16px_45px_rgba(0,0,0,0.85)] border-2 border-[#EAB308]/50 relative overflow-hidden">
         {/* Ambient Gold Glows */}
         <div className="absolute top-0 right-0 w-80 h-80 bg-[#EAB308]/15 rounded-full blur-3xl pointer-events-none" />
 
         <div className="relative z-10 max-w-2xl mx-auto space-y-4">
-          <span className="text-xs uppercase tracking-widest font-bold text-[#EAB308] bg-[#511B2A] border border-[#EAB308]/60 px-4 py-1 rounded-full inline-flex items-center gap-1.5 shadow-sm">
+          <span className="text-xs uppercase tracking-widest font-bold text-[#EAB308] bg-[#181818] border border-[#EAB308]/60 px-4 py-1 rounded-full inline-flex items-center gap-1.5 shadow-sm">
             <Mail className="w-3.5 h-3.5 text-[#EAB308]" />
             <span>VIP Collector Circle</span>
           </span>
@@ -47,7 +47,7 @@ export default function NewsletterSection() {
             />
             <button
               type="submit"
-              className="bg-gradient-to-r from-[#EAB308] to-[#CA8A04] hover:brightness-105 text-[#250912] font-bold text-xs sm:text-sm px-7 py-3 rounded-xl transition-all shrink-0 flex items-center justify-center gap-1.5 shadow-md uppercase tracking-wider cursor-pointer"
+              className="bg-gradient-to-r from-[#EAB308] to-[#CA8A04] hover:brightness-105 text-[#000000] font-bold text-xs sm:text-sm px-7 py-3 rounded-xl transition-all shrink-0 flex items-center justify-center gap-1.5 shadow-md uppercase tracking-wider cursor-pointer"
             >
               <span>Subscribe</span>
               <Send className="w-3.5 h-3.5" />

@@ -76,7 +76,7 @@ export default function CheckoutPage() {
         <div className="pt-2">
           <Link
             href="/shop"
-            className="inline-flex items-center gap-2 bg-[#511B2A] hover:bg-[#181818] text-[#FFFFFF] text-xs font-bold px-7 py-3.5 rounded-full shadow-md transition-all"
+            className="inline-flex items-center gap-2 bg-[#EAB308] hover:bg-[#FACC15] text-[#000000] text-xs font-bold px-7 py-3.5 rounded-full shadow-md transition-all"
           >
             <span>Explore Photo Frames</span>
             <Sparkles className="w-4 h-4 text-[#EAB308]" />
@@ -408,7 +408,7 @@ export default function CheckoutPage() {
               <label
                 className={`flex items-start gap-3.5 p-4 rounded-2xl border transition-all cursor-pointer ${
                   paymentMethod === 'online'
-                    ? 'border-[#2D2D2D] bg-[#121212] ring-1 ring-[#511B2A]/40'
+                    ? 'border-[#2D2D2D] bg-[#121212] ring-1 ring-[#EAB308]/40'
                     : 'border-[#2D2D2D] bg-[#181818] hover:border-[#EAB308]'
                 }`}
               >
@@ -418,7 +418,7 @@ export default function CheckoutPage() {
                   value="online"
                   checked={paymentMethod === 'online'}
                   onChange={() => setPaymentMethod('online')}
-                  className="mt-1 accent-[#511B2A]"
+                  className="mt-1 accent-[#EAB308]"
                 />
                 <div className="flex-1">
                   <div className="flex items-center gap-2">
@@ -436,7 +436,7 @@ export default function CheckoutPage() {
               <label
                 className={`flex items-start gap-3.5 p-4 rounded-2xl border transition-all cursor-pointer ${
                   paymentMethod === 'cod'
-                    ? 'border-[#2D2D2D] bg-[#121212] ring-1 ring-[#511B2A]/40'
+                    ? 'border-[#2D2D2D] bg-[#121212] ring-1 ring-[#EAB308]/40'
                     : 'border-[#2D2D2D] bg-[#181818] hover:border-[#EAB308]'
                 }`}
               >
@@ -446,7 +446,7 @@ export default function CheckoutPage() {
                   value="cod"
                   checked={paymentMethod === 'cod'}
                   onChange={() => setPaymentMethod('cod')}
-                  className="mt-1 accent-[#511B2A]"
+                  className="mt-1 accent-[#EAB308]"
                 />
                 <div className="flex-1">
                   <div className="flex items-center gap-2">
@@ -585,7 +585,7 @@ export default function CheckoutPage() {
                   ? 'bg-stone-300 text-gray-400 cursor-not-allowed'
                   : paymentMethod === 'whatsapp'
                   ? 'bg-[#25D366] hover:bg-[#20BD5A] text-white hover:scale-[1.01]'
-                  : 'bg-[#511B2A] hover:bg-[#181818] text-[#FFFFFF] hover:scale-[1.01]'
+                  : 'bg-[#EAB308] hover:bg-[#FACC15] text-[#000000] hover:scale-[1.01]'
               }`}
             >
               {submitting ? (
@@ -597,7 +597,7 @@ export default function CheckoutPage() {
                 </>
               ) : (
                 <>
-                  <ShieldCheck className="w-5 h-5 text-[#EAB308]" />
+                  <ShieldCheck className="w-5 h-5 text-black" />
                   <span>Complete Purchase • ₹{finalPayable.toLocaleString('en-IN')}</span>
                 </>
               )}

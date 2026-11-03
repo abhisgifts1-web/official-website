@@ -177,7 +177,7 @@ export default function TrustAndReviewsSection() {
             <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
               <Link
                 href="/shop"
-                className="inline-flex items-center gap-2 bg-[#511B2A] hover:bg-[#181818] text-[#FFFFFF] font-bold text-xs px-6 py-3 rounded-full border border-[#EAB308] shadow-xs transition-all hover:scale-105"
+                className="inline-flex items-center gap-2 bg-[#EAB308] hover:bg-[#FACC15] text-[#000000] font-bold text-xs px-6 py-3 rounded-full border border-[#EAB308] shadow-xs transition-all hover:scale-105"
               >
                 <span>Explore Collections</span>
                 <ArrowRight className="w-3.5 h-3.5 text-[#EAB308]" />

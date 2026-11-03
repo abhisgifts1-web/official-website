@@ -57,13 +57,13 @@ export default function ContactPage() {
     <div className="w-full max-w-[1760px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 py-10 sm:py-16 space-y-12">
       {/* Header */}
       <div className="text-center max-w-xl mx-auto space-y-2">
-        <span className="text-xs uppercase tracking-widest font-bold text-amber-900 bg-amber-100 px-3 py-1 rounded-full inline-flex items-center gap-1.5">
+        <span className="text-xs uppercase tracking-widest font-bold text-[#FACC15] bg-[#181818] border border-[#EAB308]/60 px-3 py-1 rounded-full inline-flex items-center gap-1.5">
           <Sparkles className="w-3.5 h-3.5 text-amber-800" /> We Are Here to Assist
         </span>
-        <h1 className="font-serif font-bold text-3xl sm:text-5xl text-stone-900">
+        <h1 className="font-serif font-bold text-3xl sm:text-5xl text-[#FFFFFF]">
           Contact Our Studio
         </h1>
-        <p className="text-xs sm:text-sm text-stone-600">
+        <p className="text-xs sm:text-sm text-[#D1D5DB]">
           Have queries about custom temple measurements, bulk gifting, or delivery tracking? Reach out to our artisan team.
         </p>
       </div>
@@ -123,7 +123,7 @@ export default function ContactPage() {
               )}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full bg-[#641E2E] hover:bg-[#121212] text-white font-semibold py-3 px-4 rounded-xl flex items-center justify-center gap-2 text-xs transition-colors"
+              className="w-full bg-[#EAB308] hover:bg-[#FACC15] text-[#000000] font-bold py-3 px-4 rounded-xl flex items-center justify-center gap-2 text-xs transition-colors"
             >
               <MessageCircle className="w-4 h-4" />
               <span>Direct WhatsApp Chat</span>
@@ -132,69 +132,69 @@ export default function ContactPage() {
         </div>
 
         {/* Contact Form (7 cols) */}
-        <div className="lg:col-span-7 bg-white p-5 sm:p-8 rounded-2xl sm:rounded-3xl border border-stone-200 shadow-sm space-y-5">
-          <h3 className="font-serif font-bold text-xl text-stone-900 border-b pb-3">
+        <div className="lg:col-span-7 bg-[#181818] p-5 sm:p-8 rounded-2xl sm:rounded-3xl border border-[#2D2D2D] shadow-sm space-y-5">
+          <h3 className="font-serif font-bold text-xl text-[#FFFFFF] border-b border-[#2D2D2D] pb-3">
             Send an Enquiry
           </h3>
 
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="text-xs font-semibold text-stone-700 block mb-1">Your Name *</label>
+                <label className="text-xs font-semibold text-[#D1D5DB] block mb-1">Your Name *</label>
                 <input
                   type="text"
                   required
                   placeholder="e.g. Priya Sharma"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="w-full px-3.5 py-2.5 text-sm sm:text-xs min-h-[44px] bg-stone-50 border border-stone-300 rounded-xl outline-none focus:border-amber-700 focus:bg-white"
+                  className="w-full px-3.5 py-2.5 text-sm sm:text-xs min-h-[44px] bg-[#121212] border border-[#2D2D2D] text-[#FFFFFF] rounded-xl outline-none focus:border-[#EAB308] focus:bg-[#121212]"
                 />
               </div>
 
               <div>
-                <label className="text-xs font-semibold text-stone-700 block mb-1">Email Address *</label>
+                <label className="text-xs font-semibold text-[#D1D5DB] block mb-1">Email Address *</label>
                 <input
                   type="email"
                   required
                   placeholder="priya@example.com"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="w-full px-3.5 py-2.5 text-sm sm:text-xs min-h-[44px] bg-stone-50 border border-stone-300 rounded-xl outline-none focus:border-amber-700 focus:bg-white"
+                  className="w-full px-3.5 py-2.5 text-sm sm:text-xs min-h-[44px] bg-[#121212] border border-[#2D2D2D] text-[#FFFFFF] rounded-xl outline-none focus:border-[#EAB308] focus:bg-[#121212]"
                 />
               </div>
 
               <div>
-                <label className="text-xs font-semibold text-stone-700 block mb-1">Mobile Number</label>
+                <label className="text-xs font-semibold text-[#D1D5DB] block mb-1">Mobile Number</label>
                 <input
                   type="tel"
                   placeholder="10-digit mobile number"
                   value={formData.phone}
                   onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                  className="w-full px-3.5 py-2.5 text-sm sm:text-xs min-h-[44px] bg-stone-50 border border-stone-300 rounded-xl outline-none focus:border-amber-700 focus:bg-white"
+                  className="w-full px-3.5 py-2.5 text-sm sm:text-xs min-h-[44px] bg-[#121212] border border-[#2D2D2D] text-[#FFFFFF] rounded-xl outline-none focus:border-[#EAB308] focus:bg-[#121212]"
                 />
               </div>
 
               <div>
-                <label className="text-xs font-semibold text-stone-700 block mb-1">Subject</label>
+                <label className="text-xs font-semibold text-[#D1D5DB] block mb-1">Subject</label>
                 <input
                   type="text"
                   placeholder="e.g. Custom Mandir Wall Dimensions"
                   value={formData.subject}
                   onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                  className="w-full px-3.5 py-2.5 text-sm sm:text-xs min-h-[44px] bg-stone-50 border border-stone-300 rounded-xl outline-none focus:border-amber-700 focus:bg-white"
+                  className="w-full px-3.5 py-2.5 text-sm sm:text-xs min-h-[44px] bg-[#121212] border border-[#2D2D2D] text-[#FFFFFF] rounded-xl outline-none focus:border-[#EAB308] focus:bg-[#121212]"
                 />
               </div>
             </div>
 
             <div>
-              <label className="text-xs font-semibold text-stone-700 block mb-1">Message *</label>
+              <label className="text-xs font-semibold text-[#D1D5DB] block mb-1">Message *</label>
               <textarea
                 rows={4}
                 required
                 placeholder="Tell us about the size, deity, or questions you have..."
                 value={formData.message}
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                className="w-full px-3.5 py-2.5 text-sm sm:text-xs min-h-[44px] bg-stone-50 border border-stone-300 rounded-xl outline-none focus:border-amber-700 focus:bg-white"
+                className="w-full px-3.5 py-2.5 text-sm sm:text-xs min-h-[44px] bg-[#121212] border border-[#2D2D2D] text-[#FFFFFF] rounded-xl outline-none focus:border-[#EAB308] focus:bg-[#121212]"
               />
             </div>
 
@@ -209,7 +209,7 @@ export default function ContactPage() {
             <button
               type="submit"
               disabled={submitting}
-              className="bg-stone-900 hover:bg-amber-800 disabled:opacity-50 text-white font-semibold text-xs sm:text-sm px-8 py-3 rounded-xl shadow-warm flex items-center justify-center gap-2 transition-colors"
+              className="bg-[#EAB308] hover:bg-[#FACC15] disabled:opacity-50 text-[#000000] font-bold text-xs sm:text-sm px-8 py-3 rounded-xl shadow-warm flex items-center justify-center gap-2 transition-colors"
             >
               <Send className="w-4 h-4" />
               <span>{submitting ? 'Submitting...' : 'Send Message'}</span>

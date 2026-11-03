@@ -106,7 +106,7 @@ export default function BestsellersShowcase() {
             onClick={() => handleFilterChange('all')}
             className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all whitespace-nowrap cursor-pointer ${
               activeFilter === 'all'
-                ? 'bg-[#511B2A] text-[#FFFFFF] border border-[#EAB308] shadow-xs'
+                ? 'bg-[#EAB308] text-[#000000] border border-[#EAB308] shadow-xs'
                 : 'bg-[#181818] text-[#D1D5DB] border border-[#2D2D2D] hover:border-[#EAB308]'
             }`}
           >
@@ -117,7 +117,7 @@ export default function BestsellersShowcase() {
             onClick={() => handleFilterChange('led')}
             className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all whitespace-nowrap flex items-center gap-1 cursor-pointer ${
               activeFilter === 'led'
-                ? 'bg-[#511B2A] text-[#FFFFFF] border border-[#EAB308] shadow-xs'
+                ? 'bg-[#EAB308] text-[#000000] border border-[#EAB308] shadow-xs'
                 : 'bg-[#181818] text-[#D1D5DB] border border-[#2D2D2D] hover:border-[#EAB308]'
             }`}
           >
@@ -129,7 +129,7 @@ export default function BestsellersShowcase() {
             onClick={() => handleFilterChange('deities')}
             className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all whitespace-nowrap cursor-pointer ${
               activeFilter === 'deities'
-                ? 'bg-[#511B2A] text-[#FFFFFF] border border-[#EAB308] shadow-xs'
+                ? 'bg-[#EAB308] text-[#000000] border border-[#EAB308] shadow-xs'
                 : 'bg-[#181818] text-[#D1D5DB] border border-[#2D2D2D] hover:border-[#EAB308]'
             }`}
           >
@@ -140,7 +140,7 @@ export default function BestsellersShowcase() {
             onClick={() => handleFilterChange('vastu')}
             className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all whitespace-nowrap cursor-pointer ${
               activeFilter === 'vastu'
-                ? 'bg-[#511B2A] text-[#FFFFFF] border border-[#EAB308] shadow-xs'
+                ? 'bg-[#EAB308] text-[#000000] border border-[#EAB308] shadow-xs'
                 : 'bg-[#181818] text-[#D1D5DB] border border-[#2D2D2D] hover:border-[#EAB308]'
             }`}
           >
@@ -184,7 +184,7 @@ export default function BestsellersShowcase() {
                 onClick={() => goToPage(pageNum)}
                 className={`w-9 h-9 rounded-full text-xs font-bold transition-all cursor-pointer flex items-center justify-center ${
                   isActive
-                    ? 'bg-[#511B2A] text-[#FFFFFF] border border-[#EAB308] shadow-xs scale-105'
+                    ? 'bg-[#EAB308] text-[#000000] border border-[#EAB308] shadow-xs scale-105'
                     : 'bg-[#181818] text-[#D1D5DB] border border-[#2D2D2D] hover:border-[#EAB308]'
                 }`}
               >
@@ -214,7 +214,7 @@ export default function BestsellersShowcase() {
       <div className="mt-8 sm:mt-10 text-center">
         <Link
           href="/shop"
-          className="inline-flex items-center justify-center gap-2.5 bg-gradient-to-r from-[#121212] via-[#641D30] to-[#121212] hover:from-[#3D1420] hover:to-[#121212] text-[#FFFFFF] font-bold text-xs sm:text-sm px-8 py-3.5 rounded-full shadow-md border border-[#EAB308]/80 transition-all hover:scale-[1.02] tracking-wider uppercase group"
+          className="inline-flex items-center justify-center gap-2.5 bg-[#EAB308] hover:bg-[#FACC15] text-[#000000] font-bold text-xs sm:text-sm px-8 py-3.5 rounded-full shadow-md border border-[#EAB308]/80 transition-all hover:scale-[1.02] tracking-wider uppercase group"
         >
           <Sparkles className="w-4 h-4 text-[#EAB308]" />
           <span>View All Divine Masterpieces</span>

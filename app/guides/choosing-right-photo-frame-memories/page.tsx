@@ -73,7 +73,7 @@ export default function ChoosingRightPhotoFrameMemoriesGuide() {
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse bg-white rounded-xl overflow-hidden border border-[#2D2D2D]">
               <thead>
-                <tr className="bg-[#511B2A] text-[#FFFFFF]">
+                <tr className="bg-[#181818] text-[#FFFFFF] border-b border-[#2D2D2D]">
                   <th className="py-2.5 px-3">Criteria</th>
                   <th className="py-2.5 px-3">4mm Cast Acrylic</th>
                   <th className="py-2.5 px-3">Traditional Glass</th>

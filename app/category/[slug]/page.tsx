@@ -275,18 +275,18 @@ export default function CategoryPage({ params }: CategoryPageProps) {
       {/* Local Store Service Notice */}
       <div className="bg-[#121212] border border-[#2D2D2D] rounded-2xl p-4 sm:p-5 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-xs text-[#FFFFFF]">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-[#641E2E] text-[#FACC15] flex items-center justify-center shrink-0">
+          <div className="w-10 h-10 rounded-xl bg-[#181818] text-[#FACC15] border border-[#EAB308]/40 flex items-center justify-center shrink-0">
             <Truck className="w-5 h-5" />
           </div>
           <div>
             <p className="font-bold text-sm text-[#FFFFFF]">Local Hyderabad &amp; Dilsukhnagar Fast Delivery</p>
-            <p className="text-[#785E59]">Order online or visit our Dilsukhnagar studio. 100% damage-free transit guarantee across Telangana.</p>
+            <p className="text-[#D1D5DB]">Order online or visit our Dilsukhnagar studio. 100% damage-free transit guarantee across Telangana.</p>
           </div>
         </div>
         <div className="flex items-center gap-2 shrink-0">
           <Link
             href="/customise"
-            className="bg-[#641E2E] text-[#FFFFFF] px-4 py-2 rounded-full font-bold text-xs hover:bg-[#511B2A] transition-colors"
+            className="bg-[#EAB308] text-[#000000] px-4 py-2 rounded-full font-bold text-xs hover:bg-[#FACC15] transition-colors"
           >
             Upload Your Photo
           </Link>

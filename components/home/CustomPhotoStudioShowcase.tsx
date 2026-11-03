@@ -196,7 +196,7 @@ export default function CustomPhotoStudioShowcase() {
                   >
                     <div className="flex items-center justify-between">
                       <span className={`text-[10px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded ${
-                        activeStyle.id === style.id ? 'bg-[#641E2E] text-[#F4DFE4]' : 'bg-[#1E1E1E] text-[#FFFFFF]'
+                        activeStyle.id === style.id ? 'bg-[#EAB308] text-[#000000] font-bold' : 'bg-[#1E1E1E] text-[#FFFFFF]'
                       }`}>
                         {style.badge}
                       </span>
@@ -232,7 +232,7 @@ export default function CustomPhotoStudioShowcase() {
                   <div className="flex items-center gap-2">
                     <span className={`w-5 h-5 rounded-full flex items-center justify-center text-xs font-bold transition-colors ${
                       activeStep === st.num
-                        ? 'bg-[#641E2E] text-[#FFFFFF] shadow-xs'
+                        ? 'bg-[#EAB308] text-[#000000] font-bold shadow-xs'
                         : 'bg-[#1E1E1E] text-[#FFFFFF]'
                     }`}>
                       {st.num}
@@ -252,7 +252,7 @@ export default function CustomPhotoStudioShowcase() {
             <div className="pt-2 flex flex-wrap items-center gap-3">
               <Link
                 href="/customise"
-                className="inline-flex items-center gap-2 bg-gradient-to-r from-[#181818] via-[#4D1522] to-[#0A0A0A] hover:from-[#4D1522] hover:to-[#1F0A11] text-white font-semibold text-xs sm:text-sm px-6 py-2.5 rounded-full shadow-warm transition-all duration-300 hover:shadow-[0_0_20px_rgba(180,83,9,0.35)] hover:-translate-y-0.5 group"
+                className="inline-flex items-center gap-2 bg-gradient-to-r from-[#181818] via-[#222222] to-[#0A0A0A] hover:from-[#222222] hover:to-[#181818] text-white font-semibold text-xs sm:text-sm px-6 py-2.5 rounded-full shadow-warm transition-all duration-300 hover:shadow-[0_0_20px_rgba(180,83,9,0.35)] hover:-translate-y-0.5 group"
               >
                 <Sparkles className="w-3.5 h-3.5 text-[#EAB308] animate-pulse" />
                 <span>Launch Customizer Studio</span>
@@ -307,16 +307,16 @@ export default function CustomPhotoStudioShowcase() {
 
                 {/* Realistic 4 Standoff Screw Pins in Corners */}
                 <div className="absolute top-2.5 left-2.5 w-3.5 h-3.5 rounded-full bg-gradient-to-br from-amber-100 via-amber-300 to-amber-600 border border-white/80 shadow-xs flex items-center justify-center pointer-events-none z-20">
-                  <span className="w-1.5 h-0.5 bg-[#641E2E] block rounded-full" />
+                  <span className="w-1.5 h-0.5 bg-[#EAB308] block rounded-full" />
                 </div>
                 <div className="absolute top-2.5 right-2.5 w-3.5 h-3.5 rounded-full bg-gradient-to-br from-amber-100 via-amber-300 to-amber-600 border border-white/80 shadow-xs flex items-center justify-center pointer-events-none z-20">
-                  <span className="w-1.5 h-0.5 bg-[#641E2E] block rounded-full" />
+                  <span className="w-1.5 h-0.5 bg-[#EAB308] block rounded-full" />
                 </div>
                 <div className="absolute bottom-2.5 left-2.5 w-3.5 h-3.5 rounded-full bg-gradient-to-br from-amber-100 via-amber-300 to-amber-600 border border-white/80 shadow-xs flex items-center justify-center pointer-events-none z-20">
-                  <span className="w-1.5 h-0.5 bg-[#641E2E] block rounded-full" />
+                  <span className="w-1.5 h-0.5 bg-[#EAB308] block rounded-full" />
                 </div>
                 <div className="absolute bottom-2.5 right-2.5 w-3.5 h-3.5 rounded-full bg-gradient-to-br from-amber-100 via-amber-300 to-amber-600 border border-white/80 shadow-xs flex items-center justify-center pointer-events-none z-20">
-                  <span className="w-1.5 h-0.5 bg-[#641E2E] block rounded-full" />
+                  <span className="w-1.5 h-0.5 bg-[#EAB308] block rounded-full" />
                 </div>
 
               {/* Top Status Pill */}

@@ -340,7 +340,7 @@ export default function Header() {
                                   setMegaMenuOpen(false);
                                   setHoveredTab(null);
                                 }}
-                                className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold text-[#FFFFFF] bg-[#1E1E1E] hover:bg-[#F9D2D9] border border-[#EAB308]/60 transition-all cursor-pointer shadow-2xs hover:scale-105 active:scale-95"
+                                className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold text-[#FFFFFF] bg-[#1E1E1E] hover:bg-[#2A2A2A] border border-[#EAB308]/60 transition-all cursor-pointer shadow-2xs hover:scale-105 active:scale-95"
                                 aria-label="Close categories menu"
                               >
                                 <X className="w-3.5 h-3.5 text-[#FFFFFF]" />
@@ -534,7 +534,7 @@ export default function Header() {
               >
                 <Heart className="w-4 h-4 sm:w-5 sm:h-5" />
                 {wishlistCount > 0 && (
-                  <span className="absolute -top-1 -right-1 bg-[#641E2E] text-[#FFFFFF] text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center border border-[#EAB308]/50 shadow-xs">
+                  <span className="absolute -top-1 -right-1 bg-[#EAB308] text-[#000000] text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center border border-[#EAB308]/50 shadow-xs">
                     {wishlistCount}
                   </span>
                 )}
@@ -576,7 +576,7 @@ export default function Header() {
                 <div className="absolute right-2 flex items-center gap-1">
                   <button
                     type="submit"
-                    className="bg-gradient-to-r from-[#181818] to-[#0A0A0A] hover:from-[#4B1622] hover:to-[#1F0A11] text-[#FFFFFF] text-xs font-semibold px-3.5 py-1.5 rounded-xl border border-[#EAB308]/50 transition-colors cursor-pointer"
+                    className="bg-gradient-to-r from-[#181818] to-[#0A0A0A] hover:from-[#222222] hover:to-[#181818] text-[#FFFFFF] text-xs font-semibold px-3.5 py-1.5 rounded-xl border border-[#EAB308]/50 transition-colors cursor-pointer"
                   >
                     Search
                   </button>
@@ -697,7 +697,7 @@ export default function Header() {
                     <Flame className="w-3.5 h-3.5 text-amber-400 animate-pulse" />
                     <span>✨ LED Backlit Art</span>
                   </span>
-                  <span className="text-[10px] bg-[#641E2E] text-white px-2 py-0.5 rounded-full">18 Designs</span>
+                  <span className="text-[10px] bg-[#EAB308] text-[#000000] px-2 py-0.5 rounded-full font-bold">18 Designs</span>
                 </Link>
                 <Link
                   href="/shop?lighting=none"

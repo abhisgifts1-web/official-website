@@ -171,7 +171,7 @@ function TrackOrderContent() {
           <button
             type="submit"
             disabled={loading || !orderIdInput.trim()}
-            className="bg-[#511B2A] hover:bg-[#181818] disabled:opacity-50 text-[#FFFFFF] font-bold text-xs sm:text-sm px-8 py-3.5 rounded-2xl shadow-md transition-all cursor-pointer whitespace-nowrap flex items-center justify-center gap-2"
+            className="bg-[#EAB308] hover:bg-[#FACC15] disabled:opacity-50 text-[#000000] font-bold text-xs sm:text-sm px-8 py-3.5 rounded-2xl shadow-md transition-all cursor-pointer whitespace-nowrap flex items-center justify-center gap-2"
           >
             {loading ? (
               <span>Locating Order...</span>
@@ -294,7 +294,7 @@ function TrackOrderContent() {
                       <div
                         className={`w-9 h-9 rounded-full flex items-center justify-center text-xs font-bold mb-2 ${
                           isCurrent
-                            ? 'bg-[#511B2A] text-[#FFFFFF] ring-4 ring-[#EAB308]/40 shadow-sm'
+                            ? 'bg-[#EAB308] text-[#000000] ring-4 ring-[#EAB308]/40 shadow-sm'
                             : isCompleted
                             ? 'bg-emerald-600 text-white'
                             : 'bg-stone-200 text-stone-500'

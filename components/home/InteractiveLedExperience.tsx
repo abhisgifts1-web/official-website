@@ -106,7 +106,7 @@ export default function InteractiveLedExperience() {
 
   return (
     <section className="w-full max-w-[1760px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 py-8 sm:py-12 lg:py-14">
-      <div className="bg-gradient-to-br from-[#2D0F19] via-[#4A1624] to-[#250912] rounded-3xl sm:rounded-[36px] p-6 sm:p-10 lg:p-12 border-2 border-[#EAB308]/50 shadow-[0_25px_70px_rgba(37,9,18,0.5)] text-[#FFFFFF] relative overflow-hidden">
+      <div className="bg-gradient-to-br from-[#0A0A0A] via-[#141414] to-[#0A0A0A] rounded-3xl sm:rounded-[36px] p-6 sm:p-10 lg:p-12 border-2 border-[#EAB308]/50 shadow-[0_25px_70px_rgba(0,0,0,0.85)] text-[#FFFFFF] relative overflow-hidden">
         {/* Subtle Background Golden Ambient Glows */}
         <div className="absolute -top-24 right-10 w-96 h-96 bg-[#EAB308]/15 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute -bottom-24 left-10 w-96 h-96 bg-[#EAB308]/10 rounded-full blur-3xl pointer-events-none" />
@@ -116,7 +116,7 @@ export default function InteractiveLedExperience() {
               LEFT: Section Header & Illumination Engineering Specs
               ========================================================= */}
           <div className="lg:col-span-5 space-y-5 text-center lg:text-left">
-            <div className="inline-flex items-center gap-2 bg-[#511B2A] border border-[#EAB308]/60 px-3.5 py-1 rounded-full text-xs font-bold text-[#EAB308] shadow-xs">
+            <div className="inline-flex items-center gap-2 bg-[#181818] border border-[#EAB308]/60 px-3.5 py-1 rounded-full text-xs font-bold text-[#EAB308] shadow-xs">
               <Flame className="w-3.5 h-3.5 text-[#EAB308] animate-pulse" />
               <span className="uppercase tracking-widest text-[11px]">IMMERSIVE 3000K SANCTUM TECHNOLOGY</span>
             </div>
@@ -142,7 +142,7 @@ export default function InteractiveLedExperience() {
                     onClick={() => setSelectedItem(item)}
                     className={`px-3 py-1.5 rounded-full text-xs font-bold transition-all cursor-pointer ${
                       selectedItem.id === item.id
-                        ? 'bg-[#EAB308] text-[#250912] shadow-sm font-bold'
+                        ? 'bg-[#EAB308] text-[#000000] shadow-sm font-bold'
                         : 'bg-white/10 text-[#FFFFFF] border border-[#EAB308]/40 hover:bg-white/20'
                     }`}
                   >
@@ -176,11 +176,11 @@ export default function InteractiveLedExperience() {
             <div className="pt-2">
               <Link
                 href="/category/led-backlit-wall-art"
-                className="inline-flex items-center justify-center gap-2.5 bg-gradient-to-r from-[#EAB308] via-[#FEF08A] to-[#EAB308] hover:brightness-105 text-[#250912] font-bold text-xs sm:text-sm px-8 py-4 rounded-full shadow-[0_6px_25px_rgba(214,170,85,0.4)] tracking-wider uppercase transition-all hover:scale-[1.02] group"
+                className="inline-flex items-center justify-center gap-2.5 bg-gradient-to-r from-[#EAB308] via-[#FEF08A] to-[#EAB308] hover:brightness-105 text-[#000000] font-bold text-xs sm:text-sm px-8 py-4 rounded-full shadow-[0_6px_25px_rgba(214,170,85,0.4)] tracking-wider uppercase transition-all hover:scale-[1.02] group"
               >
-                <Flame className="w-4 h-4 text-[#250912]" />
+                <Flame className="w-4 h-4 text-[#000000]" />
                 <span>EXPLORE LED BACKLIT ART</span>
-                <ArrowRight className="w-4 h-4 text-[#250912] group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="w-4 h-4 text-[#000000] group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
           </div>
@@ -208,7 +208,7 @@ export default function InteractiveLedExperience() {
                 onClick={() => setSliderPosition(50)}
                 className={`px-3 py-1 rounded-full text-xs font-bold transition-all border flex items-center gap-1 cursor-pointer ${
                   sliderPosition === 50
-                    ? 'bg-[#EAB308] text-[#250912] border-[#EAB308] shadow-sm'
+                    ? 'bg-[#EAB308] text-[#000000] border-[#EAB308] shadow-sm'
                     : 'bg-white/10 text-white/80 border-white/20 hover:bg-white/20'
                 }`}
               >
@@ -220,7 +220,7 @@ export default function InteractiveLedExperience() {
                 onClick={() => setSliderPosition(100)}
                 className={`px-3 py-1 rounded-full text-xs font-bold transition-all border flex items-center gap-1 cursor-pointer ${
                   sliderPosition === 100
-                    ? 'bg-[#511B2A] text-[#FFFFFF] border-[#EAB308] shadow-sm'
+                    ? 'bg-[#EAB308] text-[#000000] border-[#EAB308] shadow-sm'
                     : 'bg-white/10 text-white/80 border-white/20 hover:bg-white/20'
                 }`}
               >
@@ -255,7 +255,7 @@ export default function InteractiveLedExperience() {
                 <div className="absolute inset-0 bg-radial from-[#EAB308]/25 via-transparent to-transparent pointer-events-none" />
 
                 {/* Top Right Label: 3000K LED BACKLIT */}
-                <div className="absolute top-2.5 sm:top-3.5 right-2.5 sm:right-3.5 z-20 bg-[#511B2A]/90 text-[#FFD58A] border border-[#EAB308] px-2 sm:px-3 py-0.5 sm:py-1 rounded-full text-[10px] sm:text-xs font-bold shadow-md backdrop-blur-xs flex items-center gap-1 sm:gap-1.5 pointer-events-none">
+                <div className="absolute top-2.5 sm:top-3.5 right-2.5 sm:right-3.5 z-20 bg-[#181818]/90 text-[#FACC15] border border-[#EAB308] px-2 sm:px-3 py-0.5 sm:py-1 rounded-full text-[10px] sm:text-xs font-bold shadow-md backdrop-blur-xs flex items-center gap-1 sm:gap-1.5 pointer-events-none">
                   <Flame className="w-3.5 h-3.5 text-[#EAB308]" />
                   <span>AFTER: 3000K LED GLOW</span>
                 </div>
@@ -285,7 +285,7 @@ export default function InteractiveLedExperience() {
                 style={{ left: `${sliderPosition}%`, transform: 'translateX(-50%)' }}
               >
                 <div className="w-0.5 h-full bg-[#EAB308] shadow-[0_0_10px_#D6AA55]" />
-                <div className="absolute w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#511B2A] border-2 border-[#EAB308] shadow-[0_4px_16px_rgba(0,0,0,0.6)] flex items-center justify-center text-[#EAB308] cursor-ew-resize">
+                <div className="absolute w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#181818] border-2 border-[#EAB308] shadow-[0_4px_16px_rgba(0,0,0,0.6)] flex items-center justify-center text-[#EAB308] cursor-ew-resize">
                   <span className="text-[11px] font-bold tracking-tighter">↔</span>
                 </div>
               </div>

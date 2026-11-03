@@ -251,7 +251,7 @@ export default function RoomVisualizerSection() {
       <div className="bg-gradient-to-br from-[#181818] via-[#141414] to-[#181818] rounded-3xl sm:rounded-[36px] p-6 sm:p-8 lg:p-12 border border-[#2D2D2D] shadow-[0_16px_50px_rgba(81,27,42,0.08)] relative overflow-hidden">
         {/* Subtle Ambient Decorative Gradients */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-amber-200/20 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#641E2E]/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#EAB308]/10 rounded-full blur-3xl pointer-events-none" />
 
         {/* SECTION HEADER: Editorial Title & Concept Badge */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-8 sm:mb-10 pb-6 border-b border-[#2D2D2D]/80 relative z-10">
@@ -305,7 +305,7 @@ export default function RoomVisualizerSection() {
                   onClick={() => setSelectedRoom(env)}
                   className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
                     selectedRoom.id === env.id
-                      ? 'bg-[#641C2B] text-[#FFFFFF] shadow-xs'
+                      ? 'bg-[#EAB308] text-[#000000] shadow-xs'
                       : 'text-[#D1D5DB] hover:text-[#FFFFFF] hover:bg-[#121212]'
                   }`}
                 >
@@ -349,7 +349,7 @@ export default function RoomVisualizerSection() {
                 {/* Day / Night Switch */}
                 <button
                   onClick={() => setIsLedOn(!isLedOn)}
-                  className="pointer-events-auto bg-[#641C2B] hover:bg-[#511B2A] text-[#FFFFFF] border border-[#EAB308] px-3.5 py-1.5 rounded-full text-xs font-bold flex items-center gap-2 shadow-md transition-all cursor-pointer active:scale-95"
+                  className="pointer-events-auto bg-[#EAB308] hover:bg-[#FACC15] text-[#000000] border border-[#EAB308] px-3.5 py-1.5 rounded-full text-xs font-bold flex items-center gap-2 shadow-md transition-all cursor-pointer active:scale-95"
                 >
                   {isLedOn ? (
                     <>
@@ -470,7 +470,7 @@ export default function RoomVisualizerSection() {
                     onClick={() => setSelectedArtwork(art)}
                     className={`flex items-center gap-2 p-2 rounded-xl border text-left transition-all cursor-pointer ${
                       selectedArtwork.id === art.id
-                        ? 'bg-white border-[#641C2B] ring-2 ring-[#C69A42]/40 shadow-xs'
+                        ? 'bg-[#181818] border-[#EAB308] ring-2 ring-[#EAB308]/40 shadow-xs'
                         : 'bg-white/80 border-[#2D2D2D] hover:bg-white hover:border-[#EAB308]'
                     }`}
                   >
@@ -502,7 +502,7 @@ export default function RoomVisualizerSection() {
                     onClick={() => setSelectedSize(sz)}
                     className={`p-3 rounded-xl border text-left transition-all cursor-pointer ${
                       selectedSize.id === sz.id
-                        ? 'bg-[#641C2B] text-white border-[#EAB308] shadow-sm'
+                        ? 'bg-[#EAB308] text-[#000000] border-[#EAB308] shadow-sm'
                         : 'bg-white text-[#FFFFFF] border-[#2D2D2D] hover:border-[#EAB308]'
                     }`}
                   >
@@ -542,7 +542,7 @@ export default function RoomVisualizerSection() {
                     onClick={() => setSelectedFinish(fin)}
                     className={`p-2.5 rounded-xl border text-center transition-all cursor-pointer ${
                       selectedFinish.id === fin.id
-                        ? 'bg-[#641C2B] text-white border-[#EAB308] shadow-sm'
+                        ? 'bg-[#EAB308] text-[#000000] border-[#EAB308] shadow-sm'
                         : 'bg-white text-[#FFFFFF] border-[#2D2D2D] hover:border-[#EAB308]'
                     }`}
                   >
@@ -572,7 +572,7 @@ export default function RoomVisualizerSection() {
               <div className="space-y-2.5">
                 <Link
                   href={selectedArtwork.productUrl}
-                  className="w-full bg-[#641C2B] hover:bg-[#511B2A] text-white py-3 px-5 rounded-full font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-md hover:shadow-lg transition-all"
+                  className="w-full bg-[#EAB308] hover:bg-[#FACC15] text-[#000000] py-3 px-5 rounded-full font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-md hover:shadow-lg transition-all"
                 >
                   <Sparkles className="w-4 h-4 text-[#EAB308]" />
                   <span>Customize &amp; Order This Setup</span>

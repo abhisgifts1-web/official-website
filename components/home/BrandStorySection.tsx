@@ -151,13 +151,13 @@ export default function BrandStorySection() {
       <div className="bg-gradient-to-br from-[#181818] via-[#141414] to-[#181818] rounded-3xl sm:rounded-[36px] p-6 sm:p-8 lg:p-12 border border-[#2D2D2D] shadow-[0_16px_50px_rgba(81,27,42,0.08)] overflow-hidden relative">
         {/* Subtle Luxury Ambient Glow Orbs */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-[#EAB308]/20 via-[#FFD58A]/10 to-transparent rounded-full blur-3xl pointer-events-none -z-0" />
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-[#121212]/10 via-[#641D30]/05 to-transparent rounded-full blur-3xl pointer-events-none -z-0" />
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-[#121212]/10 via-[#EAB308]/05 to-transparent rounded-full blur-3xl pointer-events-none -z-0" />
 
         {/* =========================================================
             TOP HEADER: Editorial Heritage Badge & Gold Shimmer Headline
             ========================================================= */}
         <div className="text-center max-w-3xl mx-auto space-y-3 mb-8 sm:mb-10 relative z-10">
-          <div className="inline-flex items-center gap-2 bg-[#511B2A] border border-[#EAB308] px-4 py-1.5 rounded-full text-xs font-bold text-[#EAB308] shadow-xs">
+          <div className="inline-flex items-center gap-2 bg-[#181818] border border-[#EAB308] px-4 py-1.5 rounded-full text-xs font-bold text-[#EAB308] shadow-xs">
             <Award className="w-3.5 h-3.5 text-[#EAB308] animate-pulse" />
             <span className="uppercase tracking-widest text-[11px] sm:text-[11.5px] font-bold">
               OUR HERITAGE &amp; ARTISANAL PHILOSOPHY • EST. 2018
@@ -190,7 +190,7 @@ export default function BrandStorySection() {
               onMouseMove={handleMouseMove}
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
-              className="relative w-full aspect-[4/4.2] sm:aspect-[4/3.8] lg:h-[530px] rounded-3xl overflow-hidden border-2 border-[#EAB308] shadow-[0_20px_50px_rgba(81,27,42,0.25)] group select-none transition-all duration-500 bg-[#2E141D]"
+              className="relative w-full aspect-[4/4.2] sm:aspect-[4/3.8] lg:h-[530px] rounded-3xl overflow-hidden border-2 border-[#EAB308] shadow-[0_20px_50px_rgba(0,0,0,0.6)] group select-none transition-all duration-500 bg-[#181818]"
               style={{
                 transform: isHovered
                   ? `perspective(1000px) rotateX(${tilt.x.toFixed(2)}deg) rotateY(${tilt.y.toFixed(2)}deg) scale3d(1.015, 1.015, 1.015)`
@@ -226,11 +226,11 @@ export default function BrandStorySection() {
 
               {/* Floating Craftsmanship Callouts (Synchronized with selected pillar) */}
               <div className="absolute top-3.5 left-3.5 z-20 flex flex-col gap-1.5 pointer-events-none">
-                <span className="bg-[#511B2A]/95 text-[#FFFFFF] text-[10.5px] sm:text-xs font-bold px-3 py-1.5 rounded-full border border-[#EAB308] shadow-md backdrop-blur-xs flex items-center gap-1.5 animate-sanctum-reveal">
+                <span className="bg-[#181818]/95 text-[#FFFFFF] text-[10.5px] sm:text-xs font-bold px-3 py-1.5 rounded-full border border-[#EAB308] shadow-md backdrop-blur-xs flex items-center gap-1.5 animate-sanctum-reveal">
                   <Sparkles className="w-3.5 h-3.5 text-[#EAB308]" />
                   <span>{activePillar.badge1}</span>
                 </span>
-                <span className="bg-[#511B2A]/95 text-[#FFFFFF] text-[10.5px] sm:text-xs font-bold px-3 py-1.5 rounded-full border border-[#EAB308] shadow-md backdrop-blur-xs flex items-center gap-1.5 animate-sanctum-reveal">
+                <span className="bg-[#181818]/95 text-[#FFFFFF] text-[10.5px] sm:text-xs font-bold px-3 py-1.5 rounded-full border border-[#EAB308] shadow-md backdrop-blur-xs flex items-center gap-1.5 animate-sanctum-reveal">
                   <ShieldCheck className="w-3.5 h-3.5 text-[#EAB308]" />
                   <span>{activePillar.badge2}</span>
                 </span>
@@ -252,7 +252,7 @@ export default function BrandStorySection() {
                   <span className="text-[10px] sm:text-[10.5px] text-[#EAB308] font-bold tracking-wider uppercase">
                     — ABHI GIFTS ARTISAN GUILD
                   </span>
-                  <span className="text-[9.5px] text-[#FFD58A] bg-[#511B2A]/90 px-2 py-0.5 rounded-full border border-[#EAB308]/50 font-medium">
+                  <span className="text-[9.5px] text-[#FFD58A] bg-[#181818]/90 px-2 py-0.5 rounded-full border border-[#EAB308]/50 font-medium">
                     Tirupati, India
                   </span>
                 </div>
@@ -302,7 +302,7 @@ export default function BrandStorySection() {
                       <div
                         className={`w-10 h-10 sm:w-11 sm:h-11 rounded-xl flex items-center justify-center transition-all ${
                           isSelected
-                            ? 'bg-[#511B2A] text-[#EAB308] border-2 border-[#EAB308] shadow-md'
+                            ? 'bg-[#EAB308] text-[#000000] border-2 border-[#EAB308] shadow-md'
                             : 'bg-[#121212] text-[#FFFFFF] border border-[#2D2D2D] group-hover:border-[#EAB308]'
                         }`}
                       >
@@ -324,7 +324,7 @@ export default function BrandStorySection() {
                           {pillar.title}
                         </h3>
                         {isSelected && (
-                          <span className="shrink-0 text-[10px] font-bold text-[#EAB308] bg-[#511B2A] px-2 py-0.5 rounded-full border border-[#EAB308]/50 flex items-center gap-1">
+                          <span className="shrink-0 text-[10px] font-bold text-[#EAB308] bg-[#181818] px-2 py-0.5 rounded-full border border-[#EAB308]/50 flex items-center gap-1">
                             <span className="w-1.5 h-1.5 rounded-full bg-[#EAB308] animate-ping" />
                             <span>Inspecting</span>
                           </span>
@@ -362,7 +362,7 @@ export default function BrandStorySection() {
             <div className="pt-3 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3">
               <Link
                 href="/about"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-gradient-to-r from-[#641D30] via-[#511B2A] to-[#641D30] hover:from-[#121212] hover:to-[#3D1420] text-[#FFFFFF] font-bold text-xs sm:text-[13.5px] px-7 py-3.5 rounded-full border border-[#EAB308] shadow-[0_6px_22px_rgba(81,27,42,0.30)] uppercase tracking-wider transition-all hover:scale-[1.02] active:scale-[0.98] group"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-[#EAB308] hover:bg-[#FACC15] text-[#000000] font-bold text-xs sm:text-[13.5px] px-7 py-3.5 rounded-full border border-[#EAB308] shadow-[0_6px_22px_rgba(81,27,42,0.30)] uppercase tracking-wider transition-all hover:scale-[1.02] active:scale-[0.98] group"
               >
                 <span>Read Our Full Story</span>
                 <ArrowRight className="w-4 h-4 text-[#EAB308] group-hover:translate-x-1 transition-transform" />

@@ -121,7 +121,7 @@ export default function InSituShowcase() {
                 onClick={() => setActiveRoom(room)}
                 className={`px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full text-xs font-semibold transition-all duration-200 cursor-pointer flex items-center gap-1.5 ${
                   activeRoom.id === room.id
-                    ? 'bg-[#641E2E] text-[#FFFFFF] border border-[#EAB308] shadow-sm scale-102'
+                    ? 'bg-[#EAB308] text-[#000000] border border-[#EAB308] shadow-sm scale-102'
                     : 'bg-white hover:bg-[#121212] border border-[#2D2D2D] text-[#FFFFFF] shadow-2xs'
                 }`}
               >
@@ -146,7 +146,7 @@ export default function InSituShowcase() {
 
           {/* Dynamic Warm Ambient Glow Simulation Overlay */}
           <div
-            className={`absolute inset-0 bg-gradient-to-t from-[#0A0A0A]/90 via-[#32151D]/25 to-transparent transition-opacity duration-500 pointer-events-none ${
+            className={`absolute inset-0 bg-gradient-to-t from-[#0A0A0A]/90 via-[#121212]/25 to-transparent transition-opacity duration-500 pointer-events-none ${
               glowActive ? 'opacity-100' : 'opacity-60'
             }`}
           />
@@ -163,7 +163,7 @@ export default function InSituShowcase() {
               onClick={() => setGlowActive(!glowActive)}
               className={`inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1 rounded-full text-[11px] font-semibold backdrop-blur-md border transition-all cursor-pointer ${
                 glowActive
-                  ? 'bg-[#641E2E]/90 text-[#EAB308] border-[#EAB308]/60 shadow-[0_0_12px_rgba(200,169,107,0.4)]'
+                  ? 'bg-[#181818]/90 text-[#EAB308] border-[#EAB308]/60 shadow-[0_0_12px_rgba(234,179,8,0.4)]'
                   : 'bg-[#121212]/80 text-[#E5E7EB]/70 border-[#2D2D2D]/30'
               }`}
             >
@@ -185,7 +185,7 @@ export default function InSituShowcase() {
             <div className="bg-[#121212]/85 backdrop-blur-md border border-[#EAB308]/30 rounded-xl sm:rounded-2xl p-2.5 sm:p-3 sm:py-2.5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-3 text-left">
               <div className="space-y-0.5">
                 <div className="flex items-center gap-2">
-                  <span className="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-[#EAB308] bg-[#641E2E] border border-[#EAB308]/40 px-2 py-0.5 rounded">
+                  <span className="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-[#EAB308] bg-[#181818] border border-[#EAB308]/40 px-2 py-0.5 rounded">
                     Featured Piece
                   </span>
                   <span className="text-[11px] text-[#E5E7EB] font-sans hidden sm:inline">
@@ -215,7 +215,7 @@ export default function InSituShowcase() {
 
                 <Link
                   href={`/category/${activeRoom.artworkSlug}`}
-                  className="inline-flex items-center gap-1.5 bg-[#641E2E] hover:bg-[#121212] text-[#FFFFFF] border border-[#EAB308]/60 font-semibold text-xs px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full shadow-[0_4px_14px_rgba(101,30,45,0.35)] transition-all duration-200 hover:-translate-y-0.5"
+                  className="inline-flex items-center gap-1.5 bg-[#EAB308] hover:bg-[#FACC15] text-[#000000] border border-[#EAB308]/60 font-semibold text-xs px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full shadow-[0_4px_14px_rgba(101,30,45,0.35)] transition-all duration-200 hover:-translate-y-0.5"
                 >
                   <span>Shop Artwork</span>
                   <ArrowRight className="w-3.5 h-3.5 text-[#EAB308]" />

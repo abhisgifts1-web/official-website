@@ -280,7 +280,7 @@ export default function SmartSupportWidget() {
               setIsOpen(!isOpen);
               setHasNewBadge(false);
             }}
-            className="group inline-flex items-center gap-2 bg-[#511B2A] hover:bg-[#181818] text-[#FFFFFF] px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-full shadow-xl border border-[#EAB308]/80 transition-all duration-300 hover:scale-105 cursor-pointer backdrop-blur-md"
+            className="group inline-flex items-center gap-2 bg-[#181818] hover:bg-[#222222] text-[#FFFFFF] px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-full shadow-xl border border-[#EAB308]/80 transition-all duration-300 hover:scale-105 cursor-pointer backdrop-blur-md"
             aria-label="Open Customer Support Assistant"
           >
             <div className="relative">
@@ -310,7 +310,7 @@ export default function SmartSupportWidget() {
             onClick={(e) => e.stopPropagation()}
           >
             {/* Modal Header */}
-            <div className="bg-gradient-to-r from-[#121212] via-[#641D30] to-[#121212] text-[#FFFFFF] px-4 sm:px-5 py-4 border-b border-[#EAB308]/40 flex items-center justify-between">
+            <div className="bg-gradient-to-r from-[#121212] via-[#1A1A1A] to-[#121212] text-[#FFFFFF] px-4 sm:px-5 py-4 border-b border-[#EAB308]/40 flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-[#181818]/10 border border-[#EAB308]/80 flex items-center justify-center text-[#EAB308]">
                   <Bot className="w-5 h-5" />
@@ -366,7 +366,7 @@ export default function SmartSupportWidget() {
                   <div
                     className={`max-w-[85%] rounded-2xl px-3.5 py-2.5 text-xs font-sans leading-relaxed shadow-2xs whitespace-pre-line ${
                       msg.sender === 'user'
-                        ? 'bg-[#511B2A] text-[#FFFFFF] rounded-tr-xs'
+                        ? 'bg-[#1E1E1E] text-[#FFFFFF] rounded-tr-xs'
                         : 'bg-[#1E1E1E] text-white border border-[#2D2D2D] rounded-tl-xs'
                     }`}
                   >
@@ -392,7 +392,7 @@ export default function SmartSupportWidget() {
                           <Link
                             href={msg.action.href}
                             onClick={() => setIsOpen(false)}
-                            className="inline-flex items-center gap-1 text-[11px] font-bold text-[#FFFFFF] bg-[#121212] border border-[#EAB308] px-2.5 py-1 rounded-full hover:bg-[#511B2A] hover:text-[#FFFFFF] transition-colors"
+                            className="inline-flex items-center gap-1 text-[11px] font-bold text-[#FFFFFF] bg-[#121212] border border-[#EAB308] px-2.5 py-1 rounded-full hover:bg-[#222222] hover:text-[#FFFFFF] transition-colors"
                           >
                             <Sparkles className="w-3 h-3 text-[#EAB308]" />
                             <span>{msg.action.label}</span>
@@ -492,7 +492,7 @@ export default function SmartSupportWidget() {
                 disabled={!inputText.trim()}
                 className={`w-9 h-9 rounded-full flex items-center justify-center transition-all cursor-pointer ${
                   inputText.trim()
-                    ? 'bg-[#511B2A] text-[#FFFFFF] hover:bg-[#181818]'
+                    ? 'bg-[#EAB308] text-[#000000] hover:bg-[#FACC15]'
                     : 'bg-[#222222] text-[#8C7A70] cursor-not-allowed opacity-60'
                 }`}
                 aria-label="Send message"

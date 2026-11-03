@@ -90,7 +90,7 @@ export default function ConfirmationClient({ order }: Props) {
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-[#641E2E] hover:bg-[#121212] text-white text-xs font-semibold px-6 py-3 rounded-full flex items-center gap-2 transition-colors shadow-sm"
+            className="bg-[#EAB308] hover:bg-[#FACC15] text-[#000000] text-xs font-bold px-6 py-3 rounded-full flex items-center gap-2 transition-colors shadow-sm"
           >
             <MessageCircle className="w-4 h-4" />
             <span>Chat on WhatsApp with this Order</span>

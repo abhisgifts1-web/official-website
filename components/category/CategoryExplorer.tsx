@@ -166,7 +166,7 @@ export default function CategoryExplorer({ initialCategories }: CategoryExplorer
             }}
             className={`px-4 py-2 rounded-2xl text-xs sm:text-sm font-bold transition-all cursor-pointer flex items-center gap-2 ${
               lightingFilter === 'all'
-                ? 'bg-[#641E2E] text-[#FFFFFF] shadow-sm border border-[#EAB308]'
+                ? 'bg-[#EAB308] text-[#000000] shadow-sm border border-[#EAB308]'
                 : 'bg-white text-[#FFFFFF] hover:bg-[#121212] border border-[#2D2D2D]'
             }`}
           >
@@ -198,7 +198,7 @@ export default function CategoryExplorer({ initialCategories }: CategoryExplorer
             }}
             className={`px-4 py-2 rounded-2xl text-xs sm:text-sm font-bold transition-all cursor-pointer flex items-center gap-2 ${
               lightingFilter === 'normal'
-                ? 'bg-[#641E2E] text-[#FFFFFF] shadow-md border border-[#EAB308] ring-2 ring-[#641E2E]/30 scale-102'
+                ? 'bg-[#EAB308] text-[#000000] shadow-md border border-[#EAB308] ring-2 ring-[#EAB308]/30 scale-102'
                 : 'bg-white text-[#FFFFFF] hover:bg-[#121212] border border-[#2D2D2D]'
             }`}
           >

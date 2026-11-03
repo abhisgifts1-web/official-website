@@ -514,7 +514,7 @@ export default function HeroRotatingFrames() {
           <button
             type="button"
             onClick={() => setShowInspectModal(true)}
-            className="flex items-center gap-1.5 bg-gradient-to-r from-[#181818] to-[#4B1622] hover:from-[#4B1622] hover:to-[#0A0A0A] text-[#FACC15] border border-[#EAB308]/70 px-2.5 sm:px-3 py-1.5 rounded-full text-[10.5px] sm:text-[11px] font-bold shadow-xs transition-all hover:scale-[1.03] cursor-pointer group"
+            className="flex items-center gap-1.5 bg-gradient-to-r from-[#181818] to-[#222222] hover:from-[#222222] hover:to-[#181818] text-[#FACC15] border border-[#EAB308]/70 px-2.5 sm:px-3 py-1.5 rounded-full text-[10.5px] sm:text-[11px] font-bold shadow-xs transition-all hover:scale-[1.03] cursor-pointer group"
             title="Open 3D craftsmanship inspection"
           >
             <Layers className="w-3 h-3 text-[#EAB308] group-hover:rotate-45 transition-transform" />
@@ -538,7 +538,7 @@ export default function HeroRotatingFrames() {
               : 'opacity-20 scale-85'
           }`}
           style={{
-            background: `radial-gradient(circle, #FFF7ED 0%, #FFD58A 30%, #E8C77E 55%, #641E2E 75%, transparent 100%)`,
+            background: `radial-gradient(circle, #FDE047 0%, #FACC15 30%, #EAB308 55%, #181818 75%, transparent 100%)`,
           }}
         />
 
@@ -680,7 +680,7 @@ export default function HeroRotatingFrames() {
                 </div>
 
                 {/* Bottom Artwork Information Plaque */}
-                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#0A0A0A] via-[#32151D]/85 to-transparent p-2 text-left pointer-events-none z-20">
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#0A0A0A] via-[#121212]/85 to-transparent p-2 text-left pointer-events-none z-20">
                   <span className="text-[#FACC15] font-bold text-[9px] tracking-wide block truncate">
                     {activeDeity.deityIcon} {activeDeity.titleBadge}
                   </span>
@@ -769,7 +769,7 @@ export default function HeroRotatingFrames() {
 
           <Link
             href={`/product/${activeDeity.slug}`}
-            className="inline-flex items-center gap-1.5 sm:gap-2 bg-gradient-to-r from-[#181818] to-[#0A0A0A] hover:from-[#4B1622] hover:to-[#1F0A11] text-[#FFFFFF] font-semibold text-xs px-4 sm:px-5 py-1.5 sm:py-2 rounded-full border border-[#EAB308]/70 shadow-xs transition-all hover:scale-[1.03] active:scale-95 group"
+            className="inline-flex items-center gap-1.5 sm:gap-2 bg-gradient-to-r from-[#181818] to-[#0A0A0A] hover:from-[#222222] hover:to-[#181818] text-[#FFFFFF] font-semibold text-xs px-4 sm:px-5 py-1.5 sm:py-2 rounded-full border border-[#EAB308]/70 shadow-xs transition-all hover:scale-[1.03] active:scale-95 group"
           >
             <Sparkles className="w-3.5 h-3.5 text-[#FACC15]" />
             <span>Explore {activeDeity.shortName} Frame</span>
@@ -797,7 +797,7 @@ export default function HeroRotatingFrames() {
           onClick={() => setShowInspectModal(false)}
         >
           <div
-            className="relative w-full max-w-2xl bg-gradient-to-b from-[#1E1114] via-[#32151D] to-[#12080A] border border-[#EAB308]/70 rounded-3xl p-5 sm:p-7 shadow-[0_25px_60px_rgba(0,0,0,0.8)] text-[#FFFFFF] animate-in zoom-in-95 duration-200 select-none overflow-hidden"
+            className="relative w-full max-w-2xl bg-gradient-to-b from-[#121212] via-[#181818] to-[#121212] border border-[#EAB308]/70 rounded-3xl p-5 sm:p-7 shadow-[0_25px_60px_rgba(0,0,0,0.8)] text-[#FFFFFF] animate-in zoom-in-95 duration-200 select-none overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Modal Ambient Golden Glow */}
@@ -806,7 +806,7 @@ export default function HeroRotatingFrames() {
             {/* Modal Header */}
             <div className="flex items-center justify-between pb-3.5 border-b border-[#EAB308]/30 relative z-10">
               <div className="flex items-center gap-2.5">
-                <div className="w-8 h-8 rounded-full bg-[#641E2E] text-[#FACC15] border border-[#EAB308]/50 flex items-center justify-center shadow-xs">
+                <div className="w-8 h-8 rounded-full bg-[#181818] text-[#FACC15] border border-[#EAB308]/50 flex items-center justify-center shadow-xs">
                   <Layers className="w-4 h-4" />
                 </div>
                 <div>

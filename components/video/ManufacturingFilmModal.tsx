@@ -219,7 +219,7 @@ export default function ManufacturingFilmModal({ isOpen, onClose, defaultScene =
           </div>
 
           <div className="flex items-center gap-2">
-            <span className="hidden sm:inline-block bg-[#511B2A] text-[#FFE8A3] border border-[#EAB308] text-[11px] font-bold px-2.5 py-1 rounded-md">
+            <span className="hidden sm:inline-block bg-[#181818] text-[#FACC15] border border-[#EAB308] text-[11px] font-bold px-2.5 py-1 rounded-md">
               4K UHD • 60 FPS
             </span>
             <button
@@ -401,7 +401,7 @@ export default function ManufacturingFilmModal({ isOpen, onClose, defaultScene =
               <div className="flex items-center gap-3">
                 <button
                   onClick={() => setIsPlaying(!isPlaying)}
-                  className="bg-[#511B2A] hover:bg-[#641E2E] text-white px-3 py-1.5 rounded-full border border-[#EAB308] text-xs font-bold flex items-center gap-1.5 transition cursor-pointer"
+                  className="bg-[#EAB308] hover:bg-[#FACC15] text-[#000000] px-3 py-1.5 rounded-full border border-[#EAB308] text-xs font-bold flex items-center gap-1.5 transition cursor-pointer"
                 >
                   {isPlaying ? <Pause className="w-3.5 h-3.5" /> : <Play className="w-3.5 h-3.5 fill-white" />}
                   <span>{isPlaying ? 'Pause' : 'Play'}</span>
@@ -473,7 +473,7 @@ export default function ManufacturingFilmModal({ isOpen, onClose, defaultScene =
           <div className="flex items-center gap-3 shrink-0 w-full sm:w-auto">
             <a
               href="/product/lord-ganesha-vighnaharta-divine-led-backlit-acrylic-art"
-              className="flex-1 sm:flex-initial bg-gradient-to-r from-[#EAB308] via-[#FACC15] to-[#EAB308] hover:brightness-110 text-[#240B13] font-bold text-xs py-2.5 px-4 rounded-full shadow-md flex items-center justify-center gap-1.5 transition"
+              className="flex-1 sm:flex-initial bg-gradient-to-r from-[#EAB308] via-[#FACC15] to-[#EAB308] hover:brightness-110 text-[#000000] font-bold text-xs py-2.5 px-4 rounded-full shadow-md flex items-center justify-center gap-1.5 transition"
             >
               <Sparkles className="w-3.5 h-3.5" />
               <span>Order Ganesha Frame</span>
