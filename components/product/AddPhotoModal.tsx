@@ -18,6 +18,8 @@ import {
   RotateCcw,
   Ruler,
   Image as ImageIcon,
+  Download,
+  Send,
 } from 'lucide-react';
 import { Product, ProductVariant } from '@/types';
 import CustomSizeInput from './CustomSizeInput';
@@ -66,6 +68,7 @@ export default function AddPhotoModal({
   const [isCustomSize, setIsCustomSize] = useState(false);
   const [customWidth, setCustomWidth] = useState<number>(24);
   const [customHeight, setCustomHeight] = useState<number>(36);
+  const [waStep, setWaStep] = useState<'idle' | 'downloaded' | 'sent'>('idle');
 
   // Sync if initialVariant changes
   React.useEffect(() => {
@@ -94,15 +97,19 @@ export default function AddPhotoModal({
     : 0;
 
   const cleanWaNumber = (INITIAL_SETTINGS.whatsappNumber || '919032372782').replace(/[^0-9]/g, '');
-  const photoLine = photoPreview ? '- Custom Photo: Personal photo uploaded' : '- Artwork: Original artwork';
+  const photoLine = photoPreview ? '- Custom Photo: ✅ I am sending my photo in this WhatsApp chat' : '- Artwork: Original artwork (no custom photo)';
   const waOrderText = [
-    `Hello Abhi's Gifts, I want to customise "${product.title}":`,
-    photoLine,
-    `- Size: ${activeSizeLabel}`,
-    `- Price: ₹${activePrice.toLocaleString('en-IN')}`,
-    ledEnabled ? '- Lighting: Warm LED Backlit (12V Adapter)' : '',
-    customText.trim() ? `- Personalization Text: "${customText.trim()}"` : '',
-    'Please assist me with proofing and placing the order.',
+    `Hello Abhi's Gifts! 🙏`,
+    `I want to place a custom order for:`,
+    `📦 *${product.title}*`,
+    ``,
+    photoPreview ? `🖼️ *Photo:* I will send my custom photo in this chat` : `🖼️ Photo: Using original artwork`,
+    `📐 *Size:* ${activeSizeLabel}`,
+    `💰 *Price:* ₹${activePrice.toLocaleString('en-IN')}`,
+    ledEnabled ? `💡 *Lighting:* Warm LED Backlit (12V Adapter)` : '',
+    customText.trim() ? `✍️ *Text/Dedication:* "${customText.trim()}"` : '',
+    ``,
+    `Please confirm and assist me with proofing before printing. Thank you!`,
   ].filter(Boolean).join('\n');
   const waUrl = `https://wa.me/${cleanWaNumber}?text=${encodeURIComponent(waOrderText)}`;
 
@@ -145,6 +152,21 @@ export default function AddPhotoModal({
       };
       reader.readAsDataURL(file);
     }
+  };
+
+  // WhatsApp order handler — downloads photo first (if uploaded), then opens WA
+  const handleWhatsAppOrder = () => {
+    if (photoPreview && photoPreview.startsWith('data:')) {
+      // Trigger auto-download of the uploaded photo so user can attach it in WhatsApp
+      const link = document.createElement('a');
+      link.href = photoPreview;
+      link.download = `${product.slug}-custom-photo.jpg`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+    // Open WhatsApp with pre-filled text
+    window.open(waUrl, '_blank');
   };
 
   const handleAddToCartWithPhoto = (redirectCheckout = false) => {
@@ -518,15 +540,15 @@ export default function AddPhotoModal({
           </div>
 
           <div className="flex items-center justify-between text-xs pt-1">
-            <a
-              href={waUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[#EAB308] hover:underline font-semibold flex items-center gap-1.5"
+            {/* WhatsApp Order — with photo download flow if photo is uploaded */}
+            <button
+              type="button"
+              onClick={handleWhatsAppOrder}
+              className="text-[#EAB308] hover:underline font-semibold flex items-center gap-1.5 cursor-pointer"
             >
               <MessageCircle className="w-3.5 h-3.5" />
-              <span>Order via WhatsApp with Photo</span>
-            </a>
+              <span>Order via WhatsApp{photoPreview ? ' + Photo' : ''}</span>
+            </button>
 
             <Link
               href={`/customise?product=${product.slug}&title=${encodeURIComponent(product.title)}`}
@@ -537,6 +559,21 @@ export default function AddPhotoModal({
               <span>Open in Full 3D Studio</span>
             </Link>
           </div>
+
+          {/* Photo send instruction — shown only when user has uploaded a photo */}
+          {photoPreview && (
+            <div className="mt-2 bg-[#EAB308]/10 border border-[#EAB308]/40 rounded-xl px-3 py-2.5 flex items-start gap-2.5">
+              <Send className="w-4 h-4 text-[#EAB308] shrink-0 mt-0.5" />
+              <div className="text-[11px] text-[#FFFFFF] leading-snug">
+                <span className="font-bold text-[#EAB308]">How to send your photo via WhatsApp:</span>
+                <ol className="mt-1 space-y-0.5 list-decimal list-inside text-[#D1D5DB]">
+                  <li>Click <span className="text-[#EAB308] font-semibold">"Order via WhatsApp + Photo"</span> above — your photo will auto-save &amp; WhatsApp will open</li>
+                  <li>In the WhatsApp chat, tap the <span className="text-[#EAB308] font-semibold">📎 Attach</span> icon and send your saved photo</li>
+                  <li>We'll confirm your order and send a digital proof before printing</li>
+                </ol>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>
