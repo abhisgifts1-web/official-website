@@ -16,9 +16,12 @@ import {
   Sun,
   ShieldCheck,
   RotateCcw,
+  Ruler,
   Image as ImageIcon,
 } from 'lucide-react';
 import { Product, ProductVariant } from '@/types';
+import CustomSizeInput from './CustomSizeInput';
+import { calculateCustomDimensions } from '@/lib/utils/customSize';
 import { useCart } from '@/context/CartContext';
 import { INITIAL_SETTINGS } from '@/lib/data/settings';
 
@@ -60,6 +63,9 @@ export default function AddPhotoModal({
   const [ledEnabled, setLedEnabled] = useState(product.hasLedBacklight);
   const [isDragging, setIsDragging] = useState(false);
   const [addedSuccess, setAddedSuccess] = useState(false);
+  const [isCustomSize, setIsCustomSize] = useState(false);
+  const [customWidth, setCustomWidth] = useState<number>(24);
+  const [customHeight, setCustomHeight] = useState<number>(36);
 
   // Sync if initialVariant changes
   React.useEffect(() => {
@@ -108,8 +114,20 @@ export default function AddPhotoModal({
     }
   };
 
-  const activePrice = activeVariant.price || product.basePrice;
-  const activeMrp = activeVariant.mrp || product.baseMrp;
+
+  const customSizeCalc = React.useMemo(() => {
+    return calculateCustomDimensions(customWidth, customHeight, {
+      hasLed: ledEnabled,
+      frameType: activeVariant.finish,
+    });
+  }, [customWidth, customHeight, ledEnabled, activeVariant.finish]);
+
+  const activePrice = isCustomSize ? customSizeCalc.price : (activeVariant.price || product.basePrice);
+  const activeMrp = isCustomSize ? customSizeCalc.mrp : (activeVariant.mrp || product.baseMrp);
+  const activeSizeLabel = isCustomSize
+    ? `${customSizeCalc.widthInches}" × ${customSizeCalc.heightInches}" (${customSizeCalc.dimensionsCm}) [Custom Size]`
+    : activeVariant.size;
+
   const hasRealDiscount = activeMrp > activePrice;
   const discountPercent = hasRealDiscount
     ? Math.round(((activeMrp - activePrice) / activeMrp) * 100)
@@ -125,8 +143,8 @@ export default function AddPhotoModal({
         slug: product.slug,
         title: itemTitle,
         image: finalImage,
-        variantId: `${activeVariant.id}-custom-photo`,
-        size: activeVariant.size,
+        variantId: isCustomSize ? `custom-size-${customWidth}x${customHeight}-photo` : `${activeVariant.id}-custom-photo`,
+        size: activeSizeLabel,
         finish: activeVariant.finish,
         lighting: ledEnabled ? 'Warm LED Backlit (12V Adapter)' : 'No Lighting (Pure Art)',
         shape: (product.shape === 'portrait' || product.shape === 'landscape' || product.shape === 'square' || product.shape === 'round')
@@ -144,7 +162,7 @@ export default function AddPhotoModal({
           customText: customText.trim() || undefined,
           frameType: activeVariant.finish,
           orientation: product.orientation,
-          specialInstructions: `Product: ${product.title} | Custom Photo Uploaded | Size: ${activeVariant.size}${customText.trim() ? ` | Text: ${customText.trim()}` : ''}`,
+          specialInstructions: `Product: ${product.title} | Custom Photo Uploaded | Size: ${activeSizeLabel}${customText.trim() ? ` | Text: ${customText.trim()}` : ''}`,
         },
       },
       !redirectCheckout
@@ -165,7 +183,7 @@ export default function AddPhotoModal({
 
   const cleanWaNumber = (INITIAL_SETTINGS.whatsappNumber || '919032372782').replace(/[^0-9]/g, '');
   const waOrderText = `Hello Abhi's Gifts, I want to add my own photo to "${product.title}".
-- Size: ${activeVariant.size}
+- Size: ${activeSizeLabel}
 - Price: ₹${activePrice.toLocaleString('en-IN')}
 ${ledEnabled ? '- Lighting: Warm LED Backlit\n' : ''}${customText.trim() ? `- Personalization Text: "${customText.trim()}"\n` : ''}
 Please assist me with photo proofing and placing the order.`;
@@ -295,7 +313,7 @@ Please assist me with photo proofing and placing the order.`;
 
                   {/* Frame Badge */}
                   <div className="absolute bottom-2 left-2 bg-[#121212]/90 border border-[#EAB308]/60 px-2 py-0.5 rounded text-[10px] text-[#EAB308] font-bold">
-                    {product.title} • {activeVariant.size}
+                    {product.title} • {activeSizeLabel}
                   </div>
                 </div>
 
@@ -316,20 +334,37 @@ Please assist me with photo proofing and placing the order.`;
             )}
           </div>
 
-          {/* Size / Variant Selector */}
+          {/* Size / Variant Selector with Custom Size */}
           <div className="space-y-2">
-            <label className="text-xs font-bold text-[#FFFFFF] uppercase tracking-wider block">
-              2. Select Frame Size
-            </label>
+            <div className="flex items-center justify-between">
+              <label className="text-xs font-bold text-[#FFFFFF] uppercase tracking-wider block">
+                2. Frame Size:{' '}
+                <span className="text-[#EAB308] font-serif font-bold normal-case">
+                  {isCustomSize ? `${customWidth}" × ${customHeight}" Custom Size` : activeVariant.size}
+                </span>
+              </label>
+              {isCustomSize && (
+                <button
+                  type="button"
+                  onClick={() => setIsCustomSize(false)}
+                  className="text-[10px] font-bold text-[#EAB308] hover:underline uppercase tracking-wider cursor-pointer"
+                >
+                  Standard Sizes
+                </button>
+              )}
+            </div>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
               {product.variants.map((v) => {
-                const isSelected = activeVariant.id === v.id;
+                const isSelected = !isCustomSize && activeVariant.id === v.id;
                 const cleanSize = v.size.split('(')[0].trim();
                 return (
                   <button
                     key={v.id}
                     type="button"
-                    onClick={() => setActiveVariant(v)}
+                    onClick={() => {
+                      setIsCustomSize(false);
+                      setActiveVariant(v);
+                    }}
                     className={`p-2.5 rounded-xl border text-left transition-all cursor-pointer ${
                       isSelected
                         ? 'border-[#EAB308] bg-[#1E1E1E] text-[#FFFFFF] ring-2 ring-[#EAB308]/60 shadow-sm'
@@ -343,7 +378,37 @@ Please assist me with photo proofing and placing the order.`;
                   </button>
                 );
               })}
+
+              {/* Custom Size Option */}
+              <button
+                type="button"
+                onClick={() => setIsCustomSize(true)}
+                className={`p-2.5 rounded-xl border text-left transition-all cursor-pointer ${
+                  isCustomSize
+                    ? 'border-[#EAB308] bg-[#1E1E1E] text-[#FFFFFF] ring-2 ring-[#EAB308]/60 shadow-sm'
+                    : 'border-[#2D2D2D] bg-[#161616] text-[#D1D5DB] hover:border-[#EAB308]/50 hover:text-white'
+                }`}
+              >
+                <div className="font-bold text-xs flex items-center gap-1 text-[#EAB308]">
+                  <Ruler className="w-3.5 h-3.5 text-[#EAB308]" /> Custom Size
+                </div>
+                <div className="text-[11px] text-[#FFFFFF] font-medium mt-0.5">
+                  Enter W × H
+                </div>
+              </button>
             </div>
+
+            {/* Custom Size Interactive Input */}
+            {isCustomSize && (
+              <CustomSizeInput
+                width={customWidth}
+                height={customHeight}
+                onChangeWidth={setCustomWidth}
+                onChangeHeight={setCustomHeight}
+                calc={customSizeCalc}
+                compact={true}
+              />
+            )}
           </div>
 
           {/* Lighting Toggle if product has LED */}
@@ -406,7 +471,7 @@ Please assist me with photo proofing and placing the order.`;
             </div>
 
             <div className="text-right text-[11px] text-[#D1D5DB]">
-              <span className="text-[#FFFFFF] font-semibold block">{activeVariant.size}</span>
+              <span className="text-[#FFFFFF] font-semibold block">{activeSizeLabel}</span>
               <span>1:1 WhatsApp proof before print</span>
             </div>
           </div>

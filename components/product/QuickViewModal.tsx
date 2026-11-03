@@ -3,8 +3,10 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { X, ShieldCheck, Sparkles, ArrowRight, Camera } from 'lucide-react';
+import { X, ShieldCheck, Sparkles, ArrowRight, Camera, Ruler } from 'lucide-react';
 import AddPhotoModal from './AddPhotoModal';
+import CustomSizeInput from './CustomSizeInput';
+import { calculateCustomDimensions } from '@/lib/utils/customSize';
 import { Product, ProductVariant } from '@/types';
 import { useCart } from '@/context/CartContext';
 
@@ -22,6 +24,9 @@ export default function QuickViewModal({ product, isOpen, onClose }: QuickViewMo
   const [quantity, setQuantity] = useState(1);
   const [activeImage, setActiveImage] = useState<string | null>(null);
   const [isAddPhotoOpen, setIsAddPhotoOpen] = useState(false);
+  const [isCustomSize, setIsCustomSize] = useState(false);
+  const [customWidth, setCustomWidth] = useState<number>(24);
+  const [customHeight, setCustomHeight] = useState<number>(36);
 
   if (!isOpen || !product) return null;
 
@@ -38,6 +43,18 @@ export default function QuickViewModal({ product, isOpen, onClose }: QuickViewMo
     stockCount: 20,
   };
 
+
+  const customSizeCalc = React.useMemo(() => {
+    return calculateCustomDimensions(customWidth, customHeight, {
+      hasLed: product.hasLedBacklight,
+      frameType: currentVariant.finish,
+    });
+  }, [customWidth, customHeight, product.hasLedBacklight, currentVariant.finish]);
+
+  const activePrice = isCustomSize ? customSizeCalc.price : currentVariant.price;
+  const activeMrp = isCustomSize ? customSizeCalc.mrp : currentVariant.mrp;
+  const activeSize = isCustomSize ? `${customSizeCalc.widthInches}" × ${customSizeCalc.heightInches}" (${customSizeCalc.dimensionsCm}) [Custom Size]` : currentVariant.size;
+
   const currentImg = activeImage || product.images[0];
 
   const handleBuyNow = () => {
@@ -47,12 +64,12 @@ export default function QuickViewModal({ product, isOpen, onClose }: QuickViewMo
         slug: product.slug,
         title: product.title,
         image: currentImg,
-        variantId: currentVariant.id,
-        size: currentVariant.size,
+        variantId: isCustomSize ? `custom-size-${customWidth}x${customHeight}` : currentVariant.id,
+        size: activeSize,
         finish: currentVariant.finish,
         lighting: currentVariant.lighting,
-        unitPrice: currentVariant.price,
-        unitMrp: currentVariant.mrp,
+        unitPrice: activePrice,
+        unitMrp: activeMrp,
         quantity,
       },
       false
@@ -141,12 +158,12 @@ export default function QuickViewModal({ product, isOpen, onClose }: QuickViewMo
                 {/* Price */}
                 <div className="flex items-baseline gap-2.5 pt-1">
                   <span className="font-serif text-2xl font-bold text-[#FFFFFF]">
-                    ₹{currentVariant.price.toLocaleString('en-IN')}
+                    ₹{activePrice.toLocaleString('en-IN')}
                   </span>
                   {currentVariant.mrp > currentVariant.price && (
                     <>
                       <span className="text-sm text-[#D1D5DB]/70 line-through">
-                        ₹{currentVariant.mrp.toLocaleString('en-IN')}
+                        ₹{activeMrp.toLocaleString('en-IN')}
                       </span>
                       <span className="text-xs font-bold text-[#FFFFFF] bg-[#1E1E1E] px-2 py-0.5 rounded border border-[#EAB308]/40">
                         Save {Math.round(((currentVariant.mrp - currentVariant.price) / currentVariant.mrp) * 100)}%
@@ -169,9 +186,12 @@ export default function QuickViewModal({ product, isOpen, onClose }: QuickViewMo
                       <button
                         key={v.id}
                         type="button"
-                        onClick={() => setSelectedVariant(v)}
-                        className={`px-3 py-2 text-xs font-medium rounded-lg border text-left transition-all ${
-                          currentVariant.id === v.id
+                        onClick={() => {
+                          setIsCustomSize(false);
+                          setSelectedVariant(v);
+                        }}
+                        className={`px-3 py-2 text-xs font-medium rounded-lg border text-left transition-all cursor-pointer ${
+                          !isCustomSize && currentVariant.id === v.id
                             ? 'border-[#EAB308] bg-[#1E1E1E] text-[#FFFFFF] font-bold ring-1 ring-[#EAB308]'
                             : 'border-[#2D2D2D] text-[#FFFFFF] hover:border-[#EAB308]'
                         }`}
@@ -180,7 +200,36 @@ export default function QuickViewModal({ product, isOpen, onClose }: QuickViewMo
                         <div className="text-[11px] text-[#FFFFFF] font-bold">₹{v.price.toLocaleString('en-IN')}</div>
                       </button>
                     ))}
+
+                    {/* Custom Size Option */}
+                    <button
+                      type="button"
+                      onClick={() => setIsCustomSize(true)}
+                      className={`px-3 py-2 text-xs font-medium rounded-lg border text-left transition-all cursor-pointer ${
+                        isCustomSize
+                          ? 'border-[#EAB308] bg-[#1E1E1E] text-[#FFFFFF] font-bold ring-1 ring-[#EAB308]'
+                          : 'border-[#2D2D2D] text-[#FFFFFF] hover:border-[#EAB308]'
+                      }`}
+                    >
+                      <div className="font-bold flex items-center gap-1 text-[#EAB308]">
+                        <Ruler className="w-3 h-3 text-[#EAB308]" /> Custom Size
+                      </div>
+                      <div className="text-[11px] text-[#D1D5DB]">Enter Dimensions</div>
+                    </button>
                   </div>
+
+                  {isCustomSize && (
+                    <div className="pt-2">
+                      <CustomSizeInput
+                        width={customWidth}
+                        height={customHeight}
+                        onChangeWidth={setCustomWidth}
+                        onChangeHeight={setCustomHeight}
+                        calc={customSizeCalc}
+                        compact={true}
+                      />
+                    </div>
+                  )}
                 </div>
 
                 {/* Quantity */}
@@ -213,7 +262,7 @@ export default function QuickViewModal({ product, isOpen, onClose }: QuickViewMo
                   onClick={handleBuyNow}
                   className="w-full bg-[#EAB308] hover:bg-[#FACC15] text-[#000000] py-3 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-[0_4px_16px_rgba(234,179,8,0.25)] border border-[#EAB308]/50 transition-all cursor-pointer"
                 >
-                  <span>Buy Now • ₹{(currentVariant.price * quantity).toLocaleString('en-IN')}</span>
+                  <span>Buy Now • ₹{(activePrice * quantity).toLocaleString('en-IN')}</span>
                   <ArrowRight className="w-4 h-4 text-[#EAB308]" />
                 </button>
 

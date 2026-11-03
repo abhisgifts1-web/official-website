@@ -34,6 +34,8 @@ import {
   Camera,
 } from 'lucide-react';
 import AddPhotoModal from '@/components/product/AddPhotoModal';
+import CustomSizeInput from '@/components/product/CustomSizeInput';
+import { calculateCustomDimensions } from '@/lib/utils/customSize';
 import { Product, ProductReview } from '@/types';
 import { useCart } from '@/context/CartContext';
 import { useWishlist } from '@/context/WishlistContext';
@@ -430,6 +432,9 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
   const [selectedThickness, setSelectedThickness] = useState<ThicknessType>('3mm');
   const [quantity, setQuantity] = useState(1);
   const [isAddPhotoOpen, setIsAddPhotoOpen] = useState(false);
+  const [isCustomSize, setIsCustomSize] = useState(false);
+  const [customWidth, setCustomWidth] = useState<number>(24);
+  const [customHeight, setCustomHeight] = useState<number>(36);
 
   // Gallery state
   const galleryImages = useMemo(() => {
@@ -530,8 +535,20 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
     return currentSizeObj.allowedThickness;
   }, [selectedFrame, currentSizeObj]);
 
+  // Dynamic calculation for entered custom dimensions
+  const customSizeCalc = useMemo(() => {
+    return calculateCustomDimensions(customWidth, customHeight, {
+      hasLed: product.hasLedBacklight && isAartiGlow,
+      frameType: selectedFrame,
+      thickness: selectedThickness,
+    });
+  }, [customWidth, customHeight, product.hasLedBacklight, isAartiGlow, selectedFrame, selectedThickness]);
+
   // Active pricing calculation
   const currentPricing = useMemo(() => {
+    if (isCustomSize) {
+      return { price: customSizeCalc.price, mrp: customSizeCalc.mrp, isRange: false };
+    }
     if (!currentSizeObj) {
       return { price: liveProduct.basePrice, mrp: liveProduct.baseMrp, isRange: true };
     }
@@ -562,7 +579,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
     }
 
     return { price: liveProduct.basePrice, mrp: liveProduct.baseMrp, isRange: false };
-  }, [currentSizeObj, selectedFrame, selectedThickness, product.basePrice, product.baseMrp]);
+  }, [isCustomSize, customSizeCalc, currentSizeObj, selectedFrame, selectedThickness, product.basePrice, product.baseMrp]);
 
   // Hardware helper text
   const mountingNote = useMemo(() => {
@@ -664,7 +681,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
   // Add to cart
   const handleAddToCart = () => {
     const frameLabel = selectedFrame === 'gold' ? 'Gold Frame' : selectedFrame === 'black' ? 'Black Frame' : `Without Frame (${selectedThickness})`;
-    const sizeLabel = currentSizeObj ? currentSizeObj.label : '12x18';
+    const sizeLabel = isCustomSize ? customSizeCalc.label : (currentSizeObj ? currentSizeObj.label : '12x18');
 
     addToCart(
       {
@@ -685,7 +702,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
           frameType: selectedFrame,
           orientation: selectedShape === 'portrait' ? 'vertical' : selectedShape === 'landscape' ? 'horizontal' : 'square',
           aspectRatio: SHAPE_CONFIGS[selectedShape].ratioLabel,
-          specialInstructions: `Shape: ${selectedShape.toUpperCase()} | Frame: ${frameLabel} | Size: ${sizeLabel}`,
+          specialInstructions: isCustomSize ? `Custom Dimension Order: ${customSizeCalc.widthInches}x${customSizeCalc.heightInches} inches (${customSizeCalc.dimensionsCm}) | Shape: ${selectedShape.toUpperCase()} | Frame: ${frameLabel}` : `Shape: ${selectedShape.toUpperCase()} | Frame: ${frameLabel} | Size: ${sizeLabel}`,
         },
       },
       true
@@ -695,7 +712,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
   // Instant Buy Now
   const handleBuyNow = () => {
     const frameLabel = selectedFrame === 'gold' ? 'Gold Frame' : selectedFrame === 'black' ? 'Black Frame' : `Without Frame (${selectedThickness})`;
-    const sizeLabel = currentSizeObj ? currentSizeObj.label : '12x18';
+    const sizeLabel = isCustomSize ? customSizeCalc.label : (currentSizeObj ? currentSizeObj.label : '12x18');
 
     addToCart(
       {
@@ -716,7 +733,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
           frameType: selectedFrame,
           orientation: selectedShape === 'portrait' ? 'vertical' : selectedShape === 'landscape' ? 'horizontal' : 'square',
           aspectRatio: SHAPE_CONFIGS[selectedShape].ratioLabel,
-          specialInstructions: `Shape: ${selectedShape.toUpperCase()} | Frame: ${frameLabel} | Size: ${sizeLabel}`,
+          specialInstructions: isCustomSize ? `Custom Dimension Order: ${customSizeCalc.widthInches}x${customSizeCalc.heightInches} inches (${customSizeCalc.dimensionsCm}) | Shape: ${selectedShape.toUpperCase()} | Frame: ${frameLabel}` : `Shape: ${selectedShape.toUpperCase()} | Frame: ${frameLabel} | Size: ${sizeLabel}`,
         },
       },
       false
@@ -728,7 +745,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
   // WhatsApp Custom Size & Consultation
   const cleanWaNumber = (INITIAL_SETTINGS.whatsappNumber || '919032372782').replace(/[^0-9]/g, '');
   const whatsappCustomSizeUrl = `https://wa.me/${cleanWaNumber}?text=${encodeURIComponent(
-    `Hello Abhi's Gifts! I would like to inquire about ordering "${product.title}" (${selectedShape.toUpperCase()} layout, ${currentSizeObj ? currentSizeObj.label : "custom"} in, ${selectedFrame} finish, ₹${currentPricing.price.toLocaleString('en-IN')}). Can you share details or custom dimensions?`
+    `Hello Abhi's Gifts! I would like to order "${product.title}" (${selectedShape.toUpperCase()} layout, ${isCustomSize ? `Custom Size: ${customSizeCalc.widthInches}x${customSizeCalc.heightInches} inches (${customSizeCalc.dimensionsCm})` : (currentSizeObj ? currentSizeObj.label : '12x18') + ' in'}, ${selectedFrame} finish, ₹${currentPricing.price.toLocaleString('en-IN')}). Please assist with proofing.`
   )}`;
 
   // Post review
@@ -1297,7 +1314,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                 <span className="font-bold text-[#FFFFFF]">
                   3. Dimensions:{' '}
                   <strong className="text-[#EAB308] font-serif">
-                    {currentSizeObj ? `${currentSizeObj.label} (${currentSizeObj.dimensionsCm})` : 'Select Size'}
+                    {isCustomSize ? `${customSizeCalc.widthInches}" × ${customSizeCalc.heightInches}" (${customSizeCalc.dimensionsCm}) [Custom Size]` : (currentSizeObj ? `${currentSizeObj.label} (${currentSizeObj.dimensionsCm})` : 'Select Size')}
                   </strong>
                 </span>
                 {selectedSizeId && (
@@ -1322,7 +1339,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                       key={s.id}
                       type="button"
                       disabled={!isSupported}
-                      onClick={() => handleSelectSize(s.id)}
+                      onClick={() => { setIsCustomSize(false); handleSelectSize(s.id); }}
                       className={`py-2 px-1 sm:py-2.5 sm:px-1.5 min-h-[46px] rounded-xl sm:rounded-2xl text-xs transition-all flex flex-col items-center justify-center cursor-pointer ${
                         isSelected
                           ? 'border-2 border-[#EAB308] text-[#FFFFFF] font-bold bg-[#1A1A1A] shadow-xs'

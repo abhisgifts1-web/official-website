@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { Heart, Eye, ArrowRight, Sparkles, Truck, ShoppingBag, Camera } from 'lucide-react';
+import { Heart, Eye, ArrowRight, Sparkles, Truck, ShoppingBag, Camera, Ruler } from 'lucide-react';
 import { Product } from '@/types';
 import { useCart } from '@/context/CartContext';
 import { useWishlist } from '@/context/WishlistContext';
@@ -245,7 +245,7 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
                       className={`px-1.5 py-0.5 rounded-md text-[10px] font-semibold border transition-all shrink-0 cursor-pointer ${
                         isSelected
                           ? 'border-[#EAB308] bg-[#1E1E1E] text-[#FFFFFF] font-bold ring-1 ring-[#EAB308]/40 shadow-2xs'
-                          : 'border-[#2D2D2D] bg-white text-[#D1D5DB] hover:border-[#EAB308]/60 hover:text-[#FFFFFF]'
+                          : 'border-[#2D2D2D] bg-[#1A1A1A] text-[#D1D5DB] hover:border-[#EAB308]/60 hover:text-[#FFFFFF]'
                       }`}
                       title={`${v.size} - ₹${v.price}`}
                     >
@@ -253,6 +253,21 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
                     </button>
                   );
                 })}
+
+                {/* Custom Size Chip */}
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    setIsAddPhotoOpen(true);
+                  }}
+                  className="px-1.5 py-0.5 rounded-md text-[10px] font-semibold border border-[#EAB308]/70 bg-[#161616] text-[#EAB308] hover:bg-[#EAB308] hover:text-black transition-all shrink-0 cursor-pointer flex items-center gap-0.5"
+                  title={`Enter custom dimensions for ${product.title}`}
+                >
+                  <Ruler className="w-2.5 h-2.5" />
+                  <span>Custom Size</span>
+                </button>
               </div>
             )}
           </div>
