@@ -31,6 +31,7 @@ import {
 } from 'lucide-react';
 import { useCart } from '@/context/CartContext';
 import { ProductOrientation } from '@/types';
+import { INITIAL_SETTINGS } from '@/lib/data/settings';
 
 // =========================================================================
 // TYPES & CONFIGURATION
@@ -508,6 +509,7 @@ export default function CustomizerStudio() {
   const [rotation, setRotation] = useState<number>(0);
   const [wallMode, setWallMode] = useState<'ivory' | 'night' | 'studio'>('ivory');
   const [fileError, setFileError] = useState<string | null>(null);
+  const [uploadProgress, setUploadProgress] = useState<number | null>(null);
   const [isHovered, setIsHovered] = useState<boolean>(false);
 
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -674,7 +676,8 @@ export default function CustomizerStudio() {
       .filter(Boolean)
       .join('\n');
 
-    return `https://wa.me/917780269927?text=${encodeURIComponent(details)}`;
+    const cleanWa = (INITIAL_SETTINGS.whatsappNumber || '919032372782').replace(/[^0-9]/g, '');
+    return `https://wa.me/${cleanWa}?text=${encodeURIComponent(details)}`;
   }, [
     activeCategoryObj,
     orientation,
@@ -1145,7 +1148,22 @@ export default function CustomizerStudio() {
               </div>
 
               {/* Photo Upload Drop Area */}
-              <div className="bg-[#FAF3E8]/80 p-4 rounded-2xl border border-[#E8D1A5] flex flex-col sm:flex-row items-center justify-between gap-4">
+              <div className="bg-[#FAF3E8]/80 p-4 rounded-2xl border border-[#E8D1A5] flex flex-col gap-3">
+                {uploadProgress !== null && (
+                  <div className="w-full space-y-1.5 pb-2 border-b border-[#E8D1A5]/60">
+                    <div className="flex justify-between text-xs font-bold text-[#511B2A]">
+                      <span>Optimizing image for 4mm Crystal Acrylic Printing...</span>
+                      <span>{uploadProgress}%</span>
+                    </div>
+                    <div className="w-full h-2 bg-[#E8D1A5] rounded-full overflow-hidden">
+                      <div
+                        className="h-full bg-gradient-to-r from-[#511B2A] to-[#D6AA55] transition-all duration-200"
+                        style={{ width: `${uploadProgress}%` }}
+                      />
+                    </div>
+                  </div>
+                )}
+                <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
                 <div className="flex items-center gap-3">
                   <div className="w-11 h-11 rounded-xl bg-[#511B2A] text-[#FFF7ED] flex items-center justify-center shrink-0 shadow-xs">
                     <Upload className="w-5 h-5 text-[#E8C77E]" />
@@ -1192,6 +1210,7 @@ export default function CustomizerStudio() {
                   )}
                 </div>
               </div>
+            </div>
 
               {fileError && (
                 <p className="text-xs text-rose-600 bg-rose-50 p-2.5 rounded-xl border border-rose-200">
@@ -1208,7 +1227,7 @@ export default function CustomizerStudio() {
             {/* Step A: Select Frame Category */}
             <div className="space-y-2">
               <label className="text-xs font-bold uppercase tracking-wider text-[#511B2A] flex items-center justify-between">
-                <span>A. Select Frame Category</span>
+                <span>Step 2: Select Frame Category</span>
                 <span className="text-[10px] text-[#A06E28] font-normal">6 Curated Styles</span>
               </label>
 
@@ -1244,7 +1263,7 @@ export default function CustomizerStudio() {
             {/* Step B: Select Orientation */}
             <div className="space-y-2">
               <label className="text-xs font-bold uppercase tracking-wider text-[#511B2A] flex items-center justify-between">
-                <span>B. Select Orientation</span>
+                <span>Step 3: Choose Orientation &amp; Dimensions</span>
                 <span className="text-[10px] text-[#A06E28] font-normal capitalize">
                   Current: {orientation}
                 </span>
@@ -1280,7 +1299,7 @@ export default function CustomizerStudio() {
             <div className="space-y-2">
               <div className="flex items-center justify-between">
                 <label className="text-xs font-bold uppercase tracking-wider text-[#511B2A]">
-                  C. Select Frame Size
+                  Step 3B: Select Frame Dimensions (4mm Cast Acrylic)
                 </label>
                 <span className="text-[11px] text-[#A06E28] font-semibold">{displaySizeLabel}</span>
               </div>
@@ -1356,7 +1375,7 @@ export default function CustomizerStudio() {
             {/* Step D: Select Frame Finish */}
             <div className="space-y-2">
               <label className="text-xs font-bold uppercase tracking-wider text-[#511B2A] flex items-center justify-between">
-                <span>D. Select Frame Finish</span>
+                <span>Step 4: Select Frame Finish & LED Lighting</span>
                 <span className="text-[10px] text-[#A06E28] font-normal">{activeFinishObj.name}</span>
               </label>
 
@@ -1390,7 +1409,7 @@ export default function CustomizerStudio() {
             {/* Step E: LED Options */}
             <div className="space-y-2">
               <label className="text-xs font-bold uppercase tracking-wider text-[#511B2A] flex items-center justify-between">
-                <span>E. LED Backlight Options</span>
+                <span>Step 4B: LED Backlight Color (3000K Halo)</span>
                 <span className="text-[10px] text-[#A06E28] font-normal">{activeLedObj.name}</span>
               </label>
 
@@ -1424,7 +1443,7 @@ export default function CustomizerStudio() {
             {/* Optional Personal Inscription */}
             <div className="space-y-1">
               <label className="text-xs font-bold uppercase tracking-wider text-[#511B2A] block">
-                F. Custom Inscription / Surname Script (Optional)
+                Step 5: Add Personal Message / Inscription (Optional)
               </label>
               <input
                 type="text"
@@ -1459,7 +1478,7 @@ export default function CustomizerStudio() {
             <div className="bg-[#FAF3E8] p-4 sm:p-5 rounded-2xl border border-[#D6AA55] space-y-3">
               <div className="flex items-baseline justify-between border-b border-[#E8D1A5] pb-2.5">
                 <div>
-                  <span className="text-xs text-[#795D58] block">Estimated Total Price</span>
+                  <span className="text-xs text-[#795D58] block">Step 6: Live Price & Configuration Review</span>
                   <div className="flex items-baseline gap-2">
                     <span className="font-serif text-2xl sm:text-3xl font-bold text-[#511B2A]">
                       ₹{pricing.price.toLocaleString('en-IN')}

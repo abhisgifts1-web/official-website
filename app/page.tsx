@@ -9,6 +9,7 @@ import CustomGiftsShowcase from '@/components/home/CustomGiftsShowcase';
 import SacredArtAtelier from '@/components/home/SacredArtAtelier';
 import TrustAndReviewsSection from '@/components/home/TrustAndReviewsSection';
 import FaqSection from '@/components/home/FaqSection';
+import ContactSupportSection from '@/components/support/ContactSupportSection';
 import NewsletterSection from '@/components/home/NewsletterSection';
 
 export default function HomePage() {
@@ -38,7 +39,10 @@ export default function HomePage() {
       {/* 8. COLLECTOR KNOWLEDGE BASE — Frequently Asked Questions */}
       <FaqSection />
 
-      {/* 9. VIP COLLECTOR CIRCLE — Newsletter Subscription */}
+      {/* 9. DEDICATED CUSTOMER SUPPORT & FAQ PILLARS — WhatsApp, Phone, Location & Tracking */}
+      <ContactSupportSection />
+
+      {/* 10. VIP COLLECTOR CIRCLE — Newsletter Subscription */}
       <NewsletterSection />
     </div>
   );

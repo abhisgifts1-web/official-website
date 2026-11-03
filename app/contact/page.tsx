@@ -12,6 +12,7 @@ import {
   Sparkles,
 } from 'lucide-react';
 import { INITIAL_SETTINGS } from '@/lib/data/settings';
+import ContactSupportSection from '@/components/support/ContactSupportSection';
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({

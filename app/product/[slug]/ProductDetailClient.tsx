@@ -35,6 +35,7 @@ import {
 import { Product, ProductReview } from '@/types';
 import { useCart } from '@/context/CartContext';
 import { useWishlist } from '@/context/WishlistContext';
+import { INITIAL_SETTINGS } from '@/lib/data/settings';
 import ProductCard from '@/components/product/ProductCard';
 
 export type ShapeOptionType = 'portrait' | 'landscape' | 'square' | 'round';
@@ -800,9 +801,10 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
     router.push('/checkout');
   };
 
-  // WhatsApp Custom Size
-  const whatsappCustomSizeUrl = `https://wa.me/917780269927?text=${encodeURIComponent(
-    `Hi Abhi Gifts! I would like to inquire about ordering "${product.title}" in ${selectedShape.toUpperCase()} layout (${currentSizeObj ? currentSizeObj.label : "custom"} in, ${selectedFrame} finish). Can you share details or custom dimensions?`
+  // WhatsApp Custom Size & Consultation
+  const cleanWaNumber = (INITIAL_SETTINGS.whatsappNumber || '919032372782').replace(/[^0-9]/g, '');
+  const whatsappCustomSizeUrl = `https://wa.me/${cleanWaNumber}?text=${encodeURIComponent(
+    `Hello Abhi's Gifts! I would like to inquire about ordering "${product.title}" (${selectedShape.toUpperCase()} layout, ${currentSizeObj ? currentSizeObj.label : "custom"} in, ${selectedFrame} finish, ₹${currentPricing.price.toLocaleString('en-IN')}). Can you share details or custom dimensions?`
   )}`;
 
   // Post review
@@ -1610,6 +1612,19 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                   <ShoppingBag className="w-4 h-4 text-[#C69A42]" />
                   <span>Add to Cart</span>
                 </button>
+              </div>
+
+              {/* WhatsApp Enquiry Button */}
+              <div className="pt-1">
+                <a
+                  href={whatsappCustomSizeUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full bg-[#25D366]/10 hover:bg-[#25D366]/20 border border-[#25D366]/40 text-[#128C7E] font-bold text-xs py-3 rounded-2xl transition-all flex items-center justify-center gap-2 cursor-pointer shadow-2xs"
+                >
+                  <MessageCircle className="w-4 h-4 fill-current text-[#25D366]" />
+                  <span>Need Custom Sizing or Advice? Inquire on WhatsApp</span>
+                </a>
               </div>
 
               <p className="text-[11px] text-[#89746F] text-center font-medium">

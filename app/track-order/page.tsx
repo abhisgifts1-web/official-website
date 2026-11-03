@@ -2,21 +2,31 @@
 
 import React, { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
+import Link from 'next/link';
 import {
   Search,
   Truck,
   CheckCircle2,
   MessageCircle,
+  Phone,
+  Clock,
+  ShieldCheck,
+  Package,
+  ArrowRight,
+  HelpCircle,
+  Calendar,
+  AlertCircle,
+  Sparkles,
 } from 'lucide-react';
-import { Order, OrderStatus } from '@/types';
+import { Order } from '@/types';
+import { INITIAL_SETTINGS } from '@/lib/data/settings';
 
-const STATUS_STEPS: OrderStatus[] = [
-  'Confirmed',
-  'Framing & Production',
-  'Quality Checked',
-  'Shipped',
-  'Out for Delivery',
-  'Delivered',
+const OFFICIAL_STAGES = [
+  { id: 'received', label: 'Order Received', desc: 'Order logged & verified' },
+  { id: 'processing', label: 'Processing', desc: 'Design review & material prep' },
+  { id: 'production', label: 'Customization / Production', desc: '4mm laser cut & UV printing' },
+  { id: 'dispatched', label: 'Dispatched', desc: 'Handed to express courier' },
+  { id: 'delivered', label: 'Delivered', desc: 'Delivered to your doorstep' },
 ];
 
 function TrackOrderContent() {
@@ -24,11 +34,12 @@ function TrackOrderContent() {
   const initialId = searchParams.get('id') || '';
 
   const [orderIdInput, setOrderIdInput] = useState(initialId);
+  const [phoneInput, setPhoneInput] = useState('');
   const [loading, setLoading] = useState(false);
   const [order, setOrder] = useState<Order | null>(null);
   const [error, setError] = useState<string | null>(null);
 
-  const fetchOrder = async (id: string) => {
+  const fetchOrder = async (id: string, phone?: string) => {
     if (!id.trim()) return;
     setLoading(true);
     setError(null);
@@ -36,13 +47,24 @@ function TrackOrderContent() {
       const res = await fetch(`/api/orders/${encodeURIComponent(id.trim())}`);
       const data = await res.json();
       if (!res.ok || !data.success) {
-        setError(data.error || 'Order not found. Please verify your Order ID.');
+        setError(data.error || 'Order not found. Please verify your Order ID and try again.');
         setOrder(null);
       } else {
-        setOrder(data.order);
+        const foundOrder = data.order as Order;
+        if (phone && phone.trim()) {
+          const cleanPhone = phone.replace(/\D/g, '');
+          const orderPhone = (foundOrder.customer.mobile || '').replace(/\D/g, '');
+          if (cleanPhone && orderPhone && !orderPhone.endsWith(cleanPhone) && !cleanPhone.endsWith(orderPhone)) {
+            setError('Phone number does not match the customer details for this Order ID.');
+            setOrder(null);
+            setLoading(false);
+            return;
+          }
+        }
+        setOrder(foundOrder);
       }
     } catch {
-      setError('Failed to fetch tracking details. Please try again.');
+      setError('Unable to retrieve tracking details at this moment. Please connect with our support on WhatsApp.');
       setOrder(null);
     } finally {
       setLoading(false);
@@ -57,184 +79,335 @@ function TrackOrderContent() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    fetchOrder(orderIdInput);
+    fetchOrder(orderIdInput, phoneInput);
   };
 
-  const getStepIndex = (currentStatus: OrderStatus) => {
-    if (currentStatus === 'Pending') return 0;
-    const idx = STATUS_STEPS.indexOf(currentStatus);
-    return idx === -1 ? 1 : idx;
+  // Map backend status to 0..4 stage index
+  const getStageIndex = (statusStr: string) => {
+    const s = (statusStr || '').toLowerCase();
+    if (s.includes('delivered')) return 4;
+    if (s.includes('shipped') || s.includes('dispatch') || s.includes('transit') || s.includes('out for delivery')) return 3;
+    if (s.includes('framing') || s.includes('production') || s.includes('custom') || s.includes('quality')) return 2;
+    if (s.includes('processing') || s.includes('confirmed') || s.includes('verified')) return 1;
+    return 0; // Order Received
   };
 
-  const activeStepIdx = order ? getStepIndex(order.orderStatus) : 0;
+  const activeStage = order ? getStageIndex(order.orderStatus) : 0;
+
+  const cleanWaNumber = (INITIAL_SETTINGS.whatsappNumber || '919032372782').replace(/[^0-9]/g, '');
+  const supportWaUrl = order
+    ? `https://wa.me/${cleanWaNumber}?text=${encodeURIComponent(
+        `Hello Abhi's Gifts, I am inquiring about my Order ID #${order.id}. Current status is: ${order.orderStatus}. Can you please provide an update on dispatch and delivery?`
+      )}`
+    : `https://wa.me/${cleanWaNumber}?text=${encodeURIComponent(
+        `Hello Abhi's Gifts, I need assistance tracking my photo frame order.`
+      )}`;
+
+  // Estimated delivery calculation
+  const getEstimatedDelivery = () => {
+    if (!order) return null;
+    const created = new Date(order.createdAt);
+    const estStart = new Date(created);
+    estStart.setDate(estStart.getDate() + 3);
+    const estEnd = new Date(created);
+    estEnd.setDate(estEnd.getDate() + 5);
+
+    const isHyderabad = (order.customer.city || '').toLowerCase().includes('hyderabad') || (order.customer.pincode || '').startsWith('500');
+
+    if (isHyderabad) {
+      const hydDate = new Date(created);
+      hydDate.setDate(hydDate.getDate() + 2);
+      return `Expected within 24–48 hours (by ${hydDate.toLocaleDateString('en-IN', { day: 'numeric', month: 'short' })}) via Hyderabad Express Dispatch`;
+    }
+
+    return `${estStart.toLocaleDateString('en-IN', { day: 'numeric', month: 'short' })} – ${estEnd.toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })} via BlueDart / Delhivery`;
+  };
 
   return (
-    <div className="w-full max-w-[1760px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 py-10 sm:py-16 space-y-8">
+    <div className="w-full max-w-[1760px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 py-10 sm:py-16 space-y-10">
       <div className="max-w-4xl mx-auto space-y-8">
         {/* Header */}
         <div className="text-center max-w-xl mx-auto space-y-2">
-        <span className="text-xs uppercase tracking-widest font-bold text-amber-900 bg-amber-100 px-3 py-1 rounded-full inline-flex items-center gap-1.5">
-          <Truck className="w-3.5 h-3.5 text-amber-800" /> Pan-India Live Tracking
-        </span>
-        <h1 className="font-serif font-bold text-3xl sm:text-4xl text-stone-900">
-          Track Your Wall Art Order
-        </h1>
-        <p className="text-xs sm:text-sm text-stone-600">
-          Enter your Order ID (found on your order confirmation and invoice email) to see live production and courier status.
-        </p>
-      </div>
-
-      {/* Search Input Box */}
-      <form
-        onSubmit={handleSubmit}
-        className="bg-white p-4 sm:p-6 rounded-3xl border border-stone-200 shadow-sm flex flex-col sm:flex-row gap-3"
-      >
-        <div className="relative flex-1">
-          <input
-            type="text"
-            required
-            placeholder="Enter Order ID (e.g. AG-2026-78401)"
-            value={orderIdInput}
-            onChange={(e) => setOrderIdInput(e.target.value)}
-            className="w-full pl-10 pr-4 py-3 text-xs sm:text-sm bg-stone-50 border border-stone-300 rounded-2xl outline-none focus:border-amber-700 font-mono"
-          />
-          <Search className="w-4 h-4 text-stone-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+          <span className="text-xs uppercase tracking-widest font-bold text-[#511B2A] bg-white border border-[#D6AA55] px-3.5 py-1 rounded-full inline-flex items-center gap-1.5 shadow-2xs">
+            <Truck className="w-3.5 h-3.5 text-[#D6AA55]" />
+            <span>Pan-India Live Order Tracking</span>
+          </span>
+          <h1 className="font-serif font-bold text-3xl sm:text-4xl text-[#511B2A] tracking-tight">
+            Track Your Frame &amp; Keepsake Order
+          </h1>
+          <p className="text-xs sm:text-sm text-[#533C36] leading-relaxed">
+            Enter your Order ID (received via SMS, email, or WhatsApp) to track real-time laser fabrication, quality inspection, and courier dispatch.
+          </p>
         </div>
 
-        <button
-          type="submit"
-          disabled={loading || !orderIdInput.trim()}
-          className="bg-stone-900 hover:bg-amber-800 disabled:opacity-50 text-white font-semibold text-xs sm:text-sm px-8 py-3 rounded-2xl shadow-warm transition-colors whitespace-nowrap"
+        {/* Dual Search Input Box */}
+        <form
+          onSubmit={handleSubmit}
+          className="bg-white p-5 sm:p-7 rounded-3xl border border-[#E8D5BD] shadow-sm flex flex-col md:flex-row gap-3 items-stretch md:items-center"
         >
-          {loading ? 'Locating...' : 'Track Order'}
-        </button>
-      </form>
+          <div className="relative flex-1">
+            <input
+              type="text"
+              required
+              placeholder="Order ID (e.g. AG-2026-78401)"
+              value={orderIdInput}
+              onChange={(e) => setOrderIdInput(e.target.value)}
+              className="w-full pl-10 pr-4 py-3 text-xs sm:text-sm bg-[#FFFBF5] border border-[#E8D5BD] rounded-2xl outline-none focus:border-[#D6AA55] font-mono text-[#511B2A]"
+            />
+            <Search className="w-4 h-4 text-[#8C7A70] absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+          </div>
 
-      {error && (
-        <div className="bg-red-50 text-red-700 p-4 rounded-2xl border border-red-200 text-xs font-medium text-center">
-          {error}
+          <div className="relative flex-1">
+            <input
+              type="tel"
+              placeholder="Phone Number (optional for fast verification)"
+              value={phoneInput}
+              onChange={(e) => setPhoneInput(e.target.value)}
+              className="w-full pl-10 pr-4 py-3 text-xs sm:text-sm bg-[#FFFBF5] border border-[#E8D5BD] rounded-2xl outline-none focus:border-[#D6AA55] font-mono text-[#511B2A]"
+            />
+            <Phone className="w-4 h-4 text-[#8C7A70] absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+          </div>
+
+          <button
+            type="submit"
+            disabled={loading || !orderIdInput.trim()}
+            className="bg-[#511B2A] hover:bg-[#3D1420] disabled:opacity-50 text-[#FFF7EC] font-bold text-xs sm:text-sm px-8 py-3.5 rounded-2xl shadow-md transition-all cursor-pointer whitespace-nowrap flex items-center justify-center gap-2"
+          >
+            {loading ? (
+              <span>Locating Order...</span>
+            ) : (
+              <>
+                <span>Track Order</span>
+                <ArrowRight className="w-4 h-4 text-[#D6AA55]" />
+              </>
+            )}
+          </button>
+        </form>
+
+        {/* Demo Orders Helper Pill */}
+        <div className="text-center">
+          <span className="text-[11px] text-[#8C7A70]">
+            Testing? Try demo Order IDs:{' '}
+            <button
+              type="button"
+              onClick={() => {
+                setOrderIdInput('AG-2026-78401');
+                fetchOrder('AG-2026-78401');
+              }}
+              className="text-[#511B2A] font-mono font-bold hover:underline cursor-pointer"
+            >
+              AG-2026-78401
+            </button>
+            {' • '}
+            <button
+              type="button"
+              onClick={() => {
+                setOrderIdInput('AG-2026-78402');
+                fetchOrder('AG-2026-78402');
+              }}
+              className="text-[#511B2A] font-mono font-bold hover:underline cursor-pointer"
+            >
+              AG-2026-78402
+            </button>
+          </span>
         </div>
-      )}
 
-      {/* Tracking Results Card */}
-      {order && (
-        <div className="bg-white rounded-3xl border border-stone-200 shadow-sm p-6 sm:p-8 space-y-8 animate-in fade-in duration-200">
-          {/* Header Info */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-stone-100 pb-5">
-            <div>
-              <span className="text-xs text-stone-400 uppercase font-bold tracking-wider">Order Reference</span>
-              <h3 className="font-mono font-bold text-lg text-stone-900">{order.id}</h3>
-              <p className="text-xs text-stone-500 mt-0.5">
-                Placed on {new Date(order.createdAt).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })}
-              </p>
-            </div>
-
+        {/* Error Alert Box */}
+        {error && (
+          <div className="bg-rose-50 text-rose-800 p-4 rounded-2xl border border-rose-200 text-xs font-medium flex items-center justify-between gap-3">
             <div className="flex items-center gap-2">
-              <span className="text-xs text-stone-500">Current Status:</span>
-              <span className="bg-amber-100 text-amber-950 px-3 py-1 rounded-full text-xs font-bold">
-                {order.orderStatus}
-              </span>
+              <AlertCircle className="w-4 h-4 text-rose-600 shrink-0" />
+              <span>{error}</span>
             </div>
+            <a
+              href={supportWaUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs font-bold text-[#25D366] bg-white border border-[#25D366]/40 px-3 py-1 rounded-full hover:bg-[#25D366]/10 transition-colors shrink-0 flex items-center gap-1"
+            >
+              <MessageCircle className="w-3.5 h-3.5 fill-current" />
+              <span>Ask on WhatsApp</span>
+            </a>
           </div>
+        )}
 
-          {/* Visual Timeline Stepper */}
-          <div className="space-y-4">
-            <h4 className="font-serif font-bold text-sm text-stone-900">
-              Fulfilment Timeline
-            </h4>
-
-            <div className="grid grid-cols-2 sm:grid-cols-6 gap-3 pt-2">
-              {STATUS_STEPS.map((step, idx) => {
-                const isCompleted = idx <= activeStepIdx;
-                const isCurrent = idx === activeStepIdx;
-
-                return (
-                  <div key={step} className="flex flex-col items-center text-center space-y-2">
-                    <div
-                      className={`w-9 h-9 rounded-full flex items-center justify-center text-xs font-bold transition-all ${
-                        isCurrent
-                          ? 'bg-amber-700 text-white ring-4 ring-amber-200 scale-110 shadow-md'
-                          : isCompleted
-                          ? 'bg-[#641E2E] text-white'
-                          : 'bg-stone-100 text-stone-400 border border-stone-200'
-                      }`}
-                    >
-                      {isCompleted ? <CheckCircle2 className="w-5 h-5" /> : idx + 1}
-                    </div>
-                    <span
-                      className={`text-[11px] leading-tight font-medium ${
-                        isCurrent
-                          ? 'font-bold text-amber-900'
-                          : isCompleted
-                          ? 'text-stone-900'
-                          : 'text-stone-400'
-                      }`}
-                    >
-                      {step}
-                    </span>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-
-          {/* Courier Partner & AWB details */}
-          {order.trackingNumber && (
-            <div className="bg-[#FFF7ED] p-5 rounded-2xl border border-stone-200 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs">
-              <div className="space-y-1">
-                <span className="text-stone-500 uppercase tracking-wider text-[10px] font-bold block">
-                  Courier Partner
+        {/* Tracking Results Card */}
+        {order && (
+          <div className="bg-white rounded-3xl border border-[#E8D5BD] shadow-sm p-6 sm:p-8 space-y-8 animate-in fade-in duration-300">
+            {/* Header Info */}
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#E8D5BD] pb-5">
+              <div>
+                <span className="text-[10px] text-[#8C7A70] uppercase font-bold tracking-widest block">
+                  Verified Order Reference
                 </span>
-                <p className="font-bold text-stone-900 text-sm">
-                  {order.courierPartner || 'DTDC / BlueDart Express'}
-                </p>
-                <p className="text-stone-600 font-mono">
-                  Waybill / AWB No: <strong>{order.trackingNumber}</strong>
+                <h3 className="font-mono font-bold text-xl text-[#511B2A]">{order.id}</h3>
+                <p className="text-xs text-[#533C36] mt-0.5">
+                  Customer: <strong>{order.customer.fullName}</strong> • Placed on{' '}
+                  {new Date(order.createdAt).toLocaleDateString('en-IN', {
+                    day: 'numeric',
+                    month: 'short',
+                    year: 'numeric',
+                  })}
                 </p>
               </div>
 
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="text-xs font-bold text-[#511B2A] bg-[#FFF7EC] border border-[#D6AA55] px-3.5 py-1.5 rounded-full shadow-2xs">
+                  Status: {order.orderStatus}
+                </span>
+
+                <span
+                  className={`text-xs font-bold px-3 py-1.5 rounded-full ${
+                    order.paymentStatus === 'Paid'
+                      ? 'bg-emerald-50 text-emerald-800 border border-emerald-300'
+                      : 'bg-amber-50 text-amber-900 border border-amber-300'
+                  }`}
+                >
+                  Payment: {order.paymentStatus || 'Confirmed'} ({order.paymentMethod || 'Online'})
+                </span>
+              </div>
+            </div>
+
+            {/* 5-Stage Visual Stepper */}
+            <div className="space-y-4">
+              <h4 className="font-serif font-bold text-sm text-[#511B2A] flex items-center gap-1.5">
+                <Sparkles className="w-4 h-4 text-[#D6AA55]" />
+                <span>Order Fulfilment Stages</span>
+              </h4>
+
+              <div className="grid grid-cols-1 sm:grid-cols-5 gap-3 pt-2">
+                {OFFICIAL_STAGES.map((stage, idx) => {
+                  const isCompleted = idx <= activeStage;
+                  const isCurrent = idx === activeStage;
+
+                  return (
+                    <div
+                      key={stage.id}
+                      className={`flex flex-col items-center text-center p-3 rounded-2xl border transition-all ${
+                        isCurrent
+                          ? 'bg-[#FFF7EC] border-[#D6AA55] shadow-xs ring-2 ring-[#D6AA55]/30'
+                          : isCompleted
+                          ? 'bg-white border-[#E8D5BD]'
+                          : 'bg-[#FFFBF5]/60 border-[#E8D5BD]/40 opacity-60'
+                      }`}
+                    >
+                      <div
+                        className={`w-9 h-9 rounded-full flex items-center justify-center text-xs font-bold mb-2 ${
+                          isCurrent
+                            ? 'bg-[#511B2A] text-[#FFF7EC] ring-4 ring-[#D6AA55]/40 shadow-sm'
+                            : isCompleted
+                            ? 'bg-emerald-600 text-white'
+                            : 'bg-stone-200 text-stone-500'
+                        }`}
+                      >
+                        {isCompleted ? <CheckCircle2 className="w-5 h-5" /> : idx + 1}
+                      </div>
+                      <span
+                        className={`text-xs font-bold leading-tight ${
+                          isCurrent
+                            ? 'text-[#511B2A]'
+                            : isCompleted
+                            ? 'text-[#511B2A]'
+                            : 'text-[#8C7A70]'
+                        }`}
+                      >
+                        {stage.label}
+                      </span>
+                      <span className="text-[10px] text-[#8C7A70] mt-1 leading-tight">
+                        {stage.desc}
+                      </span>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Delivery Timeline & Courier Card */}
+            <div className="bg-[#FFF7EC] p-5 rounded-2xl border border-[#D6AA55]/60 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div className="space-y-1">
+                <span className="text-[10px] uppercase font-bold text-[#A06E28] tracking-wider block">
+                  Delivery Estimate
+                </span>
+                <p className="text-xs sm:text-sm font-semibold text-[#511B2A]">
+                  {getEstimatedDelivery()}
+                </p>
+                {order.trackingNumber ? (
+                  <p className="text-xs text-[#533C36] font-mono pt-1">
+                    Courier: <strong>{order.courierPartner || 'DTDC / BlueDart'}</strong> • AWB:{' '}
+                    <strong>{order.trackingNumber}</strong>
+                  </p>
+                ) : (
+                  <p className="text-[11px] text-[#8C7A70]">
+                    Tracking AWB will be updated immediately upon courier handover.
+                  </p>
+                )}
+              </div>
+
               <a
-                href={`https://wa.me/917780269927?text=${encodeURIComponent(
-                  `Hi Abhi Gifts! Checking tracking for AWB: ${order.trackingNumber}`
-                )}`}
+                href={supportWaUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-[#641E2E] hover:bg-[#32151D] text-white font-semibold px-4 py-2 rounded-xl text-xs flex items-center gap-1.5 transition-colors"
+                className="inline-flex items-center justify-center gap-1.5 bg-[#25D366] hover:bg-[#20BD5A] text-white font-bold text-xs px-5 py-2.5 rounded-full transition-colors shadow-2xs shrink-0"
               >
-                <MessageCircle className="w-3.5 h-3.5" />
-                <span>WhatsApp Live Status</span>
+                <MessageCircle className="w-3.5 h-3.5 fill-current" />
+                <span>Need Help? Chat on WhatsApp</span>
               </a>
             </div>
-          )}
 
-          {/* Order Items Preview */}
-          <div className="space-y-3 pt-2">
-            <h4 className="font-serif font-bold text-sm text-stone-900">
-              Artworks in this Shipment ({order.items.length})
-            </h4>
-            <div className="divide-y divide-stone-100">
-              {order.items.map((it) => (
-                <div key={it.id} className="py-2.5 flex items-center gap-3 text-xs">
-                  <img
-                    src={it.customization?.previewUrl || it.image}
-                    alt={it.title}
-                    className="w-12 h-12 object-cover rounded-lg border border-stone-200"
-                  />
-                  <div className="flex-1 min-w-0">
-                    <p className="font-semibold text-stone-900 truncate">{it.title}</p>
-                    <p className="text-stone-500 text-[11px]">
-                      {it.size} • Qty: {it.quantity}
-                    </p>
+            {/* Items in this Order */}
+            <div className="space-y-3 pt-2">
+              <h4 className="font-serif font-bold text-sm text-[#511B2A]">
+                Items in this Order ({order.items.length})
+              </h4>
+              <div className="divide-y divide-[#E8D5BD]/60">
+                {order.items.map((it) => (
+                  <div key={it.id} className="py-3 flex items-center justify-between gap-3 text-xs">
+                    <div className="flex items-center gap-3 min-w-0">
+                      <img
+                        src={it.customization?.previewUrl || it.image}
+                        alt={it.title}
+                        className="w-12 h-12 object-cover rounded-xl border border-[#E8D5BD] shrink-0 bg-stone-100"
+                      />
+                      <div className="min-w-0">
+                        <p className="font-bold text-[#511B2A] truncate">{it.title}</p>
+                        <p className="text-[#8C7A70] text-[11px]">
+                          {it.size} • Qty: {it.quantity}
+                          {it.finish ? ` • ${it.finish}` : ''}
+                          {it.lighting ? ` • ${it.lighting}` : ''}
+                        </p>
+                        {it.customization?.customText && (
+                          <p className="text-[10px] text-[#A06E28] italic font-serif truncate">
+                            &ldquo;{it.customization.customText}&rdquo;
+                          </p>
+                        )}
+                      </div>
+                    </div>
+                    <span className="font-bold text-[#511B2A] shrink-0 text-sm">
+                      ₹{(it.unitPrice * it.quantity).toLocaleString('en-IN')}
+                    </span>
                   </div>
-                  <span className="font-bold text-stone-900">
-                    ₹{(it.unitPrice * it.quantity).toLocaleString('en-IN')}
-                  </span>
-                </div>
-              ))}
+                ))}
+              </div>
+            </div>
+
+            {/* Delivery Destination */}
+            <div className="pt-2 border-t border-[#E8D5BD]/60 flex flex-col sm:flex-row justify-between text-xs text-[#533C36] gap-2">
+              <div>
+                <span className="font-bold text-[#511B2A] block">Shipping Destination:</span>
+                <span>
+                  {order.customer.streetAddress}, {order.customer.city}, {order.customer.state} –{' '}
+                  {order.customer.pincode}
+                </span>
+              </div>
+              <div className="text-right sm:text-right">
+                <span className="font-bold text-[#511B2A] block">Total Amount Paid/Payable:</span>
+                <span className="font-serif font-bold text-base text-[#511B2A]">
+                  ₹{order.totalAmount.toLocaleString('en-IN')}
+                </span>
+              </div>
             </div>
           </div>
-        </div>
-      )}
+        )}
       </div>
     </div>
   );
@@ -242,7 +415,13 @@ function TrackOrderContent() {
 
 export default function TrackOrderPage() {
   return (
-    <Suspense fallback={<div className="w-full max-w-[1760px] mx-auto p-12 text-center text-xs text-stone-500">Loading order tracker...</div>}>
+    <Suspense
+      fallback={
+        <div className="py-20 text-center text-xs text-[#8C7A70]">
+          Loading Order Tracking...
+        </div>
+      }
+    >
       <TrackOrderContent />
     </Suspense>
   );

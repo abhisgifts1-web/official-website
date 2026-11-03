@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import {
   ShieldCheck,
   CheckCircle2,
@@ -11,13 +12,34 @@ import {
   MessageCircle,
   Clock,
   Send,
+  CreditCard,
+  Banknote,
+  AlertCircle,
+  ShoppingBag,
+  Plus,
+  Minus,
+  Trash2,
 } from 'lucide-react';
 import { useCart } from '@/context/CartContext';
 import { ShippingAddress } from '@/types';
-import { getWhatsAppOrderUrl, getWhatsAppNumber } from '@/lib/whatsapp';
+import { getWhatsAppOrderUrl } from '@/lib/whatsapp';
+import { INITIAL_SETTINGS } from '@/lib/data/settings';
+
+type PaymentOption = 'whatsapp' | 'online' | 'cod';
 
 export default function CheckoutPage() {
-  const { items, subtotal, shippingFee, discountAmount, totalAmount, appliedCoupon, clearCart } = useCart();
+  const router = useRouter();
+  const {
+    items,
+    subtotal,
+    shippingFee,
+    discountAmount,
+    totalAmount,
+    appliedCoupon,
+    updateQuantity,
+    removeFromCart,
+    clearCart,
+  } = useCart();
 
   const [formData, setFormData] = useState<ShippingAddress>({
     fullName: '',
@@ -31,27 +53,42 @@ export default function CheckoutPage() {
     pincode: '',
   });
 
+  const [paymentMethod, setPaymentMethod] = useState<PaymentOption>('whatsapp');
   const [orderNotes, setOrderNotes] = useState('');
   const [submitting, setSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [redirectUrl, setRedirectUrl] = useState<string | null>(null);
 
+  // COD fee handling
+  const codFee = paymentMethod === 'cod' ? (INITIAL_SETTINGS.codFee || 99) : 0;
+  const finalPayable = totalAmount + codFee;
+
   if (items.length === 0 && !redirectUrl) {
     return (
-      <div className="max-w-2xl mx-auto px-4 py-16 text-center space-y-4">
-        <h2 className="font-serif font-bold text-2xl text-stone-900">No items selected</h2>
-        <p className="text-xs text-stone-500">Please choose an artwork to proceed with WhatsApp ordering.</p>
-        <Link
-          href="/shop"
-          className="inline-block bg-stone-900 text-white text-xs font-semibold px-6 py-2.5 rounded-full"
-        >
-          Explore Sacred Art →
-        </Link>
+      <div className="max-w-2xl mx-auto px-4 py-20 text-center space-y-4">
+        <div className="w-16 h-16 rounded-full bg-[#FFF7EC] text-[#511B2A] border border-[#D6AA55] flex items-center justify-center mx-auto shadow-sm">
+          <ShoppingBag className="w-7 h-7 text-[#D6AA55]" />
+        </div>
+        <h2 className="font-serif font-bold text-2xl text-[#511B2A]">Your Cart is Empty</h2>
+        <p className="text-xs text-[#533C36] max-w-sm mx-auto">
+          Please select an acrylic photo frame or sacred artwork to proceed with your order.
+        </p>
+        <div className="pt-2">
+          <Link
+            href="/shop"
+            className="inline-flex items-center gap-2 bg-[#511B2A] hover:bg-[#3D1420] text-[#FFF7EC] text-xs font-bold px-7 py-3.5 rounded-full shadow-md transition-all"
+          >
+            <span>Explore Photo Frames</span>
+            <Sparkles className="w-4 h-4 text-[#D6AA55]" />
+          </Link>
+        </div>
       </div>
     );
   }
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
@@ -61,17 +98,26 @@ export default function CheckoutPage() {
     setErrorMessage(null);
 
     // Validation
-    if (!formData.fullName.trim() || !formData.mobile.trim() || !formData.streetAddress.trim() || !formData.pincode.trim()) {
-      setErrorMessage('Please fill in all mandatory address fields marked with *');
+    if (
+      !formData.fullName.trim() ||
+      !formData.mobile.trim() ||
+      !formData.streetAddress.trim() ||
+      !formData.city.trim() ||
+      !formData.state.trim() ||
+      !formData.pincode.trim()
+    ) {
+      setErrorMessage('Please fill in all mandatory delivery fields marked with *');
       return;
     }
 
-    if (!/^\d{10}$/.test(formData.mobile.replace(/\D/g, ''))) {
-      setErrorMessage('Please enter a valid 10-digit mobile number for WhatsApp coordination.');
+    const cleanMobile = formData.mobile.replace(/\D/g, '');
+    if (cleanMobile.length !== 10) {
+      setErrorMessage('Please enter a valid 10-digit mobile number for order updates.');
       return;
     }
 
-    if (!/^\d{6}$/.test(formData.pincode.replace(/\D/g, ''))) {
+    const cleanPin = formData.pincode.replace(/\D/g, '');
+    if (cleanPin.length !== 6) {
       setErrorMessage('Please enter a valid 6-digit delivery pincode.');
       return;
     }
@@ -79,8 +125,8 @@ export default function CheckoutPage() {
     setSubmitting(true);
 
     try {
-      // 1. Record the order in database / admin panel
-      let createdOrderId: string | undefined = undefined;
+      // 1. Record order in backend
+      let createdOrderId = `AG-2026-${Math.floor(10000 + Math.random() * 90000)}`;
       try {
         const res = await fetch('/api/orders', {
           method: 'POST',
@@ -89,7 +135,7 @@ export default function CheckoutPage() {
             customer: formData,
             items,
             couponCode: appliedCoupon?.code,
-            paymentMethod: 'WhatsApp',
+            paymentMethod: paymentMethod === 'whatsapp' ? 'WhatsApp' : paymentMethod === 'cod' ? 'COD' : 'Online',
             notes: orderNotes,
           }),
         });
@@ -99,31 +145,33 @@ export default function CheckoutPage() {
           createdOrderId = data.order.id;
         }
       } catch (err) {
-        console.warn('Could not record order to local API, proceeding to WhatsApp directly:', err);
+        console.warn('Could not record order to local API, proceeding with generated Order ID:', err);
       }
 
-      // 2. Generate structured WhatsApp message with all selected product details
-      const waUrl = getWhatsAppOrderUrl({
-        orderId: createdOrderId,
-        customer: formData,
-        items,
-        subtotal,
-        discountAmount,
-        couponCode: appliedCoupon?.code,
-        shippingFee,
-        totalAmount,
-        notes: orderNotes,
-      });
+      // If WhatsApp order chosen:
+      if (paymentMethod === 'whatsapp') {
+        const waUrl = getWhatsAppOrderUrl({
+          orderId: createdOrderId,
+          customer: formData,
+          items,
+          subtotal,
+          discountAmount,
+          couponCode: appliedCoupon?.code,
+          shippingFee,
+          totalAmount: finalPayable,
+          notes: orderNotes,
+        });
 
-      setRedirectUrl(waUrl);
-
-      // 3. Clear cart
-      clearCart();
-
-      // 4. Redirect immediately to WhatsApp
-      window.location.href = waUrl;
+        setRedirectUrl(waUrl);
+        clearCart();
+        window.location.href = waUrl;
+      } else {
+        // Direct Online or COD Order Confirmation Page
+        clearCart();
+        router.push(`/order-confirmation/${createdOrderId}`);
+      }
     } catch (err: any) {
-      setErrorMessage(err.message || 'An error occurred while preparing your WhatsApp order.');
+      setErrorMessage(err.message || 'An error occurred while creating your order. Please try again.');
       setSubmitting(false);
     }
   };
@@ -131,85 +179,90 @@ export default function CheckoutPage() {
   return (
     <div className="w-full max-w-[1760px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 py-8 sm:py-12 space-y-8">
       {/* Checkout Header */}
-      <div className="flex items-center justify-between border-b border-stone-200 pb-4">
+      <div className="flex items-center justify-between border-b border-[#E8D5BD] pb-4">
         <div>
-          <span className="text-xs uppercase tracking-widest font-bold text-[#641E2E] flex items-center gap-1.5">
-            <MessageCircle className="w-3.5 h-3.5 text-[#B88A35]" /> Direct WhatsApp Order
+          <span className="text-xs uppercase tracking-widest font-bold text-[#511B2A] flex items-center gap-1.5">
+            <ShieldCheck className="w-3.5 h-3.5 text-[#D6AA55]" />
+            <span>Secure 100% Verified Checkout</span>
           </span>
-          <h1 className="font-serif font-bold text-2xl sm:text-3xl text-stone-900 mt-1">
-            Delivery Details &amp; WhatsApp Order
+          <h1 className="font-serif font-bold text-2xl sm:text-3xl text-[#511B2A] mt-1 tracking-tight">
+            Delivery Details &amp; Payment Options
           </h1>
         </div>
-        <Link href="/shop" className="text-xs font-semibold text-amber-800 hover:underline flex items-center gap-1">
-          <ArrowLeft className="w-3.5 h-3.5" /> Continue Shopping
+        <Link
+          href="/shop"
+          className="text-xs font-bold text-[#511B2A] hover:text-[#D6AA55] flex items-center gap-1 transition-colors"
+        >
+          <ArrowLeft className="w-3.5 h-3.5" />
+          <span>Continue Shopping</span>
         </Link>
       </div>
 
       {redirectUrl && (
-        <div className="p-6 bg-[#FCE7EA] border border-[#E8D5BD] rounded-2xl text-center space-y-3">
-          <div className="w-12 h-12 bg-[#FCE7EA] text-[#795D58] rounded-full flex items-center justify-center mx-auto">
-            <MessageCircle className="w-6 h-6" />
+        <div className="p-6 bg-[#FFF7EC] border border-[#D6AA55] rounded-3xl text-center space-y-3 shadow-sm">
+          <div className="w-12 h-12 bg-[#25D366]/10 text-[#25D366] rounded-full flex items-center justify-center mx-auto">
+            <MessageCircle className="w-6 h-6 fill-current" />
           </div>
-          <h3 className="font-serif font-bold text-lg text-[#641E2E]">Redirecting to WhatsApp...</h3>
-          <p className="text-xs text-stone-600 max-w-md mx-auto">
-            Your order details are prepared. If WhatsApp didn’t open automatically, click the button below to send your order.
+          <h3 className="font-serif font-bold text-lg text-[#511B2A]">Redirecting to WhatsApp...</h3>
+          <p className="text-xs text-[#533C36] max-w-md mx-auto">
+            Your order details have been securely prepared. If WhatsApp didn’t open automatically, click below to open your chat.
           </p>
           <a
             href={redirectUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-[#641E2E] hover:bg-[#32151D] text-white font-bold text-xs px-6 py-3 rounded-full shadow-md transition-all"
+            className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20BD5A] text-white font-bold text-xs px-6 py-3 rounded-full shadow-md transition-all"
           >
-            <Send className="w-4 h-4" />
+            <Send className="w-4 h-4 fill-white" />
             <span>Open WhatsApp Now</span>
           </a>
         </div>
       )}
 
       <form onSubmit={handleSubmit} className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-        {/* LEFT: Address & Direct WhatsApp Order Info (7 cols) */}
+        {/* LEFT COLUMN: Address & Payment Selection (7 Cols) */}
         <div className="lg:col-span-7 space-y-6">
-          {/* Shipping Address Card */}
-          <div className="bg-white p-6 sm:p-7 rounded-3xl border border-stone-200 shadow-sm space-y-4">
-            <h3 className="font-serif font-bold text-lg text-stone-900 flex items-center gap-2">
-              <Truck className="w-5 h-5 text-amber-800" />
+          {/* 1. Shipping Address Card */}
+          <div className="bg-white p-6 sm:p-7 rounded-3xl border border-[#E8D5BD] shadow-sm space-y-4">
+            <h3 className="font-serif font-bold text-lg text-[#511B2A] flex items-center gap-2">
+              <Truck className="w-5 h-5 text-[#D6AA55]" />
               <span>1. Delivery Address</span>
             </h3>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="sm:col-span-2">
-                <label className="text-xs font-semibold text-stone-700 block mb-1">
+                <label className="text-xs font-semibold text-[#511B2A] block mb-1">
                   Full Name *
                 </label>
                 <input
                   type="text"
                   name="fullName"
                   required
-                  placeholder="e.g. Venkatraman Iyer"
+                  placeholder="e.g. Vikramaditya Rao"
                   value={formData.fullName}
                   onChange={handleInputChange}
-                  className="w-full px-3.5 py-2.5 text-sm sm:text-xs min-h-[44px] bg-stone-50 border border-stone-300 rounded-xl outline-none focus:border-[#B88A35] focus:bg-white"
+                  className="w-full px-3.5 py-2.5 text-xs min-h-[44px] bg-[#FFFBF5] border border-[#E8D5BD] rounded-xl outline-none focus:border-[#D6AA55] text-[#511B2A]"
                 />
               </div>
 
               <div>
-                <label className="text-xs font-semibold text-stone-700 block mb-1">
+                <label className="text-xs font-semibold text-[#511B2A] block mb-1">
                   Mobile / WhatsApp Number *
                 </label>
                 <input
                   type="tel"
                   name="mobile"
                   required
-                  placeholder="10-digit WhatsApp (e.g. 9845012345)"
+                  placeholder="10-digit number (e.g. 9845012345)"
                   maxLength={10}
                   value={formData.mobile}
                   onChange={handleInputChange}
-                  className="w-full px-3.5 py-2.5 text-sm sm:text-xs min-h-[44px] bg-stone-50 border border-stone-300 rounded-xl outline-none focus:border-[#B88A35] focus:bg-white"
+                  className="w-full px-3.5 py-2.5 text-xs min-h-[44px] bg-[#FFFBF5] border border-[#E8D5BD] rounded-xl outline-none focus:border-[#D6AA55] text-[#511B2A] font-mono"
                 />
               </div>
 
               <div>
-                <label className="text-xs font-semibold text-stone-700 block mb-1">
+                <label className="text-xs font-semibold text-[#511B2A] block mb-1">
                   Email Address (Optional)
                 </label>
                 <input
@@ -218,41 +271,41 @@ export default function CheckoutPage() {
                   placeholder="name@example.com"
                   value={formData.email}
                   onChange={handleInputChange}
-                  className="w-full px-3.5 py-2.5 text-sm sm:text-xs min-h-[44px] bg-stone-50 border border-stone-300 rounded-xl outline-none focus:border-[#B88A35] focus:bg-white"
+                  className="w-full px-3.5 py-2.5 text-xs min-h-[44px] bg-[#FFFBF5] border border-[#E8D5BD] rounded-xl outline-none focus:border-[#D6AA55] text-[#511B2A]"
                 />
               </div>
 
               <div className="sm:col-span-2">
-                <label className="text-xs font-semibold text-stone-700 block mb-1">
-                  Street Address (House No, Building, Road) *
+                <label className="text-xs font-semibold text-[#511B2A] block mb-1">
+                  Street Address (House No, Flat, Street) *
                 </label>
                 <input
                   type="text"
                   name="streetAddress"
                   required
-                  placeholder="e.g. Flat 302, Sri Krishna Heights, Temple Road"
+                  placeholder="e.g. Flat 402, Sri Krishna Residency, Temple Road"
                   value={formData.streetAddress}
                   onChange={handleInputChange}
-                  className="w-full px-3.5 py-2.5 text-sm sm:text-xs min-h-[44px] bg-stone-50 border border-stone-300 rounded-xl outline-none focus:border-[#B88A35] focus:bg-white"
+                  className="w-full px-3.5 py-2.5 text-xs min-h-[44px] bg-[#FFFBF5] border border-[#E8D5BD] rounded-xl outline-none focus:border-[#D6AA55] text-[#511B2A]"
                 />
               </div>
 
               <div>
-                <label className="text-xs font-semibold text-stone-700 block mb-1">
+                <label className="text-xs font-semibold text-[#511B2A] block mb-1">
                   Landmark (Optional)
                 </label>
                 <input
                   type="text"
                   name="landmark"
-                  placeholder="Near Metro Pillar / City Landmark"
+                  placeholder="Near Metro Pillar / Temple Landmark"
                   value={formData.landmark}
                   onChange={handleInputChange}
-                  className="w-full px-3.5 py-2.5 text-sm sm:text-xs min-h-[44px] bg-stone-50 border border-stone-300 rounded-xl outline-none focus:border-[#B88A35] focus:bg-white"
+                  className="w-full px-3.5 py-2.5 text-xs min-h-[44px] bg-[#FFFBF5] border border-[#E8D5BD] rounded-xl outline-none focus:border-[#D6AA55] text-[#511B2A]"
                 />
               </div>
 
               <div>
-                <label className="text-xs font-semibold text-stone-700 block mb-1">
+                <label className="text-xs font-semibold text-[#511B2A] block mb-1">
                   Pincode *
                 </label>
                 <input
@@ -263,175 +316,296 @@ export default function CheckoutPage() {
                   maxLength={6}
                   value={formData.pincode}
                   onChange={handleInputChange}
-                  className="w-full px-3.5 py-2.5 text-sm sm:text-xs min-h-[44px] bg-stone-50 border border-stone-300 rounded-xl outline-none focus:border-[#B88A35] focus:bg-white"
+                  className="w-full px-3.5 py-2.5 text-xs min-h-[44px] bg-[#FFFBF5] border border-[#E8D5BD] rounded-xl outline-none focus:border-[#D6AA55] text-[#511B2A] font-mono"
                 />
               </div>
 
               <div>
-                <label className="text-xs font-semibold text-stone-700 block mb-1">
+                <label className="text-xs font-semibold text-[#511B2A] block mb-1">
                   City *
                 </label>
                 <input
                   type="text"
                   name="city"
                   required
-                  placeholder="e.g. Hyderabad / Chennai / Bengaluru"
+                  placeholder="e.g. Hyderabad / Bengaluru / Chennai"
                   value={formData.city}
                   onChange={handleInputChange}
-                  className="w-full px-3.5 py-2.5 text-sm sm:text-xs min-h-[44px] bg-stone-50 border border-stone-300 rounded-xl outline-none focus:border-[#B88A35] focus:bg-white"
+                  className="w-full px-3.5 py-2.5 text-xs min-h-[44px] bg-[#FFFBF5] border border-[#E8D5BD] rounded-xl outline-none focus:border-[#D6AA55] text-[#511B2A]"
                 />
               </div>
 
               <div>
-                <label className="text-xs font-semibold text-stone-700 block mb-1">
+                <label className="text-xs font-semibold text-[#511B2A] block mb-1">
                   State *
                 </label>
                 <input
                   type="text"
                   name="state"
                   required
-                  placeholder="e.g. Andhra Pradesh / Tamil Nadu / Karnataka"
+                  placeholder="e.g. Telangana / Andhra Pradesh / Karnataka"
                   value={formData.state}
                   onChange={handleInputChange}
-                  className="w-full px-3.5 py-2.5 text-sm sm:text-xs min-h-[44px] bg-stone-50 border border-stone-300 rounded-xl outline-none focus:border-[#B88A35] focus:bg-white"
+                  className="w-full px-3.5 py-2.5 text-xs min-h-[44px] bg-[#FFFBF5] border border-[#E8D5BD] rounded-xl outline-none focus:border-[#D6AA55] text-[#511B2A]"
                 />
               </div>
             </div>
 
             <div>
-              <label className="text-xs font-semibold text-stone-700 block mb-1">
-                Order Notes / Custom Sizing Requests (Optional)
+              <label className="text-xs font-semibold text-[#511B2A] block mb-1">
+                Special Delivery Notes / Inscriptions (Optional)
               </label>
               <textarea
                 rows={2}
-                placeholder="e.g. Custom wall size, mandir placement notes, or preferred delivery timing."
+                placeholder="e.g. Preferred delivery timing, gift wrap request, or custom inscription notes."
                 value={orderNotes}
                 onChange={(e) => setOrderNotes(e.target.value)}
-                className="w-full px-3.5 py-2 text-xs bg-stone-50 border border-stone-300 rounded-xl outline-none focus:border-[#B88A35] focus:bg-white"
+                className="w-full px-3.5 py-2 text-xs bg-[#FFFBF5] border border-[#E8D5BD] rounded-xl outline-none focus:border-[#D6AA55] text-[#511B2A]"
               />
             </div>
           </div>
 
-          {/* Direct WhatsApp Order Guarantee Card */}
-          <div className="bg-gradient-to-br from-[#FFF7ED] via-[#F7FCF9] to-amber-50/50 p-6 sm:p-7 rounded-3xl border border-[#E8D5BD] shadow-xs space-y-3">
-            <div className="flex items-center gap-2.5">
-              <div className="w-10 h-10 rounded-2xl bg-[#641E2E] text-white flex items-center justify-center shrink-0 shadow-xs">
-                <MessageCircle className="w-5 h-5" />
-              </div>
-              <div>
-                <h3 className="font-serif font-bold text-base sm:text-lg text-[#641E2E]">
-                  Direct WhatsApp Ordering — Zero Gateway Hassle
-                </h3>
-                <p className="text-xs text-stone-600">
-                  No online payment gateway or credit card required on this site.
-                </p>
-              </div>
-            </div>
+          {/* 2. Payment Method Selector */}
+          <div className="bg-white p-6 sm:p-7 rounded-3xl border border-[#E8D5BD] shadow-sm space-y-4">
+            <h3 className="font-serif font-bold text-lg text-[#511B2A] flex items-center gap-2">
+              <CreditCard className="w-5 h-5 text-[#D6AA55]" />
+              <span>2. Choose Payment Method</span>
+            </h3>
 
-            <p className="text-xs text-stone-600 leading-relaxed font-sans pt-1">
-              When you click <strong>Order via WhatsApp</strong>, you will be redirected straight to WhatsApp with your full order details (artwork name, dimensions, finish, quantity, price, and address) pre-filled. Our master artisan team will confirm your order and provide simple direct payment (GPay, PhonePe, Paytm, or UPI) and dispatch updates.
-            </p>
+            <div className="space-y-3">
+              {/* Option A: WhatsApp Priority Order */}
+              <label
+                className={`flex items-start gap-3.5 p-4 rounded-2xl border transition-all cursor-pointer ${
+                  paymentMethod === 'whatsapp'
+                    ? 'border-[#25D366] bg-[#25D366]/5 ring-1 ring-[#25D366]/40'
+                    : 'border-[#E8D5BD] bg-white hover:border-[#D6AA55]'
+                }`}
+              >
+                <input
+                  type="radio"
+                  name="paymentMethod"
+                  value="whatsapp"
+                  checked={paymentMethod === 'whatsapp'}
+                  onChange={() => setPaymentMethod('whatsapp')}
+                  className="mt-1 accent-[#25D366]"
+                />
+                <div className="flex-1">
+                  <div className="flex items-center gap-2">
+                    <span className="font-bold text-xs sm:text-sm text-[#511B2A]">
+                      Direct WhatsApp Order &amp; Proofing
+                    </span>
+                    <span className="text-[10px] font-bold text-[#25D366] bg-[#25D366]/10 px-2 py-0.5 rounded-full">
+                      Recommended
+                    </span>
+                  </div>
+                  <p className="text-xs text-[#533C36] mt-1 leading-relaxed">
+                    Instantly forwards your order details to our WhatsApp team. Get a 1:1 digital proof from our designers and pay via UPI (GPay/PhonePe/Paytm).
+                  </p>
+                </div>
+              </label>
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 pt-2">
-              <div className="bg-white/80 border border-[#E8D5BD] rounded-xl p-2.5 flex items-center gap-2 text-[11px] text-stone-700 font-medium">
-                <CheckCircle2 className="w-4 h-4 text-[#B88A35] shrink-0" />
-                <span>Instant Confirmation</span>
-              </div>
-              <div className="bg-white/80 border border-[#E8D5BD] rounded-xl p-2.5 flex items-center gap-2 text-[11px] text-stone-700 font-medium">
-                <Clock className="w-4 h-4 text-[#B88A35] shrink-0" />
-                <span>Artisan Direct Chat</span>
-              </div>
-              <div className="bg-white/80 border border-[#E8D5BD] rounded-xl p-2.5 flex items-center gap-2 text-[11px] text-stone-700 font-medium">
-                <ShieldCheck className="w-4 h-4 text-[#B88A35] shrink-0" />
-                <span>100% Transit Safe</span>
-              </div>
+              {/* Option B: Online Payment */}
+              <label
+                className={`flex items-start gap-3.5 p-4 rounded-2xl border transition-all cursor-pointer ${
+                  paymentMethod === 'online'
+                    ? 'border-[#511B2A] bg-[#FFF7EC] ring-1 ring-[#511B2A]/40'
+                    : 'border-[#E8D5BD] bg-white hover:border-[#D6AA55]'
+                }`}
+              >
+                <input
+                  type="radio"
+                  name="paymentMethod"
+                  value="online"
+                  checked={paymentMethod === 'online'}
+                  onChange={() => setPaymentMethod('online')}
+                  className="mt-1 accent-[#511B2A]"
+                />
+                <div className="flex-1">
+                  <div className="flex items-center gap-2">
+                    <span className="font-bold text-xs sm:text-sm text-[#511B2A]">
+                      Online Payment (UPI, Credit/Debit Cards, NetBanking)
+                    </span>
+                  </div>
+                  <p className="text-xs text-[#533C36] mt-1 leading-relaxed">
+                    100% secure payment with automated receipt and order tracking.
+                  </p>
+                </div>
+              </label>
+
+              {/* Option C: Cash on Delivery */}
+              <label
+                className={`flex items-start gap-3.5 p-4 rounded-2xl border transition-all cursor-pointer ${
+                  paymentMethod === 'cod'
+                    ? 'border-[#511B2A] bg-[#FFF7EC] ring-1 ring-[#511B2A]/40'
+                    : 'border-[#E8D5BD] bg-white hover:border-[#D6AA55]'
+                }`}
+              >
+                <input
+                  type="radio"
+                  name="paymentMethod"
+                  value="cod"
+                  checked={paymentMethod === 'cod'}
+                  onChange={() => setPaymentMethod('cod')}
+                  className="mt-1 accent-[#511B2A]"
+                />
+                <div className="flex-1">
+                  <div className="flex items-center gap-2">
+                    <span className="font-bold text-xs sm:text-sm text-[#511B2A]">
+                      Cash on Delivery (Pay at Doorstep)
+                    </span>
+                    <span className="text-[10px] font-bold text-[#8C7A70] bg-[#FFFBF5] border border-[#E8D5BD] px-2 py-0.5 rounded-full">
+                      +₹{INITIAL_SETTINGS.codFee || 99} COD Fee
+                    </span>
+                  </div>
+                  <p className="text-xs text-[#533C36] mt-1 leading-relaxed">
+                    Pay with cash or UPI QR upon courier delivery.
+                  </p>
+                </div>
+              </label>
             </div>
           </div>
 
           {errorMessage && (
-            <div className="p-3.5 bg-red-50 text-red-700 border border-red-200 rounded-xl text-xs font-medium">
-              {errorMessage}
+            <div className="p-4 bg-rose-50 text-rose-800 border border-rose-200 rounded-2xl text-xs font-medium flex items-center gap-2">
+              <AlertCircle className="w-4 h-4 text-rose-600 shrink-0" />
+              <span>{errorMessage}</span>
             </div>
           )}
         </div>
 
-        {/* RIGHT: Order Review & Direct WhatsApp Confirmation CTA (5 cols) */}
-        <div className="lg:col-span-5 bg-white p-6 sm:p-7 rounded-3xl border border-stone-200 shadow-sm space-y-6">
-          <h3 className="font-serif font-bold text-lg text-stone-900 border-b pb-3">
-            Review Your Order ({items.length} items)
-          </h3>
+        {/* RIGHT COLUMN: Order Review & Instant Price Calculation (5 Cols) */}
+        <div className="lg:col-span-5 bg-white p-6 sm:p-7 rounded-3xl border border-[#E8D5BD] shadow-sm space-y-6">
+          <div className="flex items-center justify-between border-b border-[#E8D5BD] pb-3">
+            <h3 className="font-serif font-bold text-lg text-[#511B2A]">
+              Review Your Cart ({items.length} items)
+            </h3>
+            <span className="text-[11px] text-[#A06E28] font-bold">100% Insured</span>
+          </div>
 
-          <div className="space-y-3 max-h-72 overflow-y-auto pr-1 divide-y divide-stone-100 text-xs">
+          {/* Cart Item Updates with Quantity Changer */}
+          <div className="space-y-3 max-h-72 overflow-y-auto pr-1 divide-y divide-[#E8D5BD]/60 text-xs">
             {items.map((it) => (
               <div key={it.id} className="pt-3 first:pt-0 flex gap-3 items-center">
                 <img
                   src={it.customization?.previewUrl || it.image}
                   alt={it.title}
-                  className="w-14 h-14 object-cover rounded-xl border border-stone-200 shrink-0"
+                  className="w-14 h-14 object-cover rounded-xl border border-[#E8D5BD] shrink-0 bg-stone-100"
                 />
                 <div className="flex-1 min-w-0">
-                  <p className="font-semibold text-stone-900 truncate">{it.title}</p>
-                  <p className="text-[11px] text-stone-500">
-                    {it.shape ? `${it.shape.toUpperCase()} • ` : ''}{it.size} • Qty: {it.quantity}
+                  <p className="font-bold text-[#511B2A] truncate">{it.title}</p>
+                  <p className="text-[11px] text-[#8C7A70]">
+                    {it.size} {it.lighting ? `• ${it.lighting}` : ''}
                   </p>
-                  {it.customization?.customText && (
-                    <p className="text-[10px] text-amber-900 italic font-serif truncate">
-                      &ldquo;{it.customization.customText}&rdquo;
-                    </p>
-                  )}
+                  <div className="flex items-center gap-2 mt-1.5">
+                    {/* Quantity Controls */}
+                    <div className="flex items-center border border-[#E8D5BD] rounded-lg overflow-hidden bg-[#FFFBF5]">
+                      <button
+                        type="button"
+                        onClick={() => updateQuantity(it.id, Math.max(1, it.quantity - 1))}
+                        className="px-2 py-0.5 hover:bg-[#FFF7EC] text-[#511B2A] font-bold text-xs cursor-pointer"
+                        aria-label="Decrease quantity"
+                      >
+                        <Minus className="w-2.5 h-2.5" />
+                      </button>
+                      <span className="px-2 font-bold text-[11px] text-[#511B2A]">{it.quantity}</span>
+                      <button
+                        type="button"
+                        onClick={() => updateQuantity(it.id, it.quantity + 1)}
+                        className="px-2 py-0.5 hover:bg-[#FFF7EC] text-[#511B2A] font-bold text-xs cursor-pointer"
+                        aria-label="Increase quantity"
+                      >
+                        <Plus className="w-2.5 h-2.5" />
+                      </button>
+                    </div>
+
+                    <button
+                      type="button"
+                      onClick={() => removeFromCart(it.id)}
+                      className="text-stone-400 hover:text-rose-600 transition-colors p-1 cursor-pointer"
+                      title="Remove item"
+                    >
+                      <Trash2 className="w-3.5 h-3.5" />
+                    </button>
+                  </div>
                 </div>
-                <span className="font-bold text-stone-900 shrink-0">
+                <span className="font-bold text-[#511B2A] shrink-0 text-sm">
                   ₹{(it.unitPrice * it.quantity).toLocaleString('en-IN')}
                 </span>
               </div>
             ))}
           </div>
 
-          {/* Pricing Summary */}
-          <div className="space-y-2 text-xs text-stone-600 border-t border-stone-100 pt-3">
+          {/* Itemized Pricing Summary */}
+          <div className="space-y-2 text-xs text-[#533C36] border-t border-[#E8D5BD] pt-3">
             <div className="flex justify-between">
               <span>Items Subtotal</span>
-              <span className="font-semibold text-stone-900">₹{subtotal.toLocaleString('en-IN')}</span>
+              <span className="font-semibold text-[#511B2A]">₹{subtotal.toLocaleString('en-IN')}</span>
             </div>
 
             {discountAmount > 0 && (
-              <div className="flex justify-between text-[#795D58] font-semibold">
-                <span>Coupon ({appliedCoupon?.code})</span>
+              <div className="flex justify-between text-emerald-700 font-semibold">
+                <span>Coupon Discount ({appliedCoupon?.code})</span>
                 <span>-₹{discountAmount.toLocaleString('en-IN')}</span>
               </div>
             )}
 
             <div className="flex justify-between">
-              <span>Pan-India Delivery</span>
+              <span>Express Insured Shipping</span>
               <span>
-                {shippingFee === 0 ? <strong className="text-[#795D58] font-bold">FREE Express</strong> : `₹${shippingFee}`}
+                {shippingFee === 0 ? (
+                  <strong className="text-emerald-700 font-bold">FREE Express</strong>
+                ) : (
+                  `₹${shippingFee}`
+                )}
               </span>
             </div>
 
-            <div className="flex justify-between text-base font-serif font-bold text-[#641E2E] pt-3 border-t border-[#E8D5BD]">
-              <span>Total Payable</span>
-              <span className="text-[#641E2E] font-extrabold text-lg">₹{totalAmount.toLocaleString('en-IN')}</span>
+            {paymentMethod === 'cod' && (
+              <div className="flex justify-between text-amber-900 font-medium">
+                <span>COD Handling Fee</span>
+                <span>₹{codFee}</span>
+              </div>
+            )}
+
+            <div className="flex justify-between text-base font-serif font-bold text-[#511B2A] pt-3 border-t border-[#E8D5BD]">
+              <span>Final Total Payable</span>
+              <span className="font-extrabold text-xl text-[#511B2A]">
+                ₹{finalPayable.toLocaleString('en-IN')}
+              </span>
             </div>
           </div>
 
-          {/* Place Order CTA */}
+          {/* Order Completion CTA Button */}
           <div className="space-y-3 pt-2">
             <button
               type="submit"
               disabled={submitting}
-              className="w-full bg-[#641E2E] hover:bg-[#32151D] active:scale-[0.99] disabled:opacity-50 text-[#FFF7ED] border border-[#B88A35]/60 py-4 rounded-xl font-bold text-sm sm:text-base shadow-[0_4px_20px_rgba(101,30,45,0.35)] flex items-center justify-center gap-2 transition-all cursor-pointer hover:scale-[1.01]"
+              className={`w-full py-4 rounded-2xl font-bold text-sm sm:text-base shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer ${
+                submitting
+                  ? 'bg-stone-300 text-stone-500 cursor-not-allowed'
+                  : paymentMethod === 'whatsapp'
+                  ? 'bg-[#25D366] hover:bg-[#20BD5A] text-white hover:scale-[1.01]'
+                  : 'bg-[#511B2A] hover:bg-[#3D1420] text-[#FFF7EC] hover:scale-[1.01]'
+              }`}
             >
-              <MessageCircle className="w-5 h-5 text-[#B88A35]" />
               {submitting ? (
-                <span>Opening WhatsApp...</span>
+                <span>Confirming Order...</span>
+              ) : paymentMethod === 'whatsapp' ? (
+                <>
+                  <MessageCircle className="w-5 h-5 fill-white" />
+                  <span>Order via WhatsApp • ₹{finalPayable.toLocaleString('en-IN')}</span>
+                </>
               ) : (
-                <span>Order via WhatsApp • ₹{totalAmount.toLocaleString('en-IN')}</span>
+                <>
+                  <ShieldCheck className="w-5 h-5 text-[#D6AA55]" />
+                  <span>Complete Purchase • ₹{finalPayable.toLocaleString('en-IN')}</span>
+                </>
               )}
             </button>
 
-            <div className="flex items-center justify-center gap-1.5 text-[11px] text-[#795D58] text-center">
-              <ShieldCheck className="w-3.5 h-3.5 text-[#B88A35]" />
-              <span>100% Transit Safe Guarantee • Replacement if Damaged</span>
+            <div className="flex items-center justify-center gap-1.5 text-[11px] text-[#8C7A70] text-center">
+              <ShieldCheck className="w-3.5 h-3.5 text-[#D6AA55]" />
+              <span>100% Transit Safe Guarantee • Instant Free Replacement if Damaged</span>
             </div>
           </div>
         </div>

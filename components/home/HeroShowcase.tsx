@@ -306,7 +306,7 @@ export default function HeroShowcase() {
                   <span className="block w-1/2 h-full bg-gradient-to-r from-transparent via-white/25 to-transparent animate-btn-shine" />
                 </span>
                 <Sparkles className="w-4 h-4 text-[#E8C77E]" />
-                <span>EXPLORE ALL COLLECTIONS</span>
+                <span>EXPLORE PHOTO FRAMES</span>
                 <ArrowRight className="w-4 h-4 text-[#E8C77E] group-hover:translate-x-1.5 transition-transform" />
               </Link>
 
@@ -316,7 +316,7 @@ export default function HeroShowcase() {
                 className="w-full sm:w-auto bg-white hover:bg-[#FFF7EC] text-[#511B2A] border-2 border-[#D6AA55] hover:border-[#511B2A] font-bold text-xs sm:text-[13.5px] px-6 py-4 rounded-full shadow-xs flex items-center justify-center gap-2 transition-all hover:scale-[1.03] active:scale-[0.98] tracking-wider uppercase group cursor-pointer"
               >
                 <Flame className="w-4 h-4 text-[#D6AA55] animate-pulse" />
-                <span>CUSTOMIZE YOUR PHOTO</span>
+                <span>CUSTOMIZE YOUR FRAME</span>
               </Link>
             </div>
 
