@@ -34,7 +34,6 @@ import {
   Camera,
 } from 'lucide-react';
 import AddPhotoModal from '@/components/product/AddPhotoModal';
-import CustomSizeModal from '@/components/product/CustomSizeModal';
 import CustomSizeInput from '@/components/product/CustomSizeInput';
 import { calculateCustomDimensions } from '@/lib/utils/customSize';
 import { Product, ProductReview } from '@/types';
@@ -432,8 +431,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
   });
   const [selectedThickness, setSelectedThickness] = useState<ThicknessType>('3mm');
   const [quantity, setQuantity] = useState(1);
-  const [isAddPhotoOpen, setIsAddPhotoOpen] = useState(false);
-  const [isCustomSizeModalOpen, setIsCustomSizeModalOpen] = useState(false);
+  const [isCustomizerOpen, setIsCustomizerOpen] = useState(false);
   const [isCustomSize, setIsCustomSize] = useState(false);
   const [customWidth, setCustomWidth] = useState<number>(24);
   const [customHeight, setCustomHeight] = useState<number>(36);
@@ -1391,28 +1389,17 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                 </div>
               </div>
 
-              {/* Options: Add Photo & Enter Custom Size */}
-              <div className="pt-2 pb-1 grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+              {/* Combined Option: Customise Photo & Size */}
+              <div className="pt-2 pb-1">
                 <button
                   type="button"
-                  onClick={() => setIsAddPhotoOpen(true)}
-                  className="w-full bg-[#181818] hover:bg-[#252525] text-[#FACC15] hover:text-[#FFFFFF] py-3.5 px-3 rounded-2xl font-bold text-xs sm:text-sm flex items-center justify-center gap-2 border-2 border-[#EAB308] shadow-md transition-all cursor-pointer group/photo active:scale-[0.99]"
-                  title={`Add your own photo for ${product.title}`}
+                  onClick={() => setIsCustomizerOpen(true)}
+                  className="w-full bg-[#181818] hover:bg-[#252525] text-[#FACC15] hover:text-[#FFFFFF] py-3.5 px-4 rounded-2xl font-bold text-sm sm:text-base flex items-center justify-center gap-2.5 border-2 border-[#EAB308] shadow-md transition-all cursor-pointer group/custom active:scale-[0.99]"
+                  title={`Customise photo and size for ${product.title}`}
                 >
-                  <Camera className="w-4 h-4 sm:w-5 sm:h-5 text-[#EAB308] group-hover/photo:text-[#FFFFFF] transition-colors" />
-                  <span>Add Your Photo</span>
-                  <Sparkles className="w-3.5 h-3.5 text-[#EAB308]" />
-                </button>
-
-                <button
-                  type="button"
-                  onClick={() => setIsCustomSizeModalOpen(true)}
-                  className="w-full bg-[#181818] hover:bg-[#252525] text-[#FACC15] hover:text-[#FFFFFF] py-3.5 px-3 rounded-2xl font-bold text-xs sm:text-sm flex items-center justify-center gap-2 border-2 border-[#EAB308] shadow-md transition-all cursor-pointer group/size active:scale-[0.99]"
-                  title={`Enter custom dimensions for ${product.title}`}
-                >
-                  <Ruler className="w-4 h-4 sm:w-5 sm:h-5 text-[#EAB308] group-hover/size:text-[#FFFFFF] transition-colors" />
-                  <span>Enter Custom Size</span>
-                  <Sparkles className="w-3.5 h-3.5 text-[#EAB308]" />
+                  <Sparkles className="w-4 h-4 text-[#EAB308] group-hover/custom:text-[#FFFFFF] transition-colors" />
+                  <span className="font-extrabold text-sm sm:text-base">Customise: Add Photo &amp; Custom Size</span>
+                  <Camera className="w-4 h-4 text-[#EAB308] group-hover/custom:text-[#FFFFFF] transition-colors" />
                 </button>
               </div>
 
@@ -1925,20 +1912,12 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
         </div>
       </div>
 
-      {/* Add Your Own Photo Modal tailored to Product Name */}
+      {/* Unified Custom Photo & Size Modal */}
       <AddPhotoModal
         product={product}
         selectedVariant={product.variants[0]}
-        isOpen={isAddPhotoOpen}
-        onClose={() => setIsAddPhotoOpen(false)}
-      />
-
-      {/* Enter Custom Size Modal tailored to Product Name */}
-      <CustomSizeModal
-        product={product}
-        selectedVariant={product.variants[0]}
-        isOpen={isCustomSizeModalOpen}
-        onClose={() => setIsCustomSizeModalOpen(false)}
+        isOpen={isCustomizerOpen}
+        onClose={() => setIsCustomizerOpen(false)}
       />
 
       {/* Lightbox / Fullscreen Gallery Modal */}

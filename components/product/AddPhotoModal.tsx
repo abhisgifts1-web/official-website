@@ -135,7 +135,11 @@ export default function AddPhotoModal({
 
   const handleAddToCartWithPhoto = (redirectCheckout = false) => {
     const finalImage = photoPreview || product.images[0];
-    const itemTitle = `${product.title} (Personalized with Custom Photo)`;
+    const itemTitle = photoPreview
+      ? `${product.title} (With Custom Photo${isCustomSize ? ` • ${customWidth}x${customHeight}` : ''})`
+      : isCustomSize
+      ? `${product.title} (Custom Size: ${customWidth}" × ${customHeight}")`
+      : product.title;
 
     addToCart(
       {
@@ -162,7 +166,7 @@ export default function AddPhotoModal({
           customText: customText.trim() || undefined,
           frameType: activeVariant.finish,
           orientation: product.orientation,
-          specialInstructions: `Product: ${product.title} | Custom Photo Uploaded | Size: ${activeSizeLabel}${customText.trim() ? ` | Text: ${customText.trim()}` : ''}`,
+          specialInstructions: `Product: ${product.title} | Photo: ${photoPreview ? 'Custom User Upload' : 'Original Artwork'} | Size: ${activeSizeLabel}${customText.trim() ? ` | Text: ${customText.trim()}` : ''}`,
         },
       },
       !redirectCheckout
@@ -182,11 +186,16 @@ export default function AddPhotoModal({
   };
 
   const cleanWaNumber = (INITIAL_SETTINGS.whatsappNumber || '919032372782').replace(/[^0-9]/g, '');
-  const waOrderText = `Hello Abhi's Gifts, I want to add my own photo to "${product.title}".
-- Size: ${activeSizeLabel}
-- Price: ₹${activePrice.toLocaleString('en-IN')}
-${ledEnabled ? '- Lighting: Warm LED Backlit\n' : ''}${customText.trim() ? `- Personalization Text: "${customText.trim()}"\n` : ''}
-Please assist me with photo proofing and placing the order.`;
+  const photoLine = photoPreview ? '- Custom Photo: Personal photo uploaded' : '- Artwork: Original artwork';
+  const waOrderText = [
+    `Hello Abhi's Gifts, I want to customise "${product.title}":`,
+    photoLine,
+    `- Size: ${activeSizeLabel}`,
+    `- Price: ₹${activePrice.toLocaleString('en-IN')}`,
+    ledEnabled ? '- Lighting: Warm LED Backlit (12V Adapter)' : '',
+    customText.trim() ? `- Personalization Text: "${customText.trim()}"` : '',
+    'Please assist me with proofing and placing the order.',
+  ].filter(Boolean).join('\n');
 
   const waUrl = `https://wa.me/${cleanWaNumber}?text=${encodeURIComponent(waOrderText)}`;
 
@@ -202,7 +211,7 @@ Please assist me with photo proofing and placing the order.`;
             <span className="w-2.5 h-2.5 rounded-full bg-[#EAB308] animate-pulse shrink-0" />
             <div className="min-w-0">
               <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-[#EAB308] block truncate">
-                Add Your Photo to Product
+                Customise: Photo & Size
               </span>
               <h2 className="font-serif font-bold text-sm sm:text-base text-[#FFFFFF] truncate">
                 {product.title}
@@ -233,7 +242,7 @@ Please assist me with photo proofing and placing the order.`;
                 Personalized {product.title}
               </p>
               <p className="text-[#D1D5DB] text-[11px] mt-0.5">
-                Upload your picture below. It will be precision-printed in high definition on premium acrylic.
+                Customise this frame with your own photo, custom width & height dimensions, or both. Precision crafted in Hyderabad.
               </p>
             </div>
           </div>
@@ -241,7 +250,7 @@ Please assist me with photo proofing and placing the order.`;
           {/* Photo Upload & Live Mockup */}
           <div className="space-y-2">
             <label className="text-xs font-bold text-[#FFFFFF] uppercase tracking-wider flex items-center justify-between">
-              <span>1. Upload Your Photo</span>
+              <span>1. Personal Photo <span className="text-[#D1D5DB] font-normal lowercase">(optional — upload your photo or keep original artwork)</span></span>
               {photoPreview && (
                 <button
                   type="button"
@@ -493,7 +502,7 @@ Please assist me with photo proofing and placing the order.`;
               ) : (
                 <>
                   <ShoppingBag className="w-4 h-4 text-black" />
-                  <span>Add to Cart with Photo • ₹{activePrice.toLocaleString('en-IN')}</span>
+                  <span>Add to Cart • ₹{activePrice.toLocaleString('en-IN')}</span>
                 </>
               )}
             </button>
@@ -533,3 +542,6 @@ Please assist me with photo proofing and placing the order.`;
     </div>
   );
 }
+
+
+export const ProductCustomizerModal = AddPhotoModal;
