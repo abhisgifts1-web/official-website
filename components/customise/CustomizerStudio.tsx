@@ -661,13 +661,29 @@ export default function CustomizerStudio() {
   ]);
 
   // Add To Cart & Checkout
-  const handleOrderNow = () => {
+  const handleOrderNow = async () => {
+    let finalPreview = previewImage;
+    if (previewImage && previewImage.startsWith('data:')) {
+      try {
+        const res = await fetch('/api/upload-photo', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ image: previewImage }),
+        });
+        const uploadRes = await res.json();
+        if (uploadRes && uploadRes.url) {
+          finalPreview = `${window.location.origin}${uploadRes.url}`;
+        }
+      } catch (err) {
+        console.warn('Pre-uploading customizer preview failed', err);
+      }
+    }
     addToCart(
       {
         productId: 'prod-custom-photo-acrylic-frame',
         slug: 'custom-personalised-photo-acrylic-wall-frame',
         title: `Custom ${activeCategoryObj.name} — ${displaySizeLabel}`,
-        image: previewImage,
+        image: finalPreview,
         variantId: `custom-${orientation}-${selectedSizeId}-${finish}-${led}`,
         size: displaySizeLabel,
         finish: activeFinishObj.name,
@@ -677,7 +693,7 @@ export default function CustomizerStudio() {
         unitMrp: pricing.mrp,
         quantity: 1,
         customization: {
-          previewUrl: previewImage,
+          previewUrl: finalPreview,
           customText: customText.trim() || undefined,
           frameType: activeFinishObj.name,
           orientation,

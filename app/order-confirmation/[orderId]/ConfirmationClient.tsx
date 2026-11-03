@@ -49,6 +49,7 @@ export default function ConfirmationClient({ order }: Props) {
     shippingFee: order.shippingFee,
     totalAmount: order.totalAmount,
     notes: order.notes,
+    baseUrl: typeof window !== 'undefined' ? window.location.origin : undefined,
   });
 
   return (

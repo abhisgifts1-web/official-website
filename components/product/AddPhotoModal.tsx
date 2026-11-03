@@ -185,8 +185,23 @@ export default function AddPhotoModal({
     window.open(`https://wa.me/${waNum}?text=${encodeURIComponent(lines)}`, '_blank');
   };
 
-  const handleAddToCartWithPhoto = (redirectCheckout = false) => {
-    const finalImage = photoPreview || product.images[0];
+  const handleAddToCartWithPhoto = async (redirectCheckout = false) => {
+    let finalImage = photoPreview || product.images[0];
+    if (photoPreview && photoPreview.startsWith('data:')) {
+      try {
+        const res = await fetch('/api/upload-photo', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ image: photoPreview }),
+        });
+        const uploadRes = await res.json();
+        if (uploadRes && uploadRes.url) {
+          finalImage = `${window.location.origin}${uploadRes.url}`;
+        }
+      } catch (err) {
+        console.warn('Pre-uploading custom photo failed', err);
+      }
+    }
     const itemTitle = photoPreview
       ? `${product.title} (With Custom Photo${isCustomSize ? ` • ${customWidth}x${customHeight}` : ''})`
       : isCustomSize

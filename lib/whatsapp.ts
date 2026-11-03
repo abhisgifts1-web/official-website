@@ -16,6 +16,7 @@ export interface WhatsAppOrderDetails {
   shippingFee?: number;
   totalAmount: number;
   notes?: string;
+  baseUrl?: string;
 }
 
 export function buildWhatsAppOrderMessage(data: WhatsAppOrderDetails): string {
@@ -29,6 +30,7 @@ export function buildWhatsAppOrderMessage(data: WhatsAppOrderDetails): string {
     shippingFee = 0,
     totalAmount,
     notes,
+    baseUrl,
   } = data;
 
   let msg = `🛍️ *NEW ORDER — ABHI GIFTS*\n`;
@@ -58,6 +60,32 @@ export function buildWhatsAppOrderMessage(data: WhatsAppOrderDetails): string {
     msg += `   ▫ *Price:* ₹${(item.unitPrice * item.quantity).toLocaleString('en-IN')}\n`;
     if (item.customization?.customText) {
       msg += `   ▫ *Custom Inscription:* "${item.customization.customText}"\n`;
+    }
+
+    // Include the Photo / Artwork Image Link
+    const rawImg = item.customization?.previewUrl || item.image;
+    if (rawImg) {
+      if (rawImg.startsWith('data:')) {
+        msg += `   ▫ *Custom Photo:* [Customer photo uploaded with order]\n`;
+      } else {
+        let fullImgUrl = rawImg;
+        if (!fullImgUrl.startsWith('http://') && !fullImgUrl.startsWith('https://')) {
+          const origin = (baseUrl || (typeof window !== 'undefined' ? window.location.origin : '') || 'https://abhisgifts.com').replace(/\/$/, '');
+          fullImgUrl = `${origin}${fullImgUrl.startsWith('/') ? '' : '/'}${fullImgUrl}`;
+        }
+
+        const isCustomPhoto =
+          item.title.toLowerCase().includes('custom photo') ||
+          item.variantId.toLowerCase().includes('custom') ||
+          item.productId === 'prod-custom-photo-acrylic-frame' ||
+          rawImg.includes('custom-photos');
+
+        if (isCustomPhoto) {
+          msg += `   ▫ *Custom Photo:* ${fullImgUrl}\n`;
+        } else {
+          msg += `   ▫ *Selected Artwork Image:* ${fullImgUrl}\n`;
+        }
+      }
     }
   });
 

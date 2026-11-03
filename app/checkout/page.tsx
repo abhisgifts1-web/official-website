@@ -123,6 +123,40 @@ export default function CheckoutPage() {
     setSubmitting(true);
 
     try {
+      // Ensure all custom photos (base64) are uploaded to the server
+      const preparedItems = await Promise.all(
+        items.map(async (item) => {
+          const updatedItem = { ...item };
+          const imgToUpload =
+            (item.customization?.previewUrl?.startsWith('data:') && item.customization.previewUrl) ||
+            (item.image?.startsWith('data:') && item.image);
+
+          if (imgToUpload) {
+            try {
+              const res = await fetch('/api/upload-photo', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ image: imgToUpload }),
+              });
+              const uploadData = await res.json();
+              if (uploadData && uploadData.url) {
+                const fullUrl = `${window.location.origin}${uploadData.url}`;
+                updatedItem.image = fullUrl;
+                if (updatedItem.customization) {
+                  updatedItem.customization = {
+                    ...updatedItem.customization,
+                    previewUrl: fullUrl,
+                  };
+                }
+              }
+            } catch (err) {
+              console.warn('Could not upload base64 image during checkout:', err);
+            }
+          }
+          return updatedItem;
+        })
+      );
+
       // 1. Record order in backend
       let createdOrderId = `AG-2026-${Math.floor(10000 + Math.random() * 90000)}`;
       try {
@@ -131,7 +165,7 @@ export default function CheckoutPage() {
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             customer: formData,
-            items,
+            items: preparedItems,
             couponCode: appliedCoupon?.code,
             paymentMethod: paymentMethod === 'whatsapp' ? 'WhatsApp' : 'Online',
             notes: orderNotes,
@@ -151,13 +185,14 @@ export default function CheckoutPage() {
         const waUrl = getWhatsAppOrderUrl({
           orderId: createdOrderId,
           customer: formData,
-          items,
+          items: preparedItems,
           subtotal,
           discountAmount,
           couponCode: appliedCoupon?.code,
           shippingFee,
           totalAmount: finalPayable,
           notes: orderNotes,
+          baseUrl: window.location.origin,
         });
 
         setRedirectUrl(waUrl);
