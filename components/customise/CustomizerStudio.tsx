@@ -1263,7 +1263,7 @@ export default function CustomizerStudio() {
                       key={item.id}
                       type="button"
                       onClick={() => handleOrientationChange(item.id as ProductOrientation)}
-                      className={`py-2 px-0.5 sm:px-1 text-[11px] sm:text-xs font-semibold rounded-xl border text-center transition-all cursor-pointer ${
+                      className={`py-2.5 px-1 sm:px-2 min-h-[44px] flex items-center justify-center text-xs font-semibold rounded-xl border text-center transition-all cursor-pointer ${
                         isSelected
                           ? 'border-[#B88A35] bg-[#FAF3E8] text-[#511B2A] font-bold ring-1 ring-[#B88A35]'
                           : 'border-[#E8D1A5] text-[#795D58] hover:border-[#B88A35]'
@@ -1294,7 +1294,7 @@ export default function CustomizerStudio() {
                       key={sz.id}
                       type="button"
                       onClick={() => setSelectedSizeId(sz.id)}
-                      className={`p-2.5 rounded-xl border text-left transition-all cursor-pointer ${
+                      className={`p-2.5 sm:p-3 min-h-[50px] rounded-xl border text-left transition-all cursor-pointer flex flex-col justify-between ${
                         isSelected
                           ? 'border-[#B88A35] bg-[#FAF3E8] text-[#511B2A] font-bold ring-1 ring-[#B88A35]'
                           : 'border-[#E8D1A5] text-[#795D58] hover:border-[#B88A35]'
@@ -1402,7 +1402,7 @@ export default function CustomizerStudio() {
                       key={l.id}
                       type="button"
                       onClick={() => setLed(l.id)}
-                      className={`p-2.5 rounded-xl border text-left transition-all cursor-pointer ${
+                      className={`p-2.5 sm:p-3 min-h-[50px] rounded-xl border text-left transition-all cursor-pointer flex flex-col justify-between ${
                         isSelected
                           ? 'border-[#B88A35] bg-[#FAF3E8] ring-1 ring-[#B88A35]'
                           : 'border-[#E8D1A5] hover:border-[#B88A35]'

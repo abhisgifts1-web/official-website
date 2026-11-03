@@ -79,7 +79,7 @@ export default function BestsellersShowcase() {
         </div>
 
         {/* Filter Pills */}
-        <div className="flex items-center gap-1.5 overflow-x-auto pb-1 sm:pb-0 scrollbar-none">
+        <div className="flex items-center gap-1.5 overflow-x-auto min-w-0 max-w-full pb-1 sm:pb-0 scrollbar-none">
           <button
             type="button"
             onClick={() => setActiveFilter('all')}

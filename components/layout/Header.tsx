@@ -215,14 +215,14 @@ export default function Header() {
             : 'bg-[#FFF7EC] border-[#D6AA55]/30 py-2 sm:py-2.5'
         }`}
       >
-        <div className="w-full max-w-[1760px] mx-auto px-3 sm:px-8 lg:px-12 xl:px-16">
-          <div className="flex items-center justify-between gap-2.5 sm:gap-4 lg:gap-6">
+        <div className="w-full max-w-[1760px] mx-auto px-2 sm:px-6 lg:px-4 xl:px-12 2xl:px-16">
+          <div className="flex items-center justify-between gap-1.5 sm:gap-3 lg:gap-4 xl:gap-6">
             {/* Left: Mobile Menu Trigger + Brand Logo */}
-            <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+            <div className="flex items-center gap-1 sm:gap-2.5 shrink-0">
               <button
                 type="button"
                 onClick={() => setMobileMenuOpen(true)}
-                className="lg:hidden p-2 text-[#511B2A] hover:text-[#D6AA55] hover:bg-[#F9EFE0] rounded-xl focus:outline-none transition-colors cursor-pointer"
+                className="lg:hidden w-10 h-10 sm:w-11 sm:h-11 flex items-center justify-center p-2 text-[#511B2A] hover:text-[#D6AA55] hover:bg-[#F9EFE0] rounded-xl focus:outline-none transition-colors cursor-pointer"
                 aria-label="Open mobile menu"
               >
                 <Menu className="w-5 h-5" />
@@ -235,7 +235,7 @@ export default function Header() {
                   width={200}
                   height={39}
                   priority
-                  className="h-7 sm:h-9 md:h-10 w-auto object-contain transition-transform group-hover:scale-[1.03]"
+                  className="h-6 sm:h-8.5 md:h-10 w-auto object-contain transition-transform group-hover:scale-[1.03]"
                 />
               </Link>
             </div>
@@ -279,7 +279,7 @@ export default function Header() {
                             setActiveTab(item.id);
                             setMegaMenuOpen((prev) => !prev);
                           }}
-                          className={`relative z-10 py-1.5 px-3.5 xl:px-4 rounded-full text-xs xl:text-[13px] font-semibold transition-all duration-200 flex items-center gap-1.5 whitespace-nowrap outline-none cursor-pointer active:scale-95 ${
+                          className={`relative z-10 py-1.5 px-2 xl:px-3.5 2xl:px-4 rounded-full text-[11.5px] xl:text-[13px] font-semibold transition-all duration-200 flex items-center gap-1 xl:gap-1.5 whitespace-nowrap outline-none cursor-pointer active:scale-95 ${
                             isActive || megaMenuOpen
                               ? 'text-[#FFF7EC] font-bold drop-shadow-xs'
                               : 'text-[#511B2A] hover:text-[#D6AA55]'
@@ -482,7 +482,7 @@ export default function Header() {
                         setActiveTab(item.id);
                         setMegaMenuOpen(false);
                       }}
-                      className={`relative z-10 py-1.5 px-3 xl:px-4 rounded-full text-xs xl:text-[13px] font-semibold transition-colors duration-200 flex items-center gap-1.5 whitespace-nowrap outline-none active:scale-95 ${
+                      className={`relative z-10 py-1.5 px-2 xl:px-3 2xl:px-4 rounded-full text-[11.5px] xl:text-[13px] font-semibold transition-colors duration-200 flex items-center gap-1 xl:gap-1.5 whitespace-nowrap outline-none active:scale-95 ${
                         isActive
                           ? 'text-[#FFF7EC] font-bold drop-shadow-xs'
                           : 'text-[#511B2A] hover:text-[#D6AA55]'
@@ -501,13 +501,13 @@ export default function Header() {
             </nav>
 
             {/* Right: WhatsApp Hotline, Search, Wishlist, Cart */}
-            <div className="flex items-center gap-1 sm:gap-2 shrink-0">
+            <div className="flex items-center gap-0.5 min-[360px]:gap-1 sm:gap-2 shrink-0">
               {/* WhatsApp Quick Chat - Symbol Only */}
               <a
                 href="https://wa.me/919032372782?text=Hi%20Abhi%27s%20Gifts%2C%20I%20would%20like%20to%20inquire%20about%20ordering%20a%20personalized%20photo%20frame"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 text-[#25D366] bg-[#E8F5E9] hover:bg-[#C8E6C9] border border-[#81C784]/80 rounded-full transition-all shadow-2xs hover:scale-110 active:scale-95 flex items-center justify-center cursor-pointer"
+                className="w-9 h-9 min-[360px]:w-10 min-[360px]:h-10 sm:w-11 sm:h-11 p-1.5 min-[360px]:p-2 text-[#25D366] bg-[#E8F5E9] hover:bg-[#C8E6C9] border border-[#81C784]/80 rounded-full transition-all shadow-2xs hover:scale-110 active:scale-95 flex items-center justify-center cursor-pointer"
                 title="Chat on WhatsApp"
                 aria-label="Chat on WhatsApp"
               >
@@ -518,7 +518,7 @@ export default function Header() {
               <button
                 type="button"
                 onClick={() => setSearchOpen((prev) => !prev)}
-                className="p-2 text-[#641E2E] hover:text-[#B88A35] hover:bg-[#FCE7EA] rounded-xl transition-colors cursor-pointer"
+                className="w-9 h-9 min-[360px]:w-10 min-[360px]:h-10 sm:w-11 sm:h-11 p-1.5 min-[360px]:p-2 text-[#641E2E] hover:text-[#B88A35] hover:bg-[#FCE7EA] rounded-xl transition-colors flex items-center justify-center cursor-pointer"
                 aria-label="Search artworks"
                 title="Search"
               >
@@ -528,7 +528,7 @@ export default function Header() {
               {/* Wishlist with Badge */}
               <Link
                 href="/wishlist"
-                className="p-2 text-[#641E2E] hover:text-[#B88A35] hover:bg-[#FCE7EA] rounded-xl transition-colors relative flex items-center justify-center cursor-pointer"
+                className="w-9 h-9 min-[360px]:w-10 min-[360px]:h-10 sm:w-11 sm:h-11 p-1.5 min-[360px]:p-2 text-[#641E2E] hover:text-[#B88A35] hover:bg-[#FCE7EA] rounded-xl transition-colors relative flex items-center justify-center cursor-pointer"
                 aria-label="Wishlist"
                 title="Wishlist"
               >
@@ -544,7 +544,7 @@ export default function Header() {
               <button
                 type="button"
                 onClick={openCart}
-                className="p-2 text-[#641E2E] hover:text-[#B88A35] hover:bg-[#FCE7EA] rounded-xl transition-colors relative flex items-center justify-center cursor-pointer"
+                className="w-9 h-9 min-[360px]:w-10 min-[360px]:h-10 sm:w-11 sm:h-11 p-1.5 min-[360px]:p-2 text-[#641E2E] hover:text-[#B88A35] hover:bg-[#FCE7EA] rounded-xl transition-colors relative flex items-center justify-center cursor-pointer"
                 aria-label="Shopping Cart"
                 title="Cart"
               >

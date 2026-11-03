@@ -448,7 +448,7 @@ function ShopContent() {
               <button
                 type="button"
                 onClick={() => setMobileFilterOpen(true)}
-                className="lg:hidden flex items-center gap-1.5 bg-[#FCE7EA] px-3 py-1.5 rounded-lg text-xs font-semibold text-[#641E2E]"
+                className="lg:hidden flex items-center justify-center gap-1.5 bg-[#FCE7EA] px-3.5 py-2 min-h-[40px] rounded-xl text-xs font-bold text-[#641E2E] border border-[#B88A35]/40 cursor-pointer"
               >
                 <SlidersHorizontal className="w-3.5 h-3.5 text-[#B88A35]" />
                 <span>Filters</span>
@@ -465,7 +465,7 @@ function ShopContent() {
                 id="shop-sort"
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value)}
-                className="px-3 py-1.5 text-xs bg-[#FFFDF9] border border-[#E8D5BD] rounded-lg text-[#641E2E] outline-none focus:border-[#B88A35] font-medium cursor-pointer"
+                className="px-3 py-2 min-h-[40px] text-xs bg-[#FFFDF9] border border-[#E8D5BD] rounded-xl text-[#641E2E] outline-none focus:border-[#B88A35] font-medium cursor-pointer"
               >
                 <option value="featured">Featured Artworks</option>
                 <option value="bestseller">Popular &amp; Bestselling</option>

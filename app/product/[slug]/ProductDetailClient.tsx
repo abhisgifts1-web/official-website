@@ -1317,7 +1317,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                       key={shape}
                       type="button"
                       onClick={() => handleSelectShape(shape)}
-                      className={`p-3 rounded-2xl border-2 transition-all flex flex-col items-center justify-between text-center gap-1.5 cursor-pointer relative ${
+                      className={`p-2.5 sm:p-3 min-h-[50px] sm:min-h-[56px] rounded-2xl border-2 transition-all flex flex-col items-center justify-between text-center gap-1 sm:gap-1.5 cursor-pointer relative ${
                         isSelected
                           ? 'border-[#C69A42] bg-[#F8EFE3] ring-2 ring-[#C69A42]/30 shadow-xs font-bold text-[#641C2B]'
                           : 'border-[#E8D1A5] bg-white hover:border-[#C69A42]/60 text-[#89746F]'
@@ -1493,7 +1493,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                       type="button"
                       disabled={!isSupported}
                       onClick={() => handleSelectSize(s.id)}
-                      className={`py-2.5 px-1.5 rounded-2xl text-xs transition-all flex flex-col items-center justify-center cursor-pointer ${
+                      className={`py-2 px-1 sm:py-2.5 sm:px-1.5 min-h-[46px] rounded-xl sm:rounded-2xl text-xs transition-all flex flex-col items-center justify-center cursor-pointer ${
                         isSelected
                           ? 'border-2 border-[#C69A42] text-[#641C2B] font-bold bg-[#F8EFE3] shadow-xs'
                           : isSupported
@@ -1532,11 +1532,11 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                   placeholder="Enter 6-digit Indian Pincode"
                   value={pincode}
                   onChange={(e) => setPincode(e.target.value.replace(/\D/g, ''))}
-                  className="flex-1 px-3.5 py-2 text-xs bg-white border border-[#E8D1A5] rounded-xl outline-none focus:border-[#C69A42] text-[#39252A]"
+                  className="flex-1 px-3.5 py-2.5 text-sm sm:text-xs min-h-[44px] bg-white border border-[#E8D1A5] rounded-xl outline-none focus:border-[#C69A42] text-[#39252A]"
                 />
                 <button
                   type="submit"
-                  className="px-4 py-2 bg-[#641C2B] hover:bg-[#4E1521] text-[#FFF8EF] rounded-xl text-xs font-bold shadow-xs transition-colors cursor-pointer"
+                  className="px-4 py-2.5 min-h-[44px] bg-[#641C2B] hover:bg-[#4E1521] text-[#FFF8EF] rounded-xl text-xs font-bold shadow-xs transition-colors flex items-center justify-center cursor-pointer"
                 >
                   Check
                 </button>
@@ -2076,7 +2076,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
             <button
               type="button"
               onClick={handleBuyNow}
-              className="flex items-center gap-1.5 px-5 py-2.5 rounded-xl bg-[#641C2B] hover:bg-[#4E1521] text-[#FFF8EF] font-bold text-xs sm:text-sm shadow-md transition-colors cursor-pointer"
+              className="flex items-center justify-center gap-1.5 px-5 py-2.5 min-h-[44px] rounded-xl bg-[#641C2B] hover:bg-[#4E1521] text-[#FFF8EF] font-bold text-xs sm:text-sm shadow-md transition-colors cursor-pointer"
             >
               <span>Buy Now</span>
               <ArrowRight className="w-3.5 h-3.5 text-[#E8D1A5]" />

@@ -69,7 +69,7 @@ export default function ContactPage() {
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         {/* Contact Info (5 cols) */}
-        <div className="lg:col-span-5 bg-stone-950 text-stone-300 p-8 rounded-3xl space-y-6 shadow-warm border border-stone-800">
+        <div className="lg:col-span-5 bg-stone-950 text-stone-300 p-5 sm:p-8 rounded-2xl sm:rounded-3xl space-y-6 shadow-warm border border-stone-800">
           <div className="space-y-2">
             <h3 className="font-serif font-bold text-xl text-white">Abhi&apos;s Gifts Studio</h3>
             <p className="text-xs text-stone-400 leading-relaxed">
@@ -131,7 +131,7 @@ export default function ContactPage() {
         </div>
 
         {/* Contact Form (7 cols) */}
-        <div className="lg:col-span-7 bg-white p-8 rounded-3xl border border-stone-200 shadow-sm space-y-5">
+        <div className="lg:col-span-7 bg-white p-5 sm:p-8 rounded-2xl sm:rounded-3xl border border-stone-200 shadow-sm space-y-5">
           <h3 className="font-serif font-bold text-xl text-stone-900 border-b pb-3">
             Send an Enquiry
           </h3>
@@ -146,7 +146,7 @@ export default function ContactPage() {
                   placeholder="e.g. Priya Sharma"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="w-full px-3.5 py-2.5 text-xs bg-stone-50 border border-stone-300 rounded-xl outline-none focus:border-amber-700 focus:bg-white"
+                  className="w-full px-3.5 py-2.5 text-sm sm:text-xs min-h-[44px] bg-stone-50 border border-stone-300 rounded-xl outline-none focus:border-amber-700 focus:bg-white"
                 />
               </div>
 
@@ -158,7 +158,7 @@ export default function ContactPage() {
                   placeholder="priya@example.com"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="w-full px-3.5 py-2.5 text-xs bg-stone-50 border border-stone-300 rounded-xl outline-none focus:border-amber-700 focus:bg-white"
+                  className="w-full px-3.5 py-2.5 text-sm sm:text-xs min-h-[44px] bg-stone-50 border border-stone-300 rounded-xl outline-none focus:border-amber-700 focus:bg-white"
                 />
               </div>
 
@@ -169,7 +169,7 @@ export default function ContactPage() {
                   placeholder="10-digit mobile number"
                   value={formData.phone}
                   onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                  className="w-full px-3.5 py-2.5 text-xs bg-stone-50 border border-stone-300 rounded-xl outline-none focus:border-amber-700 focus:bg-white"
+                  className="w-full px-3.5 py-2.5 text-sm sm:text-xs min-h-[44px] bg-stone-50 border border-stone-300 rounded-xl outline-none focus:border-amber-700 focus:bg-white"
                 />
               </div>
 
@@ -180,7 +180,7 @@ export default function ContactPage() {
                   placeholder="e.g. Custom Mandir Wall Dimensions"
                   value={formData.subject}
                   onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                  className="w-full px-3.5 py-2.5 text-xs bg-stone-50 border border-stone-300 rounded-xl outline-none focus:border-amber-700 focus:bg-white"
+                  className="w-full px-3.5 py-2.5 text-sm sm:text-xs min-h-[44px] bg-stone-50 border border-stone-300 rounded-xl outline-none focus:border-amber-700 focus:bg-white"
                 />
               </div>
             </div>
@@ -193,7 +193,7 @@ export default function ContactPage() {
                 placeholder="Tell us about the size, deity, or questions you have..."
                 value={formData.message}
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                className="w-full px-3.5 py-2.5 text-xs bg-stone-50 border border-stone-300 rounded-xl outline-none focus:border-amber-700 focus:bg-white"
+                className="w-full px-3.5 py-2.5 text-sm sm:text-xs min-h-[44px] bg-stone-50 border border-stone-300 rounded-xl outline-none focus:border-amber-700 focus:bg-white"
               />
             </div>
 

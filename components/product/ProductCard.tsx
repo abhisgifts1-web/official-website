@@ -169,7 +169,7 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
           <button
             type="button"
             onClick={handleWishlistToggle}
-            className={`absolute top-2.5 right-2.5 p-2 rounded-full transition-all duration-200 z-10 shadow-md outline-none focus-visible:ring-2 focus-visible:ring-[#B88A35] cursor-pointer ${
+            className={`absolute top-2.5 right-2.5 w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center p-2 rounded-full transition-all duration-200 z-10 shadow-md outline-none focus-visible:ring-2 focus-visible:ring-[#B88A35] cursor-pointer ${
               wishlisted
                 ? 'bg-rose-50 text-rose-600 border border-rose-200 scale-105 shadow-rose-100'
                 : 'bg-white/90 backdrop-blur-sm text-[#641E2E] hover:text-[#B88A35] hover:bg-white hover:scale-105 border border-[#E8D5BD]'
@@ -295,7 +295,7 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
               <button
                 type="button"
                 onClick={handleInstantBuyNow}
-                className="flex-1 py-2 px-1.5 sm:px-2.5 rounded-xl font-sans text-[11px] sm:text-xs font-bold flex items-center justify-center gap-1 sm:gap-1.5 transition-all duration-200 shadow-xs outline-none focus-visible:ring-2 focus-visible:ring-[#B88A35] active:scale-[0.98] bg-gradient-to-r from-[#641E2E] to-[#32151D] hover:from-[#4B1622] hover:to-[#1F0A11] text-[#FFF7ED] hover:shadow-md border border-[#B88A35]/50 cursor-pointer min-w-0"
+                className="flex-1 min-h-[40px] sm:min-h-[42px] py-2 px-2 sm:px-2.5 rounded-xl font-sans text-xs sm:text-xs font-bold flex items-center justify-center gap-1 sm:gap-1.5 transition-all duration-200 shadow-xs outline-none focus-visible:ring-2 focus-visible:ring-[#B88A35] active:scale-[0.98] bg-gradient-to-r from-[#641E2E] to-[#32151D] hover:from-[#4B1622] hover:to-[#1F0A11] text-[#FFF7ED] hover:shadow-md border border-[#B88A35]/50 cursor-pointer min-w-0"
                 aria-label={`Buy ${product.title} now`}
                 title="Buy It Now"
               >
@@ -306,7 +306,7 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
               <button
                 type="button"
                 onClick={handleAddToCartClick}
-                className="p-2 rounded-xl border border-[#E8D5BD] hover:border-[#B88A35] bg-[#FFF7ED] hover:bg-white text-[#641E2E] hover:text-[#B88A35] transition-colors shadow-2xs outline-none focus-visible:ring-2 focus-visible:ring-[#B88A35] shrink-0 cursor-pointer"
+                className="min-w-[40px] min-h-[40px] p-2 rounded-xl border border-[#E8D5BD] hover:border-[#B88A35] bg-[#FFF7ED] hover:bg-white text-[#641E2E] hover:text-[#B88A35] transition-colors shadow-2xs outline-none focus-visible:ring-2 focus-visible:ring-[#B88A35] flex items-center justify-center shrink-0 cursor-pointer"
                 aria-label={`Add ${product.title} to cart`}
                 title="Add to Cart"
               >
@@ -316,7 +316,7 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
               <button
                 type="button"
                 onClick={() => setIsQuickViewOpen(true)}
-                className="hidden sm:flex p-2 rounded-xl border border-[#E8D5BD] hover:border-[#B88A35] bg-[#FFF7ED] hover:bg-white text-[#641E2E] hover:text-[#B88A35] transition-colors shadow-2xs outline-none focus-visible:ring-2 focus-visible:ring-[#B88A35] shrink-0 cursor-pointer"
+                className="hidden sm:flex min-w-[40px] min-h-[40px] p-2 rounded-xl border border-[#E8D5BD] hover:border-[#B88A35] bg-[#FFF7ED] hover:bg-white text-[#641E2E] hover:text-[#B88A35] transition-colors shadow-2xs outline-none focus-visible:ring-2 focus-visible:ring-[#B88A35] items-center justify-center shrink-0 cursor-pointer"
                 aria-label={`Quick view ${product.title}`}
                 title="Quick View"
               >

@@ -188,7 +188,7 @@ export default function CheckoutPage() {
                   placeholder="e.g. Venkatraman Iyer"
                   value={formData.fullName}
                   onChange={handleInputChange}
-                  className="w-full px-3.5 py-2.5 text-xs bg-stone-50 border border-stone-300 rounded-xl outline-none focus:border-[#B88A35] focus:bg-white"
+                  className="w-full px-3.5 py-2.5 text-sm sm:text-xs min-h-[44px] bg-stone-50 border border-stone-300 rounded-xl outline-none focus:border-[#B88A35] focus:bg-white"
                 />
               </div>
 
@@ -204,7 +204,7 @@ export default function CheckoutPage() {
                   maxLength={10}
                   value={formData.mobile}
                   onChange={handleInputChange}
-                  className="w-full px-3.5 py-2.5 text-xs bg-stone-50 border border-stone-300 rounded-xl outline-none focus:border-[#B88A35] focus:bg-white"
+                  className="w-full px-3.5 py-2.5 text-sm sm:text-xs min-h-[44px] bg-stone-50 border border-stone-300 rounded-xl outline-none focus:border-[#B88A35] focus:bg-white"
                 />
               </div>
 
@@ -218,7 +218,7 @@ export default function CheckoutPage() {
                   placeholder="name@example.com"
                   value={formData.email}
                   onChange={handleInputChange}
-                  className="w-full px-3.5 py-2.5 text-xs bg-stone-50 border border-stone-300 rounded-xl outline-none focus:border-[#B88A35] focus:bg-white"
+                  className="w-full px-3.5 py-2.5 text-sm sm:text-xs min-h-[44px] bg-stone-50 border border-stone-300 rounded-xl outline-none focus:border-[#B88A35] focus:bg-white"
                 />
               </div>
 
@@ -233,7 +233,7 @@ export default function CheckoutPage() {
                   placeholder="e.g. Flat 302, Sri Krishna Heights, Temple Road"
                   value={formData.streetAddress}
                   onChange={handleInputChange}
-                  className="w-full px-3.5 py-2.5 text-xs bg-stone-50 border border-stone-300 rounded-xl outline-none focus:border-[#B88A35] focus:bg-white"
+                  className="w-full px-3.5 py-2.5 text-sm sm:text-xs min-h-[44px] bg-stone-50 border border-stone-300 rounded-xl outline-none focus:border-[#B88A35] focus:bg-white"
                 />
               </div>
 
@@ -247,7 +247,7 @@ export default function CheckoutPage() {
                   placeholder="Near Metro Pillar / City Landmark"
                   value={formData.landmark}
                   onChange={handleInputChange}
-                  className="w-full px-3.5 py-2.5 text-xs bg-stone-50 border border-stone-300 rounded-xl outline-none focus:border-[#B88A35] focus:bg-white"
+                  className="w-full px-3.5 py-2.5 text-sm sm:text-xs min-h-[44px] bg-stone-50 border border-stone-300 rounded-xl outline-none focus:border-[#B88A35] focus:bg-white"
                 />
               </div>
 
@@ -263,7 +263,7 @@ export default function CheckoutPage() {
                   maxLength={6}
                   value={formData.pincode}
                   onChange={handleInputChange}
-                  className="w-full px-3.5 py-2.5 text-xs bg-stone-50 border border-stone-300 rounded-xl outline-none focus:border-[#B88A35] focus:bg-white"
+                  className="w-full px-3.5 py-2.5 text-sm sm:text-xs min-h-[44px] bg-stone-50 border border-stone-300 rounded-xl outline-none focus:border-[#B88A35] focus:bg-white"
                 />
               </div>
 
@@ -278,7 +278,7 @@ export default function CheckoutPage() {
                   placeholder="e.g. Hyderabad / Chennai / Bengaluru"
                   value={formData.city}
                   onChange={handleInputChange}
-                  className="w-full px-3.5 py-2.5 text-xs bg-stone-50 border border-stone-300 rounded-xl outline-none focus:border-[#B88A35] focus:bg-white"
+                  className="w-full px-3.5 py-2.5 text-sm sm:text-xs min-h-[44px] bg-stone-50 border border-stone-300 rounded-xl outline-none focus:border-[#B88A35] focus:bg-white"
                 />
               </div>
 
@@ -293,7 +293,7 @@ export default function CheckoutPage() {
                   placeholder="e.g. Andhra Pradesh / Tamil Nadu / Karnataka"
                   value={formData.state}
                   onChange={handleInputChange}
-                  className="w-full px-3.5 py-2.5 text-xs bg-stone-50 border border-stone-300 rounded-xl outline-none focus:border-[#B88A35] focus:bg-white"
+                  className="w-full px-3.5 py-2.5 text-sm sm:text-xs min-h-[44px] bg-stone-50 border border-stone-300 rounded-xl outline-none focus:border-[#B88A35] focus:bg-white"
                 />
               </div>
             </div>

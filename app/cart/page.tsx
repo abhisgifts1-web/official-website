@@ -107,13 +107,13 @@ export default function CartPage() {
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         {/* LEFT: Items List (8 cols) */}
-        <div className="lg:col-span-8 bg-white rounded-3xl border border-stone-200 shadow-sm p-6 divide-y divide-stone-100">
+        <div className="lg:col-span-8 bg-white rounded-3xl border border-stone-200 shadow-sm p-4 sm:p-6 divide-y divide-stone-100">
           {items.map((item) => (
             <div key={item.id} className="py-4 sm:py-6 flex gap-4 first:pt-0 last:pb-0">
               <img
                 src={item.customization?.previewUrl || item.image}
                 alt={item.title}
-                className="w-24 h-24 sm:w-28 sm:h-28 object-cover rounded-2xl border border-stone-200 shrink-0"
+                className="w-20 h-20 sm:w-28 sm:h-28 object-cover rounded-2xl border border-stone-200 shrink-0"
               />
 
               <div className="flex-1 min-w-0 flex flex-col justify-between">
@@ -128,7 +128,7 @@ export default function CartPage() {
                     <button
                       type="button"
                       onClick={() => removeFromCart(item.id)}
-                      className="text-stone-400 hover:text-red-600 transition-colors p-1"
+                      className="text-stone-400 hover:text-red-600 transition-colors w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center rounded-lg hover:bg-red-50 cursor-pointer"
                       title="Remove"
                     >
                       <Trash2 className="w-4 h-4" />
@@ -156,7 +156,7 @@ export default function CartPage() {
                     <button
                       type="button"
                       onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                      className="px-2.5 py-1 text-stone-600 hover:bg-stone-100 rounded-l-xl"
+                      className="w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center text-stone-600 hover:bg-stone-100 rounded-l-xl cursor-pointer"
                     >
                       <Minus className="w-3.5 h-3.5" />
                     </button>
@@ -166,7 +166,7 @@ export default function CartPage() {
                     <button
                       type="button"
                       onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                      className="px-2.5 py-1 text-stone-600 hover:bg-stone-100 rounded-r-xl"
+                      className="w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center text-stone-600 hover:bg-stone-100 rounded-r-xl cursor-pointer"
                     >
                       <Plus className="w-3.5 h-3.5" />
                     </button>

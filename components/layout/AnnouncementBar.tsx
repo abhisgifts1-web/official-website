@@ -80,7 +80,10 @@ export default function AnnouncementBar() {
   );
 
   return (
-    <div className="relative w-full overflow-hidden bg-gradient-to-r from-[#32151D] via-[#641E2E] to-[#32151D] text-[#FFF7ED] text-[10.5px] sm:text-[11.5px] font-medium py-1 sm:py-1.5 border-b border-[#E8D5BD]/35 select-none z-30">
+    <div
+      className="relative w-full max-w-full overflow-hidden bg-gradient-to-r from-[#32151D] via-[#641E2E] to-[#32151D] text-[#FFF7ED] text-[10.5px] sm:text-[11.5px] font-medium py-1 sm:py-1.5 border-b border-[#E8D5BD]/35 select-none z-30"
+      style={{ overflow: 'clip', contain: 'paint', maxWidth: '100vw' }}
+    >
       {/* Left Subtle Gradient Edge Shadow */}
       <div className="absolute left-0 top-0 w-8 sm:w-16 h-full bg-gradient-to-r from-[#32151D] to-transparent z-10 pointer-events-none" />
 
