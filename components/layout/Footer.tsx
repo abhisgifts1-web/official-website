@@ -13,7 +13,6 @@ import {
   MapPin,
   MessageCircle,
   Send,
-  Lock,
 } from 'lucide-react';
 import { INITIAL_SETTINGS } from '@/lib/data/settings';
 
@@ -335,36 +334,7 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* 4. PAYMENT & SECURITY STRIP (Responsive Stack/Row) */}
-        <div className="mt-5 sm:mt-6 pt-5 border-t border-white/[0.08] flex flex-col md:flex-row items-center justify-between gap-3 sm:gap-4 text-xs text-[#E8D5BD]/70">
-          <div className="flex items-center gap-2 text-center sm:text-left">
-            <Lock className="w-3.5 h-3.5 text-[#C59A45] shrink-0" />
-            <span className="text-[11px] sm:text-xs font-medium">
-              100% Secure Checkout with 256-Bit SSL Encryption
-            </span>
-          </div>
-
-          <div className="flex items-center gap-1.5 sm:gap-2 flex-wrap justify-center md:justify-end text-[10px] text-[#FFF7ED]">
-            <span className="text-[#E8D5BD]/60 mr-0.5 text-[11px]">Accepted:</span>
-            <span className="px-2 py-0.5 rounded bg-white/[0.07] border border-white/10 font-semibold whitespace-nowrap">
-              UPI / GPay / PhonePe
-            </span>
-            <span className="px-2 py-0.5 rounded bg-white/[0.07] border border-white/10 font-semibold whitespace-nowrap">
-              RuPay
-            </span>
-            <span className="px-2 py-0.5 rounded bg-white/[0.07] border border-white/10 font-semibold whitespace-nowrap">
-              Visa / Mastercard
-            </span>
-            <span className="px-2 py-0.5 rounded bg-white/[0.07] border border-white/10 font-semibold whitespace-nowrap">
-              Net Banking
-            </span>
-            <span className="px-2 py-0.5 rounded bg-[#C59A45]/20 border border-[#C59A45]/40 text-[#E8C77E] font-semibold whitespace-nowrap">
-              Cash on Delivery
-            </span>
-          </div>
-        </div>
-
-        {/* 5. BOTTOM COPYRIGHT & LEGAL BAR (Safe area inset for mobile phones) */}
+        {/* 4. BOTTOM COPYRIGHT & LEGAL BAR (Safe area inset for mobile phones) */}
         <div
           className="mt-5 sm:mt-6 pt-5 border-t border-white/[0.08] flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-[#E8D5BD]/65"
           style={{
