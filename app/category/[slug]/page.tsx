@@ -57,7 +57,7 @@ const LOCAL_SEO_CATEGORY_OVERRIDES: Record<string, { title: string; description:
   },
   'led-backlit-wall-art': {
     title: "LED Acrylic Frames Hyderabad | 3000K Illuminated Wall Art — Abhi's Gifts",
-    description: 'Shop luxury LED acrylic frames in Hyderabad. Sacred Tirupati Balaji, Ganesha, Shiva, Radha Krishna & modern illuminated art with 50,000h Epistar warm LEDs. Free delivery across Hyderabad.',
+    description: 'Shop luxury LED acrylic frames in Hyderabad. Sacred Tirupati Balaji, Ganesha, Shiva, Radha Krishna & modern illuminated art with 50,000h Epistar warm LEDs. Fast delivery across Hyderabad.',
     h1: 'LED Acrylic Frames & Backlit Art in Hyderabad',
   },
   'square-photo-frames': {

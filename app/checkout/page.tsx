@@ -552,11 +552,7 @@ export default function CheckoutPage() {
             <div className="flex justify-between">
               <span>Express Insured Shipping</span>
               <span>
-                {shippingFee === 0 ? (
-                  <strong className="text-emerald-700 font-bold">FREE Express</strong>
-                ) : (
-                  `₹${shippingFee}`
-                )}
+                <span>₹{shippingFee}</span>
               </span>
             </div>
 

@@ -26,12 +26,9 @@ export default function ShippingPolicyPage() {
         </section>
 
         <section className="space-y-2">
-          <h2 className="font-serif font-bold text-xl text-stone-900">2. Shipping Charges & Free Delivery Threshold</h2>
+          <h2 className="font-serif font-bold text-xl text-stone-900">2. Shipping Charges</h2>
           <p>
-            Orders with a subtotal of <strong>₹{INITIAL_SETTINGS.freeShippingThreshold.toLocaleString('en-IN')} or above</strong> qualify for <strong>FREE Express Pan-India Delivery</strong>.
-          </p>
-          <p>
-            For orders below ₹{INITIAL_SETTINGS.freeShippingThreshold.toLocaleString('en-IN')}, a flat subsidized delivery fee of ₹{INITIAL_SETTINGS.defaultShippingFee} is applied at checkout.
+            A flat standard insured delivery fee of ₹{INITIAL_SETTINGS.defaultShippingFee} is applied to all orders at checkout for safe Pan-India transit.
           </p>
         </section>
 

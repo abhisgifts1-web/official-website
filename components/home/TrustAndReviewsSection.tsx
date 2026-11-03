@@ -89,7 +89,7 @@ export default function TrustAndReviewsSection() {
             </div>
             <h4 className="font-bold text-xs sm:text-sm text-[#FFFFFF]">Pan-India Delivery</h4>
             <p className="text-[11px] text-[#D1D5DB] leading-snug">
-              Free Express shipping on orders &gt; ₹1,999 to 19,000+ pincodes across India.
+              Express insured shipping to 19,000+ pincodes across India.
             </p>
           </div>
 

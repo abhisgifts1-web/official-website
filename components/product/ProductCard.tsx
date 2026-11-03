@@ -278,15 +278,9 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
 
             {/* Delivery Signal */}
             <div className="flex items-center gap-1 text-[10px]">
-              {product.basePrice >= 1999 ? (
-                <span className="font-semibold text-[#D1D5DB] flex items-center gap-1 truncate">
-                  <Truck className="w-3 h-3 text-[#EAB308] shrink-0" /> Free Express Delivery
-                </span>
-              ) : (
-                <span className="text-[#D1D5DB] flex items-center gap-1 truncate">
-                  <Truck className="w-3 h-3 text-[#D1D5DB]/60 shrink-0" /> Standard Delivery (4-7 Days)
-                </span>
-              )}
+              <span className="font-semibold text-[#D1D5DB] flex items-center gap-1 truncate">
+                <Truck className="w-3 h-3 text-[#EAB308] shrink-0" /> Express Pan-India Delivery
+              </span>
             </div>
 
             {/* Action Buttons: Always Visible on Screen */}

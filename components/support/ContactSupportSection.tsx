@@ -24,7 +24,7 @@ const SUPPORT_FAQS = [
   },
   {
     q: 'Do you deliver across Hyderabad and other parts of India?',
-    a: 'Yes! We provide Free Express Shipping across all of India on orders above ₹1,999. In Hyderabad & Dilsukhnagar, we dispatch within 24–48 hours. Across other states, delivery takes 3 to 5 business days via BlueDart, Delhivery, and DTDC Express.',
+    a: 'Yes! We provide insured Express Shipping across all of India. In Hyderabad & Dilsukhnagar, we dispatch within 24–48 hours. Across other states, delivery takes 3 to 5 business days via BlueDart, Delhivery, and DTDC Express.',
   },
   {
     q: 'What happens if my acrylic photo frame arrives damaged?',

@@ -86,24 +86,7 @@ export default function CartPage() {
         </Link>
       </div>
 
-      {/* Free Shipping Alert */}
-      <div className="p-4 bg-amber-50 rounded-2xl border border-amber-200 text-xs">
-        {amountNeeded > 0 ? (
-          <p className="text-gray-200 font-medium">
-            Add <span className="font-bold text-amber-900">₹{amountNeeded.toLocaleString('en-IN')}</span> more to unlock <strong>FREE Pan-India Delivery</strong>!
-          </p>
-        ) : (
-          <p className="text-[#FFFFFF] font-bold flex items-center gap-1.5">
-            <Sparkles className="w-4 h-4 text-[#EAB308]" /> You’ve unlocked FREE Pan-India Delivery!
-          </p>
-        )}
-        <div className="w-full bg-amber-200/60 rounded-full h-2 mt-2 overflow-hidden">
-          <div
-            className="bg-amber-600 h-2 rounded-full transition-all duration-300"
-            style={{ width: `${freeShippingProgress}%` }}
-          />
-        </div>
-      </div>
+      
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         {/* LEFT: Items List (8 cols) */}
@@ -252,7 +235,7 @@ export default function CartPage() {
             <div className="flex justify-between">
               <span>Pan-India Delivery</span>
               <span>
-                {shippingFee === 0 ? <strong className="text-[#D1D5DB] font-bold">FREE</strong> : `₹${shippingFee}`}
+                `₹${shippingFee}`
               </span>
             </div>
 

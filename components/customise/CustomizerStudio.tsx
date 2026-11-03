@@ -1508,7 +1508,7 @@ export default function CustomizerStudio() {
                 </div>
                 <div className="flex justify-between text-emerald-700 font-semibold pt-1 border-t border-[#2D2D2D]">
                   <span>Pan-India Shipping:</span>
-                  <span>FREE Express (48h dispatch)</span>
+                  <span>Express (48h dispatch)</span>
                 </div>
               </div>
 
@@ -1684,7 +1684,7 @@ export default function CustomizerStudio() {
                 Place Your Order
               </h3>
               <p className="text-xs text-[#D1D5DB] leading-relaxed">
-                Diamond CNC fabricated with premium acrylic. Packed in 5-layer wood-reinforced packaging with free Pan-India door delivery.
+                Diamond CNC fabricated with premium acrylic. Packed in 5-layer wood-reinforced packaging with safe Pan-India door delivery.
               </p>
               <div className="text-[11px] font-bold text-[#EAB308] flex items-center gap-1 pt-1">
                 <Check className="w-3.5 h-3.5 text-emerald-600" />

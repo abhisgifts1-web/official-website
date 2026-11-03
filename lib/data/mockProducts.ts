@@ -2737,7 +2737,7 @@ export const INITIAL_PRODUCTS: Product[] = [
       "Microfiber wipe only"
     ],
     "shippingHighlights": [
-      "Free pan-India shipping over ₹1,999"
+      "Pan-India express shipping"
     ],
     "reviews": [],
     "createdAt": "2026-10-05"
@@ -3059,7 +3059,7 @@ export const INITIAL_PRODUCTS: Product[] = [
       "Microfiber wipe only. Use included adapter."
     ],
     "shippingHighlights": [
-      "Free pan-India delivery",
+      "Pan-India express delivery",
       "100% Transit safe guarantee"
     ],
     "reviews": [],
@@ -3144,7 +3144,7 @@ export const INITIAL_PRODUCTS: Product[] = [
       "Microfiber wipe only. Use included adapter."
     ],
     "shippingHighlights": [
-      "Free pan-India delivery",
+      "Pan-India express delivery",
       "100% Transit safe guarantee"
     ],
     "reviews": [],
@@ -3327,7 +3327,7 @@ export const INITIAL_PRODUCTS: Product[] = [
       "Microfiber wipe only."
     ],
     "shippingHighlights": [
-      "Free pan-India shipping",
+      "Pan-India express shipping",
       "Transit safe guarantee"
     ],
     "reviews": [],
@@ -3406,7 +3406,7 @@ export const INITIAL_PRODUCTS: Product[] = [
       "Microfiber wipe only."
     ],
     "shippingHighlights": [
-      "Free pan-India delivery"
+      "Pan-India express delivery"
     ],
     "reviews": [],
     "createdAt": "2026-08-15"

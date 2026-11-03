@@ -78,7 +78,7 @@ export default function Footer() {
                 Pan-India Delivery
               </h4>
               <p className="text-[10px] sm:text-[11px] text-[#E5E7EB]/70 leading-tight">
-                Free shipping ₹1,999+
+                Safe Pan-India Express
               </p>
             </div>
           </div>

@@ -101,9 +101,9 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     }
   }
 
-  const shippingFee = subtotal >= freeShippingThreshold || subtotal === 0 ? 0 : INITIAL_SETTINGS.defaultShippingFee;
+  const shippingFee = subtotal === 0 ? 0 : INITIAL_SETTINGS.defaultShippingFee;
   const totalAmount = Math.max(0, subtotal - discountAmount + shippingFee);
-  const freeShippingProgress = Math.min(100, Math.round((subtotal / freeShippingThreshold) * 100));
+  const freeShippingProgress = 0;
 
   const openCart = () => setIsCartOpen(true);
   const closeCart = () => setIsCartOpen(false);

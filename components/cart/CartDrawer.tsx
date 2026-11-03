@@ -91,25 +91,7 @@ export default function CartDrawer() {
             </button>
           </div>
 
-          {/* Free Shipping Progress Meter */}
-          <div className="p-3 sm:px-5 bg-[#1A1A1A] border-b border-[#2D2D2D] text-xs">
-            {amountNeededForFreeShipping > 0 ? (
-              <p className="text-gray-200 font-medium">
-                Add <span className="font-bold text-amber-900">₹{amountNeededForFreeShipping.toLocaleString('en-IN')}</span> more to qualify for <span className="font-bold text-amber-900">FREE Pan-India Delivery</span>!
-              </p>
-            ) : (
-              <p className="text-[#FFFFFF] font-semibold flex items-center gap-1.5">
-                <Sparkles className="w-3.5 h-3.5 text-[#EAB308]" />
-                Congratulations! You’ve unlocked FREE Pan-India Delivery!
-              </p>
-            )}
-            <div className="w-full bg-amber-200/60 rounded-full h-2 mt-1.5 overflow-hidden">
-              <div
-                className="bg-[#EAB308] h-2 rounded-full transition-all duration-300"
-                style={{ width: `${freeShippingProgress}%` }}
-              />
-            </div>
-          </div>
+          
 
           {/* Items Container */}
           <div className="flex-1 overflow-y-auto p-4 sm:p-5 space-y-4">
@@ -287,11 +269,7 @@ export default function CartDrawer() {
                 <div className="flex justify-between">
                   <span>Pan-India Delivery</span>
                   <span>
-                    {shippingFee === 0 ? (
-                      <span className="text-[#D1D5DB] font-semibold">FREE</span>
-                    ) : (
-                      `₹${shippingFee}`
-                    )}
+                    `₹${shippingFee}`
                   </span>
                 </div>
 

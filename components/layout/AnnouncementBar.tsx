@@ -35,7 +35,7 @@ export default function AnnouncementBar() {
       <span className="flex items-center gap-1.5 shrink-0 text-[#FFFFFF]">
         <Sparkles className="w-3.5 h-3.5 text-[#FACC15] animate-pulse shrink-0" />
         <span className="font-medium">
-          Festive Privilege: Free Pan-India Delivery on orders above ₹1,999 • Damage-Free Guarantee
+          Pan-India Express Delivery • 100% Damage-Free Guarantee
         </span>
         <Link
           href="/shop"

@@ -953,30 +953,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
 
               {/* Top Right Floating Controls: 3000K Glow Mode + Fullscreen Zoom */}
               <div className="absolute top-4 right-4 z-20 flex items-center gap-2">
-                {product.hasLedBacklight && (
-                  <button
-                    type="button"
-                    onClick={() => setIsAartiGlow(!isAartiGlow)}
-                    className={`px-3 py-1 rounded-full text-xs font-bold shadow-md border transition-all flex items-center gap-1.5 cursor-pointer backdrop-blur-xs ${
-                      isAartiGlow
-                        ? 'bg-[#39252A] text-[#E8D1A5] border-[#EAB308] shadow-[0_0_18px_rgba(232,209,165,0.45)]'
-                        : 'bg-[#181818]/95 text-[#D1D5DB] border-[#2D2D2D] hover:text-[#FFFFFF]'
-                    }`}
-                    title="Toggle 3000K Warm LED Backlight Simulation"
-                  >
-                    {isAartiGlow ? (
-                      <>
-                        <Zap className="w-3.5 h-3.5 fill-[#E8D1A5] text-[#E8D1A5]" />
-                        <span>3000K LED: ON</span>
-                      </>
-                    ) : (
-                      <>
-                        <Sun className="w-3.5 h-3.5 text-amber-500" />
-                        <span>Daylight View</span>
-                      </>
-                    )}
-                  </button>
-                )}
+                
 
                 {/* Lightbox Trigger */}
                 <button
@@ -1287,77 +1264,15 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
               </div>
               <p className="text-[11px] text-[#D1D5DB] font-medium flex items-center gap-1.5">
                 <Sparkles className="w-3 h-3 text-[#EAB308] shrink-0" />
-                <span>Inclusive of all taxes • Free Pan-India Express Delivery • Zero hidden costs</span>
+                <span>Inclusive of all taxes • Pan-India Express Delivery • Zero hidden costs</span>
               </p>
             </div>
 
-            {/* Customization 1: Shape / Orientation Selector */}
-            <div className="space-y-2.5">
-              <div className="flex items-center justify-between text-xs">
-                <span className="font-bold text-[#FFFFFF] flex items-center gap-1.5 flex-wrap">
-                  <span>1. Shape &amp; Orientation:</span>
-                  <strong className="text-[#EAB308] font-serif capitalize">
-                    {SHAPE_CONFIGS[selectedShape].label}
-                  </strong>
-                  <span className="text-[10px] font-normal text-[#D1D5DB] hidden sm:inline">
-                    ({SHAPE_CONFIGS[selectedShape].ratioLabel})
-                  </span>
-                </span>
-                <span className="text-[11px] text-[#D1D5DB] hidden sm:inline">
-                  {SHAPE_CONFIGS[selectedShape].dimensionsNote}
-                </span>
-              </div>
-
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
-                {(['portrait', 'landscape', 'square', 'round'] as ShapeOptionType[]).map((shape) => {
-                  const isSelected = selectedShape === shape;
-                  const cfg = SHAPE_CONFIGS[shape];
-                  return (
-                    <button
-                      key={shape}
-                      type="button"
-                      onClick={() => handleSelectShape(shape)}
-                      className={`p-2.5 sm:p-3 min-h-[50px] sm:min-h-[56px] rounded-2xl border-2 transition-all flex flex-col items-center justify-between text-center gap-1 sm:gap-1.5 cursor-pointer relative ${
-                        isSelected
-                          ? 'border-[#EAB308] bg-[#1A1A1A] ring-2 ring-[#C69A42]/30 shadow-xs font-bold text-[#FFFFFF]'
-                          : 'border-[#2D2D2D] bg-[#181818] hover:border-[#EAB308]/60 text-[#D1D5DB]'
-                      }`}
-                    >
-                      {isSelected && (
-                        <span className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-[#EAB308]" />
-                      )}
-                      {/* Miniature Shape Graphic */}
-                      <div className="h-7 flex items-center justify-center">
-                        {shape === 'portrait' && (
-                          <div className={`w-3.5 h-5.5 rounded-xs border-2 transition-all ${isSelected ? 'border-[#EAB308] bg-[#EAB308]/20' : 'border-stone-400'}`} />
-                        )}
-                        {shape === 'landscape' && (
-                          <div className={`w-6 h-3.5 rounded-xs border-2 transition-all ${isSelected ? 'border-[#EAB308] bg-[#EAB308]/20' : 'border-stone-400'}`} />
-                        )}
-                        {shape === 'square' && (
-                          <div className={`w-5 h-5 rounded-xs border-2 transition-all ${isSelected ? 'border-[#EAB308] bg-[#EAB308]/20' : 'border-stone-400'}`} />
-                        )}
-                        {shape === 'round' && (
-                          <div className={`w-5 h-5 rounded-full border-2 transition-all ${isSelected ? 'border-[#EAB308] bg-[#EAB308]/20' : 'border-stone-400'}`} />
-                        )}
-                      </div>
-                      <span className="text-xs font-bold capitalize leading-tight">
-                        {cfg.label}
-                      </span>
-                      <span className="text-[10px] text-[#D1D5DB] leading-tight">
-                        {cfg.subtitle}
-                      </span>
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-
-            {/* Customization 2: Frame Style */}
+            {/* Customization 1: Frame Style */}
             <div className="space-y-2.5">
               <div className="flex items-center justify-between text-xs">
                 <span className="font-bold text-[#FFFFFF]">
-                  2. Frame Style:{' '}
+                  1. Frame Style:{' '}
                   <strong className="text-[#EAB308] font-serif">
                     {selectedFrame === 'gold' ? 'Champagne Gold' : selectedFrame === 'black' ? 'Matte Black' : 'Frameless Crystal Acrylic'}
                   </strong>
@@ -1517,53 +1432,6 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
               )}
             </div>
 
-            {/* Delivery PIN Code Checker */}
-            <div className="p-4 rounded-2xl bg-[#121212] border border-[#2D2D2D] space-y-2.5">
-              <div className="flex items-center justify-between text-xs font-bold text-[#FFFFFF]">
-                <span className="flex items-center gap-1.5">
-                  <MapPin className="w-3.5 h-3.5 text-[#EAB308]" />
-                  <span>Delivery Availability &amp; Dispatch Timeline:</span>
-                </span>
-              </div>
-              <form onSubmit={handleCheckPincode} className="flex gap-2">
-                <input
-                  type="text"
-                  maxLength={6}
-                  placeholder="Enter 6-digit Indian Pincode"
-                  value={pincode}
-                  onChange={(e) => setPincode(e.target.value.replace(/\D/g, ''))}
-                  className="flex-1 px-3.5 py-2.5 text-sm sm:text-xs min-h-[44px] bg-[#181818] border border-[#2D2D2D] rounded-xl outline-none focus:border-[#EAB308] text-[#FFFFFF]"
-                />
-                <button
-                  type="submit"
-                  className="px-4 py-2.5 min-h-[44px] bg-[#EAB308] hover:bg-[#FACC15] text-[#000000] rounded-xl text-xs font-bold shadow-xs transition-colors flex items-center justify-center cursor-pointer"
-                >
-                  Check
-                </button>
-              </form>
-              {pincodeStatus && (
-                <div className={`text-xs p-2.5 rounded-xl border ${
-                  pincodeStatus.valid
-                    ? 'bg-emerald-50 border-emerald-200 text-emerald-800'
-                    : 'bg-rose-50 border-rose-200 text-rose-700'
-                }`}>
-                  {pincodeStatus.valid ? (
-                    <div>
-                      <p className="font-bold flex items-center gap-1.5">
-                        <Check className="w-3.5 h-3.5 text-emerald-600" />
-                        <span>{pincodeStatus.message}</span>
-                      </p>
-                      <p className="text-[11px] text-emerald-700 mt-0.5">
-                        Expected by <strong>{pincodeStatus.deliveryDate}</strong> via BlueDart / Delhivery Express.
-                      </p>
-                    </div>
-                  ) : (
-                    <p className="text-[11px] font-medium">{pincodeStatus.message}</p>
-                  )}
-                </div>
-              )}
-            </div>
-
             {/* Quantity Selector + Action Buttons */}
             <div className="space-y-3.5 pt-2 border-t border-[#2D2D2D]">
               <div className="flex items-center justify-between">
@@ -1635,7 +1503,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-center">
                 <div className="p-2.5 rounded-2xl bg-[#181818] border border-[#2D2D2D]/60 flex flex-col items-center space-y-1">
                   <Truck className="w-5 h-5 text-[#EAB308]" />
-                  <span className="text-[10px] font-bold text-[#FFFFFF] leading-tight">Free Delivery</span>
+                  <span className="text-[10px] font-bold text-[#FFFFFF] leading-tight">Express Delivery</span>
                   <span className="text-[9px] text-[#D1D5DB]">Pan-India Express</span>
                 </div>
 
