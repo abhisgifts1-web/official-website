@@ -186,7 +186,7 @@ function ShopContent() {
             All Wall Art Creations
           </h1>
           <p className="text-xs sm:text-sm md:text-base text-[#E5E7EB] mt-2 leading-relaxed font-sans">
-            Browse our complete collection of 3D crystal cast acrylic, warm backlit LED panels, and personal photo heirlooms.
+            Browse our complete collection of acrylic photo frames, warm backlit LED panels, and personal photo heirlooms.
           </p>
         </div>
       </div>

@@ -59,7 +59,7 @@ const GUIDES = [
     slug: 'choosing-right-photo-frame-memories',
     title: 'Choosing the Right Photo Frame for Your Memories: Acrylic vs Glass vs Wood',
     excerpt:
-      'Detailed comparison of crystal cast acrylic, fragile float glass, and traditional wooden frames for longevity, shatter resistance, and visual depth.',
+      'Detailed comparison of acrylic photo frames, fragile float glass, and traditional wooden frames for longevity, shatter resistance, and visual depth.',
     date: 'Updated November 2026',
     readTime: '6 min read',
     tag: 'Material Science',

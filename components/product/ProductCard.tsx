@@ -215,13 +215,12 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
               </h3>
             </Link>
 
-            {/* Premium Material Quality Indicator */}
-            <div className="flex items-center justify-between text-[10px] font-semibold text-[#D1D5DB]">
-              <span className="flex items-center gap-1">
-                <Sparkles className="w-3 h-3 text-[#EAB308] shrink-0" />
-                <span>4mm Crystal Cast Acrylic</span>
+            {/* Category & Size Indicator */}
+            <div className="flex items-center justify-between text-[11px] font-semibold text-[#D1D5DB]">
+              <span className="text-white/70">
+                {product.categoryName}
               </span>
-              <span className="text-[10px] font-medium text-[#EAB308]">
+              <span className="font-medium text-[#EAB308]">
                 {activeVariant.size.split('(')[0].trim()}
               </span>
             </div>

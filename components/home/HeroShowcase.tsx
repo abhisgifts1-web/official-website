@@ -285,13 +285,13 @@ export default function HeroShowcase() {
               <div className="text-xs sm:text-[13px] text-[#D1D5DB] font-medium flex items-center gap-1.5">
                 <strong className="text-[#FFFFFF] font-bold">100% Transit Safe Guarantee</strong>
                 <span className="text-[#EAB308]">•</span>
-                <span>Certified 4mm Cast Acrylic</span>
+                <span>100% Quality Guarantee</span>
               </div>
             </div>
 
             {/* 4. Refined Editorial Narrative */}
             <p className="text-xs sm:text-[14px] lg:text-[15px] text-[#D1D5DB] max-w-xl mx-auto lg:mx-0 leading-relaxed font-sans">
-              Hyderabad&apos;s premier destination for custom <strong className="text-[#FFFFFF] font-semibold">4mm cast crystal acrylic</strong>, <strong className="text-[#FFFFFF] font-semibold">3000K warm LED illuminated frames</strong>, and sacred devotional heirlooms. Handcrafted with diamond CNC beveled edges and 24K gold foil embellishments at our Dilsukhnagar studio with fast local delivery across Telangana.
+              Hyderabad&apos;s premier destination for custom <strong className="text-[#FFFFFF] font-semibold">acrylic photo frames</strong>, <strong className="text-[#FFFFFF] font-semibold">3000K warm LED illuminated frames</strong>, and sacred devotional heirlooms. Handcrafted with diamond CNC beveled edges and 24K gold foil embellishments at our Dilsukhnagar studio with fast local delivery across Telangana.
             </p>
 
             {/* 5. Animated CTA Buttons */}
@@ -345,7 +345,7 @@ export default function HeroShowcase() {
                 </div>
                 <div className="text-left">
                   <span className="font-bold text-[#FFFFFF] text-xs block leading-tight tracking-tight uppercase">
-                    4mm Cast Acrylic
+                    Premium Acrylic
                   </span>
                   <span className="text-[11px] text-[#D1D5DB] block mt-0.5 font-medium">Diamond CNC Bevel</span>
                 </div>
@@ -469,10 +469,7 @@ export default function HeroShowcase() {
 
               {/* Top Spec Pill: Completely Unobtrusive Header Tag */}
               <div className="w-full flex items-center justify-between mb-3 z-30 px-1">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-[#EAB308]/70 text-[#FFFFFF] text-[11px] sm:text-xs font-medium shadow-xs">
-                  <Sparkles className="w-3.5 h-3.5 text-[#FACC15]" />
-                  <span>{currentDeity.dimension} • 4mm Cast Crystal Acrylic</span>
-                </div>
+                
                 <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gradient-to-r from-[#181818] to-[#222222] border border-[#EAB308]/80 text-[#FFFFFF] text-xs font-bold shadow-xs">
                   <span className="text-[#FACC15]">{currentDeity.price}</span>
                   <span className="line-through text-white/50 text-[10px]">{currentDeity.originalPrice}</span>

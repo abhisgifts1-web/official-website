@@ -251,7 +251,7 @@ export default function PersonalizedPhotoSection() {
             <h2 className="font-serif font-bold text-3xl sm:text-4xl lg:text-5xl text-[#FFFFFF] tracking-tight leading-[1.15]">
               CRAFT YOUR SACRED SANCTUM.
               <span className="block mt-1 bg-gradient-to-r from-[#A06E28] via-[#FACC15] to-[#784B15] bg-clip-text text-transparent italic font-serif">
-                Tailored In 4mm Crystal Cast Acrylic.
+                Tailored In Premium Acrylic.
               </span>
             </h2>
 
@@ -291,7 +291,7 @@ export default function PersonalizedPhotoSection() {
               <span>Select Framing Style &amp; Silhouette</span>
             </span>
             <span className="text-[11px] text-[#EAB308] font-semibold hidden sm:inline">
-              4mm Cast Sheet • Hand-Polished In Dilsukhnagar
+              Hand-Polished In Dilsukhnagar
             </span>
           </div>
 
@@ -727,7 +727,7 @@ export default function PersonalizedPhotoSection() {
                 Diamond CNC Fabrication &amp; Delivery
               </h4>
               <p className="text-xs text-[#D1D5DB] leading-relaxed">
-                Fabricated with virgin 4mm cast acrylic and 50,000h Epistar warm LEDs. Packed in 5-layer wood-reinforced crates with direct studio pickup or pan-India delivery.
+                Fabricated with premium acrylic and 50,000h Epistar warm LEDs. Packed in 5-layer wood-reinforced crates with direct studio pickup or pan-India delivery.
               </p>
               <div className="pt-2 text-[11px] font-bold text-[#EAB308] flex items-center gap-1">
                 <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />

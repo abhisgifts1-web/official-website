@@ -329,7 +329,7 @@ export default function Header() {
                                     Explore Sacred Art Collections
                                   </h3>
                                   <p className="text-[11px] text-[#D1D5DB] font-sans">
-                                    35 Authentic Collections • Consecrated 4mm Crystal Acrylic &amp; 3000K LED Radiance
+                                    35 Authentic Collections • Premium Acrylic Frames &amp; 3000K LED Radiance
                                   </p>
                                 </div>
                               </div>

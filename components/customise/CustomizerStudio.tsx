@@ -782,7 +782,7 @@ export default function CustomizerStudio() {
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-4 text-[11px] font-bold text-[#FFFFFF]">
                 <div className="flex items-center gap-1.5 justify-center lg:justify-start">
                   <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                  <span>4mm Cast Acrylic</span>
+                  <span>Premium Acrylic</span>
                 </div>
                 <div className="flex items-center gap-1.5 justify-center lg:justify-start">
                   <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
@@ -1299,7 +1299,7 @@ export default function CustomizerStudio() {
             <div className="space-y-2">
               <div className="flex items-center justify-between">
                 <label className="text-xs font-bold uppercase tracking-wider text-[#FFFFFF]">
-                  Step 3B: Select Frame Dimensions (4mm Cast Acrylic)
+                  Step 3B: Select Frame Dimensions
                 </label>
                 <span className="text-[11px] text-[#EAB308] font-semibold">{displaySizeLabel}</span>
               </div>
@@ -1684,7 +1684,7 @@ export default function CustomizerStudio() {
                 Place Your Order
               </h3>
               <p className="text-xs text-[#D1D5DB] leading-relaxed">
-                Diamond CNC fabricated with virgin 4mm cast acrylic. Packed in 5-layer wood-reinforced packaging with free Pan-India door delivery.
+                Diamond CNC fabricated with premium acrylic. Packed in 5-layer wood-reinforced packaging with free Pan-India door delivery.
               </p>
               <div className="text-[11px] font-bold text-[#EAB308] flex items-center gap-1 pt-1">
                 <Check className="w-3.5 h-3.5 text-emerald-600" />

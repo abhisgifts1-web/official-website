@@ -133,11 +133,7 @@ export default function QuickViewModal({ product, isOpen, onClose }: QuickViewMo
                   {product.title}
                 </h3>
 
-                {/* Material Hallmark */}
-                <div className="flex items-center gap-1.5 text-xs text-[#D1D5DB] font-semibold">
-                  <Sparkles className="w-3.5 h-3.5 text-[#EAB308]" />
-                  <span>4mm Crystal Cast Acrylic • Diamond Beveled</span>
-                </div>
+                
 
                 {/* Price */}
                 <div className="flex items-baseline gap-2.5 pt-1">

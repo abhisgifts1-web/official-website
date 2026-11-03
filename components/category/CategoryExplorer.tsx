@@ -333,7 +333,7 @@ export default function CategoryExplorer({ initialCategories }: CategoryExplorer
                     🖼️ Normal Crystal Acrylic Collections ({normalCount})
                   </h2>
                   <p className="text-xs sm:text-sm text-[#D1D5DB] mt-0.5">
-                    Non-lit pure crystal cast acrylic with 24K pure gold foil embellishments and diamond-polished bevel edges. No wiring required.
+                    Non-lit premium acrylic photo frames with 24K pure gold foil embellishments and diamond-polished bevel edges. No wiring required.
                   </p>
                 </div>
                 <Link

@@ -52,7 +52,7 @@ const FAQ_KNOWLEDGE_BASE: {
     keywords: ['size', 'dimension', 'measurement', 'inches', 'cm', 'thickness', '4mm', 'big', 'small'],
     question: 'What frame sizes and materials do you offer?',
     answer:
-      "All our frames are precision-crafted using premium 4mm crystal cast acrylic sheets with diamond-beveled edges. We offer 4 standard sizes:\n• Size 1: 12 × 18 inches (30 × 45 cm)\n• Size 2: 18 × 24 inches (45 × 60 cm) — Most Popular\n• Size 3: 24 × 36 inches (60 × 90 cm)\n• Size 4: 30 × 48 inches (75 × 120 cm) Grand Masterpiece\nCustom dimensions are also supported up to 5 feet!",
+      "All our frames are precision-crafted using premium acrylic photo frames with diamond-beveled edges. We offer 4 standard sizes:\n• Size 1: 12 × 18 inches (30 × 45 cm)\n• Size 2: 18 × 24 inches (45 × 60 cm) — Most Popular\n• Size 3: 24 × 36 inches (60 × 90 cm)\n• Size 4: 30 × 48 inches (75 × 120 cm) Grand Masterpiece\nCustom dimensions are also supported up to 5 feet!",
     action: {
       label: 'Explore Customizer Studio',
       href: '/customise',

@@ -944,13 +944,11 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                   </span>
                 )}
                 {product.isBestseller && (
-                  <span className="bg-[#39252A]/90 text-[#E8D1A5] text-[10px] font-bold px-2.5 py-0.5 rounded-full shadow-xs border border-[#EAB308]/40 uppercase tracking-wider">
+                  <span className="bg-[#181818] text-[#FACC15] text-[10px] font-bold px-2.5 py-0.5 rounded-full shadow-xs border border-[#EAB308]/40 uppercase tracking-wider">
                     ★ Best Seller
                   </span>
                 )}
-                <span className="bg-[#181818]/85 text-[#FFFFFF] text-[10px] font-semibold px-2 py-0.5 rounded-md border border-[#2D2D2D] shadow-2xs backdrop-blur-xs hidden sm:inline-block">
-                  4mm Cast Acrylic
-                </span>
+                
               </div>
 
               {/* Top Right Floating Controls: 3000K Glow Mode + Fullscreen Zoom */}
@@ -1172,7 +1170,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
             <div className="grid grid-cols-3 gap-2.5 pt-1 text-center">
               <div className="p-3 rounded-2xl bg-[#181818] border border-[#2D2D2D] text-[11px] font-semibold text-[#FFFFFF] flex items-center justify-center gap-1.5 shadow-2xs">
                 <Sparkles className="w-3.5 h-3.5 text-[#EAB308] shrink-0" />
-                <span className="truncate">4mm Cast Acrylic</span>
+                <span className="truncate">Premium Acrylic</span>
               </div>
               <div className="p-3 rounded-2xl bg-[#181818] border border-[#2D2D2D] text-[11px] font-semibold text-[#FFFFFF] flex items-center justify-center gap-1.5 shadow-2xs">
                 <ShieldCheck className="w-3.5 h-3.5 text-[#EAB308] shrink-0" />
@@ -1423,7 +1421,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                   <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl overflow-hidden border border-[#2D2D2D] shadow-xs bg-[#121212]">
                     <img
                       src="/images/frames/acrylic-border-ref.jpg"
-                      alt="Frameless Crystal Cast Acrylic Border"
+                      alt="Frameless Acrylic Photo Frame Border"
                       className="w-full h-full object-cover"
                     />
                   </div>
@@ -1997,7 +1995,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                   },
                   {
                     q: 'Is the acrylic fragile or breakable during everyday cleaning?',
-                    a: 'No. We use 4mm virgin cast crystal acrylic that is shatterproof and 17x stronger than traditional glass. Simply wipe with a soft micro-fiber cloth to remove dust.',
+                    a: 'No. We use premium acrylic that is shatterproof and 17x stronger than traditional glass. Simply wipe with a soft micro-fiber cloth to remove dust.',
                   },
                   {
                     q: 'Can this frame be safely installed in a pooja room where incense/diyas are lit?',

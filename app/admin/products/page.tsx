@@ -468,7 +468,7 @@ export default function AdminProductsPage() {
         variants: primaryVariants,
         orientationVariants: fullOrientationVariants,
         specifications: [
-          { label: 'Art Material', value: '4mm Pure Crystal Cast Acrylic with CNC Beveled Edges' },
+          { label: 'Art Material', value: 'Premium Acrylic with CNC Beveled Edges' },
           {
             label: 'Lighting Technology',
             value: formData.hasLedBacklight

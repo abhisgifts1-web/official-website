@@ -559,7 +559,7 @@ export default function RoomVisualizerSection() {
                   <span className="text-[11px] text-[#785E59] uppercase tracking-wider block">Selected Configuration:</span>
                   <h4 className="font-serif font-bold text-base text-[#FFFFFF]">{selectedArtwork.name}</h4>
                   <p className="text-xs text-[#785E59]">
-                    {selectedSize.label} • {selectedFinish.name} • {isLedOn ? '3000K Warm LED' : 'Pure Crystal Acrylic'}
+                    {selectedSize.label} • {selectedFinish.name} • {isLedOn ? '3000K Warm LED' : 'Premium Acrylic'}
                   </p>
                 </div>
                 <div className="text-right">
@@ -598,7 +598,7 @@ export default function RoomVisualizerSection() {
                 </span>
                 <span className="flex items-center gap-1">
                   <Award className="w-3.5 h-3.5 text-[#EAB308]" />
-                  <span>4mm Cast Acrylic</span>
+                  <span>Premium Acrylic</span>
                 </span>
                 <span className="flex items-center gap-1">
                   <Flame className="w-3.5 h-3.5 text-amber-500" />

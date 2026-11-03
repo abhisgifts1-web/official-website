@@ -349,9 +349,7 @@ export default function LedBacklitShowcase() {
                     <span>{isLedOn ? '3000K Illuminated' : 'Daylight View'}</span>
                   </span>
 
-                  <span className="text-[10px] font-semibold bg-stone-950/80 backdrop-blur-md text-stone-300 px-2 py-0.5 rounded-full border border-stone-700/60">
-                    4mm Cast Acrylic
-                  </span>
+                  
                 </div>
 
                 {/* Bottom Artwork Nameplate */}
