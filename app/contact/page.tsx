@@ -123,7 +123,7 @@ export default function ContactPage() {
               )}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full bg-[#641E2E] hover:bg-[#32151D] text-white font-semibold py-3 px-4 rounded-xl flex items-center justify-center gap-2 text-xs transition-colors"
+              className="w-full bg-[#641E2E] hover:bg-[#121212] text-white font-semibold py-3 px-4 rounded-xl flex items-center justify-center gap-2 text-xs transition-colors"
             >
               <MessageCircle className="w-4 h-4" />
               <span>Direct WhatsApp Chat</span>
@@ -200,8 +200,8 @@ export default function ContactPage() {
 
             {error && <p className="text-xs text-red-600 bg-red-50 p-2.5 rounded-lg border border-red-200">{error}</p>}
             {success && (
-              <div className="flex items-center gap-2 text-xs text-[#641E2E] bg-[#FCE7EA] p-3 rounded-xl border border-[#E8D5BD]">
-                <CheckCircle2 className="w-4 h-4 text-[#B88A35] shrink-0" />
+              <div className="flex items-center gap-2 text-xs text-[#FFFFFF] bg-[#1E1E1E] p-3 rounded-xl border border-[#2D2D2D]">
+                <CheckCircle2 className="w-4 h-4 text-[#EAB308] shrink-0" />
                 <span>Thank you! Your message has been received. Our team will contact you within 24 hours.</span>
               </div>
             )}

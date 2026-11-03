@@ -202,24 +202,24 @@ export default function ManufacturingFilmModal({ isOpen, onClose, defaultScene =
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/90 backdrop-blur-xl animate-fadeIn">
       {/* Outer Cinema Shell */}
-      <div className="relative w-full max-w-5xl bg-gradient-to-b from-[#1C0912] via-[#12050B] to-[#0A0206] rounded-3xl sm:rounded-[32px] border-2 border-[#D6AA55]/60 shadow-[0_30px_90px_rgba(0,0,0,0.95)] overflow-hidden flex flex-col max-h-[92vh]">
+      <div className="relative w-full max-w-5xl bg-gradient-to-b from-[#1C0912] via-[#12050B] to-[#0A0206] rounded-3xl sm:rounded-[32px] border-2 border-[#EAB308]/60 shadow-[0_30px_90px_rgba(0,0,0,0.95)] overflow-hidden flex flex-col max-h-[92vh]">
         
         {/* Top Header */}
-        <div className="px-5 py-4 border-b border-[#D6AA55]/30 bg-black/50 flex items-center justify-between gap-4">
+        <div className="px-5 py-4 border-b border-[#EAB308]/30 bg-black/50 flex items-center justify-between gap-4">
           <div className="flex items-center gap-3">
             <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping" />
             <div>
-              <span className="text-[11px] font-bold uppercase tracking-widest text-[#E8C77E] block font-mono">
+              <span className="text-[11px] font-bold uppercase tracking-widest text-[#FACC15] block font-mono">
                 ABHI&apos;S GIFTS ATELIER • 4K MANUFACTURING FILM
               </span>
-              <h3 className="font-serif font-bold text-sm sm:text-base text-[#FFF7EC] tracking-wide">
+              <h3 className="font-serif font-bold text-sm sm:text-base text-[#FFFFFF] tracking-wide">
                 Lord Ganesha Vighnaharta 3D LED Frame: Behind The Craft
               </h3>
             </div>
           </div>
 
           <div className="flex items-center gap-2">
-            <span className="hidden sm:inline-block bg-[#511B2A] text-[#FFE8A3] border border-[#D6AA55] text-[11px] font-bold px-2.5 py-1 rounded-md">
+            <span className="hidden sm:inline-block bg-[#511B2A] text-[#FFE8A3] border border-[#EAB308] text-[11px] font-bold px-2.5 py-1 rounded-md">
               4K UHD • 60 FPS
             </span>
             <button
@@ -255,8 +255,8 @@ export default function ManufacturingFilmModal({ isOpen, onClose, defaultScene =
                   </div>
                   <span className="text-xs font-serif font-bold text-white">Virgin Acrylic</span>
                 </div>
-                <div className="p-3.5 rounded-2xl bg-white/[0.08] border border-[#D6AA55] backdrop-blur-md flex flex-col items-center scale-105 shadow-xl">
-                  <div className="w-16 h-18 rounded-lg overflow-hidden border border-[#D6AA55] mb-2 shadow">
+                <div className="p-3.5 rounded-2xl bg-white/[0.08] border border-[#EAB308] backdrop-blur-md flex flex-col items-center scale-105 shadow-xl">
+                  <div className="w-16 h-18 rounded-lg overflow-hidden border border-[#EAB308] mb-2 shadow">
                     <img
                       src="/images/mockups/lord-ganesha-vighnaharta-divine-led-backlit-acrylic-art/primary-square.jpg"
                       alt="Ganesha"
@@ -286,7 +286,7 @@ export default function ManufacturingFilmModal({ isOpen, onClose, defaultScene =
             )}
 
             {activeScene.id === 3 && (
-              <div className="relative w-64 h-72 rounded-2xl border-2 border-[#D6AA55] overflow-hidden shadow-2xl bg-black flex items-center justify-center">
+              <div className="relative w-64 h-72 rounded-2xl border-2 border-[#EAB308] overflow-hidden shadow-2xl bg-black flex items-center justify-center">
                 <img
                   src="/images/mockups/lord-ganesha-vighnaharta-divine-led-backlit-acrylic-art/primary-square.jpg"
                   alt="Ganesha Print"
@@ -318,7 +318,7 @@ export default function ManufacturingFilmModal({ isOpen, onClose, defaultScene =
                     <span className="text-[10px] font-mono text-amber-300 uppercase font-bold">4. 3000K LED</span>
                   </div>
                   <div
-                    className="absolute inset-0 rounded-xl border-2 border-[#D6AA55] overflow-hidden shadow-xl"
+                    className="absolute inset-0 rounded-xl border-2 border-[#EAB308] overflow-hidden shadow-xl"
                     style={{ transform: 'translateZ(10px)' }}
                   >
                     <img
@@ -344,7 +344,7 @@ export default function ManufacturingFilmModal({ isOpen, onClose, defaultScene =
             )}
 
             {activeScene.id === 5 && (
-              <div className="relative w-64 h-72 rounded-2xl border-2 border-[#D6AA55] overflow-hidden shadow-2xl bg-black flex items-center justify-center">
+              <div className="relative w-64 h-72 rounded-2xl border-2 border-[#EAB308] overflow-hidden shadow-2xl bg-black flex items-center justify-center">
                 <img
                   src="/images/mockups/lord-ganesha-vighnaharta-divine-led-backlit-acrylic-art/primary-square.jpg"
                   alt="QC"
@@ -362,7 +362,7 @@ export default function ManufacturingFilmModal({ isOpen, onClose, defaultScene =
 
             {activeScene.id === 6 && (
               <div className="relative flex flex-col items-center">
-                <div className="relative w-64 sm:w-72 aspect-square rounded-2xl border-[12px] border-[#C69A42] shadow-[0_20px_60px_rgba(198,154,66,0.6)] overflow-hidden bg-black ring-1 ring-[#946F25]">
+                <div className="relative w-64 sm:w-72 aspect-square rounded-2xl border-[12px] border-[#EAB308] shadow-[0_20px_60px_rgba(198,154,66,0.6)] overflow-hidden bg-black ring-1 ring-[#946F25]">
                   <img
                     src="/images/mockups/lord-ganesha-vighnaharta-divine-led-backlit-acrylic-art/primary-square.jpg"
                     alt="Final Reveal"
@@ -381,8 +381,8 @@ export default function ManufacturingFilmModal({ isOpen, onClose, defaultScene =
 
           {/* Subtitles Overlay */}
           <div className="absolute bottom-14 inset-x-6 flex justify-center pointer-events-none z-20">
-            <div className="bg-black/85 backdrop-blur-md border border-[#D6AA55]/50 px-5 py-2 rounded-xl max-w-2xl text-center shadow-2xl">
-              <p className="text-xs sm:text-sm text-[#FFF7EC] font-medium leading-relaxed">
+            <div className="bg-black/85 backdrop-blur-md border border-[#EAB308]/50 px-5 py-2 rounded-xl max-w-2xl text-center shadow-2xl">
+              <p className="text-xs sm:text-sm text-[#FFFFFF] font-medium leading-relaxed">
                 {activeScene.voiceover}
               </p>
             </div>
@@ -392,7 +392,7 @@ export default function ManufacturingFilmModal({ isOpen, onClose, defaultScene =
           <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black via-black/90 to-transparent p-3 sm:p-4 z-30 flex flex-col gap-2">
             <div className="relative w-full h-1.5 bg-stone-800 rounded-full cursor-pointer">
               <div
-                className="h-full bg-gradient-to-r from-[#B88A35] via-[#D6AA55] to-[#FFE8A3] rounded-full transition-all duration-300"
+                className="h-full bg-gradient-to-r from-[#EAB308] via-[#FACC15] to-[#FFE8A3] rounded-full transition-all duration-300"
                 style={{ width: `${(currentTimeSec / 40) * 100}%` }}
               />
             </div>
@@ -401,7 +401,7 @@ export default function ManufacturingFilmModal({ isOpen, onClose, defaultScene =
               <div className="flex items-center gap-3">
                 <button
                   onClick={() => setIsPlaying(!isPlaying)}
-                  className="bg-[#511B2A] hover:bg-[#641E2E] text-white px-3 py-1.5 rounded-full border border-[#D6AA55] text-xs font-bold flex items-center gap-1.5 transition cursor-pointer"
+                  className="bg-[#511B2A] hover:bg-[#641E2E] text-white px-3 py-1.5 rounded-full border border-[#EAB308] text-xs font-bold flex items-center gap-1.5 transition cursor-pointer"
                 >
                   {isPlaying ? <Pause className="w-3.5 h-3.5" /> : <Play className="w-3.5 h-3.5 fill-white" />}
                   <span>{isPlaying ? 'Pause' : 'Play'}</span>
@@ -420,7 +420,7 @@ export default function ManufacturingFilmModal({ isOpen, onClose, defaultScene =
                 </button>
 
                 <span className="text-xs font-mono text-stone-300">
-                  {`00:${currentTimeSec.toString().padStart(2, '0')}`} / <span className="text-[#E8C77E]">00:40</span>
+                  {`00:${currentTimeSec.toString().padStart(2, '0')}`} / <span className="text-[#FACC15]">00:40</span>
                 </span>
               </div>
 
@@ -437,7 +437,7 @@ export default function ManufacturingFilmModal({ isOpen, onClose, defaultScene =
                     }}
                     className={`text-[11px] px-2.5 py-1 rounded-md font-bold transition cursor-pointer ${
                       activeSceneIndex === i
-                        ? 'bg-[#D6AA55] text-black'
+                        ? 'bg-[#EAB308] text-black'
                         : 'bg-white/5 text-stone-400 hover:text-white'
                     }`}
                   >
@@ -450,19 +450,19 @@ export default function ManufacturingFilmModal({ isOpen, onClose, defaultScene =
         </div>
 
         {/* Scene Specs & Direct Order Callout */}
-        <div className="p-4 sm:p-5 bg-[#14060C] border-t border-[#D6AA55]/30 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="p-4 sm:p-5 bg-[#14060C] border-t border-[#EAB308]/30 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="space-y-1">
-            <span className="text-[11px] font-mono font-bold uppercase text-[#E8C77E]">
+            <span className="text-[11px] font-mono font-bold uppercase text-[#FACC15]">
               {activeScene.badge}
             </span>
-            <h4 className="font-serif font-bold text-sm text-[#FFF7EC]">
+            <h4 className="font-serif font-bold text-sm text-[#FFFFFF]">
               {activeScene.title}
             </h4>
             <div className="flex flex-wrap items-center gap-2 pt-1">
               {activeScene.specs.map((sp, idx) => (
                 <span
                   key={idx}
-                  className="text-[10px] bg-black/60 border border-[#D6AA55]/40 text-[#FFE8A3] px-2 py-0.5 rounded"
+                  className="text-[10px] bg-black/60 border border-[#EAB308]/40 text-[#FFE8A3] px-2 py-0.5 rounded"
                 >
                   {sp.label}: <strong>{sp.value}</strong>
                 </span>
@@ -473,7 +473,7 @@ export default function ManufacturingFilmModal({ isOpen, onClose, defaultScene =
           <div className="flex items-center gap-3 shrink-0 w-full sm:w-auto">
             <a
               href="/product/lord-ganesha-vighnaharta-divine-led-backlit-acrylic-art"
-              className="flex-1 sm:flex-initial bg-gradient-to-r from-[#B88A35] via-[#D6AA55] to-[#B88A35] hover:brightness-110 text-[#240B13] font-bold text-xs py-2.5 px-4 rounded-full shadow-md flex items-center justify-center gap-1.5 transition"
+              className="flex-1 sm:flex-initial bg-gradient-to-r from-[#EAB308] via-[#FACC15] to-[#EAB308] hover:brightness-110 text-[#240B13] font-bold text-xs py-2.5 px-4 rounded-full shadow-md flex items-center justify-center gap-1.5 transition"
             >
               <Sparkles className="w-3.5 h-3.5" />
               <span>Order Ganesha Frame</span>

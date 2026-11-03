@@ -204,7 +204,7 @@ export default function AdminOrdersPage() {
                       <span
                         className={`px-2 py-0.5 rounded text-[10px] font-bold ${
                           order.paymentStatus === 'Paid'
-                            ? 'bg-[#FCE7EA] text-[#651E2D]'
+                            ? 'bg-[#1E1E1E] text-[#651E2D]'
                             : 'bg-amber-100 text-amber-800'
                         }`}
                       >

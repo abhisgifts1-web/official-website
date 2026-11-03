@@ -273,20 +273,20 @@ export default function CategoryPage({ params }: CategoryPageProps) {
       </div>
 
       {/* Local Store Service Notice */}
-      <div className="bg-[#FFF8EF] border border-[#E8D1A5] rounded-2xl p-4 sm:p-5 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-xs text-[#511B2A]">
+      <div className="bg-[#121212] border border-[#2D2D2D] rounded-2xl p-4 sm:p-5 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-xs text-[#FFFFFF]">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-[#641E2E] text-[#E8C77E] flex items-center justify-center shrink-0">
+          <div className="w-10 h-10 rounded-xl bg-[#641E2E] text-[#FACC15] flex items-center justify-center shrink-0">
             <Truck className="w-5 h-5" />
           </div>
           <div>
-            <p className="font-bold text-sm text-[#511B2A]">Local Hyderabad &amp; Dilsukhnagar Fast Delivery</p>
+            <p className="font-bold text-sm text-[#FFFFFF]">Local Hyderabad &amp; Dilsukhnagar Fast Delivery</p>
             <p className="text-[#785E59]">Order online or visit our Dilsukhnagar studio. 100% damage-free transit guarantee across Telangana.</p>
           </div>
         </div>
         <div className="flex items-center gap-2 shrink-0">
           <Link
             href="/customise"
-            className="bg-[#641E2E] text-[#FFF7EC] px-4 py-2 rounded-full font-bold text-xs hover:bg-[#511B2A] transition-colors"
+            className="bg-[#641E2E] text-[#FFFFFF] px-4 py-2 rounded-full font-bold text-xs hover:bg-[#511B2A] transition-colors"
           >
             Upload Your Photo
           </Link>
@@ -305,7 +305,7 @@ export default function CategoryPage({ params }: CategoryPageProps) {
       <CategoryClientView category={category} products={categoryProducts} />
 
       {/* Customization Callout */}
-      <div className="bg-[#FFF7ED] p-6 sm:p-8 rounded-3xl border border-amber-200 flex flex-col sm:flex-row items-center justify-between gap-6 mt-12">
+      <div className="bg-[#121212] p-6 sm:p-8 rounded-3xl border border-amber-200 flex flex-col sm:flex-row items-center justify-between gap-6 mt-12">
         <div className="space-y-1 text-center sm:text-left">
           <h3 className="font-serif font-bold text-lg text-stone-900">
             Looking for a specific temple size, custom shape, or gold inscription?

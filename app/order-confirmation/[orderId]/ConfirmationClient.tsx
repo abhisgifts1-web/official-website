@@ -55,7 +55,7 @@ export default function ConfirmationClient({ order }: Props) {
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 space-y-8">
       {/* Success Card */}
       <div className="bg-white rounded-3xl p-8 sm:p-12 text-center border border-stone-200 shadow-warm space-y-4">
-        <div className="w-16 h-16 rounded-full bg-[#FCE7EA] text-[#795D58] flex items-center justify-center mx-auto shadow-sm">
+        <div className="w-16 h-16 rounded-full bg-[#1E1E1E] text-[#D1D5DB] flex items-center justify-center mx-auto shadow-sm">
           <CheckCircle2 className="w-9 h-9" />
         </div>
 
@@ -72,7 +72,7 @@ export default function ConfirmationClient({ order }: Props) {
         </p>
 
         {/* Order ID Pill */}
-        <div className="inline-block bg-[#FFF7ED] border border-amber-300/80 px-5 py-2.5 rounded-2xl text-xs sm:text-sm font-mono font-bold text-stone-900 shadow-sm">
+        <div className="inline-block bg-[#121212] border border-amber-300/80 px-5 py-2.5 rounded-2xl text-xs sm:text-sm font-mono font-bold text-stone-900 shadow-sm">
           Order ID: <span className="text-amber-900 font-extrabold">{order.id}</span>
         </div>
 
@@ -90,7 +90,7 @@ export default function ConfirmationClient({ order }: Props) {
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-[#641E2E] hover:bg-[#32151D] text-white text-xs font-semibold px-6 py-3 rounded-full flex items-center gap-2 transition-colors shadow-sm"
+            className="bg-[#641E2E] hover:bg-[#121212] text-white text-xs font-semibold px-6 py-3 rounded-full flex items-center gap-2 transition-colors shadow-sm"
           >
             <MessageCircle className="w-4 h-4" />
             <span>Chat on WhatsApp with this Order</span>
@@ -139,13 +139,13 @@ export default function ConfirmationClient({ order }: Props) {
           </h3>
           <div className="flex justify-between py-1">
             <span className="text-stone-500">Payment Method</span>
-            <span className="font-semibold text-[#641E2E]">
+            <span className="font-semibold text-[#FFFFFF]">
               {order.paymentMethod === 'WhatsApp' ? 'Direct WhatsApp Order' : order.paymentMethod}
             </span>
           </div>
           <div className="flex justify-between py-1">
             <span className="text-stone-500">Payment Status</span>
-            <span className="font-bold text-[#795D58] bg-[#FCE7EA] px-2 py-0.5 rounded">
+            <span className="font-bold text-[#D1D5DB] bg-[#1E1E1E] px-2 py-0.5 rounded">
               {order.paymentStatus}
             </span>
           </div>
@@ -157,7 +157,7 @@ export default function ConfirmationClient({ order }: Props) {
           </div>
           <div className="flex justify-between py-1 border-t pt-2">
             <span className="text-stone-500">Transit Guarantee</span>
-            <span className="font-semibold text-[#641E2E]">100% Damage-Proof Covered</span>
+            <span className="font-semibold text-[#FFFFFF]">100% Damage-Proof Covered</span>
           </div>
         </div>
       </div>
@@ -202,7 +202,7 @@ export default function ConfirmationClient({ order }: Props) {
             <span className="font-semibold text-stone-900">₹{order.subtotal.toLocaleString('en-IN')}</span>
           </div>
           {order.discountAmount > 0 && (
-            <div className="flex justify-between text-[#795D58]">
+            <div className="flex justify-between text-[#D1D5DB]">
               <span>Discount ({order.couponCode || 'Promo'}):</span>
               <span>-₹{order.discountAmount.toLocaleString('en-IN')}</span>
             </div>

@@ -12,125 +12,125 @@ const config: Config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
 
-        // THEME TOKENS — EXACT ROYAL BURGUNDY + CHAMPAGNE GOLD SYSTEM
+        // THEME TOKENS — MATTE BLACK + GOLDEN YELLOW + WHITE SYSTEM
         primary: {
-          DEFAULT: "#641E2E", // Primary Royal Burgundy
-          dark: "#32151D",    // Dark Background Velvet Wine
-          light: "#8B3A4C",
-          surface: "#FCE7EA",
+          DEFAULT: "#121212", // Primary Matte Black
+          dark: "#0A0A0A",    // Deep Matte Charcoal
+          light: "#1E1E1E",   // Elevated Matte Surface
+          surface: "#181818", // Card Matte Surface
         },
         secondary: {
-          DEFAULT: "#B88A35", // Secondary Champagne Gold
-          light: "#E8C77E",   // Accent Luminous Gold
-          dark: "#7D5B1E",
+          DEFAULT: "#FFFFFF", // Secondary Pure White
+          light: "#FFFFFF",   // Crisp White
+          dark: "#E5E7EB",    // Light Off-White
         },
         accent: {
-          DEFAULT: "#E8C77E", // Light Champagne Gold
-          glow: "#FFD58A",    // Warm 3000K LED Glow
+          DEFAULT: "#EAB308", // Primary Accent: Golden Yellow
+          glow: "#FDE047",    // Radiant Golden Yellow Glow
         },
-        darkbg: "#32151D",    // Velvet Dark Background
-        warmivory: "#FFF7ED", // Warm Ivory Background
-        goldborder: "#E8D5BD",// Subtle Gold Border
-        primarytext: "#641E2E", // Royal Burgundy Text
-        secondarytext: "#795D58", // Muted Warm Taupe Text
-        ledglow: "#FFD58A",   // 3000K LED Glow Radiance
+        darkbg: "#121212",    // Matte Black Background
+        warmivory: "#181818", // Matte Surface Card
+        goldborder: "rgba(234, 179, 8, 0.35)", // Subtle Golden Yellow Border
+        primarytext: "#FFFFFF", // Secondary White Text on Matte Black
+        secondarytext: "#E5E7EB", // Muted White / Off-white Text
+        ledglow: "#FDE047",   // Golden Yellow 3000K LED Radiance
 
-        // ROYAL BURGUNDY SWATCH PALETTE
+        // MATTE BLACK / CHARCOAL SWATCH PALETTE
         burgundy: {
-          50: "#FFF7ED",
-          100: "#FDF2F4",
-          200: "#FCE7EA",
-          300: "#F6CAD2",
-          400: "#D27387",
-          500: "#8B3A4C",
-          600: "#752234",
-          700: "#641E2E", // Exact Primary
-          800: "#4B1622",
-          900: "#32151D", // Exact Dark Background
-          950: "#1F0A11",
+          50: "#181818",
+          100: "#1C1C1C",
+          200: "#222222",
+          300: "#2A2A2A",
+          400: "#383838",
+          500: "#4B4B4B",
+          600: "#2A2A2A",
+          700: "#1E1E1E",
+          800: "#161616",
+          900: "#121212", // Exact Matte Black
+          950: "#0A0A0A", // Deep Charcoal
         },
 
-        // CHAMPAGNE & ANTIQUE GOLD SWATCH PALETTE
+        // GOLDEN YELLOW SWATCH PALETTE
         champagne: {
-          50: "#FAF7F0",
-          100: "#F5EFEB",
-          200: "#E8D5BD", // Exact Border
-          300: "#E8C77E", // Exact Accent
-          400: "#D6AB54",
-          500: "#B88A35", // Exact Secondary
-          600: "#A07528",
-          700: "#7D5B1E",
-          800: "#5F4414",
-          900: "#422E0B",
-          950: "#2B200A",
+          50: "#FEFCE8",
+          100: "#FEF9C3",
+          200: "#FEF08A",
+          300: "#FDE047", // Light Golden Yellow
+          400: "#FACC15", // Luminous Gold
+          500: "#EAB308", // Golden Yellow Primary Accent
+          600: "#CA8A04",
+          700: "#A16207",
+          800: "#854D0E",
+          900: "#713F12",
+          950: "#422006",
         },
 
-        // CREAM & WARM IVORY PALETTE
+        // MATTE SURFACES & WHITE PALETTE
         cream: {
           50: "#FFFFFF",
-          100: "#FFFDF9",
-          200: "#FFF7ED", // Warm Ivory Canvas
-          300: "#FBF1E2",
-          400: "#F5E5CD",
-          500: "#E8D5BD", // Border
-          600: "#D8BF9F",
-          700: "#B59976",
-          800: "#876E4E",
-          900: "#56432B",
+          100: "#F9FAFB",
+          200: "#181818", // Matte Black Surface
+          300: "#202020",
+          400: "#282828",
+          500: "#333333", // Matte Divider
+          600: "#525252",
+          700: "#737373",
+          800: "#1E1E1E",
+          900: "#121212",
         },
 
-        // Aliases for seamless backward compatibility across components
+        // Aliases for backward compatibility
         emerald: {
-          50: "#FFF7ED",
-          100: "#FDF2F4",
-          200: "#FCE7EA",
-          300: "#F6CAD2",
-          400: "#D27387",
-          500: "#8B3A4C",
-          600: "#752234",
-          700: "#641E2E",
-          800: "#4B1622",
-          900: "#32151D",
-          950: "#1F0A11",
+          50: "#181818",
+          100: "#1C1C1C",
+          200: "#222222",
+          300: "#2A2A2A",
+          400: "#383838",
+          500: "#4B4B4B",
+          600: "#2A2A2A",
+          700: "#1E1E1E",
+          800: "#161616",
+          900: "#121212",
+          950: "#0A0A0A",
         },
         gold: {
-          50: "#FAF7F0",
-          100: "#F5EFEB",
-          200: "#E8D5BD",
-          300: "#E8C77E",
-          400: "#D6AB54",
-          500: "#B88A35",
-          600: "#A07528",
-          700: "#7D5B1E",
-          800: "#5F4414",
-          900: "#422E0B",
-          950: "#2B200A",
+          50: "#FEFCE8",
+          100: "#FEF9C3",
+          200: "#FEF08A",
+          300: "#FDE047",
+          400: "#FACC15",
+          500: "#EAB308",
+          600: "#CA8A04",
+          700: "#A16207",
+          800: "#854D0E",
+          900: "#713F12",
+          950: "#422006",
         },
         ivory: {
           50: "#FFFFFF",
-          100: "#FFFDF9",
-          200: "#FFF7ED",
-          300: "#FBF1E2",
-          400: "#F5E5CD",
-          500: "#E8D5BD",
-          600: "#D8BF9F",
-          700: "#B59976",
-          800: "#876E4E",
-          900: "#56432B",
+          100: "#F9FAFB",
+          200: "#181818",
+          300: "#202020",
+          400: "#282828",
+          500: "#333333",
+          600: "#525252",
+          700: "#737373",
+          800: "#1E1E1E",
+          900: "#121212",
         },
         brand: {
-          50: "#FFF7ED",
-          100: "#FDF2F4",
-          200: "#FCE7EA",
-          300: "#E8D5BD",
-          400: "#E8C77E",
-          500: "#B88A35",
-          600: "#752234",
-          700: "#641E2E",
-          800: "#4B1622",
-          900: "#32151D",
+          50: "#181818",
+          100: "#222222",
+          200: "#2A2A2A",
+          300: "#FDE047",
+          400: "#FACC15",
+          500: "#EAB308", // Golden Yellow Accent
+          600: "#CA8A04",
+          700: "#1E1E1E",
+          800: "#161616",
+          900: "#121212",
         },
-        warmstone: "#E8D5BD",
+        warmstone: "#2A2A2A",
       },
       fontFamily: {
         cinzel: ["var(--font-cinzel)", "Cinzel", "serif"],
@@ -139,13 +139,13 @@ const config: Config = {
         sans: ["var(--font-sans)", "Inter", "system-ui", "sans-serif"],
       },
       boxShadow: {
-        warm: "0 4px 20px -2px rgba(100, 30, 46, 0.10)",
-        "warm-lg": "0 10px 30px -4px rgba(100, 30, 46, 0.16)",
-        glow: "0 0 25px rgba(184, 138, 53, 0.45)",
-        "led-glow": "0 0 35px rgba(255, 213, 138, 0.65)",
-        burgundy: "0 8px 30px -4px rgba(100, 30, 46, 0.35)",
-        emerald: "0 8px 30px -4px rgba(100, 30, 46, 0.35)",
-        gold: "0 8px 30px -4px rgba(184, 138, 53, 0.40)",
+        warm: "0 4px 20px -2px rgba(0, 0, 0, 0.65)",
+        "warm-lg": "0 10px 30px -4px rgba(0, 0, 0, 0.85)",
+        glow: "0 0 25px rgba(234, 179, 8, 0.45)",
+        "led-glow": "0 0 35px rgba(253, 224, 71, 0.65)",
+        burgundy: "0 8px 30px -4px rgba(0, 0, 0, 0.70)",
+        emerald: "0 8px 30px -4px rgba(0, 0, 0, 0.70)",
+        gold: "0 8px 30px -4px rgba(234, 179, 8, 0.40)",
       },
     },
   },

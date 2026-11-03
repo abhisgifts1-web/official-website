@@ -37,11 +37,11 @@ export default function CategoryCard({ category, priority = false }: CategoryCar
     <Link
       href={`/product/${productSlug}`}
       prefetch={true}
-      className="group relative flex flex-col justify-between bg-white rounded-3xl p-3 sm:p-3.5 border border-[#E8D5BD] hover:border-[#B88A35] shadow-[0_4px_20px_rgba(101,30,45,0.06)] hover:shadow-[0_16px_36px_rgba(101,30,45,0.18)] transition-all duration-300 hover:-translate-y-1.5 focus-visible:ring-2 focus-visible:ring-[#B88A35] outline-none"
+      className="group relative flex flex-col justify-between bg-white rounded-3xl p-3 sm:p-3.5 border border-[#2D2D2D] hover:border-[#EAB308] shadow-[0_4px_20px_rgba(101,30,45,0.06)] hover:shadow-[0_16px_36px_rgba(101,30,45,0.18)] transition-all duration-300 hover:-translate-y-1.5 focus-visible:ring-2 focus-visible:ring-[#EAB308] outline-none"
       aria-label={`View ${category.name} product details`}
     >
       {/* Framed Acrylic Art Viewport (100% Unobscured Artwork) */}
-      <div className="relative aspect-[4/3.6] w-full rounded-2xl overflow-hidden bg-[#FFFDF9] border border-[#E8D5BD] group-hover:border-[#B88A35]/80 transition-all duration-300 shadow-inner">
+      <div className="relative aspect-[4/3.6] w-full rounded-2xl overflow-hidden bg-[#121212] border border-[#2D2D2D] group-hover:border-[#EAB308]/80 transition-all duration-300 shadow-inner">
         {/* Background Artwork */}
         {!imgError ? (
           <img
@@ -52,10 +52,10 @@ export default function CategoryCard({ category, priority = false }: CategoryCar
             className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-108"
           />
         ) : (
-          <div className="w-full h-full bg-gradient-to-br from-[#32151D] via-[#641E2E] to-[#32151D] flex flex-col items-center justify-center p-6 text-center">
-            <Sparkles className="w-10 h-10 text-[#B88A35] mb-2 animate-pulse" />
-            <span className="font-serif font-bold text-[#FFF7ED] text-sm">{category.name}</span>
-            <span className="text-[11px] text-[#B88A35] mt-1">Abhi Gifts Exclusive</span>
+          <div className="w-full h-full bg-gradient-to-br from-[#0A0A0A] via-[#181818] to-[#0A0A0A] flex flex-col items-center justify-center p-6 text-center">
+            <Sparkles className="w-10 h-10 text-[#EAB308] mb-2 animate-pulse" />
+            <span className="font-serif font-bold text-[#FFFFFF] text-sm">{category.name}</span>
+            <span className="text-[11px] text-[#EAB308] mt-1">Abhi Gifts Exclusive</span>
           </div>
         )}
 
@@ -66,16 +66,16 @@ export default function CategoryCard({ category, priority = false }: CategoryCar
         <div className="absolute top-2.5 inset-x-2.5 flex items-center justify-between gap-1.5 z-10 pointer-events-none">
           <span className={`inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full border shadow-md backdrop-blur-md ${
             isBacklight
-              ? 'bg-[#32151D]/95 text-[#E8C77E] border-[#B88A35]/70'
-              : 'bg-white/95 text-[#641E2E] border-[#E8D5BD]'
+              ? 'bg-[#121212]/95 text-[#FACC15] border-[#EAB308]/70'
+              : 'bg-white/95 text-[#FFFFFF] border-[#2D2D2D]'
           }`}>
             <span>{isBacklight ? '✨ LED Backlit' : '🖼️ Normal Acrylic'}</span>
           </span>
 
           {/* Real Design Count badge */}
           {category.itemCount && category.itemCount > 0 ? (
-            <span className="text-[10px] font-bold bg-[#641E2E]/90 backdrop-blur-md text-[#FFF7ED] px-2.5 py-1 rounded-full border border-[#B88A35]/40 shadow-md flex items-center gap-1">
-              <Sparkles className="w-2.5 h-2.5 text-[#B88A35]" />
+            <span className="text-[10px] font-bold bg-[#641E2E]/90 backdrop-blur-md text-[#FFFFFF] px-2.5 py-1 rounded-full border border-[#EAB308]/40 shadow-md flex items-center gap-1">
+              <Sparkles className="w-2.5 h-2.5 text-[#EAB308]" />
               <span>{category.itemCount} {category.itemCount === 1 ? 'Design' : 'Designs'}</span>
             </span>
           ) : null}
@@ -86,23 +86,23 @@ export default function CategoryCard({ category, priority = false }: CategoryCar
       <div className="pt-3.5 flex flex-col justify-between flex-1">
         <div>
           {/* Gold Foil Accent Line */}
-          <div className="h-[2px] w-10 bg-gradient-to-r from-[#B88A35] via-[#FFF7ED] to-[#B88A35] rounded-full mb-2 group-hover:w-full transition-all duration-500" />
+          <div className="h-[2px] w-10 bg-gradient-to-r from-[#EAB308] via-[#FFF7ED] to-[#EAB308] rounded-full mb-2 group-hover:w-full transition-all duration-500" />
 
           {/* Deity / Collection Title */}
-          <h3 className="font-serif font-bold text-base sm:text-lg text-[#641E2E] group-hover:text-[#795D58] transition-colors line-clamp-1">
+          <h3 className="font-serif font-bold text-base sm:text-lg text-[#FFFFFF] group-hover:text-[#D1D5DB] transition-colors line-clamp-1">
             {category.name}
           </h3>
 
           {/* Curated Description */}
-          <p className="text-xs text-[#795D58] line-clamp-2 mt-1.5 leading-relaxed font-sans min-h-[2.25rem]">
+          <p className="text-xs text-[#D1D5DB] line-clamp-2 mt-1.5 leading-relaxed font-sans min-h-[2.25rem]">
             {category.description}
           </p>
         </div>
 
         {/* Attractive Interactive CTA Button */}
-        <div className="mt-3.5 w-full py-2.5 px-3.5 rounded-xl bg-[#641E2E] group-hover:bg-[#32151D] text-[#FFF7ED] group-hover:text-[#B88A35] text-xs font-bold flex items-center justify-center gap-2 transition-all duration-300 shadow-xs group-hover:shadow-md border border-[#B88A35]/40">
+        <div className="mt-3.5 w-full py-2.5 px-3.5 rounded-xl bg-[#641E2E] group-hover:bg-[#121212] text-[#FFFFFF] group-hover:text-[#EAB308] text-xs font-bold flex items-center justify-center gap-2 transition-all duration-300 shadow-xs group-hover:shadow-md border border-[#EAB308]/40">
           <span>{buttonLabel}</span>
-          <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform text-[#B88A35]" />
+          <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform text-[#EAB308]" />
         </div>
       </div>
     </Link>

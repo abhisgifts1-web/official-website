@@ -76,7 +76,7 @@ export default function CustomisePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <div className="bg-[#FFF8EF] min-h-screen">
+      <div className="bg-[#121212] min-h-screen">
         <CustomizerStudio />
       </div>
     </>

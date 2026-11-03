@@ -81,7 +81,7 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
 
   if (checkingAuth) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-[#FFF7ED]">
+      <div className="min-h-screen flex items-center justify-center bg-[#121212]">
         <div className="flex flex-col items-center gap-2 text-stone-600">
           <div className="w-8 h-8 border-4 border-amber-700 border-t-transparent rounded-full animate-spin" />
           <span className="text-xs font-semibold">Verifying Staff Authorization...</span>

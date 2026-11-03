@@ -147,26 +147,26 @@ export default function CategoryShowcase() {
   return (
     <section className="w-full max-w-[1760px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 py-6 sm:py-8 lg:py-10">
       {/* Section Header */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-10 pb-4 border-b border-[#E8D5BD] gap-4">
+      <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-10 pb-4 border-b border-[#2D2D2D] gap-4">
         <div>
-          <div className="inline-flex items-center gap-1.5 text-xs uppercase tracking-widest font-bold text-[#511B2A] bg-[#FFFFFF] border border-[#D6AA55] px-3.5 py-1 rounded-full shadow-2xs mb-2">
-            <Sparkles className="w-3.5 h-3.5 text-[#D6AA55]" />
+          <div className="inline-flex items-center gap-1.5 text-xs uppercase tracking-widest font-bold text-[#FFFFFF] bg-[#181818] border border-[#EAB308] px-3.5 py-1 rounded-full shadow-2xs mb-2">
+            <Sparkles className="w-3.5 h-3.5 text-[#EAB308]" />
             <span>Curated Sanctum Portfolios</span>
           </div>
-          <h2 className="font-serif font-bold text-2xl sm:text-3xl lg:text-4xl text-[#511B2A] tracking-tight">
+          <h2 className="font-serif font-bold text-2xl sm:text-3xl lg:text-4xl text-[#FFFFFF] tracking-tight">
             EXPLORE THE WORLD OF DIVINE ART
           </h2>
-          <p className="text-xs sm:text-sm text-[#533C36] mt-1.5 max-w-2xl font-sans leading-relaxed">
+          <p className="text-xs sm:text-sm text-[#D1D5DB] mt-1.5 max-w-2xl font-sans leading-relaxed">
             Find the perfect expression of faith, devotion and timeless beauty. Handcrafted with museum-grade crystal acrylic and 24K gold foil embellishments.
           </p>
         </div>
 
         <Link
           href="/category"
-          className="text-xs sm:text-sm font-bold text-[#511B2A] hover:text-[#D6AA55] flex items-center gap-2 group transition-colors shrink-0 uppercase tracking-wider"
+          className="text-xs sm:text-sm font-bold text-[#FFFFFF] hover:text-[#EAB308] flex items-center gap-2 group transition-colors shrink-0 uppercase tracking-wider"
         >
           <span>View All Categories</span>
-          <ArrowRight className="w-4 h-4 text-[#D6AA55] group-hover:translate-x-1 transition-transform" />
+          <ArrowRight className="w-4 h-4 text-[#EAB308] group-hover:translate-x-1 transition-transform" />
         </Link>
       </div>
 
@@ -177,7 +177,7 @@ export default function CategoryShowcase() {
             <Link
               key={cat.id}
               href={cat.href}
-              className={`group relative rounded-3xl overflow-hidden bg-[#2A0E17] border border-[#E8D5BD] hover:border-[#D6AA55] shadow-sm hover:shadow-[0_16px_36px_rgba(81,27,42,0.22)] transition-all duration-500 flex flex-col justify-end min-h-[300px] sm:min-h-[340px] lg:min-h-[380px] p-5 sm:p-6 lg:p-7 ${cat.spanClass}`}
+              className={`group relative rounded-3xl overflow-hidden bg-[#181818] border border-[#2D2D2D] hover:border-[#EAB308] shadow-sm hover:shadow-[0_16px_36px_rgba(81,27,42,0.22)] transition-all duration-500 flex flex-col justify-end min-h-[300px] sm:min-h-[340px] lg:min-h-[380px] p-5 sm:p-6 lg:p-7 ${cat.spanClass}`}
             >
               {/* Background Artwork Image with Hover Zoom */}
               <img
@@ -193,16 +193,16 @@ export default function CategoryShowcase() {
               <div className="absolute inset-0 bg-gradient-to-t from-[#250912]/95 via-[#3D1420]/50 to-transparent transition-opacity duration-300" />
 
               {/* Subtle Golden Sheen on Hover */}
-              <div className="absolute inset-0 bg-[#D6AA55]/0 group-hover:bg-[#D6AA55]/10 transition-colors duration-500 pointer-events-none" />
+              <div className="absolute inset-0 bg-[#EAB308]/0 group-hover:bg-[#EAB308]/10 transition-colors duration-500 pointer-events-none" />
 
               {/* Top Badge */}
               <div className="absolute top-4 left-4 z-20 flex items-center gap-2">
                 {cat.badge && (
-                  <span className="bg-[#511B2A]/90 text-[#FFF7EC] text-[11px] font-bold px-3 py-1 rounded-full border border-[#D6AA55]/60 shadow-md backdrop-blur-xs flex items-center gap-1.5">
+                  <span className="bg-[#511B2A]/90 text-[#FFFFFF] text-[11px] font-bold px-3 py-1 rounded-full border border-[#EAB308]/60 shadow-md backdrop-blur-xs flex items-center gap-1.5">
                     {cat.hasLedBadge ? (
-                      <Flame className="w-3.5 h-3.5 text-[#D6AA55] animate-pulse" />
+                      <Flame className="w-3.5 h-3.5 text-[#EAB308] animate-pulse" />
                     ) : (
-                      <Sparkles className="w-3.5 h-3.5 text-[#D6AA55]" />
+                      <Sparkles className="w-3.5 h-3.5 text-[#EAB308]" />
                     )}
                     <span>{cat.badge}</span>
                   </span>
@@ -211,7 +211,7 @@ export default function CategoryShowcase() {
 
               {/* Bottom Content Area */}
               <div className="relative z-20 space-y-2">
-                <h3 className="font-serif font-bold text-xl sm:text-2xl text-[#FFF7EC] group-hover:text-[#D6AA55] transition-colors leading-snug drop-shadow-sm">
+                <h3 className="font-serif font-bold text-xl sm:text-2xl text-[#FFFFFF] group-hover:text-[#EAB308] transition-colors leading-snug drop-shadow-sm">
                   {cat.name}
                 </h3>
 
@@ -220,14 +220,14 @@ export default function CategoryShowcase() {
                 </p>
 
                 {/* Explore Collection Link with Animated Gold Arrow */}
-                <div className="pt-2 flex items-center gap-2 text-xs font-bold text-[#D6AA55] group-hover:text-white uppercase tracking-wider transition-colors">
+                <div className="pt-2 flex items-center gap-2 text-xs font-bold text-[#EAB308] group-hover:text-white uppercase tracking-wider transition-colors">
                   <span>Explore Collection</span>
-                  <ArrowRight className="w-4 h-4 text-[#D6AA55] group-hover:translate-x-1.5 transition-transform" />
+                  <ArrowRight className="w-4 h-4 text-[#EAB308] group-hover:translate-x-1.5 transition-transform" />
                 </div>
               </div>
 
               {/* Gold Accent Corner Border on Hover */}
-              <div className="absolute inset-0 border-2 border-transparent group-hover:border-[#D6AA55]/70 rounded-3xl transition-colors duration-500 pointer-events-none" />
+              <div className="absolute inset-0 border-2 border-transparent group-hover:border-[#EAB308]/70 rounded-3xl transition-colors duration-500 pointer-events-none" />
             </Link>
           );
         })}

@@ -37,14 +37,14 @@ export default function FaqSection() {
   return (
     <section className="w-full max-w-4xl mx-auto px-4 sm:px-8 py-8 sm:py-12">
       <div className="text-center max-w-xl mx-auto mb-8">
-        <div className="inline-flex items-center gap-1.5 text-xs uppercase tracking-widest font-bold text-[#511B2A] bg-white border border-[#D6AA55] px-3.5 py-1 rounded-full shadow-2xs mb-2">
-          <HelpCircle className="w-3.5 h-3.5 text-[#D6AA55]" />
+        <div className="inline-flex items-center gap-1.5 text-xs uppercase tracking-widest font-bold text-[#FFFFFF] bg-[#181818] border border-[#EAB308] px-3.5 py-1 rounded-full shadow-2xs mb-2">
+          <HelpCircle className="w-3.5 h-3.5 text-[#EAB308]" />
           <span>Collector Knowledge Base</span>
         </div>
-        <h2 className="font-serif font-bold text-2xl sm:text-3xl text-[#511B2A] tracking-tight">
+        <h2 className="font-serif font-bold text-2xl sm:text-3xl text-[#FFFFFF] tracking-tight">
           FREQUENTLY ASKED QUESTIONS
         </h2>
-        <p className="text-xs sm:text-sm text-[#533C36] mt-1 font-sans">
+        <p className="text-xs sm:text-sm text-[#D1D5DB] mt-1 font-sans">
           Everything you need to know about our sacred craftsmanship, LED power safety, and pan-India delivery.
         </p>
       </div>
@@ -55,24 +55,24 @@ export default function FaqSection() {
           return (
             <div
               key={i}
-              className="bg-white rounded-2xl border border-[#E8D5BD] overflow-hidden shadow-2xs transition-all"
+              className="bg-[#181818] rounded-2xl border border-[#2D2D2D] overflow-hidden shadow-2xs transition-all"
             >
               <button
                 type="button"
                 onClick={() => setOpenFaq(isOpen ? null : i)}
                 className="w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 cursor-pointer"
               >
-                <span className="font-serif font-bold text-sm sm:text-base text-[#511B2A]">
+                <span className="font-serif font-bold text-sm sm:text-base text-[#FFFFFF]">
                   {faq.q}
                 </span>
                 <ChevronDown
-                  className={`w-4 h-4 text-[#D6AA55] shrink-0 transition-transform duration-300 ${
+                  className={`w-4 h-4 text-[#EAB308] shrink-0 transition-transform duration-300 ${
                     isOpen ? 'rotate-180' : ''
                   }`}
                 />
               </button>
               {isOpen && (
-                <div className="px-4 pb-4 sm:px-5 sm:pb-5 pt-0 text-xs sm:text-[13px] text-[#533C36] leading-relaxed font-sans border-t border-[#E8D5BD]/60">
+                <div className="px-4 pb-4 sm:px-5 sm:pb-5 pt-0 text-xs sm:text-[13px] text-[#D1D5DB] leading-relaxed font-sans border-t border-[#2D2D2D]/60">
                   {faq.a}
                 </div>
               )}

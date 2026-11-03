@@ -148,30 +148,30 @@ export default function BrandStorySection() {
   return (
     <section className="w-full max-w-[1720px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-14 py-8 sm:py-12 lg:py-14">
       {/* Outer Luxury Card Container */}
-      <div className="bg-gradient-to-br from-[#FFF7EC] via-[#FDF5E8] to-[#F9EFE0] rounded-3xl sm:rounded-[36px] p-6 sm:p-8 lg:p-12 border border-[#E8D1A5] shadow-[0_16px_50px_rgba(81,27,42,0.08)] overflow-hidden relative">
+      <div className="bg-gradient-to-br from-[#FFF7EC] via-[#FDF5E8] to-[#F9EFE0] rounded-3xl sm:rounded-[36px] p-6 sm:p-8 lg:p-12 border border-[#2D2D2D] shadow-[0_16px_50px_rgba(81,27,42,0.08)] overflow-hidden relative">
         {/* Subtle Luxury Ambient Glow Orbs */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-[#D6AA55]/20 via-[#FFD58A]/10 to-transparent rounded-full blur-3xl pointer-events-none -z-0" />
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-[#511B2A]/10 via-[#641D30]/05 to-transparent rounded-full blur-3xl pointer-events-none -z-0" />
+        <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-[#EAB308]/20 via-[#FFD58A]/10 to-transparent rounded-full blur-3xl pointer-events-none -z-0" />
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-[#121212]/10 via-[#641D30]/05 to-transparent rounded-full blur-3xl pointer-events-none -z-0" />
 
         {/* =========================================================
             TOP HEADER: Editorial Heritage Badge & Gold Shimmer Headline
             ========================================================= */}
         <div className="text-center max-w-3xl mx-auto space-y-3 mb-8 sm:mb-10 relative z-10">
-          <div className="inline-flex items-center gap-2 bg-[#511B2A] border border-[#D6AA55] px-4 py-1.5 rounded-full text-xs font-bold text-[#D6AA55] shadow-xs">
-            <Award className="w-3.5 h-3.5 text-[#D6AA55] animate-pulse" />
+          <div className="inline-flex items-center gap-2 bg-[#511B2A] border border-[#EAB308] px-4 py-1.5 rounded-full text-xs font-bold text-[#EAB308] shadow-xs">
+            <Award className="w-3.5 h-3.5 text-[#EAB308] animate-pulse" />
             <span className="uppercase tracking-widest text-[11px] sm:text-[11.5px] font-bold">
               OUR HERITAGE &amp; ARTISANAL PHILOSOPHY • EST. 2018
             </span>
           </div>
 
-          <h2 className="font-serif font-bold text-3xl sm:text-4xl md:text-5xl lg:text-[46px] text-[#511B2A] leading-[1.15] tracking-tight">
+          <h2 className="font-serif font-bold text-3xl sm:text-4xl md:text-5xl lg:text-[46px] text-[#FFFFFF] leading-[1.15] tracking-tight">
             MORE THAN ART.
             <span className="block mt-1 animate-gold-text-shimmer font-serif">
               A SACRED LEGACY OF DEVOTION.
             </span>
           </h2>
 
-          <p className="text-xs sm:text-[14px] lg:text-[15px] text-[#533C36] font-sans leading-relaxed max-w-2xl mx-auto">
+          <p className="text-xs sm:text-[14px] lg:text-[15px] text-[#D1D5DB] font-sans leading-relaxed max-w-2xl mx-auto">
             At Abhi&apos;s Gifts, located in Dilsukhnagar, Hyderabad, we believe sacred iconography and personalized photo keepsakes in the home are never mere decoration. They are consecrated focal points that awaken tranquility (Shanti), divine protection (Raksha), and eternal prosperity. Serving collectors and families across Hyderabad, Secunderabad, and Telangana.
           </p>
         </div>
@@ -190,7 +190,7 @@ export default function BrandStorySection() {
               onMouseMove={handleMouseMove}
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
-              className="relative w-full aspect-[4/4.2] sm:aspect-[4/3.8] lg:h-[530px] rounded-3xl overflow-hidden border-2 border-[#D6AA55] shadow-[0_20px_50px_rgba(81,27,42,0.25)] group select-none transition-all duration-500 bg-[#2E141D]"
+              className="relative w-full aspect-[4/4.2] sm:aspect-[4/3.8] lg:h-[530px] rounded-3xl overflow-hidden border-2 border-[#EAB308] shadow-[0_20px_50px_rgba(81,27,42,0.25)] group select-none transition-all duration-500 bg-[#2E141D]"
               style={{
                 transform: isHovered
                   ? `perspective(1000px) rotateX(${tilt.x.toFixed(2)}deg) rotateY(${tilt.y.toFixed(2)}deg) scale3d(1.015, 1.015, 1.015)`
@@ -219,40 +219,40 @@ export default function BrandStorySection() {
               </div>
 
               {/* 4 Corner 24K Gold Standoff Studs with Specular Twinkle */}
-              <div className="absolute top-3 left-3 w-3 h-3 rounded-full bg-gradient-to-br from-[#FFE8A3] via-[#D6AA55] to-[#7A551E] shadow-md border border-amber-900/40 pointer-events-none animate-stud-twinkle-1" />
-              <div className="absolute top-3 right-3 w-3 h-3 rounded-full bg-gradient-to-br from-[#FFE8A3] via-[#D6AA55] to-[#7A551E] shadow-md border border-amber-900/40 pointer-events-none animate-stud-twinkle-2" />
-              <div className="absolute bottom-3 left-3 w-3 h-3 rounded-full bg-gradient-to-br from-[#FFE8A3] via-[#D6AA55] to-[#7A551E] shadow-md border border-amber-900/40 pointer-events-none animate-stud-twinkle-3" />
-              <div className="absolute bottom-3 right-3 w-3 h-3 rounded-full bg-gradient-to-br from-[#FFE8A3] via-[#D6AA55] to-[#7A551E] shadow-md border border-amber-900/40 pointer-events-none animate-stud-twinkle-4" />
+              <div className="absolute top-3 left-3 w-3 h-3 rounded-full bg-gradient-to-br from-[#FFE8A3] via-[#FACC15] to-[#7A551E] shadow-md border border-amber-900/40 pointer-events-none animate-stud-twinkle-1" />
+              <div className="absolute top-3 right-3 w-3 h-3 rounded-full bg-gradient-to-br from-[#FFE8A3] via-[#FACC15] to-[#7A551E] shadow-md border border-amber-900/40 pointer-events-none animate-stud-twinkle-2" />
+              <div className="absolute bottom-3 left-3 w-3 h-3 rounded-full bg-gradient-to-br from-[#FFE8A3] via-[#FACC15] to-[#7A551E] shadow-md border border-amber-900/40 pointer-events-none animate-stud-twinkle-3" />
+              <div className="absolute bottom-3 right-3 w-3 h-3 rounded-full bg-gradient-to-br from-[#FFE8A3] via-[#FACC15] to-[#7A551E] shadow-md border border-amber-900/40 pointer-events-none animate-stud-twinkle-4" />
 
               {/* Floating Craftsmanship Callouts (Synchronized with selected pillar) */}
               <div className="absolute top-3.5 left-3.5 z-20 flex flex-col gap-1.5 pointer-events-none">
-                <span className="bg-[#511B2A]/95 text-[#FFF7EC] text-[10.5px] sm:text-xs font-bold px-3 py-1.5 rounded-full border border-[#D6AA55] shadow-md backdrop-blur-xs flex items-center gap-1.5 animate-sanctum-reveal">
-                  <Sparkles className="w-3.5 h-3.5 text-[#D6AA55]" />
+                <span className="bg-[#511B2A]/95 text-[#FFFFFF] text-[10.5px] sm:text-xs font-bold px-3 py-1.5 rounded-full border border-[#EAB308] shadow-md backdrop-blur-xs flex items-center gap-1.5 animate-sanctum-reveal">
+                  <Sparkles className="w-3.5 h-3.5 text-[#EAB308]" />
                   <span>{activePillar.badge1}</span>
                 </span>
-                <span className="bg-[#511B2A]/95 text-[#FFF7EC] text-[10.5px] sm:text-xs font-bold px-3 py-1.5 rounded-full border border-[#D6AA55] shadow-md backdrop-blur-xs flex items-center gap-1.5 animate-sanctum-reveal">
-                  <ShieldCheck className="w-3.5 h-3.5 text-[#D6AA55]" />
+                <span className="bg-[#511B2A]/95 text-[#FFFFFF] text-[10.5px] sm:text-xs font-bold px-3 py-1.5 rounded-full border border-[#EAB308] shadow-md backdrop-blur-xs flex items-center gap-1.5 animate-sanctum-reveal">
+                  <ShieldCheck className="w-3.5 h-3.5 text-[#EAB308]" />
                   <span>{activePillar.badge2}</span>
                 </span>
               </div>
 
               {/* Top-Right Craft Pill Indicator */}
               <div className="absolute top-3.5 right-3.5 z-20">
-                <span className="bg-black/60 text-[#D6AA55] text-[10.5px] font-bold px-2.5 py-1 rounded-full border border-[#D6AA55]/50 backdrop-blur-xs">
+                <span className="bg-black/60 text-[#EAB308] text-[10.5px] font-bold px-2.5 py-1 rounded-full border border-[#EAB308]/50 backdrop-blur-xs">
                   Pillar {activePillar.number} of 04
                 </span>
               </div>
 
               {/* Bottom Inscription: Artisan Guild Quote */}
-              <div className="absolute bottom-3.5 left-3.5 right-3.5 z-20 bg-black/75 backdrop-blur-md p-3 sm:p-4 rounded-2xl border border-[#D6AA55]/40 text-[#FFF7EC] shadow-lg">
+              <div className="absolute bottom-3.5 left-3.5 right-3.5 z-20 bg-black/75 backdrop-blur-md p-3 sm:p-4 rounded-2xl border border-[#EAB308]/40 text-[#FFFFFF] shadow-lg">
                 <p className="font-serif italic text-xs sm:text-[13px] text-[#F9EFE0] leading-snug">
                   &ldquo;When sacred art enters a home, it transforms living walls into an eternal sanctum of peace, protection, and divine radiance.&rdquo;
                 </p>
                 <div className="flex items-center justify-between mt-2 pt-2 border-t border-white/15">
-                  <span className="text-[10px] sm:text-[10.5px] text-[#D6AA55] font-bold tracking-wider uppercase">
+                  <span className="text-[10px] sm:text-[10.5px] text-[#EAB308] font-bold tracking-wider uppercase">
                     — ABHI GIFTS ARTISAN GUILD
                   </span>
-                  <span className="text-[9.5px] text-[#FFD58A] bg-[#511B2A]/90 px-2 py-0.5 rounded-full border border-[#D6AA55]/50 font-medium">
+                  <span className="text-[9.5px] text-[#FFD58A] bg-[#511B2A]/90 px-2 py-0.5 rounded-full border border-[#EAB308]/50 font-medium">
                     Tirupati, India
                   </span>
                 </div>
@@ -264,12 +264,12 @@ export default function BrandStorySection() {
               {activePillar.specs.map((spec, i) => (
                 <div
                   key={i}
-                  className="bg-white/95 rounded-2xl p-2.5 border border-[#E8D1A5] text-center shadow-2xs hover:border-[#D6AA55] transition-colors"
+                  className="bg-white/95 rounded-2xl p-2.5 border border-[#2D2D2D] text-center shadow-2xs hover:border-[#EAB308] transition-colors"
                 >
-                  <span className="text-[9.5px] text-[#533C36] block font-medium uppercase tracking-tight">
+                  <span className="text-[9.5px] text-[#D1D5DB] block font-medium uppercase tracking-tight">
                     {spec.label}
                   </span>
-                  <span className="text-[11px] sm:text-xs font-bold text-[#511B2A] block mt-0.5 truncate">
+                  <span className="text-[11px] sm:text-xs font-bold text-[#FFFFFF] block mt-0.5 truncate">
                     {spec.value}
                   </span>
                 </div>
@@ -292,8 +292,8 @@ export default function BrandStorySection() {
                   onMouseEnter={() => setActivePillarIndex(index)}
                   className={`group relative p-3.5 sm:p-4 rounded-2xl transition-all duration-300 cursor-pointer border text-left ${
                     isSelected
-                      ? 'bg-white shadow-[0_10px_30px_rgba(81,27,42,0.12)] border-[#D6AA55] ring-2 ring-[#D6AA55]/40 scale-[1.01]'
-                      : 'bg-white/80 hover:bg-white border-[#E8D5BD] hover:border-[#D6AA55] shadow-2xs'
+                      ? 'bg-white shadow-[0_10px_30px_rgba(81,27,42,0.12)] border-[#EAB308] ring-2 ring-[#EAB308]/40 scale-[1.01]'
+                      : 'bg-white/80 hover:bg-white border-[#2D2D2D] hover:border-[#EAB308] shadow-2xs'
                   }`}
                 >
                   <div className="flex items-start gap-3 sm:gap-4">
@@ -302,13 +302,13 @@ export default function BrandStorySection() {
                       <div
                         className={`w-10 h-10 sm:w-11 sm:h-11 rounded-xl flex items-center justify-center transition-all ${
                           isSelected
-                            ? 'bg-[#511B2A] text-[#D6AA55] border-2 border-[#D6AA55] shadow-md'
-                            : 'bg-[#FFF7EC] text-[#511B2A] border border-[#E8D5BD] group-hover:border-[#D6AA55]'
+                            ? 'bg-[#511B2A] text-[#EAB308] border-2 border-[#EAB308] shadow-md'
+                            : 'bg-[#121212] text-[#FFFFFF] border border-[#2D2D2D] group-hover:border-[#EAB308]'
                         }`}
                       >
                         <IconComponent className="w-5 h-5" />
                       </div>
-                      <span className="absolute -bottom-1.5 -right-1.5 text-[8.5px] font-bold px-1.5 py-0.2 rounded-full bg-[#D6AA55] text-[#511B2A] border border-[#FFF7EC]">
+                      <span className="absolute -bottom-1.5 -right-1.5 text-[8.5px] font-bold px-1.5 py-0.2 rounded-full bg-[#EAB308] text-[#FFFFFF] border border-[#FFF7EC]">
                         {pillar.number}
                       </span>
                     </div>
@@ -318,36 +318,36 @@ export default function BrandStorySection() {
                       <div className="flex items-center justify-between gap-2">
                         <h3
                           className={`font-serif font-bold text-sm sm:text-[15.5px] transition-colors truncate ${
-                            isSelected ? 'text-[#511B2A]' : 'text-[#511B2A] group-hover:text-[#641D30]'
+                            isSelected ? 'text-[#FFFFFF]' : 'text-[#FFFFFF] group-hover:text-[#FFFFFF]'
                           }`}
                         >
                           {pillar.title}
                         </h3>
                         {isSelected && (
-                          <span className="shrink-0 text-[10px] font-bold text-[#D6AA55] bg-[#511B2A] px-2 py-0.5 rounded-full border border-[#D6AA55]/50 flex items-center gap-1">
-                            <span className="w-1.5 h-1.5 rounded-full bg-[#D6AA55] animate-ping" />
+                          <span className="shrink-0 text-[10px] font-bold text-[#EAB308] bg-[#511B2A] px-2 py-0.5 rounded-full border border-[#EAB308]/50 flex items-center gap-1">
+                            <span className="w-1.5 h-1.5 rounded-full bg-[#EAB308] animate-ping" />
                             <span>Inspecting</span>
                           </span>
                         )}
                       </div>
 
-                      <span className="text-[11px] sm:text-[12px] font-semibold text-[#B8893D] block mt-0.5 leading-tight">
+                      <span className="text-[11px] sm:text-[12px] font-semibold text-[#EAB308] block mt-0.5 leading-tight">
                         {pillar.tagline}
                       </span>
 
-                      <p className="text-[11.5px] sm:text-xs text-[#533C36] mt-1.5 leading-relaxed font-sans">
+                      <p className="text-[11.5px] sm:text-xs text-[#D1D5DB] mt-1.5 leading-relaxed font-sans">
                         {pillar.description}
                       </p>
 
                       {/* Expanded View Specs when selected */}
                       {isSelected && (
-                        <div className="mt-2.5 pt-2 border-t border-[#E8D5BD]/60 flex flex-wrap gap-2 animate-sanctum-reveal">
+                        <div className="mt-2.5 pt-2 border-t border-[#2D2D2D]/60 flex flex-wrap gap-2 animate-sanctum-reveal">
                           {pillar.specs.map((spec, i) => (
                             <span
                               key={i}
-                              className="text-[10px] font-bold bg-[#FFF7EC] text-[#511B2A] px-2 py-0.5 rounded-md border border-[#D6AA55]/40"
+                              className="text-[10px] font-bold bg-[#121212] text-[#FFFFFF] px-2 py-0.5 rounded-md border border-[#EAB308]/40"
                             >
-                              ✓ {spec.label}: <span className="text-[#B8893D]">{spec.value}</span>
+                              ✓ {spec.label}: <span className="text-[#EAB308]">{spec.value}</span>
                             </span>
                           ))}
                         </div>
@@ -362,17 +362,17 @@ export default function BrandStorySection() {
             <div className="pt-3 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3">
               <Link
                 href="/about"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-gradient-to-r from-[#641D30] via-[#511B2A] to-[#641D30] hover:from-[#511B2A] hover:to-[#3D1420] text-[#FFF7EC] font-bold text-xs sm:text-[13.5px] px-7 py-3.5 rounded-full border border-[#D6AA55] shadow-[0_6px_22px_rgba(81,27,42,0.30)] uppercase tracking-wider transition-all hover:scale-[1.02] active:scale-[0.98] group"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-gradient-to-r from-[#641D30] via-[#511B2A] to-[#641D30] hover:from-[#121212] hover:to-[#3D1420] text-[#FFFFFF] font-bold text-xs sm:text-[13.5px] px-7 py-3.5 rounded-full border border-[#EAB308] shadow-[0_6px_22px_rgba(81,27,42,0.30)] uppercase tracking-wider transition-all hover:scale-[1.02] active:scale-[0.98] group"
               >
                 <span>Read Our Full Story</span>
-                <ArrowRight className="w-4 h-4 text-[#D6AA55] group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="w-4 h-4 text-[#EAB308] group-hover:translate-x-1 transition-transform" />
               </Link>
 
               <a
                 href="https://wa.me/919491767676?text=Namaste%20Abhi%20Gifts%2C%20I%20would%20like%20to%20consult%20with%20your%20master%20artisans%20regarding%20sacred%20wall%20art%20craftsmanship."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white hover:bg-[#FFF7EC] text-[#511B2A] font-bold text-xs sm:text-[13.5px] px-6 py-3.5 rounded-full border-2 border-[#D6AA55] shadow-2xs uppercase tracking-wider transition-all hover:scale-[1.02]"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white hover:bg-[#121212] text-[#FFFFFF] font-bold text-xs sm:text-[13.5px] px-6 py-3.5 rounded-full border-2 border-[#EAB308] shadow-2xs uppercase tracking-wider transition-all hover:scale-[1.02]"
               >
                 <MessageCircle className="w-4 h-4 text-emerald-600" />
                 <span>Talk with Artisan Guild</span>
@@ -384,58 +384,58 @@ export default function BrandStorySection() {
         {/* =========================================================
             BOTTOM TRUST BANNER: 4 Consecrated Pillars Strip
             ========================================================= */}
-        <div className="mt-10 sm:mt-12 pt-6 border-t border-[#E8D5BD] grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 relative z-10">
-          <div className="flex items-center gap-3 p-3 rounded-2xl bg-white/90 border border-[#E8D5BD] shadow-2xs">
-            <div className="w-9 h-9 rounded-xl bg-[#FFF7EC] border border-[#D6AA55]/50 flex items-center justify-center shrink-0">
-              <Award className="w-4 h-4 text-[#D6AA55]" />
+        <div className="mt-10 sm:mt-12 pt-6 border-t border-[#2D2D2D] grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 relative z-10">
+          <div className="flex items-center gap-3 p-3 rounded-2xl bg-white/90 border border-[#2D2D2D] shadow-2xs">
+            <div className="w-9 h-9 rounded-xl bg-[#121212] border border-[#EAB308]/50 flex items-center justify-center shrink-0">
+              <Award className="w-4 h-4 text-[#EAB308]" />
             </div>
             <div>
-              <span className="font-bold text-[#511B2A] text-xs sm:text-[13px] block leading-tight">
+              <span className="font-bold text-[#FFFFFF] text-xs sm:text-[13px] block leading-tight">
                 25,000+ Homes
               </span>
-              <span className="text-[10px] sm:text-[11px] text-[#533C36] font-medium block mt-0.5">
+              <span className="text-[10px] sm:text-[11px] text-[#D1D5DB] font-medium block mt-0.5">
                 Consecrated Sanctums
               </span>
             </div>
           </div>
 
-          <div className="flex items-center gap-3 p-3 rounded-2xl bg-white/90 border border-[#E8D5BD] shadow-2xs">
-            <div className="w-9 h-9 rounded-xl bg-[#FFF7EC] border border-[#D6AA55]/50 flex items-center justify-center shrink-0">
-              <Gem className="w-4 h-4 text-[#D6AA55]" />
+          <div className="flex items-center gap-3 p-3 rounded-2xl bg-white/90 border border-[#2D2D2D] shadow-2xs">
+            <div className="w-9 h-9 rounded-xl bg-[#121212] border border-[#EAB308]/50 flex items-center justify-center shrink-0">
+              <Gem className="w-4 h-4 text-[#EAB308]" />
             </div>
             <div>
-              <span className="font-bold text-[#511B2A] text-xs sm:text-[13px] block leading-tight">
+              <span className="font-bold text-[#FFFFFF] text-xs sm:text-[13px] block leading-tight">
                 4mm Virgin Cast
               </span>
-              <span className="text-[10px] sm:text-[11px] text-[#533C36] font-medium block mt-0.5">
+              <span className="text-[10px] sm:text-[11px] text-[#D1D5DB] font-medium block mt-0.5">
                 Zero Fragile Glass
               </span>
             </div>
           </div>
 
-          <div className="flex items-center gap-3 p-3 rounded-2xl bg-white/90 border border-[#E8D5BD] shadow-2xs">
-            <div className="w-9 h-9 rounded-xl bg-[#FFF7EC] border border-[#D6AA55]/50 flex items-center justify-center shrink-0">
-              <Flame className="w-4 h-4 text-[#D6AA55]" />
+          <div className="flex items-center gap-3 p-3 rounded-2xl bg-white/90 border border-[#2D2D2D] shadow-2xs">
+            <div className="w-9 h-9 rounded-xl bg-[#121212] border border-[#EAB308]/50 flex items-center justify-center shrink-0">
+              <Flame className="w-4 h-4 text-[#EAB308]" />
             </div>
             <div>
-              <span className="font-bold text-[#511B2A] text-xs sm:text-[13px] block leading-tight">
+              <span className="font-bold text-[#FFFFFF] text-xs sm:text-[13px] block leading-tight">
                 3000K Diya Kelvin
               </span>
-              <span className="text-[10px] sm:text-[11px] text-[#533C36] font-medium block mt-0.5">
+              <span className="text-[10px] sm:text-[11px] text-[#D1D5DB] font-medium block mt-0.5">
                 Temple Brass Aura
               </span>
             </div>
           </div>
 
-          <div className="flex items-center gap-3 p-3 rounded-2xl bg-white/90 border border-[#E8D5BD] shadow-2xs">
-            <div className="w-9 h-9 rounded-xl bg-[#FFF7EC] border border-[#D6AA55]/50 flex items-center justify-center shrink-0">
-              <PackageCheck className="w-4 h-4 text-[#D6AA55]" />
+          <div className="flex items-center gap-3 p-3 rounded-2xl bg-white/90 border border-[#2D2D2D] shadow-2xs">
+            <div className="w-9 h-9 rounded-xl bg-[#121212] border border-[#EAB308]/50 flex items-center justify-center shrink-0">
+              <PackageCheck className="w-4 h-4 text-[#EAB308]" />
             </div>
             <div>
-              <span className="font-bold text-[#511B2A] text-xs sm:text-[13px] block leading-tight">
+              <span className="font-bold text-[#FFFFFF] text-xs sm:text-[13px] block leading-tight">
                 19,000+ Pincodes
               </span>
-              <span className="text-[10px] sm:text-[11px] text-[#533C36] font-medium block mt-0.5">
+              <span className="text-[10px] sm:text-[11px] text-[#D1D5DB] font-medium block mt-0.5">
                 5-Layer Vault Crating
               </span>
             </div>

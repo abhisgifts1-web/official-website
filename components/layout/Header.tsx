@@ -179,20 +179,20 @@ export default function Header() {
       id: 'led',
       label: 'LED Backlit Art',
       href: '/shop?lighting=led',
-      icon: <Flame className="w-3.5 h-3.5 text-[#D6AA55] animate-pulse shrink-0" />,
+      icon: <Flame className="w-3.5 h-3.5 text-[#EAB308] animate-pulse shrink-0" />,
       highlight: true,
     },
     {
       id: 'normal',
       label: 'Normal Acrylic Art',
       href: '/shop?lighting=none',
-      icon: <Sparkles className="w-3.5 h-3.5 text-[#D6AA55] shrink-0" />,
+      icon: <Sparkles className="w-3.5 h-3.5 text-[#EAB308] shrink-0" />,
     },
     {
       id: 'custom',
       label: 'Custom Photos',
       href: '/customise',
-      icon: <Camera className="w-3.5 h-3.5 text-[#D6AA55] shrink-0" />,
+      icon: <Camera className="w-3.5 h-3.5 text-[#EAB308] shrink-0" />,
     },
     {
       id: 'categories',
@@ -211,8 +211,8 @@ export default function Header() {
       <header
         className={`sticky top-0 z-50 w-full transition-all duration-300 border-b select-none ${
           scrolled
-            ? 'bg-[#FFF7EC]/95 backdrop-blur-md shadow-xs border-[#D6AA55]/40 py-2'
-            : 'bg-[#FFF7EC] border-[#D6AA55]/30 py-2 sm:py-2.5'
+            ? 'bg-[#121212]/95 backdrop-blur-md shadow-xs border-[#EAB308]/40 py-2'
+            : 'bg-[#121212] border-[#EAB308]/30 py-2 sm:py-2.5'
         }`}
       >
         <div className="w-full max-w-[1760px] mx-auto px-2 sm:px-6 lg:px-4 xl:px-12 2xl:px-16">
@@ -222,7 +222,7 @@ export default function Header() {
               <button
                 type="button"
                 onClick={() => setMobileMenuOpen(true)}
-                className="lg:hidden w-10 h-10 sm:w-11 sm:h-11 flex items-center justify-center p-2 text-[#511B2A] hover:text-[#D6AA55] hover:bg-[#F9EFE0] rounded-xl focus:outline-none transition-colors cursor-pointer"
+                className="lg:hidden w-10 h-10 sm:w-11 sm:h-11 flex items-center justify-center p-2 text-[#FFFFFF] hover:text-[#EAB308] hover:bg-[#1A1A1A] rounded-xl focus:outline-none transition-colors cursor-pointer"
                 aria-label="Open mobile menu"
               >
                 <Menu className="w-5 h-5" />
@@ -230,7 +230,7 @@ export default function Header() {
 
               <Link href="/" className="flex items-center group shrink-0" aria-label="Abhi's Gifts Home">
                 <Image
-                  src="/images/brand/logo.png"
+                  src="/images/brand/logo-gold.png"
                   alt="Abhi's Gifts - We Create Memorable Movements"
                   width={200}
                   height={39}
@@ -244,11 +244,11 @@ export default function Header() {
             <nav className="hidden lg:flex items-center justify-center flex-1 max-w-3xl 2xl:max-w-4xl mx-auto px-2">
               <div
                 ref={navContainerRef}
-                className="relative flex items-center bg-[#F9EFE0]/80 backdrop-blur-md p-1 rounded-full border border-[#D6AA55]/40 shadow-2xs"
+                className="relative flex items-center bg-[#1A1A1A]/80 backdrop-blur-md p-1 rounded-full border border-[#EAB308]/40 shadow-2xs"
               >
                 {/* Animated Sliding Selection Pill */}
                 <div
-                  className="absolute top-1 bottom-1 rounded-full bg-gradient-to-r from-[#511B2A] via-[#641D30] to-[#511B2A] shadow-[0_3px_14px_rgba(81,27,42,0.35)] border border-[#D6AA55]/60 transition-all duration-300 ease-[cubic-bezier(0.2,0.9,0.3,1)] pointer-events-none"
+                  className="absolute top-1 bottom-1 rounded-full bg-gradient-to-r from-[#121212] via-[#262626] to-[#121212] shadow-[0_3px_14px_rgba(81,27,42,0.35)] border border-[#EAB308]/60 transition-all duration-300 ease-[cubic-bezier(0.2,0.9,0.3,1)] pointer-events-none"
                   style={{
                     left: `${pillStyle.left}px`,
                     width: `${pillStyle.width}px`,
@@ -281,20 +281,20 @@ export default function Header() {
                           }}
                           className={`relative z-10 py-1.5 px-2 xl:px-3.5 2xl:px-4 rounded-full text-[11.5px] xl:text-[13px] font-semibold transition-all duration-200 flex items-center gap-1 xl:gap-1.5 whitespace-nowrap outline-none cursor-pointer active:scale-95 ${
                             isActive || megaMenuOpen
-                              ? 'text-[#FFF7EC] font-bold drop-shadow-xs'
-                              : 'text-[#511B2A] hover:text-[#D6AA55]'
+                              ? 'text-[#FFFFFF] font-bold drop-shadow-xs'
+                              : 'text-[#FFFFFF] hover:text-[#EAB308]'
                           }`}
                         >
-                          <Layers className="w-3.5 h-3.5 text-[#D6AA55]" />
+                          <Layers className="w-3.5 h-3.5 text-[#EAB308]" />
                           <span>{item.label}</span>
                           <ChevronDown
                             className={`w-3.5 h-3.5 transition-transform duration-200 ${
-                              isActive || megaMenuOpen ? 'text-[#D6AA55]' : 'text-[#533C36]'
+                              isActive || megaMenuOpen ? 'text-[#EAB308]' : 'text-[#D1D5DB]'
                             } ${megaMenuOpen ? 'rotate-180' : ''}`}
                           />
                           {/* Active Golden Shimmer Indicator */}
                           {(isCurrentSelected || megaMenuOpen) && (
-                            <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-3 h-0.5 bg-[#D6AA55] rounded-full shadow-[0_0_8px_#D6AA55]" />
+                            <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-3 h-0.5 bg-[#EAB308] rounded-full shadow-[0_0_8px_#D6AA55]" />
                           )}
                         </button>
 
@@ -315,20 +315,20 @@ export default function Header() {
                           <div
                             onMouseEnter={handleMenuEnter}
                             onMouseLeave={handleMenuLeave}
-                            className="fixed top-[62px] sm:top-[68px] left-1/2 -translate-x-1/2 w-[96vw] max-w-6xl 2xl:max-w-7xl rounded-3xl shadow-[0_25px_80px_rgba(40,10,18,0.5)] border-2 border-[#B88A35]/80 p-5 sm:p-7 z-50 animate-in fade-in zoom-in-95 slide-in-from-top-2 duration-200 text-[#32151D] select-auto"
-                            style={{ backgroundColor: '#FFFDF9' }}
+                            className="fixed top-[62px] sm:top-[68px] left-1/2 -translate-x-1/2 w-[96vw] max-w-6xl 2xl:max-w-7xl rounded-3xl shadow-[0_25px_80px_rgba(40,10,18,0.5)] border-2 border-[#EAB308]/80 p-5 sm:p-7 z-50 animate-in fade-in zoom-in-95 slide-in-from-top-2 duration-200 text-[#FFFFFF] select-auto"
+                            style={{ backgroundColor: '#141414' }}
                           >
                             {/* Header Bar */}
-                            <div className="flex items-center justify-between pb-3.5 mb-4 border-b border-[#E8D5BD]/80">
+                            <div className="flex items-center justify-between pb-3.5 mb-4 border-b border-[#2D2D2D]/80">
                               <div className="flex items-center gap-2.5">
-                                <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-[#641E2E] to-[#32151D] flex items-center justify-center text-[#E8C77E] border border-[#B88A35]/50 shadow-xs">
+                                <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-[#181818] to-[#0A0A0A] flex items-center justify-center text-[#FACC15] border border-[#EAB308]/50 shadow-xs">
                                   <Layers className="w-4 h-4" />
                                 </div>
                                 <div>
-                                  <h3 className="font-serif font-bold text-base sm:text-lg text-[#641E2E] leading-tight">
+                                  <h3 className="font-serif font-bold text-base sm:text-lg text-[#FFFFFF] leading-tight">
                                     Explore Sacred Art Collections
                                   </h3>
-                                  <p className="text-[11px] text-[#795D58] font-sans">
+                                  <p className="text-[11px] text-[#D1D5DB] font-sans">
                                     35 Authentic Collections • Consecrated 4mm Crystal Acrylic &amp; 3000K LED Radiance
                                   </p>
                                 </div>
@@ -340,10 +340,10 @@ export default function Header() {
                                   setMegaMenuOpen(false);
                                   setHoveredTab(null);
                                 }}
-                                className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold text-[#641E2E] bg-[#FCE7EA] hover:bg-[#F9D2D9] border border-[#B88A35]/60 transition-all cursor-pointer shadow-2xs hover:scale-105 active:scale-95"
+                                className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold text-[#FFFFFF] bg-[#1E1E1E] hover:bg-[#F9D2D9] border border-[#EAB308]/60 transition-all cursor-pointer shadow-2xs hover:scale-105 active:scale-95"
                                 aria-label="Close categories menu"
                               >
-                                <X className="w-3.5 h-3.5 text-[#641E2E]" />
+                                <X className="w-3.5 h-3.5 text-[#FFFFFF]" />
                                 <span>Close</span>
                               </button>
                             </div>
@@ -351,14 +351,14 @@ export default function Header() {
                             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:divide-x lg:divide-[#E8D5BD]/80">
                               {/* LEFT SIDE: ✨ LED BACKLIT ART CATEGORIES (8) */}
                               <div className="lg:pr-6 space-y-3.5">
-                                <div className="flex items-center justify-between p-2.5 rounded-2xl bg-gradient-to-r from-[#FCE7EA] to-[#FFF7ED] border border-[#B88A35]/60 shadow-2xs">
+                                <div className="flex items-center justify-between p-2.5 rounded-2xl bg-gradient-to-r from-[#222222] to-[#181818] border border-[#EAB308]/60 shadow-2xs">
                                   <div className="flex items-center gap-2">
                                     <Flame className="w-4 h-4 text-amber-600 animate-pulse" />
-                                    <span className="font-serif font-bold text-xs sm:text-sm text-[#641E2E] uppercase tracking-wide">
+                                    <span className="font-serif font-bold text-xs sm:text-sm text-[#FFFFFF] uppercase tracking-wide">
                                       ✨ LED Backlit Categories (8)
                                     </span>
                                   </div>
-                                  <span className="text-[10px] font-bold text-[#E8C77E] bg-[#32151D] px-2.5 py-0.5 rounded-full border border-[#B88A35]/40 shadow-2xs">
+                                  <span className="text-[10px] font-bold text-[#FACC15] bg-[#121212] px-2.5 py-0.5 rounded-full border border-[#EAB308]/40 shadow-2xs">
                                     3000K Warm Glow
                                   </span>
                                 </div>
@@ -372,50 +372,50 @@ export default function Header() {
                                         setMegaMenuOpen(false);
                                         setHoveredTab(null);
                                       }}
-                                      className="group relative flex flex-col justify-between p-2.5 rounded-xl border border-[#E8D5BD] hover:border-[#B88A35] shadow-2xs hover:shadow-xs transition-all duration-200"
-                                      style={{ backgroundColor: '#ffffff' }}
+                                      className="group relative flex flex-col justify-between p-2.5 rounded-xl border border-[#2D2D2D] hover:border-[#EAB308] shadow-2xs hover:shadow-xs transition-all duration-200"
+                                      style={{ backgroundColor: '#1E1E1E' }}
                                     >
                                       <div className="flex items-start justify-between gap-1.5">
-                                        <span className="font-serif font-bold text-xs text-[#641E2E] group-hover:text-[#B88A35] transition-colors line-clamp-1">
+                                        <span className="font-serif font-bold text-xs text-[#FFFFFF] group-hover:text-[#EAB308] transition-colors line-clamp-1">
                                           {cat.name}
                                         </span>
-                                        <span className="text-[9px] font-bold text-amber-800 bg-amber-50 px-1 py-0.2 rounded border border-amber-300 shrink-0">
+                                        <span className="text-[9px] font-bold text-yellow-400 bg-yellow-950/50 px-1 py-0.2 rounded border border-amber-300 shrink-0">
                                           LED
                                         </span>
                                       </div>
-                                      <span className="text-[10.5px] text-[#795D58] block line-clamp-1 mt-1 leading-snug">
+                                      <span className="text-[10.5px] text-[#D1D5DB] block line-clamp-1 mt-1 leading-snug">
                                         {cat.description}
                                       </span>
                                     </Link>
                                   ))}
                                 </div>
 
-                                <div className="pt-2.5 flex items-center justify-between border-t border-[#E8D5BD]">
+                                <div className="pt-2.5 flex items-center justify-between border-t border-[#2D2D2D]">
                                   <Link
                                     href="/shop?lighting=led"
                                     onClick={() => {
                                       setMegaMenuOpen(false);
                                       setHoveredTab(null);
                                     }}
-                                    className="inline-flex items-center gap-1.5 text-xs font-bold text-[#641E2E] hover:text-[#B88A35] group"
+                                    className="inline-flex items-center gap-1.5 text-xs font-bold text-[#FFFFFF] hover:text-[#EAB308] group"
                                   >
-                                    <Sparkles className="w-3.5 h-3.5 text-[#B88A35]" />
+                                    <Sparkles className="w-3.5 h-3.5 text-[#EAB308]" />
                                     <span>Explore All LED Backlit Artworks</span>
-                                    <ArrowRight className="w-3.5 h-3.5 text-[#B88A35] group-hover:translate-x-1 transition-transform" />
+                                    <ArrowRight className="w-3.5 h-3.5 text-[#EAB308] group-hover:translate-x-1 transition-transform" />
                                   </Link>
                                 </div>
                               </div>
 
                               {/* RIGHT SIDE: 🖼️ NORMAL PURE ACRYLIC CATEGORIES (27) */}
                               <div className="lg:pl-6 space-y-3.5">
-                                <div className="flex items-center justify-between p-2.5 rounded-2xl bg-gradient-to-r from-[#FAF7F0] to-[#F4EDE2] border border-[#E8D5BD] shadow-2xs">
+                                <div className="flex items-center justify-between p-2.5 rounded-2xl bg-gradient-to-r from-[#1A1A1A] to-[#141414] border border-[#2D2D2D] shadow-2xs">
                                   <div className="flex items-center gap-2">
-                                    <Sparkles className="w-4 h-4 text-[#B88A35]" />
-                                    <span className="font-serif font-bold text-xs sm:text-sm text-[#641E2E] uppercase tracking-wide">
+                                    <Sparkles className="w-4 h-4 text-[#EAB308]" />
+                                    <span className="font-serif font-bold text-xs sm:text-sm text-[#FFFFFF] uppercase tracking-wide">
                                       🖼️ Normal Acrylic Categories (27)
                                     </span>
                                   </div>
-                                  <span className="text-[10px] font-bold text-[#641E2E] bg-[#FCE7EA] px-2.5 py-0.5 rounded-full border border-[#B88A35]/40 shadow-2xs">
+                                  <span className="text-[10px] font-bold text-[#FFFFFF] bg-[#1E1E1E] px-2.5 py-0.5 rounded-full border border-[#EAB308]/40 shadow-2xs">
                                     24K Gold &amp; Crystal
                                   </span>
                                 </div>
@@ -429,36 +429,36 @@ export default function Header() {
                                         setMegaMenuOpen(false);
                                         setHoveredTab(null);
                                       }}
-                                      className="group relative flex flex-col justify-between p-2.5 rounded-xl border border-[#E8D5BD] hover:border-[#B88A35] shadow-2xs hover:shadow-xs transition-all duration-200"
-                                      style={{ backgroundColor: '#ffffff' }}
+                                      className="group relative flex flex-col justify-between p-2.5 rounded-xl border border-[#2D2D2D] hover:border-[#EAB308] shadow-2xs hover:shadow-xs transition-all duration-200"
+                                      style={{ backgroundColor: '#1E1E1E' }}
                                     >
                                       <div className="flex items-start justify-between gap-1.5">
-                                        <span className="font-serif font-bold text-xs text-[#641E2E] group-hover:text-[#B88A35] transition-colors line-clamp-1">
+                                        <span className="font-serif font-bold text-xs text-[#FFFFFF] group-hover:text-[#EAB308] transition-colors line-clamp-1">
                                           {cat.name}
                                         </span>
-                                        <span className="text-[9px] font-bold text-stone-700 bg-stone-100 px-1 py-0.2 rounded border border-stone-200 shrink-0">
+                                        <span className="text-[9px] font-bold text-gray-300 bg-neutral-800 px-1 py-0.2 rounded border border-stone-200 shrink-0">
                                           Acrylic
                                         </span>
                                       </div>
-                                      <span className="text-[10.5px] text-[#795D58] block line-clamp-1 mt-1 leading-snug">
+                                      <span className="text-[10.5px] text-[#D1D5DB] block line-clamp-1 mt-1 leading-snug">
                                         {cat.description}
                                       </span>
                                     </Link>
                                   ))}
                                 </div>
 
-                                <div className="pt-2.5 flex items-center justify-between border-t border-[#E8D5BD]">
+                                <div className="pt-2.5 flex items-center justify-between border-t border-[#2D2D2D]">
                                   <Link
                                     href="/shop?lighting=none"
                                     onClick={() => {
                                       setMegaMenuOpen(false);
                                       setHoveredTab(null);
                                     }}
-                                    className="inline-flex items-center gap-1.5 text-xs font-bold text-[#641E2E] hover:text-[#B88A35] group"
+                                    className="inline-flex items-center gap-1.5 text-xs font-bold text-[#FFFFFF] hover:text-[#EAB308] group"
                                   >
-                                    <Sparkles className="w-3.5 h-3.5 text-[#B88A35]" />
+                                    <Sparkles className="w-3.5 h-3.5 text-[#EAB308]" />
                                     <span>Browse All 27 Normal Acrylic Collections</span>
-                                    <ArrowRight className="w-3.5 h-3.5 text-[#B88A35] group-hover:translate-x-1 transition-transform" />
+                                    <ArrowRight className="w-3.5 h-3.5 text-[#EAB308] group-hover:translate-x-1 transition-transform" />
                                   </Link>
                                 </div>
                               </div>
@@ -484,15 +484,15 @@ export default function Header() {
                       }}
                       className={`relative z-10 py-1.5 px-2 xl:px-3 2xl:px-4 rounded-full text-[11.5px] xl:text-[13px] font-semibold transition-colors duration-200 flex items-center gap-1 xl:gap-1.5 whitespace-nowrap outline-none active:scale-95 ${
                         isActive
-                          ? 'text-[#FFF7EC] font-bold drop-shadow-xs'
-                          : 'text-[#511B2A] hover:text-[#D6AA55]'
+                          ? 'text-[#FFFFFF] font-bold drop-shadow-xs'
+                          : 'text-[#FFFFFF] hover:text-[#EAB308]'
                       }`}
                     >
                       {item.icon}
                       <span>{item.label}</span>
                       {/* Active Golden Shimmer Indicator */}
                       {isCurrentSelected && (
-                        <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-3 h-0.5 bg-[#D6AA55] rounded-full shadow-[0_0_8px_#D6AA55]" />
+                        <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-3 h-0.5 bg-[#EAB308] rounded-full shadow-[0_0_8px_#D6AA55]" />
                       )}
                     </Link>
                   );
@@ -518,7 +518,7 @@ export default function Header() {
               <button
                 type="button"
                 onClick={() => setSearchOpen((prev) => !prev)}
-                className="w-9 h-9 min-[360px]:w-10 min-[360px]:h-10 sm:w-11 sm:h-11 p-1.5 min-[360px]:p-2 text-[#641E2E] hover:text-[#B88A35] hover:bg-[#FCE7EA] rounded-xl transition-colors flex items-center justify-center cursor-pointer"
+                className="w-9 h-9 min-[360px]:w-10 min-[360px]:h-10 sm:w-11 sm:h-11 p-1.5 min-[360px]:p-2 text-[#FFFFFF] hover:text-[#EAB308] hover:bg-[#1E1E1E] rounded-xl transition-colors flex items-center justify-center cursor-pointer"
                 aria-label="Search artworks"
                 title="Search"
               >
@@ -528,13 +528,13 @@ export default function Header() {
               {/* Wishlist with Badge */}
               <Link
                 href="/wishlist"
-                className="w-9 h-9 min-[360px]:w-10 min-[360px]:h-10 sm:w-11 sm:h-11 p-1.5 min-[360px]:p-2 text-[#641E2E] hover:text-[#B88A35] hover:bg-[#FCE7EA] rounded-xl transition-colors relative flex items-center justify-center cursor-pointer"
+                className="w-9 h-9 min-[360px]:w-10 min-[360px]:h-10 sm:w-11 sm:h-11 p-1.5 min-[360px]:p-2 text-[#FFFFFF] hover:text-[#EAB308] hover:bg-[#1E1E1E] rounded-xl transition-colors relative flex items-center justify-center cursor-pointer"
                 aria-label="Wishlist"
                 title="Wishlist"
               >
                 <Heart className="w-4 h-4 sm:w-5 sm:h-5" />
                 {wishlistCount > 0 && (
-                  <span className="absolute -top-1 -right-1 bg-[#641E2E] text-[#FFF7ED] text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center border border-[#B88A35]/50 shadow-xs">
+                  <span className="absolute -top-1 -right-1 bg-[#641E2E] text-[#FFFFFF] text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center border border-[#EAB308]/50 shadow-xs">
                     {wishlistCount}
                   </span>
                 )}
@@ -544,13 +544,13 @@ export default function Header() {
               <button
                 type="button"
                 onClick={openCart}
-                className="w-9 h-9 min-[360px]:w-10 min-[360px]:h-10 sm:w-11 sm:h-11 p-1.5 min-[360px]:p-2 text-[#641E2E] hover:text-[#B88A35] hover:bg-[#FCE7EA] rounded-xl transition-colors relative flex items-center justify-center cursor-pointer"
+                className="w-9 h-9 min-[360px]:w-10 min-[360px]:h-10 sm:w-11 sm:h-11 p-1.5 min-[360px]:p-2 text-[#FFFFFF] hover:text-[#EAB308] hover:bg-[#1E1E1E] rounded-xl transition-colors relative flex items-center justify-center cursor-pointer"
                 aria-label="Shopping Cart"
                 title="Cart"
               >
                 <ShoppingBag className="w-4 h-4 sm:w-5 sm:h-5" />
                 {cartCount > 0 && (
-                  <span className="absolute -top-1 -right-1 bg-[#32151D] text-[#E8C77E] text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center border border-[#B88A35]/60 shadow-xs">
+                  <span className="absolute -top-1 -right-1 bg-[#121212] text-[#FACC15] text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center border border-[#EAB308]/60 shadow-xs">
                     {cartCount}
                   </span>
                 )}
@@ -561,29 +561,29 @@ export default function Header() {
 
         {/* Search Bar Flyout */}
         {searchOpen && (
-          <div className="w-full bg-white border-t border-b border-[#E8D5BD] py-3 px-4 sm:px-8 shadow-md animate-in slide-in-from-top-2 duration-150">
+          <div className="w-full bg-[#141414] border-t border-b border-[#2D2D2D] py-3 px-4 sm:px-8 shadow-md animate-in slide-in-from-top-2 duration-150">
             <div className="w-full max-w-3xl mx-auto">
               <form onSubmit={handleSearchSubmit} className="relative flex items-center">
-                <Search className="w-4 h-4 text-[#795D58] absolute left-3.5" />
+                <Search className="w-4 h-4 text-[#D1D5DB] absolute left-3.5" />
                 <input
                   ref={searchInputRef}
                   type="text"
                   placeholder="Search Balaji, Shiva, Ram Mandir, Radha Krishna, 7 Horses, Bodhi Tree, LED frames..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-10 pr-24 py-2.5 bg-[#FFF7ED] border border-[#E8D5BD] rounded-2xl text-xs sm:text-sm outline-none focus:border-[#B88A35] focus:bg-white transition-all font-medium text-[#641E2E]"
+                  className="w-full pl-10 pr-24 py-2.5 bg-[#121212] border border-[#2D2D2D] rounded-2xl text-xs sm:text-sm outline-none focus:border-[#EAB308] focus:bg-[#141414] transition-all font-medium text-[#FFFFFF]"
                 />
                 <div className="absolute right-2 flex items-center gap-1">
                   <button
                     type="submit"
-                    className="bg-gradient-to-r from-[#641E2E] to-[#32151D] hover:from-[#4B1622] hover:to-[#1F0A11] text-[#FFF7ED] text-xs font-semibold px-3.5 py-1.5 rounded-xl border border-[#B88A35]/50 transition-colors cursor-pointer"
+                    className="bg-gradient-to-r from-[#181818] to-[#0A0A0A] hover:from-[#4B1622] hover:to-[#1F0A11] text-[#FFFFFF] text-xs font-semibold px-3.5 py-1.5 rounded-xl border border-[#EAB308]/50 transition-colors cursor-pointer"
                   >
                     Search
                   </button>
                   <button
                     type="button"
                     onClick={() => setSearchOpen(false)}
-                    className="p-1.5 text-[#795D58] hover:text-[#641E2E] rounded-lg cursor-pointer"
+                    className="p-1.5 text-[#D1D5DB] hover:text-[#FFFFFF] rounded-lg cursor-pointer"
                     aria-label="Close search"
                   >
                     <X className="w-4 h-4" />
@@ -607,13 +607,13 @@ export default function Header() {
             role="dialog"
             aria-modal="true"
             aria-label="Navigation menu"
-            className="relative w-4/5 max-w-sm bg-white h-full shadow-2xl flex flex-col z-10 overflow-y-auto animate-in slide-in-from-left duration-300"
+            className="relative w-4/5 max-w-sm bg-[#141414] h-full shadow-2xl flex flex-col z-10 overflow-y-auto animate-in slide-in-from-left duration-300"
           >
             {/* Drawer Header */}
-            <div className="p-4 border-b border-[#E8D5BD] flex items-center justify-between bg-[#FFF7ED]">
+            <div className="p-4 border-b border-[#2D2D2D] flex items-center justify-between bg-[#121212]">
               <Link href="/" onClick={() => setMobileMenuOpen(false)} className="flex items-center">
                 <Image
-                  src="/images/brand/logo.png"
+                  src="/images/brand/logo-gold.png"
                   alt="Abhi's Gifts"
                   width={160}
                   height={32}
@@ -623,7 +623,7 @@ export default function Header() {
               <button
                 type="button"
                 onClick={() => setMobileMenuOpen(false)}
-                className="p-1.5 text-[#795D58] hover:text-[#641E2E] rounded-lg cursor-pointer"
+                className="p-1.5 text-[#D1D5DB] hover:text-[#FFFFFF] rounded-lg cursor-pointer"
                 aria-label="Close menu"
               >
                 <X className="w-5 h-5" />
@@ -631,15 +631,15 @@ export default function Header() {
             </div>
 
             {/* Mobile Search Form */}
-            <div className="p-3 bg-[#FFF7ED]/70 border-b border-[#E8D5BD]">
+            <div className="p-3 bg-[#121212]/70 border-b border-[#2D2D2D]">
               <form onSubmit={handleSearchSubmit} className="relative flex items-center">
-                <Search className="w-4 h-4 text-[#795D58] absolute left-3" />
+                <Search className="w-4 h-4 text-[#D1D5DB] absolute left-3" />
                 <input
                   type="text"
                   placeholder="Search artworks..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-9 pr-3 py-2 text-xs bg-white border border-[#E8D5BD] rounded-xl outline-none focus:border-[#B88A35] font-medium text-[#641E2E]"
+                  className="w-full pl-9 pr-3 py-2 text-xs bg-[#141414] border border-[#2D2D2D] rounded-xl outline-none focus:border-[#EAB308] font-medium text-[#FFFFFF]"
                 />
               </form>
             </div>
@@ -661,18 +661,18 @@ export default function Header() {
             </div>
 
             {/* Customise Banner CTA */}
-            <div className="p-3.5 bg-gradient-to-br from-[#641E2E] to-[#32151D] text-[#FFF7ED] m-3 rounded-2xl shadow-sm border border-[#B88A35]/50">
+            <div className="p-3.5 bg-gradient-to-br from-[#181818] to-[#0A0A0A] text-[#FFFFFF] m-3 rounded-2xl shadow-sm border border-[#EAB308]/50">
               <div className="flex items-center gap-2 font-bold text-xs">
-                <Sparkles className="w-3.5 h-3.5 text-[#E8C77E]" />
+                <Sparkles className="w-3.5 h-3.5 text-[#FACC15]" />
                 <span>Personalise Photo Frames</span>
               </div>
-              <p className="text-[11px] text-[#E8D5BD]/90 mt-1 leading-snug">
+              <p className="text-[11px] text-[#E5E7EB]/90 mt-1 leading-snug">
                 Upload family photos &amp; turn them into illuminated crystal acrylic heirlooms.
               </p>
               <Link
                 href="/customise"
                 onClick={() => setMobileMenuOpen(false)}
-                className="mt-2.5 inline-block bg-gradient-to-r from-[#B88A35] to-[#E8C77E] text-[#32151D] px-3.5 py-1 rounded-lg text-xs font-bold transition-all"
+                className="mt-2.5 inline-block bg-gradient-to-r from-[#EAB308] to-[#FACC15] text-[#FFFFFF] px-3.5 py-1 rounded-lg text-xs font-bold transition-all"
               >
                 Customise Now →
               </Link>
@@ -684,14 +684,14 @@ export default function Header() {
                 <Link
                   href="/"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="block px-3 py-2 text-[#641E2E] font-semibold rounded-xl hover:bg-[#FCE7EA] text-xs sm:text-sm"
+                  className="block px-3 py-2 text-[#FFFFFF] font-semibold rounded-xl hover:bg-[#1E1E1E] text-xs sm:text-sm"
                 >
                   Home
                 </Link>
                 <Link
                   href="/shop?lighting=led"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="flex items-center justify-between px-3 py-2 bg-[#32151D] text-[#E8C77E] font-bold rounded-xl text-xs sm:text-sm border border-[#B88A35]/50 shadow-xs"
+                  className="flex items-center justify-between px-3 py-2 bg-[#121212] text-[#FACC15] font-bold rounded-xl text-xs sm:text-sm border border-[#EAB308]/50 shadow-xs"
                 >
                   <span className="flex items-center gap-1.5">
                     <Flame className="w-3.5 h-3.5 text-amber-400 animate-pulse" />
@@ -702,25 +702,25 @@ export default function Header() {
                 <Link
                   href="/shop?lighting=none"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="flex items-center justify-between px-3 py-2 bg-white text-[#641E2E] font-bold rounded-xl text-xs sm:text-sm border border-[#E8D5BD] shadow-2xs"
+                  className="flex items-center justify-between px-3 py-2 bg-[#141414] text-[#FFFFFF] font-bold rounded-xl text-xs sm:text-sm border border-[#2D2D2D] shadow-2xs"
                 >
                   <span className="flex items-center gap-1.5">
-                    <Sparkles className="w-3.5 h-3.5 text-[#B88A35]" />
+                    <Sparkles className="w-3.5 h-3.5 text-[#EAB308]" />
                     <span>🖼️ Normal Acrylic Art</span>
                   </span>
-                  <span className="text-[10px] bg-[#FCE7EA] text-[#641E2E] px-2 py-0.5 rounded-full">17 Designs</span>
+                  <span className="text-[10px] bg-[#1E1E1E] text-[#FFFFFF] px-2 py-0.5 rounded-full">17 Designs</span>
                 </Link>
                 <Link
                   href="/customise"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="block px-3 py-2 text-[#641E2E] font-semibold rounded-xl hover:bg-[#FCE7EA] text-xs sm:text-sm"
+                  className="block px-3 py-2 text-[#FFFFFF] font-semibold rounded-xl hover:bg-[#1E1E1E] text-xs sm:text-sm"
                 >
                   🎨 Custom Photo Frames
                 </Link>
                 <Link
                   href="/shop"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="block px-3 py-2 text-[#641E2E] font-semibold rounded-xl hover:bg-[#FCE7EA] text-xs sm:text-sm"
+                  className="block px-3 py-2 text-[#FFFFFF] font-semibold rounded-xl hover:bg-[#1E1E1E] text-xs sm:text-sm"
                 >
                   Shop Full Catalog
                 </Link>
@@ -728,7 +728,7 @@ export default function Header() {
 
               {/* God Wall Art Accordion Group */}
               <div className="py-2.5">
-                <p className="text-[10px] font-bold uppercase text-[#B88A35] px-3 py-1 tracking-wider">
+                <p className="text-[10px] font-bold uppercase text-[#EAB308] px-3 py-1 tracking-wider">
                   Sacred Devotional Art
                 </p>
                 {devotionalCategories.map((c) => (
@@ -736,7 +736,7 @@ export default function Header() {
                     key={c.id}
                     href={`/category/${c.slug}`}
                     onClick={() => setMobileMenuOpen(false)}
-                    className="block px-3 py-1.5 text-xs text-[#795D58] hover:text-[#641E2E] hover:bg-[#FCE7EA] rounded-lg"
+                    className="block px-3 py-1.5 text-xs text-[#D1D5DB] hover:text-[#FFFFFF] hover:bg-[#1E1E1E] rounded-lg"
                   >
                     {c.name}
                   </Link>
@@ -745,7 +745,7 @@ export default function Header() {
 
               {/* Shop by Shape */}
               <div className="py-2.5">
-                <p className="text-[10px] font-bold uppercase text-[#B88A35] px-3 py-1 tracking-wider">
+                <p className="text-[10px] font-bold uppercase text-[#EAB308] px-3 py-1 tracking-wider">
                   Shop by Shape
                 </p>
                 <div className="grid grid-cols-2 gap-1 px-1">
@@ -754,7 +754,7 @@ export default function Header() {
                       key={s.id}
                       href={s.href}
                       onClick={() => setMobileMenuOpen(false)}
-                      className="block px-2.5 py-1 text-xs text-[#795D58] hover:text-[#641E2E] hover:bg-[#FCE7EA] rounded-lg"
+                      className="block px-2.5 py-1 text-xs text-[#D1D5DB] hover:text-[#FFFFFF] hover:bg-[#1E1E1E] rounded-lg"
                     >
                       {s.name}
                     </Link>
@@ -764,20 +764,20 @@ export default function Header() {
 
               {/* Customer Care */}
               <div className="py-2.5 space-y-0.5">
-                <p className="text-[10px] font-bold uppercase text-[#B88A35] px-3 py-1 tracking-wider">
+                <p className="text-[10px] font-bold uppercase text-[#EAB308] px-3 py-1 tracking-wider">
                   Support &amp; Saved
                 </p>
                 <Link
                   href="/wishlist"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="block px-3 py-1.5 text-xs text-[#795D58] hover:text-[#641E2E]"
+                  className="block px-3 py-1.5 text-xs text-[#D1D5DB] hover:text-[#FFFFFF]"
                 >
                   Wishlist ({wishlistCount})
                 </Link>
                 <Link
                   href="/contact"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="block px-3 py-1.5 text-xs text-[#795D58] hover:text-[#641E2E]"
+                  className="block px-3 py-1.5 text-xs text-[#D1D5DB] hover:text-[#FFFFFF]"
                 >
                   Contact &amp; Support
                 </Link>
@@ -785,11 +785,11 @@ export default function Header() {
             </div>
 
             {/* Mobile Drawer Footer */}
-            <div className="p-3.5 border-t border-[#E8D5BD] bg-[#FFF7ED] text-xs text-[#795D58] flex items-center justify-between">
+            <div className="p-3.5 border-t border-[#2D2D2D] bg-[#121212] text-xs text-[#D1D5DB] flex items-center justify-between">
               <Link
                 href="/admin"
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-[#641E2E] hover:text-[#B88A35] font-medium"
+                className="text-[#FFFFFF] hover:text-[#EAB308] font-medium"
               >
                 Staff Portal
               </Link>

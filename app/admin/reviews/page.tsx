@@ -39,8 +39,8 @@ export default function AdminReviewsPage() {
 
         {allReviews.length === 0 ? (
           <div className="bg-white p-12 rounded-2xl border border-stone-200 text-center space-y-3 shadow-xs">
-            <div className="w-12 h-12 rounded-full bg-[#FFF8EF] border border-[#E8D1A5] flex items-center justify-center mx-auto text-[#641C2B]">
-              <MessageSquare className="w-6 h-6 text-[#C69A42]" />
+            <div className="w-12 h-12 rounded-full bg-[#121212] border border-[#2D2D2D] flex items-center justify-center mx-auto text-[#FFFFFF]">
+              <MessageSquare className="w-6 h-6 text-[#EAB308]" />
             </div>
             <h3 className="font-serif font-bold text-base text-stone-800">No Reviews Submitted Yet</h3>
             <p className="text-xs text-stone-500 max-w-md mx-auto">

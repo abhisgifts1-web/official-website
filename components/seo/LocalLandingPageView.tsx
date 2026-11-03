@@ -77,25 +77,25 @@ export default function LocalLandingPageView({
 
       {/* Breadcrumb Navigation */}
       <nav className="flex items-center gap-2 text-xs text-stone-500" aria-label="Breadcrumb">
-        <Link href="/" className="hover:text-[#641E2E] flex items-center gap-1">
+        <Link href="/" className="hover:text-[#FFFFFF] flex items-center gap-1">
           <Home className="w-3.5 h-3.5" />
           <span>Home</span>
         </Link>
         <span>/</span>
-        <span className="text-[#A06E28] font-medium">Local Hyderabad Hub</span>
+        <span className="text-[#EAB308] font-medium">Local Hyderabad Hub</span>
         <span>/</span>
-        <span className="text-[#511B2A] font-semibold">{keyword}</span>
+        <span className="text-[#FFFFFF] font-semibold">{keyword}</span>
       </nav>
 
       {/* Hero Banner with Rich Local Context */}
-      <section className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-[#2E141D] via-[#1E0910] to-[#120409] text-white p-6 sm:p-10 lg:p-14 border-2 border-[#D6AA55]/50 shadow-2xl">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-[#D6AA55]/15 rounded-full blur-3xl pointer-events-none" />
+      <section className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-[#2E141D] via-[#1E0910] to-[#120409] text-white p-6 sm:p-10 lg:p-14 border-2 border-[#EAB308]/50 shadow-2xl">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-[#EAB308]/15 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#641E2E]/30 rounded-full blur-3xl pointer-events-none" />
 
         <div className="relative z-10 max-w-4xl space-y-4">
           <div className="flex flex-wrap items-center gap-2">
-            <span className="text-xs uppercase tracking-widest font-bold text-[#E8C77E] bg-[#511B2A]/90 border border-[#D6AA55]/60 px-3.5 py-1 rounded-full inline-flex items-center gap-1.5 shadow-sm">
-              <MapPin className="w-3.5 h-3.5 text-[#E8C77E]" />
+            <span className="text-xs uppercase tracking-widest font-bold text-[#FACC15] bg-[#511B2A]/90 border border-[#EAB308]/60 px-3.5 py-1 rounded-full inline-flex items-center gap-1.5 shadow-sm">
+              <MapPin className="w-3.5 h-3.5 text-[#FACC15]" />
               <span>{locationName} • Telangana Certified Studio</span>
             </span>
             <span className="text-xs font-semibold text-emerald-300 bg-emerald-950/80 border border-emerald-500/40 px-3 py-1 rounded-full inline-flex items-center gap-1.5">
@@ -104,11 +104,11 @@ export default function LocalLandingPageView({
             </span>
           </div>
 
-          <h1 className="font-serif font-bold text-3xl sm:text-4xl lg:text-5xl xl:text-6xl text-[#FFF7EC] leading-tight">
+          <h1 className="font-serif font-bold text-3xl sm:text-4xl lg:text-5xl xl:text-6xl text-[#FFFFFF] leading-tight">
             {h1Title}
           </h1>
 
-          <p className="text-sm sm:text-base text-[#E8D5BD]/90 leading-relaxed max-w-3xl font-sans">
+          <p className="text-sm sm:text-base text-[#E5E7EB]/90 leading-relaxed max-w-3xl font-sans">
             {subtitle}
           </p>
 
@@ -125,9 +125,9 @@ export default function LocalLandingPageView({
 
             <Link
               href="/customise"
-              className="bg-white/10 hover:bg-white/20 text-[#FFF7ED] border border-[#D6AA55] font-bold text-xs sm:text-sm px-6 py-3.5 rounded-full transition-all flex items-center gap-2"
+              className="bg-white/10 hover:bg-white/20 text-[#FFFFFF] border border-[#EAB308] font-bold text-xs sm:text-sm px-6 py-3.5 rounded-full transition-all flex items-center gap-2"
             >
-              <Sparkles className="w-4 h-4 text-[#E8C77E]" />
+              <Sparkles className="w-4 h-4 text-[#FACC15]" />
               <span>Upload Your Photo Online</span>
             </Link>
           </div>
@@ -136,65 +136,65 @@ export default function LocalLandingPageView({
 
       {/* Local Store Highlights Bar */}
       <section className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <div className="bg-[#FFF8EF] border border-[#E8D1A5] rounded-2xl p-4 flex items-center gap-3 shadow-xs">
-          <div className="w-10 h-10 rounded-xl bg-[#641E2E] text-[#E8C77E] flex items-center justify-center shrink-0">
+        <div className="bg-[#121212] border border-[#2D2D2D] rounded-2xl p-4 flex items-center gap-3 shadow-xs">
+          <div className="w-10 h-10 rounded-xl bg-[#641E2E] text-[#FACC15] flex items-center justify-center shrink-0">
             <Clock className="w-5 h-5" />
           </div>
           <div>
-            <h4 className="font-bold text-xs sm:text-sm text-[#511B2A]">Same-Day Proof</h4>
+            <h4 className="font-bold text-xs sm:text-sm text-[#FFFFFF]">Same-Day Proof</h4>
             <p className="text-[11px] text-[#785E59]">1:1 WhatsApp digital preview before laser cutting</p>
           </div>
         </div>
 
-        <div className="bg-[#FFF8EF] border border-[#E8D1A5] rounded-2xl p-4 flex items-center gap-3 shadow-xs">
-          <div className="w-10 h-10 rounded-xl bg-[#641E2E] text-[#E8C77E] flex items-center justify-center shrink-0">
+        <div className="bg-[#121212] border border-[#2D2D2D] rounded-2xl p-4 flex items-center gap-3 shadow-xs">
+          <div className="w-10 h-10 rounded-xl bg-[#641E2E] text-[#FACC15] flex items-center justify-center shrink-0">
             <Layers className="w-5 h-5" />
           </div>
           <div>
-            <h4 className="font-bold text-xs sm:text-sm text-[#511B2A]">4mm Cast Acrylic</h4>
+            <h4 className="font-bold text-xs sm:text-sm text-[#FFFFFF]">4mm Cast Acrylic</h4>
             <p className="text-[11px] text-[#785E59]">Virgin cast sheet • Diamond CNC beveled edges</p>
           </div>
         </div>
 
-        <div className="bg-[#FFF8EF] border border-[#E8D1A5] rounded-2xl p-4 flex items-center gap-3 shadow-xs">
-          <div className="w-10 h-10 rounded-xl bg-[#641E2E] text-[#E8C77E] flex items-center justify-center shrink-0">
+        <div className="bg-[#121212] border border-[#2D2D2D] rounded-2xl p-4 flex items-center gap-3 shadow-xs">
+          <div className="w-10 h-10 rounded-xl bg-[#641E2E] text-[#FACC15] flex items-center justify-center shrink-0">
             <Truck className="w-5 h-5" />
           </div>
           <div>
-            <h4 className="font-bold text-xs sm:text-sm text-[#511B2A]">Hyderabad Express</h4>
+            <h4 className="font-bold text-xs sm:text-sm text-[#FFFFFF]">Hyderabad Express</h4>
             <p className="text-[11px] text-[#785E59]">Store pickup in Dilsukhnagar &amp; city delivery</p>
           </div>
         </div>
 
-        <div className="bg-[#FFF8EF] border border-[#E8D1A5] rounded-2xl p-4 flex items-center gap-3 shadow-xs">
-          <div className="w-10 h-10 rounded-xl bg-[#641E2E] text-[#E8C77E] flex items-center justify-center shrink-0">
+        <div className="bg-[#121212] border border-[#2D2D2D] rounded-2xl p-4 flex items-center gap-3 shadow-xs">
+          <div className="w-10 h-10 rounded-xl bg-[#641E2E] text-[#FACC15] flex items-center justify-center shrink-0">
             <ShieldCheck className="w-5 h-5" />
           </div>
           <div>
-            <h4 className="font-bold text-xs sm:text-sm text-[#511B2A]">100% Safe Transit</h4>
+            <h4 className="font-bold text-xs sm:text-sm text-[#FFFFFF]">100% Safe Transit</h4>
             <p className="text-[11px] text-[#785E59]">Free instant replacement if damaged</p>
           </div>
         </div>
       </section>
 
       {/* Detailed Editorial & Local Relevance */}
-      <section className="bg-white rounded-3xl p-6 sm:p-10 border border-[#E8D1A5] shadow-sm space-y-6">
+      <section className="bg-white rounded-3xl p-6 sm:p-10 border border-[#2D2D2D] shadow-sm space-y-6">
         <div className="max-w-3xl space-y-4">
-          <h2 className="font-serif font-bold text-2xl sm:text-3xl text-[#511B2A]">
+          <h2 className="font-serif font-bold text-2xl sm:text-3xl text-[#FFFFFF]">
             Why Hyderabad &amp; Dilsukhnagar Families Choose Abhi&apos;s Gifts
           </h2>
           {introParagraphs.map((para, idx) => (
-            <p key={idx} className="text-xs sm:text-sm text-[#533C36] leading-relaxed">
+            <p key={idx} className="text-xs sm:text-sm text-[#D1D5DB] leading-relaxed">
               {para}
             </p>
           ))}
         </div>
 
         {/* Feature Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4 border-t border-[#E8D1A5]/50">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4 border-t border-[#2D2D2D]/50">
           {whyChoosePoints.map((point, idx) => (
-            <div key={idx} className="space-y-2 p-4 rounded-xl bg-[#FFF8EF] border border-[#E8D1A5]/60">
-              <div className="flex items-center gap-2 text-[#641E2E] font-bold text-sm">
+            <div key={idx} className="space-y-2 p-4 rounded-xl bg-[#121212] border border-[#2D2D2D]/60">
+              <div className="flex items-center gap-2 text-[#FFFFFF] font-bold text-sm">
                 <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
                 <span>{point.title}</span>
               </div>
@@ -208,18 +208,18 @@ export default function LocalLandingPageView({
 
       {/* Curated Products Grid */}
       <section className="space-y-6">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-3 border-b border-[#E8D1A5]">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-3 border-b border-[#2D2D2D]">
           <div>
-            <span className="text-xs font-bold uppercase tracking-wider text-[#A06E28]">
+            <span className="text-xs font-bold uppercase tracking-wider text-[#EAB308]">
               FEATURED DESIGNS AVAILABLE IN HYDERABAD
             </span>
-            <h2 className="font-serif font-bold text-2xl sm:text-3xl text-[#511B2A] mt-1">
+            <h2 className="font-serif font-bold text-2xl sm:text-3xl text-[#FFFFFF] mt-1">
               Top Trending {keyword}
             </h2>
           </div>
           <Link
             href="/customise"
-            className="text-xs sm:text-sm font-bold text-[#641E2E] hover:text-[#A06E28] flex items-center gap-1.5"
+            className="text-xs sm:text-sm font-bold text-[#FFFFFF] hover:text-[#EAB308] flex items-center gap-1.5"
           >
             <span>Have your own photo? Customize here</span>
             <ArrowRight className="w-4 h-4" />
@@ -234,12 +234,12 @@ export default function LocalLandingPageView({
       </section>
 
       {/* Popular Sizing & Price Guide Table */}
-      <section className="bg-gradient-to-br from-[#FFF8EF] to-[#F8EFE3] rounded-3xl p-6 sm:p-10 border border-[#E8D1A5] space-y-6">
+      <section className="bg-gradient-to-br from-[#FFF8EF] to-[#F8EFE3] rounded-3xl p-6 sm:p-10 border border-[#2D2D2D] space-y-6">
         <div>
-          <span className="text-xs font-bold uppercase tracking-wider text-[#A06E28]">
+          <span className="text-xs font-bold uppercase tracking-wider text-[#EAB308]">
             TRANSPARENT WORKSHOP PRICING
           </span>
-          <h2 className="font-serif font-bold text-2xl sm:text-3xl text-[#511B2A] mt-1">
+          <h2 className="font-serif font-bold text-2xl sm:text-3xl text-[#FFFFFF] mt-1">
             Popular Photo Frame Sizes &amp; Pricing in Hyderabad
           </h2>
           <p className="text-xs sm:text-sm text-[#785E59] mt-1">
@@ -250,7 +250,7 @@ export default function LocalLandingPageView({
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs sm:text-sm border-collapse bg-white rounded-2xl overflow-hidden shadow-xs">
             <thead>
-              <tr className="bg-[#511B2A] text-[#FFF7EC]">
+              <tr className="bg-[#511B2A] text-[#FFFFFF]">
                 <th className="py-3 px-4 font-semibold">Frame Dimensions</th>
                 <th className="py-3 px-4 font-semibold">Recommended Space / Purpose</th>
                 <th className="py-3 px-4 font-semibold">Workshop Price</th>
@@ -259,10 +259,10 @@ export default function LocalLandingPageView({
             </thead>
             <tbody className="divide-y divide-[#E8D1A5]/50">
               {popularSizes.map((row, idx) => (
-                <tr key={idx} className="hover:bg-[#FFFDF9] transition-colors">
-                  <td className="py-3 px-4 font-bold text-[#511B2A]">{row.size}</td>
+                <tr key={idx} className="hover:bg-[#121212] transition-colors">
+                  <td className="py-3 px-4 font-bold text-[#FFFFFF]">{row.size}</td>
                   <td className="py-3 px-4 text-[#785E59]">{row.idealFor}</td>
-                  <td className="py-3 px-4 font-bold text-[#641E2E]">{row.price}</td>
+                  <td className="py-3 px-4 font-bold text-[#FFFFFF]">{row.price}</td>
                   <td className="py-3 px-4">
                     <a
                       href={`https://wa.me/917780269927?text=${encodeURIComponent(
@@ -270,7 +270,7 @@ export default function LocalLandingPageView({
                       )}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-xs font-bold text-[#A06E28] hover:underline"
+                      className="text-xs font-bold text-[#EAB308] hover:underline"
                     >
                       Order on WhatsApp →
                     </a>
@@ -283,32 +283,32 @@ export default function LocalLandingPageView({
       </section>
 
       {/* Local Store & Workshop Information */}
-      <section className="bg-white rounded-3xl p-6 sm:p-10 border border-[#E8D1A5] grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+      <section className="bg-white rounded-3xl p-6 sm:p-10 border border-[#2D2D2D] grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
         <div className="space-y-4">
-          <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#A06E28] bg-[#FFF8EF] border border-[#E8D1A5] px-3 py-1 rounded-full">
-            <MapPin className="w-3.5 h-3.5 text-[#641E2E]" />
+          <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#EAB308] bg-[#121212] border border-[#2D2D2D] px-3 py-1 rounded-full">
+            <MapPin className="w-3.5 h-3.5 text-[#FFFFFF]" />
             <span>VISIT OUR STUDIO IN DILSUKHNAGAR</span>
           </div>
 
-          <h2 className="font-serif font-bold text-2xl sm:text-3xl text-[#511B2A]">
+          <h2 className="font-serif font-bold text-2xl sm:text-3xl text-[#FFFFFF]">
             Abhi&apos;s Gifts Studio
           </h2>
 
-          <p className="text-xs sm:text-sm text-[#533C36] leading-relaxed">
+          <p className="text-xs sm:text-sm text-[#D1D5DB] leading-relaxed">
             Customers in Hyderabad are warmly welcome to visit our workshop studio in Dilsukhnagar to inspect physical material samples, compare 4mm cast acrylic against traditional glass, test warm 3000K LED backlighting, and pick up custom orders directly.
           </p>
 
-          <div className="space-y-2 text-xs sm:text-sm text-[#511B2A]">
+          <div className="space-y-2 text-xs sm:text-sm text-[#FFFFFF]">
             <p className="flex items-start gap-2">
-              <MapPin className="w-4 h-4 text-[#A06E28] shrink-0 mt-0.5" />
+              <MapPin className="w-4 h-4 text-[#EAB308] shrink-0 mt-0.5" />
               <span><strong>Address:</strong> Main Road, Near Dilsukhnagar Metro Station, Dilsukhnagar, Hyderabad, Telangana 500060</span>
             </p>
             <p className="flex items-center gap-2">
-              <Clock className="w-4 h-4 text-[#A06E28] shrink-0" />
+              <Clock className="w-4 h-4 text-[#EAB308] shrink-0" />
               <span><strong>Hours:</strong> Mon - Sat: 10:00 AM – 9:00 PM | Sun: 11:00 AM – 8:00 PM</span>
             </p>
             <p className="flex items-center gap-2">
-              <Phone className="w-4 h-4 text-[#A06E28] shrink-0" />
+              <Phone className="w-4 h-4 text-[#EAB308] shrink-0" />
               <span><strong>Direct Support:</strong> +91 77802 69927 (Calls &amp; WhatsApp)</span>
             </p>
           </div>
@@ -324,7 +324,7 @@ export default function LocalLandingPageView({
             </a>
             <a
               href="tel:+917780269927"
-              className="border border-[#511B2A] text-[#511B2A] px-5 py-2.5 rounded-full text-xs font-bold hover:bg-[#FFF8EF] transition-colors"
+              className="border border-[#2D2D2D] text-[#FFFFFF] px-5 py-2.5 rounded-full text-xs font-bold hover:bg-[#121212] transition-colors"
             >
               Call Studio Now
             </a>
@@ -332,15 +332,15 @@ export default function LocalLandingPageView({
         </div>
 
         {/* Coverage Neighborhoods */}
-        <div className="bg-[#FFF8EF] rounded-2xl p-6 border border-[#E8D1A5] space-y-4">
-          <h3 className="font-serif font-bold text-base sm:text-lg text-[#511B2A]">
+        <div className="bg-[#121212] rounded-2xl p-6 border border-[#2D2D2D] space-y-4">
+          <h3 className="font-serif font-bold text-base sm:text-lg text-[#FFFFFF]">
             Fast Local Express Delivery Across Hyderabad &amp; Telangana
           </h3>
           <p className="text-xs text-[#785E59] leading-relaxed">
             We provide same-day or 24-48 hour courier and bike dispatch across all key Hyderabad localities:
           </p>
 
-          <div className="flex flex-wrap gap-2 text-[11px] text-[#511B2A]">
+          <div className="flex flex-wrap gap-2 text-[11px] text-[#FFFFFF]">
             {[
               'Dilsukhnagar',
               'Kothapet',
@@ -365,34 +365,34 @@ export default function LocalLandingPageView({
             ].map((area) => (
               <span
                 key={area}
-                className="bg-white px-2.5 py-1 rounded-full border border-[#E8D1A5] font-medium"
+                className="bg-white px-2.5 py-1 rounded-full border border-[#2D2D2D] font-medium"
               >
                 📍 {area}
               </span>
             ))}
           </div>
 
-          <div className="pt-2 border-t border-[#E8D1A5]/60 text-xs text-[#785E59]">
+          <div className="pt-2 border-t border-[#2D2D2D]/60 text-xs text-[#785E59]">
             ⚡ <strong>Searching for a &quot;Photo Frame Shop Near Me&quot;?</strong> We are conveniently located right near Dilsukhnagar Metro. You can also order online with free home delivery.
           </div>
         </div>
       </section>
 
       {/* Frequently Asked Questions */}
-      <section className="bg-white rounded-3xl p-6 sm:p-10 border border-[#E8D1A5] space-y-6">
+      <section className="bg-white rounded-3xl p-6 sm:p-10 border border-[#2D2D2D] space-y-6">
         <div>
-          <span className="text-xs font-bold uppercase tracking-wider text-[#A06E28]">
+          <span className="text-xs font-bold uppercase tracking-wider text-[#EAB308]">
             LOCAL HYDERABAD FAQ
           </span>
-          <h2 className="font-serif font-bold text-2xl sm:text-3xl text-[#511B2A] mt-1">
+          <h2 className="font-serif font-bold text-2xl sm:text-3xl text-[#FFFFFF] mt-1">
             Frequently Asked Questions about {keyword}
           </h2>
         </div>
 
         <div className="space-y-4">
           {faqs.map((faq, idx) => (
-            <div key={idx} className="p-4 sm:p-5 rounded-2xl bg-[#FFF8EF] border border-[#E8D1A5]/70 space-y-2">
-              <h3 className="font-serif font-bold text-sm sm:text-base text-[#511B2A]">
+            <div key={idx} className="p-4 sm:p-5 rounded-2xl bg-[#121212] border border-[#2D2D2D]/70 space-y-2">
+              <h3 className="font-serif font-bold text-sm sm:text-base text-[#FFFFFF]">
                 {faq.question}
               </h3>
               <p className="text-xs sm:text-sm text-[#785E59] leading-relaxed">
@@ -404,28 +404,28 @@ export default function LocalLandingPageView({
       </section>
 
       {/* Internal Navigation to Sister Pages */}
-      <section className="bg-[#FFF8EF] rounded-2xl p-6 border border-[#E8D1A5] space-y-3">
-        <h4 className="font-serif font-bold text-sm text-[#511B2A] uppercase tracking-wider">
+      <section className="bg-[#121212] rounded-2xl p-6 border border-[#2D2D2D] space-y-3">
+        <h4 className="font-serif font-bold text-sm text-[#FFFFFF] uppercase tracking-wider">
           Explore Other Local Photo Frame Services in Hyderabad
         </h4>
         <div className="flex flex-wrap gap-3 text-xs">
-          <Link href="/acrylic-photo-frames-hyderabad" className="underline hover:text-[#A06E28] font-medium">
+          <Link href="/acrylic-photo-frames-hyderabad" className="underline hover:text-[#EAB308] font-medium">
             Acrylic Photo Frames in Hyderabad
           </Link>
           <span>•</span>
-          <Link href="/photo-frames-dilsukhnagar" className="underline hover:text-[#A06E28] font-medium">
+          <Link href="/photo-frames-dilsukhnagar" className="underline hover:text-[#EAB308] font-medium">
             Photo Frames in Dilsukhnagar
           </Link>
           <span>•</span>
-          <Link href="/led-photo-frames-hyderabad" className="underline hover:text-[#A06E28] font-medium">
+          <Link href="/led-photo-frames-hyderabad" className="underline hover:text-[#EAB308] font-medium">
             LED Photo Frames in Hyderabad
           </Link>
           <span>•</span>
-          <Link href="/acrylic-photo-frames-dilsukhnagar" className="underline hover:text-[#A06E28] font-medium">
+          <Link href="/acrylic-photo-frames-dilsukhnagar" className="underline hover:text-[#EAB308] font-medium">
             Acrylic Photo Frames Dilsukhnagar
           </Link>
           <span>•</span>
-          <Link href="/customized-gifts-dilsukhnagar" className="underline hover:text-[#A06E28] font-medium">
+          <Link href="/customized-gifts-dilsukhnagar" className="underline hover:text-[#EAB308] font-medium">
             Customized Gifts in Dilsukhnagar
           </Link>
         </div>

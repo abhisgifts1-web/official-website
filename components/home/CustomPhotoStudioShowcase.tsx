@@ -102,31 +102,31 @@ export default function CustomPhotoStudioShowcase() {
       num: 1,
       title: 'Upload Your Photo',
       subtitle: 'Accepts JPEG, PNG or WebP up to 15MB with auto resolution check.',
-      icon: <UploadCloud className="w-4 h-4 text-[#B88A35]" />,
+      icon: <UploadCloud className="w-4 h-4 text-[#EAB308]" />,
     },
     {
       num: 2,
       title: 'Interactive 3D Preview',
       subtitle: 'Simulate your photo on living room or mandir walls in real time.',
-      icon: <Eye className="w-4 h-4 text-[#B88A35]" />,
+      icon: <Eye className="w-4 h-4 text-[#EAB308]" />,
     },
     {
       num: 3,
       title: 'WhatsApp Proof Review',
       subtitle: 'Digital layout proof shared on WhatsApp for your final approval.',
-      icon: <MessageCircle className="w-4 h-4 text-[#B88A35]" />,
+      icon: <MessageCircle className="w-4 h-4 text-[#EAB308]" />,
     },
     {
       num: 4,
       title: '100% Safe Transit Guarantee',
       subtitle: '5-layer reinforced wooden crate packaging delivered pan-India.',
-      icon: <Truck className="w-4 h-4 text-[#795D58]" />,
+      icon: <Truck className="w-4 h-4 text-[#D1D5DB]" />,
     },
   ];
 
   return (
     <section className="w-full max-w-[1760px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 py-4 sm:py-6">
-      <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden bg-gradient-to-br from-[#FCFBF8] via-[#F8F4ED] to-[#F1E8DC] p-5 sm:p-7 lg:p-9 border border-[#B88A35]/60 shadow-xl">
+      <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden bg-gradient-to-br from-[#FCFBF8] via-[#F8F4ED] to-[#F1E8DC] p-5 sm:p-7 lg:p-9 border border-[#EAB308]/60 shadow-xl">
         {/* Subtle decorative background ambient glow */}
         <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#E8D5BD]/30 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute bottom-0 left-1/4 w-80 h-80 bg-orange-100/40 rounded-full blur-3xl pointer-events-none" />
@@ -136,8 +136,8 @@ export default function CustomPhotoStudioShowcase() {
           <div className="lg:col-span-7 space-y-4 text-left">
             {/* Top Badge & Live Status */}
             <div className="flex flex-wrap items-center justify-between gap-2.5">
-              <span className="text-[11px] uppercase tracking-widest font-bold text-[#641E2E] bg-[#E8D5BD] border border-[#B88A35]/60 px-3.5 py-1 rounded-full inline-flex items-center gap-1.5 shadow-2xs">
-                <Camera className="w-3.5 h-3.5 text-[#795D58] animate-pulse" />
+              <span className="text-[11px] uppercase tracking-widest font-bold text-[#FFFFFF] bg-[#E8D5BD] border border-[#EAB308]/60 px-3.5 py-1 rounded-full inline-flex items-center gap-1.5 shadow-2xs">
+                <Camera className="w-3.5 h-3.5 text-[#D1D5DB] animate-pulse" />
                 <span>Dedicated Artisan Studio</span>
               </span>
 
@@ -147,19 +147,19 @@ export default function CustomPhotoStudioShowcase() {
                 onClick={() => setIsNightMode(!isNightMode)}
                 className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold border transition-all duration-300 cursor-pointer ${
                   isNightMode
-                    ? 'bg-stone-900 text-[#F4DFE4] border-[#B88A35]/60 shadow-[0_0_12px_rgba(245,158,11,0.3)]'
+                    ? 'bg-stone-900 text-[#F4DFE4] border-[#EAB308]/60 shadow-[0_0_12px_rgba(245,158,11,0.3)]'
                     : 'bg-white/90 text-stone-700 border-stone-300 hover:border-amber-400'
                 }`}
                 title="Toggle Day vs Night Light Simulation"
               >
                 {isNightMode ? (
                   <>
-                    <Moon className="w-3.5 h-3.5 text-[#B88A35] animate-pulse" />
-                    <span>Night Glow: <strong className="text-[#B88A35]">ACTIVE</strong></span>
+                    <Moon className="w-3.5 h-3.5 text-[#EAB308] animate-pulse" />
+                    <span>Night Glow: <strong className="text-[#EAB308]">ACTIVE</strong></span>
                   </>
                 ) : (
                   <>
-                    <Sun className="w-3.5 h-3.5 text-[#B88A35]" />
+                    <Sun className="w-3.5 h-3.5 text-[#EAB308]" />
                     <span>Daylight: <strong className="text-stone-900">NATURAL</strong></span>
                   </>
                 )}
@@ -180,7 +180,7 @@ export default function CustomPhotoStudioShowcase() {
             <div className="space-y-1.5 pt-0.5">
               <div className="flex items-center justify-between text-[11px] font-bold text-stone-500 uppercase tracking-wider">
                 <span>Select Frame Finish:</span>
-                <span className="text-[#641E2E] font-semibold">{activeStyle.shape}</span>
+                <span className="text-[#FFFFFF] font-semibold">{activeStyle.shape}</span>
               </div>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
                 {FRAME_STYLES.map((style) => (
@@ -190,25 +190,25 @@ export default function CustomPhotoStudioShowcase() {
                     onClick={() => handleSelectStyle(style)}
                     className={`relative p-2 rounded-xl text-left border transition-all duration-200 cursor-pointer ${
                       activeStyle.id === style.id
-                        ? 'bg-[#32151D] text-white border-[#B88A35] shadow-md scale-[1.02]'
+                        ? 'bg-[#121212] text-white border-[#EAB308] shadow-md scale-[1.02]'
                         : 'bg-white/90 hover:bg-white text-stone-800 border-stone-200/90 hover:border-amber-400/60 shadow-2xs'
                     }`}
                   >
                     <div className="flex items-center justify-between">
                       <span className={`text-[10px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded ${
-                        activeStyle.id === style.id ? 'bg-[#641E2E] text-[#F4DFE4]' : 'bg-[#FCE7EA] text-[#641E2E]'
+                        activeStyle.id === style.id ? 'bg-[#641E2E] text-[#F4DFE4]' : 'bg-[#1E1E1E] text-[#FFFFFF]'
                       }`}>
                         {style.badge}
                       </span>
                       {activeStyle.id === style.id && (
-                        <Check className="w-3 h-3 text-[#B88A35]" />
+                        <Check className="w-3 h-3 text-[#EAB308]" />
                       )}
                     </div>
                     <span className="block font-serif font-bold text-xs mt-1 truncate">
                       {style.name}
                     </span>
                     <span className={`text-[11px] block mt-0.5 font-semibold ${
-                      activeStyle.id === style.id ? 'text-[#B88A35]' : 'text-[#795D58]'
+                      activeStyle.id === style.id ? 'text-[#EAB308]' : 'text-[#D1D5DB]'
                     }`}>
                       ₹{style.price.toLocaleString('en-IN')}
                     </span>
@@ -225,15 +225,15 @@ export default function CustomPhotoStudioShowcase() {
                   onMouseEnter={() => setActiveStep(st.num)}
                   className={`p-2.5 sm:p-3 rounded-xl border transition-all duration-300 cursor-pointer ${
                     activeStep === st.num
-                      ? 'bg-white shadow-sm border-[#B88A35]/60 -translate-y-0.5 ring-1 ring-[#B88A35]/40'
+                      ? 'bg-white shadow-sm border-[#EAB308]/60 -translate-y-0.5 ring-1 ring-[#EAB308]/40'
                       : 'bg-white/70 hover:bg-white/95 border-stone-200/80 shadow-2xs'
                   }`}
                 >
                   <div className="flex items-center gap-2">
                     <span className={`w-5 h-5 rounded-full flex items-center justify-center text-xs font-bold transition-colors ${
                       activeStep === st.num
-                        ? 'bg-[#641E2E] text-[#FFF7ED] shadow-xs'
-                        : 'bg-[#FCE7EA] text-[#641E2E]'
+                        ? 'bg-[#641E2E] text-[#FFFFFF] shadow-xs'
+                        : 'bg-[#1E1E1E] text-[#FFFFFF]'
                     }`}>
                       {st.num}
                     </span>
@@ -252,16 +252,16 @@ export default function CustomPhotoStudioShowcase() {
             <div className="pt-2 flex flex-wrap items-center gap-3">
               <Link
                 href="/customise"
-                className="inline-flex items-center gap-2 bg-gradient-to-r from-[#641E2E] via-[#4D1522] to-[#32151D] hover:from-[#4D1522] hover:to-[#1F0A11] text-white font-semibold text-xs sm:text-sm px-6 py-2.5 rounded-full shadow-warm transition-all duration-300 hover:shadow-[0_0_20px_rgba(180,83,9,0.35)] hover:-translate-y-0.5 group"
+                className="inline-flex items-center gap-2 bg-gradient-to-r from-[#181818] via-[#4D1522] to-[#0A0A0A] hover:from-[#4D1522] hover:to-[#1F0A11] text-white font-semibold text-xs sm:text-sm px-6 py-2.5 rounded-full shadow-warm transition-all duration-300 hover:shadow-[0_0_20px_rgba(180,83,9,0.35)] hover:-translate-y-0.5 group"
               >
-                <Sparkles className="w-3.5 h-3.5 text-[#B88A35] animate-pulse" />
+                <Sparkles className="w-3.5 h-3.5 text-[#EAB308] animate-pulse" />
                 <span>Launch Customizer Studio</span>
                 <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
               </Link>
 
               <Link
                 href="/category/custom-portrait-frames"
-                className="text-xs font-semibold text-[#641E2E] hover:text-[#B88A35] px-3 py-2 transition-colors flex items-center gap-1 group"
+                className="text-xs font-semibold text-[#FFFFFF] hover:text-[#EAB308] px-3 py-2 transition-colors flex items-center gap-1 group"
               >
                 <span>Browse All Custom Sizes</span>
                 <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
@@ -291,7 +291,7 @@ export default function CustomPhotoStudioShowcase() {
                   : 'bg-gradient-to-br from-[#FAF6E9] via-[#E8DCB8] to-[#C8B27A] shadow-[0_15px_35px_-5px_rgba(0,0,0,0.2)] hover:-translate-y-1 ring-1 ring-[#E8D5BD]'
               }`}
             >
-              <div className="relative w-full h-full rounded-xl sm:rounded-2xl overflow-hidden bg-stone-950 border border-[#B88A35]/60 shadow-inner">
+              <div className="relative w-full h-full rounded-xl sm:rounded-2xl overflow-hidden bg-stone-950 border border-[#EAB308]/60 shadow-inner">
                 {/* Product Frame Image */}
                 <img
                   key={activeStyle.id}
@@ -321,8 +321,8 @@ export default function CustomPhotoStudioShowcase() {
 
               {/* Top Status Pill */}
               <div className="absolute top-3 inset-x-8 flex items-center justify-center z-10">
-                <span className="inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider bg-stone-950/85 backdrop-blur-md text-[#B88A35] px-3 py-0.5 rounded-full border border-[#B88A35]/60 shadow-xs">
-                  <Sparkles className="w-2.5 h-2.5 text-[#B88A35] animate-pulse" />
+                <span className="inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider bg-stone-950/85 backdrop-blur-md text-[#EAB308] px-3 py-0.5 rounded-full border border-[#EAB308]/60 shadow-xs">
+                  <Sparkles className="w-2.5 h-2.5 text-[#EAB308] animate-pulse" />
                   <span>{activeStyle.name}</span>
                 </span>
               </div>
@@ -331,7 +331,7 @@ export default function CustomPhotoStudioShowcase() {
               <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-stone-950/95 via-stone-950/70 to-transparent p-3.5 pt-8 z-10 text-left">
                 <div className="flex items-baseline justify-between">
                   <div>
-                    <span className="text-[10px] text-[#B88A35]/90 font-semibold block uppercase tracking-wider">Starting from</span>
+                    <span className="text-[10px] text-[#EAB308]/90 font-semibold block uppercase tracking-wider">Starting from</span>
                     <div className="flex items-baseline gap-1.5">
                       <span className="text-white font-serif font-bold text-base sm:text-lg">
                         ₹{activeStyle.price.toLocaleString('en-IN')}
@@ -344,7 +344,7 @@ export default function CustomPhotoStudioShowcase() {
 
                   <Link
                     href="/customise"
-                    className="bg-[#B88A35] hover:bg-[#AF8E4E] text-[#641E2E] text-xs font-bold px-3 py-1.5 rounded-full shadow-xs transition-colors"
+                    className="bg-[#EAB308] hover:bg-[#AF8E4E] text-[#FFFFFF] text-xs font-bold px-3 py-1.5 rounded-full shadow-xs transition-colors"
                   >
                     Customize
                   </Link>

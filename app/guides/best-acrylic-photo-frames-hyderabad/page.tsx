@@ -35,21 +35,21 @@ export default function BestAcrylicPhotoFramesHyderabadGuide() {
 
       {/* Breadcrumbs */}
       <nav className="flex items-center gap-2 text-xs text-stone-500" aria-label="Breadcrumb">
-        <Link href="/" className="hover:text-[#641E2E] flex items-center gap-1">
+        <Link href="/" className="hover:text-[#FFFFFF] flex items-center gap-1">
           <Home className="w-3.5 h-3.5" />
           <span>Home</span>
         </Link>
         <span>/</span>
-        <Link href="/guides" className="hover:text-[#641E2E]">
+        <Link href="/guides" className="hover:text-[#FFFFFF]">
           Guides
         </Link>
         <span>/</span>
-        <span className="text-[#511B2A] font-semibold truncate">Best Acrylic Photo Frames in Hyderabad</span>
+        <span className="text-[#FFFFFF] font-semibold truncate">Best Acrylic Photo Frames in Hyderabad</span>
       </nav>
 
       {/* Header */}
-      <header className="space-y-4 pb-6 border-b border-[#E8D1A5]">
-        <div className="flex items-center gap-2 text-xs font-bold text-[#A06E28] uppercase tracking-wider">
+      <header className="space-y-4 pb-6 border-b border-[#2D2D2D]">
+        <div className="flex items-center gap-2 text-xs font-bold text-[#EAB308] uppercase tracking-wider">
           <span>Local Hyderabad Guide</span>
           <span>•</span>
           <span>6 Min Read</span>
@@ -57,7 +57,7 @@ export default function BestAcrylicPhotoFramesHyderabadGuide() {
           <span>By Abhi&apos;s Gifts Artisans</span>
         </div>
 
-        <h1 className="font-serif font-bold text-3xl sm:text-4xl lg:text-5xl text-[#511B2A] leading-tight">
+        <h1 className="font-serif font-bold text-3xl sm:text-4xl lg:text-5xl text-[#FFFFFF] leading-tight">
           Best Acrylic Photo Frames in Hyderabad: Complete Buying &amp; Quality Guide
         </h1>
 
@@ -67,24 +67,24 @@ export default function BestAcrylicPhotoFramesHyderabadGuide() {
       </header>
 
       {/* Main Content Body */}
-      <div className="space-y-8 text-xs sm:text-sm text-[#533C36] leading-relaxed">
+      <div className="space-y-8 text-xs sm:text-sm text-[#D1D5DB] leading-relaxed">
         <section className="space-y-3">
-          <h2 className="font-serif font-bold text-xl sm:text-2xl text-[#511B2A]">
+          <h2 className="font-serif font-bold text-xl sm:text-2xl text-[#FFFFFF]">
             1. Cast Acrylic vs. Extruded Acrylic: The Crucial Difference
           </h2>
           <p>
-            When searching for <Link href="/acrylic-photo-frames-hyderabad" className="text-[#641E2E] font-semibold underline">acrylic photo frames in Hyderabad</Link>, the single most critical quality factor is whether the frame is made from <strong>Cast Acrylic</strong> or cheap <strong>Extruded Acrylic</strong>.
+            When searching for <Link href="/acrylic-photo-frames-hyderabad" className="text-[#FFFFFF] font-semibold underline">acrylic photo frames in Hyderabad</Link>, the single most critical quality factor is whether the frame is made from <strong>Cast Acrylic</strong> or cheap <strong>Extruded Acrylic</strong>.
           </p>
           <p>
             Cast acrylic is produced by pouring virgin MMA liquid monomer between two sheets of optical glass. This creates a dense molecular matrix resulting in 99.2% optical purity, high scratch resistance, and zero yellowing over 25+ years. Extruded acrylic, on the other hand, is a cheaper mass-molded plastic that scratches easily, exhibits optical warpage, and yellows within 12 to 18 months under Hyderabad&apos;s ambient sunlight.
           </p>
-          <div className="p-4 rounded-xl bg-[#FFF8EF] border border-[#E8D1A5] text-xs">
+          <div className="p-4 rounded-xl bg-[#121212] border border-[#2D2D2D] text-xs">
             💡 <strong>Artisan Tip:</strong> Always verify that your framing studio specifies <strong>4mm or 5mm high-density imported cast acrylic</strong>. At Abhi&apos;s Gifts in Dilsukhnagar, we exclusively utilize virgin cast acrylic sheets.
           </div>
         </section>
 
         <section className="space-y-3">
-          <h2 className="font-serif font-bold text-xl sm:text-2xl text-[#511B2A]">
+          <h2 className="font-serif font-bold text-xl sm:text-2xl text-[#FFFFFF]">
             2. Edge Polishing: Look for Diamond CNC Beveling
           </h2>
           <p>
@@ -93,7 +93,7 @@ export default function BestAcrylicPhotoFramesHyderabadGuide() {
         </section>
 
         <section className="space-y-3">
-          <h2 className="font-serif font-bold text-xl sm:text-2xl text-[#511B2A]">
+          <h2 className="font-serif font-bold text-xl sm:text-2xl text-[#FFFFFF]">
             3. Printing Technology: Industrial Flatbed UV vs. Paper Lamination
           </h2>
           <p>
@@ -102,19 +102,19 @@ export default function BestAcrylicPhotoFramesHyderabadGuide() {
         </section>
 
         <section className="space-y-3">
-          <h2 className="font-serif font-bold text-xl sm:text-2xl text-[#511B2A]">
+          <h2 className="font-serif font-bold text-xl sm:text-2xl text-[#FFFFFF]">
             4. Recommended Frame Sizes for Hyderabad Living Spaces
           </h2>
           <ul className="list-disc pl-5 space-y-1.5">
             <li><strong>Apartment Entryways &amp; Foyers:</strong> 12x18 inches or 16x24 inches vertical portrait.</li>
-            <li><strong>Living Room Sofa Backdrops:</strong> 24x36 inches single frame or a <Link href="/category/sets-of-two-three-frames" className="text-[#641E2E] font-semibold underline">symmetrical triptych set of 3</Link>.</li>
-            <li><strong>Bedrooms &amp; Bedside:</strong> 12x12 inch <Link href="/led-photo-frames-hyderabad" className="text-[#641E2E] font-semibold underline">3000K LED night-glow frame</Link>.</li>
+            <li><strong>Living Room Sofa Backdrops:</strong> 24x36 inches single frame or a <Link href="/category/sets-of-two-three-frames" className="text-[#FFFFFF] font-semibold underline">symmetrical triptych set of 3</Link>.</li>
+            <li><strong>Bedrooms &amp; Bedside:</strong> 12x12 inch <Link href="/led-photo-frames-hyderabad" className="text-[#FFFFFF] font-semibold underline">3000K LED night-glow frame</Link>.</li>
             <li><strong>Pooja Mandir Sanctums:</strong> Sacred devotional acrylic frames (Tirupati Balaji, Ganesha, Shiva) in 18x24 inches.</li>
           </ul>
         </section>
 
         <section className="space-y-3">
-          <h2 className="font-serif font-bold text-xl sm:text-2xl text-[#511B2A]">
+          <h2 className="font-serif font-bold text-xl sm:text-2xl text-[#FFFFFF]">
             5. Why Buy Direct from Abhi&apos;s Gifts in Dilsukhnagar?
           </h2>
           <p>
@@ -129,7 +129,7 @@ export default function BestAcrylicPhotoFramesHyderabadGuide() {
             </Link>
             <Link
               href="/photo-frames-dilsukhnagar"
-              className="border border-[#511B2A] text-[#511B2A] px-5 py-2.5 rounded-full font-bold text-xs hover:bg-[#FFF8EF] transition-colors"
+              className="border border-[#2D2D2D] text-[#FFFFFF] px-5 py-2.5 rounded-full font-bold text-xs hover:bg-[#121212] transition-colors"
             >
               Visit Our Dilsukhnagar Studio
             </Link>
@@ -138,14 +138,14 @@ export default function BestAcrylicPhotoFramesHyderabadGuide() {
       </div>
 
       {/* Navigation Footer */}
-      <footer className="pt-8 border-t border-[#E8D1A5] flex items-center justify-between text-xs">
-        <Link href="/guides" className="text-[#785E59] hover:text-[#511B2A] flex items-center gap-1">
+      <footer className="pt-8 border-t border-[#2D2D2D] flex items-center justify-between text-xs">
+        <Link href="/guides" className="text-[#785E59] hover:text-[#FFFFFF] flex items-center gap-1">
           <ArrowLeft className="w-3.5 h-3.5" />
           <span>All Guides</span>
         </Link>
         <Link
           href="/guides/how-to-choose-customized-photo-frames"
-          className="text-[#641E2E] font-bold hover:text-[#A06E28] flex items-center gap-1"
+          className="text-[#FFFFFF] font-bold hover:text-[#EAB308] flex items-center gap-1"
         >
           <span>Next: How to Choose Customized Photo Frames</span>
           <ArrowRight className="w-3.5 h-3.5" />

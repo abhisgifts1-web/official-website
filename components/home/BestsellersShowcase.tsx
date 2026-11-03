@@ -85,16 +85,16 @@ export default function BestsellersShowcase() {
   return (
     <section className="w-full max-w-[1760px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 py-6 sm:py-8 lg:py-10">
       {/* Header with Title and Filter Tabs */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 pb-4 border-b border-[#E8D5BD] gap-4">
+      <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 pb-4 border-b border-[#2D2D2D] gap-4">
         <div>
-          <div className="inline-flex items-center gap-1.5 text-xs uppercase tracking-widest font-bold text-[#511B2A] bg-white border border-[#D6AA55] px-3.5 py-1 rounded-full shadow-2xs mb-2">
-            <Sparkles className="w-3.5 h-3.5 text-[#D6AA55]" />
+          <div className="inline-flex items-center gap-1.5 text-xs uppercase tracking-widest font-bold text-[#FFFFFF] bg-[#181818] border border-[#EAB308] px-3.5 py-1 rounded-full shadow-2xs mb-2">
+            <Sparkles className="w-3.5 h-3.5 text-[#EAB308]" />
             <span>Customer Favorites • Handcrafted Heirlooms</span>
           </div>
-          <h2 className="font-serif font-bold text-2xl sm:text-3xl lg:text-4xl text-[#511B2A] tracking-tight">
+          <h2 className="font-serif font-bold text-2xl sm:text-3xl lg:text-4xl text-[#FFFFFF] tracking-tight">
             THE MOST LOVED DIVINE MASTERPIECES
           </h2>
-          <p className="text-xs sm:text-sm text-[#533C36] mt-1.5 max-w-2xl font-sans leading-relaxed">
+          <p className="text-xs sm:text-sm text-[#D1D5DB] mt-1.5 max-w-2xl font-sans leading-relaxed">
             Curated selection of our most revered sanctum heirlooms and collector favorites, gracing over 10,000+ homes and pooja mandirs across India.
           </p>
         </div>
@@ -106,8 +106,8 @@ export default function BestsellersShowcase() {
             onClick={() => handleFilterChange('all')}
             className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all whitespace-nowrap cursor-pointer ${
               activeFilter === 'all'
-                ? 'bg-[#511B2A] text-[#FFF7EC] border border-[#D6AA55] shadow-xs'
-                : 'bg-white text-[#533C36] border border-[#E8D5BD] hover:border-[#D6AA55]'
+                ? 'bg-[#511B2A] text-[#FFFFFF] border border-[#EAB308] shadow-xs'
+                : 'bg-[#181818] text-[#D1D5DB] border border-[#2D2D2D] hover:border-[#EAB308]'
             }`}
           >
             All Masterpieces
@@ -117,11 +117,11 @@ export default function BestsellersShowcase() {
             onClick={() => handleFilterChange('led')}
             className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all whitespace-nowrap flex items-center gap-1 cursor-pointer ${
               activeFilter === 'led'
-                ? 'bg-[#511B2A] text-[#FFF7EC] border border-[#D6AA55] shadow-xs'
-                : 'bg-white text-[#533C36] border border-[#E8D5BD] hover:border-[#D6AA55]'
+                ? 'bg-[#511B2A] text-[#FFFFFF] border border-[#EAB308] shadow-xs'
+                : 'bg-[#181818] text-[#D1D5DB] border border-[#2D2D2D] hover:border-[#EAB308]'
             }`}
           >
-            <Flame className="w-3 h-3 text-[#D6AA55]" />
+            <Flame className="w-3 h-3 text-[#EAB308]" />
             <span>LED Backlit</span>
           </button>
           <button
@@ -129,8 +129,8 @@ export default function BestsellersShowcase() {
             onClick={() => handleFilterChange('deities')}
             className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all whitespace-nowrap cursor-pointer ${
               activeFilter === 'deities'
-                ? 'bg-[#511B2A] text-[#FFF7EC] border border-[#D6AA55] shadow-xs'
-                : 'bg-white text-[#533C36] border border-[#E8D5BD] hover:border-[#D6AA55]'
+                ? 'bg-[#511B2A] text-[#FFFFFF] border border-[#EAB308] shadow-xs'
+                : 'bg-[#181818] text-[#D1D5DB] border border-[#2D2D2D] hover:border-[#EAB308]'
             }`}
           >
             Sacred Deities
@@ -140,8 +140,8 @@ export default function BestsellersShowcase() {
             onClick={() => handleFilterChange('vastu')}
             className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all whitespace-nowrap cursor-pointer ${
               activeFilter === 'vastu'
-                ? 'bg-[#511B2A] text-[#FFF7EC] border border-[#D6AA55] shadow-xs'
-                : 'bg-white text-[#533C36] border border-[#E8D5BD] hover:border-[#D6AA55]'
+                ? 'bg-[#511B2A] text-[#FFFFFF] border border-[#EAB308] shadow-xs'
+                : 'bg-[#181818] text-[#D1D5DB] border border-[#2D2D2D] hover:border-[#EAB308]'
             }`}
           >
             Vastu &amp; Modern
@@ -166,11 +166,11 @@ export default function BestsellersShowcase() {
             className={`inline-flex items-center gap-1 px-3.5 py-2 rounded-full text-xs font-bold transition-all cursor-pointer ${
               currentPage === 1
                 ? 'bg-[#F2E5D5] text-[#8C7A70] cursor-not-allowed opacity-60'
-                : 'bg-white text-[#511B2A] border border-[#E8D5BD] hover:border-[#D6AA55] shadow-xs'
+                : 'bg-[#181818] text-[#FFFFFF] border border-[#2D2D2D] hover:border-[#EAB308] shadow-xs'
             }`}
             aria-label="Previous page"
           >
-            <ChevronLeft className="w-4 h-4 text-[#D6AA55]" />
+            <ChevronLeft className="w-4 h-4 text-[#EAB308]" />
             <span className="hidden sm:inline">Previous</span>
           </button>
 
@@ -184,8 +184,8 @@ export default function BestsellersShowcase() {
                 onClick={() => goToPage(pageNum)}
                 className={`w-9 h-9 rounded-full text-xs font-bold transition-all cursor-pointer flex items-center justify-center ${
                   isActive
-                    ? 'bg-[#511B2A] text-[#FFF7EC] border border-[#D6AA55] shadow-xs scale-105'
-                    : 'bg-white text-[#533C36] border border-[#E8D5BD] hover:border-[#D6AA55]'
+                    ? 'bg-[#511B2A] text-[#FFFFFF] border border-[#EAB308] shadow-xs scale-105'
+                    : 'bg-[#181818] text-[#D1D5DB] border border-[#2D2D2D] hover:border-[#EAB308]'
                 }`}
               >
                 {pageNum}
@@ -200,12 +200,12 @@ export default function BestsellersShowcase() {
             className={`inline-flex items-center gap-1 px-3.5 py-2 rounded-full text-xs font-bold transition-all cursor-pointer ${
               currentPage === totalPages
                 ? 'bg-[#F2E5D5] text-[#8C7A70] cursor-not-allowed opacity-60'
-                : 'bg-white text-[#511B2A] border border-[#E8D5BD] hover:border-[#D6AA55] shadow-xs'
+                : 'bg-[#181818] text-[#FFFFFF] border border-[#2D2D2D] hover:border-[#EAB308] shadow-xs'
             }`}
             aria-label="Next page"
           >
             <span className="hidden sm:inline">Next</span>
-            <ChevronRight className="w-4 h-4 text-[#D6AA55]" />
+            <ChevronRight className="w-4 h-4 text-[#EAB308]" />
           </button>
         </div>
       )}
@@ -214,11 +214,11 @@ export default function BestsellersShowcase() {
       <div className="mt-8 sm:mt-10 text-center">
         <Link
           href="/shop"
-          className="inline-flex items-center justify-center gap-2.5 bg-gradient-to-r from-[#511B2A] via-[#641D30] to-[#511B2A] hover:from-[#3D1420] hover:to-[#511B2A] text-[#FFF7EC] font-bold text-xs sm:text-sm px-8 py-3.5 rounded-full shadow-md border border-[#D6AA55]/80 transition-all hover:scale-[1.02] tracking-wider uppercase group"
+          className="inline-flex items-center justify-center gap-2.5 bg-gradient-to-r from-[#121212] via-[#641D30] to-[#121212] hover:from-[#3D1420] hover:to-[#121212] text-[#FFFFFF] font-bold text-xs sm:text-sm px-8 py-3.5 rounded-full shadow-md border border-[#EAB308]/80 transition-all hover:scale-[1.02] tracking-wider uppercase group"
         >
-          <Sparkles className="w-4 h-4 text-[#D6AA55]" />
+          <Sparkles className="w-4 h-4 text-[#EAB308]" />
           <span>View All Divine Masterpieces</span>
-          <ArrowRight className="w-4 h-4 text-[#D6AA55] group-hover:translate-x-1 transition-transform" />
+          <ArrowRight className="w-4 h-4 text-[#EAB308] group-hover:translate-x-1 transition-transform" />
         </Link>
       </div>
     </section>

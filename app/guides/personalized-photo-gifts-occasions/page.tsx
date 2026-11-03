@@ -34,20 +34,20 @@ export default function PersonalizedPhotoGiftsOccasionsGuide() {
       />
 
       <nav className="flex items-center gap-2 text-xs text-stone-500" aria-label="Breadcrumb">
-        <Link href="/" className="hover:text-[#641E2E] flex items-center gap-1">
+        <Link href="/" className="hover:text-[#FFFFFF] flex items-center gap-1">
           <Home className="w-3.5 h-3.5" />
           <span>Home</span>
         </Link>
         <span>/</span>
-        <Link href="/guides" className="hover:text-[#641E2E]">
+        <Link href="/guides" className="hover:text-[#FFFFFF]">
           Guides
         </Link>
         <span>/</span>
-        <span className="text-[#511B2A] font-semibold truncate">Personalized Photo Gifts for Special Occasions</span>
+        <span className="text-[#FFFFFF] font-semibold truncate">Personalized Photo Gifts for Special Occasions</span>
       </nav>
 
-      <header className="space-y-4 pb-6 border-b border-[#E8D1A5]">
-        <div className="flex items-center gap-2 text-xs font-bold text-[#A06E28] uppercase tracking-wider">
+      <header className="space-y-4 pb-6 border-b border-[#2D2D2D]">
+        <div className="flex items-center gap-2 text-xs font-bold text-[#EAB308] uppercase tracking-wider">
           <span>Occasions &amp; Celebrations</span>
           <span>•</span>
           <span>5 Min Read</span>
@@ -55,7 +55,7 @@ export default function PersonalizedPhotoGiftsOccasionsGuide() {
           <span>By Abhi&apos;s Gifts</span>
         </div>
 
-        <h1 className="font-serif font-bold text-3xl sm:text-4xl lg:text-5xl text-[#511B2A] leading-tight">
+        <h1 className="font-serif font-bold text-3xl sm:text-4xl lg:text-5xl text-[#FFFFFF] leading-tight">
           Personalized Photo Gifts for Special Occasions in Hyderabad
         </h1>
 
@@ -64,9 +64,9 @@ export default function PersonalizedPhotoGiftsOccasionsGuide() {
         </p>
       </header>
 
-      <div className="space-y-8 text-xs sm:text-sm text-[#533C36] leading-relaxed">
+      <div className="space-y-8 text-xs sm:text-sm text-[#D1D5DB] leading-relaxed">
         <section className="space-y-3">
-          <h2 className="font-serif font-bold text-xl sm:text-2xl text-[#511B2A]">
+          <h2 className="font-serif font-bold text-xl sm:text-2xl text-[#FFFFFF]">
             1. Wedding &amp; Marriage Gifts: Custom Wedding Vows Plaque
           </h2>
           <p>
@@ -75,25 +75,25 @@ export default function PersonalizedPhotoGiftsOccasionsGuide() {
         </section>
 
         <section className="space-y-3">
-          <h2 className="font-serif font-bold text-xl sm:text-2xl text-[#511B2A]">
+          <h2 className="font-serif font-bold text-xl sm:text-2xl text-[#FFFFFF]">
             2. 25th &amp; 50th Silver/Golden Anniversaries
           </h2>
           <p>
-            For parents celebrating major milestones, a <Link href="/category/sets-of-two-three-frames" className="text-[#641E2E] font-semibold underline">symmetrical diptych or triptych gallery set</Link> displaying their original wedding photo alongside their modern family portrait creates deep emotional resonance.
+            For parents celebrating major milestones, a <Link href="/category/sets-of-two-three-frames" className="text-[#FFFFFF] font-semibold underline">symmetrical diptych or triptych gallery set</Link> displaying their original wedding photo alongside their modern family portrait creates deep emotional resonance.
           </p>
         </section>
 
         <section className="space-y-3">
-          <h2 className="font-serif font-bold text-xl sm:text-2xl text-[#511B2A]">
+          <h2 className="font-serif font-bold text-xl sm:text-2xl text-[#FFFFFF]">
             3. Gruhapravesam / Housewarming: Consecrated Devotional Art
           </h2>
           <p>
-            In Telugu culture, blessing a new house with sacred iconography brings divine protection (Raksha) and eternal prosperity. Gifting an illuminated 3D acrylic <Link href="/product/tirupati-balaji-divine-led-backlit-acrylic-wall-art" className="text-[#641E2E] font-semibold underline">Tirupati Balaji</Link> or <Link href="/product/lord-ganesha-vighnaharta-divine-led-backlit-acrylic-art" className="text-[#641E2E] font-semibold underline">Lord Ganesha Vighnaharta</Link> frame is considered exceptionally auspicious.
+            In Telugu culture, blessing a new house with sacred iconography brings divine protection (Raksha) and eternal prosperity. Gifting an illuminated 3D acrylic <Link href="/product/tirupati-balaji-divine-led-backlit-acrylic-wall-art" className="text-[#FFFFFF] font-semibold underline">Tirupati Balaji</Link> or <Link href="/product/lord-ganesha-vighnaharta-divine-led-backlit-acrylic-art" className="text-[#FFFFFF] font-semibold underline">Lord Ganesha Vighnaharta</Link> frame is considered exceptionally auspicious.
           </p>
         </section>
 
         <section className="space-y-3">
-          <h2 className="font-serif font-bold text-xl sm:text-2xl text-[#511B2A]">
+          <h2 className="font-serif font-bold text-xl sm:text-2xl text-[#FFFFFF]">
             4. Quick Ordering &amp; Express Delivery in Hyderabad
           </h2>
           <p>
@@ -110,14 +110,14 @@ export default function PersonalizedPhotoGiftsOccasionsGuide() {
         </section>
       </div>
 
-      <footer className="pt-8 border-t border-[#E8D1A5] flex items-center justify-between text-xs">
-        <Link href="/guides/led-acrylic-photo-frames-home-decor" className="text-[#785E59] hover:text-[#511B2A] flex items-center gap-1">
+      <footer className="pt-8 border-t border-[#2D2D2D] flex items-center justify-between text-xs">
+        <Link href="/guides/led-acrylic-photo-frames-home-decor" className="text-[#785E59] hover:text-[#FFFFFF] flex items-center gap-1">
           <ArrowLeft className="w-3.5 h-3.5" />
           <span>Previous: LED Acrylic Photo Frames for Home Decor</span>
         </Link>
         <Link
           href="/guides/choosing-right-photo-frame-memories"
-          className="text-[#641E2E] font-bold hover:text-[#A06E28] flex items-center gap-1"
+          className="text-[#FFFFFF] font-bold hover:text-[#EAB308] flex items-center gap-1"
         >
           <span>Next: Choosing the Right Photo Frame for Your Memories</span>
           <ArrowRight className="w-3.5 h-3.5" />

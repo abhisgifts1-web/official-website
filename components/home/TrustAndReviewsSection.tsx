@@ -58,59 +58,59 @@ export default function TrustAndReviewsSection() {
       {/* =========================================================
           PART 1: Premium Horizontal Trust Pillars (Requirement 10)
           ========================================================= */}
-      <div className="bg-white rounded-3xl p-6 sm:p-8 lg:p-10 border border-[#E8D5BD] shadow-xs">
+      <div className="bg-[#181818] rounded-3xl p-6 sm:p-8 lg:p-10 border border-[#2D2D2D] shadow-xs">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 sm:gap-8">
           {/* Pillar 1: Secure Payments */}
           <div className="flex flex-col items-center sm:items-start text-center sm:text-left space-y-2">
-            <div className="w-12 h-12 rounded-2xl bg-[#FFF7EC] text-[#511B2A] border border-[#D6AA55]/50 flex items-center justify-center shadow-2xs">
-              <Lock className="w-5 h-5 text-[#D6AA55]" />
+            <div className="w-12 h-12 rounded-2xl bg-[#121212] text-[#FFFFFF] border border-[#EAB308]/50 flex items-center justify-center shadow-2xs">
+              <Lock className="w-5 h-5 text-[#EAB308]" />
             </div>
-            <h4 className="font-bold text-xs sm:text-sm text-[#511B2A]">Secure Payments</h4>
-            <p className="text-[11px] text-[#533C36] leading-snug">
+            <h4 className="font-bold text-xs sm:text-sm text-[#FFFFFF]">Secure Payments</h4>
+            <p className="text-[11px] text-[#D1D5DB] leading-snug">
               100% encrypted UPI, cards, Net Banking &amp; direct WhatsApp order confirmation.
             </p>
           </div>
 
           {/* Pillar 2: Safe Packaging */}
           <div className="flex flex-col items-center sm:items-start text-center sm:text-left space-y-2">
-            <div className="w-12 h-12 rounded-2xl bg-[#FFF7EC] text-[#511B2A] border border-[#D6AA55]/50 flex items-center justify-center shadow-2xs">
-              <ShieldCheck className="w-5 h-5 text-[#D6AA55]" />
+            <div className="w-12 h-12 rounded-2xl bg-[#121212] text-[#FFFFFF] border border-[#EAB308]/50 flex items-center justify-center shadow-2xs">
+              <ShieldCheck className="w-5 h-5 text-[#EAB308]" />
             </div>
-            <h4 className="font-bold text-xs sm:text-sm text-[#511B2A]">Safe Packaging</h4>
-            <p className="text-[11px] text-[#533C36] leading-snug">
+            <h4 className="font-bold text-xs sm:text-sm text-[#FFFFFF]">Safe Packaging</h4>
+            <p className="text-[11px] text-[#D1D5DB] leading-snug">
               Reinforced 5-layer honeycomb wooden crate. 100% free transit replacement.
             </p>
           </div>
 
           {/* Pillar 3: Pan-India Delivery */}
           <div className="flex flex-col items-center sm:items-start text-center sm:text-left space-y-2">
-            <div className="w-12 h-12 rounded-2xl bg-[#FFF7EC] text-[#511B2A] border border-[#D6AA55]/50 flex items-center justify-center shadow-2xs">
-              <Truck className="w-5 h-5 text-[#D6AA55]" />
+            <div className="w-12 h-12 rounded-2xl bg-[#121212] text-[#FFFFFF] border border-[#EAB308]/50 flex items-center justify-center shadow-2xs">
+              <Truck className="w-5 h-5 text-[#EAB308]" />
             </div>
-            <h4 className="font-bold text-xs sm:text-sm text-[#511B2A]">Pan-India Delivery</h4>
-            <p className="text-[11px] text-[#533C36] leading-snug">
+            <h4 className="font-bold text-xs sm:text-sm text-[#FFFFFF]">Pan-India Delivery</h4>
+            <p className="text-[11px] text-[#D1D5DB] leading-snug">
               Free Express shipping on orders &gt; ₹1,999 to 19,000+ pincodes across India.
             </p>
           </div>
 
           {/* Pillar 4: Dedicated Support */}
           <div className="flex flex-col items-center sm:items-start text-center sm:text-left space-y-2">
-            <div className="w-12 h-12 rounded-2xl bg-[#FFF7EC] text-[#511B2A] border border-[#D6AA55]/50 flex items-center justify-center shadow-2xs">
-              <Headphones className="w-5 h-5 text-[#D6AA55]" />
+            <div className="w-12 h-12 rounded-2xl bg-[#121212] text-[#FFFFFF] border border-[#EAB308]/50 flex items-center justify-center shadow-2xs">
+              <Headphones className="w-5 h-5 text-[#EAB308]" />
             </div>
-            <h4 className="font-bold text-xs sm:text-sm text-[#511B2A]">Artisan Support</h4>
-            <p className="text-[11px] text-[#533C36] leading-snug">
+            <h4 className="font-bold text-xs sm:text-sm text-[#FFFFFF]">Artisan Support</h4>
+            <p className="text-[11px] text-[#D1D5DB] leading-snug">
               Direct Hyderabad studio assistance on WhatsApp &amp; phone for custom sizing.
             </p>
           </div>
 
           {/* Pillar 5: Quality Craftsmanship */}
           <div className="flex flex-col items-center sm:items-start text-center sm:text-left space-y-2 col-span-2 md:col-span-1">
-            <div className="w-12 h-12 rounded-2xl bg-[#FFF7EC] text-[#511B2A] border border-[#D6AA55]/50 flex items-center justify-center shadow-2xs">
-              <Award className="w-5 h-5 text-[#D6AA55]" />
+            <div className="w-12 h-12 rounded-2xl bg-[#121212] text-[#FFFFFF] border border-[#EAB308]/50 flex items-center justify-center shadow-2xs">
+              <Award className="w-5 h-5 text-[#EAB308]" />
             </div>
-            <h4 className="font-bold text-xs sm:text-sm text-[#511B2A]">Quality Craftsmanship</h4>
-            <p className="text-[11px] text-[#533C36] leading-snug">
+            <h4 className="font-bold text-xs sm:text-sm text-[#FFFFFF]">Quality Craftsmanship</h4>
+            <p className="text-[11px] text-[#D1D5DB] leading-snug">
               4mm shatterproof cast acrylic with 25+ year UV non-fade color guarantee.
             </p>
           </div>
@@ -121,16 +121,16 @@ export default function TrustAndReviewsSection() {
           PART 2: Authentic Collector Testimonials / Default State
           ========================================================= */}
       <div className="space-y-6">
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left pb-4 border-b border-[#E8D5BD]">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left pb-4 border-b border-[#2D2D2D]">
           <div>
-            <div className="inline-flex items-center gap-1.5 text-xs uppercase tracking-widest font-bold text-[#511B2A] bg-white border border-[#D6AA55] px-3.5 py-1 rounded-full shadow-2xs mb-2">
-              <Sparkles className="w-3.5 h-3.5 text-[#D6AA55]" />
+            <div className="inline-flex items-center gap-1.5 text-xs uppercase tracking-widest font-bold text-[#FFFFFF] bg-[#181818] border border-[#EAB308] px-3.5 py-1 rounded-full shadow-2xs mb-2">
+              <Sparkles className="w-3.5 h-3.5 text-[#EAB308]" />
               <span>Verified Customer Reflections</span>
             </div>
-            <h2 className="font-serif font-bold text-2xl sm:text-3xl lg:text-4xl text-[#511B2A] tracking-tight">
+            <h2 className="font-serif font-bold text-2xl sm:text-3xl lg:text-4xl text-[#FFFFFF] tracking-tight">
               VOICES OF DEVOTION &amp; TRUST
             </h2>
-            <p className="text-xs sm:text-sm text-[#533C36] mt-1 font-sans">
+            <p className="text-xs sm:text-sm text-[#D1D5DB] mt-1 font-sans">
               Authentic reviews and reflections from homes and temples blessed with Abhi Gifts creations.
             </p>
           </div>
@@ -141,7 +141,7 @@ export default function TrustAndReviewsSection() {
               <button
                 type="button"
                 onClick={prevReview}
-                className="p-2.5 rounded-full bg-white hover:bg-[#FFF7EC] text-[#511B2A] border border-[#E8D5BD] hover:border-[#D6AA55] shadow-xs transition-all cursor-pointer"
+                className="p-2.5 rounded-full bg-[#181818] hover:bg-[#121212] text-[#FFFFFF] border border-[#2D2D2D] hover:border-[#EAB308] shadow-xs transition-all cursor-pointer"
                 aria-label="Previous review"
               >
                 <ChevronLeft className="w-4 h-4" />
@@ -149,7 +149,7 @@ export default function TrustAndReviewsSection() {
               <button
                 type="button"
                 onClick={nextReview}
-                className="p-2.5 rounded-full bg-white hover:bg-[#FFF7EC] text-[#511B2A] border border-[#E8D5BD] hover:border-[#D6AA55] shadow-xs transition-all cursor-pointer"
+                className="p-2.5 rounded-full bg-[#181818] hover:bg-[#121212] text-[#FFFFFF] border border-[#2D2D2D] hover:border-[#EAB308] shadow-xs transition-all cursor-pointer"
                 aria-label="Next review"
               >
                 <ChevronRight className="w-4 h-4" />
@@ -160,16 +160,16 @@ export default function TrustAndReviewsSection() {
 
         {AUTHENTIC_REVIEWS.length === 0 ? (
           /* Default Empty State */
-          <div className="bg-gradient-to-br from-white via-[#FFFBF5] to-[#FFF7EC] rounded-3xl p-8 sm:p-12 border border-[#E8D5BD] text-center space-y-5 shadow-xs">
-            <div className="w-16 h-16 rounded-2xl bg-[#FFF7EC] border border-[#D6AA55]/50 text-[#511B2A] mx-auto flex items-center justify-center shadow-xs">
-              <MessageSquareQuote className="w-8 h-8 text-[#D6AA55]" />
+          <div className="bg-gradient-to-br from-white via-[#FFFBF5] to-[#FFF7EC] rounded-3xl p-8 sm:p-12 border border-[#2D2D2D] text-center space-y-5 shadow-xs">
+            <div className="w-16 h-16 rounded-2xl bg-[#121212] border border-[#EAB308]/50 text-[#FFFFFF] mx-auto flex items-center justify-center shadow-xs">
+              <MessageSquareQuote className="w-8 h-8 text-[#EAB308]" />
             </div>
 
             <div className="max-w-xl mx-auto space-y-2">
-              <h3 className="font-serif font-bold text-xl sm:text-2xl text-[#511B2A]">
+              <h3 className="font-serif font-bold text-xl sm:text-2xl text-[#FFFFFF]">
                 No Reviews Yet • Be The First To Share
               </h3>
-              <p className="text-xs sm:text-sm text-[#533C36] leading-relaxed font-sans">
+              <p className="text-xs sm:text-sm text-[#D1D5DB] leading-relaxed font-sans">
                 Every piece is handcrafted with precision diamond-cut 4mm cast acrylic and 3000K warm LED lighting at our Dilsukhnagar workshop. Bring home a sacred masterpiece and be the first to share your reflections.
               </p>
             </div>
@@ -177,14 +177,14 @@ export default function TrustAndReviewsSection() {
             <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
               <Link
                 href="/shop"
-                className="inline-flex items-center gap-2 bg-[#511B2A] hover:bg-[#3D1420] text-[#FFF7EC] font-bold text-xs px-6 py-3 rounded-full border border-[#D6AA55] shadow-xs transition-all hover:scale-105"
+                className="inline-flex items-center gap-2 bg-[#511B2A] hover:bg-[#181818] text-[#FFFFFF] font-bold text-xs px-6 py-3 rounded-full border border-[#EAB308] shadow-xs transition-all hover:scale-105"
               >
                 <span>Explore Collections</span>
-                <ArrowRight className="w-3.5 h-3.5 text-[#D6AA55]" />
+                <ArrowRight className="w-3.5 h-3.5 text-[#EAB308]" />
               </Link>
               <Link
                 href="/customise"
-                className="inline-flex items-center gap-2 bg-white hover:bg-[#FFF7EC] text-[#511B2A] font-bold text-xs px-6 py-3 rounded-full border border-[#E8D5BD] shadow-xs transition-all hover:border-[#D6AA55]"
+                className="inline-flex items-center gap-2 bg-[#181818] hover:bg-[#121212] text-[#FFFFFF] font-bold text-xs px-6 py-3 rounded-full border border-[#2D2D2D] shadow-xs transition-all hover:border-[#EAB308]"
               >
                 <span>Customize Your Photo Frame</span>
               </Link>
@@ -201,31 +201,31 @@ export default function TrustAndReviewsSection() {
               return (
                 <div
                   key={review.id}
-                  className="bg-white rounded-3xl p-6 sm:p-7 border border-[#E8D5BD] hover:border-[#D6AA55] shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-between space-y-4"
+                  className="bg-[#181818] rounded-3xl p-6 sm:p-7 border border-[#2D2D2D] hover:border-[#EAB308] shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-between space-y-4"
                 >
                   <div className="space-y-3">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-1 text-amber-500">
                         {'★'.repeat(review.rating)}
                       </div>
-                      <span className="text-[11px] font-bold text-[#511B2A] bg-[#FFF7EC] border border-[#D6AA55]/50 px-2.5 py-0.5 rounded-full">
+                      <span className="text-[11px] font-bold text-[#FFFFFF] bg-[#121212] border border-[#EAB308]/50 px-2.5 py-0.5 rounded-full">
                         📍 {review.city}
                       </span>
                     </div>
 
-                    <h3 className="font-serif font-bold text-base text-[#511B2A] leading-snug">
+                    <h3 className="font-serif font-bold text-base text-[#FFFFFF] leading-snug">
                       &ldquo;{review.title}&rdquo;
                     </h3>
 
-                    <p className="text-xs text-[#533C36] leading-relaxed font-sans">
+                    <p className="text-xs text-[#D1D5DB] leading-relaxed font-sans">
                       {review.comment}
                     </p>
                   </div>
 
-                  <div className="pt-3 border-t border-[#E8D5BD]/70 flex items-center justify-between text-xs">
+                  <div className="pt-3 border-t border-[#2D2D2D]/70 flex items-center justify-between text-xs">
                     <div>
-                      <span className="font-bold text-[#511B2A] block">{review.authorName}</span>
-                      <span className="text-[10px] text-[#533C36]/80 block">{review.productName}</span>
+                      <span className="font-bold text-[#FFFFFF] block">{review.authorName}</span>
+                      <span className="text-[10px] text-[#D1D5DB]/80 block">{review.productName}</span>
                     </div>
                     <span className="inline-flex items-center gap-1 text-[10.5px] font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-full shrink-0">
                       <CheckCircle2 className="w-3 h-3 text-emerald-600" />

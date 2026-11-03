@@ -131,7 +131,7 @@ export default function FaqPage() {
       </div>
 
       {/* Still have questions */}
-      <div className="bg-[#FFF7ED] p-6 sm:p-8 rounded-3xl border border-amber-200 text-center space-y-3">
+      <div className="bg-[#121212] p-6 sm:p-8 rounded-3xl border border-amber-200 text-center space-y-3">
         <h4 className="font-serif font-bold text-lg text-stone-900">Still have questions?</h4>
         <p className="text-xs text-stone-600 max-w-md mx-auto">
           Our friendly customer artisans are happy to assist you with wall measurements, deity recommendations, or custom sizing.
@@ -143,7 +143,7 @@ export default function FaqPage() {
             )}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-[#641E2E] hover:bg-[#32151D] text-white text-xs font-semibold px-6 py-3 rounded-full transition-colors"
+            className="inline-flex items-center gap-2 bg-[#641E2E] hover:bg-[#121212] text-white text-xs font-semibold px-6 py-3 rounded-full transition-colors"
           >
             <MessageCircle className="w-4 h-4" />
             <span>Chat with Customer Desk on WhatsApp</span>

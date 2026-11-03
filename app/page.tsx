@@ -14,7 +14,7 @@ import NewsletterSection from '@/components/home/NewsletterSection';
 
 export default function HomePage() {
   return (
-    <div className="space-y-6 sm:space-y-10 lg:space-y-12 pb-14 bg-[#FFF7EC] text-[#511B2A]">
+    <div className="space-y-6 sm:space-y-10 lg:space-y-12 pb-14 bg-[#121212] text-[#FFFFFF]">
       {/* 1. REVOLUTIONARY HERO SECTION — Two-Column Cinematic Masterpiece */}
       <HeroShowcase />
 

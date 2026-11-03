@@ -78,7 +78,7 @@ export default function AdminCouponsPage() {
                   <span className="font-mono font-extrabold text-base text-amber-900 bg-amber-100 px-3 py-1 rounded-xl">
                     {c.code}
                   </span>
-                  <span className="text-[10px] font-bold text-[#651E2D] bg-[#FCE7EA] px-2.5 py-0.5 rounded-full">
+                  <span className="text-[10px] font-bold text-[#651E2D] bg-[#1E1E1E] px-2.5 py-0.5 rounded-full">
                     {c.active ? 'Active' : 'Inactive'}
                   </span>
                 </div>

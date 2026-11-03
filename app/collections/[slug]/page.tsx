@@ -71,7 +71,7 @@ export default function CollectionSlugPage({ params }: Props) {
       </nav>
 
       {/* Header */}
-      <div className="bg-[#FFF7ED] p-6 sm:p-10 rounded-3xl border border-stone-200">
+      <div className="bg-[#121212] p-6 sm:p-10 rounded-3xl border border-stone-200">
         <span className="text-xs uppercase tracking-widest font-bold text-amber-900 bg-amber-100 px-3 py-1 rounded-full inline-flex items-center gap-1.5 mb-3">
           <Sparkles className="w-3.5 h-3.5 text-amber-700" /> Curated Series
         </span>
@@ -96,7 +96,7 @@ export default function CollectionSlugPage({ params }: Props) {
       <ProductGrid products={filtered} />
 
       {/* Customization callout */}
-      <div className="bg-[#FFF7ED] p-6 sm:p-8 rounded-3xl border border-amber-200 flex flex-col sm:flex-row items-center justify-between gap-6 mt-12">
+      <div className="bg-[#121212] p-6 sm:p-8 rounded-3xl border border-amber-200 flex flex-col sm:flex-row items-center justify-between gap-6 mt-12">
         <div className="space-y-1 text-center sm:text-left">
           <h3 className="font-serif font-bold text-lg text-stone-900">
             Looking for a specific temple size or custom LED backlight?

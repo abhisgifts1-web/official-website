@@ -82,22 +82,22 @@ export default function GuidesIndexPage() {
 
       {/* Breadcrumbs */}
       <nav className="flex items-center gap-2 text-xs text-stone-500" aria-label="Breadcrumb">
-        <Link href="/" className="hover:text-[#641E2E] flex items-center gap-1">
+        <Link href="/" className="hover:text-[#FFFFFF] flex items-center gap-1">
           <Home className="w-3.5 h-3.5" />
           <span>Home</span>
         </Link>
         <span>/</span>
-        <span className="text-[#511B2A] font-semibold">Guides &amp; Advice</span>
+        <span className="text-[#FFFFFF] font-semibold">Guides &amp; Advice</span>
       </nav>
 
       {/* Hero Header */}
-      <div className="bg-gradient-to-br from-[#FFF7EC] via-[#F8EFE3] to-[#FFF8EF] rounded-3xl p-6 sm:p-12 border border-[#E8D1A5] shadow-xs space-y-4">
-        <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#A06E28] bg-white border border-[#E8D1A5] px-3.5 py-1.5 rounded-full shadow-2xs">
-          <BookOpen className="w-3.5 h-3.5 text-[#641E2E]" />
+      <div className="bg-gradient-to-br from-[#FFF7EC] via-[#F8EFE3] to-[#FFF8EF] rounded-3xl p-6 sm:p-12 border border-[#2D2D2D] shadow-xs space-y-4">
+        <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#EAB308] bg-white border border-[#2D2D2D] px-3.5 py-1.5 rounded-full shadow-2xs">
+          <BookOpen className="w-3.5 h-3.5 text-[#FFFFFF]" />
           <span>EXPERT FRAMING &amp; LOCAL HYDERABAD ADVICE</span>
         </div>
 
-        <h1 className="font-serif font-bold text-3xl sm:text-4xl lg:text-5xl text-[#511B2A] leading-tight">
+        <h1 className="font-serif font-bold text-3xl sm:text-4xl lg:text-5xl text-[#FFFFFF] leading-tight">
           Photo Frame &amp; Wall Art Knowledge Base
         </h1>
 
@@ -111,18 +111,18 @@ export default function GuidesIndexPage() {
         {GUIDES.map((guide) => (
           <article
             key={guide.slug}
-            className="bg-white rounded-2xl p-6 border border-[#E8D1A5] shadow-xs hover:border-[#A06E28] hover:shadow-md transition-all duration-300 flex flex-col justify-between space-y-4"
+            className="bg-white rounded-2xl p-6 border border-[#2D2D2D] shadow-xs hover:border-[#A06E28] hover:shadow-md transition-all duration-300 flex flex-col justify-between space-y-4"
           >
             <div className="space-y-3">
-              <div className="flex items-center justify-between text-[11px] text-[#A06E28]">
-                <span className="font-bold uppercase tracking-wider bg-[#FFF8EF] border border-[#E8D1A5] px-2.5 py-0.5 rounded-full">
+              <div className="flex items-center justify-between text-[11px] text-[#EAB308]">
+                <span className="font-bold uppercase tracking-wider bg-[#121212] border border-[#2D2D2D] px-2.5 py-0.5 rounded-full">
                   {guide.tag}
                 </span>
                 <span>{guide.readTime}</span>
               </div>
 
-              <h2 className="font-serif font-bold text-lg sm:text-xl text-[#511B2A] leading-snug">
-                <Link href={`/guides/${guide.slug}`} className="hover:text-[#A06E28] transition-colors">
+              <h2 className="font-serif font-bold text-lg sm:text-xl text-[#FFFFFF] leading-snug">
+                <Link href={`/guides/${guide.slug}`} className="hover:text-[#EAB308] transition-colors">
                   {guide.title}
                 </Link>
               </h2>
@@ -132,11 +132,11 @@ export default function GuidesIndexPage() {
               </p>
             </div>
 
-            <div className="pt-4 border-t border-[#E8D1A5]/50 flex items-center justify-between">
+            <div className="pt-4 border-t border-[#2D2D2D]/50 flex items-center justify-between">
               <span className="text-[11px] text-[#785E59]">{guide.date}</span>
               <Link
                 href={`/guides/${guide.slug}`}
-                className="text-xs font-bold text-[#641E2E] hover:text-[#A06E28] inline-flex items-center gap-1 group"
+                className="text-xs font-bold text-[#FFFFFF] hover:text-[#EAB308] inline-flex items-center gap-1 group"
               >
                 <span>Read Full Guide</span>
                 <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
@@ -147,16 +147,16 @@ export default function GuidesIndexPage() {
       </div>
 
       {/* Local Consultation Callout */}
-      <div className="bg-[#511B2A] text-white rounded-3xl p-6 sm:p-10 border border-[#D6AA55] flex flex-col md:flex-row items-center justify-between gap-6">
+      <div className="bg-[#511B2A] text-white rounded-3xl p-6 sm:p-10 border border-[#EAB308] flex flex-col md:flex-row items-center justify-between gap-6">
         <div className="space-y-2 text-center md:text-left">
-          <span className="text-xs font-bold uppercase tracking-widest text-[#E8C77E] flex items-center justify-center md:justify-start gap-1.5">
+          <span className="text-xs font-bold uppercase tracking-widest text-[#FACC15] flex items-center justify-center md:justify-start gap-1.5">
             <MapPin className="w-3.5 h-3.5" />
             <span>DILSUKHNAGAR STUDIO &amp; WORKSHOP</span>
           </span>
-          <h3 className="font-serif font-bold text-xl sm:text-2xl text-[#FFF7EC]">
+          <h3 className="font-serif font-bold text-xl sm:text-2xl text-[#FFFFFF]">
             Need personalized advice on photo sizing or frame thickness?
           </h3>
-          <p className="text-xs sm:text-sm text-[#E8D5BD]/80 max-w-xl">
+          <p className="text-xs sm:text-sm text-[#E5E7EB]/80 max-w-xl">
             Our artisans are available daily on WhatsApp to review your photos, recommend dimensions, and share free 1:1 previews.
           </p>
         </div>

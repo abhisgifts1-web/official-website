@@ -121,7 +121,7 @@ export default function LedBacklitShowcase() {
 
   return (
     <section className="w-full max-w-[1760px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 py-4 sm:py-6">
-      <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden bg-gradient-to-br from-[#32151D] via-[#240B12] to-[#140508] p-5 sm:p-7 lg:p-9 border border-[#B88A35]/35 shadow-xl">
+      <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden bg-gradient-to-br from-[#0A0A0A] via-[#240B12] to-[#140508] p-5 sm:p-7 lg:p-9 border border-[#EAB308]/35 shadow-xl">
         {/* Dynamic animated ambient background aura */}
         <div
           className={`absolute top-1/2 right-1/4 -translate-y-1/2 w-[420px] h-[260px] rounded-full blur-3xl pointer-events-none transition-all duration-700 ${
@@ -134,7 +134,7 @@ export default function LedBacklitShowcase() {
           <div className="lg:col-span-7 space-y-4 text-left">
             {/* Top Interactive Controls Row */}
             <div className="flex flex-wrap items-center justify-between gap-3">
-              <span className="text-[11px] uppercase tracking-widest font-bold text-[#641E2E] bg-[#FFF7ED] border border-[#B88A35]/80 px-3.5 py-1 rounded-full inline-flex items-center gap-1.5 shadow-2xs">
+              <span className="text-[11px] uppercase tracking-widest font-bold text-[#FFFFFF] bg-[#121212] border border-[#EAB308]/80 px-3.5 py-1 rounded-full inline-flex items-center gap-1.5 shadow-2xs">
                 <Flame className="w-3.5 h-3.5 text-amber-700 animate-pulse" />
                 <span>Warm Golden LED Ambient Glow</span>
               </span>

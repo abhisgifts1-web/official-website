@@ -264,7 +264,7 @@ export default function SmartSupportWidget() {
           <button
             type="button"
             onClick={scrollToTop}
-            className="pointer-events-auto p-2.5 sm:p-3 rounded-full bg-[#1F0B13]/90 hover:bg-[#35101C] text-[#F0D79B] shadow-lg border border-[#C99B45]/40 transition-all duration-300 hover:scale-110 cursor-pointer backdrop-blur-md"
+            className="pointer-events-auto p-2.5 sm:p-3 rounded-full bg-[#1F0B13]/90 hover:bg-[#181818] text-[#F0D79B] shadow-lg border border-[#EAB308]/40 transition-all duration-300 hover:scale-110 cursor-pointer backdrop-blur-md"
             aria-label="Back to top"
           >
             <ArrowUp className="w-4 h-4" />
@@ -280,19 +280,19 @@ export default function SmartSupportWidget() {
               setIsOpen(!isOpen);
               setHasNewBadge(false);
             }}
-            className="group inline-flex items-center gap-2 bg-[#511B2A] hover:bg-[#3D1420] text-[#FFF7EC] px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-full shadow-xl border border-[#D6AA55]/80 transition-all duration-300 hover:scale-105 cursor-pointer backdrop-blur-md"
+            className="group inline-flex items-center gap-2 bg-[#511B2A] hover:bg-[#181818] text-[#FFFFFF] px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-full shadow-xl border border-[#EAB308]/80 transition-all duration-300 hover:scale-105 cursor-pointer backdrop-blur-md"
             aria-label="Open Customer Support Assistant"
           >
             <div className="relative">
-              <Bot className="w-4 h-4 text-[#D6AA55] group-hover:rotate-12 transition-transform" />
+              <Bot className="w-4 h-4 text-[#EAB308] group-hover:rotate-12 transition-transform" />
               {hasNewBadge && (
-                <span className="absolute -top-1 -right-1 w-2 h-2 bg-[#D6AA55] rounded-full animate-ping" />
+                <span className="absolute -top-1 -right-1 w-2 h-2 bg-[#EAB308] rounded-full animate-ping" />
               )}
             </div>
             <span className="text-xs font-bold tracking-wide font-sans hidden sm:inline">
               Need Help?
             </span>
-            <span className="text-[10px] uppercase font-bold text-[#D6AA55] bg-[#3D1420] px-1.5 py-0.5 rounded-full">
+            <span className="text-[10px] uppercase font-bold text-[#EAB308] bg-[#181818] px-1.5 py-0.5 rounded-full">
               AI Support
             </span>
           </button>
@@ -306,13 +306,13 @@ export default function SmartSupportWidget() {
           onClick={() => setIsOpen(false)}
         >
           <div
-            className="w-full sm:w-[420px] max-w-full h-[90vh] sm:h-[620px] max-h-[92vh] bg-[#FFFBF5] rounded-t-3xl sm:rounded-3xl shadow-2xl border border-[#E8D5BD] flex flex-col overflow-hidden text-[#511B2A] animate-in slide-in-from-bottom duration-300"
+            className="w-full sm:w-[420px] max-w-full h-[90vh] sm:h-[620px] max-h-[92vh] bg-[#121212] rounded-t-3xl sm:rounded-3xl shadow-2xl border border-[#2D2D2D] flex flex-col overflow-hidden text-[#FFFFFF] animate-in slide-in-from-bottom duration-300"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Modal Header */}
-            <div className="bg-gradient-to-r from-[#511B2A] via-[#641D30] to-[#511B2A] text-[#FFF7EC] px-4 sm:px-5 py-4 border-b border-[#D6AA55]/40 flex items-center justify-between">
+            <div className="bg-gradient-to-r from-[#121212] via-[#641D30] to-[#121212] text-[#FFFFFF] px-4 sm:px-5 py-4 border-b border-[#EAB308]/40 flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-white/10 border border-[#D6AA55]/80 flex items-center justify-center text-[#D6AA55]">
+                <div className="w-10 h-10 rounded-full bg-[#181818]/10 border border-[#EAB308]/80 flex items-center justify-center text-[#EAB308]">
                   <Bot className="w-5 h-5" />
                 </div>
                 <div>
@@ -322,7 +322,7 @@ export default function SmartSupportWidget() {
                     </h3>
                     <span className="w-2 h-2 rounded-full bg-emerald-400 inline-block" />
                   </div>
-                  <p className="text-[10px] text-[#FFF7EC]/70 font-sans">
+                  <p className="text-[10px] text-[#FFFFFF]/70 font-sans">
                     Automated Support • Hyderabad Studio
                   </p>
                 </div>
@@ -331,7 +331,7 @@ export default function SmartSupportWidget() {
               <button
                 type="button"
                 onClick={() => setIsOpen(false)}
-                className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-[#FFF7EC] transition-colors cursor-pointer"
+                className="w-8 h-8 rounded-full bg-[#181818]/10 hover:bg-[#181818]/20 flex items-center justify-center text-[#FFFFFF] transition-colors cursor-pointer"
                 aria-label="Close Assistant"
               >
                 <X className="w-4 h-4" />
@@ -339,9 +339,9 @@ export default function SmartSupportWidget() {
             </div>
 
             {/* Verified Policy Banner */}
-            <div className="bg-[#FFF7EC] border-b border-[#E8D5BD] px-4 py-2 flex items-center justify-between text-[11px] text-[#533C36]">
-              <span className="flex items-center gap-1 font-semibold text-[#511B2A]">
-                <ShieldCheck className="w-3.5 h-3.5 text-[#D6AA55]" />
+            <div className="bg-[#121212] border-b border-[#2D2D2D] px-4 py-2 flex items-center justify-between text-[11px] text-[#D1D5DB]">
+              <span className="flex items-center gap-1 font-semibold text-[#FFFFFF]">
+                <ShieldCheck className="w-3.5 h-3.5 text-[#EAB308]" />
                 100% Verified Store Answers
               </span>
               <a
@@ -366,15 +366,15 @@ export default function SmartSupportWidget() {
                   <div
                     className={`max-w-[85%] rounded-2xl px-3.5 py-2.5 text-xs font-sans leading-relaxed shadow-2xs whitespace-pre-line ${
                       msg.sender === 'user'
-                        ? 'bg-[#511B2A] text-[#FFF7EC] rounded-tr-xs'
-                        : 'bg-white text-[#511B2A] border border-[#E8D5BD] rounded-tl-xs'
+                        ? 'bg-[#511B2A] text-[#FFFFFF] rounded-tr-xs'
+                        : 'bg-[#1E1E1E] text-white border border-[#2D2D2D] rounded-tl-xs'
                     }`}
                   >
                     {msg.text}
 
                     {/* Optional Interactive Action Link */}
                     {msg.action && (
-                      <div className="mt-2.5 pt-2 border-t border-[#E8D5BD]/60">
+                      <div className="mt-2.5 pt-2 border-t border-[#2D2D2D]/60">
                         {msg.action.isWhatsApp ? (
                           <a
                             href={`https://wa.me/${(INITIAL_SETTINGS.whatsappNumber || '919032372782').replace(/[^0-9]/g, '')}?text=${encodeURIComponent(
@@ -392,9 +392,9 @@ export default function SmartSupportWidget() {
                           <Link
                             href={msg.action.href}
                             onClick={() => setIsOpen(false)}
-                            className="inline-flex items-center gap-1 text-[11px] font-bold text-[#511B2A] bg-[#FFF7EC] border border-[#D6AA55] px-2.5 py-1 rounded-full hover:bg-[#511B2A] hover:text-[#FFF7EC] transition-colors"
+                            className="inline-flex items-center gap-1 text-[11px] font-bold text-[#FFFFFF] bg-[#121212] border border-[#EAB308] px-2.5 py-1 rounded-full hover:bg-[#511B2A] hover:text-[#FFFFFF] transition-colors"
                           >
-                            <Sparkles className="w-3 h-3 text-[#D6AA55]" />
+                            <Sparkles className="w-3 h-3 text-[#EAB308]" />
                             <span>{msg.action.label}</span>
                             <ExternalLink className="w-2.5 h-2.5 ml-0.5" />
                           </Link>
@@ -409,10 +409,10 @@ export default function SmartSupportWidget() {
               ))}
 
               {isTyping && (
-                <div className="flex items-center gap-1.5 bg-white border border-[#E8D5BD] rounded-2xl rounded-tl-xs px-3 py-2 w-16 shadow-2xs">
-                  <span className="w-1.5 h-1.5 bg-[#D6AA55] rounded-full animate-bounce" />
-                  <span className="w-1.5 h-1.5 bg-[#D6AA55] rounded-full animate-bounce [animation-delay:0.2s]" />
-                  <span className="w-1.5 h-1.5 bg-[#D6AA55] rounded-full animate-bounce [animation-delay:0.4s]" />
+                <div className="flex items-center gap-1.5 bg-[#181818] border border-[#2D2D2D] rounded-2xl rounded-tl-xs px-3 py-2 w-16 shadow-2xs">
+                  <span className="w-1.5 h-1.5 bg-[#EAB308] rounded-full animate-bounce" />
+                  <span className="w-1.5 h-1.5 bg-[#EAB308] rounded-full animate-bounce [animation-delay:0.2s]" />
+                  <span className="w-1.5 h-1.5 bg-[#EAB308] rounded-full animate-bounce [animation-delay:0.4s]" />
                 </div>
               )}
 
@@ -420,53 +420,53 @@ export default function SmartSupportWidget() {
             </div>
 
             {/* Quick Question Prompt Chips */}
-            <div className="p-2.5 bg-[#FFF7EC] border-t border-[#E8D5BD] overflow-x-auto whitespace-nowrap scrollbar-none flex gap-1.5">
+            <div className="p-2.5 bg-[#121212] border-t border-[#2D2D2D] overflow-x-auto whitespace-nowrap scrollbar-none flex gap-1.5">
               <button
                 type="button"
                 onClick={() => triggerFaq(FAQ_KNOWLEDGE_BASE[0])}
-                className="text-[11px] font-medium bg-white text-[#511B2A] border border-[#E8D5BD] hover:border-[#D6AA55] px-2.5 py-1 rounded-full shrink-0 transition-colors cursor-pointer"
+                className="text-[11px] font-medium bg-[#1E1E1E] text-white border border-[#2D2D2D] hover:border-[#EAB308] px-2.5 py-1 rounded-full shrink-0 transition-colors cursor-pointer"
               >
                 📏 Sizes &amp; Thickness
               </button>
               <button
                 type="button"
                 onClick={() => triggerFaq(FAQ_KNOWLEDGE_BASE[1])}
-                className="text-[11px] font-medium bg-white text-[#511B2A] border border-[#E8D5BD] hover:border-[#D6AA55] px-2.5 py-1 rounded-full shrink-0 transition-colors cursor-pointer"
+                className="text-[11px] font-medium bg-[#1E1E1E] text-white border border-[#2D2D2D] hover:border-[#EAB308] px-2.5 py-1 rounded-full shrink-0 transition-colors cursor-pointer"
               >
                 💡 LED Lighting Info
               </button>
               <button
                 type="button"
                 onClick={() => triggerFaq(FAQ_KNOWLEDGE_BASE[2])}
-                className="text-[11px] font-medium bg-white text-[#511B2A] border border-[#E8D5BD] hover:border-[#D6AA55] px-2.5 py-1 rounded-full shrink-0 transition-colors cursor-pointer"
+                className="text-[11px] font-medium bg-[#1E1E1E] text-white border border-[#2D2D2D] hover:border-[#EAB308] px-2.5 py-1 rounded-full shrink-0 transition-colors cursor-pointer"
               >
                 🎨 Customization Process
               </button>
               <button
                 type="button"
                 onClick={() => triggerFaq(FAQ_KNOWLEDGE_BASE[3])}
-                className="text-[11px] font-medium bg-white text-[#511B2A] border border-[#E8D5BD] hover:border-[#D6AA55] px-2.5 py-1 rounded-full shrink-0 transition-colors cursor-pointer"
+                className="text-[11px] font-medium bg-[#1E1E1E] text-white border border-[#2D2D2D] hover:border-[#EAB308] px-2.5 py-1 rounded-full shrink-0 transition-colors cursor-pointer"
               >
                 🚚 Shipping &amp; Hyderabad
               </button>
               <button
                 type="button"
                 onClick={() => triggerFaq(FAQ_KNOWLEDGE_BASE[4])}
-                className="text-[11px] font-medium bg-white text-[#511B2A] border border-[#E8D5BD] hover:border-[#D6AA55] px-2.5 py-1 rounded-full shrink-0 transition-colors cursor-pointer"
+                className="text-[11px] font-medium bg-[#1E1E1E] text-white border border-[#2D2D2D] hover:border-[#EAB308] px-2.5 py-1 rounded-full shrink-0 transition-colors cursor-pointer"
               >
                 💳 Payments &amp; COD
               </button>
               <button
                 type="button"
                 onClick={() => triggerFaq(FAQ_KNOWLEDGE_BASE[5])}
-                className="text-[11px] font-medium bg-white text-[#511B2A] border border-[#E8D5BD] hover:border-[#D6AA55] px-2.5 py-1 rounded-full shrink-0 transition-colors cursor-pointer"
+                className="text-[11px] font-medium bg-[#1E1E1E] text-white border border-[#2D2D2D] hover:border-[#EAB308] px-2.5 py-1 rounded-full shrink-0 transition-colors cursor-pointer"
               >
                 🛡️ Transit Guarantee
               </button>
               <button
                 type="button"
                 onClick={() => triggerFaq(FAQ_KNOWLEDGE_BASE[6])}
-                className="text-[11px] font-medium bg-white text-[#511B2A] border border-[#E8D5BD] hover:border-[#D6AA55] px-2.5 py-1 rounded-full shrink-0 transition-colors cursor-pointer"
+                className="text-[11px] font-medium bg-[#1E1E1E] text-white border border-[#2D2D2D] hover:border-[#EAB308] px-2.5 py-1 rounded-full shrink-0 transition-colors cursor-pointer"
               >
                 📦 Track Order
               </button>
@@ -478,21 +478,21 @@ export default function SmartSupportWidget() {
                 e.preventDefault();
                 handleSendMessage();
               }}
-              className="p-3 bg-white border-t border-[#E8D5BD] flex items-center gap-2"
+              className="p-3 bg-[#181818] border-t border-[#2D2D2D] flex items-center gap-2"
             >
               <input
                 type="text"
                 placeholder="Ask about sizes, LED, delivery, customization..."
                 value={inputText}
                 onChange={(e) => setInputText(e.target.value)}
-                className="flex-1 bg-[#FFFBF5] border border-[#E8D5BD] rounded-full px-3.5 py-2 text-xs text-[#511B2A] placeholder-[#8C7A70] outline-none focus:border-[#D6AA55] transition-colors"
+                className="flex-1 bg-[#121212] border border-[#2D2D2D] rounded-full px-3.5 py-2 text-xs text-[#FFFFFF] placeholder-[#8C7A70] outline-none focus:border-[#EAB308] transition-colors"
               />
               <button
                 type="submit"
                 disabled={!inputText.trim()}
                 className={`w-9 h-9 rounded-full flex items-center justify-center transition-all cursor-pointer ${
                   inputText.trim()
-                    ? 'bg-[#511B2A] text-[#FFF7EC] hover:bg-[#3D1420]'
+                    ? 'bg-[#511B2A] text-[#FFFFFF] hover:bg-[#181818]'
                     : 'bg-[#F2E5D5] text-[#8C7A70] cursor-not-allowed opacity-60'
                 }`}
                 aria-label="Send message"

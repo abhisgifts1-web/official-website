@@ -143,7 +143,7 @@ export default function AdminDashboardPage() {
           <div className="bg-white p-5 rounded-2xl border border-stone-200 shadow-sm space-y-1">
             <div className="flex items-center justify-between text-stone-400">
               <span className="text-xs font-bold uppercase tracking-wider text-stone-500">Total Revenue</span>
-              <div className="w-8 h-8 rounded-lg bg-[#FCE7EA] text-[#651E2D] flex items-center justify-center font-bold text-sm">
+              <div className="w-8 h-8 rounded-lg bg-[#1E1E1E] text-[#651E2D] flex items-center justify-center font-bold text-sm">
                 ₹
               </div>
             </div>
@@ -248,7 +248,7 @@ export default function AdminDashboardPage() {
                       <span
                         className={`px-2 py-0.5 rounded-full text-[10px] font-bold ${
                           order.paymentStatus === 'Paid'
-                            ? 'bg-[#FCE7EA] text-[#651E2D]'
+                            ? 'bg-[#1E1E1E] text-[#651E2D]'
                             : 'bg-amber-100 text-amber-800'
                         }`}
                       >

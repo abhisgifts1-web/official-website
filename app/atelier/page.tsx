@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 
 export default function AtelierPage() {
   return (
-    <main className="min-h-screen bg-[#17080D]">
+    <main className="min-h-screen bg-[#0D0D0E]">
       <SacredArtAtelier />
     </main>
   );
