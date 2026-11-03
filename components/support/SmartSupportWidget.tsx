@@ -271,7 +271,7 @@ export default function SmartSupportWidget() {
           </button>
         )}
 
-        {/* Dual Support Launcher (Smart Assistant + WhatsApp) */}
+        {/* Support Launcher (Smart Assistant) */}
         <div className="flex flex-col items-end gap-2 pointer-events-auto">
           {/* Smart Assistant Launcher Pill */}
           <button
@@ -296,23 +296,6 @@ export default function SmartSupportWidget() {
               AI Support
             </span>
           </button>
-
-          {/* Floating WhatsApp Quick-Chat Button */}
-          <a
-            href={getContextualWhatsAppUrl()}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group relative inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20BD5A] text-white p-3 sm:px-4 sm:py-3 rounded-full shadow-2xl transition-all duration-300 hover:scale-105 cursor-pointer"
-            aria-label="Chat on WhatsApp with Abhi's Gifts"
-          >
-            {/* Subtle Pulse Animation Ring */}
-            <span className="absolute inset-0 rounded-full bg-[#25D366]/40 animate-ping -z-10 opacity-75" />
-
-            <MessageCircle className="w-5 h-5 fill-white text-[#25D366]" />
-            <span className="text-xs font-bold tracking-wide hidden sm:inline">
-              WhatsApp Support
-            </span>
-          </a>
         </div>
       </div>
 
