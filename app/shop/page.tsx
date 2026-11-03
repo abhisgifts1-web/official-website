@@ -81,7 +81,15 @@ function ShopContent() {
           p.categorySlug === selectedCategory ||
           p.categorySlugs?.includes(selectedCategory) ||
           p.categoryName.toLowerCase().includes(selectedCategory.toLowerCase()) ||
-          p.tags.some((t) => t.toLowerCase() === selectedCategory.toLowerCase())
+          p.tags.some((t) => t.toLowerCase() === selectedCategory.toLowerCase()) ||
+          (selectedCategory === 'led-acrylic-photo-frames' && p.hasLedBacklight) ||
+          (selectedCategory === 'acrylic-photo-frames' && !p.hasLedBacklight) ||
+          (selectedCategory === 'god-photo-frames' && (Boolean(p.deity) || p.categorySlug.includes('lord') || p.categorySlug.includes('goddess') || p.categorySlug.includes('radha') || p.categorySlug.includes('hanuman') || p.categorySlug.includes('ram') || p.categorySlug.includes('shiva') || p.categorySlug.includes('balaji') || p.categorySlug.includes('ganesha') || p.categorySlug.includes('devotional'))) ||
+          (selectedCategory === 'family-baby-frames' && (p.categorySlug.includes('family') || p.tags?.some((t) => t.toLowerCase().includes('family') || t.toLowerCase().includes('baby')))) ||
+          (selectedCategory === 'couple-wedding-frames' && (p.categorySlug.includes('wedding') || p.categorySlug.includes('couple'))) ||
+          (selectedCategory === 'glitter-photo-frames' && (p.categorySlug.includes('glitter') || p.tags?.some((t) => t.toLowerCase().includes('glitter')))) ||
+          (selectedCategory === '360-rotating-photo-lamps' && (p.categorySlug.includes('rotating') || p.tags?.some((t) => t.toLowerCase().includes('rotating') || t.toLowerCase().includes('lamp')))) ||
+          (selectedCategory === 'personalized-gifts' && (p.categorySlug.includes('photo') || p.tags?.some((t) => t.toLowerCase().includes('custom') || t.toLowerCase().includes('gift'))))
       );
     }
 
@@ -247,44 +255,27 @@ function ShopContent() {
                   <span>{INITIAL_PRODUCTS.length}</span>
                 </button>
 
-                {/* Subgroup 1: LED Backlight Categories */}
-                <div className="pt-1.5">
-                  <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 block bg-[#121212] text-[#FACC15] rounded-md mb-1">
-                    ✨ LED Backlit Categories (8)
-                  </span>
-                  {INITIAL_CATEGORIES.filter((c) => c.lightingType === 'backlight' || c.group === 'led-backlight').map((c) => {
-                    const count = INITIAL_PRODUCTS.filter((p) => p.categorySlug === c.slug || p.categorySlugs?.includes(c.slug)).length;
+                <div className="pt-1.5 space-y-1">
+                  {INITIAL_CATEGORIES.map((c) => {
+                    const count = INITIAL_PRODUCTS.filter(
+                      (p) =>
+                        p.categorySlug === c.slug ||
+                        p.categorySlugs?.includes(c.slug) ||
+                        (c.slug === 'led-acrylic-photo-frames' && p.hasLedBacklight) ||
+                        (c.slug === 'acrylic-photo-frames' && !p.hasLedBacklight) ||
+                        (c.slug === 'god-photo-frames' && (Boolean(p.deity) || p.categorySlug.includes('lord') || p.categorySlug.includes('goddess') || p.categorySlug.includes('radha') || p.categorySlug.includes('hanuman') || p.categorySlug.includes('ram') || p.categorySlug.includes('shiva') || p.categorySlug.includes('balaji') || p.categorySlug.includes('ganesha') || p.categorySlug.includes('devotional'))) ||
+                        (c.slug === 'family-baby-frames' && (p.categorySlug.includes('family') || p.tags?.some((t) => t.toLowerCase().includes('family') || t.toLowerCase().includes('baby')))) ||
+                        (c.slug === 'couple-wedding-frames' && (p.categorySlug.includes('wedding') || p.categorySlug.includes('couple'))) ||
+                        (c.slug === 'glitter-photo-frames' && (p.categorySlug.includes('glitter') || p.tags?.some((t) => t.toLowerCase().includes('glitter')))) ||
+                        (c.slug === '360-rotating-photo-lamps' && (p.categorySlug.includes('rotating') || p.tags?.some((t) => t.toLowerCase().includes('rotating') || t.toLowerCase().includes('lamp')))) ||
+                        (c.slug === 'personalized-gifts' && (p.categorySlug.includes('photo') || p.tags?.some((t) => t.toLowerCase().includes('custom') || t.toLowerCase().includes('gift'))))
+                    ).length;
                     return (
                       <button
                         key={c.id}
                         type="button"
                         onClick={() => handleCategorySelect(c.slug)}
-                        className={`w-full text-left px-2.5 py-1 rounded-lg transition-colors flex items-center justify-between text-xs ${
-                          selectedCategory === c.slug
-                            ? 'bg-[#EAB308] text-[#000000] font-bold shadow-2xs'
-                            : 'text-[#D1D5DB] hover:bg-[#121212]'
-                        }`}
-                      >
-                        <span className="truncate">{c.name}</span>
-                        <span className="text-[10px] text-stone-400 font-semibold ml-1 shrink-0">({count})</span>
-                      </button>
-                    );
-                  })}
-                </div>
-
-                {/* Subgroup 2: Normal Pure Acrylic Categories */}
-                <div className="pt-2">
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#FFFFFF] px-2 py-0.5 block bg-[#1E1E1E] rounded-md mb-1">
-                    🖼️ Normal Acrylic Categories (27)
-                  </span>
-                  {INITIAL_CATEGORIES.filter((c) => c.lightingType !== 'backlight' && c.group !== 'led-backlight').map((c) => {
-                    const count = INITIAL_PRODUCTS.filter((p) => p.categorySlug === c.slug || p.categorySlugs?.includes(c.slug)).length;
-                    return (
-                      <button
-                        key={c.id}
-                        type="button"
-                        onClick={() => handleCategorySelect(c.slug)}
-                        className={`w-full text-left px-2.5 py-1 rounded-lg transition-colors flex items-center justify-between text-xs ${
+                        className={`w-full text-left px-2.5 py-1.5 rounded-lg transition-colors flex items-center justify-between text-xs ${
                           selectedCategory === c.slug
                             ? 'bg-[#EAB308] text-[#000000] font-bold shadow-2xs'
                             : 'text-[#D1D5DB] hover:bg-[#121212]'

@@ -326,10 +326,10 @@ export default function Header() {
                                 </div>
                                 <div>
                                   <h3 className="font-serif font-bold text-base sm:text-lg text-[#FFFFFF] leading-tight">
-                                    Explore Sacred Art Collections
+                                    Explore Our Categories
                                   </h3>
                                   <p className="text-[11px] text-[#D1D5DB] font-sans">
-                                    35 Authentic Collections • Premium Acrylic Photo Frames &amp; Custom Art
+                                    8 Featured Categories • Premium Acrylic Photo Frames &amp; Custom Gifts
                                   </p>
                                 </div>
                               </div>
@@ -348,119 +348,66 @@ export default function Header() {
                               </button>
                             </div>
 
-                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:divide-x lg:divide-[#E8D5BD]/80">
-                              {/* LEFT SIDE: ✨ LED BACKLIT ART CATEGORIES (8) */}
-                              <div className="lg:pr-6 space-y-3.5">
-                                <div className="flex items-center justify-between p-2.5 rounded-2xl bg-gradient-to-r from-[#222222] to-[#181818] border border-[#EAB308]/60 shadow-2xs">
-                                  <div className="flex items-center gap-2">
-                                    <Flame className="w-4 h-4 text-amber-600 animate-pulse" />
-                                    <span className="font-serif font-bold text-xs sm:text-sm text-[#FFFFFF] uppercase tracking-wide">
-                                      ✨ LED Backlit Categories (8)
-                                    </span>
-                                  </div>
-                                  <span className="text-[10px] font-bold text-[#FACC15] bg-[#121212] px-2.5 py-0.5 rounded-full border border-[#EAB308]/40 shadow-2xs">
-                                    Warm LED Glow
-                                  </span>
-                                </div>
-
-                                <div className="grid grid-cols-2 gap-2 text-xs max-h-[360px] overflow-y-auto pr-1">
-                                  {INITIAL_CATEGORIES.filter((c) => c.lightingType === 'backlight' || c.group === 'led-backlight').map((cat) => (
-                                    <Link
-                                      key={cat.id}
-                                      href={`/category/${cat.slug}`}
-                                      onClick={() => {
-                                        setMegaMenuOpen(false);
-                                        setHoveredTab(null);
-                                      }}
-                                      className="group relative flex flex-col justify-between p-2.5 rounded-xl border border-[#2D2D2D] hover:border-[#EAB308] shadow-2xs hover:shadow-xs transition-all duration-200"
-                                      style={{ backgroundColor: '#1E1E1E' }}
-                                    >
-                                      <div className="flex items-start justify-between gap-1.5">
-                                        <span className="font-serif font-bold text-xs text-[#FFFFFF] group-hover:text-[#EAB308] transition-colors line-clamp-1">
-                                          {cat.name}
-                                        </span>
-                                        <span className="text-[9px] font-bold text-yellow-400 bg-yellow-950/50 px-1 py-0.2 rounded border border-amber-300 shrink-0">
-                                          LED
-                                        </span>
-                                      </div>
-                                      <span className="text-[10.5px] text-[#D1D5DB] block line-clamp-1 mt-1 leading-snug">
-                                        {cat.description}
-                                      </span>
-                                    </Link>
-                                  ))}
-                                </div>
-
-                                <div className="pt-2.5 flex items-center justify-between border-t border-[#2D2D2D]">
+                            <div className="space-y-4">
+                              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
+                                {INITIAL_CATEGORIES.map((cat) => (
                                   <Link
-                                    href="/shop?lighting=led"
+                                    key={cat.id}
+                                    href={'/category/' + cat.slug}
                                     onClick={() => {
                                       setMegaMenuOpen(false);
                                       setHoveredTab(null);
                                     }}
-                                    className="inline-flex items-center gap-1.5 text-xs font-bold text-[#FFFFFF] hover:text-[#EAB308] group"
+                                    className="group relative flex flex-col justify-between p-3.5 rounded-2xl border border-[#2D2D2D] hover:border-[#EAB308] shadow-2xs hover:shadow-xs transition-all duration-200 bg-[#1A1A1A] hover:bg-[#202020]"
                                   >
-                                    <Sparkles className="w-3.5 h-3.5 text-[#EAB308]" />
-                                    <span>Explore All LED Backlit Artworks</span>
-                                    <ArrowRight className="w-3.5 h-3.5 text-[#EAB308] group-hover:translate-x-1 transition-transform" />
+                                    <div>
+                                      <div className="flex items-start justify-between gap-1.5">
+                                        <span className="font-serif font-bold text-xs sm:text-sm text-[#FFFFFF] group-hover:text-[#EAB308] transition-colors line-clamp-1">
+                                          {cat.name}
+                                        </span>
+                                        {cat.lightingType === 'backlight' && (
+                                          <span className="text-[9px] font-bold text-yellow-400 bg-yellow-950/50 px-1.5 py-0.5 rounded border border-amber-300 shrink-0">
+                                            LED
+                                          </span>
+                                        )}
+                                      </div>
+                                      <span className="text-[11px] text-[#D1D5DB] block line-clamp-2 mt-1.5 leading-snug">
+                                        {cat.description}
+                                      </span>
+                                    </div>
+                                    <div className="mt-3 pt-2 border-t border-[#2D2D2D] flex items-center justify-between text-[11px] font-semibold text-[#EAB308]">
+                                      <span>Explore</span>
+                                      <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+                                    </div>
                                   </Link>
-                                </div>
+                                ))}
                               </div>
 
-                              {/* RIGHT SIDE: 🖼️ NORMAL PURE ACRYLIC CATEGORIES (27) */}
-                              <div className="lg:pl-6 space-y-3.5">
-                                <div className="flex items-center justify-between p-2.5 rounded-2xl bg-gradient-to-r from-[#1A1A1A] to-[#141414] border border-[#2D2D2D] shadow-2xs">
-                                  <div className="flex items-center gap-2">
-                                    <Sparkles className="w-4 h-4 text-[#EAB308]" />
-                                    <span className="font-serif font-bold text-xs sm:text-sm text-[#FFFFFF] uppercase tracking-wide">
-                                      🖼️ Normal Acrylic Categories (27)
-                                    </span>
-                                  </div>
-                                  <span className="text-[10px] font-bold text-[#FFFFFF] bg-[#1E1E1E] px-2.5 py-0.5 rounded-full border border-[#EAB308]/40 shadow-2xs">
-                                    Devotional Wall Art
-                                  </span>
-                                </div>
+                              <div className="pt-3 flex items-center justify-between border-t border-[#2D2D2D]">
+                                <Link
+                                  href="/category"
+                                  onClick={() => {
+                                    setMegaMenuOpen(false);
+                                    setHoveredTab(null);
+                                  }}
+                                  className="inline-flex items-center gap-1.5 text-xs font-bold text-[#FFFFFF] hover:text-[#EAB308] group"
+                                >
+                                  <Sparkles className="w-3.5 h-3.5 text-[#EAB308]" />
+                                  <span>View All 8 Categories</span>
+                                  <ArrowRight className="w-3.5 h-3.5 text-[#EAB308] group-hover:translate-x-1 transition-transform" />
+                                </Link>
 
-                                <div className="grid grid-cols-2 gap-2 text-xs max-h-[360px] overflow-y-auto pr-1.5 scrollbar-thin scrollbar-thumb-[#B88A35]/40">
-                                  {INITIAL_CATEGORIES.filter((c) => c.lightingType !== 'backlight' && c.group !== 'led-backlight').map((cat) => (
-                                    <Link
-                                      key={cat.id}
-                                      href={`/category/${cat.slug}`}
-                                      onClick={() => {
-                                        setMegaMenuOpen(false);
-                                        setHoveredTab(null);
-                                      }}
-                                      className="group relative flex flex-col justify-between p-2.5 rounded-xl border border-[#2D2D2D] hover:border-[#EAB308] shadow-2xs hover:shadow-xs transition-all duration-200"
-                                      style={{ backgroundColor: '#1E1E1E' }}
-                                    >
-                                      <div className="flex items-start justify-between gap-1.5">
-                                        <span className="font-serif font-bold text-xs text-[#FFFFFF] group-hover:text-[#EAB308] transition-colors line-clamp-1">
-                                          {cat.name}
-                                        </span>
-                                        <span className="text-[9px] font-bold text-gray-300 bg-neutral-800 px-1 py-0.2 rounded border border-stone-200 shrink-0">
-                                          Acrylic
-                                        </span>
-                                      </div>
-                                      <span className="text-[10.5px] text-[#D1D5DB] block line-clamp-1 mt-1 leading-snug">
-                                        {cat.description}
-                                      </span>
-                                    </Link>
-                                  ))}
-                                </div>
-
-                                <div className="pt-2.5 flex items-center justify-between border-t border-[#2D2D2D]">
-                                  <Link
-                                    href="/shop?lighting=none"
-                                    onClick={() => {
-                                      setMegaMenuOpen(false);
-                                      setHoveredTab(null);
-                                    }}
-                                    className="inline-flex items-center gap-1.5 text-xs font-bold text-[#FFFFFF] hover:text-[#EAB308] group"
-                                  >
-                                    <Sparkles className="w-3.5 h-3.5 text-[#EAB308]" />
-                                    <span>Browse All 27 Normal Acrylic Collections</span>
-                                    <ArrowRight className="w-3.5 h-3.5 text-[#EAB308] group-hover:translate-x-1 transition-transform" />
-                                  </Link>
-                                </div>
+                                <Link
+                                  href="/shop"
+                                  onClick={() => {
+                                    setMegaMenuOpen(false);
+                                    setHoveredTab(null);
+                                  }}
+                                  className="inline-flex items-center gap-1.5 text-xs font-bold text-[#EAB308] hover:underline"
+                                >
+                                  <span>Shop Full Catalog</span>
+                                  <ArrowRight className="w-3.5 h-3.5" />
+                                </Link>
                               </div>
                             </div>
                           </div>
@@ -729,9 +676,9 @@ export default function Header() {
               {/* God Wall Art Accordion Group */}
               <div className="py-2.5">
                 <p className="text-[10px] font-bold uppercase text-[#EAB308] px-3 py-1 tracking-wider">
-                  Sacred Devotional Art
+                  Categories
                 </p>
-                {devotionalCategories.map((c) => (
+                {INITIAL_CATEGORIES.map((c) => (
                   <Link
                     key={c.id}
                     href={`/category/${c.slug}`}

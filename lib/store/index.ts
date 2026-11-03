@@ -11,7 +11,7 @@ import {
   OrderStatus,
 } from '@/types';
 import { INITIAL_PRODUCTS } from '../data/mockProducts';
-import { INITIAL_CATEGORIES } from '../data/categories';
+import { INITIAL_CATEGORIES, CATEGORY_SLUG_ALIASES } from '../data/categories';
 import { INITIAL_ORDERS } from '../data/mockOrders';
 import { INITIAL_COUPONS } from '../data/coupons';
 import { INITIAL_SETTINGS } from '../data/settings';
@@ -280,7 +280,13 @@ export function getAllCategories(): Category[] {
 }
 
 export function getCategoryBySlug(slug: string): Category | null {
-  return store.categories.find((c) => c.slug === slug) || null;
+  const direct = store.categories.find((c) => c.slug === slug);
+  if (direct) return direct;
+  const alias = CATEGORY_SLUG_ALIASES[slug];
+  if (alias) {
+    return store.categories.find((c) => c.slug === alias) || null;
+  }
+  return null;
 }
 
 export function createCategory(cat: Omit<Category, 'id'>): Category {

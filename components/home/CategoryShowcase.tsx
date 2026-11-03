@@ -16,130 +16,89 @@ export interface EditorialCategory {
   hasLedBadge?: boolean;
 }
 
-// 100% Unique, distinctive, category-relevant divine images — Zero duplicate assets
 export const EDITORIAL_CATEGORIES: EditorialCategory[] = [
   {
-    id: 'led-backlit-art',
-    name: 'LED Backlit Art',
-    subtitle: 'Warm golden halo backlights creating an authentic temple sanctum aura in your living space.',
-    badge: 'Warm Glow',
-    href: '/category/led-backlit-wall-art',
-    image: '/images/wall-decor/products/led/ayodhya-ram-mandir-sanctum.jpg',
-    fallbackImage: '/images/divine/ram-mandir.jpg',
-    spanClass: 'lg:col-span-8 md:col-span-12',
-    hasLedBadge: true,
-  },
-  {
-    id: 'normal-acrylic-art',
-    name: 'Normal Acrylic Art',
-    subtitle: 'Shatterproof crystal cast sheets with golden foil embellishments and smooth beveled edges.',
-    badge: 'Gold Embellished',
-    href: '/shop?lighting=none',
-    image: '/images/wall-decor/products/abstract/golden-bodhi-ginkgo-art.jpg',
-    fallbackImage: '/images/divine/radha-krishna.jpg',
-    spanClass: 'lg:col-span-4 md:col-span-6',
-  },
-  {
-    id: 'custom-photos',
-    name: 'Custom Photo Frames',
-    subtitle: 'Turn your cherished weddings, family legacies & personal portraits into archival glowing heirlooms.',
-    badge: 'Bespoke Personalization',
-    href: '/customise',
-    image: '/images/collections/family-photo-frame.jpg',
-    fallbackImage: '/images/collections/custom-led-photo-frame.jpg',
-    spanClass: 'lg:col-span-4 md:col-span-6',
-  },
-  {
-    id: 'radha-krishna',
-    name: 'Radha Krishna Collection',
-    subtitle: 'Celestial Vrindavan flute harmonies and eternal unconditional devotion for joyful marital bliss.',
-    badge: 'Divine Love & Harmony',
-    href: '/category/radha-krishna',
-    image: '/images/divine/radha-krishna.jpg',
-    fallbackImage: '/images/wall-decor/categories/devotional/radha-krishna-category.jpg',
-    spanClass: 'lg:col-span-4 md:col-span-6',
-  },
-  {
-    id: 'lord-shiva',
-    name: 'Lord Shiva Collection',
-    subtitle: 'Meditative Adiyogi, Mahadev crescent moon and Shiv Parivar sacred wall panels for cosmic peace.',
-    badge: 'Cosmic Meditation',
-    href: '/category/lord-shiva-shiv-parivar',
-    image: '/images/divine/adiyogi-shiva.jpg',
-    fallbackImage: '/images/wall-decor/categories/devotional/shiva-category.jpg',
-    spanClass: 'lg:col-span-4 md:col-span-6',
-  },
-  {
-    id: 'lord-venkateswara',
-    name: 'Lord Venkateswara Collection',
-    subtitle: 'Divine Tirupati Balaji with Shanku, Chakra & Namam radiating timeless Vaikuntha abundance.',
-    badge: 'Kaliyuga Varada',
-    href: '/category/lord-venkateswara-balaji',
-    image: '/images/divine/lord-balaji.jpg',
-    fallbackImage: '/images/wall-decor/categories/devotional/balaji-category.jpg',
-    spanClass: 'lg:col-span-4 md:col-span-6',
-  },
-  {
-    id: 'goddess-lakshmi',
-    name: 'Goddess Lakshmi Collection',
-    subtitle: 'Ashta Lakshmi golden lotus motifs welcoming eternal prosperity, food security and domestic wealth.',
-    badge: 'Ashta Vaibhavam',
-    href: '/category/goddess-lakshmi',
-    image: '/images/divine/maa-lakshmi.jpg',
-    fallbackImage: '/images/wall-decor/categories/devotional/lakshmi-category.jpg',
-    spanClass: 'lg:col-span-4 md:col-span-6',
-  },
-  {
-    id: 'ganesha',
-    name: 'Ganesha Collection',
-    subtitle: 'Vighnaharta Ganesha removing stumbling blocks and welcoming auspicious Shubh-Labh beginnings.',
-    badge: 'Obstacle Remover',
-    href: '/category/lord-ganesha',
-    image: '/images/divine/lord-ganesha.jpg',
-    fallbackImage: '/images/wall-decor/categories/devotional/ganesha-category.jpg',
-    spanClass: 'lg:col-span-4 md:col-span-6',
-  },
-  {
-    id: 'ram-mandir',
-    name: 'Ram Mandir & Shri Ram',
-    subtitle: 'Grand Ayodhya Ram Janmabhoomi Darbar panels infusing righteousness, moral strength & peace.',
-    badge: 'Ayodhya Ram Darbar',
-    href: '/category/lord-rama',
-    image: '/images/divine/ram-mandir.jpg',
-    fallbackImage: '/images/wall-decor/categories/devotional/rama-category.jpg',
+    id: 'acrylic-photo-frames',
+    name: 'Acrylic Photo Frames',
+    subtitle: 'Ultra-clear crystal shatterproof acrylic photo frames with laser diamond-beveled edges and vibrant depth.',
+    badge: 'Diamond Beveled',
+    href: '/category/acrylic-photo-frames',
+    image: '/images/collections/custom-portrait-frame.jpg',
+    fallbackImage: '/images/collections/custom-portrait-frame.jpg',
     spanClass: 'lg:col-span-6 md:col-span-6',
   },
   {
-    id: 'hanuman',
-    name: 'Lord Hanuman Chalisa',
-    subtitle: 'Complete inscribed 40 chaupais with Sankat Mochan Hanuman providing fearless protection.',
-    badge: 'Sankat Mochan',
-    href: '/category/lord-hanuman',
-    image: '/images/wall-decor/categories/devotional/hanuman-category.jpg',
-    fallbackImage: '/images/wall-decor/categories/devotional/hanuman-category.jpg',
-    spanClass: 'lg:col-span-6 md:col-span-12',
+    id: 'led-acrylic-photo-frames',
+    name: 'LED Acrylic Photo Frames',
+    subtitle: 'Warm golden halo backlights creating an authentic ambient aura with low-voltage 12V BIS certified power adapter.',
+    badge: 'Warm LED Glow',
+    href: '/category/led-acrylic-photo-frames',
+    image: '/images/collections/custom-led-photo-frame.jpg',
+    fallbackImage: '/images/collections/custom-led-photo-frame.jpg',
+    spanClass: 'lg:col-span-6 md:col-span-6',
     hasLedBadge: true,
   },
   {
     id: 'glitter-photo-frames',
     name: 'Glitter Photo Frames',
-    subtitle: 'Luminous sparkle and metallic glitter effects adding celebration radiance to special portraits.',
-    badge: 'Luminous Sparkle',
+    subtitle: 'Enchanted floating liquid gold & diamond shimmer glitter acrylic photo frames bringing luminous sparkle to special memories.',
+    badge: 'Liquid Gold Shimmer',
     href: '/category/glitter-photo-frames',
     image: '/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg',
-    fallbackImage: '/images/products/prod-sparkling-diamond-glitter-frame/primary-square.jpg',
+    fallbackImage: '/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/primary-square.jpg',
     spanClass: 'lg:col-span-6 md:col-span-6',
   },
   {
-    id: 'rotating-photo-lamps',
-    name: 'Rotating Photo Lamps',
-    subtitle: 'Motorized 360-degree cylindrical lamps glowing warmly with multiple cherished photographs.',
+    id: '360-rotating-photo-lamps',
+    name: '360° Rotating Photo Lamps',
+    subtitle: 'Motorized 360-degree rotating cylinder LED photo lamps with whisper-silent rotation showcasing multiple cherished memories.',
     badge: '360° Motorized Warm LED',
-    href: '/category/rotating-photo-lamps',
+    href: '/category/360-rotating-photo-lamps',
     image: '/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/primary-square.jpg',
-    fallbackImage: '/images/products/prod-hexagonal-tower-rotating-lamp/primary-square.jpg',
+    fallbackImage: '/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/primary-square.jpg',
     spanClass: 'lg:col-span-6 md:col-span-6',
     hasLedBadge: true,
+  },
+  {
+    id: 'god-photo-frames',
+    name: 'God Photo Frames',
+    subtitle: 'Sacred 3D crystal acrylic & warm LED backlit wall art of Tirupati Balaji, Lord Shiva, Ganesha, Hanuman, Rama & Lakshmi.',
+    badge: 'Sacred Devotion',
+    href: '/category/god-photo-frames',
+    image: '/images/wall-decor/categories/devotional/balaji-category.jpg',
+    fallbackImage: '/images/divine/ram-mandir.jpg',
+    spanClass: 'lg:col-span-6 md:col-span-6',
+    hasLedBadge: true,
+  },
+  {
+    id: 'family-baby-frames',
+    name: 'Family & Baby Frames',
+    subtitle: 'Heartfelt personalized family heirloom frames, baby milestone memories, and multi-photo wall gallery collages.',
+    badge: 'Family Heirlooms',
+    href: '/category/family-baby-frames',
+    image: '/images/collections/family-photo-frame.jpg',
+    fallbackImage: '/images/collections/family-photo-frame.jpg',
+    spanClass: 'lg:col-span-6 md:col-span-6',
+  },
+  {
+    id: 'couple-wedding-frames',
+    name: 'Couple & Wedding Frames',
+    subtitle: 'Cherished wedding vow acrylic keepsakes, romantic anniversary milestones, and elegant couple portraits in crystal depth.',
+    badge: 'Wedding & Love',
+    href: '/category/couple-wedding-frames',
+    image: '/images/mockups/custom-couple-wedding-vows-acrylic-keepsake-frame/primary-square.jpg',
+    fallbackImage: '/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/primary-square.jpg',
+    spanClass: 'lg:col-span-6 md:col-span-6',
+  },
+  {
+    id: 'personalized-gifts',
+    name: 'Personalized Gifts',
+    subtitle: 'Bespoke personalized photo gifts, custom names & dedication inscriptions precision-crafted in Hyderabad with proof on WhatsApp.',
+    badge: 'Bespoke Gifts',
+    href: '/category/personalized-gifts',
+    image: '/images/collections/gallery-set-photo-frames.jpg',
+    fallbackImage: '/images/collections/custom-led-photo-frame.jpg',
+    spanClass: 'lg:col-span-6 md:col-span-6',
   },
 ];
 
@@ -151,13 +110,13 @@ export default function CategoryShowcase() {
         <div>
           <div className="inline-flex items-center gap-1.5 text-xs uppercase tracking-widest font-bold text-[#FFFFFF] bg-[#181818] border border-[#EAB308] px-3.5 py-1 rounded-full shadow-2xs mb-2">
             <Sparkles className="w-3.5 h-3.5 text-[#EAB308]" />
-            <span>Curated Sanctum Portfolios</span>
+            <span>Featured Collections</span>
           </div>
           <h2 className="font-serif font-bold text-2xl sm:text-3xl lg:text-4xl text-[#FFFFFF] tracking-tight">
-            EXPLORE THE WORLD OF DIVINE ART
+            EXPLORE OUR CATEGORIES
           </h2>
           <p className="text-xs sm:text-sm text-[#D1D5DB] mt-1.5 max-w-2xl font-sans leading-relaxed">
-            Find the perfect expression of faith, devotion and timeless beauty. Handcrafted with museum-grade crystal acrylic and golden foil embellishments.
+            Find the perfect expression of faith, love, and cherished memories. Handcrafted with museum-grade crystal acrylic and precision illumination.
           </p>
         </div>
 
@@ -170,14 +129,14 @@ export default function CategoryShowcase() {
         </Link>
       </div>
 
-      {/* Asymmetrical Editorial Bento Grid */}
+      {/* Grid */}
       <div className="grid grid-cols-1 md:grid-cols-12 gap-4 sm:gap-5 lg:gap-6">
         {EDITORIAL_CATEGORIES.map((cat) => {
           return (
             <Link
               key={cat.id}
               href={cat.href}
-              className={`group relative rounded-3xl overflow-hidden bg-[#181818] border border-[#2D2D2D] hover:border-[#EAB308] shadow-sm hover:shadow-[0_16px_36px_rgba(0,0,0,0.6)] transition-all duration-500 flex flex-col justify-end min-h-[300px] sm:min-h-[340px] lg:min-h-[380px] p-5 sm:p-6 lg:p-7 ${cat.spanClass}`}
+              className={`group relative rounded-3xl overflow-hidden bg-[#181818] border border-[#2D2D2D] hover:border-[#EAB308] shadow-sm hover:shadow-[0_16px_36px_rgba(0,0,0,0.6)] transition-all duration-500 flex flex-col justify-end min-h-[280px] sm:min-h-[320px] lg:min-h-[340px] p-5 sm:p-6 lg:p-7 ${cat.spanClass}`}
             >
               {/* Background Artwork Image with Hover Zoom */}
               <img

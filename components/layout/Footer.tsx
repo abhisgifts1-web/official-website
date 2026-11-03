@@ -141,25 +141,20 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Section 2: Photo Frames & Gifts (1 col on mobile, 1 col on tablet, 3 cols on desktop) */}
+          {/* Section 2: Featured Categories 1 */}
           <div className="col-span-1 lg:col-span-3 space-y-2.5 sm:space-y-3">
             <h4 className="font-serif font-bold text-xs uppercase tracking-wider text-[#FFFFFF] pb-1 border-b border-[#EAB308]/20">
-              Photo Frames &amp; Gifts
+              Categories
             </h4>
             <ul className="space-y-2 text-xs sm:text-[13px] text-[#E5E7EB]/80 pt-1">
               <li>
-                <Link href="/customise" className="hover:text-[#FACC15] transition-colors font-medium text-[#FACC15] block py-0.5">
-                  ✨ Customise Frame
-                </Link>
-              </li>
-              <li>
-                <Link href="/customise" className="hover:text-[#FACC15] transition-colors block py-0.5">
+                <Link href="/category/acrylic-photo-frames" className="hover:text-[#FACC15] transition-colors block py-0.5">
                   Acrylic Photo Frames
                 </Link>
               </li>
               <li>
-                <Link href="/category/led-backlit-wall-art" className="hover:text-[#FACC15] transition-colors block py-0.5">
-                  LED Backlit Frames
+                <Link href="/category/led-acrylic-photo-frames" className="hover:text-[#FACC15] transition-colors block py-0.5">
+                  LED Acrylic Photo Frames
                 </Link>
               </li>
               <li>
@@ -168,52 +163,37 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/category/rotating-photo-lamps" className="hover:text-[#FACC15] transition-colors block py-0.5">
-                  360° Rotating Lamps
-                </Link>
-              </li>
-              <li>
-                <Link href="/collections" className="hover:text-[#FACC15] transition-colors block py-0.5">
-                  All Collections
+                <Link href="/category/360-rotating-photo-lamps" className="hover:text-[#FACC15] transition-colors block py-0.5">
+                  360° Rotating Photo Lamps
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Section 3: Sacred & Devotional Wall Art (1 col on mobile, 1 col on tablet, 2 cols on desktop) */}
+          {/* Section 3: Featured Categories 2 */}
           <div className="col-span-1 lg:col-span-2 space-y-2.5 sm:space-y-3">
             <h4 className="font-serif font-bold text-xs uppercase tracking-wider text-[#FFFFFF] pb-1 border-b border-[#EAB308]/20">
-              Devotional Art
+              Special Keepsakes
             </h4>
             <ul className="space-y-2 text-xs sm:text-[13px] text-[#E5E7EB]/80 pt-1">
               <li>
-                <Link href="/category/lord-venkateswara-balaji" className="hover:text-[#FACC15] transition-colors block py-0.5">
-                  Lord Balaji (Venkateswara)
+                <Link href="/category/god-photo-frames" className="hover:text-[#FACC15] transition-colors block py-0.5">
+                  God Photo Frames
                 </Link>
               </li>
               <li>
-                <Link href="/category/lord-shiva-shiv-parivar" className="hover:text-[#FACC15] transition-colors block py-0.5">
-                  Lord Shiva Adiyogi
+                <Link href="/category/family-baby-frames" className="hover:text-[#FACC15] transition-colors block py-0.5">
+                  Family &amp; Baby Frames
                 </Link>
               </li>
               <li>
-                <Link href="/category/lord-ganesha" className="hover:text-[#FACC15] transition-colors block py-0.5">
-                  Lord Ganesha Art
+                <Link href="/category/couple-wedding-frames" className="hover:text-[#FACC15] transition-colors block py-0.5">
+                  Couple &amp; Wedding Frames
                 </Link>
               </li>
               <li>
-                <Link href="/category/lord-hanuman" className="hover:text-[#FACC15] transition-colors block py-0.5">
-                  Hanuman Chalisa
-                </Link>
-              </li>
-              <li>
-                <Link href="/category/radha-krishna" className="hover:text-[#FACC15] transition-colors block py-0.5">
-                  Radha Krishna Decor
-                </Link>
-              </li>
-              <li>
-                <Link href="/category/abstract-wall-decor" className="hover:text-[#FACC15] transition-colors block py-0.5">
-                  Abstract &amp; Vastu Art
+                <Link href="/category/personalized-gifts" className="hover:text-[#FACC15] transition-colors block py-0.5">
+                  Personalized Gifts
                 </Link>
               </li>
             </ul>

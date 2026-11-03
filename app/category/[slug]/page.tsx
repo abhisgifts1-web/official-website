@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { notFound, redirect } from 'next/navigation';
 import { Sparkles, Home, MapPin, Truck, ShieldCheck, CheckCircle2 } from 'lucide-react';
 import { getCategoryBySlug, getAllCategories, getAllProducts } from '@/lib/store';
+import { CATEGORY_SLUG_ALIASES } from '@/lib/data/categories';
 import CategoryClientView from '@/components/category/CategoryClientView';
 import { getBreadcrumbSchema } from '@/lib/seo/schema';
 
@@ -18,13 +19,56 @@ interface CategoryPageProps {
 
 export async function generateStaticParams() {
   const categories = getAllCategories();
-  return categories.map((c) => ({
-    slug: c.slug,
+  const slugs = new Set<string>();
+  categories.forEach((c) => slugs.add(c.slug));
+  Object.keys(CATEGORY_SLUG_ALIASES).forEach((alias) => slugs.add(alias));
+  return Array.from(slugs).map((slug) => ({
+    slug,
   }));
 }
 
 // Targeted SEO title and description overrides for high-priority local keywords
 const LOCAL_SEO_CATEGORY_OVERRIDES: Record<string, { title: string; description: string; h1?: string }> = {
+  'acrylic-photo-frames': {
+    title: "Acrylic Photo Frames in Hyderabad | Crystal Clear Custom Prints — Abhi's Gifts",
+    description: 'Order high-definition crystal acrylic photo frames in Hyderabad and Dilsukhnagar. Diamond-edge beveled acrylic prints with vibrant, fade-resistant color depth.',
+    h1: 'Acrylic Photo Frames in Hyderabad',
+  },
+  'led-acrylic-photo-frames': {
+    title: "LED Acrylic Photo Frames Hyderabad | Warm Illuminated Wall Decor — Abhi's Gifts",
+    description: 'Shop luxury LED acrylic photo frames and backlit wall art in Hyderabad. Handcrafted with warm golden ambient backlights and 12V adapter.',
+    h1: 'LED Acrylic Photo Frames in Hyderabad',
+  },
+  'glitter-photo-frames': {
+    title: "Glitter Photo Frames in Hyderabad | Liquid Gold Sparkle Keepsakes — Abhi's Gifts",
+    description: 'Explore floating liquid gold and diamond shimmer glitter photo frames in Hyderabad. Shimmering depth for weddings, anniversaries, and portraits.',
+    h1: 'Glitter Photo Frames in Hyderabad & Dilsukhnagar',
+  },
+  '360-rotating-photo-lamps': {
+    title: "360° Rotating Photo Lamps in Hyderabad | Motorized LED Memory Lamps — Abhi's Gifts",
+    description: 'Buy motorized 360-degree rotating cylinder LED photo lamps in Hyderabad. Continuous whisper-silent rotation showcasing multiple memories in warm light.',
+    h1: '360° Rotating Photo Lamps in Hyderabad & Dilsukhnagar',
+  },
+  'god-photo-frames': {
+    title: "God Photo Frames Hyderabad | Sacred Balaji, Shiva, Ganesha Acrylic Art — Abhi's Gifts",
+    description: 'Divine 3D crystal acrylic and warm LED backlit God photo frames in Hyderabad. Tirupati Balaji, Lord Shiva, Ganesha, Hanuman, Rama & Lakshmi frames.',
+    h1: 'God Photo Frames in Hyderabad & Dilsukhnagar',
+  },
+  'family-baby-frames': {
+    title: "Family & Baby Frames Hyderabad | Personalized Heirloom Displays — Abhi's Gifts",
+    description: 'Heartfelt personalized family heirloom frames and baby milestone photo displays in Hyderabad. Custom name inscriptions and gallery wall collages.',
+    h1: 'Family & Baby Photo Frames in Hyderabad',
+  },
+  'couple-wedding-frames': {
+    title: "Couple & Wedding Frames Hyderabad | Wedding Vows & Keepsakes — Abhi's Gifts",
+    description: 'Custom couple and wedding vow acrylic frames in Hyderabad. Romantic anniversary milestones and wedding memories preserved in crystal acrylic.',
+    h1: 'Couple & Wedding Frames in Hyderabad',
+  },
+  'personalized-gifts': {
+    title: "Personalized Gifts in Hyderabad | Custom Acrylic Frames & Keepsakes — Abhi's Gifts",
+    description: 'Best personalized photo gifts in Hyderabad and Dilsukhnagar. Custom photo prints, dedicated inscriptions & fast WhatsApp digital proofing.',
+    h1: 'Personalized Gifts in Hyderabad & Dilsukhnagar',
+  },
   
   'premium-acrylic-wall-art': {
     title: "Acrylic Photo Frames in Hyderabad | crystal acrylic Art — Abhi's Gifts",
@@ -57,16 +101,7 @@ const LOCAL_SEO_CATEGORY_OVERRIDES: Record<string, { title: string; description:
     h1: 'LED Acrylic Frames & Backlit Art in Hyderabad',
   },
   
-  'glitter-photo-frames': {
-    title: "Glitter Photo Frames in Hyderabad | Luminous Shimmer Frames — Abhi's Gifts",
-    description: 'Explore luxury glitter photo frames in Hyderabad and Dilsukhnagar. Luminous sparkle and metallic glitter effects adding celebration radiance to special portraits.',
-    h1: 'Glitter Photo Frames in Hyderabad & Dilsukhnagar',
-  },
-  'rotating-photo-lamps': {
-    title: "Rotating Photo Lamps in Hyderabad | Motorized 360° LED Lamps — Abhi's Gifts",
-    description: 'Buy motorized 360-degree rotating photo lamps in Hyderabad. Cylindrical multi-photo lamps glowing warmly with multiple cherished photographs and ambient LED.',
-    h1: 'Rotating Photo Lamps in Hyderabad & Dilsukhnagar',
-  },
+
   
 };
 
@@ -131,24 +166,72 @@ export default function CategoryPage({ params }: CategoryPageProps) {
       return true;
     }
 
-    // 2. Smart category matching for grouped categories
-    if (slug === 'led-god-frames' || slug === 'devotional-led-frames') {
-      return p.hasLedBacklight && (Boolean(p.deity) || p.categorySlug.includes('lord') || p.categorySlug.includes('goddess') || p.categorySlug.includes('radha') || p.categorySlug.includes('temple'));
+    // 2. Smart matching for the 8 official categories
+    if (slug === 'acrylic-photo-frames') {
+      return (
+        !p.hasLedBacklight ||
+        p.categorySlug === 'acrylic-photo-frames' ||
+        p.categorySlugs?.includes('acrylic-photo-frames') ||
+        p.tags?.some((t) => t.toLowerCase().includes('acrylic'))
+      );
     }
-    if (slug === 'led-backlit-wall-art') {
+    if (slug === 'led-acrylic-photo-frames' || slug === 'led-backlit-wall-art' || slug === 'custom-led-photo-frames') {
       return p.hasLedBacklight;
     }
-    
-    
-    
+    if (slug === 'glitter-photo-frames') {
+      return (
+        p.categorySlug === 'glitter-photo-frames' ||
+        p.categorySlugs?.includes('glitter-photo-frames') ||
+        p.tags?.some((t) => t.toLowerCase().includes('glitter'))
+      );
+    }
+    if (slug === '360-rotating-photo-lamps' || slug === 'rotating-photo-lamps') {
+      return (
+        p.categorySlug.includes('rotating') ||
+        p.tags?.some((t) => t.toLowerCase().includes('rotating') || t.toLowerCase().includes('lamp'))
+      );
+    }
+    if (slug === 'god-photo-frames' || slug === 'devotional-led-frames') {
+      return (
+        Boolean(p.deity) ||
+        p.categorySlug.includes('lord') ||
+        p.categorySlug.includes('goddess') ||
+        p.categorySlug.includes('radha') ||
+        p.categorySlug.includes('hanuman') ||
+        p.categorySlug.includes('ram') ||
+        p.categorySlug.includes('shiva') ||
+        p.categorySlug.includes('balaji') ||
+        p.categorySlug.includes('ganesha') ||
+        p.categorySlug.includes('ayyappa') ||
+        p.categorySlug.includes('kartikeya') ||
+        p.categorySlug.includes('devotional') ||
+        p.tags?.some((t) => ['balaji', 'shiva', 'ganesha', 'hanuman', 'ram', 'lakshmi', 'krishna', 'ayyappa', 'murugan', 'temple', 'mandir', 'devotional'].includes(t.toLowerCase()))
+      );
+    }
+    if (slug === 'family-baby-frames' || slug === 'personalized-family-photo-frames' || slug === 'sets-of-two-three-frames') {
+      return (
+        p.categorySlug.includes('family') ||
+        p.tags?.some((t) => t.toLowerCase().includes('family') || t.toLowerCase().includes('baby') || t.toLowerCase().includes('heirloom') || t.toLowerCase().includes('triptych'))
+      );
+    }
+    if (slug === 'couple-wedding-frames' || slug === 'couple-wedding-photos') {
+      return (
+        p.categorySlug.includes('wedding') ||
+        p.categorySlug.includes('couple') ||
+        p.tags?.some((t) => t.toLowerCase().includes('wedding') || t.toLowerCase().includes('couple') || t.toLowerCase().includes('anniversary'))
+      );
+    }
+    if (slug === 'personalized-gifts' || slug === 'custom-frames') {
+      return (
+        p.categorySlug.includes('photo') ||
+        p.categorySlug.includes('custom') ||
+        p.tags?.some((t) => t.toLowerCase().includes('custom') || t.toLowerCase().includes('personalized') || t.toLowerCase().includes('gift'))
+      );
+    }
+
+    // 3. Backward compatibility for legacy slugs
     if (slug === 'modern-illuminated-art') {
       return p.hasLedBacklight && (p.categorySlug === 'modern-illuminated-art' || p.tags.some((t) => t.toLowerCase().includes('modern') || t.toLowerCase().includes('horizon')));
-    }
-    if (slug === 'premium-temple-designs') {
-      return p.categorySlug === 'premium-temple-designs' || p.tags.some((t) => t.toLowerCase().includes('temple') || t.toLowerCase().includes('mandir'));
-    }
-    if (slug === 'gold-abstract-designs') {
-      return p.tags.some((t) => t.toLowerCase().includes('gold')) || p.categorySlug === 'abstract-wall-decor';
     }
     if (slug === 'horses-and-wildlife') {
       return p.categorySlug === 'horses-and-wildlife' || p.tags.some((t) => t.toLowerCase().includes('horse') || t.toLowerCase().includes('wildlife'));
@@ -159,29 +242,6 @@ export default function CategoryPage({ params }: CategoryPageProps) {
     if (slug === 'koi-fish-designs') {
       return p.categorySlug === 'koi-fish-designs' || p.tags.some((t) => t.toLowerCase().includes('koi') || t.toLowerCase().includes('fish'));
     }
-    if (slug === 'contemporary-luxury-art') {
-      return p.categorySlug === 'contemporary-luxury-art' || p.tags.some((t) => t.toLowerCase().includes('luxury') || t.toLowerCase().includes('emerald'));
-    }
-    if (slug === 'couple-wedding-photos') {
-      return p.categorySlug === 'couple-wedding-photos' || p.tags.some((t) => t.toLowerCase().includes('wedding') || t.toLowerCase().includes('couple'));
-    }
-    if (slug === 'deer-and-bird-artwork') {
-      return p.tags.some((t) => t.toLowerCase().includes('deer') || t.toLowerCase().includes('peacock') || t.toLowerCase().includes('bird'));
-    }
-    if (slug === 'mountain-landscape-art') {
-      return p.tags.some((t) => t.toLowerCase().includes('mountain') || t.toLowerCase().includes('landscape')) || p.categorySlug === 'landscape-wall-art';
-    }
-    
-    if (slug === 'sets-of-two-three-frames') {
-      return p.shape === 'set-of-2' || p.shape === 'set-of-3' || p.tags.some((t) => t.toLowerCase().includes('set of'));
-    }
-    
-    
-    
-    if (slug === 'personalized-family-photo-frames') {
-      return p.categorySlug.includes('custom') || p.tags.some((t) => t.toLowerCase().includes('family') || t.toLowerCase().includes('photo'));
-    }
-
     return false;
   });
 
