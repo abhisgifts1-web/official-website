@@ -214,7 +214,7 @@ export default function AboutPage() {
               width={300}
               height={63}
               priority
-              className="h-12 sm:h-14 md:h-16 w-auto object-contain brightness-105 drop-shadow-[0_4px_16px_rgba(250,204,21,0.2)]"
+              className="h-12 sm:h-14 md:h-16 w-auto object-contain"
             />
           </div>
 

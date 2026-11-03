@@ -235,7 +235,7 @@ export default function Header() {
                   width={240}
                   height={50}
                   priority
-                  className="h-8 sm:h-9.5 md:h-11 lg:h-12 xl:h-13 2xl:h-14 w-auto object-contain transition-transform group-hover:scale-[1.03] drop-shadow-[0_2px_10px_rgba(250,204,21,0.15)]"
+                  className="h-8 sm:h-9.5 md:h-11 lg:h-12 xl:h-13 2xl:h-14 w-auto object-contain transition-transform group-hover:scale-[1.03]"
                 />
               </Link>
             </div>
@@ -564,7 +564,7 @@ export default function Header() {
                   alt="Abhi's Gifts - We Create Memorable Movements"
                   width={210}
                   height={44}
-                  className="h-9 sm:h-10 w-auto object-contain drop-shadow-[0_2px_8px_rgba(250,204,21,0.15)]"
+                  className="h-9 sm:h-10 w-auto object-contain"
                 />
               </Link>
               <button

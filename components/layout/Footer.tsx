@@ -101,7 +101,7 @@ export default function Footer() {
                     alt="Abhi's Gifts - We Create Memorable Movements"
                     width={240}
                     height={50}
-                    className="h-10 sm:h-12 md:h-13 w-auto object-contain brightness-105 drop-shadow-[0_2px_10px_rgba(250,204,21,0.15)]"
+                    className="h-10 sm:h-12 md:h-13 w-auto object-contain"
                   />
                 </Link>
                 <p className="text-xs sm:text-[13px] text-[#E5E7EB]/80 leading-relaxed max-w-sm">
