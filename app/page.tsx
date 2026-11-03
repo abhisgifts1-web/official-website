@@ -5,6 +5,7 @@ import HeroShowcase from '@/components/home/HeroShowcase';
 import CategoryShowcase from '@/components/home/CategoryShowcase';
 import BestsellersShowcase from '@/components/home/BestsellersShowcase';
 import InteractiveLedExperience from '@/components/home/InteractiveLedExperience';
+import CustomGiftsShowcase from '@/components/home/CustomGiftsShowcase';
 import SacredArtAtelier from '@/components/home/SacredArtAtelier';
 import TrustAndReviewsSection from '@/components/home/TrustAndReviewsSection';
 import FaqSection from '@/components/home/FaqSection';
@@ -25,16 +26,19 @@ export default function HomePage() {
       {/* 4. IMMERSIVE LED EXPERIENCE — Interactive Before / After Draggable Lighting Comparison */}
       <InteractiveLedExperience />
 
-      {/* 5. THE SACRED ART ATELIER — Immersive Luxury Campaign & Interactive Craftsmanship */}
+      {/* 5. CUSTOM GIFTS & PERSONALIZED KEEPSAKES — Trending Rotating Lamps, Glitter Frames & Keepsakes */}
+      <CustomGiftsShowcase />
+
+      {/* 6. THE SACRED ART ATELIER — Immersive Luxury Campaign & Interactive Craftsmanship */}
       <SacredArtAtelier />
 
-      {/* 6. TRUST AND CUSTOMER EXPERIENCE — 5 Horizontal Pillars + Verified Collector Reviews */}
+      {/* 7. TRUST AND CUSTOMER EXPERIENCE — 5 Horizontal Pillars + Verified Collector Reviews */}
       <TrustAndReviewsSection />
 
-      {/* 7. COLLECTOR KNOWLEDGE BASE — Frequently Asked Questions */}
+      {/* 8. COLLECTOR KNOWLEDGE BASE — Frequently Asked Questions */}
       <FaqSection />
 
-      {/* 8. VIP COLLECTOR CIRCLE — Newsletter Subscription */}
+      {/* 9. VIP COLLECTOR CIRCLE — Newsletter Subscription */}
       <NewsletterSection />
     </div>
   );

@@ -2,14 +2,17 @@
 
 import React, { useState, useMemo, useEffect } from 'react';
 import Link from 'next/link';
-import { Sparkles, ArrowRight, Flame, Layers, Award } from 'lucide-react';
+import { Sparkles, ArrowRight, Flame, Layers, Award, ChevronLeft, ChevronRight } from 'lucide-react';
 import { INITIAL_PRODUCTS } from '@/lib/data/mockProducts';
 import ProductCard from '@/components/product/ProductCard';
 
 type FilterType = 'all' | 'led' | 'deities' | 'vastu';
 
+const ITEMS_PER_PAGE = 5;
+
 export default function BestsellersShowcase() {
   const [activeFilter, setActiveFilter] = useState<FilterType>('all');
+  const [currentPage, setCurrentPage] = useState<number>(1);
 
   const bestsellerSlugs = useMemo(() => [
     'tirupati-balaji-divine-led-backlit-acrylic-wall-art',
@@ -61,6 +64,24 @@ export default function BestsellersShowcase() {
     }
   }, [activeFilter, bestsellerProducts]);
 
+  const totalPages = Math.max(1, Math.ceil(filteredProducts.length / ITEMS_PER_PAGE));
+
+  const paginatedProducts = useMemo(() => {
+    const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+    return filteredProducts.slice(startIndex, startIndex + ITEMS_PER_PAGE);
+  }, [filteredProducts, currentPage]);
+
+  const handleFilterChange = (filter: FilterType) => {
+    setActiveFilter(filter);
+    setCurrentPage(1);
+  };
+
+  const goToPage = (page: number) => {
+    if (page >= 1 && page <= totalPages) {
+      setCurrentPage(page);
+    }
+  };
+
   return (
     <section className="w-full max-w-[1760px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 py-6 sm:py-8 lg:py-10">
       {/* Header with Title and Filter Tabs */}
@@ -82,7 +103,7 @@ export default function BestsellersShowcase() {
         <div className="flex items-center gap-1.5 overflow-x-auto min-w-0 max-w-full pb-1 sm:pb-0 scrollbar-none">
           <button
             type="button"
-            onClick={() => setActiveFilter('all')}
+            onClick={() => handleFilterChange('all')}
             className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all whitespace-nowrap cursor-pointer ${
               activeFilter === 'all'
                 ? 'bg-[#511B2A] text-[#FFF7EC] border border-[#D6AA55] shadow-xs'
@@ -93,7 +114,7 @@ export default function BestsellersShowcase() {
           </button>
           <button
             type="button"
-            onClick={() => setActiveFilter('led')}
+            onClick={() => handleFilterChange('led')}
             className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all whitespace-nowrap flex items-center gap-1 cursor-pointer ${
               activeFilter === 'led'
                 ? 'bg-[#511B2A] text-[#FFF7EC] border border-[#D6AA55] shadow-xs'
@@ -105,7 +126,7 @@ export default function BestsellersShowcase() {
           </button>
           <button
             type="button"
-            onClick={() => setActiveFilter('deities')}
+            onClick={() => handleFilterChange('deities')}
             className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all whitespace-nowrap cursor-pointer ${
               activeFilter === 'deities'
                 ? 'bg-[#511B2A] text-[#FFF7EC] border border-[#D6AA55] shadow-xs'
@@ -116,7 +137,7 @@ export default function BestsellersShowcase() {
           </button>
           <button
             type="button"
-            onClick={() => setActiveFilter('vastu')}
+            onClick={() => handleFilterChange('vastu')}
             className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all whitespace-nowrap cursor-pointer ${
               activeFilter === 'vastu'
                 ? 'bg-[#511B2A] text-[#FFF7EC] border border-[#D6AA55] shadow-xs'
@@ -130,10 +151,64 @@ export default function BestsellersShowcase() {
 
       {/* Responsive Grid of Real Products */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 sm:gap-5">
-        {filteredProducts.map((product) => (
+        {paginatedProducts.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}
       </div>
+
+      {/* Interactive Page Navigation Controls (Page 1 / Page 2) */}
+      {totalPages > 1 && (
+        <div className="mt-8 flex items-center justify-center gap-2">
+          <button
+            type="button"
+            onClick={() => goToPage(currentPage - 1)}
+            disabled={currentPage === 1}
+            className={`inline-flex items-center gap-1 px-3.5 py-2 rounded-full text-xs font-bold transition-all cursor-pointer ${
+              currentPage === 1
+                ? 'bg-[#F2E5D5] text-[#8C7A70] cursor-not-allowed opacity-60'
+                : 'bg-white text-[#511B2A] border border-[#E8D5BD] hover:border-[#D6AA55] shadow-xs'
+            }`}
+            aria-label="Previous page"
+          >
+            <ChevronLeft className="w-4 h-4 text-[#D6AA55]" />
+            <span className="hidden sm:inline">Previous</span>
+          </button>
+
+          {Array.from({ length: totalPages }).map((_, idx) => {
+            const pageNum = idx + 1;
+            const isActive = pageNum === currentPage;
+            return (
+              <button
+                key={pageNum}
+                type="button"
+                onClick={() => goToPage(pageNum)}
+                className={`w-9 h-9 rounded-full text-xs font-bold transition-all cursor-pointer flex items-center justify-center ${
+                  isActive
+                    ? 'bg-[#511B2A] text-[#FFF7EC] border border-[#D6AA55] shadow-xs scale-105'
+                    : 'bg-white text-[#533C36] border border-[#E8D5BD] hover:border-[#D6AA55]'
+                }`}
+              >
+                {pageNum}
+              </button>
+            );
+          })}
+
+          <button
+            type="button"
+            onClick={() => goToPage(currentPage + 1)}
+            disabled={currentPage === totalPages}
+            className={`inline-flex items-center gap-1 px-3.5 py-2 rounded-full text-xs font-bold transition-all cursor-pointer ${
+              currentPage === totalPages
+                ? 'bg-[#F2E5D5] text-[#8C7A70] cursor-not-allowed opacity-60'
+                : 'bg-white text-[#511B2A] border border-[#E8D5BD] hover:border-[#D6AA55] shadow-xs'
+            }`}
+            aria-label="Next page"
+          >
+            <span className="hidden sm:inline">Next</span>
+            <ChevronRight className="w-4 h-4 text-[#D6AA55]" />
+          </button>
+        </div>
+      )}
 
       {/* View All Collection CTA Button */}
       <div className="mt-8 sm:mt-10 text-center">
