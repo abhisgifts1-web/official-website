@@ -64,7 +64,7 @@ export default function ContactPage() {
           Contact Our Studio
         </h1>
         <p className="text-xs sm:text-sm text-[#D1D5DB]">
-          Have queries about custom temple measurements, bulk gifting, or delivery tracking? Reach out to our artisan team.
+          Have queries about custom temple measurements, bulk gifting, or custom photo frames? Reach out to our artisan team.
         </p>
       </div>
 

@@ -84,8 +84,8 @@ const FAQ_KNOWLEDGE_BASE: {
     answer:
       "• Standard Express Shipping across India (₹149 flat insured delivery fee).\n• Local Hyderabad & Dilsukhnagar: Same-day / Next-day dispatch with 24-48 hr delivery.\n• Rest of India: 3 to 5 business days via BlueDart, Delhivery, or DTDC Express.\nEvery frame is packed with multi-layer bubble wrap, edge corner guards, and sturdy wooden crates for safe, protected transit.",
     action: {
-      label: 'Track Existing Order',
-      href: '/track-order',
+      label: 'Customise a Frame',
+      href: '/customise',
     },
   },
   {
@@ -110,13 +110,13 @@ const FAQ_KNOWLEDGE_BASE: {
     },
   },
   {
-    keywords: ['track', 'order status', 'where is my order', 'tracking', 'dispatch', 'courier'],
-    question: 'How do I track my order?',
+    keywords: ['photo', 'upload', 'customise', 'customize', 'personal', 'add photo'],
+    question: 'How do I add my own photo to a frame?',
     answer:
-      "You can track your order status in real time by entering your Order ID (e.g., AG-2026-78401) on our dedicated tracking page. You'll see live updates: Order Received → Processing → Customization/Production → Dispatched → Delivered.",
+      "You can easily add your own photo to any frame! Click 'Add Your Own Photo' on any product card or visit our Customizer Studio to upload your photo, preview the framed artwork in real-time, and order directly online or via WhatsApp.",
     action: {
-      label: 'Go to Order Tracking',
-      href: '/track-order',
+      label: 'Open Customizer Studio',
+      href: '/customise',
     },
   },
   {
@@ -183,8 +183,7 @@ export default function SmartSupportWidget() {
       msg = "Hello Abhi's Gifts, I am designing a custom photo frame and need guidance on photo resolution, sizing, and pricing.";
     } else if (pathname?.includes('/checkout') || pathname?.includes('/cart')) {
       msg = "Hello Abhi's Gifts, I am currently at checkout and need quick assistance with placing my order / payment.";
-    } else if (pathname?.includes('/track-order')) {
-      msg = "Hello Abhi's Gifts, I would like to check the live status of my recent order.";
+
     }
 
     return `https://wa.me/${cleanNumber}?text=${encodeURIComponent(msg)}`;
@@ -468,7 +467,7 @@ export default function SmartSupportWidget() {
                 onClick={() => triggerFaq(FAQ_KNOWLEDGE_BASE[6])}
                 className="text-[11px] font-medium bg-[#1E1E1E] text-white border border-[#2D2D2D] hover:border-[#EAB308] px-2.5 py-1 rounded-full shrink-0 transition-colors cursor-pointer"
               >
-                📦 Track Order
+                🎨 Add Photo / Customise
               </button>
             </div>
 

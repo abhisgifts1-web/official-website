@@ -27,7 +27,7 @@ export const HOMEPAGE_FAQS: FaqItem[] = [
   },
   {
     q: 'How does ordering and delivery work?',
-    a: 'We offer hassle-free direct WhatsApp ordering as well as online checkout. You can choose your artwork, dimensions, and click Order to connect with our artisan team with your details pre-filled. We provide express delivery with reliable courier tracking across India.',
+    a: 'We offer hassle-free direct WhatsApp ordering as well as online checkout. You can choose your artwork, dimensions, and click Order to connect with our artisan team with your details pre-filled. We provide express delivery with insured safe packaging across India.',
   },
 ];
 

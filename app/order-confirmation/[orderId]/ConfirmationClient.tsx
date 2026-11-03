@@ -79,11 +79,11 @@ export default function ConfirmationClient({ order }: Props) {
         {/* Action buttons */}
         <div className="flex flex-wrap items-center justify-center gap-3 pt-4">
           <Link
-            href={`/track-order?id=${order.id}`}
+            href="/shop"
             className="bg-stone-900 hover:bg-stone-950 text-white text-xs font-semibold px-6 py-3 rounded-full flex items-center gap-2 shadow-sm transition-colors"
           >
-            <Truck className="w-4 h-4 text-amber-400" />
-            <span>Track Order Status</span>
+            <Package className="w-4 h-4 text-amber-400" />
+            <span>Continue Shopping</span>
           </Link>
 
           <a

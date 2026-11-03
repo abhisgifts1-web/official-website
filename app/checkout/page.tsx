@@ -425,7 +425,7 @@ export default function CheckoutPage() {
                     </span>
                   </div>
                   <p className="text-xs text-[#D1D5DB] mt-1 leading-relaxed">
-                    100% secure payment with automated receipt and order tracking.
+                    100% secure payment with automated receipt and order updates.
                   </p>
                 </div>
               </label>

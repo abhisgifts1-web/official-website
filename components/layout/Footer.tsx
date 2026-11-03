@@ -67,7 +67,7 @@ export default function Footer() {
             </div>
             <div className="min-w-0">
               <h4 className="text-[11px] sm:text-xs md:text-sm font-semibold text-[#FFFFFF] leading-snug">Express Delivery</h4>
-              <p className="text-[10px] sm:text-[11px] text-[#E5E7EB]/70 leading-tight">Reliable Courier Tracking</p>
+              <p className="text-[10px] sm:text-[11px] text-[#E5E7EB]/70 leading-tight">Insured Doorstep Dispatch</p>
             </div>
           </div>
 
@@ -228,8 +228,8 @@ export default function Footer() {
                 </h4>
                 <ul className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-1 gap-2 text-xs sm:text-[13px] text-[#E5E7EB]/80 pt-1">
                   <li>
-                    <Link href="/track-order" className="hover:text-[#FACC15] transition-colors block py-0.5">
-                      Track Your Order
+                    <Link href="/customise" className="hover:text-[#FACC15] transition-colors block py-0.5">
+                      ✨ Customise Photo Frame
                     </Link>
                   </li>
                   <li>

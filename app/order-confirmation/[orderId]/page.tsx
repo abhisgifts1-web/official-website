@@ -13,7 +13,7 @@ interface Props {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `Order Confirmation #${params.orderId} — Abhi Gifts`,
-    description: 'Thank you for your order. View order breakdown and track delivery status.',
+    description: 'Thank you for your order. View order breakdown and receipt details.',
   };
 }
 

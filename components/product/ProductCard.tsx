@@ -3,11 +3,12 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { Heart, Eye, ArrowRight, Sparkles, Truck, ShoppingBag } from 'lucide-react';
+import { Heart, Eye, ArrowRight, Sparkles, Truck, ShoppingBag, Camera } from 'lucide-react';
 import { Product } from '@/types';
 import { useCart } from '@/context/CartContext';
 import { useWishlist } from '@/context/WishlistContext';
 import QuickViewModal from './QuickViewModal';
+import AddPhotoModal from './AddPhotoModal';
 
 interface ProductCardProps {
   product: Product;
@@ -20,6 +21,7 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
   const { isInWishlist, toggleWishlist } = useWishlist();
 
   const [isQuickViewOpen, setIsQuickViewOpen] = useState(false);
+  const [isAddPhotoOpen, setIsAddPhotoOpen] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const [imgError, setImgError] = useState(false);
 
@@ -283,6 +285,23 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
               </span>
             </div>
 
+            {/* Dedicated Option: Add Your Own Photo for this Product */}
+            <button
+              type="button"
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                setIsAddPhotoOpen(true);
+              }}
+              className="w-full min-h-[38px] py-2 px-2.5 rounded-xl font-sans text-xs font-bold flex items-center justify-center gap-1.5 transition-all duration-200 border border-[#EAB308] bg-[#121212] hover:bg-[#EAB308] text-[#FACC15] hover:text-black shadow-xs cursor-pointer group/photo active:scale-[0.98]"
+              title={`Add your own photo for ${product.title}`}
+              aria-label={`Add your own photo for ${product.title}`}
+            >
+              <Camera className="w-3.5 h-3.5 text-[#EAB308] group-hover/photo:text-black transition-colors shrink-0" />
+              <span className="truncate font-extrabold">Add Your Own Photo</span>
+              <Sparkles className="w-3 h-3 text-[#EAB308] group-hover/photo:text-black opacity-80 shrink-0" />
+            </button>
+
             {/* Action Buttons: Always Visible on Screen */}
             <div className="flex items-center gap-1.5 pt-0.5">
               <button
@@ -293,7 +312,7 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
                 title="Buy It Now"
               >
                 <span className="truncate">Buy Now</span>
-                <ArrowRight className="w-3.5 h-3.5 text-[#FACC15] shrink-0" />
+                <ArrowRight className="w-3.5 h-3.5 text-black shrink-0" />
               </button>
 
               <button
@@ -325,6 +344,14 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
         product={product}
         isOpen={isQuickViewOpen}
         onClose={() => setIsQuickViewOpen(false)}
+      />
+
+      {/* Add Your Own Photo Modal tailored to Product Name */}
+      <AddPhotoModal
+        product={product}
+        selectedVariant={activeVariant}
+        isOpen={isAddPhotoOpen}
+        onClose={() => setIsAddPhotoOpen(false)}
       />
     </>
   );

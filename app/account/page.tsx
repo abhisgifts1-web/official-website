@@ -109,12 +109,7 @@ export default function AccountPage() {
                       <span className="bg-amber-100 text-amber-950 font-bold px-2.5 py-1 rounded-full text-xs">
                         {o.orderStatus}
                       </span>
-                      <Link
-                        href={`/track-order?id=${o.id}`}
-                        className="text-xs text-amber-800 hover:underline font-semibold flex items-center gap-0.5 ml-2"
-                      >
-                        <Truck className="w-3.5 h-3.5" /> Track
-                      </Link>
+                      
                     </div>
                   </div>
 

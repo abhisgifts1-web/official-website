@@ -89,7 +89,7 @@ export default function TrustAndReviewsSection() {
             </div>
             <h4 className="font-bold text-xs sm:text-sm text-[#FFFFFF]">Express Delivery</h4>
             <p className="text-[11px] text-[#D1D5DB] leading-snug">
-              Express courier shipping with end-to-end tracking.
+              Express courier shipping with multi-layer safe packaging.
             </p>
           </div>
 

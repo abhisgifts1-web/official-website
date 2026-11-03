@@ -39,7 +39,7 @@ export default function HomePage() {
       {/* 8. COLLECTOR KNOWLEDGE BASE — Frequently Asked Questions */}
       <FaqSection />
 
-      {/* 9. DEDICATED CUSTOMER SUPPORT & FAQ PILLARS — WhatsApp, Phone, Location & Tracking */}
+      {/* 9. DEDICATED CUSTOMER SUPPORT & FAQ PILLARS — WhatsApp, Phone, Location & Studio Assistance */}
       <ContactSupportSection />
 
       {/* 10. VIP COLLECTOR CIRCLE — Newsletter Subscription */}

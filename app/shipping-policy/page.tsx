@@ -5,7 +5,7 @@ import { INITIAL_SETTINGS } from '@/lib/data/settings';
 
 export const metadata: Metadata = {
   title: 'Shipping Policy — Abhi Gifts',
-  description: 'Shipping rates, delivery timelines, safe packaging standards, and tracking procedures.',
+  description: 'Shipping rates, delivery timelines, safe packaging standards.',
 };
 
 export default function ShippingPolicyPage() {
@@ -52,9 +52,9 @@ export default function ShippingPolicyPage() {
         </section>
 
         <section className="space-y-2">
-          <h2 className="font-serif font-bold text-xl text-stone-900">5. Tracking Your Shipment</h2>
+          <h2 className="font-serif font-bold text-xl text-stone-900">5. Dispatch & Delivery Updates</h2>
           <p>
-            Once your order is picked up by our courier partner, you will receive an automated SMS and WhatsApp update with your live tracking number (AWB). You can also track your order status anytime at <a href="/track-order" className="text-amber-800 underline">abhigifts.com/track-order</a>.
+            Once your artwork is crafted and dispatched by our courier partner, you will receive an automated WhatsApp and SMS notification with your delivery dispatch confirmation. For any queries regarding delivery progress, our team is always accessible on WhatsApp at +91 90323 72782.
           </p>
         </section>
       </div>

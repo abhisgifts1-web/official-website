@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { Metadata } from 'next';
 import CustomizerStudio from '@/components/customise/CustomizerStudio';
 
@@ -77,7 +77,7 @@ export default function CustomisePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <div className="bg-[#121212] min-h-screen">
-        <CustomizerStudio />
+        <Suspense fallback={<div className="bg-[#121212] min-h-screen" />}><CustomizerStudio /></Suspense>
       </div>
     </>
   );

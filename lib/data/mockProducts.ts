@@ -124,7 +124,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     ],
     "shippingHighlights": [
       "Express Courier Shipping on this masterpiece.",
-      "Dispatched within 24-48 business hours with tracking ID.",
+      "Dispatched within 24-48 business hours with safe packaging.",
       "Multi-layer protective packaging for safe courier transit."
     ],
     "reviews": [],
@@ -859,7 +859,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     ],
     "shippingHighlights": [
       "Express Courier Shipping on this masterpiece.",
-      "Dispatched within 24-48 business hours with tracking ID.",
+      "Dispatched within 24-48 business hours with safe packaging.",
       "Multi-layer protective packaging for safe courier transit."
     ],
     "reviews": [],
@@ -1032,7 +1032,7 @@ export const INITIAL_PRODUCTS: Product[] = [
       "Dust with soft cloth"
     ],
     "shippingHighlights": [
-      "Doorstep delivery with tracked shipping"
+      "Doorstep delivery with safe packaging."
     ],
     "reviews": [],
     "createdAt": "2026-08-25",

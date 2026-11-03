@@ -3,7 +3,8 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { X, ShieldCheck, Sparkles, ArrowRight } from 'lucide-react';
+import { X, ShieldCheck, Sparkles, ArrowRight, Camera } from 'lucide-react';
+import AddPhotoModal from './AddPhotoModal';
 import { Product, ProductVariant } from '@/types';
 import { useCart } from '@/context/CartContext';
 
@@ -20,6 +21,7 @@ export default function QuickViewModal({ product, isOpen, onClose }: QuickViewMo
   const [selectedVariant, setSelectedVariant] = useState<ProductVariant | null>(null);
   const [quantity, setQuantity] = useState(1);
   const [activeImage, setActiveImage] = useState<string | null>(null);
+  const [isAddPhotoOpen, setIsAddPhotoOpen] = useState(false);
 
   if (!isOpen || !product) return null;
 
@@ -61,6 +63,7 @@ export default function QuickViewModal({ product, isOpen, onClose }: QuickViewMo
   };
 
   return (
+    <>
     <div className="fixed inset-0 z-50 overflow-y-auto">
       {/* Backdrop */}
       <div
@@ -233,5 +236,13 @@ export default function QuickViewModal({ product, isOpen, onClose }: QuickViewMo
         </div>
       </div>
     </div>
+      {/* Add Your Own Photo Modal tailored to Product Name */}
+      <AddPhotoModal
+        product={product}
+        selectedVariant={currentVariant}
+        isOpen={isAddPhotoOpen}
+        onClose={() => setIsAddPhotoOpen(false)}
+      />
+    </>
   );
 }

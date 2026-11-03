@@ -31,7 +31,9 @@ import {
   Layers,
   Eye,
   Flame,
+  Camera,
 } from 'lucide-react';
+import AddPhotoModal from '@/components/product/AddPhotoModal';
 import { Product, ProductReview } from '@/types';
 import { useCart } from '@/context/CartContext';
 import { useWishlist } from '@/context/WishlistContext';
@@ -427,6 +429,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
   });
   const [selectedThickness, setSelectedThickness] = useState<ThicknessType>('3mm');
   const [quantity, setQuantity] = useState(1);
+  const [isAddPhotoOpen, setIsAddPhotoOpen] = useState(false);
 
   // Gallery state
   const galleryImages = useMemo(() => {
@@ -1369,6 +1372,20 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                 </div>
               </div>
 
+              {/* Option: Add Your Own Photo for this Product */}
+              <div className="pt-2 pb-1">
+                <button
+                  type="button"
+                  onClick={() => setIsAddPhotoOpen(true)}
+                  className="w-full bg-[#181818] hover:bg-[#252525] text-[#FACC15] hover:text-[#FFFFFF] py-3.5 px-4 rounded-2xl font-bold text-sm sm:text-base flex items-center justify-center gap-2 border-2 border-[#EAB308] shadow-md transition-all cursor-pointer group/photo active:scale-[0.99]"
+                  title={`Add your own photo for ${product.title}`}
+                >
+                  <Camera className="w-5 h-5 text-[#EAB308] group-hover/photo:text-[#FFFFFF] transition-colors" />
+                  <span>Add Your Own Photo for {product.title}</span>
+                  <Sparkles className="w-4 h-4 text-[#EAB308] group-hover/photo:text-[#FFFFFF] transition-colors" />
+                </button>
+              </div>
+
               {/* CTA Buttons: Buy Now & Add to Cart */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
                 {/* Instant Buy Now Button */}
@@ -1877,6 +1894,14 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
           </div>
         </div>
       </div>
+
+      {/* Add Your Own Photo Modal tailored to Product Name */}
+      <AddPhotoModal
+        product={product}
+        selectedVariant={product.variants[0]}
+        isOpen={isAddPhotoOpen}
+        onClose={() => setIsAddPhotoOpen(false)}
+      />
 
       {/* Lightbox / Fullscreen Gallery Modal */}
       {lightboxOpen && (

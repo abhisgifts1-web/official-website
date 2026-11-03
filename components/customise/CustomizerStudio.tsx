@@ -2,7 +2,7 @@
 
 import React, { useState, useRef, useMemo } from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import {
   Upload,
   Sparkles,
@@ -454,6 +454,8 @@ export const GALLERY_PRODUCTS: GalleryProductItem[] = [
 
 export default function CustomizerStudio() {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const linkedTitle = searchParams.get('title') || '';
   const { addToCart, closeCart } = useCart();
 
   // Customization Form States
@@ -478,6 +480,12 @@ export default function CustomizerStudio() {
   const [isHovered, setIsHovered] = useState<boolean>(false);
 
   const fileInputRef = useRef<HTMLInputElement>(null);
+
+  React.useEffect(() => {
+    if (linkedTitle) {
+      setSpecialInstructions(prev => prev ? prev : 'Personalized style based on: ' + linkedTitle);
+    }
+  }, [linkedTitle]);
   const studioSectionRef = useRef<HTMLDivElement>(null);
 
   // Available Sizes for Active Orientation

@@ -33,9 +33,8 @@ Crafted with Next.js 14 App Router, TypeScript, Tailwind CSS, Mongoose / MongoDB
   * Razorpay Online Payment (UPI, Credit/Debit Cards, NetBanking, Wallets)
 - **Idempotent Order Creation:** Unique tracking IDs (e.g. `AG-2026-XXXXX`).
 
-### 4. Order Confirmation & Live Tracking
-- **Order Confirmation Page (`/order-confirmation/[orderId]`):** Confetti celebration, printable digital invoice, WhatsApp order update trigger.
-- **Live Status Tracking (`/track-order`):** 6-stage visual timeline (*Confirmed* -> *Framing & Production* -> *Quality Checked* -> *Shipped* -> *Out for Delivery* -> *Delivered*), courier partner name, and AWB tracking number.
+### 4. Order Confirmation & Customer Support
+- **Order Confirmation Page (/order-confirmation/[orderId]):** Digital invoice, order breakdown, and instant WhatsApp support.
 
 ### 5. Protected Admin Dashboard (`/admin`)
 - **Dashboard Overview:** KPI stats (Total Revenue, Total Orders, In-Production Orders, Active Products) and recent orders.

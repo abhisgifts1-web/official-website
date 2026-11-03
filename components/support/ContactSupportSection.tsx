@@ -136,26 +136,26 @@ export default function ContactSupportSection() {
           </div>
         </div>
 
-        {/* 4. Order Tracking & Email */}
+        {/* 4. Custom Photo Frame & Artisan Studio */}
         <div className="bg-[#181818] rounded-2xl p-5 border border-[#2D2D2D] shadow-2xs hover:border-[#EAB308] transition-all flex flex-col justify-between">
           <div className="space-y-3">
             <div className="w-10 h-10 rounded-xl bg-[#121212] text-[#FFFFFF] border border-[#EAB308] flex items-center justify-center">
-              <Truck className="w-5 h-5 text-[#FFFFFF]" />
+              <Sparkles className="w-5 h-5 text-[#EAB308]" />
             </div>
             <div>
-              <h3 className="font-serif font-bold text-base text-[#FFFFFF]">Track Existing Order</h3>
+              <h3 className="font-serif font-bold text-base text-[#FFFFFF]">Custom Photo Frames</h3>
               <p className="text-xs text-[#D1D5DB] mt-1 font-sans">
-                Real-time tracking of production, laser cutting, and courier transit.
+                Upload your picture for customized acrylic frames with 1:1 WhatsApp proofing.
               </p>
             </div>
           </div>
           <div className="mt-5 pt-4 border-t border-[#2D2D2D]/60">
             <Link
-              href="/track-order"
+              href="/customise"
               className="inline-flex items-center justify-center gap-1.5 w-full bg-[#121212] hover:bg-[#1E1E1E] text-[#FFFFFF] hover:text-[#FFFFFF] border border-[#EAB308] text-xs font-bold py-2.5 rounded-full transition-colors"
             >
-              <Truck className="w-3.5 h-3.5 text-[#EAB308]" />
-              <span>Track Your Order →</span>
+              <Sparkles className="w-3.5 h-3.5 text-[#EAB308]" />
+              <span>Customise Your Frame →</span>
             </Link>
           </div>
         </div>
