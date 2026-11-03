@@ -517,7 +517,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "specifications": [
       {
         "label": "Finish",
-        "value": "Museum Crystal Gloss Finish with Anti-Glare Layer"
+        "value": "Premium Gloss Finish with Anti-Glare Layer"
       },
       {
         "label": "Backlighting",
@@ -1831,7 +1831,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "specifications": [
       {
         "label": "Art Material",
-        "value": "4mm Shatterproof Museum Crystal Acrylic"
+        "value": "Premium Shatterproof Acrylic"
       },
       {
         "label": "Framing",
@@ -2005,7 +2005,7 @@ export const INITIAL_PRODUCTS: Product[] = [
       },
       {
         "label": "Base",
-        "value": "4mm Shatterproof Cast Acrylic"
+        "value": "Premium Shatterproof Acrylic"
       }
     ],
     "materialAndCare": [

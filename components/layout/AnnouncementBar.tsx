@@ -8,9 +8,7 @@ import {
   ShieldCheck,
   Truck,
   Flame,
-  Gem,
   ArrowRight,
-  Package,
 } from 'lucide-react';
 import { INITIAL_SETTINGS } from '@/lib/data/settings';
 
@@ -54,14 +52,6 @@ export default function AnnouncementBar() {
       <span className="flex items-center gap-1.5 shrink-0 text-[#E5E7EB]">
         <Flame className="w-3.5 h-3.5 text-[#FACC15] animate-pulse shrink-0" />
         <span className="font-medium">Soothing 3000K Warm LED Backlit Art</span>
-      </span>
-
-      <span className="w-1.5 h-1.5 rounded-full bg-[#FACC15]/50 shrink-0" />
-
-      {/* 5. Museum Crystal Acrylic */}
-      <span className="flex items-center gap-1.5 shrink-0 text-[#E5E7EB]">
-        <Gem className="w-3.5 h-3.5 text-[#FACC15] shrink-0" />
-        <span className="font-medium">4mm Museum Crystal Shatterproof Cast Acrylic</span>
       </span>
 
       <span className="w-1.5 h-1.5 rounded-full bg-[#FACC15]/50 shrink-0" />

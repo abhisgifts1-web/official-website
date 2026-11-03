@@ -78,7 +78,7 @@ const FRAME_STYLES: FrameStyle[] = [
     hasLed: false,
     shape: 'Laser Round',
     tagline: 'Soft curved silhouette perfect for baby milestones & couple memories',
-    features: ['Continuous Curved Bevel', 'Concealed Center Bracket', 'Shatterproof Cast Glass'],
+    features: ['Continuous Curved Bevel', 'Concealed Center Bracket', 'Shatterproof Acrylic'],
   },
 ];
 

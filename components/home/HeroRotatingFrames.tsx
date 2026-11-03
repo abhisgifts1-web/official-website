@@ -908,7 +908,7 @@ export default function HeroRotatingFrames() {
             <div className="pt-3 border-t border-[#EAB308]/30 flex flex-wrap items-center justify-between gap-2 text-[11px] text-[#E5E7EB] relative z-10">
               <span className="flex items-center gap-1.5">
                 <CheckCircle2 className="w-3.5 h-3.5 text-[#EAB308]" />
-                <span>100% Shatterproof Cast Acrylic</span>
+                <span>100% Shatterproof Guarantee</span>
               </span>
               <span className="flex items-center gap-1.5">
                 <CheckCircle2 className="w-3.5 h-3.5 text-[#EAB308]" />

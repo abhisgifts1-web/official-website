@@ -111,7 +111,7 @@ export default function TrustAndReviewsSection() {
             </div>
             <h4 className="font-bold text-xs sm:text-sm text-[#FFFFFF]">Quality Craftsmanship</h4>
             <p className="text-[11px] text-[#D1D5DB] leading-snug">
-              4mm shatterproof cast acrylic with 25+ year UV non-fade color guarantee.
+              Premium shatterproof acrylic with 25+ year UV non-fade color guarantee.
             </p>
           </div>
         </div>
