@@ -232,10 +232,10 @@ export default function Header() {
                 <Image
                   src="/images/brand/logo-gold.png"
                   alt="Abhi's Gifts - We Create Memorable Movements"
-                  width={210}
-                  height={70}
+                  width={240}
+                  height={50}
                   priority
-                  className="h-6 sm:h-8.5 md:h-10 w-auto object-contain transition-transform group-hover:scale-[1.03]"
+                  className="h-8 sm:h-9.5 md:h-11 lg:h-12 xl:h-13 2xl:h-14 w-auto object-contain transition-transform group-hover:scale-[1.03] drop-shadow-[0_2px_10px_rgba(250,204,21,0.15)]"
                 />
               </Link>
             </div>
@@ -561,10 +561,10 @@ export default function Header() {
               <Link href="/" onClick={() => setMobileMenuOpen(false)} className="flex items-center">
                 <Image
                   src="/images/brand/logo-gold.png"
-                  alt="Abhi's Gifts"
-                  width={150}
-                  height={50}
-                  className="h-8 w-auto object-contain"
+                  alt="Abhi's Gifts - We Create Memorable Movements"
+                  width={210}
+                  height={44}
+                  className="h-9 sm:h-10 w-auto object-contain drop-shadow-[0_2px_8px_rgba(250,204,21,0.15)]"
                 />
               </Link>
               <button
