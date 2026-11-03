@@ -9,6 +9,7 @@ import { useCart } from '@/context/CartContext';
 import { useWishlist } from '@/context/WishlistContext';
 import QuickViewModal from './QuickViewModal';
 import AddPhotoModal from './AddPhotoModal';
+import CustomSizeModal from './CustomSizeModal';
 
 interface ProductCardProps {
   product: Product;
@@ -22,6 +23,7 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
 
   const [isQuickViewOpen, setIsQuickViewOpen] = useState(false);
   const [isAddPhotoOpen, setIsAddPhotoOpen] = useState(false);
+  const [isCustomSizeOpen, setIsCustomSizeOpen] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const [imgError, setImgError] = useState(false);
 
@@ -300,22 +302,38 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
               </span>
             </div>
 
-            {/* Dedicated Option: Add Your Own Photo for this Product */}
-            <button
-              type="button"
-              onClick={(e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                setIsAddPhotoOpen(true);
-              }}
-              className="w-full min-h-[38px] py-2 px-2.5 rounded-xl font-sans text-xs font-bold flex items-center justify-center gap-1.5 transition-all duration-200 border border-[#EAB308] bg-[#121212] hover:bg-[#EAB308] text-[#FACC15] hover:text-black shadow-xs cursor-pointer group/photo active:scale-[0.98]"
-              title={`Add your own photo for ${product.title}`}
-              aria-label={`Add your own photo for ${product.title}`}
-            >
-              <Camera className="w-3.5 h-3.5 text-[#EAB308] group-hover/photo:text-black transition-colors shrink-0" />
-              <span className="truncate font-extrabold">Add Your Own Photo</span>
-              <Sparkles className="w-3 h-3 text-[#EAB308] group-hover/photo:text-black opacity-80 shrink-0" />
-            </button>
+            {/* Two Primary Customization Options for this Product */}
+            <div className="grid grid-cols-2 gap-1.5">
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  setIsAddPhotoOpen(true);
+                }}
+                className="w-full min-h-[38px] py-1.5 px-2 rounded-xl font-sans text-[11px] sm:text-xs font-bold flex items-center justify-center gap-1 transition-all duration-200 border border-[#EAB308] bg-[#121212] hover:bg-[#EAB308] text-[#FACC15] hover:text-black shadow-xs cursor-pointer group/photo active:scale-[0.98]"
+                title={`Add your own photo for ${product.title}`}
+                aria-label={`Add your own photo for ${product.title}`}
+              >
+                <Camera className="w-3.5 h-3.5 text-[#EAB308] group-hover/photo:text-black transition-colors shrink-0" />
+                <span className="truncate font-extrabold">Add Photo</span>
+              </button>
+
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  setIsCustomSizeOpen(true);
+                }}
+                className="w-full min-h-[38px] py-1.5 px-2 rounded-xl font-sans text-[11px] sm:text-xs font-bold flex items-center justify-center gap-1 transition-all duration-200 border border-[#EAB308] bg-[#121212] hover:bg-[#EAB308] text-[#FACC15] hover:text-black shadow-xs cursor-pointer group/size active:scale-[0.98]"
+                title={`Enter custom dimensions for ${product.title}`}
+                aria-label={`Enter custom dimensions for ${product.title}`}
+              >
+                <Ruler className="w-3.5 h-3.5 text-[#EAB308] group-hover/size:text-black transition-colors shrink-0" />
+                <span className="truncate font-extrabold">Custom Size</span>
+              </button>
+            </div>
 
             {/* Action Buttons: Always Visible on Screen */}
             <div className="flex items-center gap-1.5 pt-0.5">
@@ -367,6 +385,14 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
         selectedVariant={activeVariant}
         isOpen={isAddPhotoOpen}
         onClose={() => setIsAddPhotoOpen(false)}
+      />
+
+      {/* Enter Custom Size Modal tailored to Product Name */}
+      <CustomSizeModal
+        product={product}
+        selectedVariant={activeVariant}
+        isOpen={isCustomSizeOpen}
+        onClose={() => setIsCustomSizeOpen(false)}
       />
     </>
   );

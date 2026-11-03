@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { X, ShieldCheck, Sparkles, ArrowRight, Camera, Ruler } from 'lucide-react';
 import AddPhotoModal from './AddPhotoModal';
+import CustomSizeModal from './CustomSizeModal';
 import CustomSizeInput from './CustomSizeInput';
 import { calculateCustomDimensions } from '@/lib/utils/customSize';
 import { Product, ProductVariant } from '@/types';
@@ -24,6 +25,7 @@ export default function QuickViewModal({ product, isOpen, onClose }: QuickViewMo
   const [quantity, setQuantity] = useState(1);
   const [activeImage, setActiveImage] = useState<string | null>(null);
   const [isAddPhotoOpen, setIsAddPhotoOpen] = useState(false);
+  const [isCustomSizeModalOpen, setIsCustomSizeModalOpen] = useState(false);
   const [isCustomSize, setIsCustomSize] = useState(false);
   const [customWidth, setCustomWidth] = useState<number>(24);
   const [customHeight, setCustomHeight] = useState<number>(36);
@@ -291,6 +293,14 @@ export default function QuickViewModal({ product, isOpen, onClose }: QuickViewMo
         selectedVariant={currentVariant}
         isOpen={isAddPhotoOpen}
         onClose={() => setIsAddPhotoOpen(false)}
+      />
+
+      {/* Enter Custom Size Modal tailored to Product Name */}
+      <CustomSizeModal
+        product={product}
+        selectedVariant={currentVariant}
+        isOpen={isCustomSizeModalOpen}
+        onClose={() => setIsCustomSizeModalOpen(false)}
       />
     </>
   );
