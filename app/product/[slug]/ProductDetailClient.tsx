@@ -929,7 +929,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
           <div className="lg:col-span-7 xl:col-span-7 lg:sticky lg:top-24 self-start space-y-5">
             {/* Main Display Container with Interactive 3D Frame Simulation */}
             <div
-              className={`relative w-full aspect-square sm:aspect-[4/5] max-h-[580px] rounded-3xl overflow-hidden bg-gradient-to-b from-[#FFFDF9] via-[#F8EFE3] to-[#F1E5D4] border border-[#2D2D2D] transition-all duration-500 flex items-center justify-center p-4 sm:p-7 group ${
+              className={`relative w-full aspect-square sm:aspect-[4/5] max-h-[580px] rounded-3xl overflow-hidden bg-gradient-to-b from-[#141414] via-[#181818] to-[#141414] border border-[#2D2D2D] transition-all duration-500 flex items-center justify-center p-4 sm:p-7 group ${
                 isAartiGlow
                   ? 'shadow-[0_0_55px_rgba(245,175,65,0.4)] ring-2 ring-[#C69A42]/50'
                   : 'shadow-[0_10px_35px_rgba(100,28,43,0.06)]'
@@ -1113,7 +1113,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                     <button
                       type="button"
                       onClick={prevImage}
-                      className="p-1 rounded-full border border-[#2D2D2D] bg-[#181818] hover:bg-[#F8EFE3] text-[#FFFFFF] transition-colors cursor-pointer"
+                      className="p-1 rounded-full border border-[#2D2D2D] bg-[#181818] hover:bg-[#222222] text-[#FFFFFF] transition-colors cursor-pointer"
                       title="Previous Image"
                       aria-label="Previous image"
                     >
@@ -1122,7 +1122,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                     <button
                       type="button"
                       onClick={nextImage}
-                      className="p-1 rounded-full border border-[#2D2D2D] bg-[#181818] hover:bg-[#F8EFE3] text-[#FFFFFF] transition-colors cursor-pointer"
+                      className="p-1 rounded-full border border-[#2D2D2D] bg-[#181818] hover:bg-[#222222] text-[#FFFFFF] transition-colors cursor-pointer"
                       title="Next Image"
                       aria-label="Next image"
                     >
@@ -1193,7 +1193,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
             {/* Header Block: Category, Stock & Title */}
             <div className="space-y-2.5">
               <div className="flex items-center justify-between gap-2 flex-wrap">
-                <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-[#FFFFFF] bg-[#F8EFE3] px-3 py-1 rounded-full border border-[#EAB308]/50">
+                <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-[#FFFFFF] bg-[#1A1A1A] px-3 py-1 rounded-full border border-[#EAB308]/50">
                   {product.deity || product.categoryName || 'Sacred Wall Decor'}
                 </span>
                 <span className="text-[11px] font-semibold text-emerald-800 flex items-center gap-1.5 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200">
@@ -1268,7 +1268,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
             </div>
 
             {/* Dynamic Pricing Banner */}
-            <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-[#F8EFE3] via-[#FFF8EF] to-[#F8EFE3] border border-[#2D2D2D] space-y-1.5 shadow-2xs">
+            <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-[#181818] via-[#141414] to-[#181818] border border-[#2D2D2D] space-y-1.5 shadow-2xs">
               <div className="flex items-baseline justify-between gap-2 flex-wrap">
                 <div className="flex items-baseline gap-3">
                   <span className="text-3xl sm:text-4xl font-serif font-bold text-[#FFFFFF]">
@@ -1321,7 +1321,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                       onClick={() => handleSelectShape(shape)}
                       className={`p-2.5 sm:p-3 min-h-[50px] sm:min-h-[56px] rounded-2xl border-2 transition-all flex flex-col items-center justify-between text-center gap-1 sm:gap-1.5 cursor-pointer relative ${
                         isSelected
-                          ? 'border-[#EAB308] bg-[#F8EFE3] ring-2 ring-[#C69A42]/30 shadow-xs font-bold text-[#FFFFFF]'
+                          ? 'border-[#EAB308] bg-[#1A1A1A] ring-2 ring-[#C69A42]/30 shadow-xs font-bold text-[#FFFFFF]'
                           : 'border-[#2D2D2D] bg-[#181818] hover:border-[#EAB308]/60 text-[#D1D5DB]'
                       }`}
                     >
@@ -1374,7 +1374,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                   onClick={() => handleSelectFrame('gold')}
                   className={`p-2.5 rounded-2xl border-2 transition-all flex flex-col items-center text-center gap-1.5 cursor-pointer ${
                     selectedFrame === 'gold'
-                      ? 'border-[#EAB308] bg-[#F8EFE3] ring-2 ring-[#C69A42]/30 shadow-xs'
+                      ? 'border-[#EAB308] bg-[#1A1A1A] ring-2 ring-[#C69A42]/30 shadow-xs'
                       : 'border-[#2D2D2D] bg-[#181818] hover:border-[#EAB308]/60'
                   }`}
                 >
@@ -1395,7 +1395,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                   onClick={() => handleSelectFrame('black')}
                   className={`p-2.5 rounded-2xl border-2 transition-all flex flex-col items-center text-center gap-1.5 cursor-pointer ${
                     selectedFrame === 'black'
-                      ? 'border-[#EAB308] bg-[#F8EFE3] ring-2 ring-[#C69A42]/30 shadow-xs'
+                      ? 'border-[#EAB308] bg-[#1A1A1A] ring-2 ring-[#C69A42]/30 shadow-xs'
                       : 'border-[#2D2D2D] bg-[#181818] hover:border-[#EAB308]/60'
                   }`}
                 >
@@ -1416,7 +1416,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                   onClick={() => handleSelectFrame('without')}
                   className={`p-2.5 rounded-2xl border-2 transition-all flex flex-col items-center text-center gap-1.5 cursor-pointer ${
                     selectedFrame === 'without'
-                      ? 'border-[#EAB308] bg-[#F8EFE3] ring-2 ring-[#C69A42]/30 shadow-xs'
+                      ? 'border-[#EAB308] bg-[#1A1A1A] ring-2 ring-[#C69A42]/30 shadow-xs'
                       : 'border-[#2D2D2D] bg-[#181818] hover:border-[#EAB308]/60'
                   }`}
                 >
@@ -1435,7 +1435,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
 
             {/* Thickness Selector (When Without Frame is selected) */}
             {selectedFrame === 'without' && availableThicknesses.length > 0 && (
-              <div className="space-y-2 bg-[#F8EFE3] p-3.5 rounded-2xl border border-[#2D2D2D]">
+              <div className="space-y-2 bg-[#1A1A1A] p-3.5 rounded-2xl border border-[#2D2D2D]">
                 <div className="flex items-center justify-between text-xs">
                   <span className="font-bold text-[#FFFFFF]">
                     Acrylic Thickness: <strong className="text-[#EAB308]">{selectedThickness}</strong>
@@ -1497,7 +1497,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                       onClick={() => handleSelectSize(s.id)}
                       className={`py-2 px-1 sm:py-2.5 sm:px-1.5 min-h-[46px] rounded-xl sm:rounded-2xl text-xs transition-all flex flex-col items-center justify-center cursor-pointer ${
                         isSelected
-                          ? 'border-2 border-[#EAB308] text-[#FFFFFF] font-bold bg-[#F8EFE3] shadow-xs'
+                          ? 'border-2 border-[#EAB308] text-[#FFFFFF] font-bold bg-[#1A1A1A] shadow-xs'
                           : isSupported
                           ? 'border border-[#2D2D2D] text-[#D1D5DB] bg-[#181818] hover:border-[#EAB308]/60 font-medium'
                           : 'border border-[#2D2D2D] text-stone-300 bg-[#121212] cursor-not-allowed line-through'
@@ -1512,7 +1512,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
 
               {/* Hardware Note */}
               {mountingNote && (
-                <div className="p-3 rounded-xl bg-[#F8EFE3]/70 border border-[#2D2D2D]/80 text-[11px] text-[#D1D5DB] flex items-center gap-2">
+                <div className="p-3 rounded-xl bg-[#181818] border border-[#2D2D2D]/80 text-[11px] text-[#D1D5DB] flex items-center gap-2">
                   <Info className="w-4 h-4 text-[#EAB308] shrink-0" />
                   <span>Mounting hardware provided: <strong className="text-[#FFFFFF]">{mountingNote}</strong></span>
                 </div>
@@ -1574,7 +1574,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                   <button
                     type="button"
                     onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                    className="px-3.5 py-1.5 text-[#D1D5DB] hover:bg-[#F8EFE3] font-bold text-sm transition-colors cursor-pointer"
+                    className="px-3.5 py-1.5 text-[#D1D5DB] hover:bg-[#222222] font-bold text-sm transition-colors cursor-pointer"
                     aria-label="Decrease quantity"
                   >
                     -
@@ -1583,7 +1583,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                   <button
                     type="button"
                     onClick={() => setQuantity(Math.min(10, quantity + 1))}
-                    className="px-3.5 py-1.5 text-[#D1D5DB] hover:bg-[#F8EFE3] font-bold text-sm transition-colors cursor-pointer"
+                    className="px-3.5 py-1.5 text-[#D1D5DB] hover:bg-[#222222] font-bold text-sm transition-colors cursor-pointer"
                     aria-label="Increase quantity"
                   >
                     +
@@ -1607,7 +1607,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                 <button
                   type="button"
                   onClick={handleAddToCart}
-                  className="w-full bg-[#181818] hover:bg-[#F8EFE3] active:bg-[#F1E5D4] text-[#FFFFFF] font-bold text-sm sm:text-base py-3.5 rounded-2xl border-2 border-[#EAB308] shadow-xs transition-colors flex items-center justify-center gap-2 cursor-pointer"
+                  className="w-full bg-[#181818] hover:bg-[#222222] active:bg-[#2A2A2A] text-[#FFFFFF] font-bold text-sm sm:text-base py-3.5 rounded-2xl border-2 border-[#EAB308] shadow-xs transition-colors flex items-center justify-center gap-2 cursor-pointer"
                 >
                   <ShoppingBag className="w-4 h-4 text-[#EAB308]" />
                   <span>Add to Cart</span>
@@ -1635,25 +1635,25 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
             {/* 4 Golden Circular Trust Badges */}
             <div className="pt-3 border-t border-[#2D2D2D]">
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-center">
-                <div className="p-2.5 rounded-2xl bg-[#F8EFE3]/70 border border-[#2D2D2D]/60 flex flex-col items-center space-y-1">
+                <div className="p-2.5 rounded-2xl bg-[#181818] border border-[#2D2D2D]/60 flex flex-col items-center space-y-1">
                   <Truck className="w-5 h-5 text-[#EAB308]" />
                   <span className="text-[10px] font-bold text-[#FFFFFF] leading-tight">Free Delivery</span>
                   <span className="text-[9px] text-[#D1D5DB]">Pan-India Express</span>
                 </div>
 
-                <div className="p-2.5 rounded-2xl bg-[#F8EFE3]/70 border border-[#2D2D2D]/60 flex flex-col items-center space-y-1">
+                <div className="p-2.5 rounded-2xl bg-[#181818] border border-[#2D2D2D]/60 flex flex-col items-center space-y-1">
                   <ShieldCheck className="w-5 h-5 text-[#EAB308]" />
                   <span className="text-[10px] font-bold text-[#FFFFFF] leading-tight">Transit Safe</span>
                   <span className="text-[9px] text-[#D1D5DB]">100% Damage-Free</span>
                 </div>
 
-                <div className="p-2.5 rounded-2xl bg-[#F8EFE3]/70 border border-[#2D2D2D]/60 flex flex-col items-center space-y-1">
+                <div className="p-2.5 rounded-2xl bg-[#181818] border border-[#2D2D2D]/60 flex flex-col items-center space-y-1">
                   <Banknote className="w-5 h-5 text-[#EAB308]" />
                   <span className="text-[10px] font-bold text-[#FFFFFF] leading-tight">Cash on Delivery</span>
                   <span className="text-[9px] text-[#D1D5DB]">Pay at Doorstep</span>
                 </div>
 
-                <div className="p-2.5 rounded-2xl bg-[#F8EFE3]/70 border border-[#2D2D2D]/60 flex flex-col items-center space-y-1">
+                <div className="p-2.5 rounded-2xl bg-[#181818] border border-[#2D2D2D]/60 flex flex-col items-center space-y-1">
                   <ThumbsUp className="w-5 h-5 text-[#EAB308]" />
                   <span className="text-[10px] font-bold text-[#FFFFFF] leading-tight">Pure Sanctum</span>
                   <span className="text-[9px] text-[#D1D5DB]">Authentic Craft</span>
@@ -1664,7 +1664,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
         </div>
 
         {/* Size Customisation WhatsApp Concierge Card */}
-        <div className="rounded-3xl border border-[#2D2D2D] bg-gradient-to-r from-white via-[#F8EFE3] to-white p-6 sm:p-8 shadow-xs flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div className="rounded-3xl border border-[#2D2D2D] bg-gradient-to-r from-[#181818] via-[#141414] to-[#181818] p-6 sm:p-8 shadow-xs flex flex-col sm:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-4">
             <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br from-[#E8D1A5] to-[#C69A42] flex items-center justify-center text-[#FFFFFF] shrink-0 shadow-sm">
               <Ruler className="w-7 h-7 sm:w-8 sm:h-8 stroke-[2]" />
@@ -1730,7 +1730,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                   <p className="text-xs sm:text-sm text-[#D1D5DB] leading-relaxed">
                     {product.description}
                   </p>
-                  <div className="p-4 rounded-2xl bg-[#F8EFE3]/80 border border-[#2D2D2D] text-xs text-[#FFFFFF] space-y-1.5">
+                  <div className="p-4 rounded-2xl bg-[#181818] border border-[#2D2D2D] text-xs text-[#FFFFFF] space-y-1.5">
                     <p className="font-bold flex items-center gap-1.5">
                       <Sparkles className="w-3.5 h-3.5 text-[#EAB308]" />
                       <span>Vastu Shastra &amp; Sacred Placement Guidance</span>
@@ -1777,7 +1777,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
               <div className="space-y-6 max-w-4xl">
                 <div className="divide-y divide-[#E8D1A5]/40 border border-[#2D2D2D] rounded-3xl bg-[#181818] overflow-hidden text-xs sm:text-sm shadow-2xs">
                   {product.specifications.map((spec, i) => (
-                    <div key={i} className="grid grid-cols-3 p-4 hover:bg-[#F8EFE3]/40 transition-colors">
+                    <div key={i} className="grid grid-cols-3 p-4 hover:bg-[#181818] transition-colors">
                       <span className="font-bold text-[#FFFFFF] col-span-1">{spec.label}</span>
                       <span className="text-[#D1D5DB] col-span-2">{spec.value}</span>
                     </div>
@@ -1796,28 +1796,28 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs text-[#D1D5DB]">
                     <div className="p-4 rounded-2xl bg-[#121212] border border-[#2D2D2D] text-center space-y-2">
                       <div className="h-20 flex items-center justify-center">
-                        <div className="w-10 h-14 rounded border-2 border-[#EAB308] bg-[#F8EFE3] flex items-center justify-center text-[10px] font-bold text-[#FFFFFF]">12x18</div>
+                        <div className="w-10 h-14 rounded border-2 border-[#EAB308] bg-[#1A1A1A] flex items-center justify-center text-[10px] font-bold text-[#FFFFFF]">12x18</div>
                       </div>
                       <h5 className="font-bold text-[#FFFFFF]">12 x 18 Inches</h5>
                       <p className="text-[11px]">Compact Mandir altar or entry pillar.</p>
                     </div>
                     <div className="p-4 rounded-2xl bg-[#121212] border border-[#2D2D2D] text-center space-y-2">
                       <div className="h-20 flex items-center justify-center">
-                        <div className="w-14 h-20 rounded border-2 border-[#EAB308] bg-[#F8EFE3] flex items-center justify-center text-[10px] font-bold text-[#FFFFFF]">16x24</div>
+                        <div className="w-14 h-20 rounded border-2 border-[#EAB308] bg-[#1A1A1A] flex items-center justify-center text-[10px] font-bold text-[#FFFFFF]">16x24</div>
                       </div>
                       <h5 className="font-bold text-[#FFFFFF]">16 x 24 Inches</h5>
                       <p className="text-[11px]">Medium wall, study, or foyer niche.</p>
                     </div>
                     <div className="p-4 rounded-2xl bg-[#121212] border border-[#2D2D2D] text-center space-y-2">
                       <div className="h-20 flex items-center justify-center">
-                        <div className="w-18 h-24 rounded border-2 border-[#EAB308] bg-[#F8EFE3] flex items-center justify-center text-[10px] font-bold text-[#FFFFFF]">24x35</div>
+                        <div className="w-18 h-24 rounded border-2 border-[#EAB308] bg-[#1A1A1A] flex items-center justify-center text-[10px] font-bold text-[#FFFFFF]">24x35</div>
                       </div>
                       <h5 className="font-bold text-[#FFFFFF]">24 x 35 Inches</h5>
                       <p className="text-[11px]">Popular size above 3-seater sofa or bed.</p>
                     </div>
                     <div className="p-4 rounded-2xl bg-[#121212] border border-[#2D2D2D] text-center space-y-2">
                       <div className="h-20 flex items-center justify-center">
-                        <div className="w-22 h-28 rounded border-2 border-[#EAB308] bg-[#F8EFE3] flex items-center justify-center text-[10px] font-bold text-[#FFFFFF]">30x47</div>
+                        <div className="w-22 h-28 rounded border-2 border-[#EAB308] bg-[#1A1A1A] flex items-center justify-center text-[10px] font-bold text-[#FFFFFF]">30x47</div>
                       </div>
                       <h5 className="font-bold text-[#FFFFFF]">30 x 47 Inches</h5>
                       <p className="text-[11px]">Grand statement feature wall piece.</p>
@@ -2082,7 +2082,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
             <button
               type="button"
               onClick={handleAddToCart}
-              className="hidden sm:flex items-center gap-1.5 px-4 py-2.5 rounded-xl border-2 border-[#EAB308] bg-[#181818] text-[#FFFFFF] font-bold text-xs hover:bg-[#F8EFE3] transition-colors cursor-pointer"
+              className="hidden sm:flex items-center gap-1.5 px-4 py-2.5 rounded-xl border-2 border-[#EAB308] bg-[#181818] text-[#FFFFFF] font-bold text-xs hover:bg-[#222222] transition-colors cursor-pointer"
             >
               <ShoppingBag className="w-3.5 h-3.5 text-[#EAB308]" />
               <span>Add to Cart</span>

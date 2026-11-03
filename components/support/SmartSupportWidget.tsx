@@ -355,7 +355,7 @@ export default function SmartSupportWidget() {
             </div>
 
             {/* Chat Messages Body */}
-            <div className="flex-1 overflow-y-auto p-4 space-y-3.5 bg-gradient-to-b from-[#FFFBF5] to-[#FFF7EC]/50 scrollbar-thin">
+            <div className="flex-1 overflow-y-auto p-4 space-y-3.5 bg-gradient-to-b from-[#141414] to-[#0D0D0E] scrollbar-thin">
               {messages.map((msg) => (
                 <div
                   key={msg.id}
@@ -493,7 +493,7 @@ export default function SmartSupportWidget() {
                 className={`w-9 h-9 rounded-full flex items-center justify-center transition-all cursor-pointer ${
                   inputText.trim()
                     ? 'bg-[#511B2A] text-[#FFFFFF] hover:bg-[#181818]'
-                    : 'bg-[#F2E5D5] text-[#8C7A70] cursor-not-allowed opacity-60'
+                    : 'bg-[#222222] text-[#8C7A70] cursor-not-allowed opacity-60'
                 }`}
                 aria-label="Send message"
               >

@@ -232,10 +232,10 @@ export default function HeroShowcase() {
   };
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-[#FFFDF9] via-[#FFF7ED] to-[#FAF1E3] py-8 sm:py-10 lg:py-14 border-b border-[#EAB308]/30">
+    <section className="relative overflow-hidden bg-gradient-to-b from-[#121212] via-[#161616] to-[#121212] py-8 sm:py-10 lg:py-14 border-b border-[#EAB308]/30">
       {/* Ambient Radial Golden Aura Lights */}
       <div className="absolute top-1/3 right-10 w-[600px] lg:w-[800px] h-[600px] lg:h-[800px] bg-gradient-to-br from-[#EAB308]/18 via-[#F0D79B]/10 to-transparent rounded-full blur-3xl pointer-events-none -z-10 animate-subtle-float" />
-      <div className="absolute top-1/4 left-4 w-[500px] h-[400px] bg-[#511B2A]/06 rounded-full blur-3xl pointer-events-none -z-10" />
+      <div className="absolute top-1/4 left-4 w-[500px] h-[400px] bg-[#EAB308]/10 rounded-full blur-3xl pointer-events-none -z-10" />
 
       {/* Floating Gold Sparkle Particles */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-40 -z-10">
@@ -269,7 +269,7 @@ export default function HeroShowcase() {
                   Premium Acrylic &amp; Customized
                 </span>
                 <span className="block mt-1 animate-headline-line-2">
-                  <span className="relative inline-block font-serif italic text-[#EAB308] bg-gradient-to-r from-[#8E5E1C] via-[#FACC15] to-[#8E5E1C] bg-clip-text text-transparent drop-shadow-[0_1px_2px_rgba(81,27,42,0.15)] animate-gold-text-shimmer">
+                  <span className="relative inline-block font-serif italic text-[#EAB308] bg-gradient-to-r from-[#EAB308] via-[#FDE047] to-[#EAB308] bg-clip-text text-transparent drop-shadow-[0_1px_2px_rgba(81,27,42,0.15)] animate-gold-text-shimmer">
                     Photo Frames in Hyderabad
                   </span>
                 </span>
@@ -299,7 +299,7 @@ export default function HeroShowcase() {
               {/* Primary CTA: Royal Wine with Sweeping Light Beam */}
               <Link
                 href="/shop"
-                className="relative overflow-hidden w-full sm:w-auto bg-gradient-to-r from-[#641D30] via-[#511B2A] to-[#641D30] hover:from-[#121212] hover:to-[#3D1420] text-[#FFFFFF] font-bold text-xs sm:text-[13.5px] px-7 py-4 rounded-full shadow-[0_6px_22px_rgba(81,27,42,0.35)] border border-[#EAB308] flex items-center justify-center gap-2.5 transition-all hover:scale-[1.03] active:scale-[0.98] tracking-wider uppercase group cursor-pointer"
+                className="relative overflow-hidden w-full sm:w-auto bg-[#EAB308] hover:bg-[#FACC15] text-black font-bold text-xs sm:text-[13.5px] px-7 py-4 rounded-full shadow-[0_0_25px_rgba(234,179,8,0.35)] border border-[#EAB308] flex items-center justify-center gap-2.5 transition-all hover:scale-[1.03] active:scale-[0.98] tracking-wider uppercase group cursor-pointer"
               >
                 {/* Continuous Gold Sheen Beam */}
                 <span className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -313,7 +313,7 @@ export default function HeroShowcase() {
               {/* Secondary CTA: Elegant Ivory & Gold Studio Trigger */}
               <Link
                 href="/customise"
-                className="w-full sm:w-auto bg-[#181818] hover:bg-[#121212] text-[#FFFFFF] border-2 border-[#EAB308] hover:border-[#2D2D2D] font-bold text-xs sm:text-[13.5px] px-6 py-4 rounded-full shadow-xs flex items-center justify-center gap-2 transition-all hover:scale-[1.03] active:scale-[0.98] tracking-wider uppercase group cursor-pointer"
+                className="w-full sm:w-auto bg-white/10 hover:bg-white/20 text-white border-2 border-white/80 hover:border-white font-bold text-xs sm:text-[13.5px] px-6 py-4 rounded-full shadow-xs flex items-center justify-center gap-2 transition-all hover:scale-[1.03] active:scale-[0.98] tracking-wider uppercase group cursor-pointer"
               >
                 <Flame className="w-4 h-4 text-[#EAB308] animate-pulse" />
                 <span>CUSTOMIZE YOUR FRAME</span>
@@ -340,7 +340,7 @@ export default function HeroShowcase() {
             {/* 6. Three Interactive Value Pillars */}
             <div className="pt-4 border-t border-[#2D2D2D] grid grid-cols-1 sm:grid-cols-3 gap-3 text-center sm:text-left">
               <div className="group flex items-center gap-3 p-3 rounded-2xl bg-[#181818] border border-[#2D2D2D] hover:border-[#EAB308] transition-all duration-300 shadow-xs hover:-translate-y-1 hover:shadow-md">
-                <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#FFF7EC] to-[#F5E2B8] border border-[#EAB308]/60 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#EAB308]/20 to-[#EAB308]/10 border border-[#EAB308]/60 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
                   <Award className="w-4 h-4 text-[#EAB308]" />
                 </div>
                 <div className="text-left">
@@ -352,7 +352,7 @@ export default function HeroShowcase() {
               </div>
 
               <div className="group flex items-center gap-3 p-3 rounded-2xl bg-[#181818] border border-[#2D2D2D] hover:border-[#EAB308] transition-all duration-300 shadow-xs hover:-translate-y-1 hover:shadow-md">
-                <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#FFF7EC] to-[#F5E2B8] border border-[#EAB308]/60 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#EAB308]/20 to-[#EAB308]/10 border border-[#EAB308]/60 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
                   <Zap className="w-4 h-4 text-[#EAB308]" />
                 </div>
                 <div className="text-left">
@@ -364,7 +364,7 @@ export default function HeroShowcase() {
               </div>
 
               <div className="group flex items-center gap-3 p-3 rounded-2xl bg-[#181818] border border-[#2D2D2D] hover:border-[#EAB308] transition-all duration-300 shadow-xs hover:-translate-y-1 hover:shadow-md">
-                <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#FFF7EC] to-[#F5E2B8] border border-[#EAB308]/60 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#EAB308]/20 to-[#EAB308]/10 border border-[#EAB308]/60 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
                   <Truck className="w-4 h-4 text-[#EAB308]" />
                 </div>
                 <div className="text-left">

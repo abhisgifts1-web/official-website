@@ -232,7 +232,7 @@ export default function PersonalizedPhotoSection() {
   return (
     <section className="w-full max-w-[1760px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-14 py-8 sm:py-12 lg:py-16 select-none">
       {/* Outer Shell Container */}
-      <div className="relative overflow-hidden bg-gradient-to-br from-[#FFFDF9] via-[#FAF3E8] to-[#FFF7EC] rounded-3xl sm:rounded-[40px] p-6 sm:p-10 lg:p-14 border border-[#2D2D2D] shadow-[0_16px_60px_rgba(81,27,42,0.07)]">
+      <div className="relative overflow-hidden bg-gradient-to-br from-[#181818] via-[#141414] to-[#181818] rounded-3xl sm:rounded-[40px] p-6 sm:p-10 lg:p-14 border border-[#2D2D2D] shadow-[0_16px_60px_rgba(81,27,42,0.07)]">
         {/* Ambient Decorative Shimmer Orbs */}
         <div className="absolute -top-40 -right-40 w-[500px] h-[500px] bg-amber-200/20 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute -bottom-40 -left-40 w-[500px] h-[500px] bg-[#641E2E]/10 rounded-full blur-3xl pointer-events-none" />
@@ -455,7 +455,7 @@ export default function PersonalizedPhotoSection() {
                 ? 'bg-cover bg-center shadow-inner'
                 : isLedOn && (selectedFrame.hasLed || selectedArt.hasLed)
                 ? 'bg-gradient-to-b from-[#14040B] via-[#220914] to-[#0F0208]'
-                : 'bg-gradient-to-b from-[#FFFDF9] via-[#F6ECE0] to-[#EFE2D2]'
+                : 'bg-gradient-to-b from-[#141414] via-[#181818] to-[#141414]'
             }`}
             style={{
               backgroundImage:

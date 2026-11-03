@@ -222,7 +222,7 @@ export default function CustomGiftsShowcase() {
             disabled={currentPage === 1}
             className={`inline-flex items-center gap-1 px-3.5 py-2 rounded-full text-xs font-bold transition-all cursor-pointer ${
               currentPage === 1
-                ? 'bg-[#F2E5D5] text-[#8C7A70] cursor-not-allowed opacity-60'
+                ? 'bg-[#222222] text-[#8C7A70] cursor-not-allowed opacity-60'
                 : 'bg-[#181818] text-[#FFFFFF] border border-[#2D2D2D] hover:border-[#EAB308] shadow-xs'
             }`}
             aria-label="Previous page"
@@ -256,7 +256,7 @@ export default function CustomGiftsShowcase() {
             disabled={currentPage === totalPages}
             className={`inline-flex items-center gap-1 px-3.5 py-2 rounded-full text-xs font-bold transition-all cursor-pointer ${
               currentPage === totalPages
-                ? 'bg-[#F2E5D5] text-[#8C7A70] cursor-not-allowed opacity-60'
+                ? 'bg-[#222222] text-[#8C7A70] cursor-not-allowed opacity-60'
                 : 'bg-[#181818] text-[#FFFFFF] border border-[#2D2D2D] hover:border-[#EAB308] shadow-xs'
             }`}
             aria-label="Next page"

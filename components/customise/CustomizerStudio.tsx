@@ -733,7 +733,7 @@ export default function CustomizerStudio() {
       {/* =========================================================
           1. HERO SECTION: TURN YOUR PRECIOUS MEMORIES INTO TIMELESS ART
           ========================================================= */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-[#FFFDF9] via-[#FAF3E8] to-[#FFF8EF] border-b border-[#2D2D2D]/70 py-12 sm:py-16 lg:py-20">
+      <section className="relative overflow-hidden bg-gradient-to-b from-[#121212] via-[#161616] to-[#121212] border-b border-[#2D2D2D]/70 py-12 sm:py-16 lg:py-20">
         <div className="absolute -top-32 -right-32 w-96 h-96 bg-amber-200/20 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute -bottom-32 -left-32 w-96 h-96 bg-[#641E2E]/10 rounded-full blur-3xl pointer-events-none" />
 
@@ -958,7 +958,7 @@ export default function CustomizerStudio() {
                     ? 'bg-gradient-to-b from-[#12030A] via-[#1E0812] to-[#0A0105]'
                     : wallMode === 'studio'
                     ? 'bg-gradient-to-b from-[#F2F2F2] via-[#E8E8E8] to-[#DCDCDC]'
-                    : 'bg-gradient-to-b from-[#FAF5EC] via-[#F4EDE0] to-[#EAE0D0]'
+                    : 'bg-gradient-to-b from-[#141414] via-[#181818] to-[#141414]'
                 }`}
               >
                 {/* Night overlay for realistic LED halo contrast */}
@@ -1608,7 +1608,7 @@ export default function CustomizerStudio() {
       {/* =========================================================
           4. HOW IT WORKS: 4 SIMPLE STEPS TO CUSTOM HEIRLOOM
           ========================================================= */}
-      <section className="w-full bg-gradient-to-b from-[#FAF3E8] via-[#FFFDF9] to-[#FAF3E8] border-y border-[#2D2D2D]/70 py-12 sm:py-16">
+      <section className="w-full bg-gradient-to-b from-[#141414] via-[#181818] to-[#141414] border-y border-[#2D2D2D]/70 py-12 sm:py-16">
         <div className="w-full max-w-[1720px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-14">
           <div className="text-center max-w-2xl mx-auto mb-10 space-y-2">
             <span className="text-xs uppercase tracking-widest font-bold text-[#FFFFFF] bg-[#181818] border border-[#EAB308]/80 px-4 py-1.5 rounded-full inline-flex items-center gap-1.5 shadow-2xs">

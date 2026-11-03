@@ -160,7 +160,7 @@ export default function TrustAndReviewsSection() {
 
         {AUTHENTIC_REVIEWS.length === 0 ? (
           /* Default Empty State */
-          <div className="bg-gradient-to-br from-white via-[#FFFBF5] to-[#FFF7EC] rounded-3xl p-8 sm:p-12 border border-[#2D2D2D] text-center space-y-5 shadow-xs">
+          <div className="bg-gradient-to-br from-[#181818] via-[#141414] to-[#181818] rounded-3xl p-8 sm:p-12 border border-[#2D2D2D] text-center space-y-5 shadow-xs">
             <div className="w-16 h-16 rounded-2xl bg-[#121212] border border-[#EAB308]/50 text-[#FFFFFF] mx-auto flex items-center justify-center shadow-xs">
               <MessageSquareQuote className="w-8 h-8 text-[#EAB308]" />
             </div>

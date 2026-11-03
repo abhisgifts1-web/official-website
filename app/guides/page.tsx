@@ -91,7 +91,7 @@ export default function GuidesIndexPage() {
       </nav>
 
       {/* Hero Header */}
-      <div className="bg-gradient-to-br from-[#FFF7EC] via-[#F8EFE3] to-[#FFF8EF] rounded-3xl p-6 sm:p-12 border border-[#2D2D2D] shadow-xs space-y-4">
+      <div className="bg-gradient-to-br from-[#181818] via-[#141414] to-[#181818] rounded-3xl p-6 sm:p-12 border border-[#2D2D2D] shadow-xs space-y-4">
         <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#EAB308] bg-white border border-[#2D2D2D] px-3.5 py-1.5 rounded-full shadow-2xs">
           <BookOpen className="w-3.5 h-3.5 text-[#FFFFFF]" />
           <span>EXPERT FRAMING &amp; LOCAL HYDERABAD ADVICE</span>

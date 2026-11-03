@@ -347,7 +347,7 @@ export default function AboutPage() {
         </div>
 
         {/* Closing Narrative */}
-        <div className="p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-[#FCE7EA] via-[#FFF7EC] to-[#FCE7EA] border border-[#2D2D2D] text-center max-w-4xl mx-auto space-y-3">
+        <div className="p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-[#181818] via-[#1E1E1E] to-[#181818] border border-[#2D2D2D] text-center max-w-4xl mx-auto space-y-3">
           <p className="text-sm sm:text-base text-[#D1D5DB] leading-relaxed">
             We focus on quality materials, attractive designs, customization and careful finishing. Whether it is a birthday, wedding, anniversary, family celebration or a devotional space, we help you transform your favourite photographs into special keepsakes.
           </p>

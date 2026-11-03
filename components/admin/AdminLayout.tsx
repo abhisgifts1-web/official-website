@@ -91,7 +91,7 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
   }
 
   return (
-    <div className="min-h-screen bg-[#F7F5F0] flex">
+    <div className="min-h-screen bg-[#121212] flex">
       {/* Sidebar for Desktop */}
       <aside className="hidden lg:flex flex-col w-64 bg-stone-950 text-stone-300 border-r border-stone-800 shrink-0">
         {/* Brand Header */}

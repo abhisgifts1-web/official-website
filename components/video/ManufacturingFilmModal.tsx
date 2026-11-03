@@ -370,7 +370,7 @@ export default function ManufacturingFilmModal({ isOpen, onClose, defaultScene =
                   />
                   <div className="absolute inset-0 border-2 border-amber-300/40 pointer-events-none" />
                 </div>
-                <div className="w-80 h-5 bg-gradient-to-r from-[#F4EBD9] via-[#FFF9F0] to-[#EBDDC7] rounded-t-md shadow-lg border-t border-amber-200 mt-1 flex items-center justify-around px-4">
+                <div className="w-80 h-5 bg-gradient-to-r from-[#F4EBD9] via-[#181818] to-[#121212] rounded-t-md shadow-lg border-t border-amber-200 mt-1 flex items-center justify-around px-4">
                   <span className="text-xs">🪔</span>
                   <span className="text-[10px] font-serif font-bold text-amber-950">Italian Statuario Marble Altar</span>
                   <span className="text-xs">🪔</span>

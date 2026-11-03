@@ -248,7 +248,7 @@ export default function RoomVisualizerSection() {
   return (
     <section className="w-full max-w-[1720px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-14 py-8 sm:py-12 lg:py-14 select-none">
       {/* Outer Luxury Shell */}
-      <div className="bg-gradient-to-br from-[#FFFDF9] via-[#F8EFE3] to-[#FFF7ED] rounded-3xl sm:rounded-[36px] p-6 sm:p-8 lg:p-12 border border-[#2D2D2D] shadow-[0_16px_50px_rgba(81,27,42,0.08)] relative overflow-hidden">
+      <div className="bg-gradient-to-br from-[#181818] via-[#141414] to-[#181818] rounded-3xl sm:rounded-[36px] p-6 sm:p-8 lg:p-12 border border-[#2D2D2D] shadow-[0_16px_50px_rgba(81,27,42,0.08)] relative overflow-hidden">
         {/* Subtle Ambient Decorative Gradients */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-amber-200/20 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#641E2E]/10 rounded-full blur-3xl pointer-events-none" />
@@ -432,7 +432,7 @@ export default function RoomVisualizerSection() {
             </div>
 
             {/* Vastu Shastra Placement Recommendation Card */}
-            <div className="bg-gradient-to-br from-[#FFF8EF] to-[#F8EFE3] rounded-2xl p-4 sm:p-5 border border-[#EAB308]/50 shadow-xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div className="bg-gradient-to-br from-[#181818] to-[#141414] rounded-2xl p-4 sm:p-5 border border-[#EAB308]/50 shadow-xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
               <div className="space-y-1">
                 <div className="flex items-center gap-2 text-xs font-bold text-[#FFFFFF] uppercase tracking-wider">
                   <Compass className="w-4 h-4 text-[#EAB308]" />

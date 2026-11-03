@@ -148,7 +148,7 @@ export default function BrandStorySection() {
   return (
     <section className="w-full max-w-[1720px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-14 py-8 sm:py-12 lg:py-14">
       {/* Outer Luxury Card Container */}
-      <div className="bg-gradient-to-br from-[#FFF7EC] via-[#FDF5E8] to-[#F9EFE0] rounded-3xl sm:rounded-[36px] p-6 sm:p-8 lg:p-12 border border-[#2D2D2D] shadow-[0_16px_50px_rgba(81,27,42,0.08)] overflow-hidden relative">
+      <div className="bg-gradient-to-br from-[#181818] via-[#141414] to-[#181818] rounded-3xl sm:rounded-[36px] p-6 sm:p-8 lg:p-12 border border-[#2D2D2D] shadow-[0_16px_50px_rgba(81,27,42,0.08)] overflow-hidden relative">
         {/* Subtle Luxury Ambient Glow Orbs */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-[#EAB308]/20 via-[#FFD58A]/10 to-transparent rounded-full blur-3xl pointer-events-none -z-0" />
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-[#121212]/10 via-[#641D30]/05 to-transparent rounded-full blur-3xl pointer-events-none -z-0" />

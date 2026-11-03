@@ -234,7 +234,7 @@ export default function LocalLandingPageView({
       </section>
 
       {/* Popular Sizing & Price Guide Table */}
-      <section className="bg-gradient-to-br from-[#FFF8EF] to-[#F8EFE3] rounded-3xl p-6 sm:p-10 border border-[#2D2D2D] space-y-6">
+      <section className="bg-gradient-to-br from-[#181818] to-[#141414] rounded-3xl p-6 sm:p-10 border border-[#2D2D2D] space-y-6">
         <div>
           <span className="text-xs font-bold uppercase tracking-wider text-[#EAB308]">
             TRANSPARENT WORKSHOP PRICING
