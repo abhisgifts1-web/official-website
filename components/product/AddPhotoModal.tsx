@@ -68,7 +68,7 @@ export default function AddPhotoModal({
   const [isCustomSize, setIsCustomSize] = useState(false);
   const [customWidth, setCustomWidth] = useState<number>(24);
   const [customHeight, setCustomHeight] = useState<number>(36);
-  const [waStep, setWaStep] = useState<'idle' | 'downloaded' | 'sent'>('idle');
+  const [waUploading, setWaUploading] = useState(false);
 
   // Sync if initialVariant changes
   React.useEffect(() => {
@@ -97,21 +97,6 @@ export default function AddPhotoModal({
     : 0;
 
   const cleanWaNumber = (INITIAL_SETTINGS.whatsappNumber || '919032372782').replace(/[^0-9]/g, '');
-  const photoLine = photoPreview ? '- Custom Photo: ✅ I am sending my photo in this WhatsApp chat' : '- Artwork: Original artwork (no custom photo)';
-  const waOrderText = [
-    `Hello Abhi's Gifts! 🙏`,
-    `I want to place a custom order for:`,
-    `📦 *${product.title}*`,
-    ``,
-    photoPreview ? `🖼️ *Photo:* I will send my custom photo in this chat` : `🖼️ Photo: Using original artwork`,
-    `📐 *Size:* ${activeSizeLabel}`,
-    `💰 *Price:* ₹${activePrice.toLocaleString('en-IN')}`,
-    ledEnabled ? `💡 *Lighting:* Warm LED Backlit (12V Adapter)` : '',
-    customText.trim() ? `✍️ *Text/Dedication:* "${customText.trim()}"` : '',
-    ``,
-    `Please confirm and assist me with proofing before printing. Thank you!`,
-  ].filter(Boolean).join('\n');
-  const waUrl = `https://wa.me/${cleanWaNumber}?text=${encodeURIComponent(waOrderText)}`;
 
   // Early return AFTER all hooks
   if (!isOpen) return null;
@@ -154,19 +139,50 @@ export default function AddPhotoModal({
     }
   };
 
-  // WhatsApp order handler — downloads photo first (if uploaded), then opens WA
-  const handleWhatsAppOrder = () => {
+  // WhatsApp order handler — uploads photo to server, includes public URL in message
+  const handleWhatsAppOrder = async () => {
+    let photoUrl: string | null = null;
+
     if (photoPreview && photoPreview.startsWith('data:')) {
-      // Trigger auto-download of the uploaded photo so user can attach it in WhatsApp
-      const link = document.createElement('a');
-      link.href = photoPreview;
-      link.download = `${product.slug}-custom-photo.jpg`;
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
+      setWaUploading(true);
+      try {
+        const res = await fetch('/api/upload-photo', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ image: photoPreview }),
+        });
+        const data = await res.json();
+        if (data.url) {
+          photoUrl = `${window.location.origin}${data.url}`;
+        }
+      } catch {
+        // If upload fails, fall back to no URL (still open WA with text)
+      } finally {
+        setWaUploading(false);
+      }
     }
-    // Open WhatsApp with pre-filled text
-    window.open(waUrl, '_blank');
+
+    // Build WhatsApp message with photo URL if available
+    const lines = [
+      `Hello Abhi's Gifts! 🙏`,
+      `I want to place a custom order for:`,
+      `📦 *${product.title}*`,
+      ``,
+      photoUrl
+        ? `🖼️ *My Custom Photo:* ${photoUrl}`
+        : photoPreview
+        ? `🖼️ Photo: Uploading separately in this chat`
+        : `🖼️ Photo: Using original artwork`,
+      `📐 *Size:* ${activeSizeLabel}`,
+      `💰 *Price:* ₹${activePrice.toLocaleString('en-IN')}`,
+      ledEnabled ? `💡 *Lighting:* Warm LED Backlit (12V Adapter)` : '',
+      customText.trim() ? `✍️ *Text/Dedication:* "${customText.trim()}"` : '',
+      ``,
+      `Please confirm and assist me with proofing before printing. Thank you!`,
+    ].filter(Boolean).join('\n');
+
+    const waNum = (INITIAL_SETTINGS.whatsappNumber || '919032372782').replace(/[^0-9]/g, '');
+    window.open(`https://wa.me/${waNum}?text=${encodeURIComponent(lines)}`, '_blank');
   };
 
   const handleAddToCartWithPhoto = (redirectCheckout = false) => {
@@ -540,14 +556,31 @@ export default function AddPhotoModal({
           </div>
 
           <div className="flex items-center justify-between text-xs pt-1">
-            {/* WhatsApp Order — with photo download flow if photo is uploaded */}
+            {/* WhatsApp Order — uploads photo to server, includes direct link in message */}
             <button
               type="button"
               onClick={handleWhatsAppOrder}
-              className="text-[#EAB308] hover:underline font-semibold flex items-center gap-1.5 cursor-pointer"
+              disabled={waUploading}
+              className={`font-semibold flex items-center gap-1.5 transition-colors ${
+                waUploading
+                  ? 'text-[#EAB308]/50 cursor-wait'
+                  : 'text-[#EAB308] hover:underline cursor-pointer'
+              }`}
             >
-              <MessageCircle className="w-3.5 h-3.5" />
-              <span>Order via WhatsApp{photoPreview ? ' + Photo' : ''}</span>
+              {waUploading ? (
+                <>
+                  <svg className="animate-spin w-3.5 h-3.5 text-[#EAB308]" fill="none" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z" />
+                  </svg>
+                  <span>Uploading photo…</span>
+                </>
+              ) : (
+                <>
+                  <MessageCircle className="w-3.5 h-3.5" />
+                  <span>Order via WhatsApp{photoPreview ? ' + Photo' : ''}</span>
+                </>
+              )}
             </button>
 
             <Link
@@ -560,18 +593,13 @@ export default function AddPhotoModal({
             </Link>
           </div>
 
-          {/* Photo send instruction — shown only when user has uploaded a photo */}
+          {/* Info note when photo is uploaded */}
           {photoPreview && (
-            <div className="mt-2 bg-[#EAB308]/10 border border-[#EAB308]/40 rounded-xl px-3 py-2.5 flex items-start gap-2.5">
-              <Send className="w-4 h-4 text-[#EAB308] shrink-0 mt-0.5" />
-              <div className="text-[11px] text-[#FFFFFF] leading-snug">
-                <span className="font-bold text-[#EAB308]">How to send your photo via WhatsApp:</span>
-                <ol className="mt-1 space-y-0.5 list-decimal list-inside text-[#D1D5DB]">
-                  <li>Click <span className="text-[#EAB308] font-semibold">"Order via WhatsApp + Photo"</span> above — your photo will auto-save &amp; WhatsApp will open</li>
-                  <li>In the WhatsApp chat, tap the <span className="text-[#EAB308] font-semibold">📎 Attach</span> icon and send your saved photo</li>
-                  <li>We'll confirm your order and send a digital proof before printing</li>
-                </ol>
-              </div>
+            <div className="mt-2 bg-[#EAB308]/10 border border-[#EAB308]/40 rounded-xl px-3 py-2 flex items-center gap-2">
+              <Send className="w-3.5 h-3.5 text-[#EAB308] shrink-0" />
+              <p className="text-[11px] text-[#D1D5DB]">
+                Your photo will be <span className="text-[#EAB308] font-semibold">automatically included</span> as a direct link in the WhatsApp message — we can view it instantly.
+              </p>
             </div>
           )}
         </div>
