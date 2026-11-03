@@ -74,6 +74,39 @@ export default function AddPhotoModal({
     }
   }, [initialVariant]);
 
+  // ⚠️ ALL hooks MUST be called before any conditional early return (Rules of Hooks)
+  const customSizeCalc = React.useMemo(() => {
+    return calculateCustomDimensions(customWidth, customHeight, {
+      hasLed: ledEnabled,
+      frameType: activeVariant.finish,
+    });
+  }, [customWidth, customHeight, ledEnabled, activeVariant.finish]);
+
+  const activePrice = isCustomSize ? customSizeCalc.price : (activeVariant.price || product.basePrice);
+  const activeMrp = isCustomSize ? customSizeCalc.mrp : (activeVariant.mrp || product.baseMrp);
+  const activeSizeLabel = isCustomSize
+    ? `${customSizeCalc.widthInches}" × ${customSizeCalc.heightInches}" (${customSizeCalc.dimensionsCm}) [Custom Size]`
+    : activeVariant.size;
+
+  const hasRealDiscount = activeMrp > activePrice;
+  const discountPercent = hasRealDiscount
+    ? Math.round(((activeMrp - activePrice) / activeMrp) * 100)
+    : 0;
+
+  const cleanWaNumber = (INITIAL_SETTINGS.whatsappNumber || '919032372782').replace(/[^0-9]/g, '');
+  const photoLine = photoPreview ? '- Custom Photo: Personal photo uploaded' : '- Artwork: Original artwork';
+  const waOrderText = [
+    `Hello Abhi's Gifts, I want to customise "${product.title}":`,
+    photoLine,
+    `- Size: ${activeSizeLabel}`,
+    `- Price: ₹${activePrice.toLocaleString('en-IN')}`,
+    ledEnabled ? '- Lighting: Warm LED Backlit (12V Adapter)' : '',
+    customText.trim() ? `- Personalization Text: "${customText.trim()}"` : '',
+    'Please assist me with proofing and placing the order.',
+  ].filter(Boolean).join('\n');
+  const waUrl = `https://wa.me/${cleanWaNumber}?text=${encodeURIComponent(waOrderText)}`;
+
+  // Early return AFTER all hooks
   if (!isOpen) return null;
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -113,25 +146,6 @@ export default function AddPhotoModal({
       reader.readAsDataURL(file);
     }
   };
-
-
-  const customSizeCalc = React.useMemo(() => {
-    return calculateCustomDimensions(customWidth, customHeight, {
-      hasLed: ledEnabled,
-      frameType: activeVariant.finish,
-    });
-  }, [customWidth, customHeight, ledEnabled, activeVariant.finish]);
-
-  const activePrice = isCustomSize ? customSizeCalc.price : (activeVariant.price || product.basePrice);
-  const activeMrp = isCustomSize ? customSizeCalc.mrp : (activeVariant.mrp || product.baseMrp);
-  const activeSizeLabel = isCustomSize
-    ? `${customSizeCalc.widthInches}" × ${customSizeCalc.heightInches}" (${customSizeCalc.dimensionsCm}) [Custom Size]`
-    : activeVariant.size;
-
-  const hasRealDiscount = activeMrp > activePrice;
-  const discountPercent = hasRealDiscount
-    ? Math.round(((activeMrp - activePrice) / activeMrp) * 100)
-    : 0;
 
   const handleAddToCartWithPhoto = (redirectCheckout = false) => {
     const finalImage = photoPreview || product.images[0];
@@ -184,20 +198,6 @@ export default function AddPhotoModal({
       }, 700);
     }
   };
-
-  const cleanWaNumber = (INITIAL_SETTINGS.whatsappNumber || '919032372782').replace(/[^0-9]/g, '');
-  const photoLine = photoPreview ? '- Custom Photo: Personal photo uploaded' : '- Artwork: Original artwork';
-  const waOrderText = [
-    `Hello Abhi's Gifts, I want to customise "${product.title}":`,
-    photoLine,
-    `- Size: ${activeSizeLabel}`,
-    `- Price: ₹${activePrice.toLocaleString('en-IN')}`,
-    ledEnabled ? '- Lighting: Warm LED Backlit (12V Adapter)' : '',
-    customText.trim() ? `- Personalization Text: "${customText.trim()}"` : '',
-    'Please assist me with proofing and placing the order.',
-  ].filter(Boolean).join('\n');
-
-  const waUrl = `https://wa.me/${cleanWaNumber}?text=${encodeURIComponent(waOrderText)}`;
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/80 backdrop-blur-md animate-fade-in overflow-y-auto">
