@@ -17,7 +17,7 @@ export default function ReturnRefundPolicyPage() {
 
       <div className="prose prose-stone max-w-none text-xs sm:text-sm text-stone-700 leading-relaxed space-y-6">
         <section className="space-y-2">
-          <h2 className="font-serif font-bold text-xl text-stone-900">1. Instant Free Replacement for Transit Damage</h2>
+          <h2 className="font-serif font-bold text-xl text-stone-900">1. Damaged Item Support</h2>
           <p>
             Your satisfaction and peace of mind are paramount. If your artwork arrives damaged, scratched, cracked, or with a malfunctioning LED adapter:
           </p>
@@ -38,14 +38,14 @@ export default function ReturnRefundPolicyPage() {
         <section className="space-y-2">
           <h2 className="font-serif font-bold text-xl text-stone-900">3. Custom Photo Upload Prints</h2>
           <p>
-            Because custom photo frames are individually manufactured with personal photos and custom engravings, they cannot be returned for buyer remorse or size misjudgment. However, they are 100% eligible for immediate free replacement if they arrive damaged or with printing defects.
+            Because custom photo frames are individually manufactured with personal photos and custom engravings, they cannot be returned for buyer remorse or size misjudgment. However, they are eligible for a replacement resolution if they arrive damaged or with printing defects.
           </p>
         </section>
 
         <section className="space-y-2">
           <h2 className="font-serif font-bold text-xl text-stone-900">4. Refund Processing</h2>
           <p>
-            Approved refunds are credited back to the original payment source (bank account, UPI, or card) within 5 to 7 business days following return quality verification. For Cash on Delivery orders, refunds are processed via secure UPI transfer or NEFT upon customer request.
+            Approved refunds are credited back to the original payment source (bank account, UPI, or card) within 5 to 7 business days following return quality verification. For online payment orders, refunds are processed via secure UPI transfer or NEFT upon customer request.
           </p>
         </section>
       </div>

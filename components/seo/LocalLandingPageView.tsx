@@ -151,8 +151,8 @@ export default function LocalLandingPageView({
             <Layers className="w-5 h-5" />
           </div>
           <div>
-            <h4 className="font-bold text-xs sm:text-sm text-[#FFFFFF]">4mm Cast Acrylic</h4>
-            <p className="text-[11px] text-[#785E59]">Virgin cast sheet • Diamond CNC beveled edges</p>
+            <h4 className="font-bold text-xs sm:text-sm text-[#FFFFFF]">Premium Cast Acrylic</h4>
+            <p className="text-[11px] text-[#785E59]">Virgin cast sheet • Precision beveled edges</p>
           </div>
         </div>
 
@@ -171,8 +171,8 @@ export default function LocalLandingPageView({
             <ShieldCheck className="w-5 h-5" />
           </div>
           <div>
-            <h4 className="font-bold text-xs sm:text-sm text-[#FFFFFF]">100% Safe Transit</h4>
-            <p className="text-[11px] text-[#785E59]">Free instant replacement if damaged</p>
+            <h4 className="font-bold text-xs sm:text-sm text-[#FFFFFF]">Careful Packaging</h4>
+            <p className="text-[11px] text-[#785E59]">protective multi-layer packaging</p>
           </div>
         </div>
       </section>
@@ -243,7 +243,7 @@ export default function LocalLandingPageView({
             Popular Photo Frame Sizes &amp; Pricing in Hyderabad
           </h2>
           <p className="text-xs sm:text-sm text-[#785E59] mt-1">
-            Every frame includes high-definition optical UV printing, 4mm cast acrylic, diamond beveling, and heavy-duty stainless steel floating wall mount standoffs.
+            Every frame includes high-definition optical UV printing, cast acrylic, precision beveling, and heavy-duty stainless steel floating wall mount standoffs.
           </p>
         </div>
 
@@ -295,7 +295,7 @@ export default function LocalLandingPageView({
           </h2>
 
           <p className="text-xs sm:text-sm text-[#D1D5DB] leading-relaxed">
-            Customers in Hyderabad are warmly welcome to visit our workshop studio in Dilsukhnagar to inspect physical material samples, compare 4mm cast acrylic against traditional glass, test warm 3000K LED backlighting, and pick up custom orders directly.
+            Customers in Hyderabad are warmly welcome to visit our workshop studio in Dilsukhnagar to inspect physical material samples, inspect physical acrylic samples, compare against traditional glass, test warm LED backlighting, and pick up custom orders directly.
           </p>
 
           <div className="space-y-2 text-xs sm:text-sm text-[#FFFFFF]">

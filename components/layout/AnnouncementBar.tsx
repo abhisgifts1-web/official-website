@@ -13,50 +13,50 @@ import {
 import { INITIAL_SETTINGS } from '@/lib/data/settings';
 
 export default function AnnouncementBar() {
-  const tickerItems = (
+    const tickerItems = (
     <div className="flex items-center gap-6 sm:gap-10 shrink-0 px-3">
-      {/* 1. Pan-India Delivery */}
+      {/* 1. Craftsmanship */}
       <span className="flex items-center gap-1.5 shrink-0 text-[#E5E7EB]">
-        <Truck className="w-3.5 h-3.5 text-[#FACC15] shrink-0" />
-        <span className="font-medium">Pan-India Express Delivery</span>
+        <Sparkles className="w-3.5 h-3.5 text-[#FACC15] shrink-0" />
+        <span className="font-medium">Handcrafted Acrylic Photo Frames</span>
       </span>
 
       <span className="w-1.5 h-1.5 rounded-full bg-[#FACC15]/50 shrink-0" />
 
-      {/* 2. Transit Guarantee */}
+      {/* 2. Studio Location */}
       <span className="flex items-center gap-1.5 shrink-0 text-[#E5E7EB]">
         <ShieldCheck className="w-3.5 h-3.5 text-[#FACC15] shrink-0" />
-        <span className="font-medium">100% Safe Transit Guarantee</span>
+        <span className="font-medium">Dilsukhnagar, Hyderabad Studio</span>
       </span>
 
       <span className="w-1.5 h-1.5 rounded-full bg-[#FACC15]/50 shrink-0" />
 
-      {/* 3. Festive Privilege Offer & CTA */}
+      {/* 3. Products & CTA */}
       <span className="flex items-center gap-1.5 shrink-0 text-[#FFFFFF]">
-        <Sparkles className="w-3.5 h-3.5 text-[#FACC15] animate-pulse shrink-0" />
+        <Flame className="w-3.5 h-3.5 text-[#FACC15] animate-pulse shrink-0" />
         <span className="font-medium">
-          Pan-India Express Delivery • 100% Damage-Free Guarantee
+          Custom Photo Frames • Warm LED Light Frames
         </span>
         <Link
           href="/shop"
           className="inline-flex items-center gap-1 underline decoration-[#EAB308] hover:text-[#FACC15] text-[#FFFFFF] font-bold ml-1.5 transition-colors cursor-pointer"
         >
-          <span>Shop Sacred Art</span>
+          <span>Explore Frames</span>
           <ArrowRight className="w-3 h-3 text-[#FACC15]" />
         </Link>
       </span>
 
       <span className="w-1.5 h-1.5 rounded-full bg-[#FACC15]/50 shrink-0" />
 
-      {/* 4. 3000K LED Backlight */}
+      {/* 4. Delivery */}
       <span className="flex items-center gap-1.5 shrink-0 text-[#E5E7EB]">
-        <Flame className="w-3.5 h-3.5 text-[#FACC15] animate-pulse shrink-0" />
-        <span className="font-medium">Soothing 3000K Warm LED Backlit Art</span>
+        <Truck className="w-3.5 h-3.5 text-[#FACC15] shrink-0" />
+        <span className="font-medium">Express Courier Delivery</span>
       </span>
 
       <span className="w-1.5 h-1.5 rounded-full bg-[#FACC15]/50 shrink-0" />
 
-      {/* 6. Phone Support */}
+      {/* 5. Phone Support */}
       <a
         href={`tel:${INITIAL_SETTINGS.supportPhone}`}
         className="flex items-center gap-1.5 shrink-0 text-[#E5E7EB] hover:text-[#FACC15] transition-colors cursor-pointer"

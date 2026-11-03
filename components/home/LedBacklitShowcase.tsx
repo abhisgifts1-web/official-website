@@ -25,14 +25,14 @@ const ARTWORKS: ArtItem[] = [
   {
     id: 'ganesha',
     name: 'Lord Ganesha Vighnaharta',
-    tagline: 'Auspicious Remover of Obstacles with 3000K Golden Halo Radiance',
+    tagline: 'Auspicious Remover of Obstacles with warm Golden Halo Radiance',
     image: '/images/wall-decor/categories/led-backlight/ganesha-led-category.jpg',
     slug: 'lord-ganesha-vighnaharta-divine-led-backlit-acrylic-art',
   },
   {
     id: 'om-swastik',
     name: 'Om & Swastik Diptych',
-    tagline: 'Twin Sacred Auspicious Panels with Warm 3000K Perimeter Halo',
+    tagline: 'Twin Sacred Auspicious Panels with Warm warm Perimeter Halo',
     image: '/images/wall-decor/products/led/om-swastik-diptych-pair.jpg',
     slug: 'sacred-om-swastik-divine-acrylic-diptych-set-of-2',
   },
@@ -53,7 +53,7 @@ const ARTWORKS: ArtItem[] = [
   {
     id: 'balaji',
     name: 'Divine Tirupati Balaji',
-    tagline: '3D Embossed Lord Venkateswara with Sanctum 3000K Golden Halo',
+    tagline: '3D Embossed Lord Venkateswara with Sanctum warm Golden Halo',
     image: '/images/wall-decor/categories/led-backlight/balaji-led-category.jpg',
     slug: 'tirupati-balaji-divine-led-backlit-acrylic-wall-art',
   },
@@ -67,7 +67,7 @@ const ARTWORKS: ArtItem[] = [
   {
     id: 'radha-krishna',
     name: 'Shri Radha Krishna Bansuri',
-    tagline: 'Divine Bansuri & Kamadhenu Blessing with 3000K Golden Halo',
+    tagline: 'Divine Bansuri & Kamadhenu Blessing with warm Golden Halo',
     image: '/images/mockups/radha-krishna-divine-bansuri-3d-led-acrylic-wall-art/primary-square.jpg',
     slug: 'radha-krishna-divine-bansuri-3d-led-acrylic-wall-art',
   },
@@ -182,7 +182,7 @@ export default function LedBacklitShowcase() {
                       : 'bg-stone-900/60 text-stone-400 border-stone-800 hover:border-stone-700'
                   } disabled:opacity-40 disabled:cursor-not-allowed`}
                 >
-                  Temple Gold (3000K)
+                  Temple Gold (warm)
                 </button>
                 <button
                   type="button"
@@ -241,7 +241,7 @@ export default function LedBacklitShowcase() {
                   <div className="w-6 h-6 rounded-lg bg-amber-500/10 flex items-center justify-center text-amber-400 group-hover:bg-amber-500/20 transition-colors">
                     <Flame className="w-3.5 h-3.5" />
                   </div>
-                  <span className="text-amber-300 font-bold text-xs sm:text-sm">3000K Warm Glow</span>
+                  <span className="text-amber-300 font-bold text-xs sm:text-sm">warm Glow</span>
                 </div>
                 <span className="text-[11px] text-stone-400 mt-1 block leading-snug">
                   Eye-friendly golden halo for pooja room tranquility.
@@ -268,7 +268,7 @@ export default function LedBacklitShowcase() {
                   <span className="text-amber-300 font-bold text-xs sm:text-sm">12V BIS Certified</span>
                 </div>
                 <span className="text-[11px] text-stone-400 mt-1 block leading-snug">
-                  Low-voltage safe draw with 50,000h diode life.
+                  Low-voltage safe draw with high-efficiency diode life.
                 </span>
               </div>
             </div>
@@ -346,7 +346,7 @@ export default function LedBacklitShowcase() {
                 <div className="absolute top-3 inset-x-3 flex items-center justify-between z-10">
                   <span className="inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider bg-stone-950/85 backdrop-blur-md text-amber-300 px-2.5 py-0.5 rounded-full border border-amber-400/30 shadow-xs">
                     <Sparkles className="w-2.5 h-2.5 text-amber-400 animate-pulse" />
-                    <span>{isLedOn ? '3000K Illuminated' : 'Daylight View'}</span>
+                    <span>{isLedOn ? 'warm Illuminated' : 'Daylight View'}</span>
                   </span>
 
                   

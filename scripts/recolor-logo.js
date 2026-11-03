@@ -119,7 +119,7 @@ async function generateBrandLogos() {
   console.log('Updated primary logo.png with website burgundy & gold colors');
 
   // -------------------------------------------------------------
-  // VARIANT 2: All 24K Royal Antique Gold Edition (For Dark Backgrounds & Luxury Badges)
+  // VARIANT 2: All Royal Antique Gold Edition (For Dark Backgrounds & Luxury Badges)
   // Bow: Antique Gold
   // Text: Champagne Gold / Radiant Gold
   // Heart: Brilliant Champagne Gold

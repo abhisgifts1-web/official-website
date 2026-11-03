@@ -41,8 +41,8 @@ const FRAME_STYLES: FrameStyle[] = [
     image: '/images/wall-decor/products/custom/custom-portrait-frame.jpg',
     hasLed: false,
     shape: 'Vertical Portrait',
-    tagline: 'Museum-grade 4mm cast acrylic with floating stainless standoffs',
-    features: ['Diamond CNC Beveled Edges', 'Invisible Floating Mount', 'Zero Reflections'],
+    tagline: 'Museum-grade cast acrylic with floating stainless standoffs',
+    features: ['Smooth Beveled Edges', 'Invisible Floating Mount', 'Zero Reflections'],
   },
   {
     id: 'night-glow',
@@ -53,8 +53,8 @@ const FRAME_STYLES: FrameStyle[] = [
     image: '/images/wall-decor/products/custom/custom-led-photo-frame.jpg',
     hasLed: true,
     shape: 'Illuminated Portrait',
-    tagline: '3000K warm perimeter halo turns your memory into ambient night art',
-    features: ['12V Low Voltage Adapter', 'Inline ON/OFF Switch', '50,000h Epistar LEDs'],
+    tagline: 'Warm perimeter halo turns your memory into ambient night art',
+    features: ['12V Low Voltage Adapter', 'Inline ON/OFF Switch', 'High-Efficiency LEDs'],
   },
   {
     id: 'family-gold',
@@ -65,8 +65,8 @@ const FRAME_STYLES: FrameStyle[] = [
     image: '/images/wall-decor/products/custom/family-heirloom-frame.jpg',
     hasLed: false,
     shape: 'Horizontal Landscape',
-    tagline: 'Cherished family portrait personalized with 24K gold foil surname',
-    features: ['24K Real Gold Foil Script', 'Anniversary Inscription', 'Brushed Gold Standoffs'],
+    tagline: 'Cherished family portrait personalized with gold foil surname',
+    features: ['Real Gold Foil Script', 'Anniversary Inscription', 'Brushed Gold Standoffs'],
   },
   {
     id: 'round-circle',
@@ -118,8 +118,8 @@ export default function CustomPhotoStudioShowcase() {
     },
     {
       num: 4,
-      title: '100% Safe Transit Guarantee',
-      subtitle: '5-layer reinforced wooden crate packaging delivered pan-India.',
+      title: 'Protective Packaging',
+      subtitle: 'Multi-layer reinforced packaging with secure doorstep delivery.',
       icon: <Truck className="w-4 h-4 text-[#D1D5DB]" />,
     },
   ];

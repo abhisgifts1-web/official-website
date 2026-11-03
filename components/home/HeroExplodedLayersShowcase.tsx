@@ -41,7 +41,7 @@ export const CRAFTING_LAYERS: CraftingLayer[] = [
     index: '02/05',
     name: 'Backlight Board',
     tagline: 'EVEN LIGHT DISTRIBUTION • ENHANCED VISUALS',
-    description: '3000K warm golden Epistar LED matrix paired with an optical Light Guide Panel (LGP) to eliminate hotspots and harsh glare.',
+    description: 'warm golden Epistar LED matrix paired with an optical Light Guide Panel (LGP) to eliminate hotspots and harsh glare.',
     startTime: 8.0,
     icon: '💡',
   },
@@ -49,7 +49,7 @@ export const CRAFTING_LAYERS: CraftingLayer[] = [
     index: '03/05',
     name: 'HD UV Print',
     tagline: 'VIBRANT COLOURS • FADE RESISTANT • FINE DETAILS',
-    description: 'Swiss 6-color curable UV inks printed at 2400 DPI with 24K gold foil embellishments. Non-fading for 25+ years.',
+    description: 'Swiss 6-color curable UV inks printed at 2400 DPI with gold foil embellishments. Non-fading for long-lasting vibrancy.',
     startTime: 10.1,
     icon: '🎨',
   },
@@ -57,7 +57,7 @@ export const CRAFTING_LAYERS: CraftingLayer[] = [
     index: '04/05',
     name: '3MM Crystal Acrylic',
     tagline: 'HIGH GLOSS • SCRATCH RESISTANT • ULTRA HD CLARITY',
-    description: 'Museum-grade optical cast acrylic with diamond-polished beveled edges. 100% shatterproof safe alternative to heavy glass.',
+    description: 'Museum-grade optical cast acrylic with precision-polished beveled edges. 100% shatterproof safe alternative to heavy glass.',
     startTime: 11.6,
     icon: '💎',
   },
@@ -202,7 +202,7 @@ export default function HeroExplodedLayersShowcase() {
             </span>
             <span className="hidden sm:inline-flex items-center gap-1 text-[11px] text-stone-400 bg-stone-900/80 px-2.5 py-1 rounded-full border border-stone-800">
               <CheckCircle2 className="w-3 h-3 text-[#C8A96B]" />
-              <span>4mm Shatterproof Crystal Acrylic &amp; 3000K Backlighting</span>
+              <span>cast Shatterproof Crystal Acrylic &amp; warm Backlighting</span>
             </span>
           </div>
 
@@ -466,7 +466,7 @@ export default function HeroExplodedLayersShowcase() {
                   style={{ transform: `translateZ(${-1 * explosionDistance}px)` }}
                 >
                   <span className="bg-stone-950/80 text-[10px] text-amber-300 px-2 py-0.5 rounded font-mono">
-                    02 Backlight Board (3000K)
+                    02 Backlight Board (warm)
                   </span>
                 </div>
 

@@ -751,7 +751,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
         variantId: `${product.slug}-${selectedShape}-${selectedFrame}-${sizeLabel}-${selectedThickness}`,
         size: `${sizeLabel} (${selectedShape.toUpperCase()})`,
         finish: frameLabel,
-        lighting: product.hasLedBacklight ? (isAartiGlow ? '3000K Warm LED Backlit (12V Adapter)' : 'Daylight Acrylic (LED Off)') : 'Pure Acrylic Wall Art',
+        lighting: product.hasLedBacklight ? (isAartiGlow ? 'Warm LED Backlit (12V Adapter)' : 'Daylight Acrylic (LED Off)') : 'Pure Acrylic Wall Art',
         shape: selectedShape,
         unitPrice: currentPricing.price,
         unitMrp: currentPricing.mrp,
@@ -782,7 +782,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
         variantId: `${product.slug}-${selectedShape}-${selectedFrame}-${sizeLabel}-${selectedThickness}`,
         size: `${sizeLabel} (${selectedShape.toUpperCase()})`,
         finish: frameLabel,
-        lighting: product.hasLedBacklight ? (isAartiGlow ? '3000K Warm LED Backlit (12V Adapter)' : 'Daylight Acrylic (LED Off)') : 'Pure Acrylic Wall Art',
+        lighting: product.hasLedBacklight ? (isAartiGlow ? 'Warm LED Backlit (12V Adapter)' : 'Daylight Acrylic (LED Off)') : 'Pure Acrylic Wall Art',
         shape: selectedShape,
         unitPrice: currentPricing.price,
         unitMrp: currentPricing.mrp,
@@ -932,7 +932,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
               className={`relative w-full aspect-square sm:aspect-[4/5] max-h-[580px] rounded-3xl overflow-hidden bg-gradient-to-b from-[#141414] via-[#181818] to-[#141414] border border-[#2D2D2D] transition-all duration-500 flex items-center justify-center p-4 sm:p-7 group ${
                 isAartiGlow
                   ? 'shadow-[0_0_55px_rgba(245,175,65,0.4)] ring-2 ring-[#C69A42]/50'
-                  : 'shadow-[0_10px_35px_rgba(100,28,43,0.06)]'
+                  : 'shadow-[0_10px_35px_rgba(0,0,0,0.4)]'
               }`}
             >
               {/* Top Left Refined Promotional Badges */}
@@ -951,7 +951,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                 
               </div>
 
-              {/* Top Right Floating Controls: 3000K Glow Mode + Fullscreen Zoom */}
+              {/* Top Right Floating Controls: warm Glow Mode + Fullscreen Zoom */}
               <div className="absolute top-4 right-4 z-20 flex items-center gap-2">
                 
 
@@ -990,7 +990,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                       : 'w-full aspect-square max-w-[450px] max-h-[450px]'
                   }`}
                 >
-                  {/* Simulated Ambient 3000K Backglow Halo on Wall */}
+                  {/* Simulated Ambient warm Backglow Halo on Wall */}
                   {isAartiGlow && (
                     <div
                       className={`absolute -inset-4 sm:-inset-6 pointer-events-none transition-all duration-700 ${
@@ -1015,7 +1015,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                         ? `border-[12px] sm:border-[16px] border-[#1C1917] shadow-[0_16px_36px_rgba(0,0,0,0.45)] ring-1 ring-stone-900 ${
                             selectedShape === 'round' ? 'rounded-full' : 'rounded-2xl'
                           }`
-                        : `border-2 border-[#2D2D2D]/90 shadow-[0_12px_30px_rgba(100,28,43,0.14)] ${
+                        : `border-2 border-[#2D2D2D]/90 shadow-[0_12px_30px_rgba(0,0,0,0.4)] ${
                             selectedShape === 'round' ? 'rounded-full' : 'rounded-2xl'
                           }`
                     }`}
@@ -1163,7 +1163,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
           {/* RIGHT COLUMN: Variation Controls & Purchase Actions */}
           <div
             ref={mainPurchaseRef}
-            className="lg:col-span-5 xl:col-span-5 space-y-6 bg-[#181818] p-6 sm:p-8 rounded-3xl border border-[#2D2D2D] shadow-[0_10px_35px_rgba(100,28,43,0.05)]"
+            className="lg:col-span-5 xl:col-span-5 space-y-6 bg-[#181818] p-6 sm:p-8 rounded-3xl border border-[#2D2D2D] shadow-[0_10px_35px_rgba(0,0,0,0.4)]"
           >
             {/* Header Block: Category, Stock & Title */}
             <div className="space-y-2.5">
@@ -1264,7 +1264,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
               </div>
               <p className="text-[11px] text-[#D1D5DB] font-medium flex items-center gap-1.5">
                 <Sparkles className="w-3 h-3 text-[#EAB308] shrink-0" />
-                <span>Inclusive of all taxes • Pan-India Express Delivery • Zero hidden costs</span>
+                <span>Inclusive of all taxes • Fast Dispatch • Handcrafted in Hyderabad</span>
               </p>
             </div>
 
@@ -1494,7 +1494,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
               </div>
 
               <p className="text-[11px] text-[#D1D5DB] text-center font-medium">
-                🔒 100% Secure Checkout • UPI, Credit/Debit Cards, NetBanking &amp; Cash on Delivery
+                🔒 100% Secure Checkout • UPI, Credit/Debit Cards &amp; NetBanking
               </p>
             </div>
 
@@ -1504,19 +1504,19 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                 <div className="p-2.5 rounded-2xl bg-[#181818] border border-[#2D2D2D]/60 flex flex-col items-center space-y-1">
                   <Truck className="w-5 h-5 text-[#EAB308]" />
                   <span className="text-[10px] font-bold text-[#FFFFFF] leading-tight">Express Delivery</span>
-                  <span className="text-[9px] text-[#D1D5DB]">Pan-India Express</span>
+                  <span className="text-[9px] text-[#D1D5DB]">Quick Dispatch</span>
                 </div>
 
                 <div className="p-2.5 rounded-2xl bg-[#181818] border border-[#2D2D2D]/60 flex flex-col items-center space-y-1">
                   <ShieldCheck className="w-5 h-5 text-[#EAB308]" />
-                  <span className="text-[10px] font-bold text-[#FFFFFF] leading-tight">Transit Safe</span>
-                  <span className="text-[9px] text-[#D1D5DB]">100% Damage-Free</span>
+                  <span className="text-[10px] font-bold text-[#FFFFFF] leading-tight">Protective Box</span>
+                  <span className="text-[9px] text-[#D1D5DB]">Multi-Layer Safe</span>
                 </div>
 
                 <div className="p-2.5 rounded-2xl bg-[#181818] border border-[#2D2D2D]/60 flex flex-col items-center space-y-1">
-                  <Banknote className="w-5 h-5 text-[#EAB308]" />
-                  <span className="text-[10px] font-bold text-[#FFFFFF] leading-tight">Cash on Delivery</span>
-                  <span className="text-[9px] text-[#D1D5DB]">Pay at Doorstep</span>
+                  <Sparkles className="w-5 h-5 text-[#EAB308]" />
+                  <span className="text-[10px] font-bold text-[#FFFFFF] leading-tight">1:1 Proofing</span>
+                  <span className="text-[9px] text-[#D1D5DB]">WhatsApp Approval</span>
                 </div>
 
                 <div className="p-2.5 rounded-2xl bg-[#181818] border border-[#2D2D2D]/60 flex flex-col items-center space-y-1">
@@ -1565,7 +1565,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
               { id: 'specs', label: 'Technical Specifications' },
               { id: 'sizeguide', label: 'Size & Placement Guide' },
               { id: 'install', label: '3-Min Installation' },
-              { id: 'shipping', label: 'Transit Guarantee' },
+              { id: 'shipping', label: 'Packaging & Delivery' },
               { id: 'reviews', label: `Collector Reviews (${reviewsList.length})` },
               { id: 'faq', label: 'Frequently Asked Questions' },
             ].map((tab) => (
@@ -1618,16 +1618,16 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                   </h4>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs sm:text-sm text-[#D1D5DB]">
                     <div className="p-4 rounded-2xl bg-[#121212] border border-[#2D2D2D]/70 space-y-1">
-                      <h5 className="font-bold text-[#FFFFFF]">1. 4mm Virgin Cast Acrylic</h5>
-                      <p>Ultra-clear, shatterproof grade cast acrylic with diamond-polished beveled edges for supreme light refraction.</p>
+                      <h5 className="font-bold text-[#FFFFFF]">1. Virgin Cast Acrylic</h5>
+                      <p>Ultra-clear, shatterproof grade cast acrylic with precision beveled edges for supreme light refraction.</p>
                     </div>
                     <div className="p-4 rounded-2xl bg-[#121212] border border-[#2D2D2D]/70 space-y-1">
-                      <h5 className="font-bold text-[#FFFFFF]">2. Swiss UV Direct Printing</h5>
-                      <p>6-Color digital flatbed UV curable inks at 1200x2400 DPI ensure 25+ years fade resistance against indoor lighting.</p>
+                      <h5 className="font-bold text-[#FFFFFF]">2. High-Definition UV Direct Printing</h5>
+                      <p>6-Color digital flatbed UV curable inks ensure vibrant, long-lasting colors against indoor lighting.</p>
                     </div>
                     <div className="p-4 rounded-2xl bg-[#121212] border border-[#2D2D2D]/70 space-y-1">
-                      <h5 className="font-bold text-[#FFFFFF]">3. 3000K Warm Golden LED</h5>
-                      <p>High-efficiency Epistar SMD LEDs rated for 50,000+ hours with concealed diffuse light guide layer.</p>
+                      <h5 className="font-bold text-[#FFFFFF]">3. Warm Golden Ambient LED</h5>
+                      <p>Energy-efficient warm SMD LEDs with concealed diffuse light guide layer.</p>
                     </div>
                     <div className="p-4 rounded-2xl bg-[#121212] border border-[#2D2D2D]/70 space-y-1">
                       <h5 className="font-bold text-[#FFFFFF]">4. BIS-Certified 12V Power Adapter</h5>
@@ -1726,14 +1726,14 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
               <div className="space-y-6 max-w-3xl">
                 <div className="p-6 rounded-3xl bg-[#181818] border border-[#2D2D2D] space-y-4 shadow-2xs text-xs sm:text-sm text-[#D1D5DB]">
                   <h4 className="font-serif font-bold text-lg sm:text-xl text-[#FFFFFF]">
-                    100% Transit Safe Wooden Packaging Guarantee
+                    Multi-Layer Protective Packaging
                   </h4>
                   <ul className="space-y-2.5 list-disc list-inside">
                     {product.shippingHighlights.map((item, i) => (
                       <li key={i}>{item}</li>
                     ))}
                     <li>Reinforced with 5-layer honeycomb wooden outer crate and thick air-bubble foam wrap.</li>
-                    <li>If any damage occurs during courier transit, we provide a <strong>free immediate replacement</strong> without hassle.</li>
+                    <li>All orders are carefully inspected and protected with reinforced corner guards prior to dispatch.</li>
                   </ul>
                 </div>
               </div>
@@ -1859,7 +1859,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                 {[
                   {
                     q: 'How does the LED lighting work and what is the power consumption?',
-                    a: 'The LED backlighting uses high-efficiency 3000K warm golden Epistar SMD chips that consume only 12W to 18W of power (similar to an energy-saving bulb). It operates with a BIS-certified 12V 2A adapter plugged into any standard home outlet.',
+                    a: 'The LED backlighting uses high-efficiency warm golden Epistar SMD chips that consume only 12W to 18W of power (similar to an energy-saving bulb). It operates with a BIS-certified 12V 2A adapter plugged into any standard home outlet.',
                   },
                   {
                     q: 'Is the acrylic fragile or breakable during everyday cleaning?',
@@ -1913,7 +1913,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
 
       {/* Sticky Bottom Purchase Bar (Appears on Scroll) */}
       <div
-        className={`fixed bottom-0 left-0 right-0 z-40 bg-[#181818]/95 backdrop-blur-md border-t border-[#2D2D2D] shadow-[0_-8px_25px_rgba(100,28,43,0.08)] py-3 px-4 sm:px-8 transition-transform duration-300 ${
+        className={`fixed bottom-0 left-0 right-0 z-40 bg-[#181818]/95 backdrop-blur-md border-t border-[#2D2D2D] shadow-[0_-8px_25px_rgba(0,0,0,0.5)] py-3 px-4 sm:px-8 transition-transform duration-300 ${
           showStickyBar ? 'translate-y-0' : 'translate-y-full'
         }`}
         style={{ paddingBottom: 'max(0.75rem, env(safe-area-inset-bottom, 0px))' }}

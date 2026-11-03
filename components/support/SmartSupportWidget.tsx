@@ -49,10 +49,10 @@ const FAQ_KNOWLEDGE_BASE: {
   };
 }[] = [
   {
-    keywords: ['size', 'dimension', 'measurement', 'inches', 'cm', 'thickness', '4mm', 'big', 'small'],
+    keywords: ['size', 'dimension', 'measurement', 'inches', 'cm', 'thickness', 'cast acrylic', 'big', 'small'],
     question: 'What frame sizes and materials do you offer?',
     answer:
-      "All our frames are precision-crafted using premium acrylic photo frames with diamond-beveled edges. We offer 4 standard sizes:\n• Size 1: 12 × 18 inches (30 × 45 cm)\n• Size 2: 18 × 24 inches (45 × 60 cm) — Most Popular\n• Size 3: 24 × 36 inches (60 × 90 cm)\n• Size 4: 30 × 48 inches (75 × 120 cm) Grand Masterpiece\nCustom dimensions are also supported up to 5 feet!",
+      "All our frames are precision-crafted using premium acrylic photo frames with precision-beveled edges. We offer 4 standard sizes:\n• Size 1: 12 × 18 inches (30 × 45 cm)\n• Size 2: 18 × 24 inches (45 × 60 cm) — Most Popular\n• Size 3: 24 × 36 inches (60 × 90 cm)\n• Size 4: 30 × 48 inches (75 × 120 cm) Grand Masterpiece\nCustom dimensions are also supported up to 5 feet!",
     action: {
       label: 'Explore Customizer Studio',
       href: '/customise',
@@ -62,7 +62,7 @@ const FAQ_KNOWLEDGE_BASE: {
     keywords: ['led', 'light', 'backlit', 'adapter', 'power', 'plug', 'glow', 'warm', 'rgb', 'lighting'],
     question: 'How does the LED backlighting work?',
     answer:
-      "Our LED Backlit frames feature high-density 3000K warm golden ambient back-glow LEDs. They include a certified 12V 2A power adapter and a 2-meter concealed cord that plugs into any standard wall outlet. The light creates an ethereal divine halo behind the artwork while remaining completely cool to touch.",
+      "Our LED Backlit frames feature high-density Warm warm golden ambient back-glow LEDs. They include a certified 12V 2A power adapter and a 2-meter concealed cord that plugs into any standard wall outlet. The light creates an ethereal divine halo behind the artwork while remaining completely cool to touch.",
     action: {
       label: 'View LED Experience',
       href: '/#led-experience',
@@ -82,17 +82,17 @@ const FAQ_KNOWLEDGE_BASE: {
     keywords: ['shipping', 'delivery', 'time', 'days', 'hyderabad', 'dilsukhnagar', 'fast', 'courier', 'urgent'],
     question: 'What are the delivery timelines and shipping charges?',
     answer:
-      "• Standard Express Shipping across India (₹149 flat insured delivery fee).\n• Local Hyderabad & Dilsukhnagar: Same-day / Next-day dispatch with 24-48 hr delivery.\n• Rest of India: 3 to 5 business days via BlueDart, Delhivery, or DTDC Express.\nEvery frame is packed with multi-layer bubble wrap, edge corner guards, and sturdy wooden crates for 100% damage-free transit.",
+      "• Standard Express Shipping across India (₹149 flat insured delivery fee).\n• Local Hyderabad & Dilsukhnagar: Same-day / Next-day dispatch with 24-48 hr delivery.\n• Rest of India: 3 to 5 business days via BlueDart, Delhivery, or DTDC Express.\nEvery frame is packed with multi-layer bubble wrap, edge corner guards, and sturdy wooden crates for safe, protected transit.",
     action: {
       label: 'Track Existing Order',
       href: '/track-order',
     },
   },
   {
-    keywords: ['payment', 'pay', 'cod', 'cash on delivery', 'upi', 'gpay', 'phonepe', 'card', 'razorpay'],
-    question: 'What payment methods do you accept? Is COD available?',
+    keywords: ['payment', 'pay', 'online', 'cards', 'upi', 'gpay', 'phonepe', 'card', 'razorpay'],
+    question: 'What payment methods do you accept?',
     answer:
-      "We accept:\n• UPI (Google Pay, PhonePe, Paytm, BHIM)\n• Credit & Debit Cards (Visa, MasterCard, RuPay)\n• Net Banking across all major banks\n• Cash on Delivery (COD) is available with a nominal ₹99 handling fee.\nFor custom personalized photo frames, a 30% advance via UPI is required to initiate design proofing, with the balance on COD/dispatch.",
+      "We accept:\n• UPI (Google Pay, PhonePe, Paytm, BHIM)\n• Credit & Debit Cards (Visa, MasterCard, RuPay)\n• Net Banking across all major banks\n• online payment (COD) is available with a nominal ₹99 handling fee.\nFor custom personalized photo frames, a 30% advance via UPI is required to initiate design proofing, with the balance on COD/dispatch.",
     action: {
       label: 'Ask Payment Help on WhatsApp',
       isWhatsApp: true,
@@ -103,7 +103,7 @@ const FAQ_KNOWLEDGE_BASE: {
     keywords: ['return', 'refund', 'damage', 'broken', 'replacement', 'transit', 'guarantee', 'policy'],
     question: 'What is your return & damage policy?',
     answer:
-      "We offer a 100% Transit Safe Replacement Guarantee!\nIf your artwork arrives damaged, broken, or with a manufacturing defect, simply record a brief unboxing video and share it with our WhatsApp support within 48 hours. We will manufacture and dispatch a brand-new replacement immediately at zero extra cost to you.",
+      "We offer a secure packaging Replacement Guarantee!\nIf your artwork arrives damaged, broken, or with a manufacturing defect, simply record a brief unboxing video and share it with our WhatsApp support within 48 hours. We will manufacture and dispatch a brand-new replacement immediately at zero extra cost to you.",
     action: {
       label: 'Read Return Policy',
       href: '/return-refund-policy',
@@ -264,7 +264,7 @@ export default function SmartSupportWidget() {
           <button
             type="button"
             onClick={scrollToTop}
-            className="pointer-events-auto p-2.5 sm:p-3 rounded-full bg-[#1F0B13]/90 hover:bg-[#181818] text-[#F0D79B] shadow-lg border border-[#EAB308]/40 transition-all duration-300 hover:scale-110 cursor-pointer backdrop-blur-md"
+            className="pointer-events-auto p-2.5 sm:p-3 rounded-full bg-[#181818]/90 hover:bg-[#181818] text-[#F0D79B] shadow-lg border border-[#EAB308]/40 transition-all duration-300 hover:scale-110 cursor-pointer backdrop-blur-md"
             aria-label="Back to top"
           >
             <ArrowUp className="w-4 h-4" />
@@ -454,14 +454,14 @@ export default function SmartSupportWidget() {
                 onClick={() => triggerFaq(FAQ_KNOWLEDGE_BASE[4])}
                 className="text-[11px] font-medium bg-[#1E1E1E] text-white border border-[#2D2D2D] hover:border-[#EAB308] px-2.5 py-1 rounded-full shrink-0 transition-colors cursor-pointer"
               >
-                💳 Payments &amp; COD
+                💳 Payment Methods
               </button>
               <button
                 type="button"
                 onClick={() => triggerFaq(FAQ_KNOWLEDGE_BASE[5])}
                 className="text-[11px] font-medium bg-[#1E1E1E] text-white border border-[#2D2D2D] hover:border-[#EAB308] px-2.5 py-1 rounded-full shrink-0 transition-colors cursor-pointer"
               >
-                🛡️ Transit Guarantee
+                🛡️ Packaging & Delivery
               </button>
               <button
                 type="button"

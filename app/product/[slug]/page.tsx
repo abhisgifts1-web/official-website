@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   const title = `${product.title} | Abhi's Gifts`;
-  const description = `${product.shortDescription} Handcrafted in Hyderabad with 4mm cast acrylic & 24K gold foil. 100% damage-free transit guarantee.`;
+  const description = `${product.shortDescription} Handcrafted in Hyderabad with cast cast acrylic & gold foil. 100% safe packaging standard.`;
   const canonicalUrl = `https://abhigifts.com/product/${params.slug}`;
 
   return {

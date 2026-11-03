@@ -110,7 +110,7 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
   return (
     <>
       <div
-        className="group relative flex flex-col h-full bg-[#181818] rounded-2xl overflow-hidden border border-[#2D2D2D] hover:border-[#EAB308] shadow-[0_2px_12px_rgba(100,30,46,0.06)] hover:shadow-[0_12px_28px_rgba(100,30,46,0.18)] transition-all duration-300 hover:-translate-y-1 focus-within:ring-2 focus-within:ring-[#EAB308]/50"
+        className="group relative flex flex-col h-full bg-[#181818] rounded-2xl overflow-hidden border border-[#2D2D2D] hover:border-[#EAB308] shadow-[0_2px_12px_rgba(0,0,0,0.4)] hover:shadow-[0_12px_28px_rgba(234,179,8,0.15)] transition-all duration-300 hover:-translate-y-1 focus-within:ring-2 focus-within:ring-[#EAB308]/50"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
@@ -137,7 +137,7 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
               />
             </Link>
 
-            {/* 4mm Crystal Acrylic Glass Sheen Sweep */}
+            {/* Premium Acrylic Glass Sheen Sweep */}
             <div className="absolute inset-0 pointer-events-none bg-gradient-to-tr from-transparent via-white/10 to-white/25 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
           </div>
 
@@ -279,7 +279,7 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
             {/* Delivery Signal */}
             <div className="flex items-center gap-1 text-[10px]">
               <span className="font-semibold text-[#D1D5DB] flex items-center gap-1 truncate">
-                <Truck className="w-3 h-3 text-[#EAB308] shrink-0" /> Express Pan-India Delivery
+                <Truck className="w-3 h-3 text-[#EAB308] shrink-0" /> Express Courier Delivery
               </span>
             </div>
 

@@ -7,7 +7,7 @@ import { getBreadcrumbSchema } from '@/lib/seo/schema';
 export const metadata: Metadata = {
   title: 'Choosing the Right Photo Frame for Your Memories: Acrylic vs Glass vs Wood',
   description:
-    'Comprehensive comparison between acrylic photo frames, traditional float glass, and wooden frames. Learn why 4mm crystal acrylic is lighter, shatterproof, and optically superior.',
+    'Comprehensive comparison between acrylic photo frames, traditional float glass, and wooden frames. Learn why crystal acrylic is lighter, shatterproof, and optically superior.',
   alternates: {
     canonical: 'https://abhigifts.com/guides/choosing-right-photo-frame-memories',
   },
@@ -75,7 +75,7 @@ export default function ChoosingRightPhotoFrameMemoriesGuide() {
               <thead>
                 <tr className="bg-[#181818] text-[#FFFFFF] border-b border-[#2D2D2D]">
                   <th className="py-2.5 px-3">Criteria</th>
-                  <th className="py-2.5 px-3">4mm Cast Acrylic</th>
+                  <th className="py-2.5 px-3">cast acrylic</th>
                   <th className="py-2.5 px-3">Traditional Glass</th>
                   <th className="py-2.5 px-3">Wooden Moldings</th>
                 </tr>
@@ -127,7 +127,7 @@ export default function ChoosingRightPhotoFrameMemoriesGuide() {
             <li>You have children, toddlers, or pets at home and want zero risk of broken glass shards.</li>
             <li>Your home has contemporary, minimalist, or luxury interior decor with floating furniture.</li>
             <li>You want photographs to have vibrant, high-gloss 3D depth.</li>
-            <li>You desire nocturnal ambient backlighting with integrated 3000K warm LEDs.</li>
+            <li>You desire nocturnal ambient backlighting with integrated warm LEDs.</li>
           </ul>
         </section>
 
@@ -136,7 +136,7 @@ export default function ChoosingRightPhotoFrameMemoriesGuide() {
             3. Experience the Quality in Person in Dilsukhnagar
           </h2>
           <p>
-            If you live in Hyderabad, visit the Abhi&apos;s Gifts workshop studio near Dilsukhnagar Metro Station to physically feel the weight of our 4mm cast acrylic, test the diamond CNC edges, and inspect live illuminated LED displays.
+            If you live in Hyderabad, visit the Abhi&apos;s Gifts workshop studio near Dilsukhnagar Metro Station to physically feel the weight of our cast acrylic, test the precision CNC edges, and inspect live illuminated LED displays.
           </p>
         </section>
       </div>

@@ -14,7 +14,7 @@ export default function FaqPage() {
       items: [
         {
           q: 'What makes cast acrylic superior to regular glass framing?',
-          a: 'Our 4mm cast acrylic is 10 times more impact-resistant and shatterproof compared to ordinary float glass. It has diamond-polished beveled edges and higher optical light transmittance, delivering vibrant depth without fragile glass danger.',
+          a: 'Our cast acrylic is impact-resistant and shatterproof compared to ordinary glass. It has precision beveled edges and high optical light transmittance, delivering vibrant depth without glass breakage hazards.',
         },
         {
           q: 'Will the artwork colors fade over time under sunlight?',
@@ -31,7 +31,7 @@ export default function FaqPage() {
       items: [
         {
           q: 'Can I keep the LED backlighting turned on 24/7?',
-          a: 'Yes! Our high-efficiency Epistar SMD LED diodes produce minimal heat and have a rated operational lifespan of over 50,000 hours (over 6 years of continuous round-the-clock lighting).',
+          a: 'Yes! Our high-efficiency Epistar SMD LED diodes produce minimal heat and have a rated operational lifespan of an extended lifespan with low energy consumption.',
         },
         {
           q: 'How long is the power wire? How is it powered?',
@@ -47,16 +47,16 @@ export default function FaqPage() {
       category: 'Shipping & Damage Protection',
       items: [
         {
-          q: 'What is the 100% Transit Safe Guarantee?',
-          a: 'We crate every order in multi-layer heavy honeycomb cartons with corner foam cushions. If your artwork is received cracked or damaged in transit, simply share photos with us on WhatsApp within 48 hours for an immediate, hassle-free replacement.',
+          q: 'How do you ensure safe packaging?',
+          a: 'We pack every order in multi-layer heavy cartons with corner protective cushions. If your artwork is received damaged in transit, simply share photos with us on WhatsApp within 48 hours for prompt support and resolution.',
         },
         {
           q: 'How long does delivery take?',
           a: 'Standard dispatch occurs in 24 to 48 hours. Transit takes 2-3 business days for South India and 3-5 days for North/East/West India.',
         },
         {
-          q: 'Is Cash on Delivery (COD) available?',
-          a: 'Yes, Cash on Delivery is available across all serviceable Indian pincodes.',
+          q: 'Is Online & WhatsApp Payment (UPI) available?',
+          a: 'Yes, Online & WhatsApp Payment is available across all serviceable Indian pincodes.',
         },
       ],
     },

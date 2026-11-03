@@ -269,7 +269,7 @@ export default function HeroShowcase() {
                   Premium Acrylic &amp; Customized
                 </span>
                 <span className="block mt-1 animate-headline-line-2">
-                  <span className="relative inline-block font-serif italic text-[#EAB308] bg-gradient-to-r from-[#EAB308] via-[#FDE047] to-[#EAB308] bg-clip-text text-transparent drop-shadow-[0_1px_2px_rgba(81,27,42,0.15)] animate-gold-text-shimmer">
+                  <span className="relative inline-block font-serif italic text-[#EAB308] bg-gradient-to-r from-[#EAB308] via-[#FDE047] to-[#EAB308] bg-clip-text text-transparent drop-shadow-[0_1px_2px_rgba(0,0,0,0.4)] animate-gold-text-shimmer">
                     Photo Frames in Hyderabad
                   </span>
                 </span>
@@ -283,7 +283,7 @@ export default function HeroShowcase() {
                 <span>Handcrafted in Hyderabad</span>
               </div>
               <div className="text-xs sm:text-[13px] text-[#D1D5DB] font-medium flex items-center gap-1.5">
-                <strong className="text-[#FFFFFF] font-bold">100% Transit Safe Guarantee</strong>
+                <strong className="text-[#FFFFFF] font-bold">Handcrafted in Hyderabad</strong>
                 <span className="text-[#EAB308]">•</span>
                 <span>100% Quality Guarantee</span>
               </div>
@@ -291,7 +291,7 @@ export default function HeroShowcase() {
 
             {/* 4. Refined Editorial Narrative */}
             <p className="text-xs sm:text-[14px] lg:text-[15px] text-[#D1D5DB] max-w-xl mx-auto lg:mx-0 leading-relaxed font-sans">
-              Hyderabad&apos;s premier destination for custom <strong className="text-[#FFFFFF] font-semibold">acrylic photo frames</strong>, <strong className="text-[#FFFFFF] font-semibold">3000K warm LED illuminated frames</strong>, and sacred devotional heirlooms. Handcrafted with diamond CNC beveled edges and 24K gold foil embellishments at our Dilsukhnagar studio with fast local delivery across Telangana.
+              Hyderabad&apos;s premier destination for custom <strong className="text-[#FFFFFF] font-semibold">acrylic photo frames</strong>, <strong className="text-[#FFFFFF] font-semibold">warm LED illuminated frames</strong>, and sacred devotional heirlooms. Handcrafted with precision beveled edges and golden foil embellishments at our Dilsukhnagar studio with fast local delivery across Telangana.
             </p>
 
             {/* 5. Animated CTA Buttons */}
@@ -347,7 +347,7 @@ export default function HeroShowcase() {
                   <span className="font-bold text-[#FFFFFF] text-xs block leading-tight tracking-tight uppercase">
                     Premium Acrylic
                   </span>
-                  <span className="text-[11px] text-[#D1D5DB] block mt-0.5 font-medium">Diamond CNC Bevel</span>
+                  <span className="text-[11px] text-[#D1D5DB] block mt-0.5 font-medium">Precision Bevel</span>
                 </div>
               </div>
 
@@ -357,7 +357,7 @@ export default function HeroShowcase() {
                 </div>
                 <div className="text-left">
                   <span className="font-bold text-[#FFFFFF] text-xs block leading-tight tracking-tight uppercase">
-                    3000K Warm LED
+                    Warm LED Glow
                   </span>
                   <span className="text-[11px] text-[#D1D5DB] block mt-0.5 font-medium">Concealed Backlight</span>
                 </div>
@@ -369,7 +369,7 @@ export default function HeroShowcase() {
                 </div>
                 <div className="text-left">
                   <span className="font-bold text-[#FFFFFF] text-xs block leading-tight tracking-tight uppercase">
-                    Pan-India Transit
+                    Express Courier
                   </span>
                   <span className="text-[11px] text-[#D1D5DB] block mt-0.5 font-medium">5-Layer Crate Pack</span>
                 </div>
@@ -404,7 +404,7 @@ export default function HeroShowcase() {
                 </span>
               </div>
 
-              {/* 3000K Warm LED Simulator Switch */}
+              {/* Warm LED Glow Simulator Switch */}
               <button
                 type="button"
                 onClick={() => setIsLedGlowOn(!isLedGlowOn)}
@@ -413,12 +413,12 @@ export default function HeroShowcase() {
                     ? 'bg-[#EAB308] text-[#000000] border-[#EAB308] shadow-[0_0_20px_rgba(234,179,8,0.55)]'
                     : 'bg-[#181818]/95 text-[#D1D5DB] border-[#2D2D2D] hover:text-[#FFFFFF]'
                 }`}
-                title="Toggle 3000K Warm LED Backlight Simulation"
+                title="Toggle Warm LED Glow Backlight Simulation"
               >
                 {isLedGlowOn ? (
                   <>
                     <Zap className="w-3.5 h-3.5 fill-[#EAB308] text-[#EAB308] animate-pulse" />
-                    <span>3000K LED: ON</span>
+                    <span>Warm LED: ON</span>
                   </>
                 ) : (
                   <>
@@ -452,7 +452,7 @@ export default function HeroShowcase() {
                 <div className="absolute bottom-8 right-[42%] w-1.5 h-1.5 rounded-full bg-[#FFE8A3] blur-[0.5px] animate-ember-4" />
               </div>
 
-              {/* 3000K Radiating Warm Halo Blooming Behind Frame */}
+              {/* warm Radiating Warm Halo Blooming Behind Frame */}
               {isLedGlowOn && (
                 <div
                   className="absolute inset-0 flex items-center justify-center pointer-events-none transition-transform duration-150 ease-out"
@@ -491,13 +491,13 @@ export default function HeroShowcase() {
                     transformStyle: 'preserve-3d',
                   }}
                 >
-                  {/* Outer 24K Antique Gold Bevelled Frame Border (Border thickness = padding) */}
+                  {/* Outer Antique Gold Bevelled Frame Border (Border thickness = padding) */}
                   <div
                     className={`relative rounded-2xl p-2 sm:p-2.5 md:p-3 bg-gradient-to-br from-[#FFE8A3] via-[#FACC15] to-[#7D4E12] border border-[#FFE8A3]/80 shadow-[0_20px_50px_rgba(0,0,0,0.95)] ${
                       isLedGlowOn ? 'shadow-[0_0_40px_rgba(214,170,85,0.7),0_20px_50px_rgba(0,0,0,0.95)] animate-led-breathe' : ''
                     }`}
                   >
-                    {/* 4 Corner 24K Raised Gold Studs on the Frame Border */}
+                    {/* 4 Corner Raised Gold Studs on the Frame Border */}
                     <div className="absolute top-1 left-1 sm:top-1.5 sm:left-1.5 w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-gradient-to-br from-[#FFF4D0] via-[#FACC15] to-[#593409] shadow-md border border-amber-950/60 z-30 pointer-events-none animate-stud-twinkle-1" />
                     <div className="absolute top-1 right-1 sm:top-1.5 sm:right-1.5 w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-gradient-to-br from-[#FFF4D0] via-[#FACC15] to-[#593409] shadow-md border border-amber-950/60 z-30 pointer-events-none animate-stud-twinkle-2" />
                     <div className="absolute bottom-1 left-1 sm:bottom-1.5 sm:left-1.5 w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-gradient-to-br from-[#FFF4D0] via-[#FACC15] to-[#593409] shadow-md border border-amber-950/60 z-30 pointer-events-none animate-stud-twinkle-3" />

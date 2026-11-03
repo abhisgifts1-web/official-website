@@ -25,7 +25,7 @@ import { ShippingAddress } from '@/types';
 import { getWhatsAppOrderUrl } from '@/lib/whatsapp';
 import { INITIAL_SETTINGS } from '@/lib/data/settings';
 
-type PaymentOption = 'whatsapp' | 'online' | 'cod';
+type PaymentOption = 'whatsapp' | 'online';
 
 export default function CheckoutPage() {
   const router = useRouter();
@@ -59,9 +59,7 @@ export default function CheckoutPage() {
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [redirectUrl, setRedirectUrl] = useState<string | null>(null);
 
-  // COD fee handling
-  const codFee = paymentMethod === 'cod' ? (INITIAL_SETTINGS.codFee || 99) : 0;
-  const finalPayable = totalAmount + codFee;
+  const finalPayable = totalAmount;
 
   if (items.length === 0 && !redirectUrl) {
     return (
@@ -135,7 +133,7 @@ export default function CheckoutPage() {
             customer: formData,
             items,
             couponCode: appliedCoupon?.code,
-            paymentMethod: paymentMethod === 'whatsapp' ? 'WhatsApp' : paymentMethod === 'cod' ? 'COD' : 'Online',
+            paymentMethod: paymentMethod === 'whatsapp' ? 'WhatsApp' : 'Online',
             notes: orderNotes,
           }),
         });
@@ -432,36 +430,7 @@ export default function CheckoutPage() {
                 </div>
               </label>
 
-              {/* Option C: Cash on Delivery */}
-              <label
-                className={`flex items-start gap-3.5 p-4 rounded-2xl border transition-all cursor-pointer ${
-                  paymentMethod === 'cod'
-                    ? 'border-[#2D2D2D] bg-[#121212] ring-1 ring-[#EAB308]/40'
-                    : 'border-[#2D2D2D] bg-[#181818] hover:border-[#EAB308]'
-                }`}
-              >
-                <input
-                  type="radio"
-                  name="paymentMethod"
-                  value="cod"
-                  checked={paymentMethod === 'cod'}
-                  onChange={() => setPaymentMethod('cod')}
-                  className="mt-1 accent-[#EAB308]"
-                />
-                <div className="flex-1">
-                  <div className="flex items-center gap-2">
-                    <span className="font-bold text-xs sm:text-sm text-[#FFFFFF]">
-                      Cash on Delivery (Pay at Doorstep)
-                    </span>
-                    <span className="text-[10px] font-bold text-[#8C7A70] bg-[#121212] border border-[#2D2D2D] px-2 py-0.5 rounded-full">
-                      +₹{INITIAL_SETTINGS.codFee || 99} COD Fee
-                    </span>
-                  </div>
-                  <p className="text-xs text-[#D1D5DB] mt-1 leading-relaxed">
-                    Pay with cash or UPI QR upon courier delivery.
-                  </p>
-                </div>
-              </label>
+              
             </div>
           </div>
 
@@ -556,12 +525,7 @@ export default function CheckoutPage() {
               </span>
             </div>
 
-            {paymentMethod === 'cod' && (
-              <div className="flex justify-between text-amber-900 font-medium">
-                <span>COD Handling Fee</span>
-                <span>₹{codFee}</span>
-              </div>
-            )}
+            
 
             <div className="flex justify-between text-base font-serif font-bold text-[#FFFFFF] pt-3 border-t border-[#2D2D2D]">
               <span>Final Total Payable</span>
@@ -601,7 +565,7 @@ export default function CheckoutPage() {
 
             <div className="flex items-center justify-center gap-1.5 text-[11px] text-[#8C7A70] text-center">
               <ShieldCheck className="w-3.5 h-3.5 text-[#EAB308]" />
-              <span>100% Transit Safe Guarantee • Instant Free Replacement if Damaged</span>
+              <span>Multi-Layer Protective Packaging • Secure Courier Dispatch</span>
             </div>
           </div>
         </div>

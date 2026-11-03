@@ -28,11 +28,11 @@ export default function PhotoFramesDilsukhnagarPage() {
       slug="photo-frames-dilsukhnagar"
       keyword="Photo Frames in Dilsukhnagar"
       h1Title="Photo Frames in Dilsukhnagar — Abhi's Gifts Studio"
-      subtitle="Looking for a reliable photo frame shop near you in Dilsukhnagar? Abhi's Gifts brings you museum-grade 4mm cast acrylic photo frames, 3000K warm LED backlit frames, and personalized family heirlooms with same-day digital WhatsApp preview and direct workshop pickup."
+      subtitle="Looking for a reliable photo frame shop near you in Dilsukhnagar? Abhi's Gifts brings you museum-grade cast acrylic photo frames, warm LED backlit frames, and personalized family heirlooms with same-day digital WhatsApp preview and direct workshop pickup."
       locationName="Dilsukhnagar, Hyderabad"
       metaDescription="Looking for photo frames in Dilsukhnagar? Visit Abhi's Gifts near Dilsukhnagar Metro Station for custom acrylic frames, LED frames, and wedding keepsakes."
       introParagraphs={[
-        "Nestled right in the commercial heart of Dilsukhnagar near the Metro Station, Abhi's Gifts has been the go-to destination for families, newlyweds, and interior decor enthusiasts seeking premium photo frames in Dilsukhnagar. Unlike generic photo studios that use fragile glass and cheap synthetic plastic moldings, our workshop specializes in 4mm high-density imported cast acrylic that is 100% shatterproof, optically crystalline, and diamond CNC beveled.",
+        "Nestled right in the commercial heart of Dilsukhnagar near the Metro Station, Abhi's Gifts has been the go-to destination for families, newlyweds, and interior decor enthusiasts seeking premium photo frames in Dilsukhnagar. Unlike generic photo studios that use fragile glass and cheap synthetic plastic moldings, our workshop specializes in premium high-density imported cast acrylic that is 100% shatterproof, optically crystalline, and precision beveled.",
         "Whether you are framing a child's milestone birthday, a sacred Tirupati Balaji or Ganesha pooja room portrait, an anniversary keepsake, or a prestigious corporate award, we provide bespoke sizing from compact 8x10 inch desks to grand 6x4 foot living room feature walls. Customers in Dilsukhnagar, Kothapet, Chaitanyapuri, and Malakpet can easily walk in to check physical samples or order online for same-day delivery.",
       ]}
       whyChoosePoints={[
@@ -41,7 +41,7 @@ export default function PhotoFramesDilsukhnagarPage() {
           desc: 'Conveniently located near Dilsukhnagar Metro Station on the main road for easy walk-in visits, consultations, and quick order pickups.',
         },
         {
-          title: 'Shatterproof 4mm Cast Acrylic',
+          title: 'Shatterproof cast acrylic',
           desc: 'Zero dangerous fragile glass. Our museum-grade acrylic is safe for homes with children and pets, and guaranteed never to yellow or crack.',
         },
         {
@@ -75,7 +75,7 @@ export default function PhotoFramesDilsukhnagarPage() {
         {
           question: 'Do you offer LED photo frames in Dilsukhnagar?',
           answer:
-            'Yes, we manufacture 3000K warm LED backlit acrylic photo frames equipped with 12V low-voltage safety adapters and 50,000-hour Epistar LEDs that create a gentle golden ambient halo around your photo.',
+            'Yes, we manufacture warm LED backlit acrylic photo frames equipped with 12V low-voltage safety adapters and high-efficiency Epistar LEDs that create a gentle golden ambient halo around your photo.',
         },
       ]}
     />

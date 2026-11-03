@@ -119,8 +119,8 @@ export const FRAME_CATEGORIES: FrameCategoryOption[] = [
     id: 'normal-acrylic',
     name: 'Normal Acrylic Photo Frames',
     badge: 'Classic Choice',
-    subtitle: '4mm Optical Cast Sheet',
-    description: 'High-clarity optical cast acrylic with diamond CNC-beveled edges. Unlit for clean, minimalist elegance.',
+    subtitle: 'Premium Optical Cast Sheet',
+    description: 'High-clarity optical cast acrylic with precision beveled edges. Unlit for clean, minimalist elegance.',
     multiplier: 1.0,
     hasLedDefault: false,
   },
@@ -128,7 +128,7 @@ export const FRAME_CATEGORIES: FrameCategoryOption[] = [
     id: 'led-backlit',
     name: 'LED Backlit Photo Frames',
     badge: 'Trending Gift',
-    subtitle: '3000K Halo Illumination',
+    subtitle: 'warm Halo Illumination',
     description: 'Concealed Epistar warm golden perimeter LEDs casting a serene halo around your sacred memory or family portrait.',
     multiplier: 1.35,
     hasLedDefault: true,
@@ -137,8 +137,8 @@ export const FRAME_CATEGORIES: FrameCategoryOption[] = [
     id: 'customized',
     name: 'Customized Photo Frames',
     badge: 'Heirloom Inscribed',
-    subtitle: '24K Gold Script & Vows',
-    description: 'Personalized with wedding dates, family surnames, temple mantras, or baby birth details in 24K gold foil.',
+    subtitle: 'Golden Script & Vows',
+    description: 'Personalized with wedding dates, family surnames, temple mantras, or baby birth details in golden foil.',
     multiplier: 1.15,
     hasLedDefault: false,
   },
@@ -164,8 +164,8 @@ export const FRAME_CATEGORIES: FrameCategoryOption[] = [
     id: 'round-acrylic',
     name: 'Round Acrylic Frames',
     badge: 'Modern Silhouette',
-    subtitle: '360° Circular Diamond Facet',
-    description: 'Laser-curved circular medallion with continuous diamond beveled edge and concealed heavy-duty French cleat mount.',
+    subtitle: '360° Circular Smooth Facet',
+    description: 'Laser-curved circular medallion with continuous beveled edge and concealed heavy-duty French cleat mount.',
     multiplier: 1.15,
     hasLedDefault: false,
     forcedShape: 'round',
@@ -184,7 +184,7 @@ export const FRAME_FINISHES: FrameFinishOption[] = [
     id: 'crystal-gloss',
     name: 'Crystal Gloss Acrylic',
     subtitle: 'High-Gloss Mirror Reflection',
-    description: 'Diamond CNC 45° beveled edges creating an ultra-sharp optical glass shine without the heavy weight of glass.',
+    description: 'Precision 45° beveled edges creating an ultra-sharp optical glass shine without the heavy weight of glass.',
     priceAddition: 0,
   },
   {
@@ -221,16 +221,16 @@ export const LED_OPTIONS: LedOptionConfig[] = [
   },
   {
     id: 'warm-white',
-    name: 'Warm White LED (3000K)',
+    name: 'Warm Ambient LED',
     subtitle: 'Golden Candlelit Sanctum',
-    temperature: '3000K',
+    temperature: 'Warm Ambient',
     priceAddition: 600,
     glowColor: 'rgba(255, 195, 75, 0.75)',
   },
   {
     id: 'cool-white',
     name: 'Cool White LED (6500K)',
-    subtitle: 'Modern Crisp Diamond Halo',
+    subtitle: 'Modern Crisp Ambient Halo',
     temperature: '6500K',
     priceAddition: 600,
     glowColor: 'rgba(215, 235, 255, 0.8)',
@@ -328,7 +328,7 @@ export const GALLERY_PRODUCTS: GalleryProductItem[] = [
     startingPrice: 2499,
     mrp: 4499,
     badge: 'Most Popular for Couples',
-    description: 'Celebrate sacred vows with charming 3D animated wedding couple caricatures, 24K gold foil surname script, and floating wall studs.',
+    description: 'Celebrate sacred vows with charming 3D animated wedding couple caricatures, golden foil surname script, and floating wall studs.',
     preset: {
       category: 'customized',
       orientation: 'vertical',
@@ -412,12 +412,12 @@ export const GALLERY_PRODUCTS: GalleryProductItem[] = [
   {
     id: 'gal-led',
     title: 'LED Night Glow Backlit Animated Frame',
-    subtitle: '3000K Epistar Warm Golden Halo Romance',
+    subtitle: 'Warm Golden Halo Romance',
     category: 'Illuminated Frame',
     image: '/images/custom-art/cartoon-couple-nightglow.svg',
     startingPrice: 2499,
     mrp: 4799,
-    badge: '50,000h Epistar LEDs',
+    badge: 'High-Efficiency LEDs',
     description: 'Concealed low-voltage 12V BIS certified warm backlighting turns your romantic starlight cartoon couple into a glowing bedside sanctuary.',
     preset: {
       category: 'led-backlit',
@@ -429,13 +429,13 @@ export const GALLERY_PRODUCTS: GalleryProductItem[] = [
   },
   {
     id: 'gal-anniversary',
-    title: 'Silver & Golden Jubilee 24K Gold Script Frame',
+    title: 'Silver & Golden Jubilee Script Frame',
     subtitle: 'Anniversary Milestones & Vows Caricature',
     category: 'Anniversary Keepsake',
     image: '/images/custom-art/cartoon-anniversary-golden.svg',
     startingPrice: 2799,
     mrp: 5199,
-    badge: '24K Gold Script',
+    badge: 'Golden Script',
     description: 'Commemorate 25th and 50th wedding milestones with heartwarming animated couple caricatures and real gold leaf foil script.',
     preset: {
       category: 'luxury-acrylic',
@@ -466,13 +466,13 @@ export const GALLERY_PRODUCTS: GalleryProductItem[] = [
   {
     id: 'gal-luxury',
     title: 'Luxury Circular Round Acrylic Wall Medallion',
-    subtitle: 'Continuous 360° Diamond Bevel',
+    subtitle: 'Continuous 360° Smooth Bevel',
     category: 'Luxury Silhouette',
     image: '/images/custom-art/cartoon-round-portrait.svg',
     startingPrice: 2199,
     mrp: 3999,
     badge: 'Modern Medallion',
-    description: 'Double-thick 5mm acrylic with 360° laser-curved diamond edge facets and animated couple portrait with celebratory gold floral wreath.',
+    description: 'Double-thick acrylic with 360° laser-curved smooth edge facets and animated couple portrait with celebratory gold floral wreath.',
     preset: {
       category: 'round-acrylic',
       orientation: 'round',
@@ -671,7 +671,7 @@ export default function CustomizerStudio() {
       customText ? `• Inscription: "${customText}"` : '',
       specialInstructions ? `• Instructions: "${specialInstructions}"` : '',
       `• Estimated Price: ₹${pricing.price.toLocaleString('en-IN')}`,
-      `Can you share a digital proof and final delivery timeline for Hyderabad / Pan-India?`,
+      `Can you share a digital proof and final delivery timeline for Hyderabad / Courier?`,
     ]
       .filter(Boolean)
       .join('\n');
@@ -786,7 +786,7 @@ export default function CustomizerStudio() {
                 </div>
                 <div className="flex items-center gap-1.5 justify-center lg:justify-start">
                   <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                  <span>3000K Epistar LED</span>
+                  <span>Warm Ambient LED</span>
                 </div>
                 <div className="flex items-center gap-1.5 justify-center lg:justify-start">
                   <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
@@ -794,7 +794,7 @@ export default function CustomizerStudio() {
                 </div>
                 <div className="flex items-center gap-1.5 justify-center lg:justify-start">
                   <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                  <span>Pan-India Delivery</span>
+                  <span>Courier Delivery</span>
                 </div>
               </div>
             </div>
@@ -836,7 +836,7 @@ export default function CustomizerStudio() {
                   />
                   <div className="absolute bottom-2 inset-x-2 bg-black/70 backdrop-blur-xs p-2 rounded-xl text-center">
                     <span className="text-[10px] font-bold text-[#FFD782] block">Circular Medallion</span>
-                    <span className="text-[9px] text-white/80">360° Diamond Bevel</span>
+                    <span className="text-[9px] text-white/80">360° Smooth Bevel</span>
                   </div>
                 </div>
 
@@ -848,7 +848,7 @@ export default function CustomizerStudio() {
                   />
                   <div className="absolute bottom-2 inset-x-2 bg-black/70 backdrop-blur-xs p-2 rounded-xl text-center">
                     <span className="text-[10px] font-bold text-[#FFD782] block">LED Night-Glow</span>
-                    <span className="text-[9px] text-white/80">3000K Halo Warm</span>
+                    <span className="text-[9px] text-white/80">Warm LED Halo</span>
                   </div>
                 </div>
               </div>
@@ -885,7 +885,7 @@ export default function CustomizerStudio() {
               LEFT COLUMN: 3D WALL MOCKUP & LIVE PREVIEW (7 COLS)
               ===================================================== */}
           <div className="lg:col-span-7 xl:col-span-7 space-y-5 lg:sticky lg:top-24">
-            <div className="bg-[#181818] rounded-3xl border border-[#2D2D2D] p-4 sm:p-6 shadow-[0_12px_45px_rgba(81,27,42,0.06)] space-y-4">
+            <div className="bg-[#181818] rounded-3xl border border-[#2D2D2D] p-4 sm:p-6 shadow-[0_12px_45px_rgba(0,0,0,0.4)] space-y-4">
               {/* Preview Top Toolbar (Wall Mode + Zoom / Rotate) */}
               <div className="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-[#2D2D2D]/60 text-xs">
                 {/* Wall Environment Switcher */}
@@ -1002,7 +1002,7 @@ export default function CustomizerStudio() {
                     boxShadow:
                       led !== 'none'
                         ? `0 0 60px ${activeLedObj.glowColor}, 0 25px 50px rgba(0,0,0,0.65)`
-                        : '0 25px 55px rgba(81,27,42,0.22), 0 8px 20px rgba(0,0,0,0.12)',
+                        : '0 25px 55px rgba(0,0,0,0.4), 0 8px 20px rgba(0,0,0,0.12)',
                   }}
                 >
                   {/* Outer Frame Finish Container */}
@@ -1152,7 +1152,7 @@ export default function CustomizerStudio() {
                 {uploadProgress !== null && (
                   <div className="w-full space-y-1.5 pb-2 border-b border-[#2D2D2D]/60">
                     <div className="flex justify-between text-xs font-bold text-[#FFFFFF]">
-                      <span>Optimizing image for 4mm Crystal Acrylic Printing...</span>
+                      <span>Optimizing image for cast Crystal Acrylic Printing...</span>
                       <span>{uploadProgress}%</span>
                     </div>
                     <div className="w-full h-2 bg-[#E8D1A5] rounded-full overflow-hidden">
@@ -1409,7 +1409,7 @@ export default function CustomizerStudio() {
             {/* Step E: LED Options */}
             <div className="space-y-2">
               <label className="text-xs font-bold uppercase tracking-wider text-[#FFFFFF] flex items-center justify-between">
-                <span>Step 4B: LED Backlight Color (3000K Halo)</span>
+                <span>Step 4B: LED Backlight Color (Warm Halo)</span>
                 <span className="text-[10px] text-[#EAB308] font-normal">{activeLedObj.name}</span>
               </label>
 
@@ -1454,7 +1454,7 @@ export default function CustomizerStudio() {
                 className="w-full px-3.5 py-2.5 text-xs bg-[#121212] border border-[#2D2D2D] rounded-xl outline-none focus:border-[#EAB308] text-[#FFFFFF] font-serif"
               />
               <span className="text-[10px] text-[#D1D5DB] block">
-                ✦ Displayed in 24K gold foil or crisp typography at the bottom of the frame.
+                ✦ Displayed in golden foil or crisp typography at the bottom of the frame.
               </span>
             </div>
 
@@ -1507,7 +1507,7 @@ export default function CustomizerStudio() {
                   <span className="font-semibold text-[#FFFFFF]">{activeLedObj.name}</span>
                 </div>
                 <div className="flex justify-between text-emerald-700 font-semibold pt-1 border-t border-[#2D2D2D]">
-                  <span>Pan-India Shipping:</span>
+                  <span>Delivery Shipping:</span>
                   <span>Express (48h dispatch)</span>
                 </div>
               </div>
@@ -1684,11 +1684,11 @@ export default function CustomizerStudio() {
                 Place Your Order
               </h3>
               <p className="text-xs text-[#D1D5DB] leading-relaxed">
-                Diamond CNC fabricated with premium acrylic. Packed in 5-layer wood-reinforced packaging with safe Pan-India door delivery.
+                Precision fabricated with premium acrylic. Packed in multi-layer reinforced packaging with safe door delivery.
               </p>
               <div className="text-[11px] font-bold text-[#EAB308] flex items-center gap-1 pt-1">
                 <Check className="w-3.5 h-3.5 text-emerald-600" />
-                <span>Damage-Free Guarantee</span>
+                <span>protective packaging</span>
               </div>
             </div>
           </div>

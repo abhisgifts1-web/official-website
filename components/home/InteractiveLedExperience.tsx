@@ -27,7 +27,7 @@ const COMPARISON_ITEMS: LedComparisonItem[] = [
   {
     id: 'balaji',
     name: 'Divine Tirupati Balaji',
-    tagline: '3D Gold Detailing with Sacred Sanctum 3000K Halo',
+    tagline: '3D Gold Detailing with Sacred Sanctum warm ambient Halo',
     dayImage: '/images/wall-decor/products/balaji/balaji-daylight-unlit.jpg',
     ledImage: '/images/wall-decor/categories/led-backlight/balaji-led-category.jpg',
     slug: 'tirupati-balaji-divine-led-backlit-acrylic-wall-art',
@@ -51,7 +51,7 @@ const COMPARISON_ITEMS: LedComparisonItem[] = [
   {
     id: 'ganesha',
     name: 'Lord Ganesha Vighnaharta',
-    tagline: 'Auspicious Remover of Obstacles with 3000K Halo',
+    tagline: 'Auspicious Remover of Obstacles with warm ambient Halo',
     dayImage: '/images/wall-decor/products/ganesha/ganesha-acrylic-gold-frame.jpg',
     ledImage: '/images/wall-decor/categories/led-backlight/ganesha-led-category.jpg',
     slug: 'lord-ganesha-vighnaharta-divine-led-backlit-acrylic-art',
@@ -118,7 +118,7 @@ export default function InteractiveLedExperience() {
           <div className="lg:col-span-5 space-y-5 text-center lg:text-left">
             <div className="inline-flex items-center gap-2 bg-[#181818] border border-[#EAB308]/60 px-3.5 py-1 rounded-full text-xs font-bold text-[#EAB308] shadow-xs">
               <Flame className="w-3.5 h-3.5 text-[#EAB308] animate-pulse" />
-              <span className="uppercase tracking-widest text-[11px]">IMMERSIVE 3000K SANCTUM TECHNOLOGY</span>
+              <span className="uppercase tracking-widest text-[11px]">IMMERSIVE warm ambient SANCTUM TECHNOLOGY</span>
             </div>
 
             <h2 className="font-serif font-bold text-3xl sm:text-4xl lg:text-[44px] text-[#FFFFFF] leading-tight tracking-tight">
@@ -126,7 +126,7 @@ export default function InteractiveLedExperience() {
             </h2>
 
             <p className="text-xs sm:text-[14px] text-[#F9EFE0]/85 font-sans leading-relaxed">
-              Experience how calming 3000K warm golden illumination awakens sacred deity iconography into an ethereal, living sanctum aura. Drag the interactive slider to witness the transformation.
+              Experience how calming warm ambient warm golden illumination awakens sacred deity iconography into an ethereal, living sanctum aura. Drag the interactive slider to witness the transformation.
             </p>
 
             {/* Quick Artwork Selector */}
@@ -155,7 +155,7 @@ export default function InteractiveLedExperience() {
             {/* Engineering Highlights */}
             <div className="grid grid-cols-2 gap-3 pt-2 text-left">
               <div className="p-3 rounded-2xl bg-white/5 border border-[#EAB308]/30">
-                <span className="font-bold text-[#EAB308] text-xs block">3000K Epistar LEDs</span>
+                <span className="font-bold text-[#EAB308] text-xs block">warm ambient Epistar LEDs</span>
                 <span className="text-[11px] text-[#F9EFE0]/75 block mt-0.5">Warm temple garbhagriha halo</span>
               </div>
               <div className="p-3 rounded-2xl bg-white/5 border border-[#EAB308]/30">
@@ -167,7 +167,7 @@ export default function InteractiveLedExperience() {
                 <span className="text-[11px] text-[#F9EFE0]/75 block mt-0.5">Zero heat transfer to acrylic</span>
               </div>
               <div className="p-3 rounded-2xl bg-white/5 border border-[#EAB308]/30">
-                <span className="font-bold text-[#EAB308] text-xs block">50,000h Diode Life</span>
+                <span className="font-bold text-[#EAB308] text-xs block">high-efficiency Diode Life</span>
                 <span className="text-[11px] text-[#F9EFE0]/75 block mt-0.5">25+ years of nightly blessings</span>
               </div>
             </div>
@@ -225,7 +225,7 @@ export default function InteractiveLedExperience() {
                 }`}
               >
                 <Zap className="w-3 h-3 text-[#EAB308]" />
-                <span>3000K LED Glow (100%)</span>
+                <span>warm ambient LED Glow (100%)</span>
               </button>
             </div>
 
@@ -243,21 +243,21 @@ export default function InteractiveLedExperience() {
               onClick={(e) => handleMove(e.clientX)}
               className="relative w-full aspect-[4/3] sm:aspect-[16/11] max-w-[640px] rounded-2xl sm:rounded-3xl overflow-hidden border-2 border-[#EAB308] shadow-[0_20px_60px_rgba(0,0,0,0.6)] cursor-ew-resize select-none"
             >
-              {/* Layer 1: AFTER — 3000K Warm LED Backlit Image (Full Container) */}
+              {/* Layer 1: AFTER — warm ambient Warm LED Backlit Image (Full Container) */}
               <div className="absolute inset-0 w-full h-full bg-[#18060C]">
                 <img
                   src={selectedItem.ledImage}
-                  alt={`${selectedItem.name} 3000K LED Illuminated`}
+                  alt={`${selectedItem.name} warm ambient LED Illuminated`}
                   className="w-full h-full object-cover"
                 />
 
-                {/* 3000K Ambient Halo Glow Layer */}
+                {/* warm ambient Ambient Halo Glow Layer */}
                 <div className="absolute inset-0 bg-radial from-[#EAB308]/25 via-transparent to-transparent pointer-events-none" />
 
-                {/* Top Right Label: 3000K LED BACKLIT */}
+                {/* Top Right Label: warm ambient LED BACKLIT */}
                 <div className="absolute top-2.5 sm:top-3.5 right-2.5 sm:right-3.5 z-20 bg-[#181818]/90 text-[#FACC15] border border-[#EAB308] px-2 sm:px-3 py-0.5 sm:py-1 rounded-full text-[10px] sm:text-xs font-bold shadow-md backdrop-blur-xs flex items-center gap-1 sm:gap-1.5 pointer-events-none">
                   <Flame className="w-3.5 h-3.5 text-[#EAB308]" />
-                  <span>AFTER: 3000K LED GLOW</span>
+                  <span>AFTER: warm ambient LED GLOW</span>
                 </div>
               </div>
 
@@ -292,7 +292,7 @@ export default function InteractiveLedExperience() {
 
               {/* Instruction Pill at Bottom */}
               <div className="absolute bottom-3 left-1/2 -translate-x-1/2 z-20 bg-black/70 text-white/90 px-3.5 py-1 rounded-full text-[11px] font-medium backdrop-blur-xs pointer-events-none">
-                Drag slider ↔ to compare daylight vs 3000K LED
+                Drag slider ↔ to compare daylight vs warm ambient LED
               </div>
             </div>
           </div>

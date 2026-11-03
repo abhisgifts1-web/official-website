@@ -248,7 +248,7 @@ export default function Header() {
               >
                 {/* Animated Sliding Selection Pill */}
                 <div
-                  className="absolute top-1 bottom-1 rounded-full bg-gradient-to-r from-[#121212] via-[#262626] to-[#121212] shadow-[0_3px_14px_rgba(81,27,42,0.35)] border border-[#EAB308]/60 transition-all duration-300 ease-[cubic-bezier(0.2,0.9,0.3,1)] pointer-events-none"
+                  className="absolute top-1 bottom-1 rounded-full bg-gradient-to-r from-[#121212] via-[#262626] to-[#121212] shadow-[0_3px_14px_rgba(0,0,0,0.5)] border border-[#EAB308]/60 transition-all duration-300 ease-[cubic-bezier(0.2,0.9,0.3,1)] pointer-events-none"
                   style={{
                     left: `${pillStyle.left}px`,
                     width: `${pillStyle.width}px`,
@@ -315,7 +315,7 @@ export default function Header() {
                           <div
                             onMouseEnter={handleMenuEnter}
                             onMouseLeave={handleMenuLeave}
-                            className="fixed top-[62px] sm:top-[68px] left-1/2 -translate-x-1/2 w-[96vw] max-w-6xl 2xl:max-w-7xl rounded-3xl shadow-[0_25px_80px_rgba(40,10,18,0.5)] border-2 border-[#EAB308]/80 p-5 sm:p-7 z-50 animate-in fade-in zoom-in-95 slide-in-from-top-2 duration-200 text-[#FFFFFF] select-auto"
+                            className="fixed top-[62px] sm:top-[68px] left-1/2 -translate-x-1/2 w-[96vw] max-w-6xl 2xl:max-w-7xl rounded-3xl shadow-[0_25px_80px_rgba(0,0,0,0.6)] border-2 border-[#EAB308]/80 p-5 sm:p-7 z-50 animate-in fade-in zoom-in-95 slide-in-from-top-2 duration-200 text-[#FFFFFF] select-auto"
                             style={{ backgroundColor: '#141414' }}
                           >
                             {/* Header Bar */}
@@ -329,7 +329,7 @@ export default function Header() {
                                     Explore Sacred Art Collections
                                   </h3>
                                   <p className="text-[11px] text-[#D1D5DB] font-sans">
-                                    35 Authentic Collections • Premium Acrylic Frames &amp; 3000K LED Radiance
+                                    35 Authentic Collections • Premium Acrylic Photo Frames &amp; Custom Art
                                   </p>
                                 </div>
                               </div>
@@ -359,7 +359,7 @@ export default function Header() {
                                     </span>
                                   </div>
                                   <span className="text-[10px] font-bold text-[#FACC15] bg-[#121212] px-2.5 py-0.5 rounded-full border border-[#EAB308]/40 shadow-2xs">
-                                    3000K Warm Glow
+                                    Warm LED Glow
                                   </span>
                                 </div>
 
@@ -416,7 +416,7 @@ export default function Header() {
                                     </span>
                                   </div>
                                   <span className="text-[10px] font-bold text-[#FFFFFF] bg-[#1E1E1E] px-2.5 py-0.5 rounded-full border border-[#EAB308]/40 shadow-2xs">
-                                    24K Gold &amp; Crystal
+                                    Devotional Wall Art
                                   </span>
                                 </div>
 

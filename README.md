@@ -10,7 +10,7 @@ Crafted with Next.js 14 App Router, TypeScript, Tailwind CSS, Mongoose / MongoDB
 
 ### 1. Storefront & Sacred Catalog
 - **Sacred Devotional Art:** Lord Venkateswara (Tirupati Balaji), Adiyogi Shiva & Shiv Parivar, Vighnaharta Ganesha, Veer Hanuman & Hanuman Chalisa, Shri Ram & Ayodhya Mandir, Goddess Mahalakshmi, Radha Krishna, Lord Murugan, and Swami Ayyappa.
-- **Illuminated Wall Art Styles:** LED Backlit Wall Art (warm 3000K golden halo), 4mm Museum Crystal Acrylic panels, Liquid Gold Marble Abstracts, and Modern Botanical Triptychs.
+- **Illuminated Wall Art Styles:** LED Backlit Wall Art (warm warm golden halo), cast Museum Crystal Acrylic panels, Liquid Gold Marble Abstracts, and Modern Botanical Triptychs.
 - **Dynamic Product Variant Selector:** Interactive recalculation of prices, MRP discounts, dimensions (12x18" to 30x48"), and finish types.
 - **Instant Pincode Delivery Checker:** Live transit estimation for Indian pincodes.
 - **Live Search with Suggestions:** Instant debounced product and deity search dropdown.
@@ -25,11 +25,11 @@ Crafted with Next.js 14 App Router, TypeScript, Tailwind CSS, Mongoose / MongoDB
 
 ### 3. Shopping Bag & Checkout
 - **Slide-Over Bag & Dedicated Cart Page:** Item preview, variant details, quantity controls, and custom photo thumbnails.
-- **Free Delivery Progress Meter:** Visual indicator showing amount remaining to unlock free pan-India shipping.
+- **Free Delivery Progress Meter:** Visual indicator showing amount remaining to unlock courier shipping.
 - **Verified Promo Coupons:** Server-side coupon verification (`WELCOME10`, `ABHI500`, `FESTIVE15`).
 - **Encrypted Checkout:** 2-step checkout collecting shipping address and payment method.
 - **Payment Methods Supported:**
-  * Cash on Delivery (COD)
+  * online payment (COD)
   * Razorpay Online Payment (UPI, Credit/Debit Cards, NetBanking, Wallets)
 - **Idempotent Order Creation:** Unique tracking IDs (e.g. `AG-2026-XXXXX`).
 

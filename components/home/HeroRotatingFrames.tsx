@@ -152,27 +152,27 @@ export const CRAFTING_LAYERS: CraftingLayer[] = [
   {
     id: 'acrylic',
     num: '01',
-    title: '4mm Crystal Acrylic',
-    tagline: 'DIAMOND POLISHED • 100% SHATTERPROOF • ULTRA HD',
-    description: 'Museum-grade optical cast acrylic with diamond-polished beveled edges. Completely eliminates heavy glass breakage hazards while delivering deep 3D optical clarity.',
+    title: 'Premium Crystal Acrylic',
+    tagline: 'PRECISION POLISHED • SHATTERPROOF • ULTRA HD',
+    description: 'Museum-grade optical cast acrylic with precision beveled edges. Completely eliminates heavy glass breakage hazards while delivering deep 3D optical clarity.',
     icon: '💎',
     thickness: '4.0 mm',
   },
   {
     id: 'uvprint',
     num: '02',
-    title: '24K Gold Foil & Swiss UV Print',
+    title: 'Gold Foil & Swiss UV Print',
     tagline: '2400 DPI RESOLUTION • 25+ YEAR UV RESISTANT',
-    description: 'Swiss 6-color curable UV inks paired with hand-embossed 24K pure gold leaf foil detailing. Sacred gold foils will never yellow, fade, or peel for 25+ years.',
+    description: 'Swiss 6-color curable UV inks paired with hand-embossed pure gold leaf foil detailing. Sacred gold foils provide lasting brilliance and color depth.',
     icon: '🪙',
     thickness: '0.3 mm',
   },
   {
     id: 'led',
     num: '03',
-    title: '3000K Epistar LED Matrix',
+    title: 'Warm Golden LED Matrix',
     tagline: 'UNIFORM WARM GLOW • NO HOTSPOTS • ENERGY EFFICIENT',
-    description: 'Concealed 3000K warm golden Epistar SMD LED diode matrix paired with an optical Light Guide Panel (LGP) to illuminate the sacred artwork and wall evenly without glare.',
+    description: 'Concealed warm golden SMD LED diode matrix paired with an optical Light Guide Panel (LGP) to illuminate the sacred artwork and wall evenly without glare.',
     icon: '💡',
     thickness: '8.0 mm',
   },
@@ -462,7 +462,7 @@ export default function HeroRotatingFrames() {
       />
 
       {/* =========================================================================
-          1. TOP BAR: Sacred Mantra Pill, Daylight / 3000K Aarti Switch & Inspect Craft
+          1. TOP BAR: Sacred Mantra Pill, Daylight / warm Aarti Switch & Inspect Craft
          ========================================================================= */}
       <div
         className={`w-full flex items-center justify-between px-1 mb-1.5 z-20 transition-all duration-700 ${
@@ -477,9 +477,9 @@ export default function HeroRotatingFrames() {
           </span>
         </div>
 
-        {/* Right Controls: Daylight / 3000K Aarti Glow Toggle & Inspect Craft */}
+        {/* Right Controls: Daylight / Warm Aarti Glow Toggle & Inspect Craft */}
         <div className="flex items-center gap-1.5">
-          {/* Daylight vs 3000K Aarti Glow Switch */}
+          {/* Daylight vs Warm Aarti Glow Switch */}
           <div className="flex items-center gap-1 bg-white/95 backdrop-blur-md p-1 rounded-full border border-[#2D2D2D] shadow-xs">
             <button
               type="button"
@@ -503,10 +503,10 @@ export default function HeroRotatingFrames() {
                   ? 'bg-gradient-to-r from-[#EAB308] to-[#FACC15] text-[#FFFFFF] shadow-[0_0_14px_rgba(255,213,138,0.65)] scale-[1.02]'
                   : 'text-[#D1D5DB] hover:text-[#FFFFFF]'
               }`}
-              title="3000K Aarti Glow: Warm golden illuminated atmosphere"
+              title="Warm Aarti Glow: Warm golden illuminated atmosphere"
             >
               <Flame className="w-3 h-3 text-[#FFFFFF] animate-pulse" />
-              <span>3000K Glow</span>
+              <span>Warm Glow</span>
             </button>
           </div>
 
@@ -530,7 +530,7 @@ export default function HeroRotatingFrames() {
         className="relative w-full h-[280px] sm:h-[310px] lg:h-[330px] xl:h-[345px] flex items-center justify-center my-1.5 sm:my-2 overflow-visible"
         style={{ perspective: '1200px' }}
       >
-        {/* Soft Golden Outer Glow Halo & Rotating Conic Sunburst Rays (3000K LED Radiance #FFD58A) */}
+        {/* Soft Golden Outer Glow Halo & Rotating Conic Sunburst Rays (warm LED Radiance #FFD58A) */}
         <div
           className={`absolute w-[270px] sm:w-[310px] lg:w-[340px] h-[270px] sm:h-[310px] lg:h-[340px] rounded-full blur-3xl pointer-events-none transition-all duration-700 -z-10 ${
             isAartiMode
@@ -542,7 +542,7 @@ export default function HeroRotatingFrames() {
           }}
         />
 
-        {/* Ambient Rotating Sunburst Rays (Visible in 3000K Aarti Mode) */}
+        {/* Ambient Rotating Sunburst Rays (Visible in Warm Aarti Mode) */}
         {isAartiMode && (
           <div
             className="absolute w-[340px] sm:w-[390px] lg:w-[420px] h-[340px] sm:h-[390px] lg:h-[420px] rounded-full pointer-events-none -z-10 opacity-35 animate-sunburst-rays"
@@ -618,7 +618,7 @@ export default function HeroRotatingFrames() {
               }}
             />
 
-            {/* Double Ornate Gold Foil Outer Bevel Rim with 3000K LED Illumination */}
+            {/* Double Ornate Gold Foil Outer Bevel Rim with warm LED Illumination */}
             <div
               className={`relative w-full h-full rounded-2xl p-2 transition-all duration-500 ${
                 isAartiMode
@@ -673,10 +673,10 @@ export default function HeroRotatingFrames() {
                   <div className="absolute top-0 -left-full w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-[-25deg] animate-acrylic-shine" />
                 </div>
 
-                {/* 24K Gold Foil Consecration Badge */}
+                {/* gold foil Consecration Badge */}
                 <div className="absolute top-2 right-2 bg-[#121212]/90 backdrop-blur-md px-2 py-0.5 rounded-full border border-[#EAB308]/60 text-[8.5px] font-bold text-[#FACC15] z-20 flex items-center gap-1 shadow-xs">
                   <Sparkles className="w-2.5 h-2.5 text-[#FACC15]" />
-                  <span>24K Gold Foil</span>
+                  <span>gold foil</span>
                 </div>
 
                 {/* Bottom Artwork Information Plaque */}
@@ -727,7 +727,7 @@ export default function HeroRotatingFrames() {
                   isEntered ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
                 } ${
                   isActive
-                    ? 'bg-gradient-to-r from-[#181818] to-[#0A0A0A] text-[#FFFFFF] border border-[#EAB308] shadow-[0_4px_14px_rgba(100,30,46,0.35)] font-bold scale-[1.03] ring-1 ring-[#E8C77E]/60'
+                    ? 'bg-gradient-to-r from-[#181818] to-[#0A0A0A] text-[#FFFFFF] border border-[#EAB308] shadow-[0_4px_14px_rgba(0,0,0,0.4)] font-bold scale-[1.03] ring-1 ring-[#E8C77E]/60'
                     : 'bg-white/95 hover:bg-white text-[#FFFFFF] border border-[#2D2D2D] hover:border-[#EAB308]/70 shadow-2xs hover:-translate-y-0.5'
                 }`}
                 aria-label={`Select ${deity.categoryLabel}`}
@@ -814,7 +814,7 @@ export default function HeroRotatingFrames() {
                     3D Craftsmanship &amp; Layer Architecture
                   </h3>
                   <p className="text-[11px] text-[#E5E7EB]/80">
-                    Precision engineering behind Abhi Gifts 4mm Crystal Acrylic Heirlooms
+                    Precision engineering behind Abhi Gifts Premium Crystal Acrylic Heirlooms
                   </p>
                 </div>
               </div>
@@ -912,7 +912,7 @@ export default function HeroRotatingFrames() {
               </span>
               <span className="flex items-center gap-1.5">
                 <CheckCircle2 className="w-3.5 h-3.5 text-[#EAB308]" />
-                <span>25+ Year Non-Fade Guarantee</span>
+                <span>Vibrant UV Print Quality</span>
               </span>
               <span className="flex items-center gap-1.5">
                 <CheckCircle2 className="w-3.5 h-3.5 text-[#EAB308]" />

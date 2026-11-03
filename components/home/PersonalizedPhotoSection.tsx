@@ -133,12 +133,12 @@ const CUSTOM_FRAMES: CustomFrameOption[] = [
     shape: 'Vertical Portrait',
     shapeType: 'portrait',
     dimensionsLabel: 'Standard 24" × 36" (Custom up to 4×6 ft)',
-    description: 'Museum-grade 4mm cast acrylic with diamond CNC 45° beveled edges and brushed floating stainless steel standoffs.',
-    highlights: ['4mm Optical Cast Acrylic', 'Diamond CNC Beveled Edges', 'Invisible Floating Standoffs', 'Shatterproof & Moisture-Proof'],
+    description: 'Museum-grade premium cast acrylic with precision beveled 45° beveled edges and brushed floating stainless steel standoffs.',
+    highlights: ['premium Optical Cast Acrylic', 'precision beveled Beveled Edges', 'Invisible Floating Standoffs', 'Shatterproof & Moisture-Proof'],
   },
   {
     id: 'night-glow',
-    name: '3000K Warm LED Halo Frame',
+    name: 'warm LED Warm LED Halo Frame',
     badge: 'Trending Gift',
     price: 'From ₹2,499',
     defaultArtworkId: 'ganesha',
@@ -146,12 +146,12 @@ const CUSTOM_FRAMES: CustomFrameOption[] = [
     shape: 'Illuminated Frame',
     shapeType: 'square',
     dimensionsLabel: 'Square 24" × 24" (Warm White Glow)',
-    description: 'Concealed Epistar 3000K warm LEDs cast a serene golden halo around your sacred artwork or cherished memory.',
-    highlights: ['3000K Warm Golden Backlight', '50,000-Hour Rated Epistar LEDs', 'Certified 12V BIS Low Voltage', 'Inline ON/OFF Switch'],
+    description: 'Concealed Epistar warm LED warm LEDs cast a serene golden halo around your sacred artwork or cherished memory.',
+    highlights: ['warm LED Warm Golden Backlight', 'long-lasting Rated Epistar LEDs', 'Certified 12V BIS Low Voltage', 'Inline ON/OFF Switch'],
   },
   {
     id: 'gold-crest',
-    name: '24K Gold Script Heirloom',
+    name: 'gold foil Gold Script Heirloom',
     badge: 'Artisan Exclusive',
     price: 'From ₹2,299',
     defaultArtworkId: 'ram-mandir',
@@ -159,8 +159,8 @@ const CUSTOM_FRAMES: CustomFrameOption[] = [
     shape: 'Horizontal Landscape',
     shapeType: 'landscape',
     dimensionsLabel: 'Panoramic 36" × 24" (Gold Foil Accents)',
-    description: 'Personalized with real 24K gold foil surname script, temple shlokas, wedding vows, or auspicious family blessings.',
-    highlights: ['24K Genuine Gold Foil Script', 'Custom Inscribed Surname / Shlokas', 'Brushed Champagne Standoffs', 'Archival UV Pigments'],
+    description: 'Personalized with real gold foil gold foil surname script, temple shlokas, wedding vows, or auspicious family blessings.',
+    highlights: ['gold foil Genuine Gold Foil Script', 'Custom Inscribed Surname / Shlokas', 'Brushed Champagne Standoffs', 'Archival UV Pigments'],
     defaultInscription: 'Shri Ram Janmabhoomi • Ayodhya Mandir Sanctum',
   },
   {
@@ -173,8 +173,8 @@ const CUSTOM_FRAMES: CustomFrameOption[] = [
     shape: 'Circular Medallion',
     shapeType: 'round',
     dimensionsLabel: 'Curved Round 24" Diameter',
-    description: 'Continuous 360° laser-curved diamond beveling creating a fluid, modern halo silhouette for sacred mandir niches.',
-    highlights: ['360° Continuous Diamond Bevel', 'Concealed Heavy-Duty French Cleat', 'Optically Flawless Clarity', 'Zero Warpage Guarantee'],
+    description: 'Continuous 360° laser-curved precision beveling creating a fluid, modern halo silhouette for sacred mandir niches.',
+    highlights: ['360° Continuous smooth bevel', 'Concealed Heavy-Duty French Cleat', 'Optically Flawless Clarity', 'Zero Warpage Guarantee'],
   },
 ];
 
@@ -226,13 +226,13 @@ export default function PersonalizedPhotoSection() {
   const activeTitle = userUploadedPhoto ? 'Your Custom Uploaded Photo' : `${selectedArt.name} — ${selectedArt.subtitle}`;
 
   const whatsappInquiryUrl = `https://wa.me/917780269927?text=${encodeURIComponent(
-    `Hi Abhi's Gifts! I am exploring your Custom Photo & Sacred Frame Atelier:\n- Frame Style: ${selectedFrame.name} (${selectedFrame.price})\n- Artwork / Photo: ${activeTitle}\n- Dimensions: ${selectedFrame.dimensionsLabel}\n- Lighting: ${isLedOn ? '3000K LED On' : 'Non-Lit'}\nCan you share final pricing, custom sizing options, and a free WhatsApp digital proof?`
+    `Hi Abhi's Gifts! I am exploring your Custom Photo & Sacred Frame Atelier:\n- Frame Style: ${selectedFrame.name} (${selectedFrame.price})\n- Artwork / Photo: ${activeTitle}\n- Dimensions: ${selectedFrame.dimensionsLabel}\n- Lighting: ${isLedOn ? 'warm LED LED On' : 'Non-Lit'}\nCan you share final pricing, custom sizing options, and a free WhatsApp digital proof?`
   )}`;
 
   return (
     <section className="w-full max-w-[1760px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-14 py-8 sm:py-12 lg:py-16 select-none">
       {/* Outer Shell Container */}
-      <div className="relative overflow-hidden bg-gradient-to-br from-[#181818] via-[#141414] to-[#181818] rounded-3xl sm:rounded-[40px] p-6 sm:p-10 lg:p-14 border border-[#2D2D2D] shadow-[0_16px_60px_rgba(81,27,42,0.07)]">
+      <div className="relative overflow-hidden bg-gradient-to-br from-[#181818] via-[#141414] to-[#181818] rounded-3xl sm:rounded-[40px] p-6 sm:p-10 lg:p-14 border border-[#2D2D2D] shadow-[0_16px_60px_rgba(0,0,0,0.4)]">
         {/* Ambient Decorative Shimmer Orbs */}
         <div className="absolute -top-40 -right-40 w-[500px] h-[500px] bg-amber-200/20 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute -bottom-40 -left-40 w-[500px] h-[500px] bg-[#EAB308]/10 rounded-full blur-3xl pointer-events-none" />
@@ -256,7 +256,7 @@ export default function PersonalizedPhotoSection() {
             </h2>
 
             <p className="text-xs sm:text-sm text-[#D1D5DB] leading-relaxed max-w-2xl font-sans">
-              Experience your sacred wall art or personal milestones at breathtaking scale. Choose from our iconic devotional masterpieces or upload your family portrait. Engineered with diamond CNC beveled cast acrylic, pre-installed floating mounts, and optional 3000K warm LED illumination.
+              Experience your sacred wall art or personal milestones at breathtaking scale. Choose from our iconic devotional masterpieces or upload your family portrait. Engineered with precision beveled beveled cast acrylic, pre-installed floating mounts, and optional warm LED warm LED illumination.
             </p>
           </div>
 
@@ -321,7 +321,7 @@ export default function PersonalizedPhotoSection() {
                       {frame.hasLed && (
                         <span className="text-[10px] font-bold text-amber-700 bg-amber-100/80 px-2 py-0.5 rounded-full flex items-center gap-1 border border-amber-300/50">
                           <Zap className="w-2.5 h-2.5 text-amber-600 fill-amber-600" />
-                          <span>3000K LED</span>
+                          <span>warm LED LED</span>
                         </span>
                       )}
                     </div>
@@ -346,7 +346,7 @@ export default function PersonalizedPhotoSection() {
         {/* =========================================================
             3. GRAND INTERACTIVE WALL STAGE (EXPANSIVE & BIG DISPLAY)
             ========================================================= */}
-        <div className="relative z-10 bg-white rounded-3xl border border-[#2D2D2D] p-4 sm:p-7 shadow-[0_12px_45px_rgba(81,27,42,0.06)] space-y-6">
+        <div className="relative z-10 bg-white rounded-3xl border border-[#2D2D2D] p-4 sm:p-7 shadow-[0_12px_45px_rgba(0,0,0,0.4)] space-y-6">
           {/* Interactive Environment & Mode Control Bar */}
           <div className="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-[#2D2D2D]/60 text-xs">
             {/* Wall Environment Switcher */}
@@ -400,12 +400,12 @@ export default function PersonalizedPhotoSection() {
                     ? 'bg-[#1C0912] text-[#FACC15] border-[#EAB308] shadow-[0_0_20px_rgba(214,170,85,0.4)]'
                     : 'bg-white text-[#D1D5DB] border-[#2D2D2D] hover:text-[#FFFFFF]'
                 }`}
-                title="Toggle 3000K Warm Golden Backlight"
+                title="Toggle warm LED Warm Golden Backlight"
               >
                 {isLedOn ? (
                   <>
                     <Zap className="w-3.5 h-3.5 text-amber-400 fill-amber-400" />
-                    <span>3000K Glow: ON</span>
+                    <span>warm LED Glow: ON</span>
                   </>
                 ) : (
                   <>
@@ -466,12 +466,12 @@ export default function PersonalizedPhotoSection() {
                   : undefined,
             }}
           >
-            {/* Ambient Dark Overlay for interior backgrounds when 3000K LED is active */}
+            {/* Ambient Dark Overlay for interior backgrounds when warm LED LED is active */}
             {(wallMode === 'pooja' || wallMode === 'living') && isLedOn && (
               <div className="absolute inset-0 bg-black/50 backdrop-blur-[1px] transition-all duration-700 pointer-events-none" />
             )}
 
-            {/* 3000K Golden LED Halo radiating 360° across the Wall */}
+            {/* warm LED Golden LED Halo radiating 360° across the Wall */}
             {isLedOn && (selectedFrame.hasLed || selectedArt.hasLed) && (
               <div
                 className={`absolute pointer-events-none transition-all duration-700 ${
@@ -506,10 +506,10 @@ export default function PersonalizedPhotoSection() {
                 boxShadow:
                   isLedOn && (selectedFrame.hasLed || selectedArt.hasLed)
                     ? '0 0 70px rgba(255, 195, 75, 0.6), 0 35px 70px rgba(0,0,0,0.7), 0 12px 30px rgba(0,0,0,0.55)'
-                    : '0 30px 65px rgba(81,27,42,0.25), 0 10px 24px rgba(0,0,0,0.14)',
+                    : '0 30px 65px rgba(0,0,0,0.4), 0 10px 24px rgba(0,0,0,0.14)',
               }}
             >
-              {/* Outer 4mm Diamond-Cut Cast Acrylic Border */}
+              {/* Outer premium precision-cut Cast Acrylic Border */}
               <div
                 className={`relative w-full h-full overflow-hidden border-[3px] border-white/90 bg-stone-950 ring-1 ring-white/60 shadow-2xl ${
                   selectedFrame.shapeType === 'round' ? 'rounded-full' : 'rounded-3xl'
@@ -522,14 +522,14 @@ export default function PersonalizedPhotoSection() {
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
 
-                {/* 24K Gold Foil Script Overlay (When Gold Script Heirloom is selected) */}
+                {/* gold foil Gold Foil Script Overlay (When Gold Script Heirloom is selected) */}
                 {selectedFrame.id === 'gold-crest' && (
                   <div className="absolute bottom-5 inset-x-5 bg-gradient-to-t from-black/90 via-black/60 to-transparent p-4 sm:p-5 rounded-b-2xl text-center">
                     <p className="font-serif italic text-base sm:text-lg md:text-xl text-[#FFD782] drop-shadow-[0_2px_6px_rgba(0,0,0,0.95)] font-bold tracking-wider">
                       {customInscription || 'Shri Ram Janmabhoomi • Ayodhya Mandir Sanctum'}
                     </p>
                     <span className="text-[10px] sm:text-xs uppercase tracking-widest text-[#E8D1A5] font-sans block mt-1">
-                      ✦ 24K Gold Foil Inscribed Heirloom • Abhi's Gifts ✦
+                      ✦ gold foil Gold Foil Inscribed Heirloom • Abhi's Gifts ✦
                     </span>
                   </div>
                 )}
@@ -567,7 +567,7 @@ export default function PersonalizedPhotoSection() {
                   </>
                 )}
 
-                {/* 4mm Crystal Optical Reflection Sweep */}
+                {/* premium Crystal Optical Reflection Sweep */}
                 <div
                   className={`absolute inset-0 pointer-events-none transition-opacity duration-500 bg-gradient-to-tr from-transparent via-white/18 to-white/35 ${
                     isHovered ? 'opacity-100' : 'opacity-70'
@@ -646,7 +646,7 @@ export default function PersonalizedPhotoSection() {
               <div className="flex items-center justify-between text-xs font-bold text-[#FFFFFF]">
                 <label className="flex items-center gap-1.5">
                   <Award className="w-4 h-4 text-[#EAB308]" />
-                  <span>Type Your 24K Gold Script Inscription (Real-time Live Preview):</span>
+                  <span>Type Your gold foil Gold Script Inscription (Real-time Live Preview):</span>
                 </label>
                 <span className="text-[11px] text-[#D1D5DB] font-normal">
                   {customInscription.length}/50 Characters
@@ -661,7 +661,7 @@ export default function PersonalizedPhotoSection() {
                 className="w-full px-4 py-2.5 text-xs sm:text-sm bg-white border border-[#EAB308] rounded-xl outline-none focus:border-[#A06E28] focus:ring-1 focus:ring-[#A06E28] text-[#FFFFFF] font-serif"
               />
               <p className="text-[11px] text-[#D1D5DB]">
-                ✦ Rendered with genuine 24-karat gold leaf foil beneath the 4mm acrylic shield. Perfect for housewarmings, temple sanctums &amp; wedding anniversaries.
+                ✦ Rendered with genuine 24-karat gold leaf foil beneath the premium acrylic shield. Perfect for housewarmings, temple sanctums &amp; wedding anniversaries.
               </p>
             </div>
           )}
@@ -724,14 +724,14 @@ export default function PersonalizedPhotoSection() {
                 03
               </div>
               <h4 className="font-serif font-bold text-lg text-[#FFFFFF]">
-                Diamond CNC Fabrication &amp; Delivery
+                precision beveled Fabrication &amp; Delivery
               </h4>
               <p className="text-xs text-[#D1D5DB] leading-relaxed">
-                Fabricated with premium acrylic and 50,000h Epistar warm LEDs. Packed in 5-layer wood-reinforced crates with direct studio pickup or pan-India delivery.
+                Fabricated with premium acrylic and long-lasting Epistar warm LEDs. Packed in 5-layer wood-reinforced crates with direct studio pickup or doorstep delivery.
               </p>
               <div className="pt-2 text-[11px] font-bold text-[#EAB308] flex items-center gap-1">
                 <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
-                <span>100% Transit Safe Replacement</span>
+                <span>secure packaging Replacement</span>
               </div>
             </div>
           </div>

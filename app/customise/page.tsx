@@ -5,7 +5,7 @@ import CustomizerStudio from '@/components/customise/CustomizerStudio';
 export const metadata: Metadata = {
   title: 'Custom Acrylic Photo Frames & LED Backlit Designer | Abhi\'s Gifts',
   description:
-    'Design custom acrylic photo frames, LED backlit night-glow frames, personalized wedding & family wall art at Abhi\'s Gifts. Upload your photo for instant 3D wall preview. Handcrafted in Hyderabad with pan-India express delivery.',
+    'Design custom acrylic photo frames, LED backlit night-glow frames, personalized wedding & family wall art at Abhi\'s Gifts. Upload your photo for instant 3D wall preview. Handcrafted in Hyderabad with express delivery.',
   keywords: [
     'Custom Acrylic Photo Frames',
     'LED Backlit Photo Frames',
@@ -55,7 +55,7 @@ export default function CustomisePage() {
     name: 'Custom Acrylic & LED Backlit Photo Frame Designer',
     image: 'https://abhisgifts.com/images/wall-decor/products/custom/custom-led-photo-frame.jpg',
     description:
-      'Personalized custom acrylic photo frames with optional 3000K warm LED illumination, diamond beveled edges, and floating standoff mounts.',
+      'Personalized custom acrylic photo frames with optional warm LED illumination, beveled edges, and floating standoff mounts.',
     brand: {
       '@type': 'Brand',
       name: "Abhi's Gifts",

@@ -67,7 +67,7 @@ export function buildWhatsAppOrderMessage(data: WhatsAppOrderDetails): string {
   if (discountAmount > 0) {
     msg += `• Coupon Savings: -₹${discountAmount.toLocaleString('en-IN')}${couponCode ? ` (${couponCode})` : ''}\n`;
   }
-  msg += `• Pan-India Delivery: ₹${shippingFee}\n`;
+  msg += `• Delivery Fee: ₹${shippingFee}\n`;
   msg += `• *Grand Total: ₹${totalAmount.toLocaleString('en-IN')}*\n`;
 
   if (notes && notes.trim()) {

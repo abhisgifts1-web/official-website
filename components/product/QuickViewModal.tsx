@@ -208,7 +208,7 @@ export default function QuickViewModal({ product, isOpen, onClose }: QuickViewMo
                 <button
                   type="button"
                   onClick={handleBuyNow}
-                  className="w-full bg-[#EAB308] hover:bg-[#FACC15] text-[#000000] py-3 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-[0_4px_16px_rgba(101,30,45,0.3)] border border-[#EAB308]/50 transition-all cursor-pointer"
+                  className="w-full bg-[#EAB308] hover:bg-[#FACC15] text-[#000000] py-3 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-[0_4px_16px_rgba(234,179,8,0.25)] border border-[#EAB308]/50 transition-all cursor-pointer"
                 >
                   <span>Buy Now • ₹{(currentVariant.price * quantity).toLocaleString('en-IN')}</span>
                   <ArrowRight className="w-4 h-4 text-[#EAB308]" />
@@ -216,7 +216,7 @@ export default function QuickViewModal({ product, isOpen, onClose }: QuickViewMo
 
                 <div className="flex items-center justify-between text-xs pt-1">
                   <span className="flex items-center gap-1 text-[#D1D5DB]">
-                    <ShieldCheck className="w-3.5 h-3.5 text-[#EAB308]" /> Transit Safe Guarantee
+                    <ShieldCheck className="w-3.5 h-3.5 text-[#EAB308]" /> Protective Packaging
                   </span>
                   <Link
                     href={`/product/${product.slug}`}

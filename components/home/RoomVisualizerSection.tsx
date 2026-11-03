@@ -122,7 +122,7 @@ const ARTWORKS: VisualizerArtwork[] = [
   },
   {
     id: 'seven-horses',
-    name: '7 Running Horses Vastu 24K Gold Acrylic Art',
+    name: '7 Running Horses Vastu gold Gold Acrylic Art',
     shortName: '7 Running Horses Vastu',
     category: 'Success & Power',
     image: '/images/mockups/seven-running-horses-vastu-gold-acrylic-wall-art/primary-square.jpg',
@@ -210,7 +210,7 @@ const FRAME_SIZES = [
 
 const FRAME_FINISHES = [
   { id: 'matte-black', name: 'Sleek Matte Black', borderClass: 'border-[#1A1A1A]', shadowClass: 'shadow-2xl' },
-  { id: 'champagne-gold', name: 'Champagne 24K Gold', borderClass: 'border-[#EAB308]', shadowClass: 'shadow-[0_0_25px_rgba(198,154,66,0.3)]' },
+  { id: 'champagne-gold', name: 'Champagne gold Gold', borderClass: 'border-[#EAB308]', shadowClass: 'shadow-[0_0_25px_rgba(198,154,66,0.3)]' },
   { id: 'frameless-crystal', name: 'Frameless Diamond Bevel', borderClass: 'border-white/40', shadowClass: 'shadow-[0_15px_40px_rgba(0,0,0,0.4)]' },
 ];
 
@@ -242,13 +242,13 @@ export default function RoomVisualizerSection() {
       : selectedArtwork.image;
 
   const whatsappInquiryUrl = `https://wa.me/917780269927?text=${encodeURIComponent(
-    `Hi Abhi's Gifts! I used the Sacred Space Visualizer on your website. I am interested in:\n- Artwork: ${selectedArtwork.name}\n- Room Environment: ${selectedRoom.name}\n- Size: ${selectedSize.label} (${selectedSize.desc})\n- Finish: ${selectedFinish.name}\n- Lighting: ${isLedOn ? '3000K LED On' : 'Non-Lit'}\nCan you share final price, WhatsApp digital proof & delivery time to Hyderabad?`
+    `Hi Abhi's Gifts! I used the Sacred Space Visualizer on your website. I am interested in:\n- Artwork: ${selectedArtwork.name}\n- Room Environment: ${selectedRoom.name}\n- Size: ${selectedSize.label} (${selectedSize.desc})\n- Finish: ${selectedFinish.name}\n- Lighting: ${isLedOn ? 'warm LED On' : 'Non-Lit'}\nCan you share final price, WhatsApp digital proof & delivery time to Hyderabad?`
   )}`;
 
   return (
     <section className="w-full max-w-[1720px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-14 py-8 sm:py-12 lg:py-14 select-none">
       {/* Outer Luxury Shell */}
-      <div className="bg-gradient-to-br from-[#181818] via-[#141414] to-[#181818] rounded-3xl sm:rounded-[36px] p-6 sm:p-8 lg:p-12 border border-[#2D2D2D] shadow-[0_16px_50px_rgba(81,27,42,0.08)] relative overflow-hidden">
+      <div className="bg-gradient-to-br from-[#181818] via-[#141414] to-[#181818] rounded-3xl sm:rounded-[36px] p-6 sm:p-8 lg:p-12 border border-[#2D2D2D] shadow-[0_16px_50px_rgba(0,0,0,0.4)] relative overflow-hidden">
         {/* Subtle Ambient Decorative Gradients */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-amber-200/20 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#EAB308]/10 rounded-full blur-3xl pointer-events-none" />
@@ -266,7 +266,7 @@ export default function RoomVisualizerSection() {
             </h2>
 
             <p className="text-xs sm:text-sm text-[#D1D5DB] leading-relaxed font-sans">
-              Test-fit sacred 3D acrylic art, customize dimensions against real furniture scale, switch between Day and 3000K Warm Nocturnal LED illumination, and discover recommended Vastu cardinal directions for your home.
+              Test-fit sacred 3D acrylic art, customize dimensions against real furniture scale, switch between Day and warm Warm Nocturnal LED illumination, and discover recommended Vastu cardinal directions for your home.
             </p>
           </div>
 
@@ -354,7 +354,7 @@ export default function RoomVisualizerSection() {
                   {isLedOn ? (
                     <>
                       <Moon className="w-3.5 h-3.5 text-[#FACC15] animate-pulse" />
-                      <span>3000K LED: ON</span>
+                      <span>warm LED: ON</span>
                     </>
                   ) : (
                     <>
@@ -366,13 +366,13 @@ export default function RoomVisualizerSection() {
               </div>
 
               {/* =====================================================
-                  CENTERPIECE: Framed Artwork on Wall with 3000K Halo Glow
+                  CENTERPIECE: Framed Artwork on Wall with warm Halo Glow
                   ===================================================== */}
               <div className="absolute inset-0 flex items-center justify-center pb-12 sm:pb-16 z-10">
                 <div
                   className={`relative transition-all duration-500 transform ${selectedSize.scaleClass}`}
                 >
-                  {/* Outer 3000K Golden LED Halo Backlight Glow (When LED ON) */}
+                  {/* Outer warm Golden LED Halo Backlight Glow (When LED ON) */}
                   {isLedOn && (
                     <div className="absolute -inset-8 sm:-inset-12 bg-gradient-to-r from-[#FFC857]/30 via-[#FFD78A]/45 to-[#FFB732]/30 rounded-3xl blur-2xl pointer-events-none animate-pulse-slow" />
                   )}
@@ -559,7 +559,7 @@ export default function RoomVisualizerSection() {
                   <span className="text-[11px] text-[#785E59] uppercase tracking-wider block">Selected Configuration:</span>
                   <h4 className="font-serif font-bold text-base text-[#FFFFFF]">{selectedArtwork.name}</h4>
                   <p className="text-xs text-[#785E59]">
-                    {selectedSize.label} • {selectedFinish.name} • {isLedOn ? '3000K Warm LED' : 'Premium Acrylic'}
+                    {selectedSize.label} • {selectedFinish.name} • {isLedOn ? 'warm Warm LED' : 'Premium Acrylic'}
                   </p>
                 </div>
                 <div className="text-right">
@@ -594,7 +594,7 @@ export default function RoomVisualizerSection() {
               <div className="pt-2 flex items-center justify-between text-[11px] text-[#785E59]">
                 <span className="flex items-center gap-1">
                   <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
-                  <span>100% Transit Safe</span>
+                  <span>secure packaging</span>
                 </span>
                 <span className="flex items-center gap-1">
                   <Award className="w-3.5 h-3.5 text-[#EAB308]" />
@@ -602,7 +602,7 @@ export default function RoomVisualizerSection() {
                 </span>
                 <span className="flex items-center gap-1">
                   <Flame className="w-3.5 h-3.5 text-amber-500" />
-                  <span>50,000h LEDs</span>
+                  <span>energy-efficient LEDs</span>
                 </span>
               </div>
             </div>

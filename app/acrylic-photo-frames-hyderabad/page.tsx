@@ -4,15 +4,15 @@ import LocalLandingPageView from '@/components/seo/LocalLandingPageView';
 import { getAllProducts } from '@/lib/store';
 
 export const metadata: Metadata = {
-  title: "Acrylic Photo Frames in Hyderabad | 4mm Crystal Acrylic Art — Abhi's Gifts",
+  title: "Acrylic Photo Frames in Hyderabad | crystal acrylic Art — Abhi's Gifts",
   description:
-    'Best acrylic photo frames in Hyderabad. Handcrafted 4mm cast acrylic with diamond CNC beveled edges, invisible floating mounts & crystal clarity. Express delivery across Hyderabad & Telangana.',
+    'Best acrylic photo frames in Hyderabad. Handcrafted cast acrylic with precision beveled edges, invisible floating mounts & crystal clarity. Express delivery across Hyderabad & Telangana.',
   alternates: {
     canonical: 'https://abhigifts.com/acrylic-photo-frames-hyderabad',
   },
   openGraph: {
-    title: 'Acrylic Photo Frames in Hyderabad | 4mm Crystal Acrylic Art',
-    description: 'Looking for high-end acrylic photo frames in Hyderabad? Direct manufacturing, custom sizes, diamond-polished bevels & free doorstep delivery.',
+    title: 'Acrylic Photo Frames in Hyderabad | crystal acrylic Art',
+    description: 'Looking for high-end acrylic photo frames in Hyderabad? Direct manufacturing, custom sizes, precision-polished bevels & free doorstep delivery.',
     url: 'https://abhigifts.com/acrylic-photo-frames-hyderabad',
   },
 };
@@ -27,13 +27,13 @@ export default function AcrylicPhotoFramesHyderabadPage() {
     <LocalLandingPageView
       slug="acrylic-photo-frames-hyderabad"
       keyword="Acrylic Photo Frames in Hyderabad"
-      h1Title="Acrylic Photo Frames in Hyderabad — Premium 4mm Crystal Cast Frames"
-      subtitle="Discover Hyderabad's highest-rated manufacturer of museum-grade 4mm cast acrylic photo frames. Crafted with diamond CNC beveled edges, 99.2% optical crystalline clarity, and heavy-duty floating stainless steel standoffs. Perfect for modern living rooms, villas, and apartments across Hyderabad."
+      h1Title="Acrylic Photo Frames in Hyderabad — Premium premium Crystal Cast Frames"
+      subtitle="Discover Hyderabad's highest-rated manufacturer of museum-grade cast acrylic photo frames. Crafted with precision beveled edges, 99.2% optical crystalline clarity, and heavy-duty floating stainless steel standoffs. Perfect for modern living rooms, villas, and apartments across Hyderabad."
       locationName="Hyderabad & Secunderabad"
-      metaDescription="Shop custom acrylic photo frames in Hyderabad! Direct manufacturer prices, diamond-polished edges, same-day WhatsApp proofing & safe pan-Hyderabad delivery."
+      metaDescription="Shop custom acrylic photo frames in Hyderabad! Direct manufacturer prices, precision-polished edges, same-day WhatsApp proofing & safe pan-Hyderabad delivery."
       introParagraphs={[
         "As Hyderabad's architectural and interior design landscape evolves with contemporary high-rises and luxury villas across Gachibowli, Jubilee Hills, Madhapur, and Banjara Hills, traditional bulky wooden and glass photo frames are being rapidly replaced by frameless acrylic photo frames. At Abhi's Gifts, we bring factory-direct precision to every home in Hyderabad.",
-        "Engineered with 4mm imported cast acrylic (not brittle glass or flimsy extruded plastic), our frames produce an immersive 'floating' visual experience. Photorealistic 1200 DPI UV flatbed printing renders vibrant skin tones, high dynamic range landscapes, and intricate details that look backlit even without electric lighting.",
+        "Engineered with premium imported cast acrylic (not brittle glass or flimsy extruded plastic), our frames produce an immersive 'floating' visual experience. Photorealistic 1200 DPI UV flatbed printing renders vibrant skin tones, high dynamic range landscapes, and intricate details that look backlit even without electric lighting.",
       ]}
       whyChoosePoints={[
         {
@@ -41,7 +41,7 @@ export default function AcrylicPhotoFramesHyderabadPage() {
           desc: 'Save 40-50% compared to third-party retail frame shops. Manufactured in-house with state-of-the-art flatbed UV and CNC laser cutters.',
         },
         {
-          title: '100% Transit Safe Replacement',
+          title: 'secure packaging Replacement',
           desc: 'Shipped in heavy-duty 5-layer wood-reinforced packaging. In the rare event of transit damage, we dispatch a fresh reprint immediately for free.',
         },
         {

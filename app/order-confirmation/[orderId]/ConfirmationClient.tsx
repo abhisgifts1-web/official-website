@@ -156,8 +156,8 @@ export default function ConfirmationClient({ order }: Props) {
             </span>
           </div>
           <div className="flex justify-between py-1 border-t pt-2">
-            <span className="text-stone-500">Transit Guarantee</span>
-            <span className="font-semibold text-[#FFFFFF]">100% Damage-Proof Covered</span>
+            <span className="text-stone-500">Packaging</span>
+            <span className="font-semibold text-[#FFFFFF]">Protective Multi-Layer Boxed</span>
           </div>
         </div>
       </div>

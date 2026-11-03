@@ -152,7 +152,7 @@ export type OrderStatus =
   | 'Delivered'
   | 'Cancelled';
 
-export type PaymentMethod = 'WhatsApp' | 'COD' | 'Razorpay';
+export type PaymentMethod = 'WhatsApp' | 'Online' | 'Razorpay';
 export type PaymentStatus = 'Pending' | 'Paid' | 'Failed' | 'Refunded';
 
 export interface Order {

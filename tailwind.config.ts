@@ -33,7 +33,7 @@ const config: Config = {
         goldborder: "rgba(234, 179, 8, 0.35)", // Subtle Golden Yellow Border
         primarytext: "#FFFFFF", // Secondary White Text on Matte Black
         secondarytext: "#E5E7EB", // Muted White / Off-white Text
-        ledglow: "#FDE047",   // Golden Yellow 3000K LED Radiance
+        ledglow: "#FDE047",   // Golden Yellow Warm LED Radiance
 
         // MATTE BLACK / CHARCOAL SWATCH PALETTE
         burgundy: {

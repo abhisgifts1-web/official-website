@@ -472,7 +472,7 @@ export default function AdminProductsPage() {
           {
             label: 'Lighting Technology',
             value: formData.hasLedBacklight
-              ? '3000K Epistar Warm Glow LED Perimeter (12V Safe)'
+              ? 'warm Epistar Warm Glow LED Perimeter (12V Safe)'
               : 'Non-Lit Museum Art',
           },
           { label: 'Shape & Ratio', value: `${formData.shape.toUpperCase()} (${formData.orientation})` },
@@ -482,8 +482,8 @@ export default function AdminProductsPage() {
           'Keep away from abrasive chemical cleaners',
         ],
         shippingHighlights: [
-          '100% Transit Safe Guarantee',
-          'Free replacement if damaged in courier transit',
+          'safe packaging standard',
+          'safe packaging standard in courier transit',
         ],
       };
 
@@ -722,7 +722,7 @@ export default function AdminProductsPage() {
                         <td className="py-3 px-4">
                           {prod.hasLedBacklight ? (
                             <span className="bg-amber-100 text-amber-900 border border-amber-300 font-bold px-2 py-0.5 rounded text-[10px] whitespace-nowrap">
-                              ✨ Warm 3000K LED
+                              ✨ Warm warm LED
                             </span>
                           ) : (
                             <span className="bg-stone-100 text-stone-700 px-2 py-0.5 rounded text-[10px] whitespace-nowrap">
@@ -1141,7 +1141,7 @@ export default function AdminProductsPage() {
                         onChange={(e) => setFormData({ ...formData, hasLedBacklight: e.target.checked })}
                         className="rounded text-amber-700"
                       />
-                      <span className="font-semibold text-stone-800">Warm 3000K LED Backlight</span>
+                      <span className="font-semibold text-stone-800">Warm warm LED Backlight</span>
                     </label>
 
                     <label className="flex items-center gap-2 cursor-pointer">

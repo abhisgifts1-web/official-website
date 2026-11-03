@@ -5,7 +5,7 @@ import { INITIAL_SETTINGS } from '@/lib/data/settings';
 
 export const metadata: Metadata = {
   title: 'Shipping Policy — Abhi Gifts',
-  description: 'Pan-India shipping rates, delivery timelines, safe packaging standards, and tracking procedures.',
+  description: 'Shipping rates, delivery timelines, safe packaging standards, and tracking procedures.',
 };
 
 export default function ShippingPolicyPage() {
@@ -14,12 +14,12 @@ export default function ShippingPolicyPage() {
       <div className="max-w-4xl mx-auto space-y-8">
         <div className="border-b border-stone-200 pb-4">
         <h1 className="font-serif font-bold text-3xl sm:text-4xl text-stone-900">Shipping Policy</h1>
-        <p className="text-xs text-stone-500 mt-1">Last Updated: October 2026 • Effective for all pan-India deliveries</p>
+        <p className="text-xs text-stone-500 mt-1">Last Updated: October 2026 • Effective for all deliveries</p>
       </div>
 
       <div className="prose prose-stone max-w-none text-xs sm:text-sm text-stone-700 leading-relaxed space-y-6">
         <section className="space-y-2">
-          <h2 className="font-serif font-bold text-xl text-stone-900">1. Pan-India Delivery Coverage</h2>
+          <h2 className="font-serif font-bold text-xl text-stone-900">1. Delivery Coverage</h2>
           <p>
             At Abhi Gifts, we ship directly from our artisan studio in Tirupati, Andhra Pradesh to over 19,000+ postal pincodes across India via premium courier partners including BlueDart Express, Delhivery, DTDC, and SafeXpress.
           </p>
@@ -28,7 +28,7 @@ export default function ShippingPolicyPage() {
         <section className="space-y-2">
           <h2 className="font-serif font-bold text-xl text-stone-900">2. Shipping Charges</h2>
           <p>
-            A flat standard insured delivery fee of ₹{INITIAL_SETTINGS.defaultShippingFee} is applied to all orders at checkout for safe Pan-India transit.
+            A flat standard delivery fee of ₹{INITIAL_SETTINGS.defaultShippingFee} is applied to all orders at checkout for safe packaging and transit.
           </p>
         </section>
 
@@ -42,12 +42,12 @@ export default function ShippingPolicyPage() {
         </section>
 
         <section className="space-y-2">
-          <h2 className="font-serif font-bold text-xl text-stone-900">4. 100% Transit Safe Packaging Guarantee</h2>
+          <h2 className="font-serif font-bold text-xl text-stone-900">4. Multi-Layer Packaging Standards</h2>
           <p>
             We take pride in our zero-damage packaging protocol. Each artwork panel is wrapped in scratch-proof butter paper, encapsulated in shock-absorbing corner air guards, and enclosed in a rigid 5-layer honeycomb wooden reinforcement crate.
           </p>
           <p>
-            In the rare event that an artwork is damaged in transit, please share an unboxing photo or video on WhatsApp within 48 hours of receipt. We will dispatch an immediate free replacement without requiring you to return the damaged item.
+            In the rare event that an artwork is damaged in transit, please share an unboxing photo or video on WhatsApp within 48 hours of receipt. Our support team will promptly assist you with a verified replacement or resolution.
           </p>
         </section>
 

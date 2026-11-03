@@ -295,7 +295,7 @@ export default function CategoryExplorer({ initialCategories }: CategoryExplorer
               <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b-2 border-[#EAB308]/50 gap-2">
                 <div>
                   <span className="text-[10px] uppercase font-bold tracking-widest text-[#EAB308] bg-[#121212] px-2.5 py-0.5 rounded-full inline-flex items-center gap-1 shadow-xs">
-                    <Flame className="w-3 h-3 text-amber-500 animate-pulse" /> 3000K Illuminated Series
+                    <Flame className="w-3 h-3 text-amber-500 animate-pulse" /> warm Illuminated Series
                   </span>
                   <h2 className="font-serif font-bold text-2xl sm:text-3xl text-[#FFFFFF] mt-1">
                     ✨ LED Backlit Wall Art Collections ({backlightCount})
@@ -333,7 +333,7 @@ export default function CategoryExplorer({ initialCategories }: CategoryExplorer
                     🖼️ Normal Crystal Acrylic Collections ({normalCount})
                   </h2>
                   <p className="text-xs sm:text-sm text-[#D1D5DB] mt-0.5">
-                    Non-lit premium acrylic photo frames with 24K pure gold foil embellishments and diamond-polished bevel edges. No wiring required.
+                    Non-lit premium acrylic photo frames with pure gold foil embellishments and precision-polished bevel edges. No wiring required.
                   </p>
                 </div>
                 <Link

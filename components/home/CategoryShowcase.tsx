@@ -21,8 +21,8 @@ export const EDITORIAL_CATEGORIES: EditorialCategory[] = [
   {
     id: 'led-backlit-art',
     name: 'LED Backlit Art',
-    subtitle: 'Warm 3000K golden halo backlights creating an authentic temple sanctum aura in your living space.',
-    badge: '3000K Warm Glow',
+    subtitle: 'Warm golden halo backlights creating an authentic temple sanctum aura in your living space.',
+    badge: 'Warm Glow',
     href: '/category/led-backlit-wall-art',
     image: '/images/wall-decor/products/led/ayodhya-ram-mandir-sanctum.jpg',
     fallbackImage: '/images/divine/ram-mandir.jpg',
@@ -32,8 +32,8 @@ export const EDITORIAL_CATEGORIES: EditorialCategory[] = [
   {
     id: 'normal-acrylic-art',
     name: 'Normal Acrylic Art',
-    subtitle: 'Shatterproof 4mm crystal cast sheets with 24K gold foil embellishments and diamond beveled edges.',
-    badge: '24K Gold Embellished',
+    subtitle: 'Shatterproof crystal cast sheets with golden foil embellishments and smooth beveled edges.',
+    badge: 'Gold Embellished',
     href: '/shop?lighting=none',
     image: '/images/wall-decor/products/abstract/golden-bodhi-ginkgo-art.jpg',
     fallbackImage: '/images/divine/radha-krishna.jpg',
@@ -157,7 +157,7 @@ export default function CategoryShowcase() {
             EXPLORE THE WORLD OF DIVINE ART
           </h2>
           <p className="text-xs sm:text-sm text-[#D1D5DB] mt-1.5 max-w-2xl font-sans leading-relaxed">
-            Find the perfect expression of faith, devotion and timeless beauty. Handcrafted with museum-grade crystal acrylic and 24K gold foil embellishments.
+            Find the perfect expression of faith, devotion and timeless beauty. Handcrafted with museum-grade crystal acrylic and golden foil embellishments.
           </p>
         </div>
 
@@ -177,7 +177,7 @@ export default function CategoryShowcase() {
             <Link
               key={cat.id}
               href={cat.href}
-              className={`group relative rounded-3xl overflow-hidden bg-[#181818] border border-[#2D2D2D] hover:border-[#EAB308] shadow-sm hover:shadow-[0_16px_36px_rgba(81,27,42,0.22)] transition-all duration-500 flex flex-col justify-end min-h-[300px] sm:min-h-[340px] lg:min-h-[380px] p-5 sm:p-6 lg:p-7 ${cat.spanClass}`}
+              className={`group relative rounded-3xl overflow-hidden bg-[#181818] border border-[#2D2D2D] hover:border-[#EAB308] shadow-sm hover:shadow-[0_16px_36px_rgba(0,0,0,0.6)] transition-all duration-500 flex flex-col justify-end min-h-[300px] sm:min-h-[340px] lg:min-h-[380px] p-5 sm:p-6 lg:p-7 ${cat.spanClass}`}
             >
               {/* Background Artwork Image with Hover Zoom */}
               <img

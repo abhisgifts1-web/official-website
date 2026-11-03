@@ -11,15 +11,15 @@ export interface FaqItem {
 export const HOMEPAGE_FAQS: FaqItem[] = [
   {
     q: 'What material is used in Abhi Gifts art pieces?',
-    a: 'We use 4mm imported, museum-grade cast acrylic with diamond-polished CNC beveled edges. Unlike cheap glass that poses heavy breakage hazards, our crystal acrylic is shatterproof, UV-resistant, and reproduces sacred colors with immense optical depth that will never fade for 25+ years.',
+    a: 'We use premium imported cast acrylic with precision CNC beveled edges. Unlike ordinary glass that poses breakage hazards, our acrylic is shatterproof, UV-resistant, and reproduces vibrant colors with immense optical depth.',
   },
   {
-    q: 'How does the 3000K LED backlighting work? What is included?',
-    a: 'Our LED backlit art arrives fully assembled with energy-efficient 3000K warm golden Epistar SMD LED diodes pre-fitted behind the acrylic panel. Every piece includes a 12V 2A BIS-certified wall adapter with a 2.5-meter discreet transparent power cable and an inline ON/OFF switch.',
+    q: 'How does the warm LED backlighting work? What is included?',
+    a: 'Our LED backlit art arrives fully assembled with energy-efficient warm golden SMD LED diodes pre-fitted behind the acrylic panel. Every piece includes a 12V 2A BIS-certified wall adapter with a 2.5-meter discreet transparent power cable and an inline ON/OFF switch.',
   },
   {
     q: 'How safe is shipping? What if it gets damaged in transit?',
-    a: 'We back every single order with our 100% Transit Safe Guarantee. Artworks are packaged with scratch-resistant film, corner air-cushion guards, and a rigid 5-layer honeycomb wooden reinforcement crate. If any item arrives damaged, simply WhatsApp us unboxing photos within 48 hours for a free instant replacement.',
+    a: 'Artworks are packaged with scratch-resistant film, corner protective guards, and a rigid multi-layer reinforcement box. If you ever have any concern upon delivery, simply contact our support team on WhatsApp for prompt assistance.',
   },
   {
     q: 'How does custom photo frame ordering and proof approval work?',
@@ -27,7 +27,7 @@ export const HOMEPAGE_FAQS: FaqItem[] = [
   },
   {
     q: 'How does ordering and delivery work?',
-    a: 'We offer hassle-free direct WhatsApp ordering as well as online checkout. You can choose your artwork, dimensions, and click Order to connect with our artisan team with your details pre-filled. We provide express Pan-India Delivery across 19,000+ pincodes via BlueDart, Delhivery, and DTDC.',
+    a: 'We offer hassle-free direct WhatsApp ordering as well as online checkout. You can choose your artwork, dimensions, and click Order to connect with our artisan team with your details pre-filled. We provide express delivery with reliable courier tracking across India.',
   },
 ];
 
@@ -45,7 +45,7 @@ export default function FaqSection() {
           FREQUENTLY ASKED QUESTIONS
         </h2>
         <p className="text-xs sm:text-sm text-[#D1D5DB] mt-1 font-sans">
-          Everything you need to know about our sacred craftsmanship, LED power safety, and pan-India delivery.
+          Everything you need to know about our sacred craftsmanship, LED power safety, and reliable delivery.
         </p>
       </div>
 

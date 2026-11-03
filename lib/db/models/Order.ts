@@ -50,7 +50,7 @@ const OrderSchema = new Schema(
     couponCode: String,
     shippingFee: { type: Number, default: 0 },
     totalAmount: { type: Number, required: true },
-    paymentMethod: { type: String, enum: ['WhatsApp', 'Razorpay', 'COD'], required: true },
+    paymentMethod: { type: String, enum: ['WhatsApp', 'Razorpay', 'Online'], required: true },
     paymentStatus: { type: String, enum: ['Pending', 'Paid', 'Failed', 'Refunded'], default: 'Pending' },
     razorpayPaymentId: String,
     razorpayOrderId: String,

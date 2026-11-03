@@ -7,7 +7,7 @@ import { getBreadcrumbSchema } from '@/lib/seo/schema';
 export const metadata: Metadata = {
   title: 'How to Choose Customized Photo Frames: Sizing, Thickness & Finish Guide',
   description:
-    'Step-by-step expert guide to choosing customized photo frames. Learn about photo resolutions, aspect ratios, thickness (4mm vs 5mm), floating standoff mounts, and 24K gold foil personalization.',
+    'Step-by-step expert guide to choosing customized photo frames. Learn about photo resolutions, aspect ratios, thickness (premium vs 5mm), floating standoff mounts, and gold foil personalization.',
   alternates: {
     canonical: 'https://abhigifts.com/guides/how-to-choose-customized-photo-frames',
   },
@@ -99,10 +99,10 @@ export default function HowToChooseCustomizedPhotoFramesGuide() {
 
         <section className="space-y-3">
           <h2 className="font-serif font-bold text-xl sm:text-2xl text-[#FFFFFF]">
-            3. Frame Thickness: Why 4mm is the Gold Standard
+            3. Frame Thickness: Why premium is the Gold Standard
           </h2>
           <p>
-            Standard retail shops often cut corners with 2mm or 3mm acrylic. At 3mm, large frames sag over time and create subtle lens distortion. Abhi&apos;s Gifts standardizes on <strong>4mm and 5mm museum-grade cast acrylic</strong>, providing rigid structural flatness, substantial weight, and deep refractive light beveling.
+            Standard retail shops often cut corners with 2mm or 3mm acrylic. At 3mm, large frames sag over time and create subtle lens distortion. Abhi&apos;s Gifts standardizes on <strong>premium and 5mm museum-grade cast acrylic</strong>, providing rigid structural flatness, substantial weight, and deep refractive light beveling.
           </p>
         </section>
 
@@ -115,7 +115,7 @@ export default function HowToChooseCustomizedPhotoFramesGuide() {
           </p>
           <ul className="list-disc pl-5 space-y-1.5">
             <li><strong>Wedding Vows:</strong> Couple names, wedding date, and customized vows.</li>
-            <li><strong>Family Heirlooms:</strong> Family surname crest with 24K real gold foil script.</li>
+            <li><strong>Family Heirlooms:</strong> Family surname crest with gold real gold foil script.</li>
             <li><strong>Pooja Art:</strong> Sacred Sanskrit mantras (e.g., Gayatri Mantra, Mahamrityunjaya, Hanuman Chalisa).</li>
           </ul>
         </section>

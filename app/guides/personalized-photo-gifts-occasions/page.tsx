@@ -7,7 +7,7 @@ import { getBreadcrumbSchema } from '@/lib/seo/schema';
 export const metadata: Metadata = {
   title: "Personalized Photo Gifts for Special Occasions in Hyderabad | Abhi's Gifts",
   description:
-    'Inspiring personalized gift ideas for weddings, anniversaries, housewarmings, and birthdays in Hyderabad & Dilsukhnagar. Custom acrylic frames, LED keepsakes & 24K gold foil plaques.',
+    'Inspiring personalized gift ideas for weddings, anniversaries, housewarmings, and birthdays in Hyderabad & Dilsukhnagar. Custom acrylic frames, LED keepsakes & gold foil plaques.',
   alternates: {
     canonical: 'https://abhigifts.com/guides/personalized-photo-gifts-occasions',
   },
@@ -70,7 +70,7 @@ export default function PersonalizedPhotoGiftsOccasionsGuide() {
             1. Wedding &amp; Marriage Gifts: Custom Wedding Vows Plaque
           </h2>
           <p>
-            When attending a close friend or family wedding in Hyderabad, cash envelopes or cutlery sets are quickly forgotten. A customized acrylic plaque featuring the couple&apos;s pre-wedding photo with their wedding date, couple names, and heartfelt vows rendered in 24K gold foil becomes an instant family heirloom.
+            When attending a close friend or family wedding in Hyderabad, cash envelopes or cutlery sets are quickly forgotten. A customized acrylic plaque featuring the couple&apos;s pre-wedding photo with their wedding date, couple names, and heartfelt vows rendered in gold foil becomes an instant family heirloom.
           </p>
         </section>
 

@@ -50,7 +50,7 @@ const ARTWORKS: DivineArtwork[] = [
     subtitle: 'Vighnaharta • Siddhi Vinayaka',
     editorialTitle: 'Lord Ganesha Vighnaharta Divine LED Wall Art',
     description:
-      'Consecrated with auspicious vibrations, featuring Lord Ganesha adorned in sacred sindoor red, turmeric gold, and deep saffron pigments. Finished with diamond-cut acrylic clarity and a soothing 3000K golden halo.',
+      'Consecrated with auspicious vibrations, featuring Lord Ganesha adorned in sacred sindoor red, turmeric gold, and deep saffron pigments. Finished with precision-cut acrylic clarity and a soothing warm golden halo.',
     heroImage: '/images/atelier/hero-ganesha-legacy.jpg',
     hasLed: true,
     basePrice: 3299,
@@ -65,7 +65,7 @@ const ARTWORKS: DivineArtwork[] = [
     subtitle: 'Maha Lakshmi • Ashta Lakshmi Prosperity',
     editorialTitle: 'Goddess Mahalakshmi Prosperity Divine LED Backlit Acrylic Art',
     description:
-      'Consecrate your home with the benevolent grace of Goddess Lakshmi seated on a consecrated pink lotus. Detailed with 24K pure gold leaf embellishments on the sacred Kalash, halos, and temple filigree with radiant 3000K warm backlighting.',
+      'Consecrate your home with the benevolent grace of Goddess Lakshmi seated on a consecrated pink lotus. Detailed with pure gold leaf embellishments on the sacred Kalash, halos, and temple filigree with radiant warm warm backlighting.',
     heroImage: '/images/atelier/hero-lakshmi-legacy.jpg',
     hasLed: true,
     basePrice: 3499,
@@ -126,12 +126,12 @@ const LAYERS_DATA: LayerItem[] = [
     id: 'acrylic',
     number: '01',
     numBadge: 1,
-    title: '4mm Diamond Cast Acrylic Shield',
+    title: 'crystal Diamond Cast Acrylic Shield',
     subtitle: 'Transparent front panel & optical protection',
-    oneLiner: 'Zero-glass hazard with CNC 45° diamond-polished beveled edges.',
+    oneLiner: 'Zero-glass hazard with CNC 45° precision-polished beveled edges.',
     description:
-      'Engineered from 4mm virgin optical-grade cast acrylic with 99.2% crystalline optical purity. Diamond-cut CNC 45-degree beveled edges capture ambient room light like a gemstone while shielding sacred pigments from moisture and dust.',
-    material: '4mm Virgin Optical-Grade Cast Acrylic',
+      'Engineered from crystal virgin optical-grade cast acrylic with 99.2% crystalline optical purity. precision-cut CNC 45-degree beveled edges capture ambient room light like a gemstone while shielding sacred pigments from moisture and dust.',
+    material: 'crystal Virgin Optical-Grade Cast Acrylic',
     image: '/images/atelier/layer-1-acrylic-shield.jpg',
     hotspot: { top: '16%', left: '18%' },
     explodedOffset: { x: -60, y: -30, z: 80 },
@@ -144,7 +144,7 @@ const LAYERS_DATA: LayerItem[] = [
     subtitle: 'High-definition sacred print on archival medium',
     oneLiner: 'Direct flatbed UV cured micro-piezo print that never fades.',
     description:
-      'Consecrated imagery of Lord Ganesha rendered with Japanese micro-piezo technology at 1200 DPI. UV-cured nanometer pigments lock in rich sindoor reds, saffron turmeric tones, and intricate divine expressions with 25+ years of color stability.',
+      'Consecrated imagery of Lord Ganesha rendered with Japanese micro-piezo technology at 1200 DPI. UV-cured nanometer pigments lock in rich sindoor reds, saffron turmeric tones, and intricate divine expressions with long-lasting vibrancy of color stability.',
     material: '1200 DPI Direct Flatbed UV-Cured Pigments',
     image: '/images/atelier/layer-2-devotional-art.jpg',
     hotspot: { top: '48%', left: '50%' },
@@ -154,12 +154,12 @@ const LAYERS_DATA: LayerItem[] = [
     id: 'gold',
     number: '03',
     numBadge: 3,
-    title: '24K Pure Gold Leaf Embellishment',
+    title: 'pure gold leaf Embellishment',
     subtitle: 'Metallic gold ornamental detailing on halos & crown',
-    oneLiner: 'Hand-applied 24K pure gold leaf filigree on crown, halos & mantras.',
+    oneLiner: 'Hand-applied pure gold leaf filigree on crown, halos & mantras.',
     description:
-      'Master guild artisans hand-lay authentic 24K pure gold leaf along Lord Ganesha’s sacred Mukut crown, radiant aureole halo, and traditional temple arch borders, creating a reverent golden sheen that glimmers under ambient sanctum lighting.',
-    material: 'Authentic 24K Pure Gold Leaf Foil',
+      'Master guild artisans hand-lay authentic pure gold leaf along Lord Ganesha’s sacred Mukut crown, radiant aureole halo, and traditional temple arch borders, creating a reverent golden sheen that glimmers under ambient sanctum lighting.',
+    material: 'Authentic pure gold leaf Foil',
     image: '/images/atelier/layer-3-gold-embellishment.jpg',
     hotspot: { top: '30%', left: '72%' },
     explodedOffset: { x: 0, y: 0, z: 0 },
@@ -168,12 +168,12 @@ const LAYERS_DATA: LayerItem[] = [
     id: 'lighting',
     number: '04',
     numBadge: 4,
-    title: 'Calibrated 3000K Epistar LED Light-Guide',
-    subtitle: 'Calibrated 3000K warm ambient halo glow',
+    title: 'Calibrated warm Epistar LED Light-Guide',
+    subtitle: 'Calibrated warm warm ambient halo glow',
     oneLiner: 'Even perimeter dispersion emulating the sacred warmth of brass temple diyas.',
     description:
-      'Concealed low-voltage 3000K Epistar LED perimeter diodes paired with an optical light-guide plate cast a tranquil, glare-free golden aura across walls—recreating the sacred meditative glow of sanctum oil lamps.',
-    material: 'Low-Voltage Calibrated 3000K Epistar LED Array',
+      'Concealed low-voltage warm Epistar LED perimeter diodes paired with an optical light-guide plate cast a tranquil, glare-free golden aura across walls—recreating the sacred meditative glow of sanctum oil lamps.',
+    material: 'Low-Voltage Calibrated warm Epistar LED Array',
     image: '/images/atelier/layer-4-led-lightguide.jpg',
     hotspot: { top: '70%', left: '88%' },
     explodedOffset: { x: 30, y: 15, z: -40 },
@@ -215,10 +215,10 @@ const CRAFTSMANSHIP_STAGES: CraftsmanshipStage[] = [
     shortDesc:
       'Carefully prepared acrylic and selected materials create the foundation for a refined finish.',
     fullStory:
-      'We select 4mm high-density imported virgin cast acrylic, inspected under polarized lighting to guarantee 99.2% crystalline optical purity. Each sheet undergoes diamond-cut CNC 45-degree beveling that polishes the perimeter to gemstone clarity, ensuring scratch resistance and zero discoloration over 25+ years.',
+      'We select crystal high-density imported virgin cast acrylic, inspected under polarized lighting to guarantee 99.2% crystalline optical purity. Each sheet undergoes precision-cut CNC 45-degree beveling that polishes the perimeter to gemstone clarity, ensuring scratch resistance and zero discoloration over long-lasting vibrancy.',
     image: '/images/atelier/stage-1-clarity.jpg',
     imageHd: '/images/atelier/stage-1-clarity-hd.jpg',
-    specs: ['4mm Virgin Cast Acrylic', '99.2% Optical Clarity', 'Diamond-Cut 45° CNC Edges'],
+    specs: ['crystal Virgin Cast Acrylic', '99.2% Optical Clarity', 'precision-cut 45° CNC Edges'],
   },
   {
     id: 2,
@@ -231,7 +231,7 @@ const CRAFTSMANSHIP_STAGES: CraftsmanshipStage[] = [
       'Lord Ganesha’s auspicious iconography is rendered with high-precision Japanese flatbed micro-piezo technology at 1200 DPI. Nanometer-fine pigment droplets cure directly into the cast acrylic, producing deep sindoor reds, saffron turmeric tones, and gold ornaments that radiate sacred serenity from every perspective.',
     image: '/images/atelier/stage-2-artwork.jpg',
     imageHd: '/images/atelier/stage-2-artwork-hd.jpg',
-    specs: ['1200 DPI Micro-Piezo Print', 'Archival UV-Cured Pigments', '25+ Years Color Lock'],
+    specs: ['1200 DPI Micro-Piezo Print', 'Archival UV-Cured Pigments', 'long-lasting vibrancy Color Lock'],
   },
   {
     id: 3,
@@ -241,10 +241,10 @@ const CRAFTSMANSHIP_STAGES: CraftsmanshipStage[] = [
     shortDesc:
       'Decorative elements and carefully aligned components come together in a considered assembly.',
     fullStory:
-      'Inside our anti-static Hyderabad cleanroom, master guild artisans hand-apply genuine 24K pure gold leaf embellishments to the sacred Mukut crown, divine halos, and Vedic mantras. Low-voltage 3000K Epistar warm LED perimeter channels are calibrated and sealed with moisture-resistant composite armor.',
+      'Inside our anti-static Hyderabad cleanroom, master guild artisans hand-apply genuine pure gold leaf embellishments to the sacred Mukut crown, divine halos, and Vedic mantras. Low-voltage warm Epistar warm LED perimeter channels are calibrated and sealed with moisture-resistant composite armor.',
     image: '/images/atelier/stage-3-craft.jpg',
     imageHd: '/images/atelier/stage-3-craft-hd.jpg',
-    specs: ['24K Pure Gold Leaf Embellishment', 'Calibrated 3000K Epistar LEDs', 'Hermetic Cleanroom Assembly'],
+    specs: ['pure gold leaf Embellishment', 'Calibrated warm Epistar LEDs', 'Hermetic Cleanroom Assembly'],
   },
   {
     id: 4,
@@ -254,7 +254,7 @@ const CRAFTSMANSHIP_STAGES: CraftsmanshipStage[] = [
     shortDesc:
       'The completed frame becomes a beautiful centrepiece for a home or pooja room.',
     fullStory:
-      'Fitted with stainless steel standoffs and an integrated French cleat lock, the finished consecrated Lord Ganesha artwork floats effortlessly 1 inch off the wall. As evening brass diyas glow, the ambient 3000K backlight illuminates sacred walls with holy temple warmth.',
+      'Fitted with stainless steel standoffs and an integrated French cleat lock, the finished consecrated Lord Ganesha artwork floats effortlessly 1 inch off the wall. As evening brass diyas glow, the ambient warm backlight illuminates sacred walls with holy temple warmth.',
     image: '/images/atelier/stage-4-masterpiece.jpg',
     imageHd: '/images/atelier/stage-4-masterpiece-hd.jpg',
     specs: ['1-Inch Floating French Cleat', 'Sanctum & Pooja Room Ready', 'Consecrated Temple Aesthetics'],
@@ -473,10 +473,10 @@ export default function SacredArtAtelier() {
                 <div className="absolute bottom-3 left-3 w-3 h-3 rounded-full bg-gradient-to-br from-[#F0D79B] via-[#C99B45] to-[#8C6737] shadow border border-amber-950/60 pointer-events-none animate-stud-twinkle-3" />
                 <div className="absolute bottom-3 right-3 w-3 h-3 rounded-full bg-gradient-to-br from-[#F0D79B] via-[#C99B45] to-[#8C6737] shadow border border-amber-950/60 pointer-events-none animate-stud-twinkle-4" />
 
-                {/* Top-Right Badge: 3000K LED Aura */}
+                {/* Top-Right Badge: warm LED Aura */}
                 <div className="absolute top-3 right-3 sm:top-4 sm:right-4 bg-black/80 backdrop-blur-md px-3 py-1 rounded-full border border-[#EAB308]/50 text-[10px] font-mono text-[#F0D79B] flex items-center gap-1.5 shadow-md">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#FACC15] animate-pulse" />
-                  <span>3000K Backlit Aura</span>
+                  <span>warm Backlit Aura</span>
                 </div>
               </div>
 
@@ -609,7 +609,7 @@ export default function SacredArtAtelier() {
                 {viewMode === 'complete' ? (
                   <div className="relative w-full h-full flex items-center justify-center">
                     
-                    {/* Frame Container with 3000K Warm Ambient Corona Glow */}
+                    {/* Frame Container with warm Warm Ambient Corona Glow */}
                     <div className="relative w-full h-full max-h-[380px] sm:max-h-[420px] rounded-2xl overflow-hidden border-[10px] sm:border-[12px] border-[#EAB308] shadow-[0_20px_60px_rgba(0,0,0,0.95)] ring-2 ring-[#F0D79B]/50 bg-black flex items-center justify-center">
                       
                       {/* Assembled Lord Ganesha Photo Frame Image */}
@@ -1026,7 +1026,7 @@ export default function SacredArtAtelier() {
                   <span className="font-serif italic text-[#F0D79B] animate-gold-text-shimmer">Timeless Beauty.</span>
                 </h3>
                 <p className="text-sm sm:text-base font-sans text-[#C9B9AA] leading-relaxed">
-                  Explore the craftsmanship behind a frame created to make your most meaningful moments stand out. Handcrafted in our Hyderabad atelier with 4mm diamond-cut cast acrylic, archival micro-pigments, 24K pure gold leaf accents, and calibrated 3000K warm LED illumination.
+                  Explore the craftsmanship behind a frame created to make your most meaningful moments stand out. Handcrafted in our Hyderabad atelier with premium cast acrylic, archival micro-pigments, pure gold leaf accents, and warm LED illumination.
                 </p>
 
                 {/* Craftsmanship Pillars */}
@@ -1036,12 +1036,12 @@ export default function SacredArtAtelier() {
                     <span className="text-[11px] text-[#C9B9AA]">Optical Clarity</span>
                   </div>
                   <div className="p-3.5 rounded-xl bg-[#181818] border border-[#EAB308]/25 hover:border-[#F0D79B]/50 transition-all text-left shadow-md hover:-translate-y-1">
-                    <span className="block text-sm font-mono font-bold text-[#F0D79B]">24K Gold</span>
+                    <span className="block text-sm font-mono font-bold text-[#F0D79B]">Gold Leaf</span>
                     <span className="text-[11px] text-[#C9B9AA]">Pure Leaf Foil</span>
                   </div>
                   <div className="p-3.5 rounded-xl bg-[#181818] border border-[#EAB308]/25 hover:border-[#F0D79B]/50 transition-all text-left shadow-md hover:-translate-y-1">
-                    <span className="block text-sm font-mono font-bold text-[#F0D79B]">25-Year</span>
-                    <span className="text-[11px] text-[#C9B9AA]">Fade Guarantee</span>
+                    <span className="block text-sm font-mono font-bold text-[#F0D79B]">Long-Lasting</span>
+                    <span className="text-[11px] text-[#C9B9AA]">UV Protected</span>
                   </div>
                 </div>
 
@@ -1060,7 +1060,7 @@ export default function SacredArtAtelier() {
 
               {/* Right Column: Sharp Finished Devotional Frame in Luxury Indian Sanctum Altar */}
               <div className="lg:col-span-6 flex items-center justify-center relative">
-                {/* Ambient Breathing 3000K Halo Aura */}
+                {/* Ambient Breathing warm Halo Aura */}
                 <div className="absolute -inset-4 sm:-inset-6 bg-gradient-to-r from-[#C99B45]/25 via-[#F0D79B]/45 to-[#C99B45]/25 rounded-[32px] blur-2xl pointer-events-none animate-aarti-corona" />
 
                 <div className="relative w-full aspect-[3/2] rounded-3xl overflow-hidden border-2 border-[#EAB308]/70 shadow-[0_25px_90px_rgba(0,0,0,0.95)] ring-1 ring-[#F0D79B]/40 bg-black group">
@@ -1085,14 +1085,14 @@ export default function SacredArtAtelier() {
                     </span>
                     <span className="text-sm">🪔</span>
                     <span className="font-semibold tracking-wide text-[#FFFFFF]">
-                      Lord Ganesha Vighnaharta • 3000K Sanctum Radiance
+                      Lord Ganesha Vighnaharta • Sanctum Radiance
                     </span>
                   </div>
 
-                  {/* Top-Right Diamond Cut Indicator Pill */}
+                  {/* Top-Right precision-cut Indicator Pill */}
                   <div className="absolute top-3.5 right-3.5 sm:top-5 sm:right-5 bg-black/75 backdrop-blur-md px-3 py-1 rounded-full border border-[#EAB308]/40 text-[10px] font-mono text-[#F0D79B] flex items-center gap-1.5 opacity-90 group-hover:opacity-100 transition-opacity">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#FACC15] animate-pulse" />
-                    <span>4mm Diamond-Beveled Cast Acrylic</span>
+                    <span>Precision-Beveled Cast Acrylic</span>
                   </div>
                 </div>
               </div>

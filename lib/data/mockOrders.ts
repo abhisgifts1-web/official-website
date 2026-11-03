@@ -79,7 +79,7 @@ export const INITIAL_ORDERS: Order[] = [
     discountAmount: 0,
     shippingFee: 0,
     totalAmount: 2999,
-    paymentMethod: 'COD',
+    paymentMethod: 'Online',
     paymentStatus: 'Pending',
     orderStatus: 'Framing & Production',
     notes: 'Call before delivery.',

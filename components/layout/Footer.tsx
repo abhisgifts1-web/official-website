@@ -44,12 +44,8 @@ export default function Footer() {
               <ShieldCheck className="w-4 h-4 sm:w-5 sm:h-5" />
             </div>
             <div className="min-w-0">
-              <h4 className="text-[11px] sm:text-xs md:text-sm font-semibold text-[#FFFFFF] leading-snug">
-                Damage-Free Transit
-              </h4>
-              <p className="text-[10px] sm:text-[11px] text-[#E5E7EB]/70 leading-tight">
-                100% Free replacement
-              </p>
+              <h4 className="text-[11px] sm:text-xs md:text-sm font-semibold text-[#FFFFFF] leading-snug">Secure Packaging</h4>
+              <p className="text-[10px] sm:text-[11px] text-[#E5E7EB]/70 leading-tight">Carefully Boxed & Shipped</p>
             </div>
           </div>
 
@@ -59,12 +55,8 @@ export default function Footer() {
               <Sparkles className="w-4 h-4 sm:w-5 sm:h-5" />
             </div>
             <div className="min-w-0">
-              <h4 className="text-[11px] sm:text-xs md:text-sm font-semibold text-[#FFFFFF] leading-snug">
-                4mm Crystal Acrylic
-              </h4>
-              <p className="text-[10px] sm:text-[11px] text-[#E5E7EB]/70 leading-tight">
-                Diamond CNC beveled
-              </p>
+              <h4 className="text-[11px] sm:text-xs md:text-sm font-semibold text-[#FFFFFF] leading-snug">Premium Acrylic</h4>
+              <p className="text-[10px] sm:text-[11px] text-[#E5E7EB]/70 leading-tight">Precision Handcrafted</p>
             </div>
           </div>
 
@@ -74,12 +66,8 @@ export default function Footer() {
               <Truck className="w-4 h-4 sm:w-5 sm:h-5" />
             </div>
             <div className="min-w-0">
-              <h4 className="text-[11px] sm:text-xs md:text-sm font-semibold text-[#FFFFFF] leading-snug">
-                Pan-India Delivery
-              </h4>
-              <p className="text-[10px] sm:text-[11px] text-[#E5E7EB]/70 leading-tight">
-                Safe Pan-India Express
-              </p>
+              <h4 className="text-[11px] sm:text-xs md:text-sm font-semibold text-[#FFFFFF] leading-snug">Express Delivery</h4>
+              <p className="text-[10px] sm:text-[11px] text-[#E5E7EB]/70 leading-tight">Reliable Courier Tracking</p>
             </div>
           </div>
 
@@ -117,7 +105,7 @@ export default function Footer() {
                   />
                 </Link>
                 <p className="text-xs sm:text-[13px] text-[#E5E7EB]/80 leading-relaxed max-w-sm">
-                  Handcrafted personalized acrylic photo frames, 3000K LED backlit memories, and luxury wall art. Made with care in Hyderabad, delivered across India.
+                  Handcrafted personalized acrylic photo frames, warm LED illuminated memories, and luxury wall art. Made with care in Hyderabad.
                 </p>
               </div>
 

@@ -57,12 +57,12 @@ export const metadata: Metadata = {
 const SPECIALTIES = [
   {
     title: 'Premium Acrylic Photo Frames',
-    description: 'High-density 4mm cast acrylic sheets with CNC diamond-beveled edges for crystal clarity.',
+    description: 'High-density cast acrylic sheets with precision beveled edges for crystal clarity.',
     icon: Gem,
   },
   {
     title: 'LED Acrylic Photo Frames',
-    description: 'Concealed warm 3000K illumination casting a soothing halo around your most treasured memories.',
+    description: 'Concealed warm LED illumination casting a soothing halo around your most treasured memories.',
     icon: Lightbulb,
   },
   {
@@ -112,7 +112,7 @@ const SPECIALTIES = [
   },
   {
     title: 'God & Devotional Photo Frames',
-    description: 'Consecrated deities rendered with 24K gold foil detailing and soothing sanctum lighting.',
+    description: 'Consecrated deities rendered with golden foil detailing and soothing sanctum lighting.',
     icon: Flame,
   },
 ];
@@ -334,7 +334,7 @@ export default function AboutPage() {
                       #{String(i + 1).padStart(2, '0')}
                     </span>
                   </div>
-                  <h4 className="font-serif font-bold text-base text-[#FFFFFF] group-hover:text-[#8B2332] transition-colors">
+                  <h4 className="font-serif font-bold text-base text-[#FFFFFF] group-hover:text-[#EAB308] transition-colors">
                     {spec.title}
                   </h4>
                   <p className="text-xs text-[#D1D5DB] leading-relaxed">
@@ -453,7 +453,7 @@ export default function AboutPage() {
                 className="p-6 rounded-2xl bg-white border border-[#2D2D2D] hover:border-[#EAB308] shadow-xs hover:shadow-lg transition-all hover:-translate-y-1 space-y-3"
               >
                 <div className="w-10 h-10 rounded-xl bg-[#121212] text-[#FFFFFF] flex items-center justify-center border border-[#2D2D2D]">
-                  <Icon className="w-5 h-5 text-[#8B2332]" />
+                  <Icon className="w-5 h-5 text-[#EAB308]" />
                 </div>
                 <h3 className="font-serif font-bold text-lg text-[#FFFFFF]">
                   {item.title}

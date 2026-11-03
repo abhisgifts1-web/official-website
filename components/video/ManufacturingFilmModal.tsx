@@ -42,16 +42,16 @@ const FILM_SCENES: SceneData[] = [
     timeRange: '0:00 – 0:05',
     badge: 'SCENE 01: RAW MATERIALS',
     title: 'Raw Materials & Texture Inspection',
-    subtitle: 'Virgin optical-grade cast acrylic, micro-pigment inks & 24K gold accents',
+    subtitle: 'Virgin optical-grade cast acrylic, micro-pigment inks & gold foil accents',
     voiceover:
-      'In our artisanal workshop, creation begins with uncompromising raw materials: 4mm high-density imported virgin cast acrylic with 99.2% optical purity, high-resolution Lord Ganesha artwork, 24K gold foil leaf detailing, and calibrated 3000K Epistar LED light components.',
+      'In our artisanal workshop, creation begins with uncompromising raw materials: cast acrylic high-density imported virgin cast acrylic with 99.2% optical purity, high-resolution Lord Ganesha artwork, gold foil foil leaf detailing, and calibrated warm LED LED light components.',
     specs: [
       { label: 'Acrylic Purity', value: '99.2% Cast' },
-      { label: 'Gold Leaf', value: '24K Specular' },
-      { label: 'LED Kelvin', value: '3000K Epistar' },
+      { label: 'Gold Leaf', value: 'specular gold' },
+      { label: 'LED Kelvin', value: 'warm LED' },
     ],
     visualHighlights: [
-      'Cinematic macro shot of 4mm crystal acrylic edge grain',
+      'Cinematic macro shot of crystal acrylic edge grain',
       'Artisanal palette with sindoor red, saffron, and gold pigment trays',
       'Anti-static velvet foam and wooden transit armor',
     ],
@@ -60,13 +60,13 @@ const FILM_SCENES: SceneData[] = [
     id: 2,
     timeRange: '0:05 – 0:10',
     badge: 'SCENE 02: ACRYLIC PREPARATION',
-    title: 'Precision CNC Sizing & Diamond Beveling',
+    title: 'Precision CNC Sizing & precision beveling',
     subtitle: 'Laser measuring, diamond polishing & 45-degree prism bevels',
     voiceover:
       'The optical cast sheet is measured to micrometer accuracy and precision-cut using diamond tooling. Edge polishing eliminates all micro-burrs, producing 45-degree beveled facets that catch room light like crystalline glass without any fragility hazards.',
     specs: [
       { label: 'Cutting Tolerance', value: '±0.05 mm' },
-      { label: 'Edge Finish', value: 'Diamond CNC' },
+      { label: 'Edge Finish', value: 'precision CNC' },
       { label: 'Safety Index', value: '100% Shatterproof' },
     ],
     visualHighlights: [
@@ -82,11 +82,11 @@ const FILM_SCENES: SceneData[] = [
     title: '1200 DPI Japanese Flatbed UV Micro-Pigment Printing',
     subtitle: 'Vivid sindoor, turmeric gold & archival Lord Ganesha iconography',
     voiceover:
-      'The sacred iconography of Lord Ganesha Vighnaharta is rendered via Japanese flatbed micro-piezo print heads. Curing instantly with 395nm UV photopolymerization, the colors achieve 98% DCI-P3 gamut fidelity with guaranteed 25-year anti-fading durability.',
+      'The sacred iconography of Lord Ganesha Vighnaharta is rendered via Japanese flatbed micro-piezo print heads. Curing instantly with 395nm UV photopolymerization, the colors achieve 98% DCI-P3 gamut fidelity with guaranteed Long-Lasting anti-fading durability.',
     specs: [
       { label: 'Print Resolution', value: '1200 DPI True' },
       { label: 'Ink Technology', value: 'UV Micro-Piezo' },
-      { label: 'Fade Resistance', value: '25-Year Guarantee' },
+      { label: 'Fade Resistance', value: 'UV vibrancy assurance' },
     ],
     visualHighlights: [
       'Print carriage depositing rich saffron, vermillion, and golden yellow pigments',
@@ -101,17 +101,17 @@ const FILM_SCENES: SceneData[] = [
     title: '3D Exploded-View Vertical Alignment',
     subtitle: 'Hovering 5-layer convergence into a unified sacred masterpiece',
     voiceover:
-      'All five engineering tiers align vertically in precision space: the 4mm acrylic shield, hand-embellished 24K gold foil halos, the archival Ganesha print, the 3000K Epistar light-guide, and the moisture-armor backing plate, snapping into microscopic register with stainless studs.',
+      'All five engineering tiers align vertically in precision space: the acrylic panel shield, hand-embellished gold foil foil halos, the archival Ganesha print, the warm LED light-guide, and the moisture-armor backing plate, snapping into microscopic register with stainless studs.',
     specs: [
       { label: 'Layer Count', value: '5 Physical Tiers' },
       { label: 'Alignment Tolerance', value: '0.1 mm' },
       { label: 'Hardware', value: 'Stainless Standoffs' },
     ],
     visualHighlights: [
-      'Layer 1: 4mm front optical acrylic shield with corner studs',
-      'Layer 2: 24K pure gold leaf mukut (crown) and divine prabhavali halo',
+      'Layer 1: cast acrylic front optical acrylic shield with corner studs',
+      'Layer 2: gold pure gold leaf mukut (crown) and divine prabhavali halo',
       'Layer 3: 1200 DPI archival devotional Lord Ganesha canvas',
-      'Layer 4: 3000K Epistar perimeter LED diode light-guide',
+      'Layer 4: warm LED perimeter LED diode light-guide',
       'Layer 5: Acoustic-damped moisture-seal backing with laser French cleat',
     ],
   },
@@ -141,10 +141,10 @@ const FILM_SCENES: SceneData[] = [
     title: 'Final Reveal on Statuario Marble Mandir Altar',
     subtitle: 'Flanked by brass ghee diyas, fresh jasmine & warm nocturnal glow',
     voiceover:
-      'The finished Lord Ganesha heirloom stands triumphant on Statuario cream marble. Flanked by flickering brass ghee lamps and fragrant jasmine blossoms, the 3000K golden halo illuminates the living wall, transforming the home into a sanctuary of peace, auspiciousness, and prosperity.',
+      'The finished Lord Ganesha heirloom stands triumphant on Statuario cream marble. Flanked by flickering brass ghee lamps and fragrant jasmine blossoms, the warm LED golden halo illuminates the living wall, transforming the home into a sanctuary of peace, auspiciousness, and prosperity.',
     specs: [
       { label: 'Altar Surface', value: 'Italian Marble' },
-      { label: 'Ambiance', value: '3000K Temple Aura' },
+      { label: 'Ambiance', value: 'warm LED Temple Aura' },
       { label: 'Vibration', value: 'Auspicious Shanti' },
     ],
     visualHighlights: [
@@ -196,7 +196,7 @@ export default function ManufacturingFilmModal({ isOpen, onClose, defaultScene =
   if (!isOpen) return null;
 
   const whatsappInquiryUrl = `https://wa.me/917780269927?text=${encodeURIComponent(
-    `Hi Abhi's Gifts! I watched your 4K Manufacturing Film for the Lord Ganesha 3D LED Backlit Frame. The 5-layer craftsmanship and 3000K lighting look exceptional. Can you share available sizes and pricing?`
+    `Hi Abhi's Gifts! I watched your 4K Manufacturing Film for the Lord Ganesha 3D LED Backlit Frame. The 5-layer craftsmanship and warm LED lighting look exceptional. Can you share available sizes and pricing?`
   )}`;
 
   return (
@@ -251,7 +251,7 @@ export default function ManufacturingFilmModal({ isOpen, onClose, defaultScene =
               <div className="grid grid-cols-3 gap-4 w-full max-w-md">
                 <div className="p-3.5 rounded-2xl bg-white/[0.06] border border-white/20 backdrop-blur-md flex flex-col items-center">
                   <div className="w-16 h-18 rounded-lg bg-white/20 border border-white/40 mb-2 flex items-center justify-center shadow-inner">
-                    <span className="text-[10px] font-mono font-bold text-white uppercase">4mm</span>
+                    <span className="text-[10px] font-mono font-bold text-white uppercase">cast acrylic</span>
                   </div>
                   <span className="text-xs font-serif font-bold text-white">Virgin Acrylic</span>
                 </div>
@@ -269,7 +269,7 @@ export default function ManufacturingFilmModal({ isOpen, onClose, defaultScene =
                   <div className="w-16 h-18 rounded-lg bg-amber-500/20 border border-amber-400/60 mb-2 flex items-center justify-center">
                     <span className="text-lg">✨</span>
                   </div>
-                  <span className="text-xs font-serif font-bold text-amber-200">24K Gold Foil</span>
+                  <span className="text-xs font-serif font-bold text-amber-200">gold foil Foil</span>
                 </div>
               </div>
             )}
@@ -279,7 +279,7 @@ export default function ManufacturingFilmModal({ isOpen, onClose, defaultScene =
                 <div className="absolute left-0 inset-y-0 w-1 bg-cyan-400 shadow-[0_0_20px_#22d3ee] animate-pulse" />
                 <Gem className="w-10 h-10 text-cyan-300 animate-spin mb-2" />
                 <h4 className="text-sm font-serif font-bold text-white uppercase tracking-wider">
-                  Diamond CNC Edge Beveling
+                  precision CNC Edge Beveling
                 </h4>
                 <p className="text-xs text-cyan-200 mt-1">45° Chamfered Facets • 99.2% Crystalline Purity</p>
               </div>
@@ -315,7 +315,7 @@ export default function ManufacturingFilmModal({ isOpen, onClose, defaultScene =
                     className="absolute inset-0 rounded-xl border-2 border-amber-400 bg-amber-500/20 shadow-lg flex items-center justify-center"
                     style={{ transform: 'translateZ(-25px)' }}
                   >
-                    <span className="text-[10px] font-mono text-amber-300 uppercase font-bold">4. 3000K LED</span>
+                    <span className="text-[10px] font-mono text-amber-300 uppercase font-bold">4. warm LED LED</span>
                   </div>
                   <div
                     className="absolute inset-0 rounded-xl border-2 border-[#EAB308] overflow-hidden shadow-xl"
@@ -331,13 +331,13 @@ export default function ManufacturingFilmModal({ isOpen, onClose, defaultScene =
                     className="absolute inset-0 rounded-xl border-2 border-[#FFE8A3] bg-amber-300/10 flex items-center justify-center"
                     style={{ transform: 'translateZ(45px)' }}
                   >
-                    <span className="text-[10px] font-serif italic text-[#FFE8A3] font-bold">2. 24K Gold Leaf</span>
+                    <span className="text-[10px] font-serif italic text-[#FFE8A3] font-bold">2. gold foil Leaf</span>
                   </div>
                   <div
                     className="absolute inset-0 rounded-xl border-2 border-white/60 bg-white/10 backdrop-blur-xs flex items-center justify-center"
                     style={{ transform: 'translateZ(80px)' }}
                   >
-                    <span className="text-[10px] font-mono text-white uppercase font-bold">1. 4mm Acrylic</span>
+                    <span className="text-[10px] font-mono text-white uppercase font-bold">1. acrylic panel</span>
                   </div>
                 </div>
               </div>
@@ -355,7 +355,7 @@ export default function ManufacturingFilmModal({ isOpen, onClose, defaultScene =
                 </div>
                 <div className="absolute bottom-3 inset-x-3 bg-black/80 rounded-lg p-2 text-left">
                   <span className="text-[10px] text-amber-300 font-bold block">Hyderabad Guild Master Audit:</span>
-                  <span className="text-[9px] text-stone-300 block">Dust-Free • Zero-Defect • 50,000h Epistar LED Tested</span>
+                  <span className="text-[9px] text-stone-300 block">Dust-Free • Zero-Defect • high-efficiency LED tested</span>
                 </div>
               </div>
             )}

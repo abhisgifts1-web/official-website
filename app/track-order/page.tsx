@@ -24,7 +24,7 @@ import { INITIAL_SETTINGS } from '@/lib/data/settings';
 const OFFICIAL_STAGES = [
   { id: 'received', label: 'Order Received', desc: 'Order logged & verified' },
   { id: 'processing', label: 'Processing', desc: 'Design review & material prep' },
-  { id: 'production', label: 'Customization / Production', desc: '4mm laser cut & UV printing' },
+  { id: 'production', label: 'Customization / Production', desc: 'Precision laser cut & UV printing' },
   { id: 'dispatched', label: 'Dispatched', desc: 'Handed to express courier' },
   { id: 'delivered', label: 'Delivered', desc: 'Delivered to your doorstep' },
 ];
@@ -130,7 +130,7 @@ function TrackOrderContent() {
         <div className="text-center max-w-xl mx-auto space-y-2">
           <span className="text-xs uppercase tracking-widest font-bold text-[#FFFFFF] bg-white border border-[#EAB308] px-3.5 py-1 rounded-full inline-flex items-center gap-1.5 shadow-2xs">
             <Truck className="w-3.5 h-3.5 text-[#EAB308]" />
-            <span>Pan-India Live Order Tracking</span>
+            <span>Live Order Tracking</span>
           </span>
           <h1 className="font-serif font-bold text-3xl sm:text-4xl text-[#FFFFFF] tracking-tight">
             Track Your Frame &amp; Keepsake Order

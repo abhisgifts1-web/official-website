@@ -36,27 +36,27 @@ const CRAFT_PILLARS: CraftPillar[] = [
   {
     id: 'acrylic',
     number: '01',
-    title: 'Museum-Grade 4mm Cast Acrylic',
-    tagline: 'Zero Fragile Glass Hazards • Diamond CNC Beveling',
+    title: 'Museum-Grade Cast Acrylic',
+    tagline: 'Zero Fragile Glass Hazards • Precision CNC Beveling',
     description:
-      'Engineered with high-density imported virgin cast acrylic. Crystalline 99.2% optical transparency reveals sacred pigment depth without distorting reflection, while diamond-cut CNC beveled edges will never yellow, shatter, or degrade over 25+ years.',
+      'Engineered with high-density imported virgin cast acrylic. Crystalline 99.2% optical transparency reveals sacred pigment depth without distorting reflection, while precision CNC beveled edges offer shatterproof clarity and enduring beauty.',
     icon: Gem,
     specs: [
       { label: 'Optical Purity', value: '99.2% Clarity' },
       { label: 'Safety Rating', value: '100% Shatterproof' },
-      { label: 'Durability', value: '25-Year Guarantee' },
+      { label: 'Durability', value: 'Long-Lasting UV' },
     ],
     image: '/images/lifestyle/pooja-mandir.jpg',
     fallbackImage: '/images/lifestyle/living-room.jpg',
     imageAlt: 'Consecrated devotional wall art inside a luxury Indian pooja mandir',
-    badge1: '4mm High-Density Cast Acrylic',
-    badge2: 'Diamond-Cut CNC Beveling',
+    badge1: 'High-Density Cast Acrylic',
+    badge2: 'Precision CNC Beveling',
     mantraAnnotation: 'Crystal Clarity • Zero Reflection Warping',
   },
   {
     id: 'gold-foil',
     number: '02',
-    title: '24K Pure Gold Leaf Embellishment',
+    title: 'Pure Gold Leaf Embellishment',
     tagline: 'Delicate Specular Sheen on Halos & Sanskrit Verses',
     description:
       'Master artisans individually apply genuine 24-karat gold leaf detailing to sacred crowns, divine auras, and Vedic mantras. As morning daylight or evening brass diyas flicker, the gold comes alive with a reverent specular sheen that shimmers from every angle.',
@@ -68,49 +68,49 @@ const CRAFT_PILLARS: CraftPillar[] = [
     ],
     image: '/images/wall-decor/products/balaji/balaji-acrylic-gold-frame.jpg',
     fallbackImage: '/images/divine/lord-balaji.jpg',
-    imageAlt: '24K Gold foil leaf embellishment on Lord Venkateswara Balaji frame',
-    badge1: '24K Pure Gold Leaf Gilding',
+    imageAlt: 'Gold foil leaf embellishment on Lord Venkateswara Balaji frame',
+    badge1: 'Pure Gold Leaf Gilding',
     badge2: 'Specular Aarti Reflection',
-    mantraAnnotation: 'Hand-Applied 24K Leaf • Temple Gold Sheen',
+    mantraAnnotation: 'Hand-Applied Gold Leaf • Temple Gold Sheen',
   },
   {
     id: 'led-aura',
     number: '03',
-    title: 'Calibrated 3000K Warm LED Aura',
+    title: 'Warm Ambient LED Aura',
     tagline: 'Authentic Brass Temple Diya Luminescence',
     description:
       'Low-voltage certified 12V Epistar LED diodes calibrated to precisely 3000 Kelvins — reproducing the holy golden hue of ghee lamps in Indian sanctums. Hidden rear channels prevent heat emission and cast a serene corona halo across living walls without glare.',
     icon: Flame,
     specs: [
-      { label: 'Color Temp', value: '3000K Diya Kelvin' },
+      { label: 'Color Temp', value: 'Temple Diya Light' },
       { label: 'Diode Lifespan', value: '50,000+ Hours' },
       { label: 'Heat Output', value: '0% Cool Operation' },
     ],
     image: '/images/wall-decor/products/led/ayodhya-ram-mandir-sanctum.jpg',
     fallbackImage: '/images/divine/ram-mandir.jpg',
-    imageAlt: 'Calibrated 3000K warm LED illuminated sanctum frame',
-    badge1: 'Calibrated 3000K Warm LED',
+    imageAlt: 'Calibrated warm LED illuminated sanctum frame',
+    badge1: 'Warm Ambient LED',
     badge2: 'Concealed Heat-Sink Wiring',
-    mantraAnnotation: '3000K Temple Diya Light • Zero Eye Glare',
+    mantraAnnotation: 'Warm Temple Diya Light • Zero Eye Glare',
   },
   {
     id: 'vault-crate',
     number: '04',
     title: '5-Layer Honeycomb Crate Protection',
-    tagline: '100% Transit-Safe Doorstep Pan-India Assurance',
+    tagline: 'Careful Multi-Layer Doorstep Packaging',
     description:
-      'Every consecrated heirloom is wrapped in anti-static velvet foam, cushioned with reinforced corner armor, and housed inside a 5-layer heavy-duty wooden honeycomb crate. Fully insured against transit damage with zero-risk instant replacement.',
+      'Every consecrated heirloom is wrapped in anti-static velvet foam, cushioned with reinforced corner armor, and housed inside a 5-layer heavy-duty wooden honeycomb crate. Protected with reinforced corner guards and safe courier handling.',
     icon: PackageCheck,
     specs: [
       { label: 'Packaging Armor', value: '5-Layer Honeycomb' },
       { label: 'Drop Tested', value: '1.5-Meter Certified' },
-      { label: 'Pan-India Reach', value: '19,000+ Pincodes' },
+      { label: 'Direct Courier', value: '19,000+ Pincodes' },
     ],
     image: '/images/lifestyle/living-room.jpg',
     fallbackImage: '/images/lifestyle/entrance-foyer.jpg',
     imageAlt: '5-Layer transit-safe wooden honeycomb crated packaging',
     badge1: '5-Layer Honeycomb Crate',
-    badge2: '100% Transit Safe Insured',
+    badge2: 'Reinforced Safe Packaging',
     mantraAnnotation: 'Reinforced Corner Armor • Zero-Damage Guarantee',
   },
 ];
@@ -148,7 +148,7 @@ export default function BrandStorySection() {
   return (
     <section className="w-full max-w-[1720px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-14 py-8 sm:py-12 lg:py-14">
       {/* Outer Luxury Card Container */}
-      <div className="bg-gradient-to-br from-[#181818] via-[#141414] to-[#181818] rounded-3xl sm:rounded-[36px] p-6 sm:p-8 lg:p-12 border border-[#2D2D2D] shadow-[0_16px_50px_rgba(81,27,42,0.08)] overflow-hidden relative">
+      <div className="bg-gradient-to-br from-[#181818] via-[#141414] to-[#181818] rounded-3xl sm:rounded-[36px] p-6 sm:p-8 lg:p-12 border border-[#2D2D2D] shadow-[0_16px_50px_rgba(0,0,0,0.4)] overflow-hidden relative">
         {/* Subtle Luxury Ambient Glow Orbs */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-[#EAB308]/20 via-[#FFD58A]/10 to-transparent rounded-full blur-3xl pointer-events-none -z-0" />
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-[#121212]/10 via-[#EAB308]/05 to-transparent rounded-full blur-3xl pointer-events-none -z-0" />
@@ -218,7 +218,7 @@ export default function BrandStorySection() {
                 <div className="w-[85%] h-full bg-gradient-to-r from-transparent via-white/18 to-transparent animate-acrylic-sheen-sweep" />
               </div>
 
-              {/* 4 Corner 24K Gold Standoff Studs with Specular Twinkle */}
+              {/* 4 Corner Gold Standoff Studs with Specular Twinkle */}
               <div className="absolute top-3 left-3 w-3 h-3 rounded-full bg-gradient-to-br from-[#FFE8A3] via-[#FACC15] to-[#7A551E] shadow-md border border-amber-900/40 pointer-events-none animate-stud-twinkle-1" />
               <div className="absolute top-3 right-3 w-3 h-3 rounded-full bg-gradient-to-br from-[#FFE8A3] via-[#FACC15] to-[#7A551E] shadow-md border border-amber-900/40 pointer-events-none animate-stud-twinkle-2" />
               <div className="absolute bottom-3 left-3 w-3 h-3 rounded-full bg-gradient-to-br from-[#FFE8A3] via-[#FACC15] to-[#7A551E] shadow-md border border-amber-900/40 pointer-events-none animate-stud-twinkle-3" />
@@ -292,7 +292,7 @@ export default function BrandStorySection() {
                   onMouseEnter={() => setActivePillarIndex(index)}
                   className={`group relative p-3.5 sm:p-4 rounded-2xl transition-all duration-300 cursor-pointer border text-left ${
                     isSelected
-                      ? 'bg-white shadow-[0_10px_30px_rgba(81,27,42,0.12)] border-[#EAB308] ring-2 ring-[#EAB308]/40 scale-[1.01]'
+                      ? 'bg-white shadow-[0_10px_30px_rgba(0,0,0,0.4)] border-[#EAB308] ring-2 ring-[#EAB308]/40 scale-[1.01]'
                       : 'bg-white/80 hover:bg-white border-[#2D2D2D] hover:border-[#EAB308] shadow-2xs'
                   }`}
                 >
@@ -362,7 +362,7 @@ export default function BrandStorySection() {
             <div className="pt-3 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3">
               <Link
                 href="/about"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-[#EAB308] hover:bg-[#FACC15] text-[#000000] font-bold text-xs sm:text-[13.5px] px-7 py-3.5 rounded-full border border-[#EAB308] shadow-[0_6px_22px_rgba(81,27,42,0.30)] uppercase tracking-wider transition-all hover:scale-[1.02] active:scale-[0.98] group"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-[#EAB308] hover:bg-[#FACC15] text-[#000000] font-bold text-xs sm:text-[13.5px] px-7 py-3.5 rounded-full border border-[#EAB308] shadow-[0_6px_22px_rgba(234,179,8,0.25)] uppercase tracking-wider transition-all hover:scale-[1.02] active:scale-[0.98] group"
               >
                 <span>Read Our Full Story</span>
                 <ArrowRight className="w-4 h-4 text-[#EAB308] group-hover:translate-x-1 transition-transform" />
@@ -405,7 +405,7 @@ export default function BrandStorySection() {
             </div>
             <div>
               <span className="font-bold text-[#FFFFFF] text-xs sm:text-[13px] block leading-tight">
-                4mm Virgin Cast
+                Virgin Cast Acrylic
               </span>
               <span className="text-[10px] sm:text-[11px] text-[#D1D5DB] font-medium block mt-0.5">
                 Zero Fragile Glass
@@ -419,7 +419,7 @@ export default function BrandStorySection() {
             </div>
             <div>
               <span className="font-bold text-[#FFFFFF] text-xs sm:text-[13px] block leading-tight">
-                3000K Diya Kelvin
+                Temple Diya Light
               </span>
               <span className="text-[10px] sm:text-[11px] text-[#D1D5DB] font-medium block mt-0.5">
                 Temple Brass Aura

@@ -233,7 +233,7 @@ export default function CartPage() {
             )}
 
             <div className="flex justify-between">
-              <span>Pan-India Delivery</span>
+              <span>Standard Delivery</span>
               <span>
                 `₹${shippingFee}`
               </span>
@@ -257,7 +257,7 @@ export default function CartPage() {
 
             <div className="flex items-center justify-center gap-1.5 text-[11px] text-[#D1D5DB] text-center">
               <ShieldCheck className="w-3.5 h-3.5 text-[#EAB308]" />
-              <span>Direct WhatsApp Order • 100% Transit Safe Guarantee</span>
+              <span>Direct WhatsApp Order • Protective Packaging</span>
             </div>
           </div>
         </div>

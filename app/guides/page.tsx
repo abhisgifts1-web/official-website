@@ -7,7 +7,7 @@ import { getBreadcrumbSchema } from '@/lib/seo/schema';
 export const metadata: Metadata = {
   title: "Photo Frame & Wall Art Guides | Abhi's Gifts Hyderabad",
   description:
-    'Expert buying guides and advice on acrylic photo frames, 3000K LED backlit frames, personalized photo gifts, and framing tips for Hyderabad and Dilsukhnagar homes.',
+    'Expert buying guides and advice on acrylic photo frames, warm LED backlit frames, personalized photo gifts, and framing tips for Hyderabad and Dilsukhnagar homes.',
   alternates: {
     canonical: 'https://abhigifts.com/guides',
   },
@@ -23,7 +23,7 @@ const GUIDES = [
     slug: 'best-acrylic-photo-frames-hyderabad',
     title: 'Best Acrylic Photo Frames in Hyderabad: Complete Buying & Quality Guide',
     excerpt:
-      'Learn how to evaluate 4mm virgin cast acrylic, diamond CNC edge beveling, UV flatbed printing quality, and find the best acrylic photo frame manufacturer in Hyderabad.',
+      'Learn how to evaluate premium virgin cast acrylic, precision CNC edge beveling, UV flatbed printing quality, and find the best acrylic photo frame manufacturer in Hyderabad.',
     date: 'Updated November 2026',
     readTime: '6 min read',
     tag: 'Buying Guide',
@@ -41,7 +41,7 @@ const GUIDES = [
     slug: 'led-acrylic-photo-frames-home-decor',
     title: 'LED Acrylic Photo Frames for Home Decoration: Warm Ambient Lighting Ideas',
     excerpt:
-      'Discover how 3000K warm LED backlit acrylic photo frames enhance living rooms, bedrooms, and sacred pooja mandir sanctums with soft evening illumination.',
+      'Discover how warm LED backlit acrylic photo frames enhance living rooms, bedrooms, and sacred pooja mandir sanctums with soft evening illumination.',
     date: 'Updated November 2026',
     readTime: '7 min read',
     tag: 'Interior Decor',
@@ -50,7 +50,7 @@ const GUIDES = [
     slug: 'personalized-photo-gifts-occasions',
     title: 'Personalized Photo Gifts for Special Occasions in Hyderabad',
     excerpt:
-      'From 24K gold foil wedding vows to circular medallion baby milestones, discover meaningful customized gifts for anniversaries, birthdays, and housewarmings in Dilsukhnagar.',
+      'From gold foil wedding vows to circular medallion baby milestones, discover meaningful customized gifts for anniversaries, birthdays, and housewarmings in Dilsukhnagar.',
     date: 'Updated November 2026',
     readTime: '5 min read',
     tag: 'Gifting Ideas',
@@ -102,7 +102,7 @@ export default function GuidesIndexPage() {
         </h1>
 
         <p className="text-xs sm:text-sm text-[#785E59] max-w-2xl leading-relaxed">
-          Crafted by the master artisans at Abhi&apos;s Gifts. Explore in-depth guides on selecting acrylic photo frames, 3000K LED lighting, sizing recommendations, and thoughtful personalized gifts in Hyderabad.
+          Crafted by the master artisans at Abhi&apos;s Gifts. Explore in-depth guides on selecting acrylic photo frames, warm LED lighting, sizing recommendations, and thoughtful personalized gifts in Hyderabad.
         </p>
       </div>
 

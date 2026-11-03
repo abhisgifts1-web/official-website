@@ -129,7 +129,7 @@ export async function POST(req: NextRequest) {
       couponCode: validatedCouponCode,
       shippingFee,
       totalAmount,
-      paymentMethod: (paymentMethod as 'WhatsApp' | 'COD' | 'Razorpay') || 'WhatsApp',
+      paymentMethod: (paymentMethod as 'WhatsApp' | 'Online' | 'Razorpay') || 'WhatsApp',
       paymentStatus: isPaid ? 'Paid' : 'Pending',
       razorpayPaymentId: razorpayPaymentId || undefined,
       orderStatus: isPaid ? 'Confirmed' : 'Pending',

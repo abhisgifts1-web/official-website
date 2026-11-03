@@ -217,7 +217,7 @@ export default function CategoryClientView({ category, products }: CategoryClien
                 className="w-full bg-white border border-[#2D2D2D] rounded-xl px-3 py-2 outline-none font-medium text-[#FFFFFF]"
               >
                 <option value="all">All Styles</option>
-                <option value="led">✨ 3000K LED Backlit</option>
+                <option value="led">✨ warm LED Backlit</option>
                 <option value="none">Pure Crystal Acrylic</option>
               </select>
             </div>

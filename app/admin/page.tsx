@@ -91,7 +91,7 @@ export default function AdminDashboardPage() {
                 Modify Product Data
               </h2>
               <p className="text-xs text-stone-600 leading-relaxed">
-                Update product titles, selling prices, MRP, 3000K LED options, high-resolution product photos, and stock status.
+                Update product titles, selling prices, MRP, warm LED options, high-resolution product photos, and stock status.
               </p>
             </div>
 

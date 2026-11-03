@@ -27,22 +27,22 @@ export async function generateStaticParams() {
 const LOCAL_SEO_CATEGORY_OVERRIDES: Record<string, { title: string; description: string; h1?: string }> = {
   'custom-portrait-frames': {
     title: 'Acrylic Photo Frames in Hyderabad | Custom Acrylic Frames Dilsukhnagar',
-    description: 'Looking for acrylic photo frames in Hyderabad or Dilsukhnagar? Premium 4mm cast acrylic with diamond CNC beveled edges, invisible floating mounts & crystal clarity. WhatsApp proof approval.',
+    description: 'Looking for acrylic photo frames in Hyderabad or Dilsukhnagar? Premium cast acrylic with precision beveled edges, invisible floating mounts & crystal clarity. WhatsApp proof approval.',
     h1: 'Acrylic Photo Frames in Hyderabad & Dilsukhnagar',
   },
   'premium-acrylic-wall-art': {
-    title: "Acrylic Photo Frames in Hyderabad | 4mm Crystal Acrylic Art — Abhi's Gifts",
+    title: "Acrylic Photo Frames in Hyderabad | crystal acrylic Art — Abhi's Gifts",
     description: 'Explore high-definition acrylic photo frames in Hyderabad. Diamond-edge polished cast acrylic wall art, family portraits & devotional keepsakes handcrafted in Dilsukhnagar.',
     h1: 'Premium Acrylic Photo Frames in Hyderabad',
   },
   'custom-led-photo-frames': {
-    title: "LED Photo Frames in Hyderabad | 3000K Backlit Custom Frames — Abhi's Gifts",
-    description: 'Discover custom LED photo frames in Hyderabad and Dilsukhnagar. Ambient 3000K warm night-glow illumination for wedding photos, family portraits & anniversary gifts with 12V adapter.',
+    title: "LED Photo Frames in Hyderabad | warm Backlit Custom Frames — Abhi's Gifts",
+    description: 'Discover custom LED photo frames in Hyderabad and Dilsukhnagar. Ambient warm night-glow illumination for wedding photos, family portraits & anniversary gifts with 12V adapter.',
     h1: 'Custom LED Photo Frames in Hyderabad',
   },
   'personalized-family-photo-frames': {
     title: 'Customized Photo Frames Hyderabad | Personalized Family Keepsakes Dilsukhnagar',
-    description: 'Order customized photo frames in Hyderabad. Personalize family portraits with 24K gold foil script, custom dimensions & floating standoffs. Same-day digital proof on WhatsApp.',
+    description: 'Order customized photo frames in Hyderabad. Personalize family portraits with gold foil script, custom dimensions & floating standoffs. Same-day digital proof on WhatsApp.',
     h1: 'Customized Photo Frames in Hyderabad & Dilsukhnagar',
   },
   'sets-of-two-three-frames': {
@@ -56,13 +56,13 @@ const LOCAL_SEO_CATEGORY_OVERRIDES: Record<string, { title: string; description:
     h1: 'Personalized Gifts & Wedding Keepsakes in Hyderabad',
   },
   'led-backlit-wall-art': {
-    title: "LED Acrylic Frames Hyderabad | 3000K Illuminated Wall Art — Abhi's Gifts",
-    description: 'Shop luxury LED acrylic frames in Hyderabad. Sacred Tirupati Balaji, Ganesha, Shiva, Radha Krishna & modern illuminated art with 50,000h Epistar warm LEDs. Fast delivery across Hyderabad.',
+    title: "LED Acrylic Frames Hyderabad | warm Illuminated Wall Art — Abhi's Gifts",
+    description: 'Shop luxury LED acrylic frames in Hyderabad. Sacred Tirupati Balaji, Ganesha, Shiva, Radha Krishna & modern illuminated art with high-efficiency Epistar warm LEDs. Fast delivery across Hyderabad.',
     h1: 'LED Acrylic Frames & Backlit Art in Hyderabad',
   },
   'square-photo-frames': {
     title: 'Square Acrylic Photo Frames in Hyderabad | 1:1 Grid Frames Dilsukhnagar',
-    description: 'Modern 1:1 square grid acrylic photo frames in Hyderabad. Minimalist diamond-polished edges perfect for Instagram prints, couple milestones & gallery grids.',
+    description: 'Modern 1:1 square grid acrylic photo frames in Hyderabad. Minimalist precision-polished edges perfect for Instagram prints, couple milestones & gallery grids.',
     h1: 'Square Acrylic Photo Frames in Hyderabad',
   },
   'glitter-photo-frames': {
@@ -77,7 +77,7 @@ const LOCAL_SEO_CATEGORY_OVERRIDES: Record<string, { title: string; description:
   },
   'round-photo-frames': {
     title: 'Round Acrylic Photo Frames in Hyderabad | Circular Medallion Wall Frames',
-    description: 'Luxury circular round acrylic photo frames in Hyderabad & Dilsukhnagar. Smooth 360-degree curved CNC diamond beveled edges with halo visual effect.',
+    description: 'Luxury circular round acrylic photo frames in Hyderabad & Dilsukhnagar. Smooth 360-degree curved CNC smooth beveled edges with halo visual effect.',
     h1: 'Round & Circular Acrylic Photo Frames in Hyderabad',
   },
 };
@@ -254,8 +254,8 @@ export default function CategoryPage({ params }: CategoryPageProps) {
             <span className="text-xs uppercase tracking-widest font-bold text-amber-400 bg-amber-950/80 border border-amber-500/40 px-3 py-1 rounded-full inline-flex items-center gap-1.5">
               <Sparkles className="w-3.5 h-3.5" />
               {category.lightingType === 'backlight' || category.group === 'led-backlight'
-                ? '✨ 3000K Warm LED Backlit Series (12V Adapter)'
-                : '🖼️ Normal Pure Crystal Acrylic Series (Non-Lit 24K Gold)'}
+                ? '✨ warm LED Backlit Series (12V Adapter)'
+                : '🖼️ Normal Pure Crystal Acrylic Series (Non-Lit gold Gold)'}
             </span>
             <span className="text-[11px] font-semibold text-emerald-400 bg-emerald-950/60 border border-emerald-500/30 px-2.5 py-0.5 rounded-full inline-flex items-center gap-1">
               <MapPin className="w-3 h-3" />
@@ -280,7 +280,7 @@ export default function CategoryPage({ params }: CategoryPageProps) {
           </div>
           <div>
             <p className="font-bold text-sm text-[#FFFFFF]">Local Hyderabad &amp; Dilsukhnagar Fast Delivery</p>
-            <p className="text-[#D1D5DB]">Order online or visit our Dilsukhnagar studio. 100% damage-free transit guarantee across Telangana.</p>
+            <p className="text-[#D1D5DB]">Order online or visit our Dilsukhnagar studio. 100% safe packaging standard across Telangana.</p>
           </div>
         </div>
         <div className="flex items-center gap-2 shrink-0">

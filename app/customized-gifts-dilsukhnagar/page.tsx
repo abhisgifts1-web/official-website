@@ -6,7 +6,7 @@ import { getAllProducts } from '@/lib/store';
 export const metadata: Metadata = {
   title: 'Customized Gifts in Dilsukhnagar | Personalized Photo Gifts Hyderabad',
   description:
-    'Best customized gifts in Dilsukhnagar, Hyderabad. Personalized acrylic photo frames, LED night-glow keepsakes, wedding anniversary gifts & 24K gold script frames with luxury gift packaging.',
+    'Best customized gifts in Dilsukhnagar, Hyderabad. Personalized acrylic photo frames, LED night-glow keepsakes, wedding anniversary gifts & gold gold script frames with luxury gift packaging.',
   alternates: {
     canonical: 'https://abhigifts.com/customized-gifts-dilsukhnagar',
   },
@@ -28,16 +28,16 @@ export default function CustomizedGiftsDilsukhnagarPage() {
       slug="customized-gifts-dilsukhnagar"
       keyword="Customized Gifts in Dilsukhnagar"
       h1Title="Customized Gifts in Dilsukhnagar — Meaningful Personalized Keepsakes"
-      subtitle="Celebrate life's most precious milestones with customized gifts in Dilsukhnagar from Abhi's Gifts. From personalized wedding vow acrylic plaques and 3000K LED night-glow frames to 24K gold foil surname heirlooms, give a gift that shines forever."
+      subtitle="Celebrate life's most precious milestones with customized gifts in Dilsukhnagar from Abhi's Gifts. From personalized wedding vow acrylic plaques and warm LED night-glow frames to gold foil surname heirlooms, give a gift that shines forever."
       locationName="Dilsukhnagar, Hyderabad"
-      metaDescription="Order customized gifts in Dilsukhnagar! Personalized wedding keepsakes, couple acrylic frames, and 24K gold foil photo plaques with luxury gift box packaging."
+      metaDescription="Order customized gifts in Dilsukhnagar! Personalized wedding keepsakes, couple acrylic frames, and gold foil photo plaques with luxury gift box packaging."
       introParagraphs={[
         "Finding a memorable, high-quality gift for weddings, anniversaries, housewarmings, or birthdays in Dilsukhnagar used to mean settling for generic mugs, cushions, or ordinary printed frames. Abhi's Gifts reimagined personalized gifting by merging museum-grade crystal acrylic craftsmanship with emotional storytelling and luxury packaging.",
-        "Every customized gift crafted at our Dilsukhnagar studio can be personalized with couple names, wedding dates, customized vows, special anniversary messages, or sacred Sanskrit shlokas rendered in genuine 24K gold foil. Arrives sealed with a gold satin ribbon and certificate of artisanal authenticity—ready to bring tears of joy to your loved ones.",
+        "Every customized gift crafted at our Dilsukhnagar studio can be personalized with couple names, wedding dates, customized vows, special anniversary messages, or sacred Sanskrit shlokas rendered in genuine gold foil. Arrives sealed with a gold satin ribbon and certificate of artisanal authenticity—ready to bring tears of joy to your loved ones.",
       ]}
       whyChoosePoints={[
         {
-          title: '24K Gold Foil Personalization',
+          title: 'gold foil Personalization',
           desc: 'Add names, dates, or wedding vows in delicate 24-karat gold leaf detailing that shimmers as ambient room light reflects off the acrylic.',
         },
         {
@@ -52,7 +52,7 @@ export default function CustomizedGiftsDilsukhnagarPage() {
       products={relevantProducts}
       popularSizes={[
         { size: 'Circle Medallion (10" Dia)', idealFor: 'Romantic anniversary & newborn baby keepsakes', price: '₹1,799' },
-        { size: 'Landscape Heirloom (12x18")', idealFor: 'Personalized family surname crest with 24K gold script', price: '₹2,499' },
+        { size: 'Landscape Heirloom (12x18")', idealFor: 'Personalized family surname crest with gold gold script', price: '₹2,499' },
         { size: 'LED Night-Glow Keepsake (12x12")', idealFor: 'Bedside ambient night light for couples & weddings', price: '₹2,699' },
         { size: 'Luxury Diptych Pair (2-Frame Set)', idealFor: 'Sacred housewarming gifts & parents 25th anniversary', price: '₹3,799' },
       ]}
@@ -60,7 +60,7 @@ export default function CustomizedGiftsDilsukhnagarPage() {
         {
           question: 'What types of customized gifts can I order in Dilsukhnagar?',
           answer:
-            'We create personalized acrylic photo frames, 3000K LED night-glow photo frames, circular medallion anniversary plaques, 24K gold foil family crest heirlooms, and consecrated devotional wall art.',
+            'We create personalized acrylic photo frames, warm LED night-glow photo frames, circular medallion anniversary plaques, gold foil family crest heirlooms, and consecrated devotional wall art.',
         },
         {
           question: 'Can I add custom text, names, and wedding dates to the frame?',

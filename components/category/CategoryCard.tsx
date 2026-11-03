@@ -37,7 +37,7 @@ export default function CategoryCard({ category, priority = false }: CategoryCar
     <Link
       href={`/product/${productSlug}`}
       prefetch={true}
-      className="group relative flex flex-col justify-between bg-white rounded-3xl p-3 sm:p-3.5 border border-[#2D2D2D] hover:border-[#EAB308] shadow-[0_4px_20px_rgba(101,30,45,0.06)] hover:shadow-[0_16px_36px_rgba(101,30,45,0.18)] transition-all duration-300 hover:-translate-y-1.5 focus-visible:ring-2 focus-visible:ring-[#EAB308] outline-none"
+      className="group relative flex flex-col justify-between bg-white rounded-3xl p-3 sm:p-3.5 border border-[#2D2D2D] hover:border-[#EAB308] shadow-[0_4px_20px_rgba(0,0,0,0.4)] hover:shadow-[0_16px_36px_rgba(0,0,0,0.4)] transition-all duration-300 hover:-translate-y-1.5 focus-visible:ring-2 focus-visible:ring-[#EAB308] outline-none"
       aria-label={`View ${category.name} product details`}
     >
       {/* Framed Acrylic Art Viewport (100% Unobscured Artwork) */}

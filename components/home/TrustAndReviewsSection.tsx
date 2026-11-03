@@ -78,18 +78,18 @@ export default function TrustAndReviewsSection() {
             </div>
             <h4 className="font-bold text-xs sm:text-sm text-[#FFFFFF]">Safe Packaging</h4>
             <p className="text-[11px] text-[#D1D5DB] leading-snug">
-              Reinforced 5-layer honeycomb wooden crate. 100% free transit replacement.
+              Reinforced multi-layer packaging with protective corner guards.
             </p>
           </div>
 
-          {/* Pillar 3: Pan-India Delivery */}
+          {/* Pillar 3: Express Delivery */}
           <div className="flex flex-col items-center sm:items-start text-center sm:text-left space-y-2">
             <div className="w-12 h-12 rounded-2xl bg-[#121212] text-[#FFFFFF] border border-[#EAB308]/50 flex items-center justify-center shadow-2xs">
               <Truck className="w-5 h-5 text-[#EAB308]" />
             </div>
-            <h4 className="font-bold text-xs sm:text-sm text-[#FFFFFF]">Pan-India Delivery</h4>
+            <h4 className="font-bold text-xs sm:text-sm text-[#FFFFFF]">Express Delivery</h4>
             <p className="text-[11px] text-[#D1D5DB] leading-snug">
-              Express insured shipping to 19,000+ pincodes across India.
+              Express courier shipping with end-to-end tracking.
             </p>
           </div>
 
@@ -111,7 +111,7 @@ export default function TrustAndReviewsSection() {
             </div>
             <h4 className="font-bold text-xs sm:text-sm text-[#FFFFFF]">Quality Craftsmanship</h4>
             <p className="text-[11px] text-[#D1D5DB] leading-snug">
-              Premium shatterproof acrylic with 25+ year UV non-fade color guarantee.
+              Premium shatterproof acrylic with long-lasting UV vibrancy.
             </p>
           </div>
         </div>
@@ -170,7 +170,7 @@ export default function TrustAndReviewsSection() {
                 No Reviews Yet • Be The First To Share
               </h3>
               <p className="text-xs sm:text-sm text-[#D1D5DB] leading-relaxed font-sans">
-                Every piece is handcrafted with precision diamond-cut 4mm cast acrylic and 3000K warm LED lighting at our Dilsukhnagar workshop. Bring home a sacred masterpiece and be the first to share your reflections.
+                Every piece is handcrafted with precision precision cast acrylic and warm LED lighting at our Dilsukhnagar workshop. Bring home a sacred masterpiece and be the first to share your reflections.
               </p>
             </div>
 

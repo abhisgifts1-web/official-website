@@ -35,7 +35,7 @@ const ROOMS: RoomScene[] = [
     label: 'Living Room',
     icon: '🛋️',
     title: 'Grand Living Room Wall',
-    subtitle: 'Tirupati Lord Balaji 3D Acrylic with Golden 3000K LED Halo',
+    subtitle: 'Tirupati Lord Balaji 3D Acrylic with Golden warm LED Halo',
     artworkName: 'Lord Venkateswara Balaji 3D LED Backlit Art',
     artworkSlug: 'lord-venkateswara-balaji',
     artworkSize: '24 x 36 Inches (60 x 90 cm)',
@@ -50,7 +50,7 @@ const ROOMS: RoomScene[] = [
     label: 'Pooja Mandir',
     icon: '🪔',
     title: 'Sanctum Pooja Mandir',
-    subtitle: 'Divine Tirupati Balaji Acrylic with 24K Gold Leaf & Warm Sanctum Glow',
+    subtitle: 'Divine Tirupati Balaji Acrylic with gold Leaf & Warm Sanctum Glow',
     artworkName: 'Divine Tirupati Balaji Sacred Sanctum Panel',
     artworkSlug: 'lord-venkateswara-balaji',
     artworkSize: '18 x 24 Inches (45 x 60 cm)',
@@ -80,7 +80,7 @@ const ROOMS: RoomScene[] = [
     label: 'Entrance Foyer',
     icon: '🚪',
     title: 'Auspicious Entrance Foyer',
-    subtitle: 'Vighnaharta Lord Ganesha in 24K Gold Detailing on Fluted Teak Wall',
+    subtitle: 'Vighnaharta Lord Ganesha in gold Detailing on Fluted Teak Wall',
     artworkName: 'Vighnaharta Ganesha Auspicious Acrylic Panel',
     artworkSlug: 'lord-ganesha',
     artworkSize: '16 x 24 Inches (40 x 60 cm)',
@@ -88,7 +88,7 @@ const ROOMS: RoomScene[] = [
     artworkMrp: 4299,
     image: '/images/lifestyle/entrance-foyer.jpg',
     guideTip: 'Brings Vastu positivity and positive energy to home entrances.',
-    hotspotLabel: 'Vighnaharta Ganesha 24K Gold',
+    hotspotLabel: 'Vighnaharta Ganesha gold',
   },
 ];
 
@@ -215,7 +215,7 @@ export default function InSituShowcase() {
 
                 <Link
                   href={`/category/${activeRoom.artworkSlug}`}
-                  className="inline-flex items-center gap-1.5 bg-[#EAB308] hover:bg-[#FACC15] text-[#000000] border border-[#EAB308]/60 font-semibold text-xs px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full shadow-[0_4px_14px_rgba(101,30,45,0.35)] transition-all duration-200 hover:-translate-y-0.5"
+                  className="inline-flex items-center gap-1.5 bg-[#EAB308] hover:bg-[#FACC15] text-[#000000] border border-[#EAB308]/60 font-semibold text-xs px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full shadow-[0_4px_14px_rgba(0,0,0,0.4)] transition-all duration-200 hover:-translate-y-0.5"
                 >
                   <span>Shop Artwork</span>
                   <ArrowRight className="w-3.5 h-3.5 text-[#EAB308]" />

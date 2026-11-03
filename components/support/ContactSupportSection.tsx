@@ -28,7 +28,7 @@ const SUPPORT_FAQS = [
   },
   {
     q: 'What happens if my acrylic photo frame arrives damaged?',
-    a: 'We offer a 100% Transit Safe Replacement Guarantee. Every frame is packaged in protective film, high-density bubble wrap, corner armor, and wooden crates. In the rare event of transit damage, share an unboxing video on WhatsApp within 48 hours for an instant, free replacement.',
+    a: 'Every frame is packaged in protective film, high-density bubble wrap, corner armor, and heavy-duty boxes. In the rare event of any delivery concern, share an unboxing video on WhatsApp within 48 hours for prompt customer support.',
   },
   {
     q: 'What power supply is required for LED Backlit photo frames?',
@@ -36,7 +36,7 @@ const SUPPORT_FAQS = [
   },
   {
     q: 'Can I visit your physical studio in Hyderabad?',
-    a: "Yes, you are warmly invited! Our studio is located at Dilsukhnagar, Hyderabad, Telangana – 500036. You can explore our gallery of physical 4mm cast acrylic samples, warm backlit LED setups, rotating lamps, and glitter frames in person.",
+    a: "Yes, you are warmly invited! Our studio is located at Dilsukhnagar, Hyderabad, Telangana – 500036. You can explore our gallery of physical cast acrylic samples, warm backlit LED setups, rotating lamps, and glitter frames in person.",
   },
 ];
 
