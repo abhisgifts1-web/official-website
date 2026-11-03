@@ -34,7 +34,6 @@ interface OrientationVariantsState {
   portrait: AdminFormVariant[];
   landscape: AdminFormVariant[];
   square: AdminFormVariant[];
-  round: AdminFormVariant[];
 }
 
 const getDefault4Variants = (
@@ -50,16 +49,6 @@ const getDefault4Variants = (
       { id: 'size-sq-2', size: '18 x 18 inches', dimensionsCm: '45 x 45 cm', price: Math.round(p1 * 1.4), mrp: Math.round(m1 * 1.35), inStock: true, stockCount: 50 },
       { id: 'size-sq-3', size: '24 x 24 inches', dimensionsCm: '60 x 60 cm', price: Math.round(p1 * 2.0), mrp: Math.round(m1 * 1.9), inStock: true, stockCount: 25 },
       { id: 'size-sq-4', size: '30 x 30 inches (Grand Sanctum)', dimensionsCm: '75 x 75 cm', price: Math.round(p1 * 3.0), mrp: Math.round(m1 * 2.8), inStock: true, stockCount: 15 },
-    ];
-  }
-  if (orientation === 'round') {
-    const p1 = basePrice || 2699;
-    const m1 = baseMrp || 5299;
-    return [
-      { id: 'size-rd-1', size: '12" Dia Circular', dimensionsCm: '30 cm Diameter', price: p1, mrp: m1, inStock: true, stockCount: 35 },
-      { id: 'size-rd-2', size: '18" Dia Circular', dimensionsCm: '45 cm Diameter', price: Math.round(p1 * 1.4), mrp: Math.round(m1 * 1.35), inStock: true, stockCount: 45 },
-      { id: 'size-rd-3', size: '20" Dia Circular', dimensionsCm: '50 cm Diameter', price: Math.round(p1 * 1.95), mrp: Math.round(m1 * 1.85), inStock: true, stockCount: 20 },
-      { id: 'size-rd-4', size: '24" Dia Circular Halo', dimensionsCm: '60 cm Diameter', price: Math.round(p1 * 2.9), mrp: Math.round(m1 * 2.7), inStock: true, stockCount: 10 },
     ];
   }
   if (orientation === 'horizontal' || orientation === 'landscape') {
@@ -91,7 +80,6 @@ const getInitial4Orientations = (
   portrait: getDefault4Variants('vertical', basePrice, baseMrp),
   landscape: getDefault4Variants('horizontal', basePrice, baseMrp),
   square: getDefault4Variants('square', basePrice, baseMrp),
-  round: getDefault4Variants('round', basePrice, baseMrp),
 });
 
 export default function AdminProductsPage() {
@@ -160,8 +148,6 @@ export default function AdminProductsPage() {
         ? 'landscape'
         : prod.shape === 'square' || orientation === 'square'
         ? 'square'
-        : prod.shape === 'round' || orientation === 'round'
-        ? 'round'
         : 'portrait';
 
     const ov = prod.orientationVariants || {};
@@ -235,29 +221,6 @@ export default function AdminProductsPage() {
               stockCount: v.stockCount || 25,
             }))
           : getDefault4Variants('square', baseP, baseM),
-
-      round:
-        ov.round && ov.round.length === 4
-          ? ov.round.map((v, i) => ({
-              id: v.id || `var-round-${i + 1}`,
-              size: v.size,
-              dimensionsCm: v.dimensionsCm,
-              price: v.price,
-              mrp: v.mrp,
-              inStock: v.inStock !== false,
-              stockCount: v.stockCount || 25,
-            }))
-          : primaryShape === 'round' && prod.variants && prod.variants.length === 4
-          ? prod.variants.map((v, i) => ({
-              id: v.id || `var-round-${i + 1}`,
-              size: v.size,
-              dimensionsCm: v.dimensionsCm,
-              price: v.price,
-              mrp: v.mrp,
-              inStock: v.inStock !== false,
-              stockCount: v.stockCount || 25,
-            }))
-          : getDefault4Variants('round', baseP, baseM),
     };
 
     setFormData({
@@ -396,7 +359,6 @@ export default function AdminProductsPage() {
         portrait: prev.orientationVariants.portrait.map((v, i) => ({ ...v, ...activePrices[i] })),
         landscape: prev.orientationVariants.landscape.map((v, i) => ({ ...v, ...activePrices[i] })),
         square: prev.orientationVariants.square.map((v, i) => ({ ...v, ...activePrices[i] })),
-        round: prev.orientationVariants.round.map((v, i) => ({ ...v, ...activePrices[i] })),
       };
 
       return {
@@ -435,7 +397,6 @@ export default function AdminProductsPage() {
         portrait: formatVariants(formData.orientationVariants.portrait, 'portrait'),
         landscape: formatVariants(formData.orientationVariants.landscape, 'landscape'),
         square: formatVariants(formData.orientationVariants.square, 'square'),
-        round: formatVariants(formData.orientationVariants.round, 'round'),
       };
 
       const primaryVariants =
@@ -620,7 +581,6 @@ export default function AdminProductsPage() {
               <option value="vertical">Portrait (2:3)</option>
               <option value="horizontal">Landscape (3:2)</option>
               <option value="square">Square (1:1)</option>
-              <option value="round">Round (Circle)</option>
             </select>
           </div>
         </div>
@@ -652,8 +612,6 @@ export default function AdminProductsPage() {
                         ? 'Landscape 3:2'
                         : prod.orientation === 'square' || prod.shape === 'square'
                         ? 'Square 1:1'
-                        : prod.orientation === 'round' || prod.shape === 'round'
-                        ? 'Round Halo'
                         : 'Portrait 2:3';
 
                     const primaryVariants =

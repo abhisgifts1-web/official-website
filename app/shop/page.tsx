@@ -26,8 +26,8 @@ function ShopContent() {
 
   const [search, setSearch] = useState(initialSearch);
   const [selectedCategory, setSelectedCategory] = useState(initialCategory);
-  const [selectedShape, setSelectedShape] = useState<string>(initialShape || 'all');
-  const [selectedOrientation, setSelectedOrientation] = useState<string>('all');
+  
+  
   const [selectedLighting, setSelectedLighting] = useState<string>('all');
   const [priceRange, setPriceRange] = useState<number>(10000);
   const [sortBy, setSortBy] = useState<string>(initialSort);
@@ -57,7 +57,7 @@ function ShopContent() {
   useEffect(() => {
     if (initialSearch) setSearch(initialSearch);
     if (initialCategory) setSelectedCategory(initialCategory);
-    if (initialShape) setSelectedShape(initialShape);
+    
   }, [initialSearch, initialCategory, initialShape]);
 
   const filteredProducts = useMemo(() => {
@@ -85,41 +85,7 @@ function ShopContent() {
       );
     }
 
-    if (selectedShape && selectedShape !== 'all') {
-      const s = selectedShape.toLowerCase();
-      if (s === 'portrait' || s === 'vertical') {
-        list = list.filter((p) => p.shape === 'portrait' || p.orientation === 'vertical');
-      } else if (s === 'landscape' || s === 'horizontal') {
-        list = list.filter((p) => p.shape === 'landscape' || p.orientation === 'horizontal');
-      } else if (s === 'square') {
-        list = list.filter((p) => p.shape === 'square' || p.orientation === 'square');
-      } else if (s === 'round') {
-        list = list.filter(
-          (p) =>
-            p.shape === 'round' ||
-            p.orientation === 'round' ||
-            p.tags.some((t) => t.toLowerCase().includes('round'))
-        );
-      } else if (s === 'set-of-2') {
-        list = list.filter(
-          (p) =>
-            p.shape === 'set-of-2' ||
-            p.tags.some((t) => t.toLowerCase().includes('set of 2') || t.toLowerCase().includes('diptych'))
-        );
-      } else if (s === 'set-of-3') {
-        list = list.filter(
-          (p) =>
-            p.shape === 'set-of-3' ||
-            p.tags.some((t) => t.toLowerCase().includes('set of 3') || t.toLowerCase().includes('triptych'))
-        );
-      } else {
-        list = list.filter((p) => p.shape === s || p.orientation === s);
-      }
-    }
-
-    if (selectedOrientation !== 'all') {
-      list = list.filter((p) => p.orientation === selectedOrientation);
-    }
+    
 
     if (selectedLighting !== 'all') {
       if (selectedLighting === 'led') {
@@ -151,13 +117,13 @@ function ShopContent() {
     }
 
     return list;
-  }, [liveProducts, search, selectedCategory, selectedShape, selectedOrientation, selectedLighting, priceRange, sortBy]);
+  }, [liveProducts, search, selectedCategory,  selectedLighting, priceRange, sortBy]);
 
   const resetFilters = () => {
     setSearch('');
     setSelectedCategory('');
-    setSelectedShape('all');
-    setSelectedOrientation('all');
+    
+    
     setSelectedLighting('all');
     setPriceRange(10000);
     setSortBy('bestseller');
@@ -166,8 +132,8 @@ function ShopContent() {
   const hasActiveFilters =
     Boolean(search) ||
     Boolean(selectedCategory) ||
-    (selectedShape !== 'all' && Boolean(selectedShape)) ||
-    selectedOrientation !== 'all' ||
+    
+    
     selectedLighting !== 'all' ||
     priceRange < 10000;
 
@@ -333,36 +299,7 @@ function ShopContent() {
               </div>
             </div>
 
-            {/* Shape & Layout */}
-            <div>
-              <label className="text-xs font-bold uppercase tracking-wider text-[#FFFFFF] block mb-2">
-                Shape &amp; Layout
-              </label>
-              <div className="grid grid-cols-2 gap-1.5 text-xs">
-                {[
-                  { id: 'all', label: 'All Shapes' },
-                  { id: 'portrait', label: 'Portrait' },
-                  { id: 'landscape', label: 'Landscape' },
-                  { id: 'square', label: 'Square' },
-                  { id: 'round', label: 'Round' },
-                  { id: 'set-of-2', label: 'Set of 2' },
-                  { id: 'set-of-3', label: 'Set of 3' },
-                ].map((s) => (
-                  <button
-                    key={s.id}
-                    type="button"
-                    onClick={() => setSelectedShape(s.id)}
-                    className={`py-1.5 px-2 rounded-lg border text-center font-medium transition-all ${
-                      selectedShape === s.id
-                        ? 'border-[#EAB308] bg-[#1E1E1E] text-[#FFFFFF] font-bold shadow-xs'
-                        : 'border-[#2D2D2D] text-[#D1D5DB] hover:border-[#EAB308]'
-                    }`}
-                  >
-                    {s.label}
-                  </button>
-                ))}
-              </div>
-            </div>
+            
 
             {/* Max Price Slider */}
             <div>
@@ -492,24 +429,14 @@ function ShopContent() {
                   <button type="button" onClick={() => setSelectedCategory('')}><X className="w-3 h-3" /></button>
                 </span>
               )}
-              {selectedShape !== 'all' && Boolean(selectedShape) && (
-                <span className="bg-amber-100 text-amber-900 px-2.5 py-1 rounded-full flex items-center gap-1">
-                  Shape: {selectedShape}
-                  <button type="button" onClick={() => setSelectedShape('all')}><X className="w-3 h-3" /></button>
-                </span>
-              )}
+              
               {selectedLighting !== 'all' && (
                 <span className="bg-amber-100 text-amber-900 px-2.5 py-1 rounded-full flex items-center gap-1">
                   Lighting: {selectedLighting === 'led' ? 'LED Backlit' : 'Non-Lit'}
                   <button type="button" onClick={() => setSelectedLighting('all')}><X className="w-3 h-3" /></button>
                 </span>
               )}
-              {selectedOrientation !== 'all' && (
-                <span className="bg-amber-100 text-amber-900 px-2.5 py-1 rounded-full flex items-center gap-1">
-                  Orientation: {selectedOrientation}
-                  <button type="button" onClick={() => setSelectedOrientation('all')}><X className="w-3 h-3" /></button>
-                </span>
-              )}
+              
               {priceRange < 10000 && (
                 <span className="bg-amber-100 text-amber-900 px-2.5 py-1 rounded-full flex items-center gap-1">
                   Under ₹{priceRange.toLocaleString('en-IN')}
@@ -581,26 +508,6 @@ function ShopContent() {
                     );
                   })}
                 </optgroup>
-              </select>
-            </div>
-
-            {/* Mobile Shape */}
-            <div>
-              <label className="text-xs font-bold uppercase tracking-wider text-amber-900 block mb-2">
-                Shape &amp; Layout
-              </label>
-              <select
-                value={selectedShape}
-                onChange={(e) => setSelectedShape(e.target.value)}
-                className="w-full px-3 py-2 text-xs bg-stone-50 border rounded-lg"
-              >
-                <option value="all">All Shapes &amp; Proportions</option>
-                <option value="portrait">Portrait (Vertical)</option>
-                <option value="landscape">Landscape (Horizontal)</option>
-                <option value="square">Square (1:1 Symmetry)</option>
-                <option value="round">Round (Circular Frame)</option>
-                <option value="set-of-2">Set of 2 Frames (Diptych)</option>
-                <option value="set-of-3">Set of 3 Frames (Triptych)</option>
               </select>
             </div>
 

@@ -154,7 +154,7 @@ export function getAllProducts(filterOptions?: ProductFilterOptions): Product[] 
       } else if (s === 'square') {
         list = list.filter((p) => p.shape === 'square' || p.orientation === 'square');
       } else if (s === 'round') {
-        list = list.filter((p) => p.shape === 'round' || p.orientation === 'round' || p.tags.some((t) => t.toLowerCase().includes('round')));
+        list = list.filter((p) => p.tags.some((t) => t.toLowerCase().includes('round')));
       } else if (s === 'set-of-2') {
         list = list.filter((p) => p.shape === 'set-of-2' || p.tags.some((t) => t.toLowerCase().includes('set of 2') || t.toLowerCase().includes('diptych')));
       } else if (s === 'set-of-3') {

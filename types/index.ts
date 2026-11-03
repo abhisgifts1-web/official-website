@@ -1,5 +1,5 @@
-export type ProductOrientation = 'vertical' | 'horizontal' | 'square' | 'round';
-export type OrientationShape = 'portrait' | 'landscape' | 'square' | 'round';
+export type ProductOrientation = 'vertical' | 'horizontal' | 'square';
+export type OrientationShape = 'portrait' | 'landscape' | 'square';
 
 export interface OrientationVariantsMap {
   portrait: ProductVariant[];

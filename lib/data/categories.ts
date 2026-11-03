@@ -1,9 +1,6 @@
 import { Category } from '@/types';
 
 export const INITIAL_CATEGORIES: Category[] = [
-  // ==========================================
-  // GROUP A: GOD WALL ART (DEVOTIONAL HEIRLOOMS)
-  // ==========================================
   {
     id: 'cat-balaji',
     name: 'Lord Balaji / Venkateswara',
@@ -121,10 +118,6 @@ export const INITIAL_CATEGORIES: Category[] = [
     itemCount: 1,
     buttonText: 'Shop Now',
   },
-
-  // ==========================================
-  // GROUP B: LED BACKLIGHT WALL ART
-  // ==========================================
   {
     id: 'cat-led-god-frames',
     name: 'Devotional LED Frames',
@@ -152,45 +145,6 @@ export const INITIAL_CATEGORIES: Category[] = [
     buttonText: 'Shop Now',
   },
   {
-    id: 'cat-vertical-led-frames',
-    name: 'Vertical Backlight Frames',
-    slug: 'vertical-led-frames',
-    description: 'Slender vertical illuminated panels tailored for architectural pillars, mandir sides, and entrance foyers.',
-    image: '/images/wall-decor/categories/led-backlight/hanuman-led-category.jpg',
-    parentType: 'wall-art-styles',
-    group: 'led-backlight',
-    lightingType: 'backlight',
-    featured: false,
-    itemCount: 3,
-    buttonText: 'Shop Now',
-  },
-  {
-    id: 'cat-horizontal-led-frames',
-    name: 'Horizontal Backlight Frames',
-    slug: 'horizontal-led-frames',
-    description: 'Wide panoramic backlit panels designed to crown living room sofa feature walls and master bedroom headboards.',
-    image: '/images/wall-decor/categories/led-backlight/horizontal-led-category.jpg',
-    parentType: 'wall-art-styles',
-    group: 'led-backlight',
-    lightingType: 'backlight',
-    featured: false,
-    itemCount: 2,
-    buttonText: 'Shop Now',
-  },
-  {
-    id: 'cat-square-led-frames',
-    name: 'Square Backlight Frames',
-    slug: 'square-backlight-frames',
-    description: 'Balanced 1:1 square illuminated frames creating geometric harmony and spiritual sanctuary vibes.',
-    image: '/images/wall-decor/categories/led-backlight/square-led-category.jpg',
-    parentType: 'wall-art-styles',
-    group: 'led-backlight',
-    lightingType: 'backlight',
-    featured: false,
-    itemCount: 3,
-    buttonText: 'Shop Now',
-  },
-  {
     id: 'cat-modern-illuminated-art',
     name: 'Modern Illuminated Wall Art',
     slug: 'modern-illuminated-art',
@@ -215,62 +169,6 @@ export const INITIAL_CATEGORIES: Category[] = [
     featured: true,
     itemCount: 3,
     buttonText: 'Shop Now',
-  },
-
-  // ==========================================
-  // GROUP C: CUSTOMIZED PHOTO FRAMES
-  // ==========================================
-  {
-    id: 'cat-custom-portrait',
-    name: 'Custom Portrait Frames',
-    slug: 'custom-portrait-frames',
-    description: 'Vertical crystal acrylic personal portraits with bevel-cut edges and ultra-gloss clarity for individual & family memories.',
-    image: '/images/wall-decor/categories/custom-frames/custom-portrait-category.jpg',
-    parentType: 'custom-frames',
-    group: 'custom-frames',
-    lightingType: 'normal',
-    featured: true,
-    itemCount: 2,
-    buttonText: 'Customize',
-  },
-  {
-    id: 'cat-landscape-photo-frames',
-    name: 'Landscape Photo Frames',
-    slug: 'landscape-photo-frames',
-    description: 'Expansive horizontal acrylic frames perfect for vacation panoramic captures, family groups, and wide scenery.',
-    image: '/images/wall-decor/categories/custom-frames/landscape-photo-category.jpg',
-    parentType: 'custom-frames',
-    group: 'custom-frames',
-    lightingType: 'normal',
-    featured: false,
-    itemCount: 2,
-    buttonText: 'Customize',
-  },
-  {
-    id: 'cat-square-photo-frames',
-    name: 'Square Photo Frames',
-    slug: 'square-photo-frames',
-    description: 'Trendy 1:1 square photo displays ideal for Instagram grids, couple moments, and modern gallery clusters.',
-    image: '/images/wall-decor/categories/custom-frames/square-photo-category.jpg',
-    parentType: 'custom-frames',
-    group: 'custom-frames',
-    lightingType: 'normal',
-    featured: false,
-    itemCount: 2,
-    buttonText: 'Customize',
-  },
-  {
-    id: 'cat-round-photo-frames',
-    name: 'Round Photo Frames',
-    slug: 'round-photo-frames',
-    description: 'Sophisticated circular acrylic prints with smooth-buffed borders that bring organic softness to rectangular rooms.',
-    image: '/images/wall-decor/categories/custom-frames/round-photo-category.jpg',
-    parentType: 'custom-frames',
-    group: 'custom-frames',
-    lightingType: 'normal',
-    featured: false,
-    itemCount: 2,
-    buttonText: 'Customize',
   },
   {
     id: 'cat-personalized-family-photo-frames',
@@ -337,7 +235,6 @@ export const INITIAL_CATEGORIES: Category[] = [
     itemCount: 2,
     buttonText: 'Customize',
   },
-
   {
     id: 'cat-glitter-photo-frames',
     name: 'Glitter Photo Frames',
@@ -364,9 +261,6 @@ export const INITIAL_CATEGORIES: Category[] = [
     itemCount: 2,
     buttonText: 'Shop Lamp',
   },
-  // ==========================================
-  // GROUP D: ABSTRACT AND MODERN WALL ART
-  // ==========================================
   {
     id: 'cat-gold-abstract',
     name: 'Gold Abstract Designs',

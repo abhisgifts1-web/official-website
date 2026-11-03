@@ -36,7 +36,7 @@ function WhatsAppIcon({ className = 'w-4 h-4 sm:w-5 sm:h-5' }: { className?: str
   );
 }
 import { INITIAL_CATEGORIES } from '@/lib/data/categories';
-import { SHAPES_DATA } from '@/lib/data/shapes';
+
 import { useCart } from '@/context/CartContext';
 import { useWishlist } from '@/context/WishlistContext';
 
@@ -743,24 +743,7 @@ export default function Header() {
                 ))}
               </div>
 
-              {/* Shop by Shape */}
-              <div className="py-2.5">
-                <p className="text-[10px] font-bold uppercase text-[#EAB308] px-3 py-1 tracking-wider">
-                  Shop by Shape
-                </p>
-                <div className="grid grid-cols-2 gap-1 px-1">
-                  {SHAPES_DATA.map((s) => (
-                    <Link
-                      key={s.id}
-                      href={s.href}
-                      onClick={() => setMobileMenuOpen(false)}
-                      className="block px-2.5 py-1 text-xs text-[#D1D5DB] hover:text-[#FFFFFF] hover:bg-[#1E1E1E] rounded-lg"
-                    >
-                      {s.name}
-                    </Link>
-                  ))}
-                </div>
-              </div>
+              
 
               {/* Customer Care */}
               <div className="py-2.5 space-y-0.5">

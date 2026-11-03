@@ -15,7 +15,7 @@ import {
   CheckCircle2,
 } from 'lucide-react';
 import { Category, CategoryGroup } from '@/types';
-import { SHAPES_DATA } from '@/lib/data/shapes';
+
 import CategoryCard from './CategoryCard';
 
 interface CategoryExplorerProps {
@@ -381,54 +381,7 @@ export default function CategoryExplorer({ initialCategories }: CategoryExplorer
         </div>
       )}
 
-      {/* 4. Section: Shop by Frame Shape & Layout */}
-      <section className="pt-8 border-t border-stone-200/80 space-y-6">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2">
-          <div>
-            <h2 className="font-serif font-bold text-xl sm:text-2xl text-stone-900 flex items-center gap-2">
-              <Maximize2 className="w-5 h-5 text-amber-700" />
-              <span>Shop by Frame Shape &amp; Silhouette</span>
-            </h2>
-            <p className="text-xs text-stone-500 mt-1">
-              Select tailored geometric aspect ratios engineered for living room sofas, pooja mandirs, and hallway pillars.
-            </p>
-          </div>
-          <span className="text-xs font-semibold text-amber-900 bg-amber-50 border border-amber-200 px-2.5 py-1 rounded-full shrink-0">
-            {SHAPES_DATA.length} Geometric Formats
-          </span>
-        </div>
-
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-5">
-          {SHAPES_DATA.map((shape) => (
-            <Link
-              key={shape.id}
-              href={shape.href}
-              className="group relative flex flex-col bg-white rounded-2xl border border-stone-200/80 hover:border-amber-400 overflow-hidden shadow-xs hover:shadow-warm transition-all duration-300 hover:-translate-y-1 p-3.5 space-y-2.5"
-            >
-              <div className="relative aspect-[4/3] w-full rounded-xl overflow-hidden bg-stone-900">
-                <img
-                  src={shape.image}
-                  alt={shape.name}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80"
-                />
-                <span className="absolute top-2 left-2 text-[10px] font-bold uppercase bg-stone-950/80 backdrop-blur-xs text-amber-300 px-2 py-0.5 rounded-full">
-                  {shape.aspectRatio}
-                </span>
-              </div>
-              <div>
-                <h3 className="font-serif font-bold text-xs sm:text-sm text-stone-900 group-hover:text-amber-800 transition-colors line-clamp-1">
-                  {shape.name}
-                </h3>
-                <p className="text-[11px] text-stone-500 line-clamp-2 mt-0.5 leading-tight">{shape.description}</p>
-              </div>
-              <div className="pt-2 border-t border-stone-100 flex items-center justify-between text-[11px] font-semibold text-amber-800">
-                <span>View Designs</span>
-                <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
-              </div>
-            </Link>
-          ))}
-        </div>
-      </section>
+      
     </div>
   );
 }

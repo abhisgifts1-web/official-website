@@ -160,16 +160,6 @@ export const FRAME_CATEGORIES: FrameCategoryOption[] = [
     multiplier: 1.2,
     hasLedDefault: false,
   },
-  {
-    id: 'round-acrylic',
-    name: 'Round Acrylic Frames',
-    badge: 'Modern Silhouette',
-    subtitle: '360° Circular Smooth Facet',
-    description: 'Laser-curved circular medallion with continuous beveled edge and concealed heavy-duty French cleat mount.',
-    multiplier: 1.15,
-    hasLedDefault: false,
-    forcedShape: 'round',
-  },
 ];
 
 export const FRAME_FINISHES: FrameFinishOption[] = [
@@ -270,15 +260,8 @@ export const CALIBRATED_SIZES: Record<ProductOrientation, SizeConfig[]> = {
     { id: '20x20', label: '20 × 20 inches', dimensionsCm: '50 × 50 cm', basePrice: 3299, mrp: 5999 },
     { id: 'custom', label: 'Custom Size', dimensionsCm: 'Up to 48 × 48 in', basePrice: 1999, mrp: 3999 },
   ],
-  round: [
-    { id: '8-dia', label: '8" Diameter', dimensionsCm: '20 cm Dia', basePrice: 1199, mrp: 2299 },
-    { id: '10-dia', label: '10" Diameter', dimensionsCm: '25 cm Dia', basePrice: 1499, mrp: 2799 },
-    { id: '12-dia', label: '12" Diameter', dimensionsCm: '30 cm Dia', basePrice: 1899, mrp: 3499 },
-    { id: '16-dia', label: '16" Diameter', dimensionsCm: '40 cm Dia', basePrice: 2599, mrp: 4899, isPopular: true },
-    { id: '20-dia', label: '20" Diameter', dimensionsCm: '50 cm Dia', basePrice: 3599, mrp: 6499 },
-    { id: 'custom', label: 'Custom Diameter', dimensionsCm: 'Up to 48" Dia', basePrice: 2199, mrp: 4199 },
-  ],
 };
+
 
 export const SAMPLE_MEMORIES = [
   {
@@ -463,24 +446,6 @@ export const GALLERY_PRODUCTS: GalleryProductItem[] = [
       sizeId: '12x18',
     },
   },
-  {
-    id: 'gal-luxury',
-    title: 'Luxury Circular Round Acrylic Wall Medallion',
-    subtitle: 'Continuous 360° Smooth Bevel',
-    category: 'Luxury Silhouette',
-    image: '/images/custom-art/cartoon-round-portrait.svg',
-    startingPrice: 2199,
-    mrp: 3999,
-    badge: 'Modern Medallion',
-    description: 'Double-thick acrylic with 360° laser-curved smooth edge facets and animated couple portrait with celebratory gold floral wreath.',
-    preset: {
-      category: 'round-acrylic',
-      orientation: 'round',
-      finish: 'floating-standoff',
-      led: 'none',
-      sizeId: '16-dia',
-    },
-  },
 ];
 
 // =========================================================================
@@ -553,9 +518,7 @@ export default function CustomizerStudio() {
   const handleCategoryChange = (newCat: FrameCategory) => {
     setCategory(newCat);
     const catObj = FRAME_CATEGORIES.find((c) => c.id === newCat);
-    if (catObj?.forcedShape) {
-      handleOrientationChange(catObj.forcedShape);
-    }
+    
     if (catObj?.hasLedDefault && led === 'none') {
       setLed('warm-white');
     }
@@ -828,17 +791,6 @@ export default function CustomizerStudio() {
               </div>
 
               <div className="space-y-3.5 pt-6">
-                <div className="rounded-2xl overflow-hidden border border-[#EAB308] shadow-md bg-stone-900 relative group aspect-square rounded-full">
-                  <img
-                    src="/images/custom-art/cartoon-round-portrait.svg"
-                    alt="Luxury Circular Medallion Animated Art Frame"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute bottom-2 inset-x-2 bg-black/70 backdrop-blur-xs p-2 rounded-xl text-center">
-                    <span className="text-[10px] font-bold text-[#FFD782] block">Circular Medallion</span>
-                    <span className="text-[9px] text-white/80">360° Smooth Bevel</span>
-                  </div>
-                </div>
 
                 <div className="rounded-2xl overflow-hidden border border-[#EAB308] shadow-md bg-stone-900 relative group aspect-[4/3]">
                   <img
@@ -970,9 +922,7 @@ export default function CustomizerStudio() {
                 {led !== 'none' && (
                   <div
                     className={`absolute pointer-events-none transition-all duration-700 ${
-                      orientation === 'round'
-                        ? 'w-[440px] sm:w-[540px] h-[440px] sm:h-[540px] rounded-full'
-                        : orientation === 'horizontal'
+                      orientation === 'horizontal'
                         ? 'w-[520px] sm:w-[680px] h-[360px] sm:h-[460px] rounded-3xl'
                         : orientation === 'square'
                         ? 'w-[420px] sm:w-[500px] h-[420px] sm:h-[500px] rounded-3xl'
@@ -1008,7 +958,7 @@ export default function CustomizerStudio() {
                   {/* Outer Frame Finish Container */}
                   <div
                     className={`relative w-full h-full overflow-hidden bg-stone-950 transition-all duration-300 ${
-                      orientation === 'round' ? 'rounded-full' : 'rounded-2xl'
+                      'rounded-2xl'
                     } ${
                       finish === 'wooden-box'
                         ? 'border-[12px] sm:border-[16px] border-[#3D2614] shadow-2xl ring-2 ring-[#24160B]'
@@ -1045,23 +995,7 @@ export default function CustomizerStudio() {
                       {/* Metallic Stainless Steel Standoffs (When Standoff Finish is Selected) */}
                       {finish === 'floating-standoff' && (
                         <>
-                          {orientation === 'round' ? (
-                            <>
-                              <div className="absolute top-2.5 left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-gradient-to-br from-white via-stone-200 to-stone-500 shadow-md border border-stone-400 flex items-center justify-center">
-                                <div className="w-1.5 h-1.5 rounded-full bg-stone-700" />
-                              </div>
-                              <div className="absolute bottom-2.5 left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-gradient-to-br from-white via-stone-200 to-stone-500 shadow-md border border-stone-400 flex items-center justify-center">
-                                <div className="w-1.5 h-1.5 rounded-full bg-stone-700" />
-                              </div>
-                              <div className="absolute left-2.5 top-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-gradient-to-br from-white via-stone-200 to-stone-500 shadow-md border border-stone-400 flex items-center justify-center">
-                                <div className="w-1.5 h-1.5 rounded-full bg-stone-700" />
-                              </div>
-                              <div className="absolute right-2.5 top-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-gradient-to-br from-white via-stone-200 to-stone-500 shadow-md border border-stone-400 flex items-center justify-center">
-                                <div className="w-1.5 h-1.5 rounded-full bg-stone-700" />
-                              </div>
-                            </>
-                          ) : (
-                            <>
+                          <>
                               <div className="absolute top-3 left-3 w-4 h-4 rounded-full bg-gradient-to-br from-white via-stone-200 to-stone-500 shadow-md border border-stone-400 flex items-center justify-center">
                                 <div className="w-1.5 h-1.5 rounded-full bg-stone-700" />
                               </div>
@@ -1075,7 +1009,6 @@ export default function CustomizerStudio() {
                                 <div className="w-1.5 h-1.5 rounded-full bg-stone-700" />
                               </div>
                             </>
-                          )}
                         </>
                       )}
 
@@ -1083,7 +1016,7 @@ export default function CustomizerStudio() {
                       <div
                         className={`absolute inset-0 pointer-events-none transition-opacity duration-500 bg-gradient-to-tr from-transparent via-white/15 to-white/30 ${
                           isHovered ? 'opacity-100' : 'opacity-60'
-                        } ${orientation === 'round' ? 'rounded-full' : ''}`}
+                        } ${''}`}
                       />
                     </div>
                   </div>
@@ -1260,46 +1193,13 @@ export default function CustomizerStudio() {
               </div>
             </div>
 
-            {/* Step B: Select Orientation */}
-            <div className="space-y-2">
-              <label className="text-xs font-bold uppercase tracking-wider text-[#FFFFFF] flex items-center justify-between">
-                <span>Step 3: Choose Orientation &amp; Dimensions</span>
-                <span className="text-[10px] text-[#EAB308] font-normal capitalize">
-                  Current: {orientation}
-                </span>
-              </label>
 
-              <div className="grid grid-cols-4 gap-1.5 sm:gap-2">
-                {[
-                  { id: 'vertical', label: 'Portrait' },
-                  { id: 'horizontal', label: 'Landscape' },
-                  { id: 'square', label: 'Square' },
-                  { id: 'round', label: 'Round' },
-                ].map((item) => {
-                  const isSelected = orientation === item.id;
-                  return (
-                    <button
-                      key={item.id}
-                      type="button"
-                      onClick={() => handleOrientationChange(item.id as ProductOrientation)}
-                      className={`py-2.5 px-1 sm:px-2 min-h-[44px] flex items-center justify-center text-xs font-semibold rounded-xl border text-center transition-all cursor-pointer ${
-                        isSelected
-                          ? 'border-[#EAB308] bg-[#181818] text-[#FFFFFF] font-bold ring-1 ring-[#EAB308]'
-                          : 'border-[#2D2D2D] text-[#D1D5DB] hover:border-[#EAB308]'
-                      }`}
-                    >
-                      {item.label}
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
 
             {/* Step C: Select Frame Size */}
             <div className="space-y-2">
               <div className="flex items-center justify-between">
                 <label className="text-xs font-bold uppercase tracking-wider text-[#FFFFFF]">
-                  Step 3B: Select Frame Dimensions
+                  Step 3: Select Frame Dimensions
                 </label>
                 <span className="text-[11px] text-[#EAB308] font-semibold">{displaySizeLabel}</span>
               </div>
@@ -1633,7 +1533,7 @@ export default function CustomizerStudio() {
                 Choose Your Frame
               </h3>
               <p className="text-xs text-[#D1D5DB] leading-relaxed">
-                Select your preferred frame category, orientation (portrait, landscape, square, round), dimensions, and warm LED backlight.
+                Select your preferred frame category, dimensions, and warm LED backlight.
               </p>
               <div className="text-[11px] font-bold text-[#EAB308] flex items-center gap-1 pt-1">
                 <Check className="w-3.5 h-3.5 text-emerald-600" />

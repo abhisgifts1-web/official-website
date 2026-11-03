@@ -35,7 +35,7 @@ export default function CustomGiftsShowcase() {
       'crystal-tower-hexagonal-rotating-photo-lamp',
       'personalized-family-heirloom-gold-script-acrylic-frame',
       'custom-personalised-photo-acrylic-wall-frame',
-      'luxury-circular-round-acrylic-photo-frame',
+      'custom-personalised-photo-acrylic-wall-frame',
       'personalized-golden-family-crest-photo-acrylic-heirloom',
     ],
     []

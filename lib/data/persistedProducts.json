@@ -5,8 +5,7 @@
     "categorySlugs": [
       "lord-venkateswara-balaji",
       "devotional-led-frames",
-      "led-backlit-wall-art",
-      "vertical-led-frames"
+      "led-backlit-wall-art"
     ],
     "shape": "portrait",
     "title": "Divine Tirupati Balaji 3D Acrylic LED Backlit Wall Art",
@@ -337,8 +336,7 @@
     "categorySlugs": [
       "lord-shiva-shiv-parivar",
       "devotional-led-frames",
-      "led-backlit-wall-art",
-      "horizontal-led-frames"
+      "led-backlit-wall-art"
     ],
     "shape": "landscape",
     "title": "Adiyogi Lord Shiva Meditative LED Backlit Wall Art",
@@ -557,7 +555,6 @@
     "categorySlugs": [
       "lord-hanuman",
       "devotional-led-frames",
-      "vertical-led-frames",
       "led-backlit-wall-art"
     ],
     "shape": "portrait",
@@ -740,7 +737,6 @@
     "categorySlugs": [
       "led-backlit-wall-art",
       "devotional-led-frames",
-      "square-backlight-frames",
       "radha-krishna"
     ],
     "shape": "square",
@@ -874,7 +870,6 @@
       "lord-rama",
       "premium-temple-designs",
       "devotional-led-frames",
-      "horizontal-led-frames",
       "led-backlit-wall-art"
     ],
     "shape": "landscape",
@@ -1129,10 +1124,9 @@
     "subtitle": "Upload Your Photo • Museum Acrylic Glass Depth • Custom Sizes & Inscriptions",
     "shortDescription": "Turn your wedding, family, or travel memories into crystal-clear frameless acrylic wall art.",
     "description": "Transform your special moments into heirloom wall art. Upload your favorite high-resolution photo and let our studio print it directly onto precision-polished premium acrylic. The frameless design creates a clean, modern floating aesthetic where your memories look vibrant and lifelike from every angle.",
-    "categorySlug": "custom-portrait-frames",
+    "categorySlug": "personalized-family-photo-frames",
     "categoryName": "Personalised Portrait Frames",
     "categorySlugs": [
-      "custom-portrait-frames",
       "personalized-family-photo-frames"
     ],
     "artStyle": "Custom Photo Frames",
@@ -1242,7 +1236,6 @@
     "categoryName": "Custom LED Backlit Photo Frames",
     "categorySlugs": [
       "custom-led-photo-frames",
-      "vertical-led-frames",
       "led-backlit-wall-art"
     ],
     "artStyle": "Custom Photo Frames",
@@ -1326,296 +1319,6 @@
     "createdAt": "2026-09-15"
   },
   {
-    "id": "prod-landscape-acrylic-photo-frame",
-    "slug": "panoramic-landscape-acrylic-photo-frame",
-    "title": "Panoramic Landscape Custom Acrylic Photo Wall Frame",
-    "subtitle": "Wide Horizontal Ratio • smooth beveled Edges • Floating Standoff Studs",
-    "shortDescription": "Showcase wide family vacations, wedding stages, and panoramic memories on precision-polished horizontal acrylic.",
-    "description": "Engineered specifically for expansive wide-angle memories. Our landscape acrylic photo frame brings panoramic vacation landscapes and full family gatherings to life with rich depth and 3D floating aesthetics.",
-    "categorySlug": "landscape-photo-frames",
-    "categoryName": "Landscape Photo Frames",
-    "categorySlugs": [
-      "landscape-photo-frames",
-      "personalized-family-photo-frames"
-    ],
-    "artStyle": "Custom Photo Frames",
-    "orientation": "horizontal",
-    "shape": "landscape",
-    "images": [
-      "/images/mockups/panoramic-landscape-acrylic-photo-frame/primary-square.jpg"
-    ],
-    "tags": [
-      "Landscape Frame",
-      "Custom Photo",
-      "Family Vacation",
-      "Panoramic Art",
-      "Horizontal Frame"
-    ],
-    "isFeatured": true,
-    "isBestseller": true,
-    "isNewArrival": false,
-    "hasLedBacklight": false,
-    "basePrice": 1999,
-    "baseMrp": 3999,
-    "discountPercentage": 50,
-    "rating": 0,
-    "reviewCount": 0,
-    "variants": [
-      {
-        "id": "var-lp1",
-        "size": "18 x 12 inches",
-        "dimensionsCm": "45 x 30 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "No Lighting (Pure Art)",
-        "price": 1999,
-        "mrp": 3999,
-        "sku": "AG-LAND-1812",
-        "inStock": true,
-        "stockCount": 85
-      },
-      {
-        "id": "var-lp2",
-        "size": "24 x 16 inches",
-        "dimensionsCm": "60 x 40 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "No Lighting (Pure Art)",
-        "price": 2899,
-        "mrp": 5499,
-        "sku": "AG-LAND-2416",
-        "inStock": true,
-        "stockCount": 60
-      },
-      {
-        "id": "var-lp3",
-        "size": "36 x 24 inches",
-        "dimensionsCm": "90 x 60 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "No Lighting (Pure Art)",
-        "price": 4499,
-        "mrp": 8499,
-        "sku": "AG-LAND-3624",
-        "inStock": true,
-        "stockCount": 35
-      }
-    ],
-    "specifications": [
-      {
-        "label": "Aspect Ratio",
-        "value": "16:9 / 3:2 Panoramic horizontal"
-      },
-      {
-        "label": "Acrylic Grade",
-        "value": "Premium Optical Cast Glass Acrylic"
-      },
-      {
-        "label": "Mounting Style",
-        "value": "Concealed floating wall studs included"
-      }
-    ],
-    "materialAndCare": [
-      "Microfiber wipe with mild soap",
-      "Shatter-proof UV print"
-    ],
-    "shippingHighlights": [
-      "Dispatched in 48h in rigid wooden reinforcement crate"
-    ],
-    "reviews": [],
-    "createdAt": "2026-08-20"
-  },
-  {
-    "id": "prod-square-acrylic-photo-frame",
-    "slug": "modern-square-acrylic-photo-frame",
-    "title": "Modern 1:1 Square Grid Crystal Acrylic Photo Frame",
-    "subtitle": "Instagram & Couple Milestones • Frameless High Gloss • Standoff Mounts",
-    "shortDescription": "Contemporary square acrylic prints designed for modern gallery clusters and intimate milestone portraits.",
-    "description": "The square ratio offers a balanced, contemporary look for bedside walls, home offices, and chic photo grids. Printed directly on 5mm museum-grade cast acrylic with crystal bevel edges.",
-    "categorySlug": "square-photo-frames",
-    "categoryName": "Square Photo Frames",
-    "categorySlugs": [
-      "square-photo-frames",
-      "custom-portrait-frames"
-    ],
-    "artStyle": "Custom Photo Frames",
-    "orientation": "square",
-    "shape": "square",
-    "images": [
-      "/images/mockups/modern-square-acrylic-photo-frame/primary-square.jpg"
-    ],
-    "tags": [
-      "Square Frame",
-      "Instagram Grid",
-      "Couple Photo",
-      "Custom Photo",
-      "Acrylic Frame"
-    ],
-    "isFeatured": true,
-    "isBestseller": true,
-    "isNewArrival": false,
-    "hasLedBacklight": false,
-    "basePrice": 1399,
-    "baseMrp": 2799,
-    "discountPercentage": 50,
-    "rating": 0,
-    "reviewCount": 0,
-    "variants": [
-      {
-        "id": "var-sq1",
-        "size": "12 x 12 inches",
-        "dimensionsCm": "30 x 30 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "No Lighting (Pure Art)",
-        "price": 1399,
-        "mrp": 2799,
-        "sku": "AG-SQ-1212",
-        "inStock": true,
-        "stockCount": 110
-      },
-      {
-        "id": "var-sq2",
-        "size": "18 x 18 inches",
-        "dimensionsCm": "45 x 45 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "No Lighting (Pure Art)",
-        "price": 2299,
-        "mrp": 4499,
-        "sku": "AG-SQ-1818",
-        "inStock": true,
-        "stockCount": 75
-      },
-      {
-        "id": "var-sq3",
-        "size": "24 x 24 inches",
-        "dimensionsCm": "60 x 60 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "No Lighting (Pure Art)",
-        "price": 3499,
-        "mrp": 6499,
-        "sku": "AG-SQ-2424",
-        "inStock": true,
-        "stockCount": 40
-      }
-    ],
-    "specifications": [
-      {
-        "label": "Aspect Ratio",
-        "value": "1:1 Square Grid"
-      },
-      {
-        "label": "Bevel Finishing",
-        "value": "precision CNC Polished Edges"
-      },
-      {
-        "label": "Mounting Style",
-        "value": "Single centered hidden bracket or 4 corner studs"
-      }
-    ],
-    "materialAndCare": [
-      "Microfiber cloth clean",
-      "Scratch-resistant top coat"
-    ],
-    "shippingHighlights": [
-      "Dispatched in 2-3 business days"
-    ],
-    "reviews": [],
-    "createdAt": "2026-08-25"
-  },
-  {
-    "id": "prod-round-acrylic-photo-frame",
-    "slug": "luxury-circular-round-acrylic-photo-frame",
-    "title": "Luxury Circular Round Beveled Acrylic Photo Frame",
-    "subtitle": "precision-polished Curve • Frameless Halo Effect • High-Clarity Acrylic",
-    "shortDescription": "Soft circular silhouette offering an intimate, modern display for couple, newborn, and milestone memories.",
-    "description": "Break away from conventional rectangles with our laser-cut circular acrylic photo frame. Featuring continuous precision-polished curved edges and invisible floating rear bracket that casts a soft natural shadow on your wall.",
-    "categorySlug": "round-photo-frames",
-    "categoryName": "Round Photo Frames",
-    "categorySlugs": [
-      "round-photo-frames"
-    ],
-    "artStyle": "Custom Photo Frames",
-    "orientation": "round",
-    "shape": "round",
-    "images": [
-      "/images/mockups/luxury-circular-round-acrylic-photo-frame/primary-square.jpg"
-    ],
-    "tags": [
-      "Round Frame",
-      "Circular Acrylic",
-      "Couple Portrait",
-      "Custom Frame",
-      "Milestone Art"
-    ],
-    "isFeatured": true,
-    "isBestseller": true,
-    "isNewArrival": true,
-    "hasLedBacklight": false,
-    "basePrice": 1799,
-    "baseMrp": 3599,
-    "discountPercentage": 50,
-    "rating": 0,
-    "reviewCount": 0,
-    "variants": [
-      {
-        "id": "var-rd1",
-        "size": "14\" Dia (35 cm)",
-        "dimensionsCm": "35 cm Diameter",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "No Lighting (Pure Art)",
-        "price": 1799,
-        "mrp": 3599,
-        "sku": "AG-RD-1414",
-        "inStock": true,
-        "stockCount": 65
-      },
-      {
-        "id": "var-rd2",
-        "size": "20\" Dia (50 cm)",
-        "dimensionsCm": "50 cm Diameter",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "No Lighting (Pure Art)",
-        "price": 2999,
-        "mrp": 5799,
-        "sku": "AG-RD-2020",
-        "inStock": true,
-        "stockCount": 45
-      },
-      {
-        "id": "var-rd3",
-        "size": "28\" Dia (70 cm)",
-        "dimensionsCm": "70 cm Diameter",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "No Lighting (Pure Art)",
-        "price": 4799,
-        "mrp": 8999,
-        "sku": "AG-RD-2828",
-        "inStock": true,
-        "stockCount": 20
-      }
-    ],
-    "specifications": [
-      {
-        "label": "Shape",
-        "value": "Laser-Cut Precision Circle"
-      },
-      {
-        "label": "Thickness",
-        "value": "5mm Heavy-Gauge Cast Acrylic"
-      },
-      {
-        "label": "Mounting Style",
-        "value": "Pre-fitted concealed 3D floating wall bracket"
-      }
-    ],
-    "materialAndCare": [
-      "Dust with soft cloth",
-      "100% moisture resistant"
-    ],
-    "shippingHighlights": [
-      "Custom circular molded air-cushion packaging"
-    ],
-    "reviews": [],
-    "createdAt": "2026-09-01"
-  },
-  {
     "id": "prod-family-heirloom-photo-frame",
     "slug": "personalized-family-heirloom-gold-script-acrylic-frame",
     "title": "Personalized Family Heirloom Acrylic Wall Frame with Gold Foil Script",
@@ -1625,9 +1328,7 @@
     "categorySlug": "personalized-family-photo-frames",
     "categoryName": "Personalized Family Photo Frames",
     "categorySlugs": [
-      "personalized-family-photo-frames",
-      "custom-portrait-frames",
-      "landscape-photo-frames"
+      "personalized-family-photo-frames"
     ],
     "artStyle": "Custom Photo Frames",
     "orientation": "horizontal",
@@ -1723,8 +1424,7 @@
     "categorySlug": "sets-of-two-three-frames",
     "categoryName": "Set of 2 & 3 Gallery Frames",
     "categorySlugs": [
-      "sets-of-two-three-frames",
-      "custom-portrait-frames"
+      "sets-of-two-three-frames"
     ],
     "artStyle": "Custom Photo Frames",
     "orientation": "vertical",
@@ -2300,87 +2000,6 @@
     "createdAt": "2026-09-10"
   },
   {
-    "id": "prod-round-crystal-acrylic-frame",
-    "slug": "round-smooth beveled-crystal-acrylic-photo-frame",
-    "title": "Round smooth beveled Crystal Acrylic Photo Frame",
-    "subtitle": "Circular Medallion Frame with Frameless precision-cut Edges",
-    "shortDescription": "Contemporary circular acrylic frame with precision smooth beveled edges for portraits.",
-    "description": "Break away from traditional rectangular framing with our signature Round Acrylic Photo Frame. Crafted in Premium high-refractive cast acrylic with precision smooth-buffed borders, creating an organic medallion focal point on your wall.",
-    "categorySlug": "round-photo-frames",
-    "categoryName": "Round Photo Frames",
-    "categorySlugs": [
-      "round-photo-frames",
-      "custom-portrait-frames"
-    ],
-    "artStyle": "Personalised Frame",
-    "orientation": "round",
-    "shape": "round",
-    "images": [
-      "/images/mockups/round-smooth beveled-crystal-acrylic-photo-frame/primary-square.jpg"
-    ],
-    "tags": [
-      "Round",
-      "Circular",
-      "Custom Photo",
-      "Frameless",
-      "Diamond Edge",
-      "Modern Framing"
-    ],
-    "isFeatured": true,
-    "isBestseller": true,
-    "isNewArrival": true,
-    "hasLedBacklight": false,
-    "basePrice": 2199,
-    "baseMrp": 4299,
-    "discountPercentage": 49,
-    "rating": 0,
-    "reviewCount": 0,
-    "variants": [
-      {
-        "id": "var-rnd1",
-        "size": "16\" Dia (40 cm)",
-        "dimensionsCm": "40 cm Diameter",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "Warm LED Backlit (12V Adapter)",
-        "price": 2199,
-        "mrp": 4299,
-        "sku": "AG-ROUND-16-LED",
-        "inStock": true,
-        "stockCount": 30
-      },
-      {
-        "id": "var-rnd2",
-        "size": "20\" Dia (50 cm)",
-        "dimensionsCm": "50 cm Diameter",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "Warm LED Backlit (12V Adapter)",
-        "price": 3199,
-        "mrp": 5999,
-        "sku": "AG-ROUND-20-LED",
-        "inStock": true,
-        "stockCount": 20
-      }
-    ],
-    "specifications": [
-      {
-        "label": "Shape",
-        "value": "Circular Frameless Circle"
-      },
-      {
-        "label": "Edge Finish",
-        "value": "45-Degree precision-polished Bevel"
-      }
-    ],
-    "materialAndCare": [
-      "Microfiber wipe only"
-    ],
-    "shippingHighlights": [
-      "Corner foam circular guard packaging"
-    ],
-    "reviews": [],
-    "createdAt": "2026-09-18"
-  },
-  {
     "id": "prod-om-swastik-duo-set2",
     "slug": "sacred-om-swastik-divine-acrylic-diptych-set-of-2",
     "title": "Sacred OM & Swastik Divine Acrylic Diptych Set of 2",
@@ -2392,7 +2011,6 @@
     "categorySlugs": [
       "sets-of-two-three-frames",
       "devotional-led-frames",
-      "vertical-led-frames",
       "led-backlit-wall-art"
     ],
     "artStyle": "Devotional Acrylic",
@@ -2453,164 +2071,6 @@
     "createdAt": "2026-09-08"
   },
   {
-    "id": "prod-custom-panoramic-landscape-frame",
-    "slug": "custom-panoramic-landscape-acrylic-family-frame",
-    "title": "Custom Panoramic Landscape Acrylic Family Wall Frame",
-    "subtitle": "High-Definition Wide Format Acrylic Print for Family Gatherings & Holidays",
-    "shortDescription": "Wide horizontal acrylic print tailored for panoramic group photos, vacation sunsets, and wedding stages.",
-    "description": "Transform your wide horizon photos and large family portraits into crystal clear frameless acrylic wall art. Shatterproof Premium optical cast acrylic brings out rich true-to-life colors and depth without reflections of traditional glass.",
-    "categorySlug": "landscape-photo-frames",
-    "categoryName": "Landscape Photo Frames",
-    "categorySlugs": [
-      "landscape-photo-frames",
-      "custom-portrait-frames",
-      "personalized-family-photo-frames"
-    ],
-    "artStyle": "Personalised Frame",
-    "orientation": "horizontal",
-    "shape": "landscape",
-    "images": [
-      "/images/mockups/custom-panoramic-landscape-acrylic-family-frame/primary-square.jpg"
-    ],
-    "tags": [
-      "Landscape",
-      "Panoramic",
-      "Custom Photo",
-      "Family Photo",
-      "Frameless"
-    ],
-    "isFeatured": false,
-    "isBestseller": true,
-    "isNewArrival": false,
-    "hasLedBacklight": false,
-    "basePrice": 1999,
-    "baseMrp": 3999,
-    "discountPercentage": 50,
-    "rating": 0,
-    "reviewCount": 0,
-    "variants": [
-      {
-        "id": "var-cpl1",
-        "size": "18 x 12 inches",
-        "dimensionsCm": "45 x 30 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "No Lighting (Pure Art)",
-        "price": 1999,
-        "mrp": 3999,
-        "sku": "AG-CUST-LAND-1812",
-        "inStock": true,
-        "stockCount": 40
-      },
-      {
-        "id": "var-cpl2",
-        "size": "24 x 16 inches",
-        "dimensionsCm": "60 x 40 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "No Lighting (Pure Art)",
-        "price": 2999,
-        "mrp": 5999,
-        "sku": "AG-CUST-LAND-2416",
-        "inStock": true,
-        "stockCount": 30
-      }
-    ],
-    "specifications": [
-      {
-        "label": "Orientation",
-        "value": "Wide Horizontal Landscape"
-      },
-      {
-        "label": "Base",
-        "value": "Cast Acrylic with Beveled Edges"
-      }
-    ],
-    "materialAndCare": [
-      "Microfiber wipe only"
-    ],
-    "shippingHighlights": [
-      "Safe Courier doorstep delivery"
-    ],
-    "reviews": [],
-    "createdAt": "2026-09-12"
-  },
-  {
-    "id": "prod-custom-square-grid-frame",
-    "slug": "custom-studio-square-acrylic-grid-photo-frame",
-    "title": "Custom Studio Square Acrylic Grid Photo Frame",
-    "subtitle": "Contemporary 1:1 Aspect Ratio Frameless Acrylic for Modern Interiors",
-    "shortDescription": "Modern square photo frame perfect for couple portraits, kids milestones, and grid clusters.",
-    "description": "Designed for modern aesthetics, our Square Acrylic Photo Frame provides an ideal canvas for Instagram photos, studio wedding shoots, and child milestones. Hand-beveled diamond edges provide crystal refraction on all sides.",
-    "categorySlug": "square-photo-frames",
-    "categoryName": "Square Photo Frames",
-    "categorySlugs": [
-      "square-photo-frames",
-      "custom-portrait-frames",
-      "personalized-family-photo-frames"
-    ],
-    "artStyle": "Personalised Frame",
-    "orientation": "square",
-    "shape": "square",
-    "images": [
-      "/images/mockups/custom-studio-square-acrylic-grid-photo-frame/primary-square.jpg"
-    ],
-    "tags": [
-      "Square",
-      "Instagram",
-      "Custom Photo",
-      "Studio",
-      "Milestones"
-    ],
-    "isFeatured": false,
-    "isBestseller": false,
-    "isNewArrival": true,
-    "hasLedBacklight": false,
-    "basePrice": 1799,
-    "baseMrp": 3499,
-    "discountPercentage": 48,
-    "rating": 0,
-    "reviewCount": 0,
-    "variants": [
-      {
-        "id": "var-csq1",
-        "size": "16 x 16 inches",
-        "dimensionsCm": "40 x 40 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "No Lighting (Pure Art)",
-        "price": 1799,
-        "mrp": 3499,
-        "sku": "AG-CUST-SQ-1616",
-        "inStock": true,
-        "stockCount": 35
-      },
-      {
-        "id": "var-csq2",
-        "size": "20 x 20 inches",
-        "dimensionsCm": "50 x 50 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "No Lighting (Pure Art)",
-        "price": 2499,
-        "mrp": 4999,
-        "sku": "AG-CUST-SQ-2020",
-        "inStock": true,
-        "stockCount": 25
-      }
-    ],
-    "specifications": [
-      {
-        "label": "Aspect Ratio",
-        "value": "1:1 Balanced Symmetry"
-      }
-    ],
-    "materialAndCare": [
-      "Microfiber wipe only"
-    ],
-    "shippingHighlights": [
-      "Safe Express Delivery"
-    ],
-    "reviews": [],
-    "createdAt": "2026-09-22"
-  },
-  {
     "id": "prod-personalized-family-heirloom-frame",
     "slug": "personalized-golden-family-crest-photo-acrylic-heirloom",
     "title": "Personalized Golden Family Crest & Photo Acrylic Heirloom",
@@ -2620,8 +2080,7 @@
     "categorySlug": "personalized-family-photo-frames",
     "categoryName": "Personalized Family Photo Frames",
     "categorySlugs": [
-      "personalized-family-photo-frames",
-      "landscape-photo-frames"
+      "personalized-family-photo-frames"
     ],
     "artStyle": "Personalised Frame",
     "orientation": "horizontal",
@@ -3025,7 +2484,6 @@
     "slug": "custom-couple-wedding-vows-acrylic-keepsake-frame",
     "categorySlugs": [
       "couple-wedding-photos",
-      "custom-portrait-frames",
       "custom-frames"
     ],
     "shape": "portrait",
@@ -3107,7 +2565,6 @@
     "slug": "modern-illuminated-celestial-horizon-acrylic-art",
     "categorySlugs": [
       "modern-illuminated-art",
-      "horizontal-led-frames",
       "gold-abstract-designs",
       "led-backlit-wall-art"
     ],
@@ -3186,8 +2643,7 @@
     "categorySlugs": [
       "lord-ganesha",
       "devotional-led-frames",
-      "led-backlit-wall-art",
-      "square-backlight-frames"
+      "led-backlit-wall-art"
     ],
     "shape": "square",
     "title": "Lord Ganesha Vighnaharta Divine LED Backlit Acrylic Art",
@@ -3271,8 +2727,7 @@
     "categorySlugs": [
       "goddess-lakshmi",
       "devotional-led-frames",
-      "led-backlit-wall-art",
-      "square-backlight-frames"
+      "led-backlit-wall-art"
     ],
     "shape": "square",
     "title": "Goddess Mahalakshmi Prosperity Divine LED Backlit Acrylic Art",
@@ -3616,7 +3071,6 @@
     "slug": "luxury-beveled-floating-border-acrylic-masterpiece-frame",
     "categorySlugs": [
       "premium-frame-styles",
-      "custom-portrait-frames",
       "premium-acrylic-wall-art"
     ],
     "shape": "portrait",
@@ -3774,8 +3228,7 @@
     "slug": "enchanted-liquid-gold-glitter-acrylic-photo-frame",
     "categorySlugs": [
       "glitter-photo-frames",
-      "custom-frames",
-      "custom-portrait-frames"
+      "custom-frames"
     ],
     "shape": "portrait",
     "title": "Enchanted Liquid Gold Shimmer Glitter Acrylic Photo Frame",

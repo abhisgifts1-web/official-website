@@ -38,7 +38,7 @@ import { useWishlist } from '@/context/WishlistContext';
 import { INITIAL_SETTINGS } from '@/lib/data/settings';
 import ProductCard from '@/components/product/ProductCard';
 
-export type ShapeOptionType = 'portrait' | 'landscape' | 'square' | 'round';
+export type ShapeOptionType = 'portrait' | 'landscape' | 'square';
 export type FrameType = 'gold' | 'black' | 'without';
 export type ThicknessType = '3mm' | '5mm';
 
@@ -88,13 +88,6 @@ export const SHAPE_CONFIGS: Record<ShapeOptionType, {
     subtitle: 'Balanced / 1:1',
     ratioLabel: 'Balanced (1:1)',
     dimensionsNote: 'Ideal for Yantras & Mandalas',
-  },
-  round: {
-    id: 'round',
-    label: 'Round',
-    subtitle: 'Circular / Halo',
-    ratioLabel: 'Circular Halo',
-    dimensionsNote: 'Ideal for Divine Halos & Chakra Art',
   },
 };
 
@@ -332,85 +325,13 @@ export const SHAPE_SIZES: Record<ShapeOptionType, SizeOption[]> = {
       },
     },
   ],
-  round: [
-    {
-      id: '12-dia',
-      label: '12" Dia',
-      dimensionsCm: '30 cm Diameter',
-      allowedFrames: ['gold', 'black', 'without'],
-      allowedThickness: ['3mm', '5mm'],
-      mountingHardware: {
-        framed: 'Circular Bracket & Wall Plugs Provided',
-        without3mm: 'With heavy-duty 2-way adhesive hook',
-        without5mm: 'With heavy-duty 2-way adhesive hook',
-      },
-      prices: {
-        without_3mm: { price: 1299, mrp: 2499 },
-        without_5mm: { price: 1499, mrp: 2799 },
-        gold: { price: 1899, mrp: 3499 },
-        black: { price: 1899, mrp: 3499 },
-      },
-    },
-    {
-      id: '16-dia',
-      label: '16" Dia',
-      dimensionsCm: '40 cm Diameter',
-      allowedFrames: ['gold', 'black', 'without'],
-      allowedThickness: ['3mm', '5mm'],
-      mountingHardware: {
-        framed: 'Circular Bracket & Wall Plugs Provided',
-        without3mm: 'With heavy-duty 2-way adhesive hook',
-        without5mm: 'With heavy-duty 2-way adhesive hook',
-      },
-      prices: {
-        without_3mm: { price: 1899, mrp: 3599 },
-        without_5mm: { price: 2199, mrp: 3999 },
-        gold: { price: 2599, mrp: 4899 },
-        black: { price: 2599, mrp: 4899 },
-      },
-    },
-    {
-      id: '20-dia',
-      label: '20" Dia',
-      dimensionsCm: '50 cm Diameter',
-      allowedFrames: ['gold', 'black', 'without'],
-      allowedThickness: ['5mm'],
-      mountingHardware: {
-        framed: 'Circular Bracket & Wall Plugs Provided',
-        without3mm: '',
-        without5mm: '4 S.S Studds with radial screws',
-      },
-      prices: {
-        without_5mm: { price: 3299, mrp: 5999 },
-        gold: { price: 3899, mrp: 6999 },
-        black: { price: 3899, mrp: 6999 },
-      },
-    },
-    {
-      id: '24-dia',
-      label: '24" Dia',
-      dimensionsCm: '60 cm Diameter',
-      allowedFrames: ['gold', 'black', 'without'],
-      allowedThickness: ['5mm'],
-      mountingHardware: {
-        framed: 'Circular Heavy-Duty Bracket Provided',
-        without3mm: '',
-        without5mm: '4 S.S Studds with radial screws',
-      },
-      prices: {
-        without_5mm: { price: 4899, mrp: 8999 },
-        gold: { price: 5499, mrp: 9999 },
-        black: { price: 5499, mrp: 9999 },
-      },
-    },
-  ],
 };
+
 
 export const SIZE_OPTIONS: SizeOption[] = [
   ...SHAPE_SIZES.portrait,
   ...SHAPE_SIZES.landscape,
   ...SHAPE_SIZES.square,
-  ...SHAPE_SIZES.round,
 ];
 
 export const GALLERY_STYLE_LABELS = [
@@ -452,7 +373,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
 
   // Selected shape & layout state
   const initialShape: ShapeOptionType = useMemo(() => {
-    if (product.shape === 'round' || product.orientation === 'round') return 'round';
+    
     if (product.shape === 'square' || product.orientation === 'square') return 'square';
     if (product.shape === 'landscape' || product.orientation === 'horizontal') return 'landscape';
     return 'portrait';
@@ -759,7 +680,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
         customization: {
           previewUrl: activeImage,
           frameType: selectedFrame,
-          orientation: selectedShape === 'portrait' ? 'vertical' : selectedShape === 'landscape' ? 'horizontal' : selectedShape === 'square' ? 'square' : 'round',
+          orientation: selectedShape === 'portrait' ? 'vertical' : selectedShape === 'landscape' ? 'horizontal' : 'square',
           aspectRatio: SHAPE_CONFIGS[selectedShape].ratioLabel,
           specialInstructions: `Shape: ${selectedShape.toUpperCase()} | Frame: ${frameLabel} | Size: ${sizeLabel}`,
         },
@@ -790,7 +711,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
         customization: {
           previewUrl: activeImage,
           frameType: selectedFrame,
-          orientation: selectedShape === 'portrait' ? 'vertical' : selectedShape === 'landscape' ? 'horizontal' : selectedShape === 'square' ? 'square' : 'round',
+          orientation: selectedShape === 'portrait' ? 'vertical' : selectedShape === 'landscape' ? 'horizontal' : 'square',
           aspectRatio: SHAPE_CONFIGS[selectedShape].ratioLabel,
           specialInstructions: `Shape: ${selectedShape.toUpperCase()} | Frame: ${frameLabel} | Size: ${sizeLabel}`,
         },
@@ -994,7 +915,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                   {isAartiGlow && (
                     <div
                       className={`absolute -inset-4 sm:-inset-6 pointer-events-none transition-all duration-700 ${
-                        selectedShape === 'round' ? 'rounded-full' : 'rounded-3xl'
+                        'rounded-3xl'
                       }`}
                       style={{
                         background: 'radial-gradient(circle, rgba(255, 195, 75, 0.45) 0%, rgba(214, 170, 85, 0.25) 50%, transparent 75%)',
@@ -1005,18 +926,18 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
 
                   <div
                     className={`relative w-full h-full overflow-hidden transition-all duration-500 ${
-                      selectedShape === 'round' ? 'rounded-full' : 'rounded-2xl'
+                      'rounded-2xl'
                     } ${
                       selectedFrame === 'gold'
                         ? `border-[12px] sm:border-[16px] border-[#EAB308] shadow-[0_16px_36px_rgba(198,154,66,0.38)] ring-1 ring-[#946F25] ${
-                            selectedShape === 'round' ? 'rounded-full' : 'rounded-2xl'
+                            'rounded-2xl'
                           }`
                         : selectedFrame === 'black'
                         ? `border-[12px] sm:border-[16px] border-[#1C1917] shadow-[0_16px_36px_rgba(0,0,0,0.45)] ring-1 ring-stone-900 ${
-                            selectedShape === 'round' ? 'rounded-full' : 'rounded-2xl'
+                            'rounded-2xl'
                           }`
                         : `border-2 border-[#2D2D2D]/90 shadow-[0_12px_30px_rgba(0,0,0,0.4)] ${
-                            selectedShape === 'round' ? 'rounded-full' : 'rounded-2xl'
+                            'rounded-2xl'
                           }`
                     }`}
                   >
@@ -1038,35 +959,26 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                           : undefined
                       }
                       className={`w-full h-full object-cover transition-transform duration-150 ${
-                        selectedShape === 'round' ? 'rounded-full' : ''
+                        ''
                       }`}
                     />
 
                     {/* Corner Studs for Frameless Crystal Acrylic */}
                     {selectedFrame === 'without' && (
                       <>
-                        {selectedShape === 'round' ? (
-                          <>
-                            <div className="absolute top-2 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-gradient-to-br from-amber-100 via-amber-300 to-amber-700 shadow-xs border border-amber-900/40 pointer-events-none" />
-                            <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-gradient-to-br from-amber-100 via-amber-300 to-amber-700 shadow-xs border border-amber-900/40 pointer-events-none" />
-                            <div className="absolute left-2 top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-gradient-to-br from-amber-100 via-amber-300 to-amber-700 shadow-xs border border-amber-900/40 pointer-events-none" />
-                            <div className="absolute right-2 top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-gradient-to-br from-amber-100 via-amber-300 to-amber-700 shadow-xs border border-amber-900/40 pointer-events-none" />
-                          </>
-                        ) : (
-                          <>
+                        <>
                             <div className="absolute top-2.5 left-2.5 w-3 h-3 rounded-full bg-gradient-to-br from-amber-100 via-amber-300 to-amber-700 shadow-xs border border-amber-900/40 pointer-events-none" />
                             <div className="absolute top-2.5 right-2.5 w-3 h-3 rounded-full bg-gradient-to-br from-amber-100 via-amber-300 to-amber-700 shadow-xs border border-amber-900/40 pointer-events-none" />
                             <div className="absolute bottom-2.5 left-2.5 w-3 h-3 rounded-full bg-gradient-to-br from-amber-100 via-amber-300 to-amber-700 shadow-xs border border-amber-900/40 pointer-events-none" />
                             <div className="absolute bottom-2.5 right-2.5 w-3 h-3 rounded-full bg-gradient-to-br from-amber-100 via-amber-300 to-amber-700 shadow-xs border border-amber-900/40 pointer-events-none" />
                           </>
-                        )}
                       </>
                     )}
 
                     {/* Frameless Acrylic Glossy Sheen Overlay */}
                     <div
                       className={`absolute inset-0 pointer-events-none bg-gradient-to-tr from-transparent via-white/10 to-white/25 ${
-                        selectedShape === 'round' ? 'rounded-full' : ''
+                        ''
                       }`}
                     />
                   </div>

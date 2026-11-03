@@ -68,18 +68,7 @@ const FRAME_STYLES: FrameStyle[] = [
     tagline: 'Cherished family portrait personalized with gold foil surname',
     features: ['Real Gold Foil Script', 'Anniversary Inscription', 'Brushed Gold Standoffs'],
   },
-  {
-    id: 'round-circle',
-    name: 'Circular Medallion',
-    badge: 'Modern Silhouette',
-    price: 1799,
-    mrp: 3599,
-    image: '/images/wall-decor/products/custom/round-crystal-frame.jpg',
-    hasLed: false,
-    shape: 'Laser Round',
-    tagline: 'Soft curved silhouette perfect for baby milestones & couple memories',
-    features: ['Continuous Curved Bevel', 'Concealed Center Bracket', 'Shatterproof Acrylic'],
-  },
+  
 ];
 
 export default function CustomPhotoStudioShowcase() {
@@ -260,7 +249,7 @@ export default function CustomPhotoStudioShowcase() {
               </Link>
 
               <Link
-                href="/category/custom-portrait-frames"
+                href="/customise"
                 className="text-xs font-semibold text-[#FFFFFF] hover:text-[#EAB308] px-3 py-2 transition-colors flex items-center gap-1 group"
               >
                 <span>Browse All Custom Sizes</span>

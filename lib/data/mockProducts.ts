@@ -7,8 +7,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "categorySlugs": [
       "lord-venkateswara-balaji",
       "devotional-led-frames",
-      "led-backlit-wall-art",
-      "vertical-led-frames"
+      "led-backlit-wall-art"
     ],
     "shape": "portrait",
     "title": "Divine Tirupati Balaji 3D Acrylic LED Backlit Wall Art",
@@ -36,57 +35,57 @@ export const INITIAL_PRODUCTS: Product[] = [
     "isBestseller": true,
     "isNewArrival": false,
     "hasLedBacklight": true,
-    "basePrice": 2899,
-    "baseMrp": 5499,
+    "basePrice": 2499,
+    "baseMrp": 4999,
     "discountPercentage": 47,
     "rating": 0,
     "reviewCount": 0,
     "variants": [
       {
-        "id": "var-b1",
+        "id": "var-pt-1",
         "size": "12 x 18 inches",
         "dimensionsCm": "30 x 45 cm",
         "finish": "Acrylic Ultra-Gloss",
         "lighting": "Warm LED Backlit (12V Adapter)",
-        "price": 2899,
-        "mrp": 5499,
-        "sku": "AG-BALAJI-1218-LED",
+        "price": 2499,
+        "mrp": 4999,
+        "sku": "AG-BALAJI-PT-1",
         "inStock": true,
         "stockCount": 45
       },
       {
-        "id": "var-b2",
+        "id": "var-pt-2",
         "size": "18 x 24 inches",
         "dimensionsCm": "45 x 60 cm",
         "finish": "Acrylic Ultra-Gloss",
         "lighting": "Warm LED Backlit (12V Adapter)",
-        "price": 3999,
-        "mrp": 7499,
-        "sku": "AG-BALAJI-1824-LED",
+        "price": 3499,
+        "mrp": 6999,
+        "sku": "AG-BALAJI-PT-2",
         "inStock": true,
-        "stockCount": 60
+        "stockCount": 50
       },
       {
-        "id": "var-b3",
+        "id": "var-pt-3",
         "size": "24 x 36 inches",
         "dimensionsCm": "60 x 90 cm",
         "finish": "Acrylic Ultra-Gloss",
         "lighting": "Warm LED Backlit (12V Adapter)",
-        "price": 5999,
-        "mrp": 10999,
-        "sku": "AG-BALAJI-2436-LED",
+        "price": 5499,
+        "mrp": 9999,
+        "sku": "AG-BALAJI-PT-3",
         "inStock": true,
         "stockCount": 30
       },
       {
-        "id": "var-b4",
+        "id": "var-pt-4",
         "size": "30 x 48 inches (Grand Wall Size)",
         "dimensionsCm": "75 x 120 cm",
         "finish": "Acrylic Ultra-Gloss",
         "lighting": "Warm LED Backlit (12V Adapter)",
-        "price": 8999,
-        "mrp": 16999,
-        "sku": "AG-BALAJI-3048-LED",
+        "price": 7999,
+        "mrp": 14999,
+        "sku": "AG-BALAJI-PT-4",
         "inStock": true,
         "stockCount": 15
       }
@@ -129,7 +128,209 @@ export const INITIAL_PRODUCTS: Product[] = [
       "Multi-layer protective packaging for safe courier transit."
     ],
     "reviews": [],
-    "createdAt": "2026-08-01"
+    "createdAt": "2026-08-01",
+    "orientationVariants": {
+      "portrait": [
+        {
+          "id": "var-pt-1",
+          "size": "12 x 18 inches",
+          "dimensionsCm": "30 x 45 cm",
+          "finish": "Acrylic Ultra-Gloss",
+          "lighting": "Warm LED Backlit (12V Adapter)",
+          "price": 2499,
+          "mrp": 4999,
+          "sku": "AG-BALAJI-PT-1",
+          "inStock": true,
+          "stockCount": 45
+        },
+        {
+          "id": "var-pt-2",
+          "size": "18 x 24 inches",
+          "dimensionsCm": "45 x 60 cm",
+          "finish": "Acrylic Ultra-Gloss",
+          "lighting": "Warm LED Backlit (12V Adapter)",
+          "price": 3499,
+          "mrp": 6999,
+          "sku": "AG-BALAJI-PT-2",
+          "inStock": true,
+          "stockCount": 50
+        },
+        {
+          "id": "var-pt-3",
+          "size": "24 x 36 inches",
+          "dimensionsCm": "60 x 90 cm",
+          "finish": "Acrylic Ultra-Gloss",
+          "lighting": "Warm LED Backlit (12V Adapter)",
+          "price": 5499,
+          "mrp": 9999,
+          "sku": "AG-BALAJI-PT-3",
+          "inStock": true,
+          "stockCount": 30
+        },
+        {
+          "id": "var-pt-4",
+          "size": "30 x 48 inches (Grand Wall Size)",
+          "dimensionsCm": "75 x 120 cm",
+          "finish": "Acrylic Ultra-Gloss",
+          "lighting": "Warm LED Backlit (12V Adapter)",
+          "price": 7999,
+          "mrp": 14999,
+          "sku": "AG-BALAJI-PT-4",
+          "inStock": true,
+          "stockCount": 15
+        }
+      ],
+      "landscape": [
+        {
+          "id": "var-ls-1",
+          "size": "18 x 12 inches",
+          "dimensionsCm": "45 x 30 cm",
+          "finish": "Acrylic Ultra-Gloss",
+          "lighting": "Warm LED Backlit (12V Adapter)",
+          "price": 2599,
+          "mrp": 5199,
+          "sku": "AG-BALAJI-LS-1",
+          "inStock": true,
+          "stockCount": 40
+        },
+        {
+          "id": "var-ls-2",
+          "size": "24 x 18 inches",
+          "dimensionsCm": "60 x 45 cm",
+          "finish": "Acrylic Ultra-Gloss",
+          "lighting": "Warm LED Backlit (12V Adapter)",
+          "price": 3599,
+          "mrp": 7199,
+          "sku": "AG-BALAJI-LS-2",
+          "inStock": true,
+          "stockCount": 45
+        },
+        {
+          "id": "var-ls-3",
+          "size": "36 x 24 inches",
+          "dimensionsCm": "90 x 60 cm",
+          "finish": "Acrylic Ultra-Gloss",
+          "lighting": "Warm LED Backlit (12V Adapter)",
+          "price": 5599,
+          "mrp": 10199,
+          "sku": "AG-BALAJI-LS-3",
+          "inStock": true,
+          "stockCount": 25
+        },
+        {
+          "id": "var-ls-4",
+          "size": "48 x 30 inches (Grand Wall Size)",
+          "dimensionsCm": "120 x 75 cm",
+          "finish": "Acrylic Ultra-Gloss",
+          "lighting": "Warm LED Backlit (12V Adapter)",
+          "price": 8199,
+          "mrp": 15499,
+          "sku": "AG-BALAJI-LS-4",
+          "inStock": true,
+          "stockCount": 10
+        }
+      ],
+      "square": [
+        {
+          "id": "var-sq-1",
+          "size": "12 x 12 inches",
+          "dimensionsCm": "30 x 30 cm",
+          "finish": "Acrylic Ultra-Gloss",
+          "lighting": "Warm LED Backlit (12V Adapter)",
+          "price": 2299,
+          "mrp": 4599,
+          "sku": "AG-BALAJI-SQ-1",
+          "inStock": true,
+          "stockCount": 35
+        },
+        {
+          "id": "var-sq-2",
+          "size": "18 x 18 inches",
+          "dimensionsCm": "45 x 45 cm",
+          "finish": "Acrylic Ultra-Gloss",
+          "lighting": "Warm LED Backlit (12V Adapter)",
+          "price": 3299,
+          "mrp": 6399,
+          "sku": "AG-BALAJI-SQ-2",
+          "inStock": true,
+          "stockCount": 40
+        },
+        {
+          "id": "var-sq-3",
+          "size": "24 x 24 inches",
+          "dimensionsCm": "60 x 60 cm",
+          "finish": "Acrylic Ultra-Gloss",
+          "lighting": "Warm LED Backlit (12V Adapter)",
+          "price": 4999,
+          "mrp": 9199,
+          "sku": "AG-BALAJI-SQ-3",
+          "inStock": true,
+          "stockCount": 20
+        },
+        {
+          "id": "var-sq-4",
+          "size": "30 x 30 inches (Grand Sanctum)",
+          "dimensionsCm": "75 x 75 cm",
+          "finish": "Acrylic Ultra-Gloss",
+          "lighting": "Warm LED Backlit (12V Adapter)",
+          "price": 7199,
+          "mrp": 13499,
+          "sku": "AG-BALAJI-SQ-4",
+          "inStock": true,
+          "stockCount": 10
+        }
+      ],
+      "round": [
+        {
+          "id": "var-rd-1",
+          "size": "12\" Dia Circular",
+          "dimensionsCm": "30 cm Diameter",
+          "finish": "Acrylic Ultra-Gloss",
+          "lighting": "Warm LED Backlit (12V Adapter)",
+          "price": 2399,
+          "mrp": 4799,
+          "sku": "AG-BALAJI-RD-1",
+          "inStock": true,
+          "stockCount": 30
+        },
+        {
+          "id": "var-rd-2",
+          "size": "18\" Dia Circular",
+          "dimensionsCm": "45 cm Diameter",
+          "finish": "Acrylic Ultra-Gloss",
+          "lighting": "Warm LED Backlit (12V Adapter)",
+          "price": 3399,
+          "mrp": 6599,
+          "sku": "AG-BALAJI-RD-2",
+          "inStock": true,
+          "stockCount": 35
+        },
+        {
+          "id": "var-rd-3",
+          "size": "20\" Dia Circular",
+          "dimensionsCm": "50 cm Diameter",
+          "finish": "Acrylic Ultra-Gloss",
+          "lighting": "Warm LED Backlit (12V Adapter)",
+          "price": 5199,
+          "mrp": 9499,
+          "sku": "AG-BALAJI-RD-3",
+          "inStock": true,
+          "stockCount": 15
+        },
+        {
+          "id": "var-rd-4",
+          "size": "24\" Dia Circular Halo",
+          "dimensionsCm": "60 cm Diameter",
+          "finish": "Acrylic Ultra-Gloss",
+          "lighting": "Warm LED Backlit (12V Adapter)",
+          "price": 7399,
+          "mrp": 13999,
+          "sku": "AG-BALAJI-RD-4",
+          "inStock": true,
+          "stockCount": 10
+        }
+      ]
+    }
   },
   {
     "id": "prod-shiva-adiyogi-led",
@@ -137,8 +338,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "categorySlugs": [
       "lord-shiva-shiv-parivar",
       "devotional-led-frames",
-      "led-backlit-wall-art",
-      "horizontal-led-frames"
+      "led-backlit-wall-art"
     ],
     "shape": "landscape",
     "title": "Adiyogi Lord Shiva Meditative LED Backlit Wall Art",
@@ -357,7 +557,6 @@ export const INITIAL_PRODUCTS: Product[] = [
     "categorySlugs": [
       "lord-hanuman",
       "devotional-led-frames",
-      "vertical-led-frames",
       "led-backlit-wall-art"
     ],
     "shape": "portrait",
@@ -540,7 +739,6 @@ export const INITIAL_PRODUCTS: Product[] = [
     "categorySlugs": [
       "led-backlit-wall-art",
       "devotional-led-frames",
-      "square-backlight-frames",
       "radha-krishna"
     ],
     "shape": "square",
@@ -674,7 +872,6 @@ export const INITIAL_PRODUCTS: Product[] = [
       "lord-rama",
       "premium-temple-designs",
       "devotional-led-frames",
-      "horizontal-led-frames",
       "led-backlit-wall-art"
     ],
     "shape": "landscape",
@@ -929,10 +1126,9 @@ export const INITIAL_PRODUCTS: Product[] = [
     "subtitle": "Upload Your Photo • Museum Acrylic Glass Depth • Custom Sizes & Inscriptions",
     "shortDescription": "Turn your wedding, family, or travel memories into crystal-clear frameless acrylic wall art.",
     "description": "Transform your special moments into heirloom wall art. Upload your favorite high-resolution photo and let our studio print it directly onto precision-polished premium acrylic. The frameless design creates a clean, modern floating aesthetic where your memories look vibrant and lifelike from every angle.",
-    "categorySlug": "custom-portrait-frames",
+    "categorySlug": "personalized-family-photo-frames",
     "categoryName": "Personalised Portrait Frames",
     "categorySlugs": [
-      "custom-portrait-frames",
       "personalized-family-photo-frames"
     ],
     "artStyle": "Custom Photo Frames",
@@ -1042,7 +1238,6 @@ export const INITIAL_PRODUCTS: Product[] = [
     "categoryName": "Custom LED Backlit Photo Frames",
     "categorySlugs": [
       "custom-led-photo-frames",
-      "vertical-led-frames",
       "led-backlit-wall-art"
     ],
     "artStyle": "Custom Photo Frames",
@@ -1126,296 +1321,6 @@ export const INITIAL_PRODUCTS: Product[] = [
     "createdAt": "2026-09-15"
   },
   {
-    "id": "prod-landscape-acrylic-photo-frame",
-    "slug": "panoramic-landscape-acrylic-photo-frame",
-    "title": "Panoramic Landscape Custom Acrylic Photo Wall Frame",
-    "subtitle": "Wide Horizontal Ratio • smooth beveled Edges • Floating Standoff Studs",
-    "shortDescription": "Showcase wide family vacations, wedding stages, and panoramic memories on precision-polished horizontal acrylic.",
-    "description": "Engineered specifically for expansive wide-angle memories. Our landscape acrylic photo frame brings panoramic vacation landscapes and full family gatherings to life with rich depth and 3D floating aesthetics.",
-    "categorySlug": "landscape-photo-frames",
-    "categoryName": "Landscape Photo Frames",
-    "categorySlugs": [
-      "landscape-photo-frames",
-      "personalized-family-photo-frames"
-    ],
-    "artStyle": "Custom Photo Frames",
-    "orientation": "horizontal",
-    "shape": "landscape",
-    "images": [
-      "/images/mockups/panoramic-landscape-acrylic-photo-frame/primary-square.jpg"
-    ],
-    "tags": [
-      "Landscape Frame",
-      "Custom Photo",
-      "Family Vacation",
-      "Panoramic Art",
-      "Horizontal Frame"
-    ],
-    "isFeatured": true,
-    "isBestseller": true,
-    "isNewArrival": false,
-    "hasLedBacklight": false,
-    "basePrice": 1999,
-    "baseMrp": 3999,
-    "discountPercentage": 50,
-    "rating": 0,
-    "reviewCount": 0,
-    "variants": [
-      {
-        "id": "var-lp1",
-        "size": "18 x 12 inches",
-        "dimensionsCm": "45 x 30 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "No Lighting (Pure Art)",
-        "price": 1999,
-        "mrp": 3999,
-        "sku": "AG-LAND-1812",
-        "inStock": true,
-        "stockCount": 85
-      },
-      {
-        "id": "var-lp2",
-        "size": "24 x 16 inches",
-        "dimensionsCm": "60 x 40 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "No Lighting (Pure Art)",
-        "price": 2899,
-        "mrp": 5499,
-        "sku": "AG-LAND-2416",
-        "inStock": true,
-        "stockCount": 60
-      },
-      {
-        "id": "var-lp3",
-        "size": "36 x 24 inches",
-        "dimensionsCm": "90 x 60 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "No Lighting (Pure Art)",
-        "price": 4499,
-        "mrp": 8499,
-        "sku": "AG-LAND-3624",
-        "inStock": true,
-        "stockCount": 35
-      }
-    ],
-    "specifications": [
-      {
-        "label": "Aspect Ratio",
-        "value": "16:9 / 3:2 Panoramic horizontal"
-      },
-      {
-        "label": "Acrylic Grade",
-        "value": "Premium Optical Cast Glass Acrylic"
-      },
-      {
-        "label": "Mounting Style",
-        "value": "Concealed floating wall studs included"
-      }
-    ],
-    "materialAndCare": [
-      "Microfiber wipe with mild soap",
-      "Shatter-proof UV print"
-    ],
-    "shippingHighlights": [
-      "Dispatched in 48h in rigid wooden reinforcement crate"
-    ],
-    "reviews": [],
-    "createdAt": "2026-08-20"
-  },
-  {
-    "id": "prod-square-acrylic-photo-frame",
-    "slug": "modern-square-acrylic-photo-frame",
-    "title": "Modern 1:1 Square Grid Crystal Acrylic Photo Frame",
-    "subtitle": "Instagram & Couple Milestones • Frameless High Gloss • Standoff Mounts",
-    "shortDescription": "Contemporary square acrylic prints designed for modern gallery clusters and intimate milestone portraits.",
-    "description": "The square ratio offers a balanced, contemporary look for bedside walls, home offices, and chic photo grids. Printed directly on 5mm museum-grade cast acrylic with crystal bevel edges.",
-    "categorySlug": "square-photo-frames",
-    "categoryName": "Square Photo Frames",
-    "categorySlugs": [
-      "square-photo-frames",
-      "custom-portrait-frames"
-    ],
-    "artStyle": "Custom Photo Frames",
-    "orientation": "square",
-    "shape": "square",
-    "images": [
-      "/images/mockups/modern-square-acrylic-photo-frame/primary-square.jpg"
-    ],
-    "tags": [
-      "Square Frame",
-      "Instagram Grid",
-      "Couple Photo",
-      "Custom Photo",
-      "Acrylic Frame"
-    ],
-    "isFeatured": true,
-    "isBestseller": true,
-    "isNewArrival": false,
-    "hasLedBacklight": false,
-    "basePrice": 1399,
-    "baseMrp": 2799,
-    "discountPercentage": 50,
-    "rating": 0,
-    "reviewCount": 0,
-    "variants": [
-      {
-        "id": "var-sq1",
-        "size": "12 x 12 inches",
-        "dimensionsCm": "30 x 30 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "No Lighting (Pure Art)",
-        "price": 1399,
-        "mrp": 2799,
-        "sku": "AG-SQ-1212",
-        "inStock": true,
-        "stockCount": 110
-      },
-      {
-        "id": "var-sq2",
-        "size": "18 x 18 inches",
-        "dimensionsCm": "45 x 45 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "No Lighting (Pure Art)",
-        "price": 2299,
-        "mrp": 4499,
-        "sku": "AG-SQ-1818",
-        "inStock": true,
-        "stockCount": 75
-      },
-      {
-        "id": "var-sq3",
-        "size": "24 x 24 inches",
-        "dimensionsCm": "60 x 60 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "No Lighting (Pure Art)",
-        "price": 3499,
-        "mrp": 6499,
-        "sku": "AG-SQ-2424",
-        "inStock": true,
-        "stockCount": 40
-      }
-    ],
-    "specifications": [
-      {
-        "label": "Aspect Ratio",
-        "value": "1:1 Square Grid"
-      },
-      {
-        "label": "Bevel Finishing",
-        "value": "precision CNC Polished Edges"
-      },
-      {
-        "label": "Mounting Style",
-        "value": "Single centered hidden bracket or 4 corner studs"
-      }
-    ],
-    "materialAndCare": [
-      "Microfiber cloth clean",
-      "Scratch-resistant top coat"
-    ],
-    "shippingHighlights": [
-      "Dispatched in 2-3 business days"
-    ],
-    "reviews": [],
-    "createdAt": "2026-08-25"
-  },
-  {
-    "id": "prod-round-acrylic-photo-frame",
-    "slug": "luxury-circular-round-acrylic-photo-frame",
-    "title": "Luxury Circular Round Beveled Acrylic Photo Frame",
-    "subtitle": "precision-polished Curve • Frameless Halo Effect • High-Clarity Acrylic",
-    "shortDescription": "Soft circular silhouette offering an intimate, modern display for couple, newborn, and milestone memories.",
-    "description": "Break away from conventional rectangles with our laser-cut circular acrylic photo frame. Featuring continuous precision-polished curved edges and invisible floating rear bracket that casts a soft natural shadow on your wall.",
-    "categorySlug": "round-photo-frames",
-    "categoryName": "Round Photo Frames",
-    "categorySlugs": [
-      "round-photo-frames"
-    ],
-    "artStyle": "Custom Photo Frames",
-    "orientation": "round",
-    "shape": "round",
-    "images": [
-      "/images/mockups/luxury-circular-round-acrylic-photo-frame/primary-square.jpg"
-    ],
-    "tags": [
-      "Round Frame",
-      "Circular Acrylic",
-      "Couple Portrait",
-      "Custom Frame",
-      "Milestone Art"
-    ],
-    "isFeatured": true,
-    "isBestseller": true,
-    "isNewArrival": true,
-    "hasLedBacklight": false,
-    "basePrice": 1799,
-    "baseMrp": 3599,
-    "discountPercentage": 50,
-    "rating": 0,
-    "reviewCount": 0,
-    "variants": [
-      {
-        "id": "var-rd1",
-        "size": "14\" Dia (35 cm)",
-        "dimensionsCm": "35 cm Diameter",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "No Lighting (Pure Art)",
-        "price": 1799,
-        "mrp": 3599,
-        "sku": "AG-RD-1414",
-        "inStock": true,
-        "stockCount": 65
-      },
-      {
-        "id": "var-rd2",
-        "size": "20\" Dia (50 cm)",
-        "dimensionsCm": "50 cm Diameter",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "No Lighting (Pure Art)",
-        "price": 2999,
-        "mrp": 5799,
-        "sku": "AG-RD-2020",
-        "inStock": true,
-        "stockCount": 45
-      },
-      {
-        "id": "var-rd3",
-        "size": "28\" Dia (70 cm)",
-        "dimensionsCm": "70 cm Diameter",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "No Lighting (Pure Art)",
-        "price": 4799,
-        "mrp": 8999,
-        "sku": "AG-RD-2828",
-        "inStock": true,
-        "stockCount": 20
-      }
-    ],
-    "specifications": [
-      {
-        "label": "Shape",
-        "value": "Laser-Cut Precision Circle"
-      },
-      {
-        "label": "Thickness",
-        "value": "5mm Heavy-Gauge Cast Acrylic"
-      },
-      {
-        "label": "Mounting Style",
-        "value": "Pre-fitted concealed 3D floating wall bracket"
-      }
-    ],
-    "materialAndCare": [
-      "Dust with soft cloth",
-      "100% moisture resistant"
-    ],
-    "shippingHighlights": [
-      "Custom circular molded air-cushion packaging"
-    ],
-    "reviews": [],
-    "createdAt": "2026-09-01"
-  },
-  {
     "id": "prod-family-heirloom-photo-frame",
     "slug": "personalized-family-heirloom-gold-script-acrylic-frame",
     "title": "Personalized Family Heirloom Acrylic Wall Frame with Gold Foil Script",
@@ -1425,9 +1330,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "categorySlug": "personalized-family-photo-frames",
     "categoryName": "Personalized Family Photo Frames",
     "categorySlugs": [
-      "personalized-family-photo-frames",
-      "custom-portrait-frames",
-      "landscape-photo-frames"
+      "personalized-family-photo-frames"
     ],
     "artStyle": "Custom Photo Frames",
     "orientation": "horizontal",
@@ -1523,8 +1426,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "categorySlug": "sets-of-two-three-frames",
     "categoryName": "Set of 2 & 3 Gallery Frames",
     "categorySlugs": [
-      "sets-of-two-three-frames",
-      "custom-portrait-frames"
+      "sets-of-two-three-frames"
     ],
     "artStyle": "Custom Photo Frames",
     "orientation": "vertical",
@@ -2100,87 +2002,6 @@ export const INITIAL_PRODUCTS: Product[] = [
     "createdAt": "2026-09-10"
   },
   {
-    "id": "prod-round-crystal-acrylic-frame",
-    "slug": "round-smooth beveled-crystal-acrylic-photo-frame",
-    "title": "Round smooth beveled Crystal Acrylic Photo Frame",
-    "subtitle": "Circular Medallion Frame with Frameless precision-cut Edges",
-    "shortDescription": "Contemporary circular acrylic frame with precision smooth beveled edges for portraits.",
-    "description": "Break away from traditional rectangular framing with our signature Round Acrylic Photo Frame. Crafted in Premium high-refractive cast acrylic with precision smooth-buffed borders, creating an organic medallion focal point on your wall.",
-    "categorySlug": "round-photo-frames",
-    "categoryName": "Round Photo Frames",
-    "categorySlugs": [
-      "round-photo-frames",
-      "custom-portrait-frames"
-    ],
-    "artStyle": "Personalised Frame",
-    "orientation": "round",
-    "shape": "round",
-    "images": [
-      "/images/mockups/round-smooth beveled-crystal-acrylic-photo-frame/primary-square.jpg"
-    ],
-    "tags": [
-      "Round",
-      "Circular",
-      "Custom Photo",
-      "Frameless",
-      "Diamond Edge",
-      "Modern Framing"
-    ],
-    "isFeatured": true,
-    "isBestseller": true,
-    "isNewArrival": true,
-    "hasLedBacklight": false,
-    "basePrice": 2199,
-    "baseMrp": 4299,
-    "discountPercentage": 49,
-    "rating": 0,
-    "reviewCount": 0,
-    "variants": [
-      {
-        "id": "var-rnd1",
-        "size": "16\" Dia (40 cm)",
-        "dimensionsCm": "40 cm Diameter",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "Warm LED Backlit (12V Adapter)",
-        "price": 2199,
-        "mrp": 4299,
-        "sku": "AG-ROUND-16-LED",
-        "inStock": true,
-        "stockCount": 30
-      },
-      {
-        "id": "var-rnd2",
-        "size": "20\" Dia (50 cm)",
-        "dimensionsCm": "50 cm Diameter",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "Warm LED Backlit (12V Adapter)",
-        "price": 3199,
-        "mrp": 5999,
-        "sku": "AG-ROUND-20-LED",
-        "inStock": true,
-        "stockCount": 20
-      }
-    ],
-    "specifications": [
-      {
-        "label": "Shape",
-        "value": "Circular Frameless Circle"
-      },
-      {
-        "label": "Edge Finish",
-        "value": "45-Degree precision-polished Bevel"
-      }
-    ],
-    "materialAndCare": [
-      "Microfiber wipe only"
-    ],
-    "shippingHighlights": [
-      "Corner foam circular guard packaging"
-    ],
-    "reviews": [],
-    "createdAt": "2026-09-18"
-  },
-  {
     "id": "prod-om-swastik-duo-set2",
     "slug": "sacred-om-swastik-divine-acrylic-diptych-set-of-2",
     "title": "Sacred OM & Swastik Divine Acrylic Diptych Set of 2",
@@ -2192,7 +2013,6 @@ export const INITIAL_PRODUCTS: Product[] = [
     "categorySlugs": [
       "sets-of-two-three-frames",
       "devotional-led-frames",
-      "vertical-led-frames",
       "led-backlit-wall-art"
     ],
     "artStyle": "Devotional Acrylic",
@@ -2253,164 +2073,6 @@ export const INITIAL_PRODUCTS: Product[] = [
     "createdAt": "2026-09-08"
   },
   {
-    "id": "prod-custom-panoramic-landscape-frame",
-    "slug": "custom-panoramic-landscape-acrylic-family-frame",
-    "title": "Custom Panoramic Landscape Acrylic Family Wall Frame",
-    "subtitle": "High-Definition Wide Format Acrylic Print for Family Gatherings & Holidays",
-    "shortDescription": "Wide horizontal acrylic print tailored for panoramic group photos, vacation sunsets, and wedding stages.",
-    "description": "Transform your wide horizon photos and large family portraits into crystal clear frameless acrylic wall art. Shatterproof Premium optical cast acrylic brings out rich true-to-life colors and depth without reflections of traditional glass.",
-    "categorySlug": "landscape-photo-frames",
-    "categoryName": "Landscape Photo Frames",
-    "categorySlugs": [
-      "landscape-photo-frames",
-      "custom-portrait-frames",
-      "personalized-family-photo-frames"
-    ],
-    "artStyle": "Personalised Frame",
-    "orientation": "horizontal",
-    "shape": "landscape",
-    "images": [
-      "/images/mockups/custom-panoramic-landscape-acrylic-family-frame/primary-square.jpg"
-    ],
-    "tags": [
-      "Landscape",
-      "Panoramic",
-      "Custom Photo",
-      "Family Photo",
-      "Frameless"
-    ],
-    "isFeatured": false,
-    "isBestseller": true,
-    "isNewArrival": false,
-    "hasLedBacklight": false,
-    "basePrice": 1999,
-    "baseMrp": 3999,
-    "discountPercentage": 50,
-    "rating": 0,
-    "reviewCount": 0,
-    "variants": [
-      {
-        "id": "var-cpl1",
-        "size": "18 x 12 inches",
-        "dimensionsCm": "45 x 30 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "No Lighting (Pure Art)",
-        "price": 1999,
-        "mrp": 3999,
-        "sku": "AG-CUST-LAND-1812",
-        "inStock": true,
-        "stockCount": 40
-      },
-      {
-        "id": "var-cpl2",
-        "size": "24 x 16 inches",
-        "dimensionsCm": "60 x 40 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "No Lighting (Pure Art)",
-        "price": 2999,
-        "mrp": 5999,
-        "sku": "AG-CUST-LAND-2416",
-        "inStock": true,
-        "stockCount": 30
-      }
-    ],
-    "specifications": [
-      {
-        "label": "Orientation",
-        "value": "Wide Horizontal Landscape"
-      },
-      {
-        "label": "Base",
-        "value": "Cast Acrylic with Beveled Edges"
-      }
-    ],
-    "materialAndCare": [
-      "Microfiber wipe only"
-    ],
-    "shippingHighlights": [
-      "Safe Courier doorstep delivery"
-    ],
-    "reviews": [],
-    "createdAt": "2026-09-12"
-  },
-  {
-    "id": "prod-custom-square-grid-frame",
-    "slug": "custom-studio-square-acrylic-grid-photo-frame",
-    "title": "Custom Studio Square Acrylic Grid Photo Frame",
-    "subtitle": "Contemporary 1:1 Aspect Ratio Frameless Acrylic for Modern Interiors",
-    "shortDescription": "Modern square photo frame perfect for couple portraits, kids milestones, and grid clusters.",
-    "description": "Designed for modern aesthetics, our Square Acrylic Photo Frame provides an ideal canvas for Instagram photos, studio wedding shoots, and child milestones. Hand-beveled diamond edges provide crystal refraction on all sides.",
-    "categorySlug": "square-photo-frames",
-    "categoryName": "Square Photo Frames",
-    "categorySlugs": [
-      "square-photo-frames",
-      "custom-portrait-frames",
-      "personalized-family-photo-frames"
-    ],
-    "artStyle": "Personalised Frame",
-    "orientation": "square",
-    "shape": "square",
-    "images": [
-      "/images/mockups/custom-studio-square-acrylic-grid-photo-frame/primary-square.jpg"
-    ],
-    "tags": [
-      "Square",
-      "Instagram",
-      "Custom Photo",
-      "Studio",
-      "Milestones"
-    ],
-    "isFeatured": false,
-    "isBestseller": false,
-    "isNewArrival": true,
-    "hasLedBacklight": false,
-    "basePrice": 1799,
-    "baseMrp": 3499,
-    "discountPercentage": 48,
-    "rating": 0,
-    "reviewCount": 0,
-    "variants": [
-      {
-        "id": "var-csq1",
-        "size": "16 x 16 inches",
-        "dimensionsCm": "40 x 40 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "No Lighting (Pure Art)",
-        "price": 1799,
-        "mrp": 3499,
-        "sku": "AG-CUST-SQ-1616",
-        "inStock": true,
-        "stockCount": 35
-      },
-      {
-        "id": "var-csq2",
-        "size": "20 x 20 inches",
-        "dimensionsCm": "50 x 50 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "No Lighting (Pure Art)",
-        "price": 2499,
-        "mrp": 4999,
-        "sku": "AG-CUST-SQ-2020",
-        "inStock": true,
-        "stockCount": 25
-      }
-    ],
-    "specifications": [
-      {
-        "label": "Aspect Ratio",
-        "value": "1:1 Balanced Symmetry"
-      }
-    ],
-    "materialAndCare": [
-      "Microfiber wipe only"
-    ],
-    "shippingHighlights": [
-      "Safe Express Delivery"
-    ],
-    "reviews": [],
-    "createdAt": "2026-09-22"
-  },
-  {
     "id": "prod-personalized-family-heirloom-frame",
     "slug": "personalized-golden-family-crest-photo-acrylic-heirloom",
     "title": "Personalized Golden Family Crest & Photo Acrylic Heirloom",
@@ -2420,8 +2082,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "categorySlug": "personalized-family-photo-frames",
     "categoryName": "Personalized Family Photo Frames",
     "categorySlugs": [
-      "personalized-family-photo-frames",
-      "landscape-photo-frames"
+      "personalized-family-photo-frames"
     ],
     "artStyle": "Personalised Frame",
     "orientation": "horizontal",
@@ -2825,7 +2486,6 @@ export const INITIAL_PRODUCTS: Product[] = [
     "slug": "custom-couple-wedding-vows-acrylic-keepsake-frame",
     "categorySlugs": [
       "couple-wedding-photos",
-      "custom-portrait-frames",
       "custom-frames"
     ],
     "shape": "portrait",
@@ -2907,7 +2567,6 @@ export const INITIAL_PRODUCTS: Product[] = [
     "slug": "modern-illuminated-celestial-horizon-acrylic-art",
     "categorySlugs": [
       "modern-illuminated-art",
-      "horizontal-led-frames",
       "gold-abstract-designs",
       "led-backlit-wall-art"
     ],
@@ -2986,8 +2645,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "categorySlugs": [
       "lord-ganesha",
       "devotional-led-frames",
-      "led-backlit-wall-art",
-      "square-backlight-frames"
+      "led-backlit-wall-art"
     ],
     "shape": "square",
     "title": "Lord Ganesha Vighnaharta Divine LED Backlit Acrylic Art",
@@ -3071,8 +2729,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "categorySlugs": [
       "goddess-lakshmi",
       "devotional-led-frames",
-      "led-backlit-wall-art",
-      "square-backlight-frames"
+      "led-backlit-wall-art"
     ],
     "shape": "square",
     "title": "Goddess Mahalakshmi Prosperity Divine LED Backlit Acrylic Art",
@@ -3416,7 +3073,6 @@ export const INITIAL_PRODUCTS: Product[] = [
     "slug": "luxury-beveled-floating-border-acrylic-masterpiece-frame",
     "categorySlugs": [
       "premium-frame-styles",
-      "custom-portrait-frames",
       "premium-acrylic-wall-art"
     ],
     "shape": "portrait",
@@ -3569,410 +3225,409 @@ export const INITIAL_PRODUCTS: Product[] = [
     "reviews": [],
     "createdAt": "2026-10-05"
   },
-{
-  "id": "prod-enchanted-liquid-gold-glitter",
-  "slug": "enchanted-liquid-gold-glitter-acrylic-photo-frame",
-  "categorySlugs": [
-    "glitter-photo-frames",
-    "custom-frames",
-    "custom-portrait-frames"
-  ],
-  "shape": "portrait",
-  "title": "Enchanted Liquid Gold Shimmer Glitter Acrylic Photo Frame",
-  "subtitle": "Floating Metallic Gold Flakes & Shimmer Dust Inside Premium Acrylic",
-  "shortDescription": "Luminous sparkle and metallic glitter effects adding celebration radiance to special portraits.",
-  "description": "Infuse your favorite memories with mesmerizing shimmer. Our Enchanted Liquid Gold Glitter Photo Frame suspends fine metallic gold dust and sparkling foil flakes inside dual-sealed, optical-grade Cast Acrylic. Every glance catches the light with a gentle, cascading shimmer that turns wedding portraits, couple anniversaries, and festive celebrations into glowing, radiant works of art.",
-  "categorySlug": "glitter-photo-frames",
-  "categoryName": "Glitter Photo Frames",
-  "artStyle": "Glitter Shimmer Acrylic",
-  "orientation": "vertical",
-  "images": [
-    "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg",
-    "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg",
-    "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg"
-  ],
-  "tags": [
-    "Glitter Frame",
-    "Liquid Gold",
-    "Shimmer Photo Frame",
-    "Custom Frame",
-    "Personalised Gift",
-    "Wedding Keepsake"
-  ],
-  "isFeatured": true,
-  "isBestseller": true,
-  "isNewArrival": true,
-  "hasLedBacklight": false,
-  "basePrice": 1699,
-  "baseMrp": 3299,
-  "discountPercentage": 48,
-  "rating": 0,
-  "reviewCount": 0,
-  "variants": [
-    {
-      "id": "var-glit-1",
-      "size": "6 x 8 inches",
-      "dimensionsCm": "15 x 20 cm",
-      "finish": "Acrylic Ultra-Gloss",
-      "lighting": "No Lighting (Pure Art)",
-      "price": 1299,
-      "mrp": 2499,
-      "sku": "AG-GLIT-68",
-      "inStock": true,
-      "stockCount": 45
-    },
-    {
-      "id": "var-glit-2",
-      "size": "8 x 10 inches",
-      "dimensionsCm": "20 x 25 cm",
-      "finish": "Acrylic Ultra-Gloss",
-      "lighting": "No Lighting (Pure Art)",
-      "price": 1699,
-      "mrp": 3299,
-      "sku": "AG-GLIT-810",
-      "inStock": true,
-      "stockCount": 50
-    },
-    {
-      "id": "var-glit-3",
-      "size": "10 x 12 inches",
-      "dimensionsCm": "25 x 30 cm",
-      "finish": "Acrylic Ultra-Gloss",
-      "lighting": "No Lighting (Pure Art)",
-      "price": 2199,
-      "mrp": 4199,
-      "sku": "AG-GLIT-1012",
-      "inStock": true,
-      "stockCount": 35
-    },
-    {
-      "id": "var-glit-4",
-      "size": "12 x 18 inches",
-      "dimensionsCm": "30 x 45 cm",
-      "finish": "Acrylic Ultra-Gloss",
-      "lighting": "No Lighting (Pure Art)",
-      "price": 2999,
-      "mrp": 5499,
-      "sku": "AG-GLIT-1218",
-      "inStock": true,
-      "stockCount": 25
-    }
-  ],
-  "specifications": [
-    {
-      "label": "Glitter Medium",
-      "value": "Sealed Liquid Metallic Gold Flakes & Micro-Shimmer Dust"
-    },
-    {
-      "label": "Panel Quality",
-      "value": "Premium Optically Clear Premium Acrylic with CNC Beveled Edges"
-    },
-    {
-      "label": "Mounting",
-      "value": "Includes 4 Brushed Floating Chrome Standoff Wall Studs"
-    }
-  ],
-  "materialAndCare": [
-    "Wipe acrylic face with dry microfiber cloth.",
-    "Do not use abrasive solvents or ammonia based cleaners."
-  ],
-  "shippingHighlights": [
-    "Pre-assembled with safety seal packaging",
-    "Express 48h dispatch across India"
-  ],
-  "reviews": [],
-  "createdAt": "2026-11-01"
-},
-{
-  "id": "prod-sparkling-diamond-glitter-frame",
-  "slug": "sparkling-diamond-glitter-wedding-photo-frame",
-  "categorySlugs": [
-    "glitter-photo-frames",
-    "custom-frames",
-    "couple-wedding-photos"
-  ],
-  "shape": "portrait",
-  "title": "Sparkling Diamond Glitter Anniversary & Couple Photo Frame",
-  "subtitle": "Holographic Diamond Sparkle Layer with gold foil Accent Inscriptions",
-  "shortDescription": "Celebration radiance and starry diamond holographic glitter for romantic couples and wedding vows.",
-  "description": "Designed to make sacred milestones unforgettable. This luxury diamond glitter acrylic frame combines prismatic holographic glitter that radiates soft rainbow sparks with precision gold foil inscriptions. precision CNC beveled borders and brushed metal floating standoffs give it an authentic gallery presence on your bedroom or living room wall.",
-  "categorySlug": "glitter-photo-frames",
-  "categoryName": "Glitter Photo Frames",
-  "artStyle": "Prismatic Diamond Glitter",
-  "orientation": "vertical",
-  "images": [
-    "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/primary-square.jpg",
-    "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/mockup-living-room.jpg",
-    "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/mockup-interior.jpg"
-  ],
-  "tags": [
-    "Diamond Glitter",
-    "Sparkle Frame",
-    "Wedding Anniversary",
-    "Couple Gift",
-    "Holographic Art"
-  ],
-  "isFeatured": true,
-  "isBestseller": false,
-  "isNewArrival": true,
-  "hasLedBacklight": false,
-  "basePrice": 1899,
-  "baseMrp": 3699,
-  "discountPercentage": 49,
-  "rating": 0,
-  "reviewCount": 0,
-  "variants": [
-    {
-      "id": "var-dglit-1",
-      "size": "8 x 10 inches",
-      "dimensionsCm": "20 x 25 cm",
-      "finish": "Acrylic Ultra-Gloss",
-      "lighting": "No Lighting (Pure Art)",
-      "price": 1899,
-      "mrp": 3699,
-      "sku": "AG-DGLIT-810",
-      "inStock": true,
-      "stockCount": 40
-    },
-    {
-      "id": "var-dglit-2",
-      "size": "12 x 18 inches",
-      "dimensionsCm": "30 x 45 cm",
-      "finish": "Acrylic Ultra-Gloss",
-      "lighting": "No Lighting (Pure Art)",
-      "price": 2899,
-      "mrp": 5299,
-      "sku": "AG-DGLIT-1218",
-      "inStock": true,
-      "stockCount": 30
-    },
-    {
-      "id": "var-dglit-3",
-      "size": "16 x 24 inches",
-      "dimensionsCm": "40 x 60 cm",
-      "finish": "Acrylic Ultra-Gloss",
-      "lighting": "No Lighting (Pure Art)",
-      "price": 3999,
-      "mrp": 7499,
-      "sku": "AG-DGLIT-1624",
-      "inStock": true,
-      "stockCount": 20
-    }
-  ],
-  "specifications": [
-    {
-      "label": "Glitter Type",
-      "value": "Prismatic Diamond Holographic Shimmer Flakes"
-    },
-    {
-      "label": "Foil Inscription",
-      "value": "Real gold Thermal Embossed Couple Names & Date"
-    }
-  ],
-  "materialAndCare": [
-    "Clean with soft cotton or microfiber cloth."
-  ],
-  "shippingHighlights": [
-    "Ships in shockproof multi-layer foam packaging"
-  ],
-  "reviews": [],
-  "createdAt": "2026-11-01"
-},
-{
-  "id": "prod-motorized-360-rotating-lamp",
-  "slug": "motorized-360-rotating-led-cylinder-photo-lamp",
-  "categorySlugs": [
-    "rotating-photo-lamps",
-    "custom-frames",
-    "custom-led-photo-frames",
-    "led-backlit-wall-art"
-  ],
-  "shape": "portrait",
-  "title": "Motorized 360\u00b0 Rotating Cylindrical LED Photo Lamp",
-  "subtitle": "Continuous Whisper-Silent Motor \u2022 4-5 Panoramic Photo Carousel \u2022 Warm Glow",
-  "shortDescription": "Motorized 360-degree cylindrical lamps glowing warmly with multiple cherished photographs.",
-  "description": "Watch your treasured memories gently revolve in warm golden light. Our signature motorized 360-degree rotating photo lamp features a continuous whisper-silent micro-gear motor that smoothly rotates a 4-to-5 photograph cylindrical acrylic collage. Emitting a soothing Warm ambient glow with low-voltage 12V BIS certified power, it serves as an enchanting bedside lamp and a captivating conversation piece for any home.",
-  "categorySlug": "rotating-photo-lamps",
-  "categoryName": "Rotating Photo Lamps",
-  "artStyle": "Motorized Illuminated Lamp",
-  "orientation": "vertical",
-  "images": [
-    "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/primary-square.jpg",
-    "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/mockup-living-room.jpg"
-  ],
-  "tags": [
-    "Rotating Lamp",
-    "360 Degree Motorized",
-    "LED Photo Lamp",
-    "Night Lamp",
-    "Personalised Gift",
-    "Multi Photo Lamp",
-    "Bestseller"
-  ],
-  "isFeatured": true,
-  "isBestseller": true,
-  "isNewArrival": true,
-  "hasLedBacklight": true,
-  "basePrice": 2499,
-  "baseMrp": 4999,
-  "discountPercentage": 50,
-  "rating": 0,
-  "reviewCount": 0,
-  "variants": [
-    {
-      "id": "var-rot-1",
-      "size": "5 x 8 inches Cylinder",
-      "dimensionsCm": "13 x 20 cm",
-      "finish": "Acrylic Ultra-Gloss",
-      "lighting": "Warm LED Backlit (12V Adapter)",
-      "price": 2499,
-      "mrp": 4999,
-      "sku": "AG-ROTLAMP-58",
-      "inStock": true,
-      "stockCount": 35
-    },
-    {
-      "id": "var-rot-2",
-      "size": "6 x 10 inches Grand Cylinder",
-      "dimensionsCm": "15 x 25 cm",
-      "finish": "Acrylic Ultra-Gloss",
-      "lighting": "Warm LED Backlit (12V Adapter)",
-      "price": 3299,
-      "mrp": 6299,
-      "sku": "AG-ROTLAMP-610",
-      "inStock": true,
-      "stockCount": 40
-    },
-    {
-      "id": "var-rot-3",
-      "size": "8 x 12 inches Master Bedroom Cylinder",
-      "dimensionsCm": "20 x 30 cm",
-      "finish": "Acrylic Ultra-Gloss",
-      "lighting": "Warm LED Backlit (12V Adapter)",
-      "price": 4199,
-      "mrp": 7999,
-      "sku": "AG-ROTLAMP-812",
-      "inStock": true,
-      "stockCount": 20
-    }
-  ],
-  "specifications": [
-    {
-      "label": "Rotation Mechanism",
-      "value": "Whisper-Silent 3 RPM 360\u00b0 Motorized Drive"
-    },
-    {
-      "label": "Photo Capacity",
-      "value": "Holds 4 to 5 Continuous Personalized High-Resolution Photos"
-    },
-    {
-      "label": "LED System",
-      "value": "Warm Golden Warm Epistar LEDs with 12V BIS Certified Power Adapter"
-    },
-    {
-      "label": "Base Material",
-      "value": "Handcrafted Teak Texture Base with Touch Control Switch"
-    }
-  ],
-  "materialAndCare": [
-    "Includes 12V DC power cord and adapter.",
-    "Gently dust with dry microfiber cloth."
-  ],
-  "shippingHighlights": [
-    "Rigid shockproof packaging with foam mold protection",
-    "Ready to plug and play right out of the box"
-  ],
-  "reviews": [],
-  "createdAt": "2026-11-01"
-},
-{
-  "id": "prod-hexagonal-tower-rotating-lamp",
-  "slug": "crystal-tower-hexagonal-rotating-photo-lamp",
-  "categorySlugs": [
-    "rotating-photo-lamps",
-    "custom-frames",
-    "custom-led-photo-frames",
-    "led-backlit-wall-art"
-  ],
-  "shape": "portrait",
-  "title": "Crystal Tower Hexagonal Rotating LED Photo Keepsake Lamp",
-  "subtitle": "6-Sided Multi-Memory Display \u2022 Remote Controlled Warm & Ambient Light \u2022 Touch Switch Base",
-  "shortDescription": "Six multi-sided acrylic photo panels revolving smoothly on a solid hardwood pedestal with built-in warm LED illumination.",
-  "description": "Six precious memories illuminated in one sculptural centerpiece. The Crystal Tower features six high-clarity acrylic photo facets mounted onto an architectural rotating pedestal with touch-sensitive dimming and wireless remote control. Handcrafted with warm Warm LEDs, it effortlessly rotates to display every memory from birthdays, family vacations, and weddings with warm, golden vibrancy.",
-  "categorySlug": "rotating-photo-lamps",
-  "categoryName": "Rotating Photo Lamps",
-  "artStyle": "Hexagonal Tower Lamp",
-  "orientation": "vertical",
-  "images": [
-    "/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/primary-square.jpg",
-    "/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/mockup-living-room.jpg"
-  ],
-  "tags": [
-    "Hexagonal Lamp",
-    "Rotating Lamp",
-    "6 Sided Photo Lamp",
-    "Custom Keepsake",
-    "LED Tower",
-    "Unique Gift"
-  ],
-  "isFeatured": true,
-  "isBestseller": false,
-  "isNewArrival": true,
-  "hasLedBacklight": true,
-  "basePrice": 2799,
-  "baseMrp": 5499,
-  "discountPercentage": 49,
-  "rating": 0,
-  "reviewCount": 0,
-  "variants": [
-    {
-      "id": "var-tow-1",
-      "size": "Standard 6-Sided (6 x 9 inches)",
-      "dimensionsCm": "15 x 23 cm",
-      "finish": "Acrylic Ultra-Gloss",
-      "lighting": "Warm LED Backlit (12V Adapter)",
-      "price": 2799,
-      "mrp": 5499,
-      "sku": "AG-TOWLAMP-69",
-      "inStock": true,
-      "stockCount": 25
-    },
-    {
-      "id": "var-tow-2",
-      "size": "Grand 6-Sided (8 x 12 inches)",
-      "dimensionsCm": "20 x 30 cm",
-      "finish": "Acrylic Ultra-Gloss",
-      "lighting": "Warm LED Backlit (12V Adapter)",
-      "price": 3699,
-      "mrp": 6999,
-      "sku": "AG-TOWLAMP-812",
-      "inStock": true,
-      "stockCount": 15
-    }
-  ],
-  "specifications": [
-    {
-      "label": "Facet Count",
-      "value": "6 Distinct Acrylic Photo Panels (6 Photos)"
-    },
-    {
-      "label": "Controls",
-      "value": "Touch Sensor on Base + Wireless Dimmer Remote"
-    },
-    {
-      "label": "Lighting",
-      "value": "Warm Epistar LEDs with Low Voltage Adapter"
-    }
-  ],
-  "materialAndCare": [
-    "Keep away from direct water splashes.",
-    "Clean facets with clean dry microfiber cloth."
-  ],
-  "shippingHighlights": [
-    "Delivered in bespoke gift packaging with satin ribbons",
-    "protective packagingd"
-  ],
-  "reviews": [],
-  "createdAt": "2026-11-01"
-}
+  {
+    "id": "prod-enchanted-liquid-gold-glitter",
+    "slug": "enchanted-liquid-gold-glitter-acrylic-photo-frame",
+    "categorySlugs": [
+      "glitter-photo-frames",
+      "custom-frames"
+    ],
+    "shape": "portrait",
+    "title": "Enchanted Liquid Gold Shimmer Glitter Acrylic Photo Frame",
+    "subtitle": "Floating Metallic Gold Flakes & Shimmer Dust Inside Premium Acrylic",
+    "shortDescription": "Luminous sparkle and metallic glitter effects adding celebration radiance to special portraits.",
+    "description": "Infuse your favorite memories with mesmerizing shimmer. Our Enchanted Liquid Gold Glitter Photo Frame suspends fine metallic gold dust and sparkling foil flakes inside dual-sealed, optical-grade Cast Acrylic. Every glance catches the light with a gentle, cascading shimmer that turns wedding portraits, couple anniversaries, and festive celebrations into glowing, radiant works of art.",
+    "categorySlug": "glitter-photo-frames",
+    "categoryName": "Glitter Photo Frames",
+    "artStyle": "Glitter Shimmer Acrylic",
+    "orientation": "vertical",
+    "images": [
+      "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg",
+      "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg",
+      "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg"
+    ],
+    "tags": [
+      "Glitter Frame",
+      "Liquid Gold",
+      "Shimmer Photo Frame",
+      "Custom Frame",
+      "Personalised Gift",
+      "Wedding Keepsake"
+    ],
+    "isFeatured": true,
+    "isBestseller": true,
+    "isNewArrival": true,
+    "hasLedBacklight": false,
+    "basePrice": 1699,
+    "baseMrp": 3299,
+    "discountPercentage": 48,
+    "rating": 0,
+    "reviewCount": 0,
+    "variants": [
+      {
+        "id": "var-glit-1",
+        "size": "6 x 8 inches",
+        "dimensionsCm": "15 x 20 cm",
+        "finish": "Acrylic Ultra-Gloss",
+        "lighting": "No Lighting (Pure Art)",
+        "price": 1299,
+        "mrp": 2499,
+        "sku": "AG-GLIT-68",
+        "inStock": true,
+        "stockCount": 45
+      },
+      {
+        "id": "var-glit-2",
+        "size": "8 x 10 inches",
+        "dimensionsCm": "20 x 25 cm",
+        "finish": "Acrylic Ultra-Gloss",
+        "lighting": "No Lighting (Pure Art)",
+        "price": 1699,
+        "mrp": 3299,
+        "sku": "AG-GLIT-810",
+        "inStock": true,
+        "stockCount": 50
+      },
+      {
+        "id": "var-glit-3",
+        "size": "10 x 12 inches",
+        "dimensionsCm": "25 x 30 cm",
+        "finish": "Acrylic Ultra-Gloss",
+        "lighting": "No Lighting (Pure Art)",
+        "price": 2199,
+        "mrp": 4199,
+        "sku": "AG-GLIT-1012",
+        "inStock": true,
+        "stockCount": 35
+      },
+      {
+        "id": "var-glit-4",
+        "size": "12 x 18 inches",
+        "dimensionsCm": "30 x 45 cm",
+        "finish": "Acrylic Ultra-Gloss",
+        "lighting": "No Lighting (Pure Art)",
+        "price": 2999,
+        "mrp": 5499,
+        "sku": "AG-GLIT-1218",
+        "inStock": true,
+        "stockCount": 25
+      }
+    ],
+    "specifications": [
+      {
+        "label": "Glitter Medium",
+        "value": "Sealed Liquid Metallic Gold Flakes & Micro-Shimmer Dust"
+      },
+      {
+        "label": "Panel Quality",
+        "value": "Premium Optically Clear Premium Acrylic with CNC Beveled Edges"
+      },
+      {
+        "label": "Mounting",
+        "value": "Includes 4 Brushed Floating Chrome Standoff Wall Studs"
+      }
+    ],
+    "materialAndCare": [
+      "Wipe acrylic face with dry microfiber cloth.",
+      "Do not use abrasive solvents or ammonia based cleaners."
+    ],
+    "shippingHighlights": [
+      "Pre-assembled with safety seal packaging",
+      "Express 48h dispatch across India"
+    ],
+    "reviews": [],
+    "createdAt": "2026-11-01"
+  },
+  {
+    "id": "prod-sparkling-diamond-glitter-frame",
+    "slug": "sparkling-diamond-glitter-wedding-photo-frame",
+    "categorySlugs": [
+      "glitter-photo-frames",
+      "custom-frames",
+      "couple-wedding-photos"
+    ],
+    "shape": "portrait",
+    "title": "Sparkling Diamond Glitter Anniversary & Couple Photo Frame",
+    "subtitle": "Holographic Diamond Sparkle Layer with gold foil Accent Inscriptions",
+    "shortDescription": "Celebration radiance and starry diamond holographic glitter for romantic couples and wedding vows.",
+    "description": "Designed to make sacred milestones unforgettable. This luxury diamond glitter acrylic frame combines prismatic holographic glitter that radiates soft rainbow sparks with precision gold foil inscriptions. precision CNC beveled borders and brushed metal floating standoffs give it an authentic gallery presence on your bedroom or living room wall.",
+    "categorySlug": "glitter-photo-frames",
+    "categoryName": "Glitter Photo Frames",
+    "artStyle": "Prismatic Diamond Glitter",
+    "orientation": "vertical",
+    "images": [
+      "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/primary-square.jpg",
+      "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/mockup-living-room.jpg",
+      "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/mockup-interior.jpg"
+    ],
+    "tags": [
+      "Diamond Glitter",
+      "Sparkle Frame",
+      "Wedding Anniversary",
+      "Couple Gift",
+      "Holographic Art"
+    ],
+    "isFeatured": true,
+    "isBestseller": false,
+    "isNewArrival": true,
+    "hasLedBacklight": false,
+    "basePrice": 1899,
+    "baseMrp": 3699,
+    "discountPercentage": 49,
+    "rating": 0,
+    "reviewCount": 0,
+    "variants": [
+      {
+        "id": "var-dglit-1",
+        "size": "8 x 10 inches",
+        "dimensionsCm": "20 x 25 cm",
+        "finish": "Acrylic Ultra-Gloss",
+        "lighting": "No Lighting (Pure Art)",
+        "price": 1899,
+        "mrp": 3699,
+        "sku": "AG-DGLIT-810",
+        "inStock": true,
+        "stockCount": 40
+      },
+      {
+        "id": "var-dglit-2",
+        "size": "12 x 18 inches",
+        "dimensionsCm": "30 x 45 cm",
+        "finish": "Acrylic Ultra-Gloss",
+        "lighting": "No Lighting (Pure Art)",
+        "price": 2899,
+        "mrp": 5299,
+        "sku": "AG-DGLIT-1218",
+        "inStock": true,
+        "stockCount": 30
+      },
+      {
+        "id": "var-dglit-3",
+        "size": "16 x 24 inches",
+        "dimensionsCm": "40 x 60 cm",
+        "finish": "Acrylic Ultra-Gloss",
+        "lighting": "No Lighting (Pure Art)",
+        "price": 3999,
+        "mrp": 7499,
+        "sku": "AG-DGLIT-1624",
+        "inStock": true,
+        "stockCount": 20
+      }
+    ],
+    "specifications": [
+      {
+        "label": "Glitter Type",
+        "value": "Prismatic Diamond Holographic Shimmer Flakes"
+      },
+      {
+        "label": "Foil Inscription",
+        "value": "Real gold Thermal Embossed Couple Names & Date"
+      }
+    ],
+    "materialAndCare": [
+      "Clean with soft cotton or microfiber cloth."
+    ],
+    "shippingHighlights": [
+      "Ships in shockproof multi-layer foam packaging"
+    ],
+    "reviews": [],
+    "createdAt": "2026-11-01"
+  },
+  {
+    "id": "prod-motorized-360-rotating-lamp",
+    "slug": "motorized-360-rotating-led-cylinder-photo-lamp",
+    "categorySlugs": [
+      "rotating-photo-lamps",
+      "custom-frames",
+      "custom-led-photo-frames",
+      "led-backlit-wall-art"
+    ],
+    "shape": "portrait",
+    "title": "Motorized 360° Rotating Cylindrical LED Photo Lamp",
+    "subtitle": "Continuous Whisper-Silent Motor • 4-5 Panoramic Photo Carousel • Warm Glow",
+    "shortDescription": "Motorized 360-degree cylindrical lamps glowing warmly with multiple cherished photographs.",
+    "description": "Watch your treasured memories gently revolve in warm golden light. Our signature motorized 360-degree rotating photo lamp features a continuous whisper-silent micro-gear motor that smoothly rotates a 4-to-5 photograph cylindrical acrylic collage. Emitting a soothing Warm ambient glow with low-voltage 12V BIS certified power, it serves as an enchanting bedside lamp and a captivating conversation piece for any home.",
+    "categorySlug": "rotating-photo-lamps",
+    "categoryName": "Rotating Photo Lamps",
+    "artStyle": "Motorized Illuminated Lamp",
+    "orientation": "vertical",
+    "images": [
+      "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/primary-square.jpg",
+      "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/mockup-living-room.jpg"
+    ],
+    "tags": [
+      "Rotating Lamp",
+      "360 Degree Motorized",
+      "LED Photo Lamp",
+      "Night Lamp",
+      "Personalised Gift",
+      "Multi Photo Lamp",
+      "Bestseller"
+    ],
+    "isFeatured": true,
+    "isBestseller": true,
+    "isNewArrival": true,
+    "hasLedBacklight": true,
+    "basePrice": 2499,
+    "baseMrp": 4999,
+    "discountPercentage": 50,
+    "rating": 0,
+    "reviewCount": 0,
+    "variants": [
+      {
+        "id": "var-rot-1",
+        "size": "5 x 8 inches Cylinder",
+        "dimensionsCm": "13 x 20 cm",
+        "finish": "Acrylic Ultra-Gloss",
+        "lighting": "Warm LED Backlit (12V Adapter)",
+        "price": 2499,
+        "mrp": 4999,
+        "sku": "AG-ROTLAMP-58",
+        "inStock": true,
+        "stockCount": 35
+      },
+      {
+        "id": "var-rot-2",
+        "size": "6 x 10 inches Grand Cylinder",
+        "dimensionsCm": "15 x 25 cm",
+        "finish": "Acrylic Ultra-Gloss",
+        "lighting": "Warm LED Backlit (12V Adapter)",
+        "price": 3299,
+        "mrp": 6299,
+        "sku": "AG-ROTLAMP-610",
+        "inStock": true,
+        "stockCount": 40
+      },
+      {
+        "id": "var-rot-3",
+        "size": "8 x 12 inches Master Bedroom Cylinder",
+        "dimensionsCm": "20 x 30 cm",
+        "finish": "Acrylic Ultra-Gloss",
+        "lighting": "Warm LED Backlit (12V Adapter)",
+        "price": 4199,
+        "mrp": 7999,
+        "sku": "AG-ROTLAMP-812",
+        "inStock": true,
+        "stockCount": 20
+      }
+    ],
+    "specifications": [
+      {
+        "label": "Rotation Mechanism",
+        "value": "Whisper-Silent 3 RPM 360° Motorized Drive"
+      },
+      {
+        "label": "Photo Capacity",
+        "value": "Holds 4 to 5 Continuous Personalized High-Resolution Photos"
+      },
+      {
+        "label": "LED System",
+        "value": "Warm Golden Warm Epistar LEDs with 12V BIS Certified Power Adapter"
+      },
+      {
+        "label": "Base Material",
+        "value": "Handcrafted Teak Texture Base with Touch Control Switch"
+      }
+    ],
+    "materialAndCare": [
+      "Includes 12V DC power cord and adapter.",
+      "Gently dust with dry microfiber cloth."
+    ],
+    "shippingHighlights": [
+      "Rigid shockproof packaging with foam mold protection",
+      "Ready to plug and play right out of the box"
+    ],
+    "reviews": [],
+    "createdAt": "2026-11-01"
+  },
+  {
+    "id": "prod-hexagonal-tower-rotating-lamp",
+    "slug": "crystal-tower-hexagonal-rotating-photo-lamp",
+    "categorySlugs": [
+      "rotating-photo-lamps",
+      "custom-frames",
+      "custom-led-photo-frames",
+      "led-backlit-wall-art"
+    ],
+    "shape": "portrait",
+    "title": "Crystal Tower Hexagonal Rotating LED Photo Keepsake Lamp",
+    "subtitle": "6-Sided Multi-Memory Display • Remote Controlled Warm & Ambient Light • Touch Switch Base",
+    "shortDescription": "Six multi-sided acrylic photo panels revolving smoothly on a solid hardwood pedestal with built-in warm LED illumination.",
+    "description": "Six precious memories illuminated in one sculptural centerpiece. The Crystal Tower features six high-clarity acrylic photo facets mounted onto an architectural rotating pedestal with touch-sensitive dimming and wireless remote control. Handcrafted with warm Warm LEDs, it effortlessly rotates to display every memory from birthdays, family vacations, and weddings with warm, golden vibrancy.",
+    "categorySlug": "rotating-photo-lamps",
+    "categoryName": "Rotating Photo Lamps",
+    "artStyle": "Hexagonal Tower Lamp",
+    "orientation": "vertical",
+    "images": [
+      "/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/primary-square.jpg",
+      "/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/mockup-living-room.jpg"
+    ],
+    "tags": [
+      "Hexagonal Lamp",
+      "Rotating Lamp",
+      "6 Sided Photo Lamp",
+      "Custom Keepsake",
+      "LED Tower",
+      "Unique Gift"
+    ],
+    "isFeatured": true,
+    "isBestseller": false,
+    "isNewArrival": true,
+    "hasLedBacklight": true,
+    "basePrice": 2799,
+    "baseMrp": 5499,
+    "discountPercentage": 49,
+    "rating": 0,
+    "reviewCount": 0,
+    "variants": [
+      {
+        "id": "var-tow-1",
+        "size": "Standard 6-Sided (6 x 9 inches)",
+        "dimensionsCm": "15 x 23 cm",
+        "finish": "Acrylic Ultra-Gloss",
+        "lighting": "Warm LED Backlit (12V Adapter)",
+        "price": 2799,
+        "mrp": 5499,
+        "sku": "AG-TOWLAMP-69",
+        "inStock": true,
+        "stockCount": 25
+      },
+      {
+        "id": "var-tow-2",
+        "size": "Grand 6-Sided (8 x 12 inches)",
+        "dimensionsCm": "20 x 30 cm",
+        "finish": "Acrylic Ultra-Gloss",
+        "lighting": "Warm LED Backlit (12V Adapter)",
+        "price": 3699,
+        "mrp": 6999,
+        "sku": "AG-TOWLAMP-812",
+        "inStock": true,
+        "stockCount": 15
+      }
+    ],
+    "specifications": [
+      {
+        "label": "Facet Count",
+        "value": "6 Distinct Acrylic Photo Panels (6 Photos)"
+      },
+      {
+        "label": "Controls",
+        "value": "Touch Sensor on Base + Wireless Dimmer Remote"
+      },
+      {
+        "label": "Lighting",
+        "value": "Warm Epistar LEDs with Low Voltage Adapter"
+      }
+    ],
+    "materialAndCare": [
+      "Keep away from direct water splashes.",
+      "Clean facets with clean dry microfiber cloth."
+    ],
+    "shippingHighlights": [
+      "Delivered in bespoke gift packaging with satin ribbons",
+      "protective packagingd"
+    ],
+    "reviews": [],
+    "createdAt": "2026-11-01"
+  }
 ];

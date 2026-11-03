@@ -25,11 +25,7 @@ export async function generateStaticParams() {
 
 // Targeted SEO title and description overrides for high-priority local keywords
 const LOCAL_SEO_CATEGORY_OVERRIDES: Record<string, { title: string; description: string; h1?: string }> = {
-  'custom-portrait-frames': {
-    title: 'Acrylic Photo Frames in Hyderabad | Custom Acrylic Frames Dilsukhnagar',
-    description: 'Looking for acrylic photo frames in Hyderabad or Dilsukhnagar? Premium cast acrylic with precision beveled edges, invisible floating mounts & crystal clarity. WhatsApp proof approval.',
-    h1: 'Acrylic Photo Frames in Hyderabad & Dilsukhnagar',
-  },
+  
   'premium-acrylic-wall-art': {
     title: "Acrylic Photo Frames in Hyderabad | crystal acrylic Art — Abhi's Gifts",
     description: 'Explore high-definition acrylic photo frames in Hyderabad. Diamond-edge polished cast acrylic wall art, family portraits & devotional keepsakes handcrafted in Dilsukhnagar.',
@@ -60,11 +56,7 @@ const LOCAL_SEO_CATEGORY_OVERRIDES: Record<string, { title: string; description:
     description: 'Shop luxury LED acrylic frames in Hyderabad. Sacred Tirupati Balaji, Ganesha, Shiva, Radha Krishna & modern illuminated art with high-efficiency Epistar warm LEDs. Fast delivery across Hyderabad.',
     h1: 'LED Acrylic Frames & Backlit Art in Hyderabad',
   },
-  'square-photo-frames': {
-    title: 'Square Acrylic Photo Frames in Hyderabad | 1:1 Grid Frames Dilsukhnagar',
-    description: 'Modern 1:1 square grid acrylic photo frames in Hyderabad. Minimalist precision-polished edges perfect for Instagram prints, couple milestones & gallery grids.',
-    h1: 'Square Acrylic Photo Frames in Hyderabad',
-  },
+  
   'glitter-photo-frames': {
     title: "Glitter Photo Frames in Hyderabad | Luminous Shimmer Frames — Abhi's Gifts",
     description: 'Explore luxury glitter photo frames in Hyderabad and Dilsukhnagar. Luminous sparkle and metallic glitter effects adding celebration radiance to special portraits.',
@@ -75,11 +67,7 @@ const LOCAL_SEO_CATEGORY_OVERRIDES: Record<string, { title: string; description:
     description: 'Buy motorized 360-degree rotating photo lamps in Hyderabad. Cylindrical multi-photo lamps glowing warmly with multiple cherished photographs and ambient LED.',
     h1: 'Rotating Photo Lamps in Hyderabad & Dilsukhnagar',
   },
-  'round-photo-frames': {
-    title: 'Round Acrylic Photo Frames in Hyderabad | Circular Medallion Wall Frames',
-    description: 'Luxury circular round acrylic photo frames in Hyderabad & Dilsukhnagar. Smooth 360-degree curved CNC smooth beveled edges with halo visual effect.',
-    h1: 'Round & Circular Acrylic Photo Frames in Hyderabad',
-  },
+  
 };
 
 export async function generateMetadata({ params }: CategoryPageProps): Promise<Metadata> {
@@ -150,15 +138,9 @@ export default function CategoryPage({ params }: CategoryPageProps) {
     if (slug === 'led-backlit-wall-art') {
       return p.hasLedBacklight;
     }
-    if (slug === 'vertical-led-frames') {
-      return p.hasLedBacklight && p.orientation === 'vertical';
-    }
-    if (slug === 'horizontal-led-frames') {
-      return p.hasLedBacklight && p.orientation === 'horizontal';
-    }
-    if (slug === 'square-backlight-frames') {
-      return p.hasLedBacklight && (p.shape === 'square' || p.orientation === 'square');
-    }
+    
+    
+    
     if (slug === 'modern-illuminated-art') {
       return p.hasLedBacklight && (p.categorySlug === 'modern-illuminated-art' || p.tags.some((t) => t.toLowerCase().includes('modern') || t.toLowerCase().includes('horizon')));
     }
@@ -189,21 +171,13 @@ export default function CategoryPage({ params }: CategoryPageProps) {
     if (slug === 'mountain-landscape-art') {
       return p.tags.some((t) => t.toLowerCase().includes('mountain') || t.toLowerCase().includes('landscape')) || p.categorySlug === 'landscape-wall-art';
     }
-    if (slug === 'round-photo-frames') {
-      return p.shape === 'round' || p.orientation === 'round' || p.tags.some((t) => t.toLowerCase().includes('round'));
-    }
+    
     if (slug === 'sets-of-two-three-frames') {
       return p.shape === 'set-of-2' || p.shape === 'set-of-3' || p.tags.some((t) => t.toLowerCase().includes('set of'));
     }
-    if (slug === 'custom-portrait-frames') {
-      return p.categorySlug.includes('custom') && (p.shape === 'portrait' || p.orientation === 'vertical');
-    }
-    if (slug === 'landscape-photo-frames') {
-      return p.categorySlug.includes('custom') && (p.shape === 'landscape' || p.orientation === 'horizontal');
-    }
-    if (slug === 'square-photo-frames') {
-      return p.shape === 'square' || p.orientation === 'square';
-    }
+    
+    
+    
     if (slug === 'personalized-family-photo-frames') {
       return p.categorySlug.includes('custom') || p.tags.some((t) => t.toLowerCase().includes('family') || t.toLowerCase().includes('photo'));
     }
