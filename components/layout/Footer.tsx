@@ -166,7 +166,7 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/category/custom-frames" className="hover:text-[#E8C77E] transition-colors block py-0.5">
+                <Link href="/customise" className="hover:text-[#E8C77E] transition-colors block py-0.5">
                   Acrylic Photo Frames
                 </Link>
               </li>

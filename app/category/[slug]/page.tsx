@@ -1,7 +1,7 @@
 import React from 'react';
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { notFound } from 'next/navigation';
+import { notFound, redirect } from 'next/navigation';
 import { Sparkles, Home, MapPin, Truck, ShieldCheck, CheckCircle2 } from 'lucide-react';
 import { getCategoryBySlug, getAllCategories, getAllProducts } from '@/lib/store';
 import CategoryClientView from '@/components/category/CategoryClientView';
@@ -83,6 +83,12 @@ const LOCAL_SEO_CATEGORY_OVERRIDES: Record<string, { title: string; description:
 };
 
 export async function generateMetadata({ params }: CategoryPageProps): Promise<Metadata> {
+  if (params.slug === 'devotional-wall-art' || params.slug === 'normal-acrylic-art' || params.slug === 'acrylic-wall-decor') {
+    redirect('/shop?lighting=none');
+  }
+  if (params.slug === 'custom-frames') {
+    redirect('/customise');
+  }
   const category = getCategoryBySlug(params.slug);
   if (!category) {
     return { title: 'Category Not Found' };
@@ -114,6 +120,12 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
 }
 
 export default function CategoryPage({ params }: CategoryPageProps) {
+  if (params.slug === 'devotional-wall-art' || params.slug === 'normal-acrylic-art' || params.slug === 'acrylic-wall-decor') {
+    redirect('/shop?lighting=none');
+  }
+  if (params.slug === 'custom-frames') {
+    redirect('/customise');
+  }
   const category = getCategoryBySlug(params.slug);
 
   if (!category) {

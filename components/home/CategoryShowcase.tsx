@@ -34,7 +34,7 @@ export const EDITORIAL_CATEGORIES: EditorialCategory[] = [
     name: 'Normal Acrylic Art',
     subtitle: 'Shatterproof 4mm crystal cast sheets with 24K gold foil embellishments and diamond beveled edges.',
     badge: '24K Gold Embellished',
-    href: '/category/devotional-wall-art',
+    href: '/shop?lighting=none',
     image: '/images/wall-decor/products/abstract/golden-bodhi-ginkgo-art.jpg',
     fallbackImage: '/images/divine/radha-krishna.jpg',
     spanClass: 'lg:col-span-4 md:col-span-6',
