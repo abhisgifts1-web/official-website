@@ -211,8 +211,8 @@ export default function AboutPage() {
             <Image
               src="/images/brand/logo-gold.png"
               alt="Abhi's Gifts - We Create Memorable Movements"
-              width={260}
-              height={51}
+              width={240}
+              height={80}
               priority
               className="h-10 sm:h-12 md:h-14 w-auto object-contain brightness-105"
             />

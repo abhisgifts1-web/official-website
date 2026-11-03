@@ -232,8 +232,8 @@ export default function Header() {
                 <Image
                   src="/images/brand/logo-gold.png"
                   alt="Abhi's Gifts - We Create Memorable Movements"
-                  width={200}
-                  height={39}
+                  width={210}
+                  height={70}
                   priority
                   className="h-6 sm:h-8.5 md:h-10 w-auto object-contain transition-transform group-hover:scale-[1.03]"
                 />
@@ -562,8 +562,8 @@ export default function Header() {
                 <Image
                   src="/images/brand/logo-gold.png"
                   alt="Abhi's Gifts"
-                  width={160}
-                  height={32}
+                  width={150}
+                  height={50}
                   className="h-8 w-auto object-contain"
                 />
               </Link>

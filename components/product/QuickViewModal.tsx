@@ -28,28 +28,29 @@ export default function QuickViewModal({ product, isOpen, onClose }: QuickViewMo
   const [customWidth, setCustomWidth] = useState<number>(24);
   const [customHeight, setCustomHeight] = useState<number>(36);
 
-  if (!isOpen || !product) return null;
-
-  const currentVariant = selectedVariant || product.variants[0] || {
+  // Hooks MUST all execute before any conditional early return (Rules of Hooks)
+  const currentVariant = selectedVariant || (product?.variants?.[0]) || {
     id: 'default',
     size: 'Standard',
     dimensionsCm: '30 x 45 cm',
     finish: 'Acrylic Ultra-Gloss',
-    lighting: product.hasLedBacklight ? 'Warm LED Backlit (12V Adapter)' : 'No Lighting (Pure Art)',
-    price: product.basePrice,
-    mrp: product.baseMrp,
+    lighting: product?.hasLedBacklight ? 'Warm LED Backlit (12V Adapter)' : 'No Lighting (Pure Art)',
+    price: product?.basePrice || 0,
+    mrp: product?.baseMrp || 0,
     sku: 'AG-DEF',
     inStock: true,
     stockCount: 20,
   };
 
-
   const customSizeCalc = React.useMemo(() => {
     return calculateCustomDimensions(customWidth, customHeight, {
-      hasLed: product.hasLedBacklight,
+      hasLed: Boolean(product?.hasLedBacklight),
       frameType: currentVariant.finish,
     });
-  }, [customWidth, customHeight, product.hasLedBacklight, currentVariant.finish]);
+  }, [customWidth, customHeight, product?.hasLedBacklight, currentVariant.finish]);
+
+  // Early return safely AFTER all React hooks
+  if (!isOpen || !product) return null;
 
   const activePrice = isCustomSize ? customSizeCalc.price : currentVariant.price;
   const activeMrp = isCustomSize ? customSizeCalc.mrp : currentVariant.mrp;
