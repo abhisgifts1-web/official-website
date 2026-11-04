@@ -376,7 +376,6 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
 
   // Selected shape & layout state
   const initialShape: ShapeOptionType = useMemo(() => {
-    
     if (product.shape === 'square' || product.orientation === 'square') return 'square';
     if (product.shape === 'landscape' || product.orientation === 'horizontal') return 'landscape';
     return 'portrait';
@@ -384,7 +383,14 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
 
   const [selectedShape, setSelectedShape] = useState<ShapeOptionType>(initialShape);
 
-  // Available sizes calibrated for the selected shape & product variants
+  // Check if product is a Glitter Photo Frame
+  const isGlitterFrame = useMemo(() => {
+    if (product.categorySlug === 'glitter-photo-frames') return true;
+    if (product.categorySlugs && product.categorySlugs.includes('glitter-photo-frames')) return true;
+    if (product.slug?.includes('glitter')) return true;
+    return false;
+  }, [product.categorySlug, product.categorySlugs, product.slug]);
+
   // Available sizes calibrated for the selected shape & product variants
   const availableSizes = useMemo(() => {
     const defaultList = SHAPE_SIZES[selectedShape] || SHAPE_SIZES.portrait;
@@ -399,6 +405,32 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
         : null;
 
     if (sourceVariants && sourceVariants.length > 0) {
+      if (isGlitterFrame) {
+        return sourceVariants.map((v, idx) => {
+          const vPrice = Number(v.price) || 1299;
+          const vMrp = Number(v.mrp) || Math.round(vPrice * 1.8);
+          const cleanLabel = v.size ? v.size.replace(' inches', '').replace(' (Grand Wall Size)', '') : `Size ${idx + 1}`;
+          return {
+            id: v.id || `glit-${idx}`,
+            label: cleanLabel,
+            dimensionsCm: v.dimensionsCm || '',
+            allowedFrames: ['gold', 'black', 'without'] as FrameType[],
+            allowedThickness: ['3mm', '5mm'] as ThicknessType[],
+            mountingHardware: {
+              framed: '',
+              without3mm: 'Tabletop acrylic block or floating standoffs included',
+              without5mm: 'Tabletop acrylic block or floating standoffs included',
+            },
+            prices: {
+              gold: { price: vPrice, mrp: vMrp },
+              black: { price: vPrice, mrp: vMrp },
+              without_3mm: { price: vPrice, mrp: vMrp },
+              without_5mm: { price: vPrice, mrp: vMrp },
+            },
+          };
+        });
+      }
+
       return defaultList.map((sizeObj, idx) => {
         const v = sourceVariants[idx];
         if (!v || !v.price) return sizeObj;
@@ -420,11 +452,18 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
     }
 
     return defaultList;
-  }, [selectedShape, liveProduct.orientationVariants, liveProduct.variants]);
+  }, [selectedShape, liveProduct.orientationVariants, liveProduct.variants, isGlitterFrame]);
 
   // Selected frame & size state
-  const [selectedFrame, setSelectedFrame] = useState<FrameType>('gold');
+  const [selectedFrame, setSelectedFrame] = useState<FrameType>(() => {
+    return (product.categorySlug === 'glitter-photo-frames' || product.categorySlugs?.includes('glitter-photo-frames') || product.slug?.includes('glitter'))
+      ? 'without'
+      : 'gold';
+  });
   const [selectedSizeId, setSelectedSizeId] = useState<string | null>(() => {
+    if (product.categorySlug === 'glitter-photo-frames' || product.categorySlugs?.includes('glitter-photo-frames') || product.slug?.includes('glitter')) {
+      return product.variants?.[0]?.id || 'var-glit-1';
+    }
     const initList = SHAPE_SIZES[initialShape] || SHAPE_SIZES.portrait;
     return initList[0]?.id || '12x18';
   });
@@ -550,6 +589,11 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
     }
     if (!currentSizeObj) {
       return { price: liveProduct.basePrice, mrp: liveProduct.baseMrp, isRange: true };
+    }
+
+    if (isGlitterFrame) {
+      const p = currentSizeObj.prices.without_3mm || currentSizeObj.prices.gold;
+      return p ? { price: p.price, mrp: p.mrp, isRange: false } : { price: liveProduct.basePrice, mrp: liveProduct.baseMrp, isRange: false };
     }
 
     if (selectedFrame === 'gold') {
@@ -679,7 +723,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
 
   // Add to cart
   const handleAddToCart = () => {
-    const frameLabel = selectedFrame === 'gold' ? 'Gold Frame' : selectedFrame === 'black' ? 'Black Frame' : `Without Frame (${selectedThickness})`;
+    const frameLabel = isGlitterFrame ? 'Glitter Acrylic Block' : (selectedFrame === 'gold' ? 'Gold Frame' : selectedFrame === 'black' ? 'Black Frame' : `Without Frame (${selectedThickness})`);
     const sizeLabel = isCustomSize ? customSizeCalc.label : (currentSizeObj ? currentSizeObj.label : '12x18');
 
     addToCart(
@@ -688,20 +732,20 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
         slug: product.slug,
         title: product.title,
         image: activeImage,
-        variantId: `${product.slug}-${selectedShape}-${selectedFrame}-${sizeLabel}-${selectedThickness}`,
+        variantId: `${product.slug}-${selectedShape}-${isGlitterFrame ? 'glitter' : selectedFrame}-${sizeLabel}-${selectedThickness}`,
         size: `${sizeLabel} (${selectedShape.toUpperCase()})`,
         finish: frameLabel,
-        lighting: product.hasLedBacklight ? (isAartiGlow ? 'Warm LED Backlit (12V Adapter)' : 'Daylight Acrylic (LED Off)') : 'Pure Acrylic Wall Art',
+        lighting: product.hasLedBacklight ? (isAartiGlow ? 'Warm LED Backlit (12V Adapter)' : 'Daylight Acrylic (LED Off)') : (isGlitterFrame ? 'Liquid Shimmer Floating Glitter' : 'Pure Acrylic Wall Art'),
         shape: selectedShape,
         unitPrice: currentPricing.price,
         unitMrp: currentPricing.mrp,
         quantity,
         customization: {
           previewUrl: activeImage,
-          frameType: selectedFrame,
+          frameType: isGlitterFrame ? 'without' : selectedFrame,
           orientation: selectedShape === 'portrait' ? 'vertical' : selectedShape === 'landscape' ? 'horizontal' : 'square',
           aspectRatio: SHAPE_CONFIGS[selectedShape].ratioLabel,
-          specialInstructions: isCustomSize ? `Custom Dimension Order: ${customSizeCalc.widthInches}x${customSizeCalc.heightInches} inches (${customSizeCalc.dimensionsCm}) | Shape: ${selectedShape.toUpperCase()} | Frame: ${frameLabel}` : `Shape: ${selectedShape.toUpperCase()} | Frame: ${frameLabel} | Size: ${sizeLabel}`,
+          specialInstructions: isCustomSize ? `Custom Dimension Order: ${customSizeCalc.widthInches}x${customSizeCalc.heightInches} inches (${customSizeCalc.dimensionsCm}) | Shape: ${selectedShape.toUpperCase()} | Finish: ${frameLabel}` : `Shape: ${selectedShape.toUpperCase()} | Finish: ${frameLabel} | Size: ${sizeLabel}`,
         },
       },
       true
@@ -710,7 +754,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
 
   // Instant Buy Now
   const handleBuyNow = () => {
-    const frameLabel = selectedFrame === 'gold' ? 'Gold Frame' : selectedFrame === 'black' ? 'Black Frame' : `Without Frame (${selectedThickness})`;
+    const frameLabel = isGlitterFrame ? 'Glitter Acrylic Block' : (selectedFrame === 'gold' ? 'Gold Frame' : selectedFrame === 'black' ? 'Black Frame' : `Without Frame (${selectedThickness})`);
     const sizeLabel = isCustomSize ? customSizeCalc.label : (currentSizeObj ? currentSizeObj.label : '12x18');
 
     addToCart(
@@ -719,20 +763,20 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
         slug: product.slug,
         title: product.title,
         image: activeImage,
-        variantId: `${product.slug}-${selectedShape}-${selectedFrame}-${sizeLabel}-${selectedThickness}`,
+        variantId: `${product.slug}-${selectedShape}-${isGlitterFrame ? 'glitter' : selectedFrame}-${sizeLabel}-${selectedThickness}`,
         size: `${sizeLabel} (${selectedShape.toUpperCase()})`,
         finish: frameLabel,
-        lighting: product.hasLedBacklight ? (isAartiGlow ? 'Warm LED Backlit (12V Adapter)' : 'Daylight Acrylic (LED Off)') : 'Pure Acrylic Wall Art',
+        lighting: product.hasLedBacklight ? (isAartiGlow ? 'Warm LED Backlit (12V Adapter)' : 'Daylight Acrylic (LED Off)') : (isGlitterFrame ? 'Liquid Shimmer Floating Glitter' : 'Pure Acrylic Wall Art'),
         shape: selectedShape,
         unitPrice: currentPricing.price,
         unitMrp: currentPricing.mrp,
         quantity,
         customization: {
           previewUrl: activeImage,
-          frameType: selectedFrame,
+          frameType: isGlitterFrame ? 'without' : selectedFrame,
           orientation: selectedShape === 'portrait' ? 'vertical' : selectedShape === 'landscape' ? 'horizontal' : 'square',
           aspectRatio: SHAPE_CONFIGS[selectedShape].ratioLabel,
-          specialInstructions: isCustomSize ? `Custom Dimension Order: ${customSizeCalc.widthInches}x${customSizeCalc.heightInches} inches (${customSizeCalc.dimensionsCm}) | Shape: ${selectedShape.toUpperCase()} | Frame: ${frameLabel}` : `Shape: ${selectedShape.toUpperCase()} | Frame: ${frameLabel} | Size: ${sizeLabel}`,
+          specialInstructions: isCustomSize ? `Custom Dimension Order: ${customSizeCalc.widthInches}x${customSizeCalc.heightInches} inches (${customSizeCalc.dimensionsCm}) | Shape: ${selectedShape.toUpperCase()} | Finish: ${frameLabel}` : `Shape: ${selectedShape.toUpperCase()} | Finish: ${frameLabel} | Size: ${sizeLabel}`,
         },
       },
       false
@@ -949,20 +993,14 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                   )}
 
                   <div
-                    className={`relative w-full h-full overflow-hidden transition-all duration-500 ${
-                      'rounded-2xl'
-                    } ${
-                      selectedFrame === 'gold'
-                        ? `border-[12px] sm:border-[16px] border-[#EAB308] shadow-[0_16px_36px_rgba(198,154,66,0.38)] ring-1 ring-[#946F25] ${
-                            'rounded-2xl'
-                          }`
+                    className={`relative w-full h-full overflow-hidden transition-all duration-500 rounded-2xl ${
+                      isGlitterFrame
+                        ? 'border-2 border-stone-200 shadow-md'
+                        : selectedFrame === 'gold'
+                        ? 'border-[12px] sm:border-[16px] border-[#EAB308] shadow-[0_16px_36px_rgba(198,154,66,0.38)] ring-1 ring-[#946F25]'
                         : selectedFrame === 'black'
-                        ? `border-[12px] sm:border-[16px] border-[#1C1917] shadow-[0_16px_36px_rgba(0,0,0,0.45)] ring-1 ring-stone-900 ${
-                            'rounded-2xl'
-                          }`
-                        : `border-2 border-stone-300 shadow-md ${
-                            'rounded-2xl'
-                          }`
+                        ? 'border-[12px] sm:border-[16px] border-[#1C1917] shadow-[0_16px_36px_rgba(0,0,0,0.45)] ring-1 ring-stone-900'
+                        : 'border-2 border-stone-300 shadow-md'
                     }`}
                   >
                     {/* Main Artwork Image with Smooth Zoom tracking */}
@@ -988,14 +1026,12 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                     />
 
                     {/* Corner Studs for Frameless Crystal Acrylic */}
-                    {selectedFrame === 'without' && (
+                    {!isGlitterFrame && selectedFrame === 'without' && (
                       <>
-                        <>
-                            <div className="absolute top-2.5 left-2.5 w-3 h-3 rounded-full bg-gradient-to-br from-amber-100 via-amber-300 to-amber-700 shadow-xs border border-amber-900/40 pointer-events-none" />
-                            <div className="absolute top-2.5 right-2.5 w-3 h-3 rounded-full bg-gradient-to-br from-amber-100 via-amber-300 to-amber-700 shadow-xs border border-amber-900/40 pointer-events-none" />
-                            <div className="absolute bottom-2.5 left-2.5 w-3 h-3 rounded-full bg-gradient-to-br from-amber-100 via-amber-300 to-amber-700 shadow-xs border border-amber-900/40 pointer-events-none" />
-                            <div className="absolute bottom-2.5 right-2.5 w-3 h-3 rounded-full bg-gradient-to-br from-amber-100 via-amber-300 to-amber-700 shadow-xs border border-amber-900/40 pointer-events-none" />
-                          </>
+                        <div className="absolute top-2.5 left-2.5 w-3 h-3 rounded-full bg-gradient-to-br from-amber-100 via-amber-300 to-amber-700 shadow-xs border border-amber-900/40 pointer-events-none" />
+                        <div className="absolute top-2.5 right-2.5 w-3 h-3 rounded-full bg-gradient-to-br from-amber-100 via-amber-300 to-amber-700 shadow-xs border border-amber-900/40 pointer-events-none" />
+                        <div className="absolute bottom-2.5 left-2.5 w-3 h-3 rounded-full bg-gradient-to-br from-amber-100 via-amber-300 to-amber-700 shadow-xs border border-amber-900/40 pointer-events-none" />
+                        <div className="absolute bottom-2.5 right-2.5 w-3 h-3 rounded-full bg-gradient-to-br from-amber-100 via-amber-300 to-amber-700 shadow-xs border border-amber-900/40 pointer-events-none" />
                       </>
                     )}
 
@@ -1222,119 +1258,123 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
               )}
             </div>
 
-            {/* Customization 1: Frame Style */}
-            <div className="space-y-2.5">
-              <div className="flex items-center justify-between text-xs">
-                <span className="font-bold text-stone-900">
-                  1. Frame Style:{' '}
-                  <strong className="text-amber-800 font-serif">
-                    {selectedFrame === 'gold' ? 'Champagne Gold' : selectedFrame === 'black' ? 'Matte Black' : 'Frameless Crystal Acrylic'}
-                  </strong>
-                </span>
-                <span className="text-[11px] text-stone-500">Select finish</span>
-              </div>
-
-              <div className="grid grid-cols-3 gap-2.5">
-                {/* Gold Frame Card */}
-                <button
-                  type="button"
-                  onClick={() => handleSelectFrame('gold')}
-                  className={`p-2.5 rounded-2xl border-2 transition-all flex flex-col items-center text-center gap-1.5 cursor-pointer ${
-                    selectedFrame === 'gold'
-                      ? 'border-amber-500 bg-amber-50/60 ring-2 ring-amber-300/60 shadow-xs'
-                      : 'border-stone-200 bg-stone-50 hover:border-amber-400'
-                  }`}
-                >
-                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl overflow-hidden border border-amber-300 shadow-xs bg-white">
-                    <img
-                      src="/images/frames/gold-border-ref.jpg"
-                      alt="Champagne Gold Aluminium Frame Border"
-                      className="w-full h-full object-cover"
-                    />
+            {/* Customization 1: Frame Style (Hidden for Glitter Photo Frames) */}
+            {!isGlitterFrame && (
+              <>
+                <div className="space-y-2.5">
+                  <div className="flex items-center justify-between text-xs">
+                    <span className="font-bold text-stone-900">
+                      1. Frame Style:{' '}
+                      <strong className="text-amber-800 font-serif">
+                        {selectedFrame === 'gold' ? 'Champagne Gold' : selectedFrame === 'black' ? 'Matte Black' : 'Frameless Crystal Acrylic'}
+                      </strong>
+                    </span>
+                    <span className="text-[11px] text-stone-500">Select finish</span>
                   </div>
-                  <span className="text-xs font-bold text-stone-900 leading-tight">Gold Frame</span>
-                  <span className="text-[10px] text-stone-500">Champagne Gold</span>
-                </button>
 
-                {/* Black Frame Card */}
-                <button
-                  type="button"
-                  onClick={() => handleSelectFrame('black')}
-                  className={`p-2.5 rounded-2xl border-2 transition-all flex flex-col items-center text-center gap-1.5 cursor-pointer ${
-                    selectedFrame === 'black'
-                      ? 'border-stone-900 bg-stone-100 ring-2 ring-stone-400/60 shadow-xs'
-                      : 'border-stone-200 bg-stone-50 hover:border-amber-400'
-                  }`}
-                >
-                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl overflow-hidden border border-stone-300 shadow-xs bg-white">
-                    <img
-                      src="/images/frames/black-border-ref.jpg"
-                      alt="Matte Black Aluminium Frame Border"
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <span className="text-xs font-bold text-stone-900 leading-tight">Black Frame</span>
-                  <span className="text-[10px] text-stone-500">Matte Black</span>
-                </button>
-
-                {/* Without Frame Card */}
-                <button
-                  type="button"
-                  onClick={() => handleSelectFrame('without')}
-                  className={`p-2.5 rounded-2xl border-2 transition-all flex flex-col items-center text-center gap-1.5 cursor-pointer ${
-                    selectedFrame === 'without'
-                      ? 'border-amber-500 bg-amber-50/60 ring-2 ring-amber-300/60 shadow-xs'
-                      : 'border-stone-200 bg-stone-50 hover:border-amber-400'
-                  }`}
-                >
-                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl overflow-hidden border border-stone-200 shadow-xs bg-white">
-                    <img
-                      src="/images/frames/acrylic-border-ref.jpg"
-                      alt="Frameless Acrylic Photo Frame Border"
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <span className="text-xs font-bold text-stone-900 leading-tight">No Frame</span>
-                  <span className="text-[10px] text-stone-500">Crystal Acrylic</span>
-                </button>
-              </div>
-            </div>
-
-            {/* Thickness Selector (When Without Frame is selected) */}
-            {selectedFrame === 'without' && availableThicknesses.length > 0 && (
-              <div className="space-y-2 bg-stone-50 p-3.5 rounded-2xl border border-stone-200">
-                <div className="flex items-center justify-between text-xs">
-                  <span className="font-bold text-stone-900">
-                    Acrylic Thickness: <strong className="text-amber-800">{selectedThickness}</strong>
-                  </span>
-                  <span className="text-[11px] text-stone-500">
-                    {selectedThickness === '3mm' ? 'With 2-way tape adhesive hook' : 'Heavy cast acrylic with S.S studs'}
-                  </span>
-                </div>
-                <div className="flex gap-2">
-                  {availableThicknesses.map((th) => (
+                  <div className="grid grid-cols-3 gap-2.5">
+                    {/* Gold Frame Card */}
                     <button
-                      key={th}
                       type="button"
-                      onClick={() => setSelectedThickness(th)}
-                      className={`flex-1 py-2 px-3 rounded-xl text-xs font-bold border transition-all cursor-pointer ${
-                        selectedThickness === th
-                          ? 'border-amber-500 bg-white text-stone-900 shadow-xs'
-                          : 'border-stone-200 bg-white/70 text-stone-600 hover:border-amber-300'
+                      onClick={() => handleSelectFrame('gold')}
+                      className={`p-2.5 rounded-2xl border-2 transition-all flex flex-col items-center text-center gap-1.5 cursor-pointer ${
+                        selectedFrame === 'gold'
+                          ? 'border-amber-500 bg-amber-50/60 ring-2 ring-amber-300/60 shadow-xs'
+                          : 'border-stone-200 bg-stone-50 hover:border-amber-400'
                       }`}
                     >
-                      {th} {th === '3mm' ? '(Standard)' : '(Heavy Cast)'}
+                      <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl overflow-hidden border border-amber-300 shadow-xs bg-white">
+                        <img
+                          src="/images/frames/gold-border-ref.jpg"
+                          alt="Champagne Gold Aluminium Frame Border"
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <span className="text-xs font-bold text-stone-900 leading-tight">Gold Frame</span>
+                      <span className="text-[10px] text-stone-500">Champagne Gold</span>
                     </button>
-                  ))}
+
+                    {/* Black Frame Card */}
+                    <button
+                      type="button"
+                      onClick={() => handleSelectFrame('black')}
+                      className={`p-2.5 rounded-2xl border-2 transition-all flex flex-col items-center text-center gap-1.5 cursor-pointer ${
+                        selectedFrame === 'black'
+                          ? 'border-stone-900 bg-stone-100 ring-2 ring-stone-400/60 shadow-xs'
+                          : 'border-stone-200 bg-stone-50 hover:border-amber-400'
+                      }`}
+                    >
+                      <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl overflow-hidden border border-stone-300 shadow-xs bg-white">
+                        <img
+                          src="/images/frames/black-border-ref.jpg"
+                          alt="Matte Black Aluminium Frame Border"
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <span className="text-xs font-bold text-stone-900 leading-tight">Black Frame</span>
+                      <span className="text-[10px] text-stone-500">Matte Black</span>
+                    </button>
+
+                    {/* Without Frame Card */}
+                    <button
+                      type="button"
+                      onClick={() => handleSelectFrame('without')}
+                      className={`p-2.5 rounded-2xl border-2 transition-all flex flex-col items-center text-center gap-1.5 cursor-pointer ${
+                        selectedFrame === 'without'
+                          ? 'border-amber-500 bg-amber-50/60 ring-2 ring-amber-300/60 shadow-xs'
+                          : 'border-stone-200 bg-stone-50 hover:border-amber-400'
+                      }`}
+                    >
+                      <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl overflow-hidden border border-stone-200 shadow-xs bg-white">
+                        <img
+                          src="/images/frames/acrylic-border-ref.jpg"
+                          alt="Frameless Acrylic Photo Frame Border"
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <span className="text-xs font-bold text-stone-900 leading-tight">No Frame</span>
+                      <span className="text-[10px] text-stone-500">Crystal Acrylic</span>
+                    </button>
+                  </div>
                 </div>
-              </div>
+
+                {/* Thickness Selector (When Without Frame is selected) */}
+                {selectedFrame === 'without' && availableThicknesses.length > 0 && (
+                  <div className="space-y-2 bg-stone-50 p-3.5 rounded-2xl border border-stone-200">
+                    <div className="flex items-center justify-between text-xs">
+                      <span className="font-bold text-stone-900">
+                        Acrylic Thickness: <strong className="text-amber-800">{selectedThickness}</strong>
+                      </span>
+                      <span className="text-[11px] text-stone-500">
+                        {selectedThickness === '3mm' ? 'With 2-way tape adhesive hook' : 'Heavy cast acrylic with S.S studs'}
+                      </span>
+                    </div>
+                    <div className="flex gap-2">
+                      {availableThicknesses.map((th) => (
+                        <button
+                          key={th}
+                          type="button"
+                          onClick={() => setSelectedThickness(th)}
+                          className={`flex-1 py-2 px-3 rounded-xl text-xs font-bold border transition-all cursor-pointer ${
+                            selectedThickness === th
+                              ? 'border-amber-500 bg-white text-stone-900 shadow-xs'
+                              : 'border-stone-200 bg-white/70 text-stone-600 hover:border-amber-300'
+                          }`}
+                        >
+                          {th} {th === '3mm' ? '(Standard)' : '(Heavy Cast)'}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </>
             )}
 
-            {/* Customization 3: Dimensions & Size Selector */}
+            {/* Dimensions & Size Selector */}
             <div className="space-y-2.5">
               <div className="flex items-center justify-between text-xs">
                 <span className="font-bold text-stone-900">
-                  3. Dimensions:{' '}
+                  {isGlitterFrame ? 'Select Dimensions & Size:' : '3. Dimensions:'}{' '}
                   <strong className="text-amber-800 font-serif">
                     {isCustomSize ? `${customSizeCalc.widthInches}" × ${customSizeCalc.heightInches}" (${customSizeCalc.dimensionsCm}) [Custom Size]` : (currentSizeObj ? `${currentSizeObj.label} (${currentSizeObj.dimensionsCm})` : 'Select Size')}
                   </strong>
@@ -1351,10 +1391,11 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
               </div>
 
               {/* Size Pills Grid */}
-              <div className="grid grid-cols-4 sm:grid-cols-5 gap-2">
+              <div className={`grid ${isGlitterFrame ? 'grid-cols-3 sm:grid-cols-4' : 'grid-cols-4 sm:grid-cols-5'} gap-2`}>
                 {availableSizes.map((s) => {
                   const isSelected = !isCustomSize && selectedSizeId === s.id;
-                  const isSupported = s.allowedFrames.includes(selectedFrame);
+                  const isSupported = isGlitterFrame || s.allowedFrames.includes(selectedFrame);
+                  const cleanDisplayLabel = s.label.includes('"') || s.label.includes('in') ? s.label : `${s.label}"`;
 
                   return (
                     <button
@@ -1370,8 +1411,10 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                           : 'border border-stone-200 text-stone-300 bg-stone-100 cursor-not-allowed line-through'
                       }`}
                     >
-                      <span className="font-bold">{s.label}&quot;</span>
-                      <span className="text-[9px] text-stone-500 leading-none mt-0.5">{s.dimensionsCm.split(' ')[0]}cm</span>
+                      <span className="font-bold">{cleanDisplayLabel}</span>
+                      {s.dimensionsCm && (
+                        <span className="text-[9px] text-stone-500 leading-none mt-0.5">{s.dimensionsCm.split(' ')[0]}cm</span>
+                      )}
                     </button>
                   );
                 })}
@@ -1411,12 +1454,17 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
               )}
 
               {/* Hardware Note */}
-              {mountingNote && (
+              {isGlitterFrame ? (
+                <div className="p-3 rounded-xl bg-stone-50 border border-stone-200 text-[11px] text-stone-600 flex items-center gap-2">
+                  <Sparkles className="w-4 h-4 text-amber-600 shrink-0" />
+                  <span>Display Setup: <strong className="text-stone-900">Dual-layer sealed acrylic block with floating shimmer flakes &amp; desktop stand</strong></span>
+                </div>
+              ) : mountingNote ? (
                 <div className="p-3 rounded-xl bg-stone-50 border border-stone-200 text-[11px] text-stone-600 flex items-center gap-2">
                   <Info className="w-4 h-4 text-amber-600 shrink-0" />
                   <span>Mounting hardware provided: <strong className="text-stone-900">{mountingNote}</strong></span>
                 </div>
-              )}
+              ) : null}
             </div>
 
             {/* Quantity Selector + Action Buttons */}
@@ -1946,7 +1994,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                 {product.title}
               </h4>
               <p className="text-[11px] text-stone-500 truncate">
-                {selectedShape.toUpperCase()} • {currentSizeObj?.label || '12x18'}&quot; • {selectedFrame === 'gold' ? 'Gold Frame' : selectedFrame === 'black' ? 'Black Frame' : 'Frameless Acrylic'}
+                {selectedShape.toUpperCase()} • {currentSizeObj?.label || '12x18'}&quot; • {isGlitterFrame ? 'Glitter Acrylic Block' : (selectedFrame === 'gold' ? 'Gold Frame' : selectedFrame === 'black' ? 'Black Frame' : 'Frameless Acrylic')}
               </p>
             </div>
           </div>
