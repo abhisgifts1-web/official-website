@@ -1,15 +1,12 @@
 'use client';
 
-import React from 'react';
+import React, { useRef } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 export interface EditorialCategory {
   id: string;
   name: string;
-  subtitle: string;
-  badge?: string;
   href: string;
   image: string;
   fallbackImage: string;
@@ -19,17 +16,13 @@ export const EDITORIAL_CATEGORIES: EditorialCategory[] = [
   {
     id: 'acrylic-photo-frames',
     name: 'Acrylic Photo Frames',
-    subtitle: 'Crystal clear shatterproof acrylic with beveled edges',
-    badge: 'Classic',
     href: '/category/acrylic-photo-frames',
     image: '/images/collections/custom-portrait-frame.jpg',
     fallbackImage: '/images/collections/custom-portrait-frame.jpg',
   },
   {
     id: 'led-acrylic-photo-frames',
-    name: 'LED Acrylic Photo Frames',
-    subtitle: 'Warm golden halo backlights with 12V adapter',
-    badge: 'Warm LED',
+    name: 'LED Photo Frames',
     href: '/category/led-acrylic-photo-frames',
     image: '/images/collections/custom-led-photo-frame.jpg',
     fallbackImage: '/images/collections/custom-led-photo-frame.jpg',
@@ -37,26 +30,20 @@ export const EDITORIAL_CATEGORIES: EditorialCategory[] = [
   {
     id: 'glitter-photo-frames',
     name: 'Glitter Photo Frames',
-    subtitle: 'Enchanted floating liquid gold & diamond shimmer',
-    badge: 'Liquid Gold',
     href: '/category/glitter-photo-frames',
     image: '/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg',
     fallbackImage: '/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/primary-square.jpg',
   },
   {
     id: '360-rotating-photo-lamps',
-    name: '360° Rotating Photo Lamps',
-    subtitle: 'Motorized silent rotation showcasing multiple photos',
-    badge: 'Rotating LED',
+    name: '360° Rotating Lamps',
     href: '/category/360-rotating-photo-lamps',
     image: '/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/primary-square.jpg',
     fallbackImage: '/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/primary-square.jpg',
   },
   {
     id: 'god-photo-frames',
-    name: 'Devotional Wall Art',
-    subtitle: 'Sacred acrylic & warm LED sanctum frames',
-    badge: 'Devotional',
+    name: 'God Photo Frames',
     href: '/category/god-photo-frames',
     image: '/images/wall-decor/categories/devotional/balaji-category.jpg',
     fallbackImage: '/images/divine/ram-mandir.jpg',
@@ -64,26 +51,20 @@ export const EDITORIAL_CATEGORIES: EditorialCategory[] = [
   {
     id: 'family-baby-frames',
     name: 'Family & Baby Frames',
-    subtitle: 'Heartfelt heirlooms and baby milestone collages',
-    badge: 'Heirlooms',
     href: '/category/family-baby-frames',
     image: '/images/collections/family-photo-frame.jpg',
     fallbackImage: '/images/collections/family-photo-frame.jpg',
   },
   {
     id: 'couple-wedding-frames',
-    name: 'Couple & Wedding Frames',
-    subtitle: 'Wedding vow keepsakes and anniversary portraits',
-    badge: 'Wedding',
+    name: 'Couple & Wedding',
     href: '/category/couple-wedding-frames',
     image: '/images/mockups/custom-couple-wedding-vows-acrylic-keepsake-frame/primary-square.jpg',
     fallbackImage: '/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/primary-square.jpg',
   },
   {
     id: 'personalized-gifts',
-    name: 'Personalized Photo Gifts',
-    subtitle: 'Bespoke custom names & dedication inscriptions',
-    badge: 'Personalized',
+    name: 'Personalized Gifts',
     href: '/category/personalized-gifts',
     image: '/images/collections/gallery-set-photo-frames.jpg',
     fallbackImage: '/images/collections/custom-led-photo-frame.jpg',
@@ -91,75 +72,82 @@ export const EDITORIAL_CATEGORIES: EditorialCategory[] = [
 ];
 
 export default function CategoryShowcase() {
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  const scroll = (direction: 'left' | 'right') => {
+    if (scrollRef.current) {
+      const scrollAmount = direction === 'left' ? -260 : 260;
+      scrollRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }
+  };
+
   return (
     <section className="w-full max-w-[1760px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 py-6 sm:py-8 lg:py-10">
       {/* Section Header */}
-      <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-6 sm:mb-8 pb-3 border-b border-stone-200 gap-3">
-        <div>
-          <span className="text-xs uppercase tracking-widest font-semibold text-amber-800">
-            Handcrafted Collections
-          </span>
-          <h2 className="font-serif font-bold text-2xl sm:text-3xl text-stone-900 tracking-tight mt-0.5">
-            Shop By Category
-          </h2>
-          <p className="text-xs sm:text-sm text-stone-600 mt-1 max-w-xl font-sans">
-            From crystal clear acrylic frames to warm backlit LED art, explore collections designed for your home.
-          </p>
-        </div>
-
-        <Link
-          href="/category"
-          className="text-xs sm:text-sm font-semibold text-stone-800 hover:text-amber-800 flex items-center gap-1.5 transition-colors shrink-0 group"
-        >
-          <span>View All Categories</span>
-          <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
-        </Link>
+      <div className="text-center mb-6 sm:mb-8">
+        <h2 className="font-serif font-bold text-2xl sm:text-3xl text-stone-900 tracking-tight">
+          Shop by Category
+        </h2>
+        <p className="text-xs sm:text-sm text-stone-500 mt-1 font-sans">
+          Explore handcrafted acrylic, LED, and personalized frames
+        </p>
       </div>
 
-      {/* Clean 4-Column Grid with Equal Image Dimensions */}
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3.5 sm:gap-5 lg:gap-6">
-        {EDITORIAL_CATEGORIES.map((cat) => (
-          <Link
-            key={cat.id}
-            href={cat.href}
-            className="group flex flex-col bg-white rounded-xl sm:rounded-2xl border border-stone-200 hover:border-stone-300 hover:shadow-md transition-all duration-300 overflow-hidden"
-          >
-            {/* Equal Aspect Ratio Image Container */}
-            <div className="relative aspect-square w-full overflow-hidden bg-stone-100">
-              <img
-                src={cat.image}
-                alt={cat.name}
-                loading="lazy"
-                onError={(e) => {
-                  (e.target as HTMLImageElement).src = cat.fallbackImage;
-                }}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-104"
-              />
-              {cat.badge && (
-                <span className="absolute top-2.5 left-2.5 bg-white/90 backdrop-blur-xs text-stone-800 text-[10px] sm:text-xs font-semibold px-2 py-0.5 rounded-full border border-stone-200 shadow-2xs">
-                  {cat.badge}
-                </span>
-              )}
-            </div>
+      {/* Circular Category Strip with Left / Right Scroll Controls */}
+      <div className="relative group/carousel">
+        {/* Left Arrow Button (Visible on hover on larger screens) */}
+        <button
+          type="button"
+          onClick={() => scroll('left')}
+          className="hidden md:flex absolute -left-3 lg:-left-5 top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full bg-white/95 hover:bg-white text-stone-700 hover:text-stone-900 border border-stone-200 shadow-md items-center justify-center transition-all opacity-0 group-hover/carousel:opacity-100 hover:scale-105 cursor-pointer"
+          aria-label="Scroll left"
+        >
+          <ChevronLeft className="w-5 h-5" />
+        </button>
 
-            {/* Product Category Content */}
-            <div className="p-3 sm:p-4 flex flex-col flex-1 justify-between bg-white">
-              <div>
-                <h3 className="font-serif font-bold text-sm sm:text-base text-stone-900 group-hover:text-amber-800 transition-colors line-clamp-1">
-                  {cat.name}
-                </h3>
-                <p className="text-[11px] sm:text-xs text-stone-500 line-clamp-1 mt-0.5 font-sans">
-                  {cat.subtitle}
-                </p>
+        {/* Circular Items Container */}
+        <div
+          ref={scrollRef}
+          className="flex items-start gap-4 sm:gap-6 md:gap-7 lg:gap-8 overflow-x-auto scroll-smooth scrollbar-none py-2 px-2 sm:px-4 justify-start md:justify-center"
+        >
+          {EDITORIAL_CATEGORIES.map((cat) => (
+            <Link
+              key={cat.id}
+              href={cat.href}
+              className="group flex flex-col items-center shrink-0 text-center w-[84px] sm:w-[100px] md:w-[110px] lg:w-[120px] cursor-pointer"
+            >
+              {/* Circular Photo Container */}
+              <div className="relative w-20 h-20 sm:w-24 sm:h-24 md:w-26 md:h-26 lg:w-28 lg:h-28 rounded-full p-1 bg-white border-2 border-stone-200 group-hover:border-amber-500 shadow-2xs group-hover:shadow-md transition-all duration-300 group-hover:scale-105 overflow-hidden flex items-center justify-center">
+                <div className="w-full h-full rounded-full overflow-hidden bg-stone-100 relative">
+                  <img
+                    src={cat.image}
+                    alt={cat.name}
+                    loading="lazy"
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).src = cat.fallbackImage;
+                    }}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                </div>
               </div>
 
-              <div className="pt-2 sm:pt-3 flex items-center gap-1 text-[11px] sm:text-xs font-semibold text-stone-700 group-hover:text-amber-800 transition-colors">
-                <span>Explore Frames</span>
-                <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
-              </div>
-            </div>
-          </Link>
-        ))}
+              {/* Category Name Below Circle */}
+              <span className="mt-2 sm:mt-2.5 text-center font-semibold text-xs sm:text-[13px] text-stone-800 group-hover:text-amber-800 transition-colors leading-tight line-clamp-2">
+                {cat.name}
+              </span>
+            </Link>
+          ))}
+        </div>
+
+        {/* Right Arrow Button (Visible on hover on larger screens) */}
+        <button
+          type="button"
+          onClick={() => scroll('right')}
+          className="hidden md:flex absolute -right-3 lg:-right-5 top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full bg-white/95 hover:bg-white text-stone-700 hover:text-stone-900 border border-stone-200 shadow-md items-center justify-center transition-all opacity-0 group-hover/carousel:opacity-100 hover:scale-105 cursor-pointer"
+          aria-label="Scroll right"
+        >
+          <ChevronRight className="w-5 h-5" />
+        </button>
       </div>
     </section>
   );
