@@ -51,7 +51,7 @@ export default function AnnouncementBar() {
       {/* 4. Delivery */}
       <span className="flex items-center gap-1.5 shrink-0 text-[#E5E7EB]">
         <Truck className="w-3.5 h-3.5 text-[#FACC15] shrink-0" />
-        <span className="font-medium">Express Courier Delivery</span>
+        <span className="font-medium">Free Doorstep Delivery Across India</span>
       </span>
 
       <span className="w-1.5 h-1.5 rounded-full bg-[#FACC15]/50 shrink-0" />

@@ -82,7 +82,7 @@ const FAQ_KNOWLEDGE_BASE: {
     keywords: ['shipping', 'delivery', 'time', 'days', 'hyderabad', 'dilsukhnagar', 'fast', 'courier', 'urgent'],
     question: 'What are the delivery timelines and shipping charges?',
     answer:
-      "• Standard Express Shipping across India (₹149 flat insured delivery fee).\n• Local Hyderabad & Dilsukhnagar: Same-day / Next-day dispatch with 24-48 hr delivery.\n• Rest of India: 3 to 5 business days via BlueDart, Delhivery, or DTDC Express.\nEvery frame is packed with multi-layer bubble wrap, edge corner guards, and sturdy wooden crates for safe, protected transit.",
+      "• 100% Free Doorstep Delivery across India on all orders (₹0 shipping fee for every product).\n• Local Hyderabad & Dilsukhnagar: Same-day / Next-day dispatch with 24-48 hr delivery.\n• Rest of India: 3 to 5 business days via BlueDart, Delhivery, or DTDC Express.\nEvery frame is packed with multi-layer bubble wrap, edge corner guards, and sturdy wooden crates for safe, protected transit.",
     action: {
       label: 'Customise a Frame',
       href: '/customise',

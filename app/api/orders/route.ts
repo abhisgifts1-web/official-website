@@ -103,11 +103,10 @@ export async function POST(req: NextRequest) {
       }
     }
 
-    // SERVER-SIDE SHIPPING CHARGE
-    const shippingFee =
-      computedSubtotal >= INITIAL_SETTINGS.freeShippingThreshold ? 0 : INITIAL_SETTINGS.defaultShippingFee;
+    // SERVER-SIDE SHIPPING CHARGE: Free delivery for every product across entire website
+    const shippingFee = 0;
 
-    const totalAmount = Math.max(0, computedSubtotal - discountAmount + shippingFee);
+    const totalAmount = Math.max(0, computedSubtotal - discountAmount);
 
     const isPaid = paymentMethod === 'Razorpay' && Boolean(razorpayPaymentId);
 

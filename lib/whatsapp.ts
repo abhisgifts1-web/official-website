@@ -57,7 +57,14 @@ export function buildWhatsAppOrderMessage(data: WhatsAppOrderDetails): string {
     if (item.finish) msg += `   ▫ *Finish:* ${item.finish}\n`;
     if (item.lighting) msg += `   ▫ *Lighting:* ${item.lighting}\n`;
     msg += `   ▫ *Quantity:* ${item.quantity}\n`;
-    msg += `   ▫ *Price:* ₹${(item.unitPrice * item.quantity).toLocaleString('en-IN')}\n`;
+    const isCustom =
+      item.size?.toLowerCase().includes('custom size') ||
+      item.variantId?.toLowerCase().includes('custom-size');
+    if (isCustom) {
+      msg += `   ▫ *Price:* Price will be known in WhatsApp chat order (Custom Quote)\n`;
+    } else {
+      msg += `   ▫ *Price:* ₹${(item.unitPrice * item.quantity).toLocaleString('en-IN')}\n`;
+    }
     if (item.customization?.customText) {
       msg += `   ▫ *Custom Inscription:* "${item.customization.customText}"\n`;
     }
@@ -95,7 +102,15 @@ export function buildWhatsAppOrderMessage(data: WhatsAppOrderDetails): string {
   if (discountAmount > 0) {
     msg += `• Coupon Savings: -₹${discountAmount.toLocaleString('en-IN')}${couponCode ? ` (${couponCode})` : ''}\n`;
   }
-  msg += `• Delivery Fee: ₹${shippingFee}\n`;
+  msg += `• Delivery Fee: FREE (Zero Delivery Charges)\n`;
+  const hasCustomSize = items.some(
+    (it) =>
+      it.size?.toLowerCase().includes('custom size') ||
+      it.variantId?.toLowerCase().includes('custom-size')
+  );
+  if (hasCustomSize) {
+    msg += `• *Note:* Exact price for custom size will be known & confirmed in this WhatsApp chat.\n`;
+  }
   msg += `• *Grand Total: ₹${totalAmount.toLocaleString('en-IN')}*\n`;
 
   if (notes && notes.trim()) {

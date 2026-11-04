@@ -156,13 +156,21 @@ export default function CartPage() {
                   </div>
 
                   <div className="text-right">
-                    <span className="font-serif font-bold text-base sm:text-lg text-white">
-                      ₹{(item.unitPrice * item.quantity).toLocaleString('en-IN')}
-                    </span>
-                    {item.unitMrp > item.unitPrice && (
-                      <span className="block text-xs text-gray-500 line-through">
-                        ₹{(item.unitMrp * item.quantity).toLocaleString('en-IN')}
+                    {item.size?.toLowerCase().includes('custom size') || item.variantId?.toLowerCase().includes('custom-size') ? (
+                      <span className="font-serif font-bold text-xs sm:text-sm text-[#25D366] block">
+                        Price will be known in WhatsApp chat order
                       </span>
+                    ) : (
+                      <>
+                        <span className="font-serif font-bold text-base sm:text-lg text-white">
+                          ₹{(item.unitPrice * item.quantity).toLocaleString('en-IN')}
+                        </span>
+                        {item.unitMrp > item.unitPrice && (
+                          <span className="block text-xs text-gray-500 line-through">
+                            ₹{(item.unitMrp * item.quantity).toLocaleString('en-IN')}
+                          </span>
+                        )}
+                      </>
                     )}
                   </div>
                 </div>
@@ -232,10 +240,10 @@ export default function CartPage() {
               </div>
             )}
 
-            <div className="flex justify-between">
+            <div className="flex justify-between items-center">
               <span>Standard Delivery</span>
-              <span>
-                `₹${shippingFee}`
+              <span className="font-bold text-emerald-400">
+                FREE
               </span>
             </div>
 

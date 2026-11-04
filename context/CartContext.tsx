@@ -101,8 +101,9 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     }
   }
 
-  const shippingFee = subtotal === 0 ? 0 : INITIAL_SETTINGS.defaultShippingFee;
-  const totalAmount = Math.max(0, subtotal - discountAmount + shippingFee);
+  // Free delivery for every product across the entire website
+  const shippingFee = 0;
+  const totalAmount = Math.max(0, subtotal - discountAmount);
   const freeShippingProgress = 0;
 
   const openCart = () => setIsCartOpen(true);

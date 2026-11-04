@@ -174,7 +174,7 @@ export default function AddPhotoModal({
         ? `🖼️ Photo: Uploading separately in this chat`
         : `🖼️ Photo: Using original artwork`,
       `📐 *Size:* ${activeSizeLabel}`,
-      `💰 *Price:* ₹${activePrice.toLocaleString('en-IN')}`,
+      `💰 *Price:* ${isCustomSize ? 'Price will be known in this WhatsApp chat order (Custom Quote)' : `₹${activePrice.toLocaleString('en-IN')}`}`,
       ledEnabled ? `💡 *Lighting:* Warm LED Backlit (12V Adapter)` : '',
       customText.trim() ? `✍️ *Text/Dedication:* "${customText.trim()}"` : '',
       ``,
@@ -454,8 +454,8 @@ export default function AddPhotoModal({
                 <div className="font-bold text-xs flex items-center gap-1 text-[#EAB308]">
                   <Ruler className="w-3.5 h-3.5 text-[#EAB308]" /> Custom Size
                 </div>
-                <div className="text-[11px] text-[#FFFFFF] font-medium mt-0.5">
-                  Enter W × H
+                <div className="text-[11px] text-[#25D366] font-medium mt-0.5">
+                  Price in WhatsApp
                 </div>
               </button>
             </div>
@@ -513,24 +513,38 @@ export default function AddPhotoModal({
 
           {/* Price Summary */}
           <div className="bg-[#181818] border border-[#2D2D2D] rounded-xl p-3.5 flex items-center justify-between">
-            <div>
-              <span className="text-[11px] text-[#D1D5DB] block">Item Price with Custom Photo</span>
-              <div className="flex items-baseline gap-2 mt-0.5">
-                <span className="text-lg font-bold text-[#FFFFFF] font-serif">
-                  ₹{activePrice.toLocaleString('en-IN')}
-                </span>
-                {hasRealDiscount && (
-                  <span className="text-xs text-[#D1D5DB] line-through">
-                    ₹{activeMrp.toLocaleString('en-IN')}
+            {isCustomSize ? (
+              <div className="flex items-center gap-2.5">
+                <div className="w-8 h-8 rounded-lg bg-[#25D366]/15 border border-[#25D366]/40 flex items-center justify-center text-[#25D366] shrink-0">
+                  <MessageCircle className="w-4 h-4 fill-current" />
+                </div>
+                <div>
+                  <span className="text-[11px] text-[#D1D5DB] block">Custom Dimension Pricing</span>
+                  <span className="text-sm sm:text-base font-bold text-[#25D366] font-serif block">
+                    Price will be known in WhatsApp chat order
                   </span>
-                )}
-                {hasRealDiscount && discountPercent > 0 && (
-                  <span className="text-[10px] font-bold text-[#EAB308] bg-[#EAB308]/15 px-1.5 py-0.5 rounded">
-                    Save {discountPercent}%
-                  </span>
-                )}
+                </div>
               </div>
-            </div>
+            ) : (
+              <div>
+                <span className="text-[11px] text-[#D1D5DB] block">Item Price with Custom Photo</span>
+                <div className="flex items-baseline gap-2 mt-0.5">
+                  <span className="text-lg font-bold text-[#FFFFFF] font-serif">
+                    ₹{activePrice.toLocaleString('en-IN')}
+                  </span>
+                  {hasRealDiscount && (
+                    <span className="text-xs text-[#D1D5DB] line-through">
+                      ₹{activeMrp.toLocaleString('en-IN')}
+                    </span>
+                  )}
+                  {hasRealDiscount && discountPercent > 0 && (
+                    <span className="text-[10px] font-bold text-[#EAB308] bg-[#EAB308]/15 px-1.5 py-0.5 rounded">
+                      Save {discountPercent}%
+                    </span>
+                  )}
+                </div>
+              </div>
+            )}
 
             <div className="text-right text-[11px] text-[#D1D5DB]">
               <span className="text-[#FFFFFF] font-semibold block">{activeSizeLabel}</span>
@@ -541,34 +555,48 @@ export default function AddPhotoModal({
 
         {/* Footer Actions */}
         <div className="p-4 sm:p-5 bg-[#181818] border-t border-[#2D2D2D] space-y-2 shrink-0">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-            <button
-              type="button"
-              onClick={() => handleAddToCartWithPhoto(false)}
-              className="w-full py-2.5 px-4 rounded-xl font-bold text-xs flex items-center justify-center gap-2 bg-[#EAB308] hover:bg-[#FACC15] text-black shadow-md border border-[#EAB308] transition-all cursor-pointer"
-            >
-              {addedSuccess ? (
-                <>
-                  <Check className="w-4 h-4 text-black" />
-                  <span>Added to Cart!</span>
-                </>
-              ) : (
-                <>
-                  <ShoppingBag className="w-4 h-4 text-black" />
-                  <span>Add to Cart • ₹{activePrice.toLocaleString('en-IN')}</span>
-                </>
-              )}
-            </button>
+          {isCustomSize ? (
+            <div className="space-y-2">
+              <button
+                type="button"
+                onClick={handleWhatsAppOrder}
+                disabled={waUploading}
+                className="w-full py-3 px-4 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20BD5A] text-white shadow-md border border-[#25D366] transition-all cursor-pointer"
+              >
+                <MessageCircle className="w-4 h-4 fill-white" />
+                <span>Order via WhatsApp (Price will be known in chat)</span>
+              </button>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+              <button
+                type="button"
+                onClick={() => handleAddToCartWithPhoto(false)}
+                className="w-full py-2.5 px-4 rounded-xl font-bold text-xs flex items-center justify-center gap-2 bg-[#EAB308] hover:bg-[#FACC15] text-black shadow-md border border-[#EAB308] transition-all cursor-pointer"
+              >
+                {addedSuccess ? (
+                  <>
+                    <Check className="w-4 h-4 text-black" />
+                    <span>Added to Cart!</span>
+                  </>
+                ) : (
+                  <>
+                    <ShoppingBag className="w-4 h-4 text-black" />
+                    <span>Add to Cart • ₹{activePrice.toLocaleString('en-IN')}</span>
+                  </>
+                )}
+              </button>
 
-            <button
-              type="button"
-              onClick={() => handleAddToCartWithPhoto(true)}
-              className="w-full py-2.5 px-4 rounded-xl font-bold text-xs flex items-center justify-center gap-2 bg-[#121212] hover:bg-[#222222] text-[#FFFFFF] hover:text-[#EAB308] border border-[#EAB308] transition-all cursor-pointer"
-            >
-              <span>Instant Buy Now</span>
-              <ArrowRight className="w-4 h-4 text-[#EAB308]" />
-            </button>
-          </div>
+              <button
+                type="button"
+                onClick={() => handleAddToCartWithPhoto(true)}
+                className="w-full py-2.5 px-4 rounded-xl font-bold text-xs flex items-center justify-center gap-2 bg-[#121212] hover:bg-[#222222] text-[#FFFFFF] hover:text-[#EAB308] border border-[#EAB308] transition-all cursor-pointer"
+              >
+                <span>Instant Buy Now</span>
+                <ArrowRight className="w-4 h-4 text-[#EAB308]" />
+              </button>
+            </div>
+          )}
 
           <div className="flex items-center justify-between text-xs pt-1">
             {/* WhatsApp Order — uploads photo to server, includes direct link in message */}

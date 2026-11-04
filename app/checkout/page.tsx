@@ -532,9 +532,15 @@ export default function CheckoutPage() {
                     </button>
                   </div>
                 </div>
-                <span className="font-bold text-[#FFFFFF] shrink-0 text-sm">
-                  ₹{(it.unitPrice * it.quantity).toLocaleString('en-IN')}
-                </span>
+                {it.size?.toLowerCase().includes('custom size') || it.variantId?.toLowerCase().includes('custom-size') ? (
+                  <span className="font-semibold text-[#25D366] shrink-0 text-xs">
+                    Price in WhatsApp
+                  </span>
+                ) : (
+                  <span className="font-bold text-[#FFFFFF] shrink-0 text-sm">
+                    ₹{(it.unitPrice * it.quantity).toLocaleString('en-IN')}
+                  </span>
+                )}
               </div>
             ))}
           </div>
@@ -553,10 +559,10 @@ export default function CheckoutPage() {
               </div>
             )}
 
-            <div className="flex justify-between">
+            <div className="flex justify-between items-center">
               <span>Express Insured Shipping</span>
-              <span>
-                <span>₹{shippingFee}</span>
+              <span className="font-bold text-emerald-400">
+                FREE
               </span>
             </div>
 

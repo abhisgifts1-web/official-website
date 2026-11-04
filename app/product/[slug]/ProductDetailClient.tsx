@@ -745,7 +745,15 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
   // WhatsApp Custom Size & Consultation
   const cleanWaNumber = (INITIAL_SETTINGS.whatsappNumber || '919032372782').replace(/[^0-9]/g, '');
   const whatsappCustomSizeUrl = `https://wa.me/${cleanWaNumber}?text=${encodeURIComponent(
-    `Hello Abhi's Gifts! I would like to order "${product.title}" (${selectedShape.toUpperCase()} layout, ${isCustomSize ? `Custom Size: ${customSizeCalc.widthInches}x${customSizeCalc.heightInches} inches (${customSizeCalc.dimensionsCm})` : (currentSizeObj ? currentSizeObj.label : '12x18') + ' in'}, ${selectedFrame} finish, ₹${currentPricing.price.toLocaleString('en-IN')}). Please assist with proofing.`
+    `Hello Abhi's Gifts! I would like to order "${product.title}" (${selectedShape.toUpperCase()} layout, ${
+      isCustomSize
+        ? `Custom Size: ${customSizeCalc.widthInches}x${customSizeCalc.heightInches} inches (${customSizeCalc.dimensionsCm})`
+        : (currentSizeObj ? currentSizeObj.label : '12x18') + ' in'
+    }, ${selectedFrame} finish${
+      isCustomSize
+        ? '). Price will be known in this WhatsApp chat order. Please assist with price quote and proofing.'
+        : `, ₹${currentPricing.price.toLocaleString('en-IN')}). Please assist with proofing.`
+    }`
   )}`;
 
   // Post review
@@ -1176,28 +1184,46 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
 
             {/* Dynamic Pricing Banner */}
             <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-[#181818] via-[#141414] to-[#181818] border border-[#2D2D2D] space-y-1.5 shadow-2xs">
-              <div className="flex items-baseline justify-between gap-2 flex-wrap">
-                <div className="flex items-baseline gap-3">
-                  <span className="text-3xl sm:text-4xl font-serif font-bold text-[#FFFFFF]">
-                    ₹{currentPricing.price.toLocaleString('en-IN')}
-                  </span>
-                  {currentPricing.mrp > currentPricing.price && (
-                    <span className="text-base sm:text-lg text-[#D1D5DB] line-through font-normal">
-                      ₹{currentPricing.mrp.toLocaleString('en-IN')}
+              {isCustomSize ? (
+                <div className="flex items-center gap-3 py-1">
+                  <div className="w-10 h-10 rounded-xl bg-[#25D366]/15 border border-[#25D366]/40 flex items-center justify-center text-[#25D366] shrink-0">
+                    <MessageCircle className="w-5 h-5 fill-current" />
+                  </div>
+                  <div>
+                    <span className="text-lg sm:text-xl font-serif font-bold text-[#25D366] block">
+                      Price will be known in WhatsApp chat order
                     </span>
-                  )}
+                    <p className="text-[11px] text-[#D1D5DB] mt-0.5">
+                      Custom sizes are quoted directly by our artisans on WhatsApp based on your exact measurements &amp; finish.
+                    </p>
+                  </div>
                 </div>
+              ) : (
+                <>
+                  <div className="flex items-baseline justify-between gap-2 flex-wrap">
+                    <div className="flex items-baseline gap-3">
+                      <span className="text-3xl sm:text-4xl font-serif font-bold text-[#FFFFFF]">
+                        ₹{currentPricing.price.toLocaleString('en-IN')}
+                      </span>
+                      {currentPricing.mrp > currentPricing.price && (
+                        <span className="text-base sm:text-lg text-[#D1D5DB] line-through font-normal">
+                          ₹{currentPricing.mrp.toLocaleString('en-IN')}
+                        </span>
+                      )}
+                    </div>
 
-                {discountPercent > 0 && (
-                  <span className="text-xs font-bold text-[#FFFFFF] bg-[#181818] border border-[#EAB308] px-3 py-1 rounded-full shadow-2xs">
-                    Save {discountPercent}% OFF
-                  </span>
-                )}
-              </div>
-              <p className="text-[11px] text-[#D1D5DB] font-medium flex items-center gap-1.5">
-                <Sparkles className="w-3 h-3 text-[#EAB308] shrink-0" />
-                <span>Inclusive of all taxes • Fast Dispatch • Handcrafted in Hyderabad</span>
-              </p>
+                    {discountPercent > 0 && (
+                      <span className="text-xs font-bold text-[#FFFFFF] bg-[#181818] border border-[#EAB308] px-3 py-1 rounded-full shadow-2xs">
+                        Save {discountPercent}% OFF
+                      </span>
+                    )}
+                  </div>
+                  <p className="text-[11px] text-[#D1D5DB] font-medium flex items-center gap-1.5">
+                    <Sparkles className="w-3 h-3 text-[#EAB308] shrink-0" />
+                    <span>Inclusive of all taxes • Free Doorstep Delivery • Handcrafted in Hyderabad</span>
+                  </p>
+                </>
+              )}
             </div>
 
             {/* Customization 1: Frame Style */}
@@ -1329,9 +1355,9 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
               </div>
 
               {/* Size Pills Grid */}
-              <div className="grid grid-cols-4 gap-2">
+              <div className="grid grid-cols-4 sm:grid-cols-5 gap-2">
                 {availableSizes.map((s) => {
-                  const isSelected = selectedSizeId === s.id;
+                  const isSelected = !isCustomSize && selectedSizeId === s.id;
                   const isSupported = s.allowedFrames.includes(selectedFrame);
 
                   return (
@@ -1353,7 +1379,40 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                     </button>
                   );
                 })}
+
+                {/* Custom Size Pill */}
+                <button
+                  type="button"
+                  onClick={() => {
+                    setIsCustomSize(true);
+                    setSelectedSizeId(null);
+                  }}
+                  className={`py-2 px-1 sm:py-2.5 sm:px-1.5 min-h-[46px] rounded-xl sm:rounded-2xl text-xs transition-all flex flex-col items-center justify-center cursor-pointer ${
+                    isCustomSize
+                      ? 'border-2 border-[#EAB308] text-[#FFFFFF] font-bold bg-[#1A1A1A] shadow-xs ring-1 ring-[#EAB308]'
+                      : 'border border-[#EAB308]/60 text-[#EAB308] bg-[#181818] hover:border-[#EAB308] font-medium'
+                  }`}
+                  title="Enter custom width & height dimensions"
+                >
+                  <span className="font-bold flex items-center gap-1 text-[11px] sm:text-xs">
+                    <Ruler className="w-3 h-3 text-[#EAB308]" /> Custom
+                  </span>
+                  <span className="text-[9px] text-[#25D366] leading-none mt-0.5 font-semibold">Quote</span>
+                </button>
               </div>
+
+              {/* Interactive Custom Size Input when isCustomSize is active */}
+              {isCustomSize && (
+                <div className="pt-2">
+                  <CustomSizeInput
+                    width={customWidth}
+                    height={customHeight}
+                    onChangeWidth={setCustomWidth}
+                    onChangeHeight={setCustomHeight}
+                    calc={customSizeCalc}
+                  />
+                </div>
+              )}
 
               {/* Hardware Note */}
               {mountingNote && (
@@ -1403,41 +1462,58 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                 </button>
               </div>
 
-              {/* CTA Buttons: Buy Now & Add to Cart */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
-                {/* Instant Buy Now Button */}
-                <button
-                  type="button"
-                  onClick={handleBuyNow}
-                  className="w-full bg-gradient-to-r from-[#EAB308] via-[#FACC15] to-[#EAB308] hover:from-[#FACC15] hover:to-[#EAB308] text-[#000000] font-bold text-sm sm:text-base py-3.5 rounded-2xl shadow-md border border-[#EAB308]/50 transition-all flex items-center justify-center gap-2 cursor-pointer hover:shadow-lg active:scale-[0.99]"
-                >
-                  <span>Buy Now</span>
-                  <ArrowRight className="w-4 h-4 text-[#E8D1A5]" />
-                </button>
+              {/* CTA Buttons */}
+              <div className="pt-1">
+                {isCustomSize ? (
+                  <a
+                    href={whatsappCustomSizeUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full bg-[#25D366] hover:bg-[#20BD5A] text-white font-bold text-sm sm:text-base py-3.5 rounded-2xl shadow-md border border-[#25D366]/50 transition-all flex items-center justify-center gap-2 cursor-pointer hover:shadow-lg active:scale-[0.99]"
+                  >
+                    <MessageCircle className="w-5 h-5 fill-white" />
+                    <span>Order via WhatsApp (Price Known in Chat)</span>
+                    <ArrowRight className="w-4 h-4 text-white" />
+                  </a>
+                ) : (
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    {/* Instant Buy Now Button */}
+                    <button
+                      type="button"
+                      onClick={handleBuyNow}
+                      className="w-full bg-gradient-to-r from-[#EAB308] via-[#FACC15] to-[#EAB308] hover:from-[#FACC15] hover:to-[#EAB308] text-[#000000] font-bold text-sm sm:text-base py-3.5 rounded-2xl shadow-md border border-[#EAB308]/50 transition-all flex items-center justify-center gap-2 cursor-pointer hover:shadow-lg active:scale-[0.99]"
+                    >
+                      <span>Buy Now</span>
+                      <ArrowRight className="w-4 h-4 text-[#E8D1A5]" />
+                    </button>
 
-                {/* Add to Cart Button */}
-                <button
-                  type="button"
-                  onClick={handleAddToCart}
-                  className="w-full bg-[#181818] hover:bg-[#222222] active:bg-[#2A2A2A] text-[#FFFFFF] font-bold text-sm sm:text-base py-3.5 rounded-2xl border-2 border-[#EAB308] shadow-xs transition-colors flex items-center justify-center gap-2 cursor-pointer"
-                >
-                  <ShoppingBag className="w-4 h-4 text-[#EAB308]" />
-                  <span>Add to Cart</span>
-                </button>
+                    {/* Add to Cart Button */}
+                    <button
+                      type="button"
+                      onClick={handleAddToCart}
+                      className="w-full bg-[#181818] hover:bg-[#222222] active:bg-[#2A2A2A] text-[#FFFFFF] font-bold text-sm sm:text-base py-3.5 rounded-2xl border-2 border-[#EAB308] shadow-xs transition-colors flex items-center justify-center gap-2 cursor-pointer"
+                    >
+                      <ShoppingBag className="w-4 h-4 text-[#EAB308]" />
+                      <span>Add to Cart</span>
+                    </button>
+                  </div>
+                )}
               </div>
 
               {/* WhatsApp Enquiry Button */}
-              <div className="pt-1">
-                <a
-                  href={whatsappCustomSizeUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full bg-[#25D366]/10 hover:bg-[#25D366]/20 border border-[#25D366]/40 text-[#128C7E] font-bold text-xs py-3 rounded-2xl transition-all flex items-center justify-center gap-2 cursor-pointer shadow-2xs"
-                >
-                  <MessageCircle className="w-4 h-4 fill-current text-[#25D366]" />
-                  <span>Need Custom Sizing or Advice? Inquire on WhatsApp</span>
-                </a>
-              </div>
+              {!isCustomSize && (
+                <div className="pt-1">
+                  <a
+                    href={whatsappCustomSizeUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full bg-[#25D366]/10 hover:bg-[#25D366]/20 border border-[#25D366]/40 text-[#128C7E] font-bold text-xs py-3 rounded-2xl transition-all flex items-center justify-center gap-2 cursor-pointer shadow-2xs"
+                  >
+                    <MessageCircle className="w-4 h-4 fill-current text-[#25D366]" />
+                    <span>Need Custom Sizing or Advice? Inquire on WhatsApp</span>
+                  </a>
+                </div>
+              )}
 
               <p className="text-[11px] text-[#D1D5DB] text-center font-medium">
                 🔒 100% Secure Checkout • UPI, Credit/Debit Cards &amp; NetBanking
@@ -1449,8 +1525,8 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-center">
                 <div className="p-2.5 rounded-2xl bg-[#181818] border border-[#2D2D2D]/60 flex flex-col items-center space-y-1">
                   <Truck className="w-5 h-5 text-[#EAB308]" />
-                  <span className="text-[10px] font-bold text-[#FFFFFF] leading-tight">Express Delivery</span>
-                  <span className="text-[9px] text-[#D1D5DB]">Quick Dispatch</span>
+                  <span className="text-[10px] font-bold text-[#FFFFFF] leading-tight">Free Delivery</span>
+                  <span className="text-[9px] text-[#D1D5DB]">All Over India</span>
                 </div>
 
                 <div className="p-2.5 rounded-2xl bg-[#181818] border border-[#2D2D2D]/60 flex flex-col items-center space-y-1">
@@ -1880,34 +1956,55 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
           </div>
 
           <div className="flex items-center gap-3 shrink-0">
-            <div className="text-right">
-              <span className="font-serif font-bold text-base sm:text-xl text-[#FFFFFF] block leading-tight">
-                ₹{currentPricing.price.toLocaleString('en-IN')}
-              </span>
-              {currentPricing.mrp > currentPricing.price && (
-                <span className="text-[10px] text-[#D1D5DB] line-through block">
-                  ₹{currentPricing.mrp.toLocaleString('en-IN')}
-                </span>
-              )}
-            </div>
+            {isCustomSize ? (
+              <>
+                <div className="text-right">
+                  <span className="font-serif font-bold text-xs sm:text-sm text-[#25D366] block leading-tight">
+                    Price in WhatsApp chat
+                  </span>
+                </div>
+                <a
+                  href={whatsappCustomSizeUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-1.5 px-4 py-2.5 min-h-[44px] rounded-xl bg-[#25D366] hover:bg-[#20BD5A] text-white font-bold text-xs sm:text-sm shadow-md transition-colors cursor-pointer"
+                >
+                  <MessageCircle className="w-4 h-4 fill-white" />
+                  <span>Order via WhatsApp</span>
+                </a>
+              </>
+            ) : (
+              <>
+                <div className="text-right">
+                  <span className="font-serif font-bold text-base sm:text-xl text-[#FFFFFF] block leading-tight">
+                    ₹{currentPricing.price.toLocaleString('en-IN')}
+                  </span>
+                  {currentPricing.mrp > currentPricing.price && (
+                    <span className="text-[10px] text-[#D1D5DB] line-through block">
+                      ₹{currentPricing.mrp.toLocaleString('en-IN')}
+                    </span>
+                  )}
+                </div>
 
-            <button
-              type="button"
-              onClick={handleAddToCart}
-              className="hidden sm:flex items-center gap-1.5 px-4 py-2.5 rounded-xl border-2 border-[#EAB308] bg-[#181818] text-[#FFFFFF] font-bold text-xs hover:bg-[#222222] transition-colors cursor-pointer"
-            >
-              <ShoppingBag className="w-3.5 h-3.5 text-[#EAB308]" />
-              <span>Add to Cart</span>
-            </button>
+                <button
+                  type="button"
+                  onClick={handleAddToCart}
+                  className="hidden sm:flex items-center gap-1.5 px-4 py-2.5 rounded-xl border-2 border-[#EAB308] bg-[#181818] text-[#FFFFFF] font-bold text-xs hover:bg-[#222222] transition-colors cursor-pointer"
+                >
+                  <ShoppingBag className="w-3.5 h-3.5 text-[#EAB308]" />
+                  <span>Add to Cart</span>
+                </button>
 
-            <button
-              type="button"
-              onClick={handleBuyNow}
-              className="flex items-center justify-center gap-1.5 px-5 py-2.5 min-h-[44px] rounded-xl bg-[#EAB308] hover:bg-[#FACC15] text-[#000000] font-bold text-xs sm:text-sm shadow-md transition-colors cursor-pointer"
-            >
-              <span>Buy Now</span>
-              <ArrowRight className="w-3.5 h-3.5 text-[#E8D1A5]" />
-            </button>
+                <button
+                  type="button"
+                  onClick={handleBuyNow}
+                  className="flex items-center justify-center gap-1.5 px-5 py-2.5 min-h-[44px] rounded-xl bg-[#EAB308] hover:bg-[#FACC15] text-[#000000] font-bold text-xs sm:text-sm shadow-md transition-colors cursor-pointer"
+                >
+                  <span>Buy Now</span>
+                  <ArrowRight className="w-3.5 h-3.5 text-[#E8D1A5]" />
+                </button>
+              </>
+            )}
           </div>
         </div>
       </div>

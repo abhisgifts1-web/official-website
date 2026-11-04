@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Ruler, Sparkles, Check, Info } from 'lucide-react';
+import { Ruler, Sparkles, Check, Info, MessageCircle } from 'lucide-react';
 import { CustomSizeCalculation } from '@/lib/utils/customSize';
 
 interface CustomSizeInputProps {
@@ -159,6 +159,17 @@ export default function CustomSizeInput({
           <span>Area:</span>
           <strong className="text-[#FFFFFF]">{calc.sqFeet} sq ft</strong>
           <span className="text-stone-500">({calc.sqInches} sq in)</span>
+        </div>
+      </div>
+
+      {/* WhatsApp Custom Size Price Notice */}
+      <div className="bg-[#25D366]/10 border border-[#25D366]/40 rounded-xl p-2.5 flex items-center gap-2.5 text-xs text-[#FFFFFF]">
+        <MessageCircle className="w-4 h-4 text-[#25D366] shrink-0 fill-current" />
+        <div>
+          <span className="font-bold text-[#25D366] block">Price will be known in WhatsApp chat order</span>
+          <span className="text-[10px] sm:text-[11px] text-[#D1D5DB]">
+            Custom sizes are laser-cut to your exact dimensions. Direct quotation and digital proof will be shared in WhatsApp chat.
+          </span>
         </div>
       </div>
 

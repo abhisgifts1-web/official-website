@@ -28,7 +28,7 @@ export default function ShippingPolicyPage() {
         <section className="space-y-2">
           <h2 className="font-serif font-bold text-xl text-stone-900">2. Shipping Charges</h2>
           <p>
-            A flat standard delivery fee of ₹{INITIAL_SETTINGS.defaultShippingFee} is applied to all orders at checkout for safe packaging and transit.
+            100% Free Doorstep Delivery across India! We do not charge any delivery or shipping fees at checkout for any product across the entire website. The price shown for each artwork is fully inclusive.
           </p>
         </section>
 

@@ -641,7 +641,9 @@ export default function CustomizerStudio() {
       `• Lighting: ${activeLedObj.name}`,
       customText ? `• Inscription: "${customText}"` : '',
       specialInstructions ? `• Instructions: "${specialInstructions}"` : '',
-      `• Estimated Price: ₹${pricing.price.toLocaleString('en-IN')}`,
+      selectedSizeId === 'custom'
+        ? `• Price: Price will be known in this WhatsApp chat order (Custom Quote)`
+        : `• Estimated Price: ₹${pricing.price.toLocaleString('en-IN')}`,
       `Can you share a digital proof and final delivery timeline for Hyderabad / Courier?`,
     ]
       .filter(Boolean)
@@ -1252,7 +1254,7 @@ export default function CustomizerStudio() {
                         )}
                       </div>
                       <div className="text-[11px] text-[#EAB308] font-semibold mt-0.5">
-                        {sz.id === 'custom' ? 'Custom Quote' : `From ₹${itemPrice.toLocaleString('en-IN')}`}
+                        {sz.id === 'custom' ? 'Price in WhatsApp Chat' : `From ₹${itemPrice.toLocaleString('en-IN')}`}
                       </div>
                     </button>
                   );
@@ -1262,6 +1264,12 @@ export default function CustomizerStudio() {
               {/* Custom Size Interactive Input Fields */}
               {selectedSizeId === 'custom' && (
                 <div className="p-3 bg-[#181818] rounded-xl border border-[#EAB308] space-y-2 animate-in fade-in duration-200">
+                  <div className="bg-[#25D366]/10 border border-[#25D366]/40 rounded-lg p-2.5 flex items-center gap-2 text-xs">
+                    <MessageCircle className="w-4 h-4 text-[#25D366] shrink-0 fill-current" />
+                    <span className="text-[#25D366] font-bold">
+                      Price will be known in WhatsApp chat order
+                    </span>
+                  </div>
                   <span className="text-[11px] font-bold text-[#FFFFFF] block">
                     Enter Custom Dimensions (in inches):
                   </span>
@@ -1401,20 +1409,34 @@ export default function CustomizerStudio() {
                 ===================================================== */}
             <div className="bg-[#181818] p-4 sm:p-5 rounded-2xl border border-[#EAB308] space-y-3">
               <div className="flex items-baseline justify-between border-b border-[#2D2D2D] pb-2.5">
-                <div>
-                  <span className="text-xs text-[#D1D5DB] block">Step 6: Live Price & Configuration Review</span>
-                  <div className="flex items-baseline gap-2">
-                    <span className="font-serif text-2xl sm:text-3xl font-bold text-[#FFFFFF]">
-                      ₹{pricing.price.toLocaleString('en-IN')}
-                    </span>
-                    <span className="text-xs text-[#D1D5DB]/70 line-through">
-                      ₹{pricing.mrp.toLocaleString('en-IN')}
-                    </span>
+                {selectedSizeId === 'custom' ? (
+                  <div className="py-1">
+                    <span className="text-xs text-[#D1D5DB] block">Step 6: Live Price &amp; Configuration Review</span>
+                    <div className="flex items-center gap-2 mt-1">
+                      <MessageCircle className="w-5 h-5 text-[#25D366] fill-current shrink-0" />
+                      <span className="font-serif text-lg sm:text-xl font-bold text-[#25D366]">
+                        Price will be known in WhatsApp chat order
+                      </span>
+                    </div>
                   </div>
-                </div>
-                <span className="text-xs font-bold text-[#FFFFFF] bg-[#181818] border border-[#EAB308] px-2.5 py-1 rounded-full shadow-2xs">
-                  Save {pricing.discountPercent}%
-                </span>
+                ) : (
+                  <>
+                    <div>
+                      <span className="text-xs text-[#D1D5DB] block">Step 6: Live Price &amp; Configuration Review</span>
+                      <div className="flex items-baseline gap-2">
+                        <span className="font-serif text-2xl sm:text-3xl font-bold text-[#FFFFFF]">
+                          ₹{pricing.price.toLocaleString('en-IN')}
+                        </span>
+                        <span className="text-xs text-[#D1D5DB]/70 line-through">
+                          ₹{pricing.mrp.toLocaleString('en-IN')}
+                        </span>
+                      </div>
+                    </div>
+                    <span className="text-xs font-bold text-[#FFFFFF] bg-[#181818] border border-[#EAB308] px-2.5 py-1 rounded-full shadow-2xs">
+                      Save {pricing.discountPercent}%
+                    </span>
+                  </>
+                )}
               </div>
 
               <div className="text-[11px] text-[#D1D5DB] space-y-1">
@@ -1430,32 +1452,46 @@ export default function CustomizerStudio() {
                   <span>Lighting:</span>
                   <span className="font-semibold text-[#FFFFFF]">{activeLedObj.name}</span>
                 </div>
-                <div className="flex justify-between text-emerald-700 font-semibold pt-1 border-t border-[#2D2D2D]">
+                <div className="flex justify-between text-emerald-400 font-semibold pt-1 border-t border-[#2D2D2D]">
                   <span>Delivery Shipping:</span>
-                  <span>Express (48h dispatch)</span>
+                  <span>FREE Doorstep Delivery (₹0)</span>
                 </div>
               </div>
 
               {/* Action Buttons */}
               <div className="space-y-2 pt-2">
-                <button
-                  type="button"
-                  onClick={handleOrderNow}
-                  className="w-full bg-[#EAB308] hover:bg-[#FACC15] text-[#000000] border border-[#EAB308] py-3.5 rounded-xl font-bold text-sm shadow-md transition-all cursor-pointer flex items-center justify-center gap-2 uppercase tracking-wider"
-                >
-                  <span>Order Now • ₹{pricing.price.toLocaleString('en-IN')}</span>
-                  <ArrowRight className="w-4 h-4 text-[#FACC15]" />
-                </button>
+                {selectedSizeId === 'custom' ? (
+                  <a
+                    href={whatsappInquiryUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full bg-[#25D366] hover:bg-[#20BD5A] text-white border border-[#25D366] py-3.5 rounded-xl font-bold text-sm shadow-md transition-all cursor-pointer flex items-center justify-center gap-2 uppercase tracking-wider"
+                  >
+                    <MessageCircle className="w-4 h-4 fill-white" />
+                    <span>Order via WhatsApp • Price Known in Chat</span>
+                  </a>
+                ) : (
+                  <>
+                    <button
+                      type="button"
+                      onClick={handleOrderNow}
+                      className="w-full bg-[#EAB308] hover:bg-[#FACC15] text-[#000000] border border-[#EAB308] py-3.5 rounded-xl font-bold text-sm shadow-md transition-all cursor-pointer flex items-center justify-center gap-2 uppercase tracking-wider"
+                    >
+                      <span>Order Now • ₹{pricing.price.toLocaleString('en-IN')}</span>
+                      <ArrowRight className="w-4 h-4 text-[#FACC15]" />
+                    </button>
 
-                <a
-                  href={whatsappInquiryUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full bg-[#181818] hover:bg-[#121212] text-[#FFFFFF] border border-[#EAB308] py-3 rounded-xl font-bold text-xs shadow-2xs transition-colors flex items-center justify-center gap-2 uppercase tracking-wider"
-                >
-                  <MessageCircle className="w-4 h-4 text-emerald-600 fill-emerald-600" />
-                  <span>Request Custom Quotation / WhatsApp Proof</span>
-                </a>
+                    <a
+                      href={whatsappInquiryUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full bg-[#181818] hover:bg-[#121212] text-[#FFFFFF] border border-[#EAB308] py-3 rounded-xl font-bold text-xs shadow-2xs transition-colors flex items-center justify-center gap-2 uppercase tracking-wider"
+                    >
+                      <MessageCircle className="w-4 h-4 text-emerald-600 fill-emerald-600" />
+                      <span>Request Custom Quotation / WhatsApp Proof</span>
+                    </a>
+                  </>
+                )}
               </div>
             </div>
           </div>

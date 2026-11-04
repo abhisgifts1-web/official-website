@@ -192,13 +192,21 @@ export default function CartDrawer() {
                         </div>
 
                         <div className="text-right">
-                          <span className="text-xs sm:text-sm font-bold text-white">
-                            ₹{(item.unitPrice * item.quantity).toLocaleString('en-IN')}
-                          </span>
-                          {item.unitMrp > item.unitPrice && (
-                            <span className="block text-[10px] text-gray-500 line-through">
-                              ₹{(item.unitMrp * item.quantity).toLocaleString('en-IN')}
+                          {item.size?.toLowerCase().includes('custom size') || item.variantId?.toLowerCase().includes('custom-size') ? (
+                            <span className="text-[11px] font-semibold text-[#25D366] block">
+                              Price in WhatsApp
                             </span>
+                          ) : (
+                            <>
+                              <span className="text-xs sm:text-sm font-bold text-white">
+                                ₹{(item.unitPrice * item.quantity).toLocaleString('en-IN')}
+                              </span>
+                              {item.unitMrp > item.unitPrice && (
+                                <span className="block text-[10px] text-gray-500 line-through">
+                                  ₹{(item.unitMrp * item.quantity).toLocaleString('en-IN')}
+                                </span>
+                              )}
+                            </>
                           )}
                         </div>
                       </div>
@@ -266,10 +274,10 @@ export default function CartDrawer() {
                   </div>
                 )}
 
-                <div className="flex justify-between">
+                <div className="flex justify-between items-center">
                   <span>Standard Delivery</span>
-                  <span>
-                    `₹${shippingFee}`
+                  <span className="font-bold text-emerald-400">
+                    FREE
                   </span>
                 </div>
 
