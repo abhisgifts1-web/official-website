@@ -806,34 +806,34 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
   };
 
   return (
-    <div className="w-full bg-[#121212] text-[#FFFFFF] transition-colors duration-300">
+    <div className="w-full bg-white text-stone-900 transition-colors duration-300">
       <div className="w-full max-w-[1720px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-14 py-4 sm:py-6 space-y-8 sm:space-y-12">
         {/* Top Breadcrumb Navigation & Quick Actions */}
-        <nav aria-label="Breadcrumb" className="flex items-center justify-between gap-4 text-xs text-[#D1D5DB] border-b border-[#2D2D2D]/60 pb-3.5">
+        <nav aria-label="Breadcrumb" className="flex items-center justify-between gap-4 text-xs text-stone-500 border-b border-stone-200 pb-3.5">
           <ol className="flex items-center flex-wrap gap-1.5 sm:gap-2">
             <li>
-              <Link href="/" className="hover:text-[#FFFFFF] font-medium transition-colors">
+              <Link href="/" className="hover:text-stone-900 font-medium transition-colors">
                 Home
               </Link>
             </li>
-            <li><ChevronRight className="w-3.5 h-3.5 text-[#EAB308]" /></li>
+            <li><ChevronRight className="w-3.5 h-3.5 text-amber-600" /></li>
             <li>
-              <Link href="/shop" className="hover:text-[#FFFFFF] font-medium transition-colors">
+              <Link href="/shop" className="hover:text-stone-900 font-medium transition-colors">
                 Sacred Wall Art
               </Link>
             </li>
             {product.categorySlug && (
               <>
-                <li><ChevronRight className="w-3.5 h-3.5 text-[#EAB308]" /></li>
+                <li><ChevronRight className="w-3.5 h-3.5 text-amber-600" /></li>
                 <li>
-                  <Link href={`/category/${product.categorySlug}`} className="hover:text-[#FFFFFF] font-medium transition-colors capitalize">
+                  <Link href={`/category/${product.categorySlug}`} className="hover:text-stone-900 font-medium transition-colors capitalize">
                     {product.categoryName || product.deity || 'Collection'}
                   </Link>
                 </li>
               </>
             )}
-            <li><ChevronRight className="w-3.5 h-3.5 text-[#EAB308]" /></li>
-            <li className="font-semibold text-[#FFFFFF] truncate max-w-[180px] sm:max-w-xs" aria-current="page">
+            <li><ChevronRight className="w-3.5 h-3.5 text-amber-600" /></li>
+            <li className="font-semibold text-stone-900 truncate max-w-[180px] sm:max-w-xs" aria-current="page">
               {product.title}
             </li>
           </ol>
@@ -846,7 +846,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
               className={`p-2 rounded-full border transition-all cursor-pointer ${
                 wishlisted
                   ? 'bg-rose-50 text-rose-600 border-rose-200 shadow-xs'
-                  : 'bg-[#181818] text-[#D1D5DB] border-[#2D2D2D] hover:text-[#FFFFFF] hover:border-[#EAB308]'
+                  : 'bg-stone-100 text-stone-700 border-stone-200 hover:text-stone-900 hover:border-amber-400'
               }`}
               title={wishlisted ? 'Remove from Wishlist' : 'Add to Wishlist'}
               aria-label="Wishlist"
@@ -857,13 +857,13 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
             <button
               type="button"
               onClick={handleShare}
-              className="p-2 rounded-full bg-[#181818] text-[#D1D5DB] border border-[#2D2D2D] hover:text-[#FFFFFF] hover:border-[#EAB308] transition-all cursor-pointer relative"
+              className="p-2 rounded-full bg-stone-100 text-stone-700 border border-stone-200 hover:text-stone-900 hover:border-amber-400 transition-all cursor-pointer relative"
               title="Share Artwork"
               aria-label="Share"
             >
               <Share2 className="w-4 h-4" />
               {copiedLink && (
-                <span className="absolute -bottom-8 right-0 bg-[#181818] text-[#FFFFFF] border border-[#EAB308]/40 text-[10px] font-bold px-2 py-0.5 rounded shadow-md whitespace-nowrap animate-in fade-in">
+                <span className="absolute -bottom-8 right-0 bg-stone-900 text-white text-[10px] font-bold px-2 py-0.5 rounded shadow-md whitespace-nowrap animate-in fade-in">
                   Link Copied!
                 </span>
               )}
@@ -877,37 +877,34 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
           <div className="lg:col-span-7 xl:col-span-7 lg:sticky lg:top-24 self-start space-y-5">
             {/* Main Display Container with Interactive 3D Frame Simulation */}
             <div
-              className={`relative w-full aspect-square sm:aspect-[4/5] max-h-[580px] rounded-3xl overflow-hidden bg-gradient-to-b from-[#141414] via-[#181818] to-[#141414] border border-[#2D2D2D] transition-all duration-500 flex items-center justify-center p-4 sm:p-7 group ${
+              className={`relative w-full aspect-square sm:aspect-[4/5] max-h-[580px] rounded-3xl overflow-hidden bg-gradient-to-b from-stone-100 via-stone-50 to-stone-100 border border-stone-200 transition-all duration-500 flex items-center justify-center p-4 sm:p-7 group ${
                 isAartiGlow
-                  ? 'shadow-[0_0_55px_rgba(245,175,65,0.4)] ring-2 ring-[#C69A42]/50'
-                  : 'shadow-[0_10px_35px_rgba(0,0,0,0.4)]'
+                  ? 'shadow-[0_0_55px_rgba(245,175,65,0.4)] ring-2 ring-amber-400/50'
+                  : 'shadow-sm'
               }`}
             >
               {/* Top Left Refined Promotional Badges */}
               <div className="absolute top-4 left-4 z-20 flex flex-col items-start gap-1.5 pointer-events-none">
                 {discountPercent > 0 && (
-                  <span className="bg-[#181818] text-[#FFFFFF] text-[11px] font-bold px-3 py-1 rounded-full shadow-md border border-[#EAB308]/60 backdrop-blur-xs flex items-center gap-1.5 tracking-wide">
-                    <Sparkles className="w-3 h-3 text-[#E8D1A5]" />
+                  <span className="bg-amber-100 text-amber-900 text-[11px] font-bold px-3 py-1 rounded-full shadow-xs border border-amber-300 backdrop-blur-xs flex items-center gap-1.5 tracking-wide">
+                    <Sparkles className="w-3 h-3 text-amber-600" />
                     <span>Save {discountPercent}%</span>
                   </span>
                 )}
                 {product.isBestseller && (
-                  <span className="bg-[#181818] text-[#FACC15] text-[10px] font-bold px-2.5 py-0.5 rounded-full shadow-xs border border-[#EAB308]/40 uppercase tracking-wider">
+                  <span className="bg-amber-400 text-stone-950 text-[10px] font-bold px-2.5 py-0.5 rounded-full shadow-xs border border-amber-500 uppercase tracking-wider">
                     ★ Best Seller
                   </span>
                 )}
-                
               </div>
 
               {/* Top Right Floating Controls: warm Glow Mode + Fullscreen Zoom */}
               <div className="absolute top-4 right-4 z-20 flex items-center gap-2">
-                
-
                 {/* Lightbox Trigger */}
                 <button
                   type="button"
                   onClick={() => setLightboxOpen(true)}
-                  className="p-2 rounded-full bg-[#181818]/90 hover:bg-[#181818] text-[#FFFFFF] shadow-md border border-[#2D2D2D] transition-all hover:scale-105 cursor-pointer"
+                  className="p-2 rounded-full bg-white/90 hover:bg-white text-stone-800 shadow-sm border border-stone-200 transition-all hover:scale-105 cursor-pointer"
                   aria-label="Fullscreen view"
                   title="Full Screen View"
                 >
@@ -963,7 +960,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                         ? `border-[12px] sm:border-[16px] border-[#1C1917] shadow-[0_16px_36px_rgba(0,0,0,0.45)] ring-1 ring-stone-900 ${
                             'rounded-2xl'
                           }`
-                        : `border-2 border-[#2D2D2D]/90 shadow-[0_12px_30px_rgba(0,0,0,0.4)] ${
+                        : `border-2 border-stone-300 shadow-md ${
                             'rounded-2xl'
                           }`
                     }`}
@@ -1016,9 +1013,9 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
             {/* Upgraded Image Gallery Strip with Prev/Next Navigation */}
             {galleryImages.length > 1 && (
               <div className="space-y-2.5">
-                <div className="flex items-center justify-between text-xs font-semibold text-[#D1D5DB]">
+                <div className="flex items-center justify-between text-xs font-semibold text-stone-600">
                   <span className="flex items-center gap-1.5">
-                    <Eye className="w-3.5 h-3.5 text-[#EAB308]" />
+                    <Eye className="w-3.5 h-3.5 text-amber-600" />
                     <span>
                       {GALLERY_STYLE_LABELS[activeImageIndex] || `Perspective ${activeImageIndex + 1}`} ({activeImageIndex + 1}/{galleryImages.length})
                     </span>
@@ -1027,7 +1024,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                     <button
                       type="button"
                       onClick={prevImage}
-                      className="p-1 rounded-full border border-[#2D2D2D] bg-[#181818] hover:bg-[#222222] text-[#FFFFFF] transition-colors cursor-pointer"
+                      className="p-1 rounded-full border border-stone-200 bg-stone-100 hover:bg-stone-200 text-stone-800 transition-colors cursor-pointer"
                       title="Previous Image"
                       aria-label="Previous image"
                     >
@@ -1036,7 +1033,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                     <button
                       type="button"
                       onClick={nextImage}
-                      className="p-1 rounded-full border border-[#2D2D2D] bg-[#181818] hover:bg-[#222222] text-[#FFFFFF] transition-colors cursor-pointer"
+                      className="p-1 rounded-full border border-stone-200 bg-stone-100 hover:bg-stone-200 text-stone-800 transition-colors cursor-pointer"
                       title="Next Image"
                       aria-label="Next image"
                     >
@@ -1054,10 +1051,10 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                         key={i}
                         type="button"
                         onClick={() => setActiveImageIndex(i)}
-                        className={`w-16 h-16 sm:w-20 sm:h-20 shrink-0 rounded-2xl overflow-hidden border-2 transition-all bg-[#1A1A1A] cursor-pointer relative group ${
+                        className={`w-16 h-16 sm:w-20 sm:h-20 shrink-0 rounded-2xl overflow-hidden border-2 transition-all bg-stone-100 cursor-pointer relative group ${
                           isSelected
-                            ? 'border-[#EAB308] ring-2 ring-[#C69A42]/50 scale-102 shadow-md'
-                            : 'border-[#2D2D2D] opacity-75 hover:opacity-100 hover:border-[#EAB308]/70'
+                            ? 'border-amber-500 ring-2 ring-amber-300 scale-102 shadow-md'
+                            : 'border-stone-200 opacity-80 hover:opacity-100 hover:border-amber-400'
                         }`}
                         title={label}
                         aria-label={label}
@@ -1073,7 +1070,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                         />
                         {isSelected && (
-                          <div className="absolute inset-0 bg-[#EAB308]/10 pointer-events-none" />
+                          <div className="absolute inset-0 bg-amber-500/10 pointer-events-none" />
                         )}
                       </button>
                     );
@@ -1084,16 +1081,16 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
 
             {/* Quick Craft Pillar Highlights */}
             <div className="grid grid-cols-3 gap-2.5 pt-1 text-center">
-              <div className="p-3 rounded-2xl bg-[#181818] border border-[#2D2D2D] text-[11px] font-semibold text-[#FFFFFF] flex items-center justify-center gap-1.5 shadow-2xs">
-                <Sparkles className="w-3.5 h-3.5 text-[#EAB308] shrink-0" />
+              <div className="p-3 rounded-2xl bg-stone-50 border border-stone-200 text-[11px] font-semibold text-stone-900 flex items-center justify-center gap-1.5 shadow-2xs">
+                <Sparkles className="w-3.5 h-3.5 text-amber-600 shrink-0" />
                 <span className="truncate">Premium Acrylic</span>
               </div>
-              <div className="p-3 rounded-2xl bg-[#181818] border border-[#2D2D2D] text-[11px] font-semibold text-[#FFFFFF] flex items-center justify-center gap-1.5 shadow-2xs">
-                <ShieldCheck className="w-3.5 h-3.5 text-[#EAB308] shrink-0" />
+              <div className="p-3 rounded-2xl bg-stone-50 border border-stone-200 text-[11px] font-semibold text-stone-900 flex items-center justify-center gap-1.5 shadow-2xs">
+                <ShieldCheck className="w-3.5 h-3.5 text-amber-600 shrink-0" />
                 <span className="truncate">100% Moisture Proof</span>
               </div>
-              <div className="p-3 rounded-2xl bg-[#181818] border border-[#2D2D2D] text-[11px] font-semibold text-[#FFFFFF] flex items-center justify-center gap-1.5 shadow-2xs">
-                <CheckCircle2 className="w-3.5 h-3.5 text-[#EAB308] shrink-0" />
+              <div className="p-3 rounded-2xl bg-stone-50 border border-stone-200 text-[11px] font-semibold text-stone-900 flex items-center justify-center gap-1.5 shadow-2xs">
+                <CheckCircle2 className="w-3.5 h-3.5 text-amber-600 shrink-0" />
                 <span className="truncate">Mounting Bracket Incl.</span>
               </div>
             </div>
@@ -1102,12 +1099,12 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
           {/* RIGHT COLUMN: Variation Controls & Purchase Actions */}
           <div
             ref={mainPurchaseRef}
-            className="lg:col-span-5 xl:col-span-5 space-y-6 bg-[#181818] p-6 sm:p-8 rounded-3xl border border-[#2D2D2D] shadow-[0_10px_35px_rgba(0,0,0,0.4)]"
+            className="lg:col-span-5 xl:col-span-5 space-y-6 bg-white p-6 sm:p-8 rounded-3xl border border-stone-200 shadow-md"
           >
             {/* Header Block: Category, Stock & Title */}
             <div className="space-y-2.5">
               <div className="flex items-center justify-between gap-2 flex-wrap">
-                <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-[#FFFFFF] bg-[#1A1A1A] px-3 py-1 rounded-full border border-[#EAB308]/50">
+                <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-stone-800 bg-stone-100 px-3 py-1 rounded-full border border-stone-200">
                   {product.deity || product.categoryName || 'Sacred Wall Decor'}
                 </span>
                 <span className="text-[11px] font-semibold text-emerald-800 flex items-center gap-1.5 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200">
@@ -1116,18 +1113,18 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                 </span>
               </div>
 
-              <h1 className="text-2xl sm:text-3xl lg:text-[32px] font-serif font-bold text-[#FFFFFF] leading-tight tracking-tight">
+              <h1 className="text-2xl sm:text-3xl lg:text-[32px] font-serif font-bold text-stone-900 leading-tight tracking-tight">
                 {product.title}
               </h1>
 
               {product.subtitle && (
-                <p className="text-xs sm:text-sm text-[#D1D5DB] font-medium leading-relaxed">
+                <p className="text-xs sm:text-sm text-stone-600 font-medium leading-relaxed">
                   {product.subtitle}
                 </p>
               )}
 
               {/* Rating & Review Counter */}
-              <div className="flex items-center gap-2 text-xs text-[#D1D5DB] pt-0.5">
+              <div className="flex items-center gap-2 text-xs text-stone-600 pt-0.5">
                 {reviewsList.length > 0 ? (
                   <>
                     <div className="flex items-center text-[#EAB308]">
@@ -1142,7 +1139,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                         />
                       ))}
                     </div>
-                    <span className="font-bold text-[#FFFFFF]">
+                    <span className="font-bold text-stone-900">
                       {(product.rating || 5).toFixed(1)} / 5.0
                     </span>
                     <span className="text-stone-300">•</span>
@@ -1153,7 +1150,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                         const el = document.getElementById('product-tabs-section');
                         if (el) el.scrollIntoView({ behavior: 'smooth' });
                       }}
-                      className="text-[#EAB308] hover:text-[#FFFFFF] hover:underline font-semibold cursor-pointer transition-colors"
+                      className="text-amber-800 hover:text-stone-900 hover:underline font-semibold cursor-pointer transition-colors"
                     >
                       {reviewsList.length} {reviewsList.length === 1 ? 'Review' : 'Reviews'}
                     </button>
@@ -1172,9 +1169,9 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                         const el = document.getElementById('product-tabs-section');
                         if (el) el.scrollIntoView({ behavior: 'smooth' });
                       }}
-                      className="text-[#D1D5DB] hover:text-[#FFFFFF] hover:underline cursor-pointer transition-colors"
+                      className="text-stone-600 hover:text-stone-900 hover:underline cursor-pointer transition-colors"
                     >
-                      No reviews yet • <span className="text-[#EAB308] font-medium">Be the first to review</span>
+                      No reviews yet • <span className="text-amber-700 font-medium">Be the first to review</span>
                     </button>
                   </>
                 )}
@@ -1182,17 +1179,17 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
             </div>
 
             {/* Dynamic Pricing Banner */}
-            <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-[#181818] via-[#141414] to-[#181818] border border-[#2D2D2D] space-y-1.5 shadow-2xs">
+            <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-stone-50 via-amber-50/40 to-stone-50 border border-stone-200 space-y-1.5 shadow-2xs">
               {isCustomSize ? (
                 <div className="flex items-center gap-3 py-1">
                   <div className="w-10 h-10 rounded-xl bg-[#25D366]/15 border border-[#25D366]/40 flex items-center justify-center text-[#25D366] shrink-0">
                     <MessageCircle className="w-5 h-5 fill-current" />
                   </div>
                   <div>
-                    <span className="text-lg sm:text-xl font-serif font-bold text-[#25D366] block">
+                    <span className="text-lg sm:text-xl font-serif font-bold text-emerald-700 block">
                       Price will be known in WhatsApp chat order
                     </span>
-                    <p className="text-[11px] text-[#D1D5DB] mt-0.5">
+                    <p className="text-[11px] text-stone-600 mt-0.5">
                       Custom sizes are quoted directly by our artisans on WhatsApp based on your exact measurements &amp; finish.
                     </p>
                   </div>
@@ -1201,24 +1198,24 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                 <>
                   <div className="flex items-baseline justify-between gap-2 flex-wrap">
                     <div className="flex items-baseline gap-3">
-                      <span className="text-3xl sm:text-4xl font-serif font-bold text-[#FFFFFF]">
+                      <span className="text-3xl sm:text-4xl font-serif font-bold text-stone-900">
                         ₹{currentPricing.price.toLocaleString('en-IN')}
                       </span>
                       {currentPricing.mrp > currentPricing.price && (
-                        <span className="text-base sm:text-lg text-[#D1D5DB] line-through font-normal">
+                        <span className="text-base sm:text-lg text-stone-400 line-through font-normal">
                           ₹{currentPricing.mrp.toLocaleString('en-IN')}
                         </span>
                       )}
                     </div>
 
                     {discountPercent > 0 && (
-                      <span className="text-xs font-bold text-[#FFFFFF] bg-[#181818] border border-[#EAB308] px-3 py-1 rounded-full shadow-2xs">
+                      <span className="text-xs font-bold text-amber-900 bg-amber-100 border border-amber-300 px-3 py-1 rounded-full shadow-2xs">
                         Save {discountPercent}% OFF
                       </span>
                     )}
                   </div>
-                  <p className="text-[11px] text-[#D1D5DB] font-medium flex items-center gap-1.5">
-                    <Sparkles className="w-3 h-3 text-[#EAB308] shrink-0" />
+                  <p className="text-[11px] text-stone-600 font-medium flex items-center gap-1.5">
+                    <Sparkles className="w-3 h-3 text-amber-600 shrink-0" />
                     <span>Inclusive of all taxes • Handcrafted in Hyderabad Studio</span>
                   </p>
                 </>
@@ -1228,13 +1225,13 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
             {/* Customization 1: Frame Style */}
             <div className="space-y-2.5">
               <div className="flex items-center justify-between text-xs">
-                <span className="font-bold text-[#FFFFFF]">
+                <span className="font-bold text-stone-900">
                   1. Frame Style:{' '}
-                  <strong className="text-[#EAB308] font-serif">
+                  <strong className="text-amber-800 font-serif">
                     {selectedFrame === 'gold' ? 'Champagne Gold' : selectedFrame === 'black' ? 'Matte Black' : 'Frameless Crystal Acrylic'}
                   </strong>
                 </span>
-                <span className="text-[11px] text-[#D1D5DB]">Select finish</span>
+                <span className="text-[11px] text-stone-500">Select finish</span>
               </div>
 
               <div className="grid grid-cols-3 gap-2.5">
@@ -1244,19 +1241,19 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                   onClick={() => handleSelectFrame('gold')}
                   className={`p-2.5 rounded-2xl border-2 transition-all flex flex-col items-center text-center gap-1.5 cursor-pointer ${
                     selectedFrame === 'gold'
-                      ? 'border-[#EAB308] bg-[#1A1A1A] ring-2 ring-[#C69A42]/30 shadow-xs'
-                      : 'border-[#2D2D2D] bg-[#181818] hover:border-[#EAB308]/60'
+                      ? 'border-amber-500 bg-amber-50/60 ring-2 ring-amber-300/60 shadow-xs'
+                      : 'border-stone-200 bg-stone-50 hover:border-amber-400'
                   }`}
                 >
-                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl overflow-hidden border border-[#EAB308]/60 shadow-xs bg-[#121212]">
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl overflow-hidden border border-amber-300 shadow-xs bg-white">
                     <img
                       src="/images/frames/gold-border-ref.jpg"
                       alt="Champagne Gold Aluminium Frame Border"
                       className="w-full h-full object-cover"
                     />
                   </div>
-                  <span className="text-xs font-bold text-[#FFFFFF] leading-tight">Gold Frame</span>
-                  <span className="text-[10px] text-[#D1D5DB]">Champagne Gold</span>
+                  <span className="text-xs font-bold text-stone-900 leading-tight">Gold Frame</span>
+                  <span className="text-[10px] text-stone-500">Champagne Gold</span>
                 </button>
 
                 {/* Black Frame Card */}
@@ -1265,19 +1262,19 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                   onClick={() => handleSelectFrame('black')}
                   className={`p-2.5 rounded-2xl border-2 transition-all flex flex-col items-center text-center gap-1.5 cursor-pointer ${
                     selectedFrame === 'black'
-                      ? 'border-[#EAB308] bg-[#1A1A1A] ring-2 ring-[#C69A42]/30 shadow-xs'
-                      : 'border-[#2D2D2D] bg-[#181818] hover:border-[#EAB308]/60'
+                      ? 'border-stone-900 bg-stone-100 ring-2 ring-stone-400/60 shadow-xs'
+                      : 'border-stone-200 bg-stone-50 hover:border-amber-400'
                   }`}
                 >
-                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl overflow-hidden border border-stone-800 shadow-xs bg-[#121212]">
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl overflow-hidden border border-stone-300 shadow-xs bg-white">
                     <img
                       src="/images/frames/black-border-ref.jpg"
                       alt="Matte Black Aluminium Frame Border"
                       className="w-full h-full object-cover"
                     />
                   </div>
-                  <span className="text-xs font-bold text-[#FFFFFF] leading-tight">Black Frame</span>
-                  <span className="text-[10px] text-[#D1D5DB]">Matte Black</span>
+                  <span className="text-xs font-bold text-stone-900 leading-tight">Black Frame</span>
+                  <span className="text-[10px] text-stone-500">Matte Black</span>
                 </button>
 
                 {/* Without Frame Card */}
@@ -1286,31 +1283,31 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                   onClick={() => handleSelectFrame('without')}
                   className={`p-2.5 rounded-2xl border-2 transition-all flex flex-col items-center text-center gap-1.5 cursor-pointer ${
                     selectedFrame === 'without'
-                      ? 'border-[#EAB308] bg-[#1A1A1A] ring-2 ring-[#C69A42]/30 shadow-xs'
-                      : 'border-[#2D2D2D] bg-[#181818] hover:border-[#EAB308]/60'
+                      ? 'border-amber-500 bg-amber-50/60 ring-2 ring-amber-300/60 shadow-xs'
+                      : 'border-stone-200 bg-stone-50 hover:border-amber-400'
                   }`}
                 >
-                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl overflow-hidden border border-[#2D2D2D] shadow-xs bg-[#121212]">
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl overflow-hidden border border-stone-200 shadow-xs bg-white">
                     <img
                       src="/images/frames/acrylic-border-ref.jpg"
                       alt="Frameless Acrylic Photo Frame Border"
                       className="w-full h-full object-cover"
                     />
                   </div>
-                  <span className="text-xs font-bold text-[#FFFFFF] leading-tight">No Frame</span>
-                  <span className="text-[10px] text-[#D1D5DB]">Crystal Acrylic</span>
+                  <span className="text-xs font-bold text-stone-900 leading-tight">No Frame</span>
+                  <span className="text-[10px] text-stone-500">Crystal Acrylic</span>
                 </button>
               </div>
             </div>
 
             {/* Thickness Selector (When Without Frame is selected) */}
             {selectedFrame === 'without' && availableThicknesses.length > 0 && (
-              <div className="space-y-2 bg-[#1A1A1A] p-3.5 rounded-2xl border border-[#2D2D2D]">
+              <div className="space-y-2 bg-stone-50 p-3.5 rounded-2xl border border-stone-200">
                 <div className="flex items-center justify-between text-xs">
-                  <span className="font-bold text-[#FFFFFF]">
-                    Acrylic Thickness: <strong className="text-[#EAB308]">{selectedThickness}</strong>
+                  <span className="font-bold text-stone-900">
+                    Acrylic Thickness: <strong className="text-amber-800">{selectedThickness}</strong>
                   </span>
-                  <span className="text-[11px] text-[#D1D5DB]">
+                  <span className="text-[11px] text-stone-500">
                     {selectedThickness === '3mm' ? 'With 2-way tape adhesive hook' : 'Heavy cast acrylic with S.S studs'}
                   </span>
                 </div>
@@ -1322,8 +1319,8 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                       onClick={() => setSelectedThickness(th)}
                       className={`flex-1 py-2 px-3 rounded-xl text-xs font-bold border transition-all cursor-pointer ${
                         selectedThickness === th
-                          ? 'border-[#EAB308] bg-[#181818] text-[#FFFFFF] shadow-xs'
-                          : 'border-[#2D2D2D] bg-[#181818]/70 text-[#D1D5DB] hover:border-[#EAB308]/60'
+                          ? 'border-amber-500 bg-white text-stone-900 shadow-xs'
+                          : 'border-stone-200 bg-white/70 text-stone-600 hover:border-amber-300'
                       }`}
                     >
                       {th} {th === '3mm' ? '(Standard)' : '(Heavy Cast)'}
@@ -1336,9 +1333,9 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
             {/* Customization 3: Dimensions & Size Selector */}
             <div className="space-y-2.5">
               <div className="flex items-center justify-between text-xs">
-                <span className="font-bold text-[#FFFFFF]">
+                <span className="font-bold text-stone-900">
                   3. Dimensions:{' '}
-                  <strong className="text-[#EAB308] font-serif">
+                  <strong className="text-amber-800 font-serif">
                     {isCustomSize ? `${customSizeCalc.widthInches}" × ${customSizeCalc.heightInches}" (${customSizeCalc.dimensionsCm}) [Custom Size]` : (currentSizeObj ? `${currentSizeObj.label} (${currentSizeObj.dimensionsCm})` : 'Select Size')}
                   </strong>
                 </span>
@@ -1346,7 +1343,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                   <button
                     type="button"
                     onClick={() => setSelectedSizeId(null)}
-                    className="text-[10px] font-bold text-stone-400 hover:text-[#FFFFFF] uppercase tracking-wider transition-colors cursor-pointer"
+                    className="text-[10px] font-bold text-stone-500 hover:text-stone-900 uppercase tracking-wider transition-colors cursor-pointer"
                   >
                     CLEAR
                   </button>
@@ -1367,14 +1364,14 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                       onClick={() => { setIsCustomSize(false); handleSelectSize(s.id); }}
                       className={`py-2 px-1 sm:py-2.5 sm:px-1.5 min-h-[46px] rounded-xl sm:rounded-2xl text-xs transition-all flex flex-col items-center justify-center cursor-pointer ${
                         isSelected
-                          ? 'border-2 border-[#EAB308] text-[#FFFFFF] font-bold bg-[#1A1A1A] shadow-xs'
+                          ? 'border-2 border-amber-500 text-stone-950 font-bold bg-amber-50 shadow-xs'
                           : isSupported
-                          ? 'border border-[#2D2D2D] text-[#D1D5DB] bg-[#181818] hover:border-[#EAB308]/60 font-medium'
-                          : 'border border-[#2D2D2D] text-stone-300 bg-[#121212] cursor-not-allowed line-through'
+                          ? 'border border-stone-200 text-stone-700 bg-stone-50 hover:border-amber-400 font-medium'
+                          : 'border border-stone-200 text-stone-300 bg-stone-100 cursor-not-allowed line-through'
                       }`}
                     >
                       <span className="font-bold">{s.label}&quot;</span>
-                      <span className="text-[9px] text-[#D1D5DB] leading-none mt-0.5">{s.dimensionsCm.split(' ')[0]}cm</span>
+                      <span className="text-[9px] text-stone-500 leading-none mt-0.5">{s.dimensionsCm.split(' ')[0]}cm</span>
                     </button>
                   );
                 })}
@@ -1388,15 +1385,15 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                   }}
                   className={`py-2 px-1 sm:py-2.5 sm:px-1.5 min-h-[46px] rounded-xl sm:rounded-2xl text-xs transition-all flex flex-col items-center justify-center cursor-pointer ${
                     isCustomSize
-                      ? 'border-2 border-[#EAB308] text-[#FFFFFF] font-bold bg-[#1A1A1A] shadow-xs ring-1 ring-[#EAB308]'
-                      : 'border border-[#EAB308]/60 text-[#EAB308] bg-[#181818] hover:border-[#EAB308] font-medium'
+                      ? 'border-2 border-amber-500 text-stone-950 font-bold bg-amber-50 shadow-xs ring-1 ring-amber-400'
+                      : 'border border-amber-400 text-amber-900 bg-amber-50/70 hover:bg-amber-100 font-medium'
                   }`}
                   title="Enter custom width & height dimensions"
                 >
                   <span className="font-bold flex items-center gap-1 text-[11px] sm:text-xs">
-                    <Ruler className="w-3 h-3 text-[#EAB308]" /> Custom
+                    <Ruler className="w-3 h-3 text-amber-700" /> Custom
                   </span>
-                  <span className="text-[9px] text-[#25D366] leading-none mt-0.5 font-semibold">Quote</span>
+                  <span className="text-[9px] text-emerald-700 leading-none mt-0.5 font-semibold">Quote</span>
                 </button>
               </div>
 
@@ -1415,31 +1412,31 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
 
               {/* Hardware Note */}
               {mountingNote && (
-                <div className="p-3 rounded-xl bg-[#181818] border border-[#2D2D2D]/80 text-[11px] text-[#D1D5DB] flex items-center gap-2">
-                  <Info className="w-4 h-4 text-[#EAB308] shrink-0" />
-                  <span>Mounting hardware provided: <strong className="text-[#FFFFFF]">{mountingNote}</strong></span>
+                <div className="p-3 rounded-xl bg-stone-50 border border-stone-200 text-[11px] text-stone-600 flex items-center gap-2">
+                  <Info className="w-4 h-4 text-amber-600 shrink-0" />
+                  <span>Mounting hardware provided: <strong className="text-stone-900">{mountingNote}</strong></span>
                 </div>
               )}
             </div>
 
             {/* Quantity Selector + Action Buttons */}
-            <div className="space-y-3.5 pt-2 border-t border-[#2D2D2D]">
+            <div className="space-y-3.5 pt-2 border-t border-stone-200">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold text-[#FFFFFF] uppercase tracking-wider">Quantity:</span>
-                <div className="flex items-center border border-[#2D2D2D] rounded-2xl bg-[#181818] overflow-hidden shadow-2xs">
+                <span className="text-xs font-bold text-stone-900 uppercase tracking-wider">Quantity:</span>
+                <div className="flex items-center border border-stone-200 rounded-2xl bg-stone-50 overflow-hidden shadow-2xs">
                   <button
                     type="button"
                     onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                    className="px-3.5 py-1.5 text-[#D1D5DB] hover:bg-[#222222] font-bold text-sm transition-colors cursor-pointer"
+                    className="px-3.5 py-1.5 text-stone-600 hover:bg-stone-200 font-bold text-sm transition-colors cursor-pointer"
                     aria-label="Decrease quantity"
                   >
                     -
                   </button>
-                  <span className="px-4 text-xs font-bold text-[#FFFFFF] min-w-8 text-center">{quantity}</span>
+                  <span className="px-4 text-xs font-bold text-stone-900 min-w-8 text-center">{quantity}</span>
                   <button
                     type="button"
                     onClick={() => setQuantity(Math.min(10, quantity + 1))}
-                    className="px-3.5 py-1.5 text-[#D1D5DB] hover:bg-[#222222] font-bold text-sm transition-colors cursor-pointer"
+                    className="px-3.5 py-1.5 text-stone-600 hover:bg-stone-200 font-bold text-sm transition-colors cursor-pointer"
                     aria-label="Increase quantity"
                   >
                     +
@@ -1452,12 +1449,12 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                 <button
                   type="button"
                   onClick={() => setIsCustomizerOpen(true)}
-                  className="w-full bg-[#181818] hover:bg-[#252525] text-[#FACC15] hover:text-[#FFFFFF] py-3.5 px-4 rounded-2xl font-bold text-sm sm:text-base flex items-center justify-center gap-2.5 border-2 border-[#EAB308] shadow-md transition-all cursor-pointer group/custom active:scale-[0.99]"
+                  className="w-full bg-stone-900 hover:bg-stone-800 text-amber-300 py-3.5 px-4 rounded-2xl font-bold text-sm sm:text-base flex items-center justify-center gap-2.5 border-2 border-amber-400 shadow-md transition-all cursor-pointer group/custom active:scale-[0.99]"
                   title={`Customise photo and size for ${product.title}`}
                 >
-                  <Sparkles className="w-4 h-4 text-[#EAB308] group-hover/custom:text-[#FFFFFF] transition-colors" />
+                  <Sparkles className="w-4 h-4 text-amber-400 group-hover/custom:text-white transition-colors" />
                   <span className="font-extrabold text-sm sm:text-base">Customise: Add Photo &amp; Custom Size</span>
-                  <Camera className="w-4 h-4 text-[#EAB308] group-hover/custom:text-[#FFFFFF] transition-colors" />
+                  <Camera className="w-4 h-4 text-amber-400 group-hover/custom:text-white transition-colors" />
                 </button>
               </div>
 
@@ -1480,19 +1477,19 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                     <button
                       type="button"
                       onClick={handleBuyNow}
-                      className="w-full bg-gradient-to-r from-[#EAB308] via-[#FACC15] to-[#EAB308] hover:from-[#FACC15] hover:to-[#EAB308] text-[#000000] font-bold text-sm sm:text-base py-3.5 rounded-2xl shadow-md border border-[#EAB308]/50 transition-all flex items-center justify-center gap-2 cursor-pointer hover:shadow-lg active:scale-[0.99]"
+                      className="w-full bg-gradient-to-r from-[#EAB308] via-[#FACC15] to-[#EAB308] hover:from-[#FACC15] hover:to-[#EAB308] text-stone-950 font-bold text-sm sm:text-base py-3.5 rounded-2xl shadow-md border border-[#EAB308]/50 transition-all flex items-center justify-center gap-2 cursor-pointer hover:shadow-lg active:scale-[0.99]"
                     >
                       <span>Buy Now</span>
-                      <ArrowRight className="w-4 h-4 text-[#E8D1A5]" />
+                      <ArrowRight className="w-4 h-4 text-stone-900" />
                     </button>
 
                     {/* Add to Cart Button */}
                     <button
                       type="button"
                       onClick={handleAddToCart}
-                      className="w-full bg-[#181818] hover:bg-[#222222] active:bg-[#2A2A2A] text-[#FFFFFF] font-bold text-sm sm:text-base py-3.5 rounded-2xl border-2 border-[#EAB308] shadow-xs transition-colors flex items-center justify-center gap-2 cursor-pointer"
+                      className="w-full bg-stone-100 hover:bg-stone-200 active:bg-stone-300 text-stone-900 font-bold text-sm sm:text-base py-3.5 rounded-2xl border-2 border-stone-300 shadow-xs transition-colors flex items-center justify-center gap-2 cursor-pointer"
                     >
-                      <ShoppingBag className="w-4 h-4 text-[#EAB308]" />
+                      <ShoppingBag className="w-4 h-4 text-amber-600" />
                       <span>Add to Cart</span>
                     </button>
                   </div>
@@ -1506,7 +1503,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                     href={whatsappCustomSizeUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full bg-[#25D366]/10 hover:bg-[#25D366]/20 border border-[#25D366]/40 text-[#128C7E] font-bold text-xs py-3 rounded-2xl transition-all flex items-center justify-center gap-2 cursor-pointer shadow-2xs"
+                    className="w-full bg-[#25D366]/10 hover:bg-[#25D366]/20 border border-[#25D366]/30 text-[#128C7E] font-bold text-xs py-3 rounded-2xl transition-all flex items-center justify-center gap-2 cursor-pointer shadow-2xs"
                   >
                     <MessageCircle className="w-4 h-4 fill-current text-[#25D366]" />
                     <span>Need Custom Sizing or Advice? Inquire on WhatsApp</span>
@@ -1514,36 +1511,36 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                 </div>
               )}
 
-              <p className="text-[11px] text-[#D1D5DB] text-center font-medium">
+              <p className="text-[11px] text-stone-500 text-center font-medium">
                 🔒 100% Secure Checkout • UPI, Credit/Debit Cards &amp; NetBanking
               </p>
             </div>
 
             {/* 4 Golden Circular Trust Badges */}
-            <div className="pt-3 border-t border-[#2D2D2D]">
+            <div className="pt-3 border-t border-stone-200">
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-center">
-                <div className="p-2.5 rounded-2xl bg-[#181818] border border-[#2D2D2D]/60 flex flex-col items-center space-y-1">
-                  <Sparkles className="w-5 h-5 text-[#EAB308]" />
-                  <span className="text-[10px] font-bold text-[#FFFFFF] leading-tight">HD Acrylic</span>
-                  <span className="text-[9px] text-[#D1D5DB]">Diamond Polished</span>
+                <div className="p-2.5 rounded-2xl bg-stone-50 border border-stone-200 flex flex-col items-center space-y-1">
+                  <Sparkles className="w-5 h-5 text-amber-600" />
+                  <span className="text-[10px] font-bold text-stone-900 leading-tight">HD Acrylic</span>
+                  <span className="text-[9px] text-stone-500">Diamond Polished</span>
                 </div>
 
-                <div className="p-2.5 rounded-2xl bg-[#181818] border border-[#2D2D2D]/60 flex flex-col items-center space-y-1">
-                  <ShieldCheck className="w-5 h-5 text-[#EAB308]" />
-                  <span className="text-[10px] font-bold text-[#FFFFFF] leading-tight">Protective Box</span>
-                  <span className="text-[9px] text-[#D1D5DB]">Multi-Layer Safe</span>
+                <div className="p-2.5 rounded-2xl bg-stone-50 border border-stone-200 flex flex-col items-center space-y-1">
+                  <ShieldCheck className="w-5 h-5 text-amber-600" />
+                  <span className="text-[10px] font-bold text-stone-900 leading-tight">Protective Box</span>
+                  <span className="text-[9px] text-stone-500">Multi-Layer Safe</span>
                 </div>
 
-                <div className="p-2.5 rounded-2xl bg-[#181818] border border-[#2D2D2D]/60 flex flex-col items-center space-y-1">
-                  <Sparkles className="w-5 h-5 text-[#EAB308]" />
-                  <span className="text-[10px] font-bold text-[#FFFFFF] leading-tight">1:1 Proofing</span>
-                  <span className="text-[9px] text-[#D1D5DB]">WhatsApp Approval</span>
+                <div className="p-2.5 rounded-2xl bg-stone-50 border border-stone-200 flex flex-col items-center space-y-1">
+                  <Sparkles className="w-5 h-5 text-amber-600" />
+                  <span className="text-[10px] font-bold text-stone-900 leading-tight">1:1 Proofing</span>
+                  <span className="text-[9px] text-stone-500">WhatsApp Approval</span>
                 </div>
 
-                <div className="p-2.5 rounded-2xl bg-[#181818] border border-[#2D2D2D]/60 flex flex-col items-center space-y-1">
-                  <ThumbsUp className="w-5 h-5 text-[#EAB308]" />
-                  <span className="text-[10px] font-bold text-[#FFFFFF] leading-tight">Pure Sanctum</span>
-                  <span className="text-[9px] text-[#D1D5DB]">Authentic Craft</span>
+                <div className="p-2.5 rounded-2xl bg-stone-50 border border-stone-200 flex flex-col items-center space-y-1">
+                  <ThumbsUp className="w-5 h-5 text-amber-600" />
+                  <span className="text-[10px] font-bold text-stone-900 leading-tight">Pure Sanctum</span>
+                  <span className="text-[9px] text-stone-500">Authentic Craft</span>
                 </div>
               </div>
             </div>
@@ -1551,16 +1548,16 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
         </div>
 
         {/* Size Customisation WhatsApp Concierge Card */}
-        <div className="rounded-3xl border border-[#2D2D2D] bg-gradient-to-r from-[#181818] via-[#141414] to-[#181818] p-6 sm:p-8 shadow-xs flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div className="rounded-3xl border border-stone-200 bg-gradient-to-r from-amber-50/40 via-stone-50 to-amber-50/40 p-6 sm:p-8 shadow-xs flex flex-col sm:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-4">
-            <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br from-[#E8D1A5] to-[#C69A42] flex items-center justify-center text-[#FFFFFF] shrink-0 shadow-sm">
+            <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br from-amber-200 to-amber-400 flex items-center justify-center text-stone-950 shrink-0 shadow-sm">
               <Ruler className="w-7 h-7 sm:w-8 sm:h-8 stroke-[2]" />
             </div>
             <div>
-              <h3 className="text-lg sm:text-2xl font-serif font-bold text-[#FFFFFF] tracking-tight">
+              <h3 className="text-lg sm:text-2xl font-serif font-bold text-stone-900 tracking-tight">
                 Need Custom Dimensions Up to 96 x 48 Inches?
               </h3>
-              <p className="text-xs sm:text-sm text-[#D1D5DB] font-medium mt-1 max-w-xl leading-relaxed">
+              <p className="text-xs sm:text-sm text-stone-600 font-medium mt-1 max-w-xl leading-relaxed">
                 Our master artisans handcraft bespoke acrylic LED wall frames tailored to your home temple sanctum, master suite, or corporate lobby.
               </p>
             </div>
@@ -1578,8 +1575,8 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
         </div>
 
         {/* Comprehensive Tabs Section */}
-        <div id="product-tabs-section" className="border-t border-[#2D2D2D] pt-10 space-y-8">
-          <div className="flex border-b border-[#2D2D2D] gap-3 sm:gap-6 text-xs sm:text-sm font-semibold overflow-x-auto pb-1 scrollbar-thin">
+        <div id="product-tabs-section" className="border-t border-stone-200 pt-10 space-y-8">
+          <div className="flex border-b border-stone-200 gap-3 sm:gap-6 text-xs sm:text-sm font-semibold overflow-x-auto pb-1 scrollbar-thin">
             {[
               { id: 'overview', label: 'Story & Lore' },
               { id: 'craft', label: 'Craft & Materials' },
@@ -1596,8 +1593,8 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                 onClick={() => setActiveTab(tab.id as any)}
                 className={`pb-3.5 border-b-2 transition-colors whitespace-nowrap cursor-pointer ${
                   activeTab === tab.id
-                    ? 'border-[#EAB308] text-[#FFFFFF] font-bold'
-                    : 'border-transparent text-[#D1D5DB] hover:text-[#FFFFFF]'
+                    ? 'border-amber-500 text-stone-900 font-bold'
+                    : 'border-transparent text-stone-500 hover:text-stone-900'
                 }`}
               >
                 {tab.label}
@@ -1610,19 +1607,19 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
             {/* TAB 1: OVERVIEW & STORY */}
             {activeTab === 'overview' && (
               <div className="space-y-6 max-w-4xl">
-                <div className="p-6 rounded-3xl bg-[#181818] border border-[#2D2D2D] space-y-4 shadow-2xs">
-                  <h4 className="font-serif font-bold text-lg sm:text-xl text-[#FFFFFF]">
+                <div className="p-6 rounded-3xl bg-stone-50 border border-stone-200 space-y-4 shadow-2xs">
+                  <h4 className="font-serif font-bold text-lg sm:text-xl text-stone-900">
                     Spiritual Significance &amp; Iconography
                   </h4>
-                  <p className="text-xs sm:text-sm text-[#D1D5DB] leading-relaxed">
+                  <p className="text-xs sm:text-sm text-stone-600 leading-relaxed">
                     {product.description}
                   </p>
-                  <div className="p-4 rounded-2xl bg-[#181818] border border-[#2D2D2D] text-xs text-[#FFFFFF] space-y-1.5">
+                  <div className="p-4 rounded-2xl bg-white border border-stone-200 text-xs text-stone-900 space-y-1.5 shadow-2xs">
                     <p className="font-bold flex items-center gap-1.5">
-                      <Sparkles className="w-3.5 h-3.5 text-[#EAB308]" />
+                      <Sparkles className="w-3.5 h-3.5 text-amber-600" />
                       <span>Vastu Shastra &amp; Sacred Placement Guidance</span>
                     </p>
-                    <p className="text-[#D1D5DB]">
+                    <p className="text-stone-600">
                       Ideal for installation facing East or North-East in pooja mandirs, living rooms, and entrance foyers to invoke auspicious blessings, serenity, and divine grace.
                     </p>
                   </div>
@@ -1633,25 +1630,25 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
             {/* TAB 2: CRAFT & MATERIALS */}
             {activeTab === 'craft' && (
               <div className="space-y-6 max-w-4xl">
-                <div className="p-6 rounded-3xl bg-[#181818] border border-[#2D2D2D] space-y-4 shadow-2xs">
-                  <h4 className="font-serif font-bold text-lg sm:text-xl text-[#FFFFFF]">
+                <div className="p-6 rounded-3xl bg-stone-50 border border-stone-200 space-y-4 shadow-2xs">
+                  <h4 className="font-serif font-bold text-lg sm:text-xl text-stone-900">
                     Museum-Grade Acrylic &amp; LED Engineering
                   </h4>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs sm:text-sm text-[#D1D5DB]">
-                    <div className="p-4 rounded-2xl bg-[#121212] border border-[#2D2D2D]/70 space-y-1">
-                      <h5 className="font-bold text-[#FFFFFF]">1. Virgin Cast Acrylic</h5>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs sm:text-sm text-stone-600">
+                    <div className="p-4 rounded-2xl bg-white border border-stone-200 space-y-1 shadow-2xs">
+                      <h5 className="font-bold text-stone-900">1. Virgin Cast Acrylic</h5>
                       <p>Ultra-clear, shatterproof grade cast acrylic with precision beveled edges for supreme light refraction.</p>
                     </div>
-                    <div className="p-4 rounded-2xl bg-[#121212] border border-[#2D2D2D]/70 space-y-1">
-                      <h5 className="font-bold text-[#FFFFFF]">2. High-Definition UV Direct Printing</h5>
+                    <div className="p-4 rounded-2xl bg-white border border-stone-200 space-y-1 shadow-2xs">
+                      <h5 className="font-bold text-stone-900">2. High-Definition UV Direct Printing</h5>
                       <p>6-Color digital flatbed UV curable inks ensure vibrant, long-lasting colors against indoor lighting.</p>
                     </div>
-                    <div className="p-4 rounded-2xl bg-[#121212] border border-[#2D2D2D]/70 space-y-1">
-                      <h5 className="font-bold text-[#FFFFFF]">3. Warm Golden Ambient LED</h5>
+                    <div className="p-4 rounded-2xl bg-white border border-stone-200 space-y-1 shadow-2xs">
+                      <h5 className="font-bold text-stone-900">3. Warm Golden Ambient LED</h5>
                       <p>Energy-efficient warm SMD LEDs with concealed diffuse light guide layer.</p>
                     </div>
-                    <div className="p-4 rounded-2xl bg-[#121212] border border-[#2D2D2D]/70 space-y-1">
-                      <h5 className="font-bold text-[#FFFFFF]">4. BIS-Certified 12V Power Adapter</h5>
+                    <div className="p-4 rounded-2xl bg-white border border-stone-200 space-y-1 shadow-2xs">
+                      <h5 className="font-bold text-stone-900">4. BIS-Certified 12V Power Adapter</h5>
                       <p>Low voltage safe power supply with 2.5m transparent wire for subtle wall wiring routing.</p>
                     </div>
                   </div>
@@ -1662,11 +1659,11 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
             {/* TAB 3: SPECIFICATIONS */}
             {activeTab === 'specs' && (
               <div className="space-y-6 max-w-4xl">
-                <div className="divide-y divide-[#E8D1A5]/40 border border-[#2D2D2D] rounded-3xl bg-[#181818] overflow-hidden text-xs sm:text-sm shadow-2xs">
+                <div className="divide-y divide-stone-200 border border-stone-200 rounded-3xl bg-white overflow-hidden text-xs sm:text-sm shadow-2xs">
                   {product.specifications.map((spec, i) => (
-                    <div key={i} className="grid grid-cols-3 p-4 hover:bg-[#181818] transition-colors">
-                      <span className="font-bold text-[#FFFFFF] col-span-1">{spec.label}</span>
-                      <span className="text-[#D1D5DB] col-span-2">{spec.value}</span>
+                    <div key={i} className="grid grid-cols-3 p-4 hover:bg-stone-50 transition-colors">
+                      <span className="font-bold text-stone-900 col-span-1">{spec.label}</span>
+                      <span className="text-stone-600 col-span-2">{spec.value}</span>
                     </div>
                   ))}
                 </div>
@@ -1676,37 +1673,37 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
             {/* TAB 4: SIZE & PLACEMENT GUIDE */}
             {activeTab === 'sizeguide' && (
               <div className="space-y-6 max-w-4xl">
-                <div className="p-6 rounded-3xl bg-[#181818] border border-[#2D2D2D] space-y-5 shadow-2xs">
-                  <h4 className="font-serif font-bold text-lg sm:text-xl text-[#FFFFFF]">
+                <div className="p-6 rounded-3xl bg-stone-50 border border-stone-200 space-y-5 shadow-2xs">
+                  <h4 className="font-serif font-bold text-lg sm:text-xl text-stone-900">
                     Visual Size Comparison &amp; Room Scale
                   </h4>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs text-[#D1D5DB]">
-                    <div className="p-4 rounded-2xl bg-[#121212] border border-[#2D2D2D] text-center space-y-2">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs text-stone-600">
+                    <div className="p-4 rounded-2xl bg-white border border-stone-200 text-center space-y-2 shadow-2xs">
                       <div className="h-20 flex items-center justify-center">
-                        <div className="w-10 h-14 rounded border-2 border-[#EAB308] bg-[#1A1A1A] flex items-center justify-center text-[10px] font-bold text-[#FFFFFF]">12x18</div>
+                        <div className="w-10 h-14 rounded border-2 border-amber-500 bg-amber-50 flex items-center justify-center text-[10px] font-bold text-stone-900">12x18</div>
                       </div>
-                      <h5 className="font-bold text-[#FFFFFF]">12 x 18 Inches</h5>
+                      <h5 className="font-bold text-stone-900">12 x 18 Inches</h5>
                       <p className="text-[11px]">Compact Mandir altar or entry pillar.</p>
                     </div>
-                    <div className="p-4 rounded-2xl bg-[#121212] border border-[#2D2D2D] text-center space-y-2">
+                    <div className="p-4 rounded-2xl bg-white border border-stone-200 text-center space-y-2 shadow-2xs">
                       <div className="h-20 flex items-center justify-center">
-                        <div className="w-14 h-20 rounded border-2 border-[#EAB308] bg-[#1A1A1A] flex items-center justify-center text-[10px] font-bold text-[#FFFFFF]">16x24</div>
+                        <div className="w-14 h-20 rounded border-2 border-amber-500 bg-amber-50 flex items-center justify-center text-[10px] font-bold text-stone-900">16x24</div>
                       </div>
-                      <h5 className="font-bold text-[#FFFFFF]">16 x 24 Inches</h5>
+                      <h5 className="font-bold text-stone-900">16 x 24 Inches</h5>
                       <p className="text-[11px]">Medium wall, study, or foyer niche.</p>
                     </div>
-                    <div className="p-4 rounded-2xl bg-[#121212] border border-[#2D2D2D] text-center space-y-2">
+                    <div className="p-4 rounded-2xl bg-white border border-stone-200 text-center space-y-2 shadow-2xs">
                       <div className="h-20 flex items-center justify-center">
-                        <div className="w-18 h-24 rounded border-2 border-[#EAB308] bg-[#1A1A1A] flex items-center justify-center text-[10px] font-bold text-[#FFFFFF]">24x35</div>
+                        <div className="w-18 h-24 rounded border-2 border-amber-500 bg-amber-50 flex items-center justify-center text-[10px] font-bold text-stone-900">24x35</div>
                       </div>
-                      <h5 className="font-bold text-[#FFFFFF]">24 x 35 Inches</h5>
+                      <h5 className="font-bold text-stone-900">24 x 35 Inches</h5>
                       <p className="text-[11px]">Popular size above 3-seater sofa or bed.</p>
                     </div>
-                    <div className="p-4 rounded-2xl bg-[#121212] border border-[#2D2D2D] text-center space-y-2">
+                    <div className="p-4 rounded-2xl bg-white border border-stone-200 text-center space-y-2 shadow-2xs">
                       <div className="h-20 flex items-center justify-center">
-                        <div className="w-22 h-28 rounded border-2 border-[#EAB308] bg-[#1A1A1A] flex items-center justify-center text-[10px] font-bold text-[#FFFFFF]">30x47</div>
+                        <div className="w-22 h-28 rounded border-2 border-amber-500 bg-amber-50 flex items-center justify-center text-[10px] font-bold text-stone-900">30x47</div>
                       </div>
-                      <h5 className="font-bold text-[#FFFFFF]">30 x 47 Inches</h5>
+                      <h5 className="font-bold text-stone-900">30 x 47 Inches</h5>
                       <p className="text-[11px]">Grand statement feature wall piece.</p>
                     </div>
                   </div>
@@ -1717,24 +1714,24 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
             {/* TAB 5: 3-MIN INSTALLATION */}
             {activeTab === 'install' && (
               <div className="space-y-6 max-w-4xl">
-                <div className="p-6 rounded-3xl bg-[#181818] border border-[#2D2D2D] space-y-5 shadow-2xs">
-                  <h4 className="font-serif font-bold text-lg sm:text-xl text-[#FFFFFF]">
+                <div className="p-6 rounded-3xl bg-stone-50 border border-stone-200 space-y-5 shadow-2xs">
+                  <h4 className="font-serif font-bold text-lg sm:text-xl text-stone-900">
                     Hassle-Free 3-Minute Wall Mounting
                   </h4>
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs sm:text-sm text-[#D1D5DB]">
-                    <div className="p-4 rounded-2xl bg-[#121212] border border-[#2D2D2D] space-y-2">
-                      <span className="w-6 h-6 rounded-full bg-[#EAB308] text-[#000000] font-bold flex items-center justify-center text-xs">1</span>
-                      <h5 className="font-bold text-[#FFFFFF]">Mark &amp; Drill</h5>
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs sm:text-sm text-stone-600">
+                    <div className="p-4 rounded-2xl bg-white border border-stone-200 space-y-2 shadow-2xs">
+                      <span className="w-6 h-6 rounded-full bg-amber-400 text-stone-950 font-bold flex items-center justify-center text-xs">1</span>
+                      <h5 className="font-bold text-stone-900">Mark &amp; Drill</h5>
                       <p>Use the provided mounting card to mark hole positions. Insert the included wall plugs.</p>
                     </div>
-                    <div className="p-4 rounded-2xl bg-[#121212] border border-[#2D2D2D] space-y-2">
-                      <span className="w-6 h-6 rounded-full bg-[#EAB308] text-[#000000] font-bold flex items-center justify-center text-xs">2</span>
-                      <h5 className="font-bold text-[#FFFFFF]">Fix Wall Bracket</h5>
+                    <div className="p-4 rounded-2xl bg-white border border-stone-200 space-y-2 shadow-2xs">
+                      <span className="w-6 h-6 rounded-full bg-amber-400 text-stone-950 font-bold flex items-center justify-center text-xs">2</span>
+                      <h5 className="font-bold text-stone-900">Fix Wall Bracket</h5>
                       <p>Tighten the concealed French cleat or stainless steel studs using the supplied screws.</p>
                     </div>
-                    <div className="p-4 rounded-2xl bg-[#121212] border border-[#2D2D2D] space-y-2">
-                      <span className="w-6 h-6 rounded-full bg-[#EAB308] text-[#000000] font-bold flex items-center justify-center text-xs">3</span>
-                      <h5 className="font-bold text-[#FFFFFF]">Hang &amp; Plug In</h5>
+                    <div className="p-4 rounded-2xl bg-white border border-stone-200 space-y-2 shadow-2xs">
+                      <span className="w-6 h-6 rounded-full bg-amber-400 text-stone-950 font-bold flex items-center justify-center text-xs">3</span>
+                      <h5 className="font-bold text-stone-900">Hang &amp; Plug In</h5>
                       <p>Slide the frame onto the bracket and plug the 12V adapter into your nearest wall socket.</p>
                     </div>
                   </div>
@@ -1745,8 +1742,8 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
             {/* TAB 6: SHIPPING & GUARANTEE */}
             {activeTab === 'shipping' && (
               <div className="space-y-6 max-w-3xl">
-                <div className="p-6 rounded-3xl bg-[#181818] border border-[#2D2D2D] space-y-4 shadow-2xs text-xs sm:text-sm text-[#D1D5DB]">
-                  <h4 className="font-serif font-bold text-lg sm:text-xl text-[#FFFFFF]">
+                <div className="p-6 rounded-3xl bg-stone-50 border border-stone-200 space-y-4 shadow-2xs text-xs sm:text-sm text-stone-600">
+                  <h4 className="font-serif font-bold text-lg sm:text-xl text-stone-900">
                     Multi-Layer Protective Packaging
                   </h4>
                   <ul className="space-y-2.5 list-disc list-inside">
@@ -1763,68 +1760,68 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
             {/* TAB 7: REVIEWS */}
             {activeTab === 'reviews' && (
               <div className="space-y-8 max-w-3xl">
-                <div className="flex items-center justify-between bg-[#181818] p-6 rounded-3xl border border-[#2D2D2D] shadow-2xs">
+                <div className="flex items-center justify-between bg-stone-50 p-6 rounded-3xl border border-stone-200 shadow-2xs">
                   <div>
-                    <h4 className="font-serif font-bold text-lg text-[#FFFFFF]">Collector Feedback &amp; Stories</h4>
-                    <p className="text-xs text-[#D1D5DB] mt-0.5">
+                    <h4 className="font-serif font-bold text-lg text-stone-900">Collector Feedback &amp; Stories</h4>
+                    <p className="text-xs text-stone-600 mt-0.5">
                       {reviewsList.length > 0
                         ? `${reviewsList.length} verified customer stories from homes across India`
                         : 'No reviews yet for this artwork. Be the first to share your reflections!'}
                     </p>
                   </div>
                   <div className="text-right">
-                    <span className="font-serif text-3xl font-bold text-[#FFFFFF]">
+                    <span className="font-serif text-3xl font-bold text-stone-900">
                       {reviewsList.length > 0 ? (product.rating || 5).toFixed(1) : '0.0'}
                     </span>
-                    <span className="text-xs text-[#D1D5DB] block">
+                    <span className="text-xs text-stone-500 block">
                       {reviewsList.length > 0 ? 'Out of 5.0 Stars' : '0 Reviews'}
                     </span>
                   </div>
                 </div>
 
                 {/* Review Submission Form */}
-                <form onSubmit={handleReviewSubmit} className="bg-[#181818] p-6 rounded-3xl border border-[#2D2D2D] space-y-4 shadow-2xs">
-                  <h4 className="font-serif font-bold text-base text-[#FFFFFF]">Leave a Collector Review</h4>
+                <form onSubmit={handleReviewSubmit} className="bg-stone-50 p-6 rounded-3xl border border-stone-200 space-y-4 shadow-2xs">
+                  <h4 className="font-serif font-bold text-base text-stone-900">Leave a Collector Review</h4>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                     <div>
-                      <label className="text-xs font-semibold text-[#D1D5DB] block mb-1">Your Full Name</label>
+                      <label className="text-xs font-semibold text-stone-700 block mb-1">Your Full Name</label>
                       <input
                         type="text"
                         required
                         placeholder="e.g. Ramesh Kumar"
                         value={reviewName}
                         onChange={(e) => setReviewName(e.target.value)}
-                        className="w-full px-3.5 py-2 text-xs bg-[#121212] border border-[#2D2D2D] rounded-xl outline-none focus:border-[#EAB308]"
+                        className="w-full px-3.5 py-2 text-xs bg-white border border-stone-300 rounded-xl outline-none focus:border-amber-500 text-stone-900"
                       />
                     </div>
                     <div>
-                      <label className="text-xs font-semibold text-[#D1D5DB] block mb-1">Your City</label>
+                      <label className="text-xs font-semibold text-stone-700 block mb-1">Your City</label>
                       <input
                         type="text"
                         placeholder="e.g. Hyderabad"
                         value={reviewCity}
                         onChange={(e) => setReviewCity(e.target.value)}
-                        className="w-full px-3.5 py-2 text-xs bg-[#121212] border border-[#2D2D2D] rounded-xl outline-none focus:border-[#EAB308]"
+                        className="w-full px-3.5 py-2 text-xs bg-white border border-stone-300 rounded-xl outline-none focus:border-amber-500 text-stone-900"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="text-xs font-semibold text-[#D1D5DB] block mb-1">Your Experience &amp; Feedback</label>
+                    <label className="text-xs font-semibold text-stone-700 block mb-1">Your Experience &amp; Feedback</label>
                     <textarea
                       rows={3}
                       required
                       placeholder="Share how this sacred artwork radiates in your home and how it was packaged..."
                       value={reviewComment}
                       onChange={(e) => setReviewComment(e.target.value)}
-                      className="w-full px-3.5 py-2 text-xs bg-[#121212] border border-[#2D2D2D] rounded-xl outline-none focus:border-[#EAB308]"
+                      className="w-full px-3.5 py-2 text-xs bg-white border border-stone-300 rounded-xl outline-none focus:border-amber-500 text-stone-900"
                     />
                   </div>
 
                   <button
                     type="submit"
                     disabled={submittingReview}
-                    className="bg-[#EAB308] hover:bg-[#FACC15] disabled:opacity-50 text-[#000000] text-xs font-bold px-6 py-3 rounded-xl shadow-xs transition-colors cursor-pointer"
+                    className="bg-[#EAB308] hover:bg-[#CA8A04] disabled:opacity-50 text-stone-950 text-xs font-bold px-6 py-3 rounded-xl shadow-xs transition-colors cursor-pointer"
                   >
                     {submittingReview ? 'Submitting...' : 'Post Customer Review'}
                   </button>
@@ -1837,36 +1834,36 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
 
                 {/* Reviews List / Empty State */}
                 {reviewsList.length === 0 ? (
-                  <div className="p-8 rounded-2xl border border-dashed border-[#2D2D2D] bg-[#121212]/40 text-center space-y-2">
-                    <p className="text-sm font-semibold text-[#FFFFFF]">No customer reviews yet</p>
-                    <p className="text-xs text-[#D1D5DB]">
+                  <div className="p-8 rounded-2xl border border-dashed border-stone-300 bg-stone-50/50 text-center space-y-2">
+                    <p className="text-sm font-semibold text-stone-900">No customer reviews yet</p>
+                    <p className="text-xs text-stone-600">
                       Have you ordered or received this artwork? Be the first to share your experience using the form above!
                     </p>
                   </div>
                 ) : (
                   <div className="space-y-4">
                     {reviewsList.map((rev) => (
-                      <div key={rev.id} className="p-5 rounded-2xl border border-[#2D2D2D] bg-[#181818] space-y-2 shadow-2xs">
+                      <div key={rev.id} className="p-5 rounded-2xl border border-stone-200 bg-white space-y-2 shadow-2xs">
                         <div className="flex items-center justify-between text-xs">
                           <div className="flex items-center gap-2">
-                            <span className="font-bold text-[#FFFFFF]">{rev.authorName}</span>
-                            <span className="text-[#D1D5DB]">• {rev.city}</span>
+                            <span className="font-bold text-stone-900">{rev.authorName}</span>
+                            <span className="text-stone-500">• {rev.city}</span>
                             {rev.verifiedBuyer && (
                               <span className="text-[10px] bg-emerald-50 text-emerald-800 font-bold px-2 py-0.5 rounded-full border border-emerald-200">
                                 Verified Purchase
                               </span>
                             )}
                           </div>
-                          <span className="text-[#D1D5DB]">{rev.createdAt}</span>
+                          <span className="text-stone-500">{rev.createdAt}</span>
                         </div>
 
-                        <div className="flex items-center gap-1.5 text-[11px] font-semibold text-[#EAB308]">
-                          <Sparkles className="w-3 h-3 text-[#EAB308]" />
+                        <div className="flex items-center gap-1.5 text-[11px] font-semibold text-amber-700">
+                          <Sparkles className="w-3 h-3 text-amber-600" />
                           <span>Verified Collector</span>
                         </div>
 
-                        <h5 className="font-bold text-xs text-[#FFFFFF]">{rev.title}</h5>
-                        <p className="text-xs text-[#D1D5DB] leading-relaxed">{rev.comment}</p>
+                        <h5 className="font-bold text-xs text-stone-900">{rev.title}</h5>
+                        <p className="text-xs text-stone-600 leading-relaxed">{rev.comment}</p>
                       </div>
                     ))}
                   </div>
@@ -1895,12 +1892,12 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                     a: 'Everything needed is inside the wooden crate: your custom-sized acrylic frame, BIS-certified 12V power adapter with 2.5m wire, concealed French cleat bracket or stainless steel wall studs, wall plugs, screws, and a marking template.',
                   },
                 ].map((item, idx) => (
-                  <div key={idx} className="p-5 rounded-2xl bg-[#181818] border border-[#2D2D2D] space-y-2 shadow-2xs">
-                    <h5 className="font-bold text-xs sm:text-sm text-[#FFFFFF] flex items-center gap-2">
-                      <HelpCircle className="w-4 h-4 text-[#EAB308] shrink-0" />
+                  <div key={idx} className="p-5 rounded-2xl bg-stone-50 border border-stone-200 space-y-2 shadow-2xs">
+                    <h5 className="font-bold text-xs sm:text-sm text-stone-900 flex items-center gap-2">
+                      <HelpCircle className="w-4 h-4 text-amber-600 shrink-0" />
                       <span>{item.q}</span>
                     </h5>
-                    <p className="text-xs text-[#D1D5DB] leading-relaxed pl-6">{item.a}</p>
+                    <p className="text-xs text-stone-600 leading-relaxed pl-6">{item.a}</p>
                   </div>
                 ))}
               </div>
@@ -1910,15 +1907,15 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
 
         {/* Luxury Related Products Section ("Complete Your Divine Space") */}
         {relatedProducts.length > 0 && (
-          <div className="border-t border-[#2D2D2D] pt-12 space-y-6">
+          <div className="border-t border-stone-200 pt-12 space-y-6">
             <div className="flex items-center justify-between">
               <div>
-                <span className="text-[11px] font-bold uppercase tracking-wider text-[#EAB308]">Curated Pairings</span>
-                <h3 className="font-serif font-bold text-2xl sm:text-3xl text-[#FFFFFF]">
+                <span className="text-[11px] font-bold uppercase tracking-wider text-amber-800">Curated Pairings</span>
+                <h3 className="font-serif font-bold text-2xl sm:text-3xl text-stone-900">
                   Complete Your Divine Space
                 </h3>
               </div>
-              <Link href="/shop" className="text-xs font-bold text-[#FFFFFF] hover:text-[#EAB308] hover:underline flex items-center gap-1 transition-colors">
+              <Link href="/shop" className="text-xs font-bold text-stone-900 hover:text-amber-800 hover:underline flex items-center gap-1 transition-colors">
                 <span>View All Collection</span>
                 <ChevronRight className="w-4 h-4" />
               </Link>
@@ -1934,21 +1931,21 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
 
       {/* Sticky Bottom Purchase Bar (Appears on Scroll) */}
       <div
-        className={`fixed bottom-0 left-0 right-0 z-40 bg-[#181818]/95 backdrop-blur-md border-t border-[#2D2D2D] shadow-[0_-8px_25px_rgba(0,0,0,0.5)] py-3 px-4 sm:px-8 transition-transform duration-300 ${
+        className={`fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-stone-200 shadow-xl py-3 px-4 sm:px-8 transition-transform duration-300 text-stone-900 ${
           showStickyBar ? 'translate-y-0' : 'translate-y-full'
         }`}
         style={{ paddingBottom: 'max(0.75rem, env(safe-area-inset-bottom, 0px))' }}
       >
         <div className="max-w-[1720px] mx-auto flex items-center justify-between gap-4">
           <div className="flex items-center gap-3 min-w-0">
-            <div className="w-12 h-12 rounded-xl overflow-hidden border border-[#2D2D2D] shrink-0 bg-[#1A1A1A]">
+            <div className="w-12 h-12 rounded-xl overflow-hidden border border-stone-200 shrink-0 bg-stone-100">
               <img src={activeImage} alt="" className="w-full h-full object-cover" />
             </div>
             <div className="min-w-0 hidden sm:block">
-              <h4 className="font-serif font-bold text-xs sm:text-sm text-[#FFFFFF] truncate max-w-md">
+              <h4 className="font-serif font-bold text-xs sm:text-sm text-stone-900 truncate max-w-md">
                 {product.title}
               </h4>
-              <p className="text-[11px] text-[#D1D5DB] truncate">
+              <p className="text-[11px] text-stone-500 truncate">
                 {selectedShape.toUpperCase()} • {currentSizeObj?.label || '12x18'}&quot; • {selectedFrame === 'gold' ? 'Gold Frame' : selectedFrame === 'black' ? 'Black Frame' : 'Frameless Acrylic'}
               </p>
             </div>
@@ -1958,7 +1955,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
             {isCustomSize ? (
               <>
                 <div className="text-right">
-                  <span className="font-serif font-bold text-xs sm:text-sm text-[#25D366] block leading-tight">
+                  <span className="font-serif font-bold text-xs sm:text-sm text-emerald-700 block leading-tight">
                     Price in WhatsApp chat
                   </span>
                 </div>
@@ -1975,11 +1972,11 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
             ) : (
               <>
                 <div className="text-right">
-                  <span className="font-serif font-bold text-base sm:text-xl text-[#FFFFFF] block leading-tight">
+                  <span className="font-serif font-bold text-base sm:text-xl text-stone-900 block leading-tight">
                     ₹{currentPricing.price.toLocaleString('en-IN')}
                   </span>
                   {currentPricing.mrp > currentPricing.price && (
-                    <span className="text-[10px] text-[#D1D5DB] line-through block">
+                    <span className="text-[10px] text-stone-400 line-through block">
                       ₹{currentPricing.mrp.toLocaleString('en-IN')}
                     </span>
                   )}
@@ -1988,19 +1985,19 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                 <button
                   type="button"
                   onClick={handleAddToCart}
-                  className="hidden sm:flex items-center gap-1.5 px-4 py-2.5 rounded-xl border-2 border-[#EAB308] bg-[#181818] text-[#FFFFFF] font-bold text-xs hover:bg-[#222222] transition-colors cursor-pointer"
+                  className="hidden sm:flex items-center gap-1.5 px-4 py-2.5 rounded-xl border-2 border-stone-300 bg-stone-100 text-stone-900 font-bold text-xs hover:bg-stone-200 transition-colors cursor-pointer"
                 >
-                  <ShoppingBag className="w-3.5 h-3.5 text-[#EAB308]" />
+                  <ShoppingBag className="w-3.5 h-3.5 text-amber-600" />
                   <span>Add to Cart</span>
                 </button>
 
                 <button
                   type="button"
                   onClick={handleBuyNow}
-                  className="flex items-center justify-center gap-1.5 px-5 py-2.5 min-h-[44px] rounded-xl bg-[#EAB308] hover:bg-[#FACC15] text-[#000000] font-bold text-xs sm:text-sm shadow-md transition-colors cursor-pointer"
+                  className="flex items-center justify-center gap-1.5 px-5 py-2.5 min-h-[44px] rounded-xl bg-[#EAB308] hover:bg-[#CA8A04] text-stone-950 font-bold text-xs sm:text-sm shadow-md transition-colors cursor-pointer"
                 >
                   <span>Buy Now</span>
-                  <ArrowRight className="w-3.5 h-3.5 text-[#E8D1A5]" />
+                  <ArrowRight className="w-3.5 h-3.5 text-stone-900" />
                 </button>
               </>
             )}

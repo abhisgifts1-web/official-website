@@ -86,20 +86,20 @@ export default function AdminCategoriesPage() {
 
   return (
     <AdminLayout>
-      <div className="space-y-6 max-w-7xl mx-auto">
+      <div className="space-y-6 max-w-7xl mx-auto text-stone-900">
         {/* Header */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-[#141414] border border-[#2D2D2D] p-5 sm:p-6 rounded-3xl">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white border border-stone-200 p-5 sm:p-6 rounded-3xl shadow-sm">
           <div>
             <div className="flex items-center gap-2 mb-1">
-              <span className="px-2.5 py-0.5 rounded-full bg-[#EAB308]/15 border border-[#EAB308]/40 text-[#FACC15] font-bold text-[10px] tracking-wider uppercase flex items-center gap-1">
-                <Sparkles className="w-3 h-3 text-[#EAB308]" />
+              <span className="px-2.5 py-0.5 rounded-full bg-amber-50 border border-amber-300 text-amber-800 font-bold text-[10px] tracking-wider uppercase flex items-center gap-1 shadow-2xs">
+                <Sparkles className="w-3 h-3 text-amber-700" />
                 Storefront Taxonomies
               </span>
             </div>
-            <h1 className="font-serif font-bold text-2xl sm:text-3xl text-white">
+            <h1 className="font-serif font-bold text-2xl sm:text-3xl text-stone-900">
               Official Store Categories
             </h1>
-            <p className="text-xs text-[#A1A1AA] mt-0.5">
+            <p className="text-xs text-stone-500 mt-0.5">
               Manage the 8 official collections published on the storefront. All products map directly to these categories.
             </p>
           </div>
@@ -108,7 +108,7 @@ export default function AdminCategoriesPage() {
             <button
               type="button"
               onClick={() => setModalOpen(true)}
-              className="bg-[#EAB308] hover:bg-[#FACC15] text-black font-extrabold text-xs px-4 py-2.5 rounded-xl shadow-[0_2px_12px_rgba(234,179,8,0.25)] flex items-center justify-center gap-1.5 transition-all cursor-pointer"
+              className="bg-[#EAB308] hover:bg-[#FACC15] text-black font-extrabold text-xs px-4 py-2.5 rounded-xl shadow-sm flex items-center justify-center gap-1.5 transition-all cursor-pointer"
             >
               <Plus className="w-4 h-4" />
               <span>Add Collection</span>
@@ -116,10 +116,10 @@ export default function AdminCategoriesPage() {
             <Link
               href="/category"
               target="_blank"
-              className="bg-[#1E1E1E] hover:bg-[#262626] text-white border border-[#333333] text-xs font-semibold px-4 py-2.5 rounded-xl flex items-center gap-1.5 transition-colors"
+              className="bg-stone-100 hover:bg-stone-200 text-stone-800 border border-stone-200 text-xs font-semibold px-4 py-2.5 rounded-xl flex items-center gap-1.5 transition-colors"
             >
               <span>Explore Live</span>
-              <ExternalLink className="w-3.5 h-3.5 text-[#EAB308]" />
+              <ExternalLink className="w-3.5 h-3.5 text-amber-700" />
             </Link>
           </div>
         </div>
@@ -133,44 +133,44 @@ export default function AdminCategoriesPage() {
             return (
               <div
                 key={cat.id}
-                className="bg-[#141414] rounded-2xl border border-[#2D2D2D] hover:border-[#EAB308]/50 overflow-hidden shadow-sm flex flex-col justify-between group transition-all"
+                className="bg-white rounded-2xl border border-stone-200 hover:border-amber-400 overflow-hidden shadow-xs flex flex-col justify-between group transition-all"
               >
-                <div className="relative aspect-[16/10] w-full bg-black/60 overflow-hidden border-b border-[#262626]">
+                <div className="relative aspect-[16/10] w-full bg-stone-100 overflow-hidden border-b border-stone-200">
                   <img
                     src={cat.image}
                     alt={cat.name}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute top-2.5 left-2.5 flex items-center gap-1.5">
-                    <span className="bg-black/85 backdrop-blur-xs text-[#FACC15] border border-[#EAB308]/40 font-bold text-[10px] uppercase px-2.5 py-0.5 rounded-md">
+                    <span className="bg-stone-900/80 backdrop-blur-xs text-amber-300 border border-amber-400/40 font-bold text-[10px] uppercase px-2.5 py-0.5 rounded-md">
                       {cat.parentType || 'Category'}
                     </span>
                     {isLed && (
-                      <span className="bg-amber-950/80 backdrop-blur-xs text-amber-300 border border-amber-500/40 font-bold text-[10px] px-2 py-0.5 rounded-md flex items-center gap-1">
-                        <Zap className="w-2.5 h-2.5 text-[#EAB308]" /> LED Glow
+                      <span className="bg-amber-100/90 backdrop-blur-xs text-amber-900 border border-amber-300 font-bold text-[10px] px-2 py-0.5 rounded-md flex items-center gap-1">
+                        <Zap className="w-2.5 h-2.5 text-amber-700" /> LED Glow
                       </span>
                     )}
                   </div>
-                  <span className="absolute bottom-2.5 right-2.5 bg-black/85 backdrop-blur-xs text-white text-[10.5px] font-mono font-bold px-2.5 py-0.5 rounded-md border border-white/10 flex items-center gap-1">
-                    <Package className="w-3 h-3 text-[#EAB308]" />
+                  <span className="absolute bottom-2.5 right-2.5 bg-stone-900/80 backdrop-blur-xs text-white text-[10.5px] font-mono font-bold px-2.5 py-0.5 rounded-md border border-stone-700 flex items-center gap-1">
+                    <Package className="w-3 h-3 text-amber-400" />
                     {liveCount} Items
                   </span>
                 </div>
 
                 <div className="p-4 space-y-3 flex-1 flex flex-col justify-between">
                   <div>
-                    <h3 className="font-serif font-bold text-base text-white group-hover:text-[#FACC15] transition-colors leading-snug">
+                    <h3 className="font-serif font-bold text-base text-stone-900 group-hover:text-amber-800 transition-colors leading-snug">
                       {cat.name}
                     </h3>
-                    <p className="text-xs text-[#A1A1AA] line-clamp-2 mt-1 leading-relaxed">
+                    <p className="text-xs text-stone-500 line-clamp-2 mt-1 leading-relaxed">
                       {cat.description}
                     </p>
                   </div>
 
-                  <div className="pt-3 border-t border-[#262626] flex items-center justify-between text-xs">
+                  <div className="pt-3 border-t border-stone-100 flex items-center justify-between text-xs">
                     <Link
                       href={`/admin/products?cat=${cat.slug}`}
-                      className="text-[#EAB308] hover:text-[#FACC15] font-semibold flex items-center gap-1 transition-colors"
+                      className="text-amber-800 hover:text-amber-900 font-bold flex items-center gap-1 transition-colors"
                     >
                       <Edit className="w-3 h-3" />
                       <span>Edit Artworks</span>
@@ -179,10 +179,10 @@ export default function AdminCategoriesPage() {
                       href={`/category/${cat.slug}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-[#9CA3AF] hover:text-white font-medium flex items-center gap-1 transition-colors"
+                      className="text-stone-500 hover:text-stone-900 font-medium flex items-center gap-1 transition-colors"
                     >
                       <span>Storefront</span>
-                      <ExternalLink className="w-3 h-3 text-[#EAB308]" />
+                      <ExternalLink className="w-3 h-3 text-amber-700" />
                     </a>
                   </div>
                 </div>
@@ -195,15 +195,15 @@ export default function AdminCategoriesPage() {
       {/* Add Category Modal */}
       {modalOpen && (
         <div className="fixed inset-0 z-50 overflow-y-auto">
-          <div className="fixed inset-0 bg-black/80 backdrop-blur-sm" onClick={() => setModalOpen(false)} />
+          <div className="fixed inset-0 bg-black/60 backdrop-blur-xs" onClick={() => setModalOpen(false)} />
           <div className="flex min-h-full items-center justify-center p-4">
-            <div className="relative w-full max-w-md bg-[#141414] border border-[#2D2D2D] rounded-3xl shadow-2xl p-6 sm:p-8 z-10 space-y-4 text-white">
-              <div className="flex items-center justify-between border-b border-[#2D2D2D] pb-3">
-                <h3 className="font-serif font-bold text-lg text-white">Add New Category</h3>
+            <div className="relative w-full max-w-md bg-white border border-stone-200 rounded-3xl shadow-2xl p-6 sm:p-8 z-10 space-y-4 text-stone-900">
+              <div className="flex items-center justify-between border-b border-stone-200 pb-3">
+                <h3 className="font-serif font-bold text-lg text-stone-900">Add New Category</h3>
                 <button
                   type="button"
                   onClick={() => setModalOpen(false)}
-                  className="p-1 text-[#9CA3AF] hover:text-white transition-colors"
+                  className="p-1 text-stone-400 hover:text-stone-900 transition-colors cursor-pointer"
                 >
                   <X className="w-5 h-5" />
                 </button>
@@ -211,7 +211,7 @@ export default function AdminCategoriesPage() {
 
               <form onSubmit={handleCreate} className="space-y-4 text-xs">
                 <div>
-                  <label className="font-semibold text-[#D1D5DB] block mb-1">Category Name *</label>
+                  <label className="font-semibold text-stone-700 block mb-1">Category Name *</label>
                   <input
                     type="text"
                     required
@@ -225,27 +225,27 @@ export default function AdminCategoriesPage() {
                         slug: n.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, ''),
                       });
                     }}
-                    className="w-full px-3 py-2 bg-[#1A1A1A] border border-[#2D2D2D] rounded-xl outline-none focus:border-[#EAB308] text-white"
+                    className="w-full px-3 py-2 bg-stone-50 border border-stone-300 rounded-xl outline-none focus:border-amber-500 text-stone-900"
                   />
                 </div>
 
                 <div>
-                  <label className="font-semibold text-[#D1D5DB] block mb-1">Slug *</label>
+                  <label className="font-semibold text-stone-700 block mb-1">Slug *</label>
                   <input
                     type="text"
                     required
                     value={formData.slug}
                     onChange={(e) => setFormData({ ...formData, slug: e.target.value })}
-                    className="w-full px-3 py-2 bg-[#1A1A1A] border border-[#2D2D2D] rounded-xl outline-none font-mono text-[#FACC15]"
+                    className="w-full px-3 py-2 bg-stone-50 border border-stone-300 rounded-xl outline-none font-mono text-amber-900 font-bold"
                   />
                 </div>
 
                 <div>
-                  <label className="font-semibold text-[#D1D5DB] block mb-1">Section Group *</label>
+                  <label className="font-semibold text-stone-700 block mb-1">Section Group *</label>
                   <select
                     value={formData.parentType}
                     onChange={(e) => setFormData({ ...formData, parentType: e.target.value })}
-                    className="w-full px-3 py-2 bg-[#1A1A1A] border border-[#2D2D2D] rounded-xl outline-none text-white"
+                    className="w-full px-3 py-2 bg-stone-50 border border-stone-300 rounded-xl outline-none text-stone-900"
                   >
                     <option value="custom-frames">Custom Photo Frames</option>
                     <option value="devotional">Devotional Wall Art</option>
@@ -254,37 +254,37 @@ export default function AdminCategoriesPage() {
                 </div>
 
                 <div>
-                  <label className="font-semibold text-[#D1D5DB] block mb-1">Banner Image Path *</label>
+                  <label className="font-semibold text-stone-700 block mb-1">Banner Image Path *</label>
                   <input
                     type="text"
                     required
                     value={formData.image}
                     onChange={(e) => setFormData({ ...formData, image: e.target.value })}
-                    className="w-full px-3 py-2 bg-[#1A1A1A] border border-[#2D2D2D] rounded-xl outline-none font-mono text-[11px] text-[#D1D5DB]"
+                    className="w-full px-3 py-2 bg-stone-50 border border-stone-300 rounded-xl outline-none font-mono text-[11px] text-stone-700"
                   />
                 </div>
 
                 <div>
-                  <label className="font-semibold text-[#D1D5DB] block mb-1">Short Description</label>
+                  <label className="font-semibold text-stone-700 block mb-1">Short Description</label>
                   <textarea
                     rows={2}
                     value={formData.description}
                     onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-                    className="w-full px-3 py-2 bg-[#1A1A1A] border border-[#2D2D2D] rounded-xl outline-none text-white"
+                    className="w-full px-3 py-2 bg-stone-50 border border-stone-300 rounded-xl outline-none text-stone-900"
                   />
                 </div>
 
-                <div className="flex justify-end gap-2 pt-3 border-t border-[#2D2D2D]">
+                <div className="flex justify-end gap-2 pt-3 border-t border-stone-200">
                   <button
                     type="button"
                     onClick={() => setModalOpen(false)}
-                    className="px-4 py-2 border border-[#333333] hover:bg-[#1E1E1E] text-[#D1D5DB] rounded-xl transition-colors cursor-pointer"
+                    className="px-4 py-2 border border-stone-300 hover:bg-stone-50 text-stone-700 rounded-xl transition-colors cursor-pointer"
                   >
                     Cancel
                   </button>
                   <button
                     type="submit"
-                    className="px-5 py-2 bg-[#EAB308] hover:bg-[#FACC15] text-black font-extrabold rounded-xl transition-colors cursor-pointer"
+                    className="px-5 py-2 bg-[#EAB308] hover:bg-[#FACC15] text-black font-extrabold rounded-xl transition-colors cursor-pointer shadow-xs"
                   >
                     Save Category
                   </button>

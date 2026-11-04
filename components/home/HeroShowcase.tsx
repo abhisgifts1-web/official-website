@@ -232,10 +232,10 @@ export default function HeroShowcase() {
   };
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-[#121212] via-[#161616] to-[#121212] py-8 sm:py-10 lg:py-14 border-b border-[#EAB308]/30">
+    <section className="relative overflow-hidden bg-gradient-to-b from-stone-50 via-white to-stone-50 py-8 sm:py-10 lg:py-14 border-b border-stone-200">
       {/* Ambient Radial Golden Aura Lights */}
-      <div className="absolute top-1/3 right-10 w-[600px] lg:w-[800px] h-[600px] lg:h-[800px] bg-gradient-to-br from-[#EAB308]/18 via-[#F0D79B]/10 to-transparent rounded-full blur-3xl pointer-events-none -z-10 animate-subtle-float" />
-      <div className="absolute top-1/4 left-4 w-[500px] h-[400px] bg-[#EAB308]/10 rounded-full blur-3xl pointer-events-none -z-10" />
+      <div className="absolute top-1/3 right-10 w-[600px] lg:w-[800px] h-[600px] lg:h-[800px] bg-gradient-to-br from-amber-200/20 via-amber-100/10 to-transparent rounded-full blur-3xl pointer-events-none -z-10 animate-subtle-float" />
+      <div className="absolute top-1/4 left-4 w-[500px] h-[400px] bg-amber-100/30 rounded-full blur-3xl pointer-events-none -z-10" />
 
       {/* Floating Gold Sparkle Particles */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-40 -z-10">
@@ -254,22 +254,22 @@ export default function HeroShowcase() {
           <div className="lg:col-span-5 xl:col-span-5 space-y-5 text-center lg:text-left">
             
             {/* 1. Prestige Overline Badge */}
-            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[#181818]/95 border border-[#EAB308] shadow-xs backdrop-blur-md">
+            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white border border-stone-200 shadow-xs backdrop-blur-md">
               <span className="w-2 h-2 rounded-full bg-[#EAB308] animate-ping" />
-              <Sparkles className="w-3.5 h-3.5 text-[#EAB308] animate-pulse" />
-              <span className="font-mono text-[11px] sm:text-xs font-bold tracking-[0.18em] uppercase text-[#FFFFFF]">
+              <Sparkles className="w-3.5 h-3.5 text-amber-600 animate-pulse" />
+              <span className="font-mono text-[11px] sm:text-xs font-bold tracking-[0.18em] uppercase text-stone-900">
                 ESTD 2022 • DILSUKHNAGAR, HYDERABAD
               </span>
             </div>
 
             {/* 2. Main Hero Headline with High-Contrast Golden Aura */}
             <div className="space-y-1">
-              <h1 className="font-serif font-bold text-3xl sm:text-4xl md:text-5xl lg:text-[40px] xl:text-[46px] 2xl:text-[52px] text-[#FFFFFF] leading-[1.12] tracking-tight">
+              <h1 className="font-serif font-bold text-3xl sm:text-4xl md:text-5xl lg:text-[40px] xl:text-[46px] 2xl:text-[52px] text-stone-900 leading-[1.12] tracking-tight">
                 <span className="block animate-headline-line-1">
                   Premium Acrylic &amp; Customized
                 </span>
                 <span className="block mt-1 animate-headline-line-2">
-                  <span className="relative inline-block font-serif italic text-[#EAB308] bg-gradient-to-r from-[#EAB308] via-[#FDE047] to-[#EAB308] bg-clip-text text-transparent drop-shadow-[0_1px_2px_rgba(0,0,0,0.4)] animate-gold-text-shimmer">
+                  <span className="relative inline-block font-serif italic text-amber-800 bg-gradient-to-r from-amber-700 via-amber-600 to-amber-800 bg-clip-text text-transparent drop-shadow-xs animate-gold-text-shimmer">
                     Photo Frames in Hyderabad
                   </span>
                 </span>
@@ -278,44 +278,44 @@ export default function HeroShowcase() {
 
             {/* 3. Artisan Trust Strip */}
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 py-1">
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#181818]/80 border border-[#EAB308]/50 shadow-2xs text-[#FFFFFF] text-xs font-semibold">
-                <Award className="w-3.5 h-3.5 text-[#EAB308]" />
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-stone-50 border border-stone-200 shadow-2xs text-stone-800 text-xs font-semibold">
+                <Award className="w-3.5 h-3.5 text-amber-600" />
                 <span>Handcrafted in Hyderabad</span>
               </div>
-              <div className="text-xs sm:text-[13px] text-[#D1D5DB] font-medium flex items-center gap-1.5">
-                <strong className="text-[#FFFFFF] font-bold">Handcrafted in Hyderabad</strong>
+              <div className="text-xs sm:text-[13px] text-stone-600 font-medium flex items-center gap-1.5">
+                <strong className="text-stone-900 font-bold">Handcrafted in Hyderabad</strong>
                 <span className="text-[#EAB308]">•</span>
                 <span>100% Quality Guarantee</span>
               </div>
             </div>
 
             {/* 4. Refined Editorial Narrative */}
-            <p className="text-xs sm:text-[14px] lg:text-[15px] text-[#D1D5DB] max-w-xl mx-auto lg:mx-0 leading-relaxed font-sans">
-              Hyderabad&apos;s premier destination for custom <strong className="text-[#FFFFFF] font-semibold">acrylic photo frames</strong>, <strong className="text-[#FFFFFF] font-semibold">warm LED illuminated frames</strong>, and sacred devotional heirlooms. Handcrafted with precision beveled edges and golden foil embellishments at our Dilsukhnagar studio with fast local delivery across Telangana.
+            <p className="text-xs sm:text-[14px] lg:text-[15px] text-stone-600 max-w-xl mx-auto lg:mx-0 leading-relaxed font-sans">
+              Hyderabad&apos;s premier destination for custom <strong className="text-stone-900 font-semibold">acrylic photo frames</strong>, <strong className="text-stone-900 font-semibold">warm LED illuminated frames</strong>, and sacred devotional heirlooms. Handcrafted with precision beveled edges and golden foil embellishments at our Dilsukhnagar studio with fast local delivery across Telangana.
             </p>
 
             {/* 5. Animated CTA Buttons */}
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 pt-1">
-              {/* Primary CTA: Royal Wine with Sweeping Light Beam */}
+              {/* Primary CTA */}
               <Link
                 href="/shop"
-                className="relative overflow-hidden w-full sm:w-auto bg-[#EAB308] hover:bg-[#FACC15] text-black font-bold text-xs sm:text-[13.5px] px-7 py-4 rounded-full shadow-[0_0_25px_rgba(234,179,8,0.35)] border border-[#EAB308] flex items-center justify-center gap-2.5 transition-all hover:scale-[1.03] active:scale-[0.98] tracking-wider uppercase group cursor-pointer"
+                className="relative overflow-hidden w-full sm:w-auto bg-[#EAB308] hover:bg-[#FACC15] text-black font-extrabold text-xs sm:text-[13.5px] px-7 py-4 rounded-full shadow-[0_4px_18px_rgba(234,179,8,0.3)] border border-[#EAB308] flex items-center justify-center gap-2.5 transition-all hover:scale-[1.03] active:scale-[0.98] tracking-wider uppercase group cursor-pointer"
               >
                 {/* Continuous Gold Sheen Beam */}
                 <span className="absolute inset-0 pointer-events-none overflow-hidden">
                   <span className="block w-1/2 h-full bg-gradient-to-r from-transparent via-white/25 to-transparent animate-btn-shine" />
                 </span>
-                <Sparkles className="w-4 h-4 text-[#FACC15]" />
+                <Sparkles className="w-4 h-4 text-black" />
                 <span>EXPLORE PHOTO FRAMES</span>
-                <ArrowRight className="w-4 h-4 text-[#FACC15] group-hover:translate-x-1.5 transition-transform" />
+                <ArrowRight className="w-4 h-4 text-black group-hover:translate-x-1.5 transition-transform" />
               </Link>
 
-              {/* Secondary CTA: Elegant Ivory & Gold Studio Trigger */}
+              {/* Secondary CTA */}
               <Link
                 href="/customise"
-                className="w-full sm:w-auto bg-white/10 hover:bg-white/20 text-white border-2 border-white/80 hover:border-white font-bold text-xs sm:text-[13.5px] px-6 py-4 rounded-full shadow-xs flex items-center justify-center gap-2 transition-all hover:scale-[1.03] active:scale-[0.98] tracking-wider uppercase group cursor-pointer"
+                className="w-full sm:w-auto bg-white hover:bg-stone-50 text-stone-900 border-2 border-stone-300 hover:border-stone-400 font-bold text-xs sm:text-[13.5px] px-6 py-4 rounded-full shadow-xs flex items-center justify-center gap-2 transition-all hover:scale-[1.03] active:scale-[0.98] tracking-wider uppercase group cursor-pointer"
               >
-                <Flame className="w-4 h-4 text-[#EAB308] animate-pulse" />
+                <Flame className="w-4 h-4 text-amber-600 animate-pulse" />
                 <span>CUSTOMIZE YOUR FRAME</span>
               </Link>
             </div>
@@ -326,7 +326,7 @@ export default function HeroShowcase() {
                 href="https://wa.me/919032372782?text=Hi%20Abhi%27s%20Gifts%2C%20I%20would%20like%20to%20order%20a%20customized%20photo%20frame."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-xs font-semibold text-[#FFFFFF] hover:text-[#EAB308] transition-colors"
+                className="inline-flex items-center gap-2 text-xs font-semibold text-stone-800 hover:text-amber-800 transition-colors"
               >
                 <span className="relative flex h-2.5 w-2.5">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
@@ -338,40 +338,40 @@ export default function HeroShowcase() {
             </div>
 
             {/* 6. Three Interactive Value Pillars */}
-            <div className="pt-4 border-t border-[#2D2D2D] grid grid-cols-1 sm:grid-cols-3 gap-3 text-center sm:text-left">
-              <div className="group flex items-center gap-3 p-3 rounded-2xl bg-[#181818] border border-[#2D2D2D] hover:border-[#EAB308] transition-all duration-300 shadow-xs hover:-translate-y-1 hover:shadow-md">
-                <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#EAB308]/20 to-[#EAB308]/10 border border-[#EAB308]/60 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
-                  <Award className="w-4 h-4 text-[#EAB308]" />
+            <div className="pt-4 border-t border-stone-200 grid grid-cols-1 sm:grid-cols-3 gap-3 text-center sm:text-left">
+              <div className="group flex items-center gap-3 p-3 rounded-2xl bg-white border border-stone-200 hover:border-[#EAB308] transition-all duration-300 shadow-xs hover:-translate-y-1 hover:shadow-md">
+                <div className="w-9 h-9 rounded-xl bg-amber-50 border border-amber-200 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                  <Award className="w-4 h-4 text-amber-700" />
                 </div>
                 <div className="text-left">
-                  <span className="font-bold text-[#FFFFFF] text-xs block leading-tight tracking-tight uppercase">
+                  <span className="font-bold text-stone-900 text-xs block leading-tight tracking-tight uppercase">
                     Premium Acrylic
                   </span>
-                  <span className="text-[11px] text-[#D1D5DB] block mt-0.5 font-medium">Precision Bevel</span>
+                  <span className="text-[11px] text-stone-500 block mt-0.5 font-medium">Precision Bevel</span>
                 </div>
               </div>
 
-              <div className="group flex items-center gap-3 p-3 rounded-2xl bg-[#181818] border border-[#2D2D2D] hover:border-[#EAB308] transition-all duration-300 shadow-xs hover:-translate-y-1 hover:shadow-md">
-                <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#EAB308]/20 to-[#EAB308]/10 border border-[#EAB308]/60 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
-                  <Zap className="w-4 h-4 text-[#EAB308]" />
+              <div className="group flex items-center gap-3 p-3 rounded-2xl bg-white border border-stone-200 hover:border-[#EAB308] transition-all duration-300 shadow-xs hover:-translate-y-1 hover:shadow-md">
+                <div className="w-9 h-9 rounded-xl bg-amber-50 border border-amber-200 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                  <Zap className="w-4 h-4 text-amber-700" />
                 </div>
                 <div className="text-left">
-                  <span className="font-bold text-[#FFFFFF] text-xs block leading-tight tracking-tight uppercase">
+                  <span className="font-bold text-stone-900 text-xs block leading-tight tracking-tight uppercase">
                     Warm LED Glow
                   </span>
-                  <span className="text-[11px] text-[#D1D5DB] block mt-0.5 font-medium">Concealed Backlight</span>
+                  <span className="text-[11px] text-stone-500 block mt-0.5 font-medium">Concealed Backlight</span>
                 </div>
               </div>
 
-              <div className="group flex items-center gap-3 p-3 rounded-2xl bg-[#181818] border border-[#2D2D2D] hover:border-[#EAB308] transition-all duration-300 shadow-xs hover:-translate-y-1 hover:shadow-md">
-                <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#EAB308]/20 to-[#EAB308]/10 border border-[#EAB308]/60 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
-                  <ShieldCheck className="w-4 h-4 text-[#EAB308]" />
+              <div className="group flex items-center gap-3 p-3 rounded-2xl bg-white border border-stone-200 hover:border-[#EAB308] transition-all duration-300 shadow-xs hover:-translate-y-1 hover:shadow-md">
+                <div className="w-9 h-9 rounded-xl bg-amber-50 border border-amber-200 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                  <ShieldCheck className="w-4 h-4 text-amber-700" />
                 </div>
                 <div className="text-left">
-                  <span className="font-bold text-[#FFFFFF] text-xs block leading-tight tracking-tight uppercase">
+                  <span className="font-bold text-stone-900 text-xs block leading-tight tracking-tight uppercase">
                     Safe Packaging
                   </span>
-                  <span className="text-[11px] text-[#D1D5DB] block mt-0.5 font-medium">5-Layer Crate Pack</span>
+                  <span className="text-[11px] text-stone-500 block mt-0.5 font-medium">5-Layer Crate Pack</span>
                 </div>
               </div>
             </div>
@@ -392,14 +392,14 @@ export default function HeroShowcase() {
               <div className="flex items-center gap-2 min-w-0">
                 <span
                   key={`title-${currentDeity.id}`}
-                  className="text-xs sm:text-[13px] font-serif font-bold text-[#FFFFFF] bg-[#181818]/95 px-3.5 py-1.5 rounded-full border border-[#EAB308]/80 shadow-xs flex items-center gap-2 transition-all truncate"
+                  className="text-xs sm:text-[13px] font-serif font-bold text-stone-900 bg-white px-3.5 py-1.5 rounded-full border border-stone-200 shadow-xs flex items-center gap-2 transition-all truncate"
                 >
                   <span className="text-base shrink-0">{currentDeity.deityIcon}</span>
                   <span className="truncate">{currentDeity.name}</span>
                 </span>
                 
-                <span className="hidden sm:inline-flex items-center gap-1.5 text-[11px] text-[#D1D5DB] font-medium bg-[#121212] px-3 py-1 rounded-full border border-[#2D2D2D] shrink-0">
-                  <span className={`w-1.5 h-1.5 rounded-full ${isPaused ? 'bg-amber-600' : 'bg-[#EAB308] animate-ping'}`} />
+                <span className="hidden sm:inline-flex items-center gap-1.5 text-[11px] text-stone-600 font-medium bg-stone-100 px-3 py-1 rounded-full border border-stone-200 shrink-0">
+                  <span className={`w-1.5 h-1.5 rounded-full ${isPaused ? 'bg-amber-600' : 'bg-emerald-500 animate-ping'}`} />
                   <span>{isPaused ? 'Paused on Hover' : 'Auto-Cycles (5s)'}</span>
                 </span>
               </div>
@@ -411,7 +411,7 @@ export default function HeroShowcase() {
                 className={`px-3.5 py-1.5 rounded-full text-xs font-bold shadow-md border transition-all duration-300 flex items-center gap-1.5 cursor-pointer shrink-0 active:scale-95 ${
                   isLedGlowOn
                     ? 'bg-[#EAB308] text-[#000000] border-[#EAB308] shadow-[0_0_20px_rgba(234,179,8,0.55)]'
-                    : 'bg-[#181818]/95 text-[#D1D5DB] border-[#2D2D2D] hover:text-[#FFFFFF]'
+                    : 'bg-white text-stone-700 border-stone-200 hover:text-stone-900 shadow-xs'
                 }`}
                 title="Toggle Warm LED Glow Backlight Simulation"
               >

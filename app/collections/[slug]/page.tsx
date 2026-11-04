@@ -55,7 +55,7 @@ export default function CollectionSlugPage({ params }: Props) {
   }
 
   return (
-    <div className="w-full max-w-[1760px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 py-8 sm:py-12 space-y-8">
+    <div className="w-full max-w-[1760px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 py-8 sm:py-12 space-y-8 bg-white text-stone-900">
       {/* Breadcrumb */}
       <nav className="flex items-center gap-2 text-xs text-stone-500">
         <Link href="/" className="hover:text-amber-800 flex items-center gap-1">
@@ -71,8 +71,8 @@ export default function CollectionSlugPage({ params }: Props) {
       </nav>
 
       {/* Header */}
-      <div className="bg-[#121212] p-6 sm:p-10 rounded-3xl border border-stone-200">
-        <span className="text-xs uppercase tracking-widest font-bold text-amber-900 bg-amber-100 px-3 py-1 rounded-full inline-flex items-center gap-1.5 mb-3">
+      <div className="bg-stone-50 p-6 sm:p-10 rounded-3xl border border-stone-200 shadow-xs">
+        <span className="text-xs uppercase tracking-widest font-bold text-amber-900 bg-amber-100 px-3 py-1 rounded-full inline-flex items-center gap-1.5 mb-3 border border-amber-300">
           <Sparkles className="w-3.5 h-3.5 text-amber-700" /> Curated Series
         </span>
         <h1 className="font-serif font-bold text-2xl sm:text-4xl text-stone-900">
@@ -96,7 +96,7 @@ export default function CollectionSlugPage({ params }: Props) {
       <ProductGrid products={filtered} />
 
       {/* Customization callout */}
-      <div className="bg-[#121212] p-6 sm:p-8 rounded-3xl border border-amber-200 flex flex-col sm:flex-row items-center justify-between gap-6 mt-12">
+      <div className="bg-gradient-to-r from-amber-50/70 via-stone-50 to-amber-50/70 p-6 sm:p-8 rounded-3xl border border-amber-200 flex flex-col sm:flex-row items-center justify-between gap-6 mt-12 shadow-xs">
         <div className="space-y-1 text-center sm:text-left">
           <h3 className="font-serif font-bold text-lg text-stone-900">
             Looking for a specific temple size or custom LED backlight?
@@ -107,7 +107,7 @@ export default function CollectionSlugPage({ params }: Props) {
         </div>
         <Link
           href="/customise"
-          className="bg-stone-900 hover:bg-amber-800 text-white font-semibold text-xs sm:text-sm px-6 py-3 rounded-full shadow-warm transition-colors whitespace-nowrap"
+          className="bg-stone-900 hover:bg-stone-800 text-white font-semibold text-xs sm:text-sm px-6 py-3 rounded-full shadow-sm transition-colors whitespace-nowrap"
         >
           Personalise Custom Frame →
         </Link>

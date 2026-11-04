@@ -324,18 +324,18 @@ export default function AdminProductsPage() {
     <AdminLayout>
       <div className="space-y-6 max-w-7xl mx-auto">
         {/* Page Header */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-[#141414] border border-[#2D2D2D] p-5 sm:p-6 rounded-3xl">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white border border-stone-200 p-5 sm:p-6 rounded-3xl shadow-sm text-stone-900">
           <div>
             <div className="flex items-center gap-2 mb-1">
-              <span className="px-2.5 py-0.5 rounded-full bg-[#EAB308]/15 border border-[#EAB308]/40 text-[#FACC15] font-bold text-[10px] tracking-wider uppercase flex items-center gap-1">
-                <Sparkles className="w-3 h-3 text-[#EAB308]" />
+              <span className="px-2.5 py-0.5 rounded-full bg-amber-50 border border-amber-300 text-amber-800 font-bold text-[10px] tracking-wider uppercase flex items-center gap-1 shadow-2xs">
+                <Sparkles className="w-3 h-3 text-amber-700" />
                 Catalog Operations
               </span>
             </div>
-            <h1 className="font-serif font-bold text-2xl sm:text-3xl text-white">
+            <h1 className="font-serif font-bold text-2xl sm:text-3xl text-stone-900">
               Artwork Catalog &amp; Inventory Management
             </h1>
-            <p className="text-xs text-[#A1A1AA] mt-1">
+            <p className="text-xs text-stone-500 mt-1">
               Manage luxury acrylic artworks, sizes, pricing, and live inventory status across all collections.
             </p>
           </div>
@@ -346,7 +346,7 @@ export default function AdminProductsPage() {
               setFormData(initialForm);
               setModalOpen(true);
             }}
-            className="inline-flex items-center gap-2 bg-[#EAB308] hover:bg-[#FACC15] text-black px-5 py-2.5 rounded-xl font-extrabold text-xs transition-all shadow-[0_2px_12px_rgba(234,179,8,0.25)] hover:scale-[1.02] self-start sm:self-auto cursor-pointer"
+            className="inline-flex items-center gap-2 bg-[#EAB308] hover:bg-[#FACC15] text-black px-5 py-2.5 rounded-xl font-extrabold text-xs transition-all shadow-sm hover:scale-[1.02] self-start sm:self-auto cursor-pointer"
           >
             <Plus className="w-4 h-4" />
             <span>Add New Masterpiece</span>
@@ -354,15 +354,15 @@ export default function AdminProductsPage() {
         </div>
 
         {/* Toolbar & Filters (Orientation Filter Removed) */}
-        <div className="bg-[#141414] p-4 rounded-2xl border border-[#2D2D2D] shadow-2xs flex flex-col md:flex-row items-center justify-between gap-3 text-xs">
+        <div className="bg-white p-4 rounded-2xl border border-stone-200 shadow-xs flex flex-col md:flex-row items-center justify-between gap-3 text-xs">
           <div className="relative w-full md:w-80">
-            <Search className="w-4 h-4 text-[#A1A1AA] absolute left-3 top-1/2 -translate-y-1/2" />
+            <Search className="w-4 h-4 text-stone-400 absolute left-3 top-1/2 -translate-y-1/2" />
             <input
               type="text"
               placeholder="Search by title, slug, or deity..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="w-full pl-9 pr-3 py-2 bg-[#1A1A1A] border border-[#2D2D2D] rounded-xl outline-none focus:border-[#EAB308] text-xs text-white placeholder-[#71717A]"
+              className="w-full pl-9 pr-3 py-2 bg-stone-50 border border-stone-200 rounded-xl outline-none focus:border-amber-500 text-xs text-stone-900 placeholder-stone-400"
             />
           </div>
 
@@ -370,7 +370,7 @@ export default function AdminProductsPage() {
             <select
               value={selectedCat}
               onChange={(e) => setSelectedCat(e.target.value)}
-              className="px-3 py-2 bg-[#1A1A1A] border border-[#2D2D2D] rounded-xl outline-none text-xs text-white"
+              className="px-3 py-2 bg-stone-50 border border-stone-200 rounded-xl outline-none text-xs text-stone-900"
             >
               <option value="">All Categories ({INITIAL_CATEGORIES.length})</option>
               {INITIAL_CATEGORIES.map((c) => (
@@ -383,15 +383,15 @@ export default function AdminProductsPage() {
         </div>
 
         {/* Products Table (Orientation Column Removed) */}
-        <div className="bg-[#141414] rounded-2xl border border-[#2D2D2D] shadow-2xs overflow-hidden">
+        <div className="bg-white rounded-2xl border border-stone-200 shadow-xs overflow-hidden">
           {loading ? (
-            <div className="p-12 text-center text-xs text-[#A1A1AA]">Loading catalog...</div>
+            <div className="p-12 text-center text-xs text-stone-500">Loading catalog...</div>
           ) : filteredProducts.length === 0 ? (
-            <div className="p-12 text-center text-xs text-[#A1A1AA]">No artworks match your criteria.</div>
+            <div className="p-12 text-center text-xs text-stone-500">No artworks match your criteria.</div>
           ) : (
             <div className="overflow-x-auto">
-              <table className="w-full text-left text-xs text-[#D1D5DB]">
-                <thead className="bg-[#1C1C1E] border-b border-[#2D2D2D] text-[#A1A1AA] font-bold uppercase tracking-wider text-[10px]">
+              <table className="w-full text-left text-xs text-stone-700">
+                <thead className="bg-stone-100 border-b border-stone-200 text-stone-700 font-bold uppercase tracking-wider text-[10px]">
                   <tr>
                     <th className="py-3 px-4">Artwork</th>
                     <th className="py-3 px-4">4 Sizes &amp; Pricing</th>
@@ -401,10 +401,10 @@ export default function AdminProductsPage() {
                     <th className="py-3 px-4 text-right">Actions</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-[#262626]">
+                <tbody className="divide-y divide-stone-100">
                   {filteredProducts.map((prod) => {
                     const primaryVariants =
-                      prod.variants && prod.variants.length > 0
+                        prod.variants && prod.variants.length > 0
                         ? prod.variants
                         : getDefault4Variants(prod.basePrice, prod.baseMrp);
 
@@ -412,18 +412,18 @@ export default function AdminProductsPage() {
                     const totalStock = fourSizes.reduce((acc, v) => acc + (v.stockCount || 0), 0);
 
                     return (
-                      <tr key={prod.id} className="hover:bg-[#1A1A1A] transition-colors">
+                      <tr key={prod.id} className="hover:bg-stone-50 transition-colors">
                         {/* Artwork column */}
                         <td className="py-3 px-4">
                           <div className="flex items-center gap-3">
                             <img
                               src={prod.images[0]}
                               alt={prod.title}
-                              className="w-12 h-12 object-cover rounded-xl border border-[#333333] shrink-0"
+                              className="w-12 h-12 object-cover rounded-xl border border-stone-200 shrink-0 shadow-2xs"
                             />
                             <div className="min-w-0">
-                              <p className="font-bold text-white truncate max-w-xs">{prod.title}</p>
-                              <p className="text-[11px] text-[#A1A1AA] font-mono truncate">{prod.slug}</p>
+                              <p className="font-bold text-stone-900 truncate max-w-xs">{prod.title}</p>
+                              <p className="text-[11px] text-stone-500 font-mono truncate">{prod.slug}</p>
                             </div>
                           </div>
                         </td>
@@ -434,12 +434,12 @@ export default function AdminProductsPage() {
                             {fourSizes.map((v, i) => (
                               <div
                                 key={i}
-                                className="px-2 py-1 bg-[#1A1A1A] border border-[#2D2D2D] rounded-lg text-[10.5px] flex items-center justify-between gap-1.5"
+                                className="px-2 py-1 bg-stone-50 border border-stone-200 rounded-lg text-[10.5px] flex items-center justify-between gap-1.5"
                               >
-                                <span className="text-[#A1A1AA] font-medium truncate max-w-[110px]" title={v.size}>
+                                <span className="text-stone-600 font-medium truncate max-w-[110px]" title={v.size}>
                                   {v.size.replace(' inches', '"').replace(' (Grand Wall Size)', ' Grand').replace(' (Grand Sanctum)', '')}
                                 </span>
-                                <span className="font-bold font-serif text-[#FACC15] shrink-0">
+                                <span className="font-bold font-serif text-amber-800 shrink-0">
                                   ₹{v.price.toLocaleString('en-IN')}
                                 </span>
                               </div>
@@ -448,18 +448,18 @@ export default function AdminProductsPage() {
                         </td>
 
                         {/* Category */}
-                        <td className="py-3 px-4 text-[#D1D5DB] font-medium">
+                        <td className="py-3 px-4 text-stone-700 font-medium">
                           <span className="text-xs">{prod.categoryName}</span>
                         </td>
 
                         {/* Lighting Type */}
                         <td className="py-3 px-4">
                           {prod.hasLedBacklight ? (
-                            <span className="bg-[#EAB308]/15 text-[#FACC15] border border-[#EAB308]/40 font-bold px-2 py-0.5 rounded text-[10px] whitespace-nowrap">
+                            <span className="bg-amber-50 text-amber-800 border border-amber-300 font-bold px-2 py-0.5 rounded text-[10px] whitespace-nowrap shadow-2xs">
                               ✨ Ambient LED
                             </span>
                           ) : (
-                            <span className="bg-[#1E1E1E] text-[#A1A1AA] border border-[#333333] px-2 py-0.5 rounded text-[10px] whitespace-nowrap">
+                            <span className="bg-stone-100 text-stone-600 border border-stone-200 px-2 py-0.5 rounded text-[10px] whitespace-nowrap">
                               Pure Acrylic
                             </span>
                           )}
@@ -467,7 +467,7 @@ export default function AdminProductsPage() {
 
                         {/* Stock */}
                         <td className="py-3 px-4 text-center">
-                          <span className="inline-flex items-center px-2 py-0.5 rounded-full bg-emerald-950/80 border border-emerald-500/40 text-emerald-300 text-[11px] font-bold">
+                          <span className="inline-flex items-center px-2 py-0.5 rounded-full bg-emerald-50 border border-emerald-300 text-emerald-800 text-[11px] font-bold shadow-2xs">
                             {totalStock} in stock
                           </span>
                         </td>
@@ -478,7 +478,7 @@ export default function AdminProductsPage() {
                             <Link
                               href={`/product/${prod.slug}`}
                               target="_blank"
-                              className="p-1.5 text-[#9CA3AF] hover:text-[#FFFFFF] hover:bg-[#1E1E1E] rounded-lg transition-colors"
+                              className="p-1.5 text-stone-400 hover:text-stone-900 hover:bg-stone-100 rounded-lg transition-colors"
                               title="View on Storefront"
                             >
                               <ExternalLink className="w-4 h-4" />
@@ -486,7 +486,7 @@ export default function AdminProductsPage() {
                             <button
                               type="button"
                               onClick={() => handleEditProduct(prod)}
-                              className="px-2.5 py-1 text-xs font-semibold bg-[#EAB308] hover:bg-[#FACC15] text-black rounded-lg flex items-center gap-1 transition-colors cursor-pointer"
+                              className="px-2.5 py-1 text-xs font-semibold bg-[#EAB308] hover:bg-[#FACC15] text-black rounded-lg flex items-center gap-1 transition-colors cursor-pointer shadow-2xs"
                               title="Edit Artwork & Sizes"
                             >
                               <Edit2 className="w-3.5 h-3.5" />
@@ -495,7 +495,7 @@ export default function AdminProductsPage() {
                             <button
                               type="button"
                               onClick={() => handleDeleteProduct(prod.slug)}
-                              className="p-1.5 text-[#71717A] hover:text-red-400 hover:bg-red-950/30 rounded-lg transition-colors cursor-pointer"
+                              className="p-1.5 text-stone-400 hover:text-rose-600 hover:bg-rose-50 rounded-lg transition-colors cursor-pointer"
                               title="Delete Product"
                             >
                               <Trash2 className="w-4 h-4" />
@@ -511,24 +511,24 @@ export default function AdminProductsPage() {
           )}
         </div>
 
-        {/* Modal: Add / Edit Product (Dark Atelier Theme & Orientation Removed) */}
+        {/* Modal: Add / Edit Product (Light Theme with White Background) */}
         {modalOpen && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-xs overflow-y-auto">
-            <div className="bg-[#141414] rounded-3xl max-w-4xl w-full p-6 sm:p-7 shadow-2xl border border-[#2D2D2D] my-8 max-h-[92vh] overflow-y-auto text-white">
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs overflow-y-auto">
+            <div className="bg-white rounded-3xl max-w-4xl w-full p-6 sm:p-7 shadow-2xl border border-stone-200 my-8 max-h-[92vh] overflow-y-auto text-stone-900">
               {/* Modal Header */}
-              <div className="flex items-center justify-between border-b border-[#2D2D2D] pb-4 mb-5">
+              <div className="flex items-center justify-between border-b border-stone-200 pb-4 mb-5">
                 <div>
-                  <h3 className="font-serif font-bold text-xl text-white">
+                  <h3 className="font-serif font-bold text-xl text-stone-900">
                     {editingSlug ? 'Edit Artwork & Pricing' : 'Add New Masterpiece'}
                   </h3>
-                  <p className="text-xs text-[#A1A1AA] mt-0.5">
+                  <p className="text-xs text-stone-600 mt-0.5">
                     Configure title, category, 4 standard sizes, selling prices, and inventory stock.
                   </p>
                 </div>
                 <button
                   type="button"
                   onClick={() => setModalOpen(false)}
-                  className="p-2 text-[#A1A1AA] hover:text-white hover:bg-[#1E1E1E] rounded-full transition-colors cursor-pointer"
+                  className="p-2 text-stone-500 hover:text-stone-900 hover:bg-stone-100 rounded-full transition-colors cursor-pointer"
                 >
                   <X className="w-5 h-5" />
                 </button>
@@ -537,32 +537,32 @@ export default function AdminProductsPage() {
               <form onSubmit={handleSaveProduct} className="space-y-6 text-xs">
                 {/* 1. Basic Details */}
                 <div className="space-y-3">
-                  <h4 className="font-bold text-white text-sm flex items-center gap-2">
-                    <span className="w-5 h-5 rounded-full bg-[#EAB308]/20 text-[#FACC15] text-xs flex items-center justify-center font-bold">1</span>
+                  <h4 className="font-bold text-stone-900 text-sm flex items-center gap-2">
+                    <span className="w-5 h-5 rounded-full bg-amber-100 text-amber-800 text-xs flex items-center justify-center font-bold">1</span>
                     Artwork Information
                   </h4>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <div>
-                      <label className="font-semibold text-[#D1D5DB] block mb-1">Title *</label>
+                      <label className="font-semibold text-stone-800 block mb-1">Title *</label>
                       <input
                         type="text"
                         required
                         value={formData.title}
                         onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-                        className="w-full px-3 py-2 bg-[#1A1A1A] border border-[#2D2D2D] rounded-xl outline-none focus:border-[#EAB308] text-xs text-white placeholder-[#71717A]"
+                        className="w-full px-3 py-2 bg-white border border-stone-300 rounded-xl outline-none focus:border-amber-500 text-xs text-stone-900 placeholder-stone-400"
                         placeholder="e.g. Tirupati Balaji Divine Blessings"
                       />
                     </div>
 
                     <div>
-                      <label className="font-semibold text-[#D1D5DB] block mb-1">URL Slug *</label>
+                      <label className="font-semibold text-stone-800 block mb-1">URL Slug *</label>
                       <input
                         type="text"
                         required
                         value={formData.slug}
                         onChange={(e) => setFormData({ ...formData, slug: e.target.value })}
-                        className="w-full px-3 py-2 bg-[#1A1A1A] border border-[#2D2D2D] rounded-xl outline-none font-mono text-xs text-white placeholder-[#71717A]"
+                        className="w-full px-3 py-2 bg-white border border-stone-300 rounded-xl outline-none font-mono text-xs text-stone-900 placeholder-stone-400"
                         placeholder="e.g. tirupati-balaji-divine-blessings"
                       />
                     </div>
@@ -570,7 +570,7 @@ export default function AdminProductsPage() {
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <div>
-                      <label className="font-semibold text-[#D1D5DB] block mb-1">Primary Category *</label>
+                      <label className="font-semibold text-stone-800 block mb-1">Primary Category *</label>
                       <select
                         value={formData.categorySlug}
                         onChange={(e) => {
@@ -583,10 +583,10 @@ export default function AdminProductsPage() {
                             categorySlugs: Array.from(new Set([val, ...formData.categorySlugs])),
                           });
                         }}
-                        className="w-full px-3 py-2 bg-[#1A1A1A] border border-[#2D2D2D] rounded-xl outline-none text-xs text-white"
+                        className="w-full px-3 py-2 bg-white border border-stone-300 rounded-xl outline-none text-xs text-stone-900"
                       >
                         {INITIAL_CATEGORIES.map((c) => (
-                          <option key={c.id} value={c.slug} className="bg-[#1A1A1A] text-white">
+                          <option key={c.id} value={c.slug} className="bg-white text-stone-900">
                             {c.name}
                           </option>
                         ))}
@@ -594,28 +594,28 @@ export default function AdminProductsPage() {
                     </div>
 
                     <div>
-                      <label className="font-semibold text-[#D1D5DB] block mb-1">Artwork Image URL *</label>
+                      <label className="font-semibold text-stone-800 block mb-1">Artwork Image URL *</label>
                       <input
                         type="text"
                         required
                         value={formData.imageUrl}
                         onChange={(e) => setFormData({ ...formData, imageUrl: e.target.value })}
-                        className="w-full px-3 py-2 bg-[#1A1A1A] border border-[#2D2D2D] rounded-xl outline-none font-mono text-[11px] text-white placeholder-[#71717A]"
+                        className="w-full px-3 py-2 bg-white border border-stone-300 rounded-xl outline-none font-mono text-[11px] text-stone-900 placeholder-stone-400"
                         placeholder="/images/products/..."
                       />
                     </div>
                   </div>
                 </div>
 
-                {/* 2. 4 Sizes & Pricing Engine (Directly configured, no orientation clutter) */}
-                <div className="space-y-4 pt-5 border-t border-[#2D2D2D]">
+                {/* 2. 4 Sizes & Pricing Engine */}
+                <div className="space-y-4 pt-5 border-t border-stone-200">
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                     <div>
-                      <h4 className="font-bold text-white text-sm flex items-center gap-2">
-                        <span className="w-5 h-5 rounded-full bg-[#EAB308]/20 text-[#FACC15] text-xs flex items-center justify-center font-bold">2</span>
+                      <h4 className="font-bold text-stone-900 text-sm flex items-center gap-2">
+                        <span className="w-5 h-5 rounded-full bg-amber-100 text-amber-800 text-xs flex items-center justify-center font-bold">2</span>
                         Artwork Sizes &amp; Individual Pricing (₹)
                       </h4>
-                      <p className="text-[11px] text-[#A1A1AA]">
+                      <p className="text-[11px] text-stone-600">
                         Configure dimensions, selling price (₹), original MRP (₹), and stock for each size tier.
                       </p>
                     </div>
@@ -623,10 +623,10 @@ export default function AdminProductsPage() {
                     <button
                       type="button"
                       onClick={handleAutofillStandardSizes}
-                      className="px-3 py-1.5 rounded-xl border border-[#EAB308]/40 bg-[#EAB308]/10 hover:bg-[#EAB308]/20 text-[#FACC15] text-[11px] font-bold flex items-center gap-1.5 transition-colors cursor-pointer self-start sm:self-auto"
+                      className="px-3 py-1.5 rounded-xl border border-amber-300 bg-amber-50 hover:bg-amber-100 text-amber-900 text-[11px] font-bold flex items-center gap-1.5 transition-colors cursor-pointer self-start sm:self-auto"
                       title="Reset dimensions to standard default sizes"
                     >
-                      <RotateCw className="w-3 h-3 text-[#EAB308]" />
+                      <RotateCw className="w-3 h-3 text-amber-700" />
                       <span>Reset Standard Sizes</span>
                     </button>
                   </div>
@@ -644,11 +644,11 @@ export default function AdminProductsPage() {
                       return (
                         <div
                           key={i}
-                          className="p-4 rounded-2xl bg-[#1A1A1A] border border-[#2D2D2D] space-y-3 relative hover:border-[#EAB308]/40 transition-colors"
+                          className="p-4 rounded-2xl bg-stone-50 border border-stone-200 space-y-3 relative hover:border-amber-400 transition-colors shadow-xs"
                         >
-                          <div className="flex items-center justify-between border-b border-[#282828] pb-2">
-                            <span className="font-bold text-xs text-white flex items-center gap-1.5">
-                              <span className="w-4 h-4 rounded-full bg-[#EAB308] text-black text-[10px] flex items-center justify-center font-bold">
+                          <div className="flex items-center justify-between border-b border-stone-200 pb-2">
+                            <span className="font-bold text-xs text-stone-900 flex items-center gap-1.5">
+                              <span className="w-4 h-4 rounded-full bg-[#EAB308] text-stone-950 text-[10px] flex items-center justify-center font-bold">
                                 {i + 1}
                               </span>
                               {tierTitles[i]}
@@ -658,9 +658,9 @@ export default function AdminProductsPage() {
                                 type="checkbox"
                                 checked={v.inStock}
                                 onChange={(e) => handleVariantChange(i, 'inStock', e.target.checked)}
-                                className="rounded text-[#EAB308] accent-[#EAB308]"
+                                className="rounded text-amber-600 accent-amber-500"
                               />
-                              <span className={v.inStock ? 'text-emerald-400 font-bold' : 'text-[#71717A]'}>
+                              <span className={v.inStock ? 'text-emerald-700 font-bold' : 'text-stone-400'}>
                                 {v.inStock ? 'In Stock' : 'Out of Stock'}
                               </span>
                             </label>
@@ -668,7 +668,7 @@ export default function AdminProductsPage() {
 
                           <div className="grid grid-cols-2 gap-2">
                             <div>
-                              <label className="text-[11px] font-semibold text-[#A1A1AA] block mb-1">
+                              <label className="text-[11px] font-semibold text-stone-700 block mb-1">
                                 Size Dimensions *
                               </label>
                               <input
@@ -677,12 +677,12 @@ export default function AdminProductsPage() {
                                 placeholder="e.g. 12 x 18 inches"
                                 value={v.size}
                                 onChange={(e) => handleVariantChange(i, 'size', e.target.value)}
-                                className="w-full px-2.5 py-1.5 bg-[#141414] border border-[#333333] rounded-lg text-xs font-medium text-white focus:border-[#EAB308]"
+                                className="w-full px-2.5 py-1.5 bg-white border border-stone-300 rounded-lg text-xs font-medium text-stone-900 focus:border-amber-500"
                               />
                             </div>
 
                             <div>
-                              <label className="text-[11px] font-semibold text-[#A1A1AA] block mb-1">
+                              <label className="text-[11px] font-semibold text-stone-700 block mb-1">
                                 Dimensions (cm)
                               </label>
                               <input
@@ -690,14 +690,14 @@ export default function AdminProductsPage() {
                                 placeholder="e.g. 30 x 45 cm"
                                 value={v.dimensionsCm}
                                 onChange={(e) => handleVariantChange(i, 'dimensionsCm', e.target.value)}
-                                className="w-full px-2.5 py-1.5 bg-[#141414] border border-[#333333] rounded-lg text-xs text-white focus:border-[#EAB308]"
+                                className="w-full px-2.5 py-1.5 bg-white border border-stone-300 rounded-lg text-xs text-stone-900 focus:border-amber-500"
                               />
                             </div>
                           </div>
 
                           <div className="grid grid-cols-3 gap-2">
                             <div>
-                              <label className="text-[11px] font-semibold text-[#FACC15] block mb-1">
+                              <label className="text-[11px] font-semibold text-amber-800 block mb-1">
                                 Selling Price (₹) *
                               </label>
                               <input
@@ -705,12 +705,12 @@ export default function AdminProductsPage() {
                                 required
                                 value={v.price}
                                 onChange={(e) => handleVariantChange(i, 'price', Number(e.target.value))}
-                                className="w-full px-2.5 py-1.5 bg-[#141414] border border-[#EAB308]/40 rounded-lg text-xs font-bold text-[#FACC15] focus:border-[#EAB308]"
+                                className="w-full px-2.5 py-1.5 bg-white border border-amber-300 rounded-lg text-xs font-bold text-amber-900 focus:border-amber-500"
                               />
                             </div>
 
                             <div>
-                              <label className="text-[11px] font-semibold text-[#A1A1AA] block mb-1">
+                              <label className="text-[11px] font-semibold text-stone-700 block mb-1">
                                 MRP (₹) *
                               </label>
                               <input
@@ -718,19 +718,19 @@ export default function AdminProductsPage() {
                                 required
                                 value={v.mrp}
                                 onChange={(e) => handleVariantChange(i, 'mrp', Number(e.target.value))}
-                                className="w-full px-2.5 py-1.5 bg-[#141414] border border-[#333333] rounded-lg text-xs text-[#D1D5DB] focus:border-[#EAB308]"
+                                className="w-full px-2.5 py-1.5 bg-white border border-stone-300 rounded-lg text-xs text-stone-700 focus:border-amber-500"
                               />
                             </div>
 
                             <div>
-                              <label className="text-[11px] font-semibold text-[#A1A1AA] block mb-1">
+                              <label className="text-[11px] font-semibold text-stone-700 block mb-1">
                                 Stock Count
                               </label>
                               <input
                                 type="number"
                                 value={v.stockCount}
                                 onChange={(e) => handleVariantChange(i, 'stockCount', Number(e.target.value))}
-                                className="w-full px-2.5 py-1.5 bg-[#141414] border border-[#333333] rounded-lg text-xs text-white focus:border-[#EAB308]"
+                                className="w-full px-2.5 py-1.5 bg-white border border-stone-300 rounded-lg text-xs text-stone-900 focus:border-amber-500"
                               />
                             </div>
                           </div>
@@ -741,99 +741,99 @@ export default function AdminProductsPage() {
                 </div>
 
                 {/* 3. Options & Badges */}
-                <div className="space-y-3 pt-5 border-t border-[#2D2D2D]">
-                  <h4 className="font-bold text-white text-sm flex items-center gap-2">
-                    <span className="w-5 h-5 rounded-full bg-[#EAB308]/20 text-[#FACC15] text-xs flex items-center justify-center font-bold">3</span>
+                <div className="space-y-3 pt-5 border-t border-stone-200">
+                  <h4 className="font-bold text-stone-900 text-sm flex items-center gap-2">
+                    <span className="w-5 h-5 rounded-full bg-amber-100 text-amber-800 text-xs flex items-center justify-center font-bold">3</span>
                     Lighting &amp; Storefront Badges
                   </h4>
 
-                  <div className="flex flex-wrap items-center gap-6 p-3.5 bg-[#1A1A1A] rounded-2xl border border-[#2D2D2D]">
-                    <label className="flex items-center gap-2 cursor-pointer text-xs text-white">
+                  <div className="flex flex-wrap items-center gap-6 p-3.5 bg-stone-50 rounded-2xl border border-stone-200">
+                    <label className="flex items-center gap-2 cursor-pointer text-xs text-stone-800">
                       <input
                         type="checkbox"
                         checked={formData.hasLedBacklight}
                         onChange={(e) => setFormData({ ...formData, hasLedBacklight: e.target.checked })}
-                        className="rounded text-[#EAB308] accent-[#EAB308]"
+                        className="rounded text-amber-600 accent-amber-500"
                       />
-                      <span className="font-semibold text-white">Warm LED Backlight</span>
+                      <span className="font-semibold text-stone-900">Warm LED Backlight</span>
                     </label>
 
-                    <label className="flex items-center gap-2 cursor-pointer text-xs text-white">
+                    <label className="flex items-center gap-2 cursor-pointer text-xs text-stone-800">
                       <input
                         type="checkbox"
                         checked={formData.isFeatured}
                         onChange={(e) => setFormData({ ...formData, isFeatured: e.target.checked })}
-                        className="rounded text-[#EAB308] accent-[#EAB308]"
+                        className="rounded text-amber-600 accent-amber-500"
                       />
-                      <span className="font-semibold text-white">Featured Atelier Piece</span>
+                      <span className="font-semibold text-stone-900">Featured Atelier Piece</span>
                     </label>
 
-                    <label className="flex items-center gap-2 cursor-pointer text-xs text-white">
+                    <label className="flex items-center gap-2 cursor-pointer text-xs text-stone-800">
                       <input
                         type="checkbox"
                         checked={formData.isBestseller}
                         onChange={(e) => setFormData({ ...formData, isBestseller: e.target.checked })}
-                        className="rounded text-[#EAB308] accent-[#EAB308]"
+                        className="rounded text-amber-600 accent-amber-500"
                       />
-                      <span className="font-semibold text-white">Bestseller Badge</span>
+                      <span className="font-semibold text-stone-900">Bestseller Badge</span>
                     </label>
                   </div>
                 </div>
 
                 {/* 4. Descriptions & Search Tags */}
-                <div className="space-y-3 pt-5 border-t border-[#2D2D2D]">
-                  <h4 className="font-bold text-white text-sm flex items-center gap-2">
-                    <span className="w-5 h-5 rounded-full bg-[#EAB308]/20 text-[#FACC15] text-xs flex items-center justify-center font-bold">4</span>
+                <div className="space-y-3 pt-5 border-t border-stone-200">
+                  <h4 className="font-bold text-stone-900 text-sm flex items-center gap-2">
+                    <span className="w-5 h-5 rounded-full bg-amber-100 text-amber-800 text-xs flex items-center justify-center font-bold">4</span>
                     Descriptions &amp; Search Tags
                   </h4>
 
                   <div>
-                    <label className="font-semibold text-[#D1D5DB] block mb-1">Short Description</label>
+                    <label className="font-semibold text-stone-800 block mb-1">Short Description</label>
                     <input
                       type="text"
                       value={formData.shortDescription}
                       onChange={(e) => setFormData({ ...formData, shortDescription: e.target.value })}
-                      className="w-full px-3 py-2 bg-[#1A1A1A] border border-[#2D2D2D] rounded-xl outline-none focus:border-[#EAB308] text-xs text-white placeholder-[#71717A]"
+                      className="w-full px-3 py-2 bg-white border border-stone-300 rounded-xl outline-none focus:border-amber-500 text-xs text-stone-900 placeholder-stone-400"
                       placeholder="Concise devotional summary for collection cards..."
                     />
                   </div>
 
                   <div>
-                    <label className="font-semibold text-[#D1D5DB] block mb-1">Detailed Story &amp; Description</label>
+                    <label className="font-semibold text-stone-800 block mb-1">Detailed Story &amp; Description</label>
                     <textarea
                       rows={3}
                       value={formData.description}
                       onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-                      className="w-full px-3 py-2 bg-[#1A1A1A] border border-[#2D2D2D] rounded-xl outline-none focus:border-[#EAB308] text-xs text-white placeholder-[#71717A]"
+                      className="w-full px-3 py-2 bg-white border border-stone-300 rounded-xl outline-none focus:border-amber-500 text-xs text-stone-900 placeholder-stone-400"
                       placeholder="Craftsmanship details, spiritual significance, and luxury acrylic finish description..."
                     />
                   </div>
 
                   <div>
-                    <label className="font-semibold text-[#D1D5DB] block mb-1">Search Tags (comma-separated)</label>
+                    <label className="font-semibold text-stone-800 block mb-1">Search Tags (comma-separated)</label>
                     <input
                       type="text"
                       value={formData.tags}
                       onChange={(e) => setFormData({ ...formData, tags: e.target.value })}
-                      className="w-full px-3 py-2 bg-[#1A1A1A] border border-[#2D2D2D] rounded-xl outline-none focus:border-[#EAB308] text-xs font-mono text-white placeholder-[#71717A]"
+                      className="w-full px-3 py-2 bg-white border border-stone-300 rounded-xl outline-none focus:border-amber-500 text-xs font-mono text-stone-900 placeholder-stone-400"
                       placeholder="e.g. Balaji, Tirupati, LED Art, Pooja Room"
                     />
                   </div>
                 </div>
 
                 {/* Modal Footer */}
-                <div className="flex items-center justify-end gap-3 pt-5 border-t border-[#2D2D2D]">
+                <div className="flex items-center justify-end gap-3 pt-5 border-t border-stone-200">
                   <button
                     type="button"
                     onClick={() => setModalOpen(false)}
-                    className="px-5 py-2.5 border border-[#333333] rounded-xl text-[#D1D5DB] hover:bg-[#1E1E1E] hover:text-white font-medium transition-colors cursor-pointer text-xs"
+                    className="px-5 py-2.5 border border-stone-300 rounded-xl text-stone-700 hover:bg-stone-100 hover:text-stone-900 font-medium transition-colors cursor-pointer text-xs"
                   >
                     Cancel
                   </button>
                   <button
                     type="submit"
                     disabled={saving}
-                    className="px-6 py-2.5 bg-[#EAB308] hover:bg-[#FACC15] disabled:opacity-50 text-black rounded-xl font-extrabold transition-all shadow-[0_2px_12px_rgba(234,179,8,0.25)] cursor-pointer flex items-center gap-1.5 text-xs"
+                    className="px-6 py-2.5 bg-[#EAB308] hover:bg-[#FACC15] disabled:opacity-50 text-stone-950 rounded-xl font-extrabold transition-all shadow-md cursor-pointer flex items-center gap-1.5 text-xs border border-amber-500 uppercase tracking-wider"
                   >
                     {saving ? 'Saving Changes...' : editingSlug ? 'Update Artwork & Sizes' : 'Save New Masterpiece'}
                   </button>

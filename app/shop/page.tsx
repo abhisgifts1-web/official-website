@@ -146,20 +146,20 @@ function ShopContent() {
     priceRange < 10000;
 
   return (
-    <div className="w-full max-w-[1760px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 py-8 sm:py-12">
+    <div className="w-full max-w-[1760px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 py-8 sm:py-12 bg-white text-stone-900">
       {/* Page Header Banner */}
-      <div className="bg-gradient-to-r from-[#0A0A0A] via-[#181818] to-[#141414] text-[#FFFFFF] rounded-3xl p-8 sm:p-12 mb-8 sm:mb-12 border border-[#EAB308]/40 relative overflow-hidden shadow-[0_12px_40px_rgba(0,0,0,0.7)]">
+      <div className="bg-gradient-to-r from-stone-50 via-white to-amber-50/40 text-stone-900 rounded-3xl p-8 sm:p-12 mb-8 sm:mb-12 border border-stone-200 relative overflow-hidden shadow-sm">
         {/* Ambient Gold Halo */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-[#EAB308]/15 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-0 right-0 w-96 h-96 bg-amber-200/20 rounded-full blur-3xl pointer-events-none" />
 
         <div className="relative z-10 max-w-3xl">
-          <span className="text-[#EAB308] font-bold text-xs uppercase tracking-widest flex items-center gap-1.5 mb-2">
-            <Sparkles className="w-3.5 h-3.5 text-[#EAB308]" /> Full Sacred &amp; Modern Catalog
+          <span className="text-amber-800 font-bold text-xs uppercase tracking-widest flex items-center gap-1.5 mb-2">
+            <Sparkles className="w-3.5 h-3.5 text-amber-600" /> Full Sacred &amp; Modern Catalog
           </span>
-          <h1 className="font-serif font-bold text-2xl sm:text-4xl lg:text-5xl text-[#FFFFFF]">
+          <h1 className="font-serif font-bold text-2xl sm:text-4xl lg:text-5xl text-stone-900">
             All Wall Art Creations
           </h1>
-          <p className="text-xs sm:text-sm md:text-base text-[#E5E7EB] mt-2 leading-relaxed font-sans">
+          <p className="text-xs sm:text-sm md:text-base text-stone-600 mt-2 leading-relaxed font-sans">
             Browse our complete collection of acrylic photo frames, warm backlit LED panels, and personal photo heirlooms.
           </p>
         </div>
@@ -168,26 +168,26 @@ function ShopContent() {
       <div className="grid grid-cols-1 lg:grid-cols-5 xl:grid-cols-6 gap-8 xl:gap-10">
         {/* DESKTOP SIDEBAR FILTERS (1 col) */}
         <aside className="hidden lg:block space-y-6">
-          <div className="bg-[#181818] p-6 rounded-2xl border border-[#2D2D2D] shadow-sm space-y-6">
-            <div className="flex items-center justify-between border-b border-[#2D2D2D]/70 pb-3">
-              <h3 className="font-serif font-bold text-base text-[#FFFFFF] flex items-center gap-2">
-                <SlidersHorizontal className="w-4 h-4 text-[#EAB308]" />
+          <div className="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-6">
+            <div className="flex items-center justify-between border-b border-stone-200 pb-3">
+              <h3 className="font-serif font-bold text-base text-stone-900 flex items-center gap-2">
+                <SlidersHorizontal className="w-4 h-4 text-amber-600" />
                 <span>Filters</span>
               </h3>
               {hasActiveFilters && (
                 <button
                   type="button"
                   onClick={resetFilters}
-                  className="text-xs text-[#FFFFFF] hover:text-[#EAB308] hover:underline flex items-center gap-1 font-semibold"
+                  className="text-xs text-stone-600 hover:text-amber-700 hover:underline flex items-center gap-1 font-semibold"
                 >
-                  <RotateCcw className="w-3 h-3 text-[#EAB308]" /> Reset All
+                  <RotateCcw className="w-3 h-3 text-amber-600" /> Reset All
                 </button>
               )}
             </div>
 
             {/* Search Input */}
             <div>
-              <label className="text-xs font-bold uppercase tracking-wider text-[#FFFFFF] block mb-1.5">
+              <label className="text-xs font-bold uppercase tracking-wider text-stone-900 block mb-1.5">
                 Search Artworks
               </label>
               <div className="relative">
@@ -196,9 +196,9 @@ function ShopContent() {
                   placeholder="e.g. Balaji, Shiva, Ganesha..."
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
-                  className="w-full pl-8 pr-3 py-2 text-xs bg-[#121212] border border-[#2D2D2D] rounded-xl outline-none focus:border-[#EAB308] text-[#FFFFFF]"
+                  className="w-full pl-8 pr-3 py-2 text-xs bg-stone-50 border border-stone-300 rounded-xl outline-none focus:border-amber-500 text-stone-900 placeholder:text-stone-400"
                 />
-                <Search className="w-3.5 h-3.5 text-[#D1D5DB] absolute left-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                <Search className="w-3.5 h-3.5 text-stone-400 absolute left-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
                 {search && (
                   <button
                     type="button"
@@ -212,8 +212,8 @@ function ShopContent() {
             </div>
 
             {/* Lighting Filter */}
-            <div className="p-3 bg-[#121212] rounded-xl border border-[#EAB308]/40 space-y-2">
-              <label className="text-xs font-bold uppercase tracking-wider text-[#FFFFFF] block">
+            <div className="p-3 bg-amber-50/50 rounded-xl border border-amber-200 space-y-2">
+              <label className="text-xs font-bold uppercase tracking-wider text-stone-900 block">
                 Lighting Category
               </label>
               <div className="space-y-1.5 text-xs">
@@ -222,15 +222,15 @@ function ShopContent() {
                   { id: 'led', label: `✨ Warm LED Backlit (${ledArtworksCount})` },
                   { id: 'none', label: `🖼️ Normal Crystal Acrylic (${normalArtworksCount})` },
                 ].map((item) => (
-                  <label key={item.id} className="flex items-center gap-2 cursor-pointer p-1 rounded hover:bg-[#181818] transition-colors">
+                  <label key={item.id} className="flex items-center gap-2 cursor-pointer p-1 rounded hover:bg-stone-100 transition-colors">
                     <input
                       type="radio"
                       name="lighting"
                       checked={selectedLighting === item.id}
                       onChange={() => setSelectedLighting(item.id)}
-                      className="text-[#FFFFFF] focus:ring-[#EAB308] accent-[#EAB308]"
+                      className="text-stone-900 focus:ring-amber-500 accent-amber-500"
                     />
-                    <span className={`font-semibold ${selectedLighting === item.id ? 'text-[#FFFFFF]' : 'text-[#D1D5DB]'}`}>
+                    <span className={`font-semibold ${selectedLighting === item.id ? 'text-stone-900' : 'text-stone-600'}`}>
                       {item.label}
                     </span>
                   </label>
@@ -240,7 +240,7 @@ function ShopContent() {
 
             {/* Categories — Grouped by Backlight vs Normal */}
             <div>
-              <label className="text-xs font-bold uppercase tracking-wider text-[#FFFFFF] block mb-2">
+              <label className="text-xs font-bold uppercase tracking-wider text-stone-900 block mb-2">
                 Categories
               </label>
               <div className="space-y-2 max-h-72 overflow-y-auto pr-1 text-xs">
@@ -248,7 +248,7 @@ function ShopContent() {
                   type="button"
                   onClick={() => setSelectedCategory('')}
                   className={`w-full text-left px-2.5 py-1.5 rounded-lg transition-colors flex items-center justify-between ${
-                    !selectedCategory ? 'bg-[#EAB308] text-[#000000] font-bold' : 'text-[#D1D5DB] hover:bg-[#121212]'
+                    !selectedCategory ? 'bg-[#EAB308] text-stone-950 font-bold' : 'text-stone-700 hover:bg-stone-100'
                   }`}
                 >
                   <span>All Categories</span>
@@ -277,12 +277,12 @@ function ShopContent() {
                         onClick={() => handleCategorySelect(c.slug)}
                         className={`w-full text-left px-2.5 py-1.5 rounded-lg transition-colors flex items-center justify-between text-xs ${
                           selectedCategory === c.slug
-                            ? 'bg-[#EAB308] text-[#000000] font-bold shadow-2xs'
-                            : 'text-[#D1D5DB] hover:bg-[#121212]'
+                            ? 'bg-[#EAB308] text-stone-950 font-bold shadow-2xs'
+                            : 'text-stone-700 hover:bg-stone-100'
                         }`}
                       >
                         <span className="truncate">{c.name}</span>
-                        <span className="text-[10px] text-stone-400 font-semibold ml-1 shrink-0">({count})</span>
+                        <span className="text-[10px] text-stone-500 font-semibold ml-1 shrink-0">({count})</span>
                       </button>
                     );
                   })}
@@ -290,15 +290,13 @@ function ShopContent() {
               </div>
             </div>
 
-            
-
             {/* Max Price Slider */}
             <div>
               <div className="flex items-center justify-between text-xs mb-1.5">
-                <label className="font-bold uppercase tracking-wider text-[#FFFFFF]">
+                <label className="font-bold uppercase tracking-wider text-stone-900">
                   Max Price
                 </label>
-                <span className="font-bold text-[#FFFFFF]">₹{priceRange.toLocaleString('en-IN')}</span>
+                <span className="font-bold text-stone-900">₹{priceRange.toLocaleString('en-IN')}</span>
               </div>
               <input
                 type="range"
@@ -307,9 +305,9 @@ function ShopContent() {
                 step={250}
                 value={priceRange}
                 onChange={(e) => setPriceRange(Number(e.target.value))}
-                className="w-full accent-[#EAB308]"
+                className="w-full accent-amber-500"
               />
-              <div className="flex justify-between text-[10px] text-[#D1D5DB] mt-1">
+              <div className="flex justify-between text-[10px] text-stone-500 mt-1">
                 <span>₹1,499</span>
                 <span>₹10,000+</span>
               </div>
@@ -320,7 +318,7 @@ function ShopContent() {
         {/* PRODUCTS AREA (4 cols on lg, 5 cols on xl) */}
         <div className="lg:col-span-4 xl:col-span-5 space-y-6">
           {/* Master Lighting Mode Quick Switch Bar */}
-          <div className="flex flex-wrap items-center gap-2 p-1.5 bg-[#121212] rounded-2xl border border-[#2D2D2D] shadow-2xs">
+          <div className="flex flex-wrap items-center gap-2 p-1.5 bg-stone-100 rounded-2xl border border-stone-200 shadow-2xs">
             <button
               type="button"
               onClick={() => {
@@ -329,11 +327,11 @@ function ShopContent() {
               }}
               className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
                 selectedLighting === 'all'
-                  ? 'bg-[#EAB308] text-[#000000] shadow-xs border border-[#EAB308]'
-                  : 'bg-[#181818] text-[#FFFFFF] hover:bg-[#1E1E1E] border border-[#2D2D2D]'
+                  ? 'bg-[#EAB308] text-stone-950 shadow-xs border border-amber-400'
+                  : 'bg-white text-stone-700 hover:bg-stone-50 border border-stone-200'
               }`}
             >
-              <Sparkles className="w-3.5 h-3.5 text-[#EAB308]" />
+              <Sparkles className="w-3.5 h-3.5 text-amber-600" />
               <span>All Artworks ({totalArtworksCount})</span>
             </button>
 
@@ -345,11 +343,11 @@ function ShopContent() {
               }}
               className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
                 selectedLighting === 'led'
-                  ? 'bg-gradient-to-r from-[#EAB308] via-[#A87928] to-[#181818] text-[#FFFFFF] shadow-md border border-[#FFF7CC] ring-2 ring-[#EAB308]/40 scale-102'
-                  : 'bg-[#181818] text-[#CA8A04] hover:bg-[#121212] border border-[#EAB308]/60'
+                  ? 'bg-gradient-to-r from-[#EAB308] to-amber-500 text-stone-950 shadow-md border border-amber-300 ring-2 ring-amber-400/40 scale-102'
+                  : 'bg-white text-amber-800 hover:bg-amber-50 border border-amber-200'
               }`}
             >
-              <Flame className="w-3.5 h-3.5 text-amber-500 animate-pulse" />
+              <Flame className="w-3.5 h-3.5 text-amber-600 animate-pulse" />
               <span>✨ LED Backlit Art ({ledArtworksCount})</span>
             </button>
 
@@ -361,39 +359,39 @@ function ShopContent() {
               }}
               className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
                 selectedLighting === 'none'
-                  ? 'bg-[#EAB308] text-[#000000] shadow-md border border-[#EAB308] ring-2 ring-[#EAB308]/30 scale-102'
-                  : 'bg-[#181818] text-[#FFFFFF] hover:bg-[#121212] border border-[#2D2D2D]'
+                  ? 'bg-[#EAB308] text-stone-950 shadow-md border border-amber-400 ring-2 ring-amber-400/30 scale-102'
+                  : 'bg-white text-stone-700 hover:bg-stone-50 border border-stone-200'
               }`}
             >
-              <Sparkles className="w-3.5 h-3.5 text-[#EAB308]" />
+              <Sparkles className="w-3.5 h-3.5 text-amber-600" />
               <span>🖼️ Normal Acrylic Art ({normalArtworksCount})</span>
             </button>
           </div>
 
           {/* Controls Bar */}
-          <div className="bg-[#181818] p-4 rounded-2xl border border-[#2D2D2D] shadow-sm flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="bg-white p-4 rounded-2xl border border-stone-200 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-2">
               <button
                 type="button"
                 onClick={() => setMobileFilterOpen(true)}
-                className="lg:hidden flex items-center justify-center gap-1.5 bg-[#1E1E1E] px-3.5 py-2 min-h-[40px] rounded-xl text-xs font-bold text-[#FFFFFF] border border-[#EAB308]/40 cursor-pointer"
+                className="lg:hidden flex items-center justify-center gap-1.5 bg-stone-100 px-3.5 py-2 min-h-[40px] rounded-xl text-xs font-bold text-stone-900 border border-stone-300 cursor-pointer"
               >
-                <SlidersHorizontal className="w-3.5 h-3.5 text-[#EAB308]" />
+                <SlidersHorizontal className="w-3.5 h-3.5 text-amber-600" />
                 <span>Filters</span>
               </button>
-              <span className="text-xs text-[#D1D5DB] font-medium">
-                Showing <strong className="text-[#FFFFFF]">{filteredProducts.length}</strong> of {INITIAL_PRODUCTS.length} artworks
+              <span className="text-xs text-stone-600 font-medium">
+                Showing <strong className="text-stone-900">{filteredProducts.length}</strong> of {INITIAL_PRODUCTS.length} artworks
               </span>
             </div>
 
             {/* Sort Dropdown */}
             <div className="flex items-center gap-2 w-full sm:w-auto justify-end">
-              <label htmlFor="shop-sort" className="text-xs text-[#D1D5DB] whitespace-nowrap">Sort by:</label>
+              <label htmlFor="shop-sort" className="text-xs text-stone-600 whitespace-nowrap">Sort by:</label>
               <select
                 id="shop-sort"
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value)}
-                className="px-3 py-2 min-h-[40px] text-xs bg-[#121212] border border-[#2D2D2D] rounded-xl text-[#FFFFFF] outline-none focus:border-[#EAB308] font-medium cursor-pointer"
+                className="px-3 py-2 min-h-[40px] text-xs bg-stone-50 border border-stone-300 rounded-xl text-stone-900 outline-none focus:border-amber-500 font-medium cursor-pointer"
               >
                 <option value="featured">Featured Artworks</option>
                 <option value="bestseller">Popular &amp; Bestselling</option>
@@ -456,8 +454,8 @@ function ShopContent() {
             className="fixed inset-0 bg-stone-900/60 backdrop-blur-sm"
             onClick={() => setMobileFilterOpen(false)}
           />
-          <div className="relative w-4/5 max-w-sm bg-[#181818] h-full shadow-2xl flex flex-col z-10 overflow-y-auto p-6 space-y-6">
-            <div className="flex items-center justify-between border-b pb-3">
+          <div className="relative w-4/5 max-w-sm bg-white h-full shadow-2xl flex flex-col z-10 overflow-y-auto p-6 space-y-6 border-r border-stone-200">
+            <div className="flex items-center justify-between border-b border-stone-200 pb-3">
               <h3 className="font-serif font-bold text-lg text-stone-900">Filters</h3>
               <button
                 type="button"

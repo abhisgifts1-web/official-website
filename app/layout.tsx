@@ -131,7 +131,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
         />
       </head>
-      <body className="min-h-screen flex flex-col bg-[#121212] text-[#FFFFFF] antialiased selection:bg-[#FACC15]/40 selection:text-[#FFFFFF]">
+      <body className="min-h-screen flex flex-col bg-white text-stone-900 antialiased selection:bg-[#FACC15]/40 selection:text-stone-900">
         <CartProvider>
           <WishlistProvider>
             <AnnouncementBar />

@@ -52,14 +52,14 @@ export default function ContactSupportSection() {
     <section className="w-full max-w-[1760px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 py-8 sm:py-12 lg:py-16">
       {/* Header */}
       <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-12">
-        <div className="inline-flex items-center gap-1.5 text-xs uppercase tracking-widest font-bold text-[#FFFFFF] bg-[#181818] border border-[#EAB308] px-3.5 py-1 rounded-full shadow-2xs mb-2.5">
-          <Sparkles className="w-3.5 h-3.5 text-[#EAB308]" />
+        <div className="inline-flex items-center gap-1.5 text-xs uppercase tracking-widest font-bold text-amber-900 bg-amber-50 border border-amber-300 px-3.5 py-1 rounded-full shadow-2xs mb-2.5">
+          <Sparkles className="w-3.5 h-3.5 text-amber-600" />
           <span>Dedicated Customer Support</span>
         </div>
-        <h2 className="font-serif font-bold text-2xl sm:text-3xl lg:text-4xl text-[#FFFFFF] tracking-tight">
+        <h2 className="font-serif font-bold text-2xl sm:text-3xl lg:text-4xl text-stone-900 tracking-tight">
           WE ARE HERE TO HELP YOU
         </h2>
-        <p className="text-xs sm:text-sm text-[#D1D5DB] mt-2 font-sans leading-relaxed">
+        <p className="text-xs sm:text-sm text-stone-600 mt-2 font-sans leading-relaxed">
           Have a question about frame sizing, LED lighting, or an ongoing order? Our Hyderabad team is available 7 days a week.
         </p>
       </div>
@@ -67,24 +67,24 @@ export default function ContactSupportSection() {
       {/* 4 Pillars of Contact Support */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-12">
         {/* 1. Direct WhatsApp */}
-        <div className="bg-[#181818] rounded-2xl p-5 border border-[#2D2D2D] shadow-2xs hover:border-[#25D366] transition-all flex flex-col justify-between">
+        <div className="bg-white rounded-2xl p-5 border border-stone-200 shadow-sm hover:border-[#25D366] transition-all flex flex-col justify-between">
           <div className="space-y-3">
             <div className="w-10 h-10 rounded-xl bg-[#25D366]/10 text-[#25D366] flex items-center justify-center">
               <MessageCircle className="w-5 h-5 fill-current" />
             </div>
             <div>
-              <h3 className="font-serif font-bold text-base text-[#FFFFFF]">WhatsApp Priority Support</h3>
-              <p className="text-xs text-[#D1D5DB] mt-1 font-sans">
+              <h3 className="font-serif font-bold text-base text-stone-900">WhatsApp Priority Support</h3>
+              <p className="text-xs text-stone-600 mt-1 font-sans">
                 Fastest response for design proofs, price estimates, and custom sizing.
               </p>
             </div>
           </div>
-          <div className="mt-5 pt-4 border-t border-[#2D2D2D]/60">
+          <div className="mt-5 pt-4 border-t border-stone-100">
             <a
               href={waUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-1.5 w-full bg-[#25D366] hover:bg-[#20BD5A] text-white text-xs font-bold py-2.5 rounded-full transition-colors"
+              className="inline-flex items-center justify-center gap-1.5 w-full bg-[#25D366] hover:bg-[#20BD5A] text-white text-xs font-bold py-2.5 rounded-full transition-colors shadow-sm"
             >
               <MessageCircle className="w-3.5 h-3.5 fill-white" />
               <span>Chat on WhatsApp</span>
@@ -93,68 +93,68 @@ export default function ContactSupportSection() {
         </div>
 
         {/* 2. Direct Phone Call */}
-        <div className="bg-[#181818] rounded-2xl p-5 border border-[#2D2D2D] shadow-2xs hover:border-[#EAB308] transition-all flex flex-col justify-between">
+        <div className="bg-white rounded-2xl p-5 border border-stone-200 shadow-sm hover:border-[#EAB308] transition-all flex flex-col justify-between">
           <div className="space-y-3">
-            <div className="w-10 h-10 rounded-xl bg-[#121212] text-[#FFFFFF] border border-[#EAB308] flex items-center justify-center">
+            <div className="w-10 h-10 rounded-xl bg-amber-50 text-amber-900 border border-amber-200 flex items-center justify-center">
               <Phone className="w-5 h-5" />
             </div>
             <div>
-              <h3 className="font-serif font-bold text-base text-[#FFFFFF]">Phone Assistance</h3>
-              <p className="text-xs text-[#D1D5DB] mt-1 font-sans">
+              <h3 className="font-serif font-bold text-base text-stone-900">Phone Assistance</h3>
+              <p className="text-xs text-stone-600 mt-1 font-sans">
                 Speak directly with our frame specialists for corporate or bulk gifting.
               </p>
             </div>
           </div>
-          <div className="mt-5 pt-4 border-t border-[#2D2D2D]/60">
+          <div className="mt-5 pt-4 border-t border-stone-100">
             <a
               href={`tel:${INITIAL_SETTINGS.supportPhone.replace(/\s+/g, '')}`}
-              className="inline-flex items-center justify-center gap-1.5 w-full bg-[#EAB308] hover:bg-[#FACC15] text-[#000000] text-xs font-bold py-2.5 rounded-full transition-colors"
+              className="inline-flex items-center justify-center gap-1.5 w-full bg-[#EAB308] hover:bg-[#CA8A04] text-stone-950 text-xs font-bold py-2.5 rounded-full transition-colors shadow-sm"
             >
-              <Phone className="w-3.5 h-3.5 text-[#EAB308]" />
+              <Phone className="w-3.5 h-3.5" />
               <span>{INITIAL_SETTINGS.supportPhone}</span>
             </a>
           </div>
         </div>
 
         {/* 3. Studio Location */}
-        <div className="bg-[#181818] rounded-2xl p-5 border border-[#2D2D2D] shadow-2xs hover:border-[#EAB308] transition-all flex flex-col justify-between">
+        <div className="bg-white rounded-2xl p-5 border border-stone-200 shadow-sm hover:border-[#EAB308] transition-all flex flex-col justify-between">
           <div className="space-y-3">
-            <div className="w-10 h-10 rounded-xl bg-[#121212] text-[#FFFFFF] border border-[#EAB308] flex items-center justify-center">
-              <MapPin className="w-5 h-5 text-[#FFFFFF]" />
+            <div className="w-10 h-10 rounded-xl bg-stone-100 text-stone-800 border border-stone-200 flex items-center justify-center">
+              <MapPin className="w-5 h-5 text-stone-700" />
             </div>
             <div>
-              <h3 className="font-serif font-bold text-base text-[#FFFFFF]">Hyderabad Studio</h3>
-              <p className="text-xs text-[#D1D5DB] mt-1 font-sans leading-relaxed">
+              <h3 className="font-serif font-bold text-base text-stone-900">Hyderabad Studio</h3>
+              <p className="text-xs text-stone-600 mt-1 font-sans leading-relaxed">
                 {INITIAL_SETTINGS.businessAddress}
               </p>
             </div>
           </div>
-          <div className="mt-5 pt-4 border-t border-[#2D2D2D]/60">
-            <span className="text-[11px] font-semibold text-[#8C7A70] flex items-center gap-1">
-              <Clock className="w-3 h-3 text-[#EAB308]" /> Mon–Sat 9:30 AM–8:30 PM
+          <div className="mt-5 pt-4 border-t border-stone-100">
+            <span className="text-[11px] font-semibold text-stone-500 flex items-center gap-1">
+              <Clock className="w-3 h-3 text-amber-600" /> Mon–Sat 9:30 AM–8:30 PM
             </span>
           </div>
         </div>
 
         {/* 4. Custom Photo Frame & Artisan Studio */}
-        <div className="bg-[#181818] rounded-2xl p-5 border border-[#2D2D2D] shadow-2xs hover:border-[#EAB308] transition-all flex flex-col justify-between">
+        <div className="bg-white rounded-2xl p-5 border border-stone-200 shadow-sm hover:border-[#EAB308] transition-all flex flex-col justify-between">
           <div className="space-y-3">
-            <div className="w-10 h-10 rounded-xl bg-[#121212] text-[#FFFFFF] border border-[#EAB308] flex items-center justify-center">
-              <Sparkles className="w-5 h-5 text-[#EAB308]" />
+            <div className="w-10 h-10 rounded-xl bg-amber-50 text-amber-800 border border-amber-200 flex items-center justify-center">
+              <Sparkles className="w-5 h-5 text-amber-600" />
             </div>
             <div>
-              <h3 className="font-serif font-bold text-base text-[#FFFFFF]">Custom Photo Frames</h3>
-              <p className="text-xs text-[#D1D5DB] mt-1 font-sans">
+              <h3 className="font-serif font-bold text-base text-stone-900">Custom Photo Frames</h3>
+              <p className="text-xs text-stone-600 mt-1 font-sans">
                 Upload your picture for customized acrylic frames with 1:1 WhatsApp proofing.
               </p>
             </div>
           </div>
-          <div className="mt-5 pt-4 border-t border-[#2D2D2D]/60">
+          <div className="mt-5 pt-4 border-t border-stone-100">
             <Link
               href="/customise"
-              className="inline-flex items-center justify-center gap-1.5 w-full bg-[#121212] hover:bg-[#1E1E1E] text-[#FFFFFF] hover:text-[#FFFFFF] border border-[#EAB308] text-xs font-bold py-2.5 rounded-full transition-colors"
+              className="inline-flex items-center justify-center gap-1.5 w-full bg-stone-900 hover:bg-stone-800 text-white border border-stone-300 text-xs font-bold py-2.5 rounded-full transition-colors shadow-sm"
             >
-              <Sparkles className="w-3.5 h-3.5 text-[#EAB308]" />
+              <Sparkles className="w-3.5 h-3.5 text-amber-400" />
               <span>Customise Your Frame →</span>
             </Link>
           </div>
@@ -162,10 +162,10 @@ export default function ContactSupportSection() {
       </div>
 
       {/* Accordion FAQs */}
-      <div className="max-w-3xl mx-auto bg-[#181818] rounded-3xl p-6 sm:p-8 border border-[#2D2D2D] shadow-xs">
-        <div className="flex items-center gap-2 mb-6 pb-3 border-b border-[#2D2D2D]">
-          <HelpCircle className="w-5 h-5 text-[#EAB308]" />
-          <h3 className="font-serif font-bold text-lg text-[#FFFFFF]">
+      <div className="max-w-3xl mx-auto bg-white rounded-3xl p-6 sm:p-8 border border-stone-200 shadow-sm">
+        <div className="flex items-center gap-2 mb-6 pb-3 border-b border-stone-100">
+          <HelpCircle className="w-5 h-5 text-amber-600" />
+          <h3 className="font-serif font-bold text-lg text-stone-900">
             Quick Support Answers &amp; Store Policies
           </h3>
         </div>
@@ -174,23 +174,23 @@ export default function ContactSupportSection() {
           {SUPPORT_FAQS.map((faq, idx) => (
             <div
               key={idx}
-              className="border border-[#2D2D2D]/80 rounded-2xl overflow-hidden transition-colors"
+              className="border border-stone-200 rounded-2xl overflow-hidden transition-colors"
             >
               <button
                 type="button"
                 onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
-                className="w-full flex items-center justify-between p-4 text-left font-serif font-semibold text-xs sm:text-sm text-[#FFFFFF] hover:bg-[#121212]/50 transition-colors cursor-pointer"
+                className="w-full flex items-center justify-between p-4 text-left font-serif font-semibold text-xs sm:text-sm text-stone-900 hover:bg-stone-50 transition-colors cursor-pointer"
               >
                 <span>{faq.q}</span>
                 <ChevronDown
-                  className={`w-4 h-4 text-[#EAB308] shrink-0 transition-transform duration-200 ${
+                  className={`w-4 h-4 text-amber-600 shrink-0 transition-transform duration-200 ${
                     openFaq === idx ? 'rotate-180' : ''
                   }`}
                 />
               </button>
 
               {openFaq === idx && (
-                <div className="p-4 pt-1 text-xs text-[#D1D5DB] font-sans leading-relaxed border-t border-[#2D2D2D]/40 bg-[#121212]">
+                <div className="p-4 pt-1 text-xs text-stone-600 font-sans leading-relaxed border-t border-stone-100 bg-stone-50/50">
                   {faq.a}
                 </div>
               )}

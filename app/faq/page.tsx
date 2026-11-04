@@ -76,16 +76,16 @@ export default function FaqPage() {
   ];
 
   return (
-    <div className="w-full max-w-[1760px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 py-10 sm:py-16 space-y-12">
+    <div className="w-full max-w-[1760px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 py-10 sm:py-16 space-y-12 bg-white text-stone-900">
       {/* Header */}
       <div className="text-center space-y-2">
-        <span className="text-xs uppercase tracking-widest font-bold text-[#FACC15] bg-[#181818] border border-[#EAB308]/60 px-3 py-1 rounded-full inline-flex items-center gap-1.5">
-          <Sparkles className="w-3.5 h-3.5 text-[#EAB308]" /> Help & Support
+        <span className="text-xs uppercase tracking-widest font-bold text-stone-900 bg-stone-100 border border-amber-300 px-3 py-1 rounded-full inline-flex items-center gap-1.5 shadow-xs">
+          <Sparkles className="w-3.5 h-3.5 text-amber-600" /> Help & Support
         </span>
-        <h1 className="font-serif font-bold text-3xl sm:text-5xl text-[#FFFFFF]">
+        <h1 className="font-serif font-bold text-3xl sm:text-5xl text-stone-900">
           Frequently Asked Questions
         </h1>
-        <p className="text-xs sm:text-sm text-[#D1D5DB] max-w-xl mx-auto">
+        <p className="text-xs sm:text-sm text-stone-600 max-w-xl mx-auto">
           Find answers regarding our materials, LED specifications, packaging, and custom photo prints.
         </p>
       </div>
@@ -94,11 +94,11 @@ export default function FaqPage() {
       <div className="max-w-4xl mx-auto space-y-8">
         {faqCategories.map((cat, catIdx) => (
           <div key={catIdx} className="space-y-3">
-            <h3 className="font-serif font-bold text-lg text-[#FFFFFF] border-b border-[#2D2D2D] pb-2">
+            <h3 className="font-serif font-bold text-lg text-stone-900 border-b border-stone-200 pb-2">
               {cat.category}
             </h3>
 
-            <div className="bg-[#181818] rounded-2xl border border-[#2D2D2D] shadow-sm divide-y divide-[#2A2A2A] overflow-hidden">
+            <div className="bg-white rounded-2xl border border-stone-200 shadow-xs divide-y divide-stone-200 overflow-hidden">
               {cat.items.map((item, itemIdx) => {
                 const uniqueId = catIdx * 10 + itemIdx;
                 const isOpen = openIndex === uniqueId;
@@ -108,17 +108,17 @@ export default function FaqPage() {
                     <button
                       type="button"
                       onClick={() => setOpenIndex(isOpen ? null : uniqueId)}
-                      className="w-full flex items-center justify-between text-left gap-4 font-serif font-bold text-sm sm:text-base text-[#FFFFFF]"
+                      className="w-full flex items-center justify-between text-left gap-4 font-serif font-bold text-sm sm:text-base text-stone-900 cursor-pointer"
                     >
                       <span>{item.q}</span>
                       {isOpen ? (
-                        <ChevronUp className="w-4 h-4 text-amber-800 shrink-0" />
+                        <ChevronUp className="w-4 h-4 text-amber-700 shrink-0" />
                       ) : (
                         <ChevronDown className="w-4 h-4 text-stone-400 shrink-0" />
                       )}
                     </button>
                     {isOpen && (
-                      <p className="text-xs sm:text-sm text-[#D1D5DB] mt-2.5 leading-relaxed">
+                      <p className="text-xs sm:text-sm text-stone-600 mt-2.5 leading-relaxed">
                         {item.a}
                       </p>
                     )}
@@ -131,9 +131,9 @@ export default function FaqPage() {
       </div>
 
       {/* Still have questions */}
-      <div className="bg-[#121212] p-6 sm:p-8 rounded-3xl border border-[#2D2D2D] text-center space-y-3">
-        <h4 className="font-serif font-bold text-lg text-[#FFFFFF]">Still have questions?</h4>
-        <p className="text-xs text-[#D1D5DB] max-w-md mx-auto">
+      <div className="bg-stone-50 p-6 sm:p-8 rounded-3xl border border-stone-200 text-center space-y-3">
+        <h4 className="font-serif font-bold text-lg text-stone-900">Still have questions?</h4>
+        <p className="text-xs text-stone-600 max-w-md mx-auto">
           Our friendly customer artisans are happy to assist you with wall measurements, deity recommendations, or custom sizing.
         </p>
         <div className="pt-2">
@@ -143,9 +143,9 @@ export default function FaqPage() {
             )}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-[#EAB308] hover:bg-[#FACC15] text-[#000000] text-xs font-bold px-6 py-3 rounded-full transition-colors"
+            className="inline-flex items-center gap-2 bg-[#EAB308] hover:bg-[#FACC15] text-stone-950 text-xs font-bold px-6 py-3 rounded-full transition-colors border border-amber-500 uppercase tracking-wider shadow-xs cursor-pointer"
           >
-            <MessageCircle className="w-4 h-4" />
+            <MessageCircle className="w-4 h-4 fill-current" />
             <span>Chat with Customer Desk on WhatsApp</span>
           </a>
         </div>

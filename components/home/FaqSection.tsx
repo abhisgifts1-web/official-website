@@ -37,14 +37,14 @@ export default function FaqSection() {
   return (
     <section className="w-full max-w-4xl mx-auto px-4 sm:px-8 py-8 sm:py-12">
       <div className="text-center max-w-xl mx-auto mb-8">
-        <div className="inline-flex items-center gap-1.5 text-xs uppercase tracking-widest font-bold text-[#FFFFFF] bg-[#181818] border border-[#EAB308] px-3.5 py-1 rounded-full shadow-2xs mb-2">
-          <HelpCircle className="w-3.5 h-3.5 text-[#EAB308]" />
+        <div className="inline-flex items-center gap-1.5 text-xs uppercase tracking-widest font-bold text-amber-900 bg-amber-50 border border-amber-300 px-3.5 py-1 rounded-full shadow-2xs mb-2">
+          <HelpCircle className="w-3.5 h-3.5 text-amber-600" />
           <span>Collector Knowledge Base</span>
         </div>
-        <h2 className="font-serif font-bold text-2xl sm:text-3xl text-[#FFFFFF] tracking-tight">
+        <h2 className="font-serif font-bold text-2xl sm:text-3xl text-stone-900 tracking-tight">
           FREQUENTLY ASKED QUESTIONS
         </h2>
-        <p className="text-xs sm:text-sm text-[#D1D5DB] mt-1 font-sans">
+        <p className="text-xs sm:text-sm text-stone-600 mt-1 font-sans">
           Everything you need to know about our sacred craftsmanship, LED power safety, and reliable delivery.
         </p>
       </div>
@@ -55,24 +55,24 @@ export default function FaqSection() {
           return (
             <div
               key={i}
-              className="bg-[#181818] rounded-2xl border border-[#2D2D2D] overflow-hidden shadow-2xs transition-all"
+              className="bg-white rounded-2xl border border-stone-200 overflow-hidden shadow-xs hover:border-amber-400 transition-all"
             >
               <button
                 type="button"
                 onClick={() => setOpenFaq(isOpen ? null : i)}
-                className="w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 cursor-pointer"
+                className="w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-stone-50/80 transition-colors"
               >
-                <span className="font-serif font-bold text-sm sm:text-base text-[#FFFFFF]">
+                <span className="font-serif font-bold text-sm sm:text-base text-stone-900">
                   {faq.q}
                 </span>
                 <ChevronDown
-                  className={`w-4 h-4 text-[#EAB308] shrink-0 transition-transform duration-300 ${
+                  className={`w-4 h-4 text-amber-600 shrink-0 transition-transform duration-300 ${
                     isOpen ? 'rotate-180' : ''
                   }`}
                 />
               </button>
               {isOpen && (
-                <div className="px-4 pb-4 sm:px-5 sm:pb-5 pt-0 text-xs sm:text-[13px] text-[#D1D5DB] leading-relaxed font-sans border-t border-[#2D2D2D]/60">
+                <div className="px-4 pb-4 sm:px-5 sm:pb-5 pt-0 text-xs sm:text-[13px] text-stone-600 leading-relaxed font-sans border-t border-stone-100 bg-stone-50/40">
                   {faq.a}
                 </div>
               )}

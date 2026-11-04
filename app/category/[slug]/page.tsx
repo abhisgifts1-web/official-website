@@ -253,7 +253,7 @@ export default function CategoryPage({ params }: CategoryPageProps) {
   const breadcrumbSchema = getBreadcrumbSchema(breadcrumbs);
 
   return (
-    <div className="w-full max-w-[1760px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 py-8 sm:py-12 space-y-8">
+    <div className="w-full max-w-[1760px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 py-8 sm:py-12 space-y-8 bg-white text-stone-900">
       {/* Breadcrumb Schema */}
       <script
         type="application/ld+json"
@@ -307,20 +307,20 @@ export default function CategoryPage({ params }: CategoryPageProps) {
       </div>
 
       {/* Local Store Service Notice */}
-      <div className="bg-[#121212] border border-[#2D2D2D] rounded-2xl p-4 sm:p-5 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-xs text-[#FFFFFF]">
+      <div className="bg-stone-50 border border-stone-200 rounded-2xl p-4 sm:p-5 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-xs text-stone-900 shadow-xs">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-[#181818] text-[#FACC15] border border-[#EAB308]/40 flex items-center justify-center shrink-0">
+          <div className="w-10 h-10 rounded-xl bg-amber-50 text-amber-900 border border-amber-200 flex items-center justify-center shrink-0">
             <Truck className="w-5 h-5" />
           </div>
           <div>
-            <p className="font-bold text-sm text-[#FFFFFF]">Local Hyderabad &amp; Dilsukhnagar Fast Delivery</p>
-            <p className="text-[#D1D5DB]">Order online or visit our Dilsukhnagar studio. 100% safe packaging standard across Telangana.</p>
+            <p className="font-bold text-sm text-stone-900">Local Hyderabad &amp; Dilsukhnagar Fast Delivery</p>
+            <p className="text-stone-600">Order online or visit our Dilsukhnagar studio. 100% safe packaging standard across Telangana.</p>
           </div>
         </div>
         <div className="flex items-center gap-2 shrink-0">
           <Link
             href="/customise"
-            className="bg-[#EAB308] text-[#000000] px-4 py-2 rounded-full font-bold text-xs hover:bg-[#FACC15] transition-colors"
+            className="bg-[#EAB308] text-stone-950 px-4 py-2 rounded-full font-bold text-xs hover:bg-[#CA8A04] transition-colors shadow-xs"
           >
             Upload Your Photo
           </Link>
@@ -328,7 +328,7 @@ export default function CategoryPage({ params }: CategoryPageProps) {
             href="https://wa.me/917780269927?text=Hi%20Abhi%27s%20Gifts,%20I%20want%20to%20order%20a%20photo%20frame%20in%20Hyderabad"
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-emerald-600 text-white px-4 py-2 rounded-full font-bold text-xs hover:bg-emerald-700 transition-colors"
+            className="bg-[#25D366] text-white px-4 py-2 rounded-full font-bold text-xs hover:bg-[#20BD5A] transition-colors shadow-xs"
           >
             WhatsApp Artisan
           </a>
@@ -339,7 +339,7 @@ export default function CategoryPage({ params }: CategoryPageProps) {
       <CategoryClientView category={category} products={categoryProducts} />
 
       {/* Customization Callout */}
-      <div className="bg-[#121212] p-6 sm:p-8 rounded-3xl border border-amber-200 flex flex-col sm:flex-row items-center justify-between gap-6 mt-12">
+      <div className="bg-gradient-to-r from-amber-50/70 via-stone-50 to-amber-50/70 p-6 sm:p-8 rounded-3xl border border-amber-200 flex flex-col sm:flex-row items-center justify-between gap-6 mt-12 shadow-xs">
         <div className="space-y-1 text-center sm:text-left">
           <h3 className="font-serif font-bold text-lg text-stone-900">
             Looking for a specific temple size, custom shape, or gold inscription?
@@ -350,7 +350,7 @@ export default function CategoryPage({ params }: CategoryPageProps) {
         </div>
         <Link
           href="/customise"
-          className="bg-stone-900 hover:bg-amber-800 text-white font-semibold text-xs sm:text-sm px-6 py-3 rounded-full shadow-warm transition-colors whitespace-nowrap"
+          className="bg-stone-900 hover:bg-stone-800 text-white font-semibold text-xs sm:text-sm px-6 py-3 rounded-full shadow-sm transition-colors whitespace-nowrap"
         >
           Personalise Custom Frame →
         </Link>

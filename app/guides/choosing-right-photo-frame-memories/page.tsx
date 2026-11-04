@@ -34,20 +34,20 @@ export default function ChoosingRightPhotoFrameMemoriesGuide() {
       />
 
       <nav className="flex items-center gap-2 text-xs text-stone-500" aria-label="Breadcrumb">
-        <Link href="/" className="hover:text-[#FFFFFF] flex items-center gap-1">
+        <Link href="/" className="hover:text-stone-900 flex items-center gap-1">
           <Home className="w-3.5 h-3.5" />
           <span>Home</span>
         </Link>
         <span>/</span>
-        <Link href="/guides" className="hover:text-[#FFFFFF]">
+        <Link href="/guides" className="hover:text-stone-900">
           Guides
         </Link>
         <span>/</span>
-        <span className="text-[#FFFFFF] font-semibold truncate">Choosing the Right Photo Frame for Your Memories</span>
+        <span className="text-stone-900 font-semibold truncate">Choosing the Right Photo Frame for Your Memories</span>
       </nav>
 
-      <header className="space-y-4 pb-6 border-b border-[#2D2D2D]">
-        <div className="flex items-center gap-2 text-xs font-bold text-[#EAB308] uppercase tracking-wider">
+      <header className="space-y-4 pb-6 border-b border-stone-200">
+        <div className="flex items-center gap-2 text-xs font-bold text-amber-800 uppercase tracking-wider">
           <span>Material Comparison</span>
           <span>•</span>
           <span>6 Min Read</span>
@@ -55,61 +55,61 @@ export default function ChoosingRightPhotoFrameMemoriesGuide() {
           <span>By Abhi&apos;s Gifts</span>
         </div>
 
-        <h1 className="font-serif font-bold text-3xl sm:text-4xl lg:text-5xl text-[#FFFFFF] leading-tight">
+        <h1 className="font-serif font-bold text-3xl sm:text-4xl lg:text-5xl text-stone-900 leading-tight">
           Choosing the Right Photo Frame for Your Memories: Acrylic vs Glass vs Wood
         </h1>
 
-        <p className="text-sm sm:text-base text-[#785E59] leading-relaxed">
+        <p className="text-sm sm:text-base text-stone-600 leading-relaxed">
           Wondering whether to choose frameless cast acrylic, traditional glass, or ornate wooden moldings? Here is an objective engineering and aesthetic breakdown.
         </p>
       </header>
 
-      <div className="space-y-8 text-xs sm:text-sm text-[#D1D5DB] leading-relaxed">
+      <div className="space-y-8 text-xs sm:text-sm text-stone-700 leading-relaxed">
         <section className="space-y-4">
-          <h2 className="font-serif font-bold text-xl sm:text-2xl text-[#FFFFFF]">
+          <h2 className="font-serif font-bold text-xl sm:text-2xl text-stone-900">
             1. Comparison Matrix: Acrylic vs Glass vs Wood
           </h2>
 
           <div className="overflow-x-auto">
-            <table className="w-full text-left border-collapse bg-white rounded-xl overflow-hidden border border-[#2D2D2D]">
+            <table className="w-full text-left border-collapse bg-white rounded-xl overflow-hidden border border-stone-200 shadow-xs">
               <thead>
-                <tr className="bg-[#181818] text-[#FFFFFF] border-b border-[#2D2D2D]">
-                  <th className="py-2.5 px-3">Criteria</th>
-                  <th className="py-2.5 px-3">cast acrylic</th>
-                  <th className="py-2.5 px-3">Traditional Glass</th>
-                  <th className="py-2.5 px-3">Wooden Moldings</th>
+                <tr className="bg-stone-100 text-stone-900 border-b border-stone-200">
+                  <th className="py-2.5 px-3 font-bold">Criteria</th>
+                  <th className="py-2.5 px-3 font-bold">Cast Acrylic</th>
+                  <th className="py-2.5 px-3 font-bold">Traditional Glass</th>
+                  <th className="py-2.5 px-3 font-bold">Wooden Moldings</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-[#E8D1A5]/50">
+              <tbody className="divide-y divide-stone-100">
                 <tr>
-                  <td className="py-2.5 px-3 font-semibold text-[#FFFFFF]">Optical Clarity</td>
+                  <td className="py-2.5 px-3 font-semibold text-stone-900">Optical Clarity</td>
                   <td className="py-2.5 px-3 font-bold text-emerald-700">99.2% (Pure crystal)</td>
-                  <td className="py-2.5 px-3 text-[#785E59]">89-91% (Green edge tint)</td>
-                  <td className="py-2.5 px-3 text-[#785E59]">N/A (Border only)</td>
+                  <td className="py-2.5 px-3 text-stone-500">89-91% (Green edge tint)</td>
+                  <td className="py-2.5 px-3 text-stone-500">N/A (Border only)</td>
                 </tr>
                 <tr>
-                  <td className="py-2.5 px-3 font-semibold text-[#FFFFFF]">Shatter Resistance</td>
+                  <td className="py-2.5 px-3 font-semibold text-stone-900">Shatter Resistance</td>
                   <td className="py-2.5 px-3 font-bold text-emerald-700">100% Shatterproof</td>
                   <td className="py-2.5 px-3 text-red-600 font-semibold">Fragile hazard</td>
-                  <td className="py-2.5 px-3 text-[#785E59]">Durable</td>
+                  <td className="py-2.5 px-3 text-stone-500">Durable</td>
                 </tr>
                 <tr>
-                  <td className="py-2.5 px-3 font-semibold text-[#FFFFFF]">Weight</td>
+                  <td className="py-2.5 px-3 font-semibold text-stone-900">Weight</td>
                   <td className="py-2.5 px-3 font-bold text-emerald-700">50% lighter than glass</td>
-                  <td className="py-2.5 px-3 text-[#785E59]">Heavy &amp; cumbersome</td>
-                  <td className="py-2.5 px-3 text-[#785E59]">Medium to Heavy</td>
+                  <td className="py-2.5 px-3 text-stone-500">Heavy &amp; cumbersome</td>
+                  <td className="py-2.5 px-3 text-stone-500">Medium to Heavy</td>
                 </tr>
                 <tr>
-                  <td className="py-2.5 px-3 font-semibold text-[#FFFFFF]">Moisture / Termites</td>
+                  <td className="py-2.5 px-3 font-semibold text-stone-900">Moisture / Termites</td>
                   <td className="py-2.5 px-3 font-bold text-emerald-700">100% Moisture Proof</td>
-                  <td className="py-2.5 px-3 text-[#785E59]">Traps humidity fog</td>
+                  <td className="py-2.5 px-3 text-stone-500">Traps humidity fog</td>
                   <td className="py-2.5 px-3 text-red-600">Vulnerable to termites</td>
                 </tr>
                 <tr>
-                  <td className="py-2.5 px-3 font-semibold text-[#FFFFFF]">LED Integration</td>
+                  <td className="py-2.5 px-3 font-semibold text-stone-900">LED Integration</td>
                   <td className="py-2.5 px-3 font-bold text-emerald-700">Flawless edge-glow</td>
-                  <td className="py-2.5 px-3 text-[#785E59]">Difficult / Bulky</td>
-                  <td className="py-2.5 px-3 text-[#785E59]">Requires deep box</td>
+                  <td className="py-2.5 px-3 text-stone-500">Difficult / Bulky</td>
+                  <td className="py-2.5 px-3 text-stone-500">Requires deep box</td>
                 </tr>
               </tbody>
             </table>
@@ -117,11 +117,11 @@ export default function ChoosingRightPhotoFrameMemoriesGuide() {
         </section>
 
         <section className="space-y-3">
-          <h2 className="font-serif font-bold text-xl sm:text-2xl text-[#FFFFFF]">
+          <h2 className="font-serif font-bold text-xl sm:text-2xl text-stone-900">
             2. When to Choose Acrylic Photo Frames
           </h2>
           <p>
-            Choose <Link href="/acrylic-photo-frames-hyderabad" className="text-[#FFFFFF] font-semibold underline">acrylic photo frames in Hyderabad</Link> when:
+            Choose <Link href="/acrylic-photo-frames-hyderabad" className="text-amber-800 font-semibold underline decoration-amber-400">acrylic photo frames in Hyderabad</Link> when:
           </p>
           <ul className="list-disc pl-5 space-y-1.5">
             <li>You have children, toddlers, or pets at home and want zero risk of broken glass shards.</li>
@@ -132,7 +132,7 @@ export default function ChoosingRightPhotoFrameMemoriesGuide() {
         </section>
 
         <section className="space-y-3">
-          <h2 className="font-serif font-bold text-xl sm:text-2xl text-[#FFFFFF]">
+          <h2 className="font-serif font-bold text-xl sm:text-2xl text-stone-900">
             3. Experience the Quality in Person in Dilsukhnagar
           </h2>
           <p>
@@ -141,14 +141,14 @@ export default function ChoosingRightPhotoFrameMemoriesGuide() {
         </section>
       </div>
 
-      <footer className="pt-8 border-t border-[#2D2D2D] flex items-center justify-between text-xs">
-        <Link href="/guides/personalized-photo-gifts-occasions" className="text-[#785E59] hover:text-[#FFFFFF] flex items-center gap-1">
+      <footer className="pt-8 border-t border-stone-200 flex items-center justify-between text-xs">
+        <Link href="/guides/personalized-photo-gifts-occasions" className="text-stone-500 hover:text-stone-900 flex items-center gap-1">
           <ArrowLeft className="w-3.5 h-3.5" />
           <span>Previous: Personalized Photo Gifts for Special Occasions</span>
         </Link>
         <Link
           href="/guides"
-          className="text-[#FFFFFF] font-bold hover:text-[#EAB308] flex items-center gap-1"
+          className="text-stone-900 font-bold hover:text-amber-800 flex items-center gap-1"
         >
           <span>Back to All Guides</span>
           <ArrowRight className="w-3.5 h-3.5" />

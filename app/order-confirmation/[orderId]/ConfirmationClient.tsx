@@ -73,7 +73,7 @@ export default function ConfirmationClient({ order }: Props) {
         </p>
 
         {/* Order ID Pill */}
-        <div className="inline-block bg-[#121212] border border-amber-300/80 px-5 py-2.5 rounded-2xl text-xs sm:text-sm font-mono font-bold text-stone-900 shadow-sm">
+        <div className="inline-block bg-amber-50 border border-amber-300 px-5 py-2.5 rounded-2xl text-xs sm:text-sm font-mono font-bold text-stone-900 shadow-xs">
           Order ID: <span className="text-amber-900 font-extrabold">{order.id}</span>
         </div>
 

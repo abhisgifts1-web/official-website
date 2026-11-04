@@ -34,20 +34,20 @@ export default function HowToChooseCustomizedPhotoFramesGuide() {
       />
 
       <nav className="flex items-center gap-2 text-xs text-stone-500" aria-label="Breadcrumb">
-        <Link href="/" className="hover:text-[#FFFFFF] flex items-center gap-1">
+        <Link href="/" className="hover:text-stone-900 flex items-center gap-1">
           <Home className="w-3.5 h-3.5" />
           <span>Home</span>
         </Link>
         <span>/</span>
-        <Link href="/guides" className="hover:text-[#FFFFFF]">
+        <Link href="/guides" className="hover:text-stone-900">
           Guides
         </Link>
         <span>/</span>
-        <span className="text-[#FFFFFF] font-semibold truncate">How to Choose Customized Photo Frames</span>
+        <span className="text-stone-900 font-semibold truncate">How to Choose Customized Photo Frames</span>
       </nav>
 
-      <header className="space-y-4 pb-6 border-b border-[#2D2D2D]">
-        <div className="flex items-center gap-2 text-xs font-bold text-[#EAB308] uppercase tracking-wider">
+      <header className="space-y-4 pb-6 border-b border-stone-200">
+        <div className="flex items-center gap-2 text-xs font-bold text-amber-800 uppercase tracking-wider">
           <span>Framing Masterclass</span>
           <span>•</span>
           <span>5 Min Read</span>
@@ -55,22 +55,22 @@ export default function HowToChooseCustomizedPhotoFramesGuide() {
           <span>By Abhi&apos;s Gifts</span>
         </div>
 
-        <h1 className="font-serif font-bold text-3xl sm:text-4xl lg:text-5xl text-[#FFFFFF] leading-tight">
+        <h1 className="font-serif font-bold text-3xl sm:text-4xl lg:text-5xl text-stone-900 leading-tight">
           How to Choose Customized Photo Frames: Sizing, Thickness &amp; Finish Guide
         </h1>
 
-        <p className="text-sm sm:text-base text-[#785E59] leading-relaxed">
+        <p className="text-sm sm:text-base text-stone-600 leading-relaxed">
           Customized photo frames turn personal milestones into lasting art. Here is how to select the ideal dimensions, acrylic thickness, mounting hardware, and custom inscriptions for your home.
         </p>
       </header>
 
-      <div className="space-y-8 text-xs sm:text-sm text-[#D1D5DB] leading-relaxed">
+      <div className="space-y-8 text-xs sm:text-sm text-stone-700 leading-relaxed">
         <section className="space-y-3">
-          <h2 className="font-serif font-bold text-xl sm:text-2xl text-[#FFFFFF]">
+          <h2 className="font-serif font-bold text-xl sm:text-2xl text-stone-900">
             1. Photo Resolution &amp; DPI Requirements
           </h2>
           <p>
-            When ordering <Link href="/acrylic-photo-frames-dilsukhnagar" className="text-[#FFFFFF] font-semibold underline">customized photo frames in Dilsukhnagar</Link>, ensure your image has sufficient resolution. For a standard 12x18 inch frame, aim for at least 2000x3000 pixels (roughly 6 Megapixels). Smartphone portraits taken with modern iPhones or Samsung Galaxy phones in good lighting are more than adequate.
+            When ordering <Link href="/acrylic-photo-frames-dilsukhnagar" className="text-amber-800 font-semibold underline decoration-amber-400">customized photo frames in Dilsukhnagar</Link>, ensure your image has sufficient resolution. For a standard 12x18 inch frame, aim for at least 2000x3000 pixels (roughly 6 Megapixels). Smartphone portraits taken with modern iPhones or Samsung Galaxy phones in good lighting are more than adequate.
           </p>
           <p>
             Our graphic team uses AI-assisted neural upscaling to sharpen family photos, remove motion blur, and adjust color balance before printing.
@@ -78,7 +78,7 @@ export default function HowToChooseCustomizedPhotoFramesGuide() {
         </section>
 
         <section className="space-y-3">
-          <h2 className="font-serif font-bold text-xl sm:text-2xl text-[#FFFFFF]">
+          <h2 className="font-serif font-bold text-xl sm:text-2xl text-stone-900">
             2. Choosing the Right Shape: Portrait, Square, or Circular?
           </h2>
           <ul className="list-disc pl-5 space-y-2">
@@ -98,7 +98,7 @@ export default function HowToChooseCustomizedPhotoFramesGuide() {
         </section>
 
         <section className="space-y-3">
-          <h2 className="font-serif font-bold text-xl sm:text-2xl text-[#FFFFFF]">
+          <h2 className="font-serif font-bold text-xl sm:text-2xl text-stone-900">
             3. Frame Thickness: Why premium is the Gold Standard
           </h2>
           <p>
@@ -107,7 +107,7 @@ export default function HowToChooseCustomizedPhotoFramesGuide() {
         </section>
 
         <section className="space-y-3">
-          <h2 className="font-serif font-bold text-xl sm:text-2xl text-[#FFFFFF]">
+          <h2 className="font-serif font-bold text-xl sm:text-2xl text-stone-900">
             4. Personalization Details: Inscriptions &amp; Gold Foil
           </h2>
           <p>
@@ -121,14 +121,14 @@ export default function HowToChooseCustomizedPhotoFramesGuide() {
         </section>
       </div>
 
-      <footer className="pt-8 border-t border-[#2D2D2D] flex items-center justify-between text-xs">
-        <Link href="/guides/best-acrylic-photo-frames-hyderabad" className="text-[#785E59] hover:text-[#FFFFFF] flex items-center gap-1">
+      <footer className="pt-8 border-t border-stone-200 flex items-center justify-between text-xs">
+        <Link href="/guides/best-acrylic-photo-frames-hyderabad" className="text-stone-500 hover:text-stone-900 flex items-center gap-1">
           <ArrowLeft className="w-3.5 h-3.5" />
           <span>Previous: Best Acrylic Photo Frames in Hyderabad</span>
         </Link>
         <Link
           href="/guides/led-acrylic-photo-frames-home-decor"
-          className="text-[#FFFFFF] font-bold hover:text-[#EAB308] flex items-center gap-1"
+          className="text-stone-900 font-bold hover:text-amber-800 flex items-center gap-1"
         >
           <span>Next: LED Acrylic Photo Frames for Home Decoration</span>
           <ArrowRight className="w-3.5 h-3.5" />

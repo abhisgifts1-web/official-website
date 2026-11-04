@@ -264,7 +264,7 @@ export default function SmartSupportWidget() {
           <button
             type="button"
             onClick={scrollToTop}
-            className="pointer-events-auto p-2.5 sm:p-3 rounded-full bg-[#181818]/90 hover:bg-[#181818] text-[#F0D79B] shadow-lg border border-[#EAB308]/40 transition-all duration-300 hover:scale-110 cursor-pointer backdrop-blur-md"
+            className="pointer-events-auto p-2.5 sm:p-3 rounded-full bg-white hover:bg-stone-50 text-stone-800 shadow-lg border border-stone-300 transition-all duration-300 hover:scale-110 cursor-pointer backdrop-blur-md"
             aria-label="Back to top"
           >
             <ArrowUp className="w-4 h-4" />
@@ -280,19 +280,19 @@ export default function SmartSupportWidget() {
               setIsOpen(!isOpen);
               setHasNewBadge(false);
             }}
-            className="group inline-flex items-center gap-2 bg-[#181818] hover:bg-[#222222] text-[#FFFFFF] px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-full shadow-xl border border-[#EAB308]/80 transition-all duration-300 hover:scale-105 cursor-pointer backdrop-blur-md"
+            className="group inline-flex items-center gap-2 bg-white hover:bg-stone-50 text-stone-900 px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-full shadow-xl border border-amber-300 transition-all duration-300 hover:scale-105 cursor-pointer backdrop-blur-md"
             aria-label="Open Customer Support Assistant"
           >
             <div className="relative">
-              <Bot className="w-4 h-4 text-[#EAB308] group-hover:rotate-12 transition-transform" />
+              <Bot className="w-4 h-4 text-amber-600 group-hover:rotate-12 transition-transform" />
               {hasNewBadge && (
-                <span className="absolute -top-1 -right-1 w-2 h-2 bg-[#EAB308] rounded-full animate-ping" />
+                <span className="absolute -top-1 -right-1 w-2 h-2 bg-amber-500 rounded-full animate-ping" />
               )}
             </div>
-            <span className="text-xs font-bold tracking-wide font-sans hidden sm:inline">
+            <span className="text-xs font-bold tracking-wide font-sans hidden sm:inline text-stone-900">
               Need Help?
             </span>
-            <span className="text-[10px] uppercase font-bold text-[#EAB308] bg-[#181818] px-1.5 py-0.5 rounded-full">
+            <span className="text-[10px] uppercase font-bold text-amber-800 bg-amber-50 border border-amber-200 px-1.5 py-0.5 rounded-full">
               AI Support
             </span>
           </button>
@@ -302,27 +302,27 @@ export default function SmartSupportWidget() {
       {/* Smart Customer Support Assistant Drawer / Modal */}
       {isOpen && (
         <div
-          className="fixed inset-0 z-50 flex items-end sm:items-center justify-end sm:p-6 pointer-events-auto bg-black/40 backdrop-blur-xs transition-opacity duration-300"
+          className="fixed inset-0 z-50 flex items-end sm:items-center justify-end sm:p-6 pointer-events-auto bg-stone-900/50 backdrop-blur-xs transition-opacity duration-300"
           onClick={() => setIsOpen(false)}
         >
           <div
-            className="w-full sm:w-[420px] max-w-full h-[90vh] sm:h-[620px] max-h-[92vh] bg-[#121212] rounded-t-3xl sm:rounded-3xl shadow-2xl border border-[#2D2D2D] flex flex-col overflow-hidden text-[#FFFFFF] animate-in slide-in-from-bottom duration-300"
+            className="w-full sm:w-[420px] max-w-full h-[90vh] sm:h-[620px] max-h-[92vh] bg-white rounded-t-3xl sm:rounded-3xl shadow-2xl border border-stone-200 flex flex-col overflow-hidden text-stone-900 animate-in slide-in-from-bottom duration-300"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Modal Header */}
-            <div className="bg-gradient-to-r from-[#121212] via-[#1A1A1A] to-[#121212] text-[#FFFFFF] px-4 sm:px-5 py-4 border-b border-[#EAB308]/40 flex items-center justify-between">
+            <div className="bg-stone-50 text-stone-900 px-4 sm:px-5 py-4 border-b border-stone-200 flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-[#181818]/10 border border-[#EAB308]/80 flex items-center justify-center text-[#EAB308]">
+                <div className="w-10 h-10 rounded-full bg-amber-50 border border-amber-300 flex items-center justify-center text-amber-700">
                   <Bot className="w-5 h-5" />
                 </div>
                 <div>
                   <div className="flex items-center gap-1.5">
-                    <h3 className="font-serif font-bold text-sm tracking-wide">
+                    <h3 className="font-serif font-bold text-sm tracking-wide text-stone-900">
                       Abhi's Gifts Assistant
                     </h3>
-                    <span className="w-2 h-2 rounded-full bg-emerald-400 inline-block" />
+                    <span className="w-2 h-2 rounded-full bg-emerald-500 inline-block" />
                   </div>
-                  <p className="text-[10px] text-[#FFFFFF]/70 font-sans">
+                  <p className="text-[10px] text-stone-500 font-sans">
                     Automated Support • Hyderabad Studio
                   </p>
                 </div>
@@ -331,7 +331,7 @@ export default function SmartSupportWidget() {
               <button
                 type="button"
                 onClick={() => setIsOpen(false)}
-                className="w-8 h-8 rounded-full bg-[#181818]/10 hover:bg-[#181818]/20 flex items-center justify-center text-[#FFFFFF] transition-colors cursor-pointer"
+                className="w-8 h-8 rounded-full bg-stone-100 hover:bg-stone-200 flex items-center justify-center text-stone-600 transition-colors cursor-pointer"
                 aria-label="Close Assistant"
               >
                 <X className="w-4 h-4" />
@@ -339,9 +339,9 @@ export default function SmartSupportWidget() {
             </div>
 
             {/* Verified Policy Banner */}
-            <div className="bg-[#121212] border-b border-[#2D2D2D] px-4 py-2 flex items-center justify-between text-[11px] text-[#D1D5DB]">
-              <span className="flex items-center gap-1 font-semibold text-[#FFFFFF]">
-                <ShieldCheck className="w-3.5 h-3.5 text-[#EAB308]" />
+            <div className="bg-stone-50 border-b border-stone-200 px-4 py-2 flex items-center justify-between text-[11px] text-stone-600">
+              <span className="flex items-center gap-1 font-semibold text-stone-900">
+                <ShieldCheck className="w-3.5 h-3.5 text-amber-600" />
                 100% Verified Store Answers
               </span>
               <a
@@ -355,7 +355,7 @@ export default function SmartSupportWidget() {
             </div>
 
             {/* Chat Messages Body */}
-            <div className="flex-1 overflow-y-auto p-4 space-y-3.5 bg-gradient-to-b from-[#141414] to-[#0D0D0E] scrollbar-thin">
+            <div className="flex-1 overflow-y-auto p-4 space-y-3.5 bg-stone-50/50 scrollbar-thin">
               {messages.map((msg) => (
                 <div
                   key={msg.id}
@@ -364,17 +364,17 @@ export default function SmartSupportWidget() {
                   }`}
                 >
                   <div
-                    className={`max-w-[85%] rounded-2xl px-3.5 py-2.5 text-xs font-sans leading-relaxed shadow-2xs whitespace-pre-line ${
+                    className={`max-w-[85%] rounded-2xl px-3.5 py-2.5 text-xs font-sans leading-relaxed shadow-xs whitespace-pre-line ${
                       msg.sender === 'user'
-                        ? 'bg-[#1E1E1E] text-[#FFFFFF] rounded-tr-xs'
-                        : 'bg-[#1E1E1E] text-white border border-[#2D2D2D] rounded-tl-xs'
+                        ? 'bg-[#EAB308] text-stone-950 font-medium rounded-tr-xs'
+                        : 'bg-white text-stone-800 border border-stone-200 rounded-tl-xs'
                     }`}
                   >
                     {msg.text}
 
                     {/* Optional Interactive Action Link */}
                     {msg.action && (
-                      <div className="mt-2.5 pt-2 border-t border-[#2D2D2D]/60">
+                      <div className="mt-2.5 pt-2 border-t border-stone-200">
                         {msg.action.isWhatsApp ? (
                           <a
                             href={`https://wa.me/${(INITIAL_SETTINGS.whatsappNumber || '919032372782').replace(/[^0-9]/g, '')}?text=${encodeURIComponent(
@@ -382,7 +382,7 @@ export default function SmartSupportWidget() {
                             )}`}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1 text-[11px] font-bold text-[#25D366] bg-[#25D366]/10 px-2.5 py-1 rounded-full hover:bg-[#25D366]/20 transition-colors"
+                            className="inline-flex items-center gap-1 text-[11px] font-bold text-white bg-[#25D366] px-2.5 py-1 rounded-full hover:bg-[#20BD5A] transition-colors"
                           >
                             <MessageCircle className="w-3 h-3 fill-current" />
                             <span>{msg.action.label}</span>
@@ -392,9 +392,9 @@ export default function SmartSupportWidget() {
                           <Link
                             href={msg.action.href}
                             onClick={() => setIsOpen(false)}
-                            className="inline-flex items-center gap-1 text-[11px] font-bold text-[#FFFFFF] bg-[#121212] border border-[#EAB308] px-2.5 py-1 rounded-full hover:bg-[#222222] hover:text-[#FFFFFF] transition-colors"
+                            className="inline-flex items-center gap-1 text-[11px] font-bold text-stone-900 bg-stone-100 border border-stone-300 px-2.5 py-1 rounded-full hover:bg-stone-200 transition-colors"
                           >
-                            <Sparkles className="w-3 h-3 text-[#EAB308]" />
+                            <Sparkles className="w-3 h-3 text-amber-600" />
                             <span>{msg.action.label}</span>
                             <ExternalLink className="w-2.5 h-2.5 ml-0.5" />
                           </Link>
@@ -402,17 +402,17 @@ export default function SmartSupportWidget() {
                       </div>
                     )}
                   </div>
-                  <span className="text-[9px] text-[#8C7A70] mt-1 px-1">
+                  <span className="text-[9px] text-stone-500 mt-1 px-1">
                     {msg.sender === 'bot' ? 'Assistant' : 'You'} • {msg.timestamp}
                   </span>
                 </div>
               ))}
 
               {isTyping && (
-                <div className="flex items-center gap-1.5 bg-[#181818] border border-[#2D2D2D] rounded-2xl rounded-tl-xs px-3 py-2 w-16 shadow-2xs">
-                  <span className="w-1.5 h-1.5 bg-[#EAB308] rounded-full animate-bounce" />
-                  <span className="w-1.5 h-1.5 bg-[#EAB308] rounded-full animate-bounce [animation-delay:0.2s]" />
-                  <span className="w-1.5 h-1.5 bg-[#EAB308] rounded-full animate-bounce [animation-delay:0.4s]" />
+                <div className="flex items-center gap-1.5 bg-white border border-stone-200 rounded-2xl rounded-tl-xs px-3 py-2 w-16 shadow-xs">
+                  <span className="w-1.5 h-1.5 bg-amber-500 rounded-full animate-bounce" />
+                  <span className="w-1.5 h-1.5 bg-amber-500 rounded-full animate-bounce [animation-delay:0.2s]" />
+                  <span className="w-1.5 h-1.5 bg-amber-500 rounded-full animate-bounce [animation-delay:0.4s]" />
                 </div>
               )}
 
@@ -420,53 +420,53 @@ export default function SmartSupportWidget() {
             </div>
 
             {/* Quick Question Prompt Chips */}
-            <div className="p-2.5 bg-[#121212] border-t border-[#2D2D2D] overflow-x-auto whitespace-nowrap scrollbar-none flex gap-1.5">
+            <div className="p-2.5 bg-stone-50 border-t border-stone-200 overflow-x-auto whitespace-nowrap scrollbar-none flex gap-1.5">
               <button
                 type="button"
                 onClick={() => triggerFaq(FAQ_KNOWLEDGE_BASE[0])}
-                className="text-[11px] font-medium bg-[#1E1E1E] text-white border border-[#2D2D2D] hover:border-[#EAB308] px-2.5 py-1 rounded-full shrink-0 transition-colors cursor-pointer"
+                className="text-[11px] font-medium bg-white text-stone-800 border border-stone-300 hover:border-amber-500 px-2.5 py-1 rounded-full shrink-0 transition-colors cursor-pointer shadow-xs"
               >
                 📏 Sizes &amp; Thickness
               </button>
               <button
                 type="button"
                 onClick={() => triggerFaq(FAQ_KNOWLEDGE_BASE[1])}
-                className="text-[11px] font-medium bg-[#1E1E1E] text-white border border-[#2D2D2D] hover:border-[#EAB308] px-2.5 py-1 rounded-full shrink-0 transition-colors cursor-pointer"
+                className="text-[11px] font-medium bg-white text-stone-800 border border-stone-300 hover:border-amber-500 px-2.5 py-1 rounded-full shrink-0 transition-colors cursor-pointer shadow-xs"
               >
                 💡 LED Lighting Info
               </button>
               <button
                 type="button"
                 onClick={() => triggerFaq(FAQ_KNOWLEDGE_BASE[2])}
-                className="text-[11px] font-medium bg-[#1E1E1E] text-white border border-[#2D2D2D] hover:border-[#EAB308] px-2.5 py-1 rounded-full shrink-0 transition-colors cursor-pointer"
+                className="text-[11px] font-medium bg-white text-stone-800 border border-stone-300 hover:border-amber-500 px-2.5 py-1 rounded-full shrink-0 transition-colors cursor-pointer shadow-xs"
               >
                 🎨 Customization Process
               </button>
               <button
                 type="button"
                 onClick={() => triggerFaq(FAQ_KNOWLEDGE_BASE[3])}
-                className="text-[11px] font-medium bg-[#1E1E1E] text-white border border-[#2D2D2D] hover:border-[#EAB308] px-2.5 py-1 rounded-full shrink-0 transition-colors cursor-pointer"
+                className="text-[11px] font-medium bg-white text-stone-800 border border-stone-300 hover:border-amber-500 px-2.5 py-1 rounded-full shrink-0 transition-colors cursor-pointer shadow-xs"
               >
                 ⏱️ Dispatch Timelines
               </button>
               <button
                 type="button"
                 onClick={() => triggerFaq(FAQ_KNOWLEDGE_BASE[4])}
-                className="text-[11px] font-medium bg-[#1E1E1E] text-white border border-[#2D2D2D] hover:border-[#EAB308] px-2.5 py-1 rounded-full shrink-0 transition-colors cursor-pointer"
+                className="text-[11px] font-medium bg-white text-stone-800 border border-stone-300 hover:border-amber-500 px-2.5 py-1 rounded-full shrink-0 transition-colors cursor-pointer shadow-xs"
               >
                 💳 Payment Methods
               </button>
               <button
                 type="button"
                 onClick={() => triggerFaq(FAQ_KNOWLEDGE_BASE[5])}
-                className="text-[11px] font-medium bg-[#1E1E1E] text-white border border-[#2D2D2D] hover:border-[#EAB308] px-2.5 py-1 rounded-full shrink-0 transition-colors cursor-pointer"
+                className="text-[11px] font-medium bg-white text-stone-800 border border-stone-300 hover:border-amber-500 px-2.5 py-1 rounded-full shrink-0 transition-colors cursor-pointer shadow-xs"
               >
                 🛡️ Proof &amp; Packaging
               </button>
               <button
                 type="button"
                 onClick={() => triggerFaq(FAQ_KNOWLEDGE_BASE[6])}
-                className="text-[11px] font-medium bg-[#1E1E1E] text-white border border-[#2D2D2D] hover:border-[#EAB308] px-2.5 py-1 rounded-full shrink-0 transition-colors cursor-pointer"
+                className="text-[11px] font-medium bg-white text-stone-800 border border-stone-300 hover:border-amber-500 px-2.5 py-1 rounded-full shrink-0 transition-colors cursor-pointer shadow-xs"
               >
                 🎨 Add Photo / Customise
               </button>
@@ -478,22 +478,22 @@ export default function SmartSupportWidget() {
                 e.preventDefault();
                 handleSendMessage();
               }}
-              className="p-3 bg-[#181818] border-t border-[#2D2D2D] flex items-center gap-2"
+              className="p-3 bg-white border-t border-stone-200 flex items-center gap-2"
             >
               <input
                 type="text"
                 placeholder="Ask about sizes, LED, delivery, customization..."
                 value={inputText}
                 onChange={(e) => setInputText(e.target.value)}
-                className="flex-1 bg-[#121212] border border-[#2D2D2D] rounded-full px-3.5 py-2 text-xs text-[#FFFFFF] placeholder-[#8C7A70] outline-none focus:border-[#EAB308] transition-colors"
+                className="flex-1 bg-stone-50 border border-stone-300 rounded-full px-3.5 py-2 text-xs text-stone-900 placeholder-stone-400 outline-none focus:border-amber-500 transition-colors"
               />
               <button
                 type="submit"
                 disabled={!inputText.trim()}
                 className={`w-9 h-9 rounded-full flex items-center justify-center transition-all cursor-pointer ${
                   inputText.trim()
-                    ? 'bg-[#EAB308] text-[#000000] hover:bg-[#FACC15]'
-                    : 'bg-[#222222] text-[#8C7A70] cursor-not-allowed opacity-60'
+                    ? 'bg-[#EAB308] text-stone-950 hover:bg-[#FACC15]'
+                    : 'bg-stone-200 text-stone-400 cursor-not-allowed opacity-60'
                 }`}
                 aria-label="Send message"
               >

@@ -76,8 +76,8 @@ export default function CustomisePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <div className="bg-[#121212] min-h-screen">
-        <Suspense fallback={<div className="bg-[#121212] min-h-screen" />}><CustomizerStudio /></Suspense>
+      <div className="bg-white min-h-screen text-stone-900">
+        <Suspense fallback={<div className="bg-white min-h-screen" />}><CustomizerStudio /></Suspense>
       </div>
     </>
   );

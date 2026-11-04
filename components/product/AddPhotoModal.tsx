@@ -253,20 +253,20 @@ export default function AddPhotoModal({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/80 backdrop-blur-md animate-fade-in overflow-y-auto">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-stone-950/70 backdrop-blur-md animate-fade-in overflow-y-auto">
       <div
-        className="relative w-full max-w-2xl bg-[#121212] border border-[#EAB308] rounded-2xl sm:rounded-3xl shadow-[0_20px_60px_rgba(0,0,0,0.8)] overflow-hidden my-auto max-h-[92vh] flex flex-col"
+        className="relative w-full max-w-2xl bg-white border border-stone-200 rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden my-auto max-h-[92vh] flex flex-col text-stone-900"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="px-4 sm:px-6 py-3.5 bg-[#181818] border-b border-[#2D2D2D] flex items-center justify-between shrink-0">
+        <div className="px-4 sm:px-6 py-3.5 bg-stone-50 border-b border-stone-200 flex items-center justify-between shrink-0">
           <div className="flex items-center gap-2 min-w-0">
-            <span className="w-2.5 h-2.5 rounded-full bg-[#EAB308] animate-pulse shrink-0" />
+            <span className="w-2.5 h-2.5 rounded-full bg-amber-500 animate-pulse shrink-0" />
             <div className="min-w-0">
-              <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-[#EAB308] block truncate">
+              <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-amber-700 block truncate">
                 Customise: Photo & Size
               </span>
-              <h2 className="font-serif font-bold text-sm sm:text-base text-[#FFFFFF] truncate">
+              <h2 className="font-serif font-bold text-sm sm:text-base text-stone-900 truncate">
                 {product.title}
               </h2>
             </div>
@@ -274,7 +274,7 @@ export default function AddPhotoModal({
           <button
             type="button"
             onClick={onClose}
-            className="w-8 h-8 rounded-full bg-[#222222] hover:bg-[#EAB308] text-white hover:text-black border border-[#2D2D2D] flex items-center justify-center transition-colors shrink-0 ml-2 cursor-pointer"
+            className="w-8 h-8 rounded-full bg-stone-100 hover:bg-stone-200 text-stone-600 hover:text-stone-900 border border-stone-200 flex items-center justify-center transition-colors shrink-0 ml-2 cursor-pointer"
             aria-label="Close modal"
           >
             <X className="w-4 h-4" />
@@ -284,17 +284,17 @@ export default function AddPhotoModal({
         {/* Scrollable Body */}
         <div className="p-4 sm:p-6 overflow-y-auto space-y-5 flex-1">
           {/* Product context pill */}
-          <div className="bg-[#181818] border border-[#2D2D2D] rounded-xl p-3 flex items-center gap-3">
+          <div className="bg-stone-50 border border-stone-200 rounded-xl p-3 flex items-center gap-3">
             <img
               src={product.images[0]}
               alt={product.title}
-              className="w-12 h-12 object-cover rounded-lg border border-[#EAB308]/40 shrink-0"
+              className="w-12 h-12 object-cover rounded-lg border border-amber-300 shrink-0"
             />
             <div className="text-xs min-w-0 flex-1">
-              <p className="text-[#FFFFFF] font-bold truncate">
+              <p className="text-stone-900 font-bold truncate">
                 Personalized {product.title}
               </p>
-              <p className="text-[#D1D5DB] text-[11px] mt-0.5">
+              <p className="text-stone-600 text-[11px] mt-0.5">
                 Customise this frame with your own photo, custom width & height dimensions, or both. Precision crafted in Hyderabad.
               </p>
             </div>
@@ -302,13 +302,13 @@ export default function AddPhotoModal({
 
           {/* Photo Upload & Live Mockup */}
           <div className="space-y-2">
-            <label className="text-xs font-bold text-[#FFFFFF] uppercase tracking-wider flex items-center justify-between">
-              <span>1. Personal Photo <span className="text-[#D1D5DB] font-normal lowercase">(optional — upload your photo or keep original artwork)</span></span>
+            <label className="text-xs font-bold text-stone-900 uppercase tracking-wider flex items-center justify-between">
+              <span>1. Personal Photo <span className="text-stone-500 font-normal lowercase">(optional — upload your photo or keep original artwork)</span></span>
               {photoPreview && (
                 <button
                   type="button"
                   onClick={() => fileInputRef.current?.click()}
-                  className="text-[11px] font-medium text-[#EAB308] hover:underline flex items-center gap-1 cursor-pointer"
+                  className="text-[11px] font-medium text-amber-700 hover:underline flex items-center gap-1 cursor-pointer"
                 >
                   <RotateCcw className="w-3 h-3" /> Change Photo
                 </button>
@@ -329,39 +329,39 @@ export default function AddPhotoModal({
                 onDragOver={handleDragOver}
                 onDragLeave={handleDragLeave}
                 onDrop={handleDrop}
-                className={`relative border-2 border-dashed rounded-2xl p-6 sm:p-8 text-center cursor-pointer transition-all duration-200 bg-[#161616] hover:bg-[#1E1E1E] ${
+                className={`relative border-2 border-dashed rounded-2xl p-6 sm:p-8 text-center cursor-pointer transition-all duration-200 bg-stone-50 hover:bg-stone-100/70 ${
                   isDragging
-                    ? 'border-[#EAB308] bg-[#1E1E1E] scale-[1.01]'
-                    : 'border-[#333333] hover:border-[#EAB308]/70'
+                    ? 'border-amber-500 bg-amber-50 scale-[1.01]'
+                    : 'border-stone-300 hover:border-amber-400'
                 }`}
               >
                 <div className="flex flex-col items-center justify-center space-y-2">
-                  <div className="w-12 h-12 rounded-2xl bg-[#EAB308]/15 border border-[#EAB308]/40 flex items-center justify-center text-[#EAB308]">
+                  <div className="w-12 h-12 rounded-2xl bg-amber-100 border border-amber-300 flex items-center justify-center text-amber-700">
                     <Camera className="w-6 h-6" />
                   </div>
                   <div>
-                    <p className="text-xs sm:text-sm font-bold text-[#FFFFFF]">
+                    <p className="text-xs sm:text-sm font-bold text-stone-900">
                       Click or Drag &amp; Drop Your Photo Here
                     </p>
-                    <p className="text-[11px] text-[#D1D5DB] mt-1">
+                    <p className="text-[11px] text-stone-500 mt-1">
                       Upload any family, wedding, birthday, portrait, or devotional photo (JPG, PNG, WebP)
                     </p>
                   </div>
                   <button
                     type="button"
-                    className="mt-2 inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#EAB308] hover:bg-[#FACC15] text-black font-bold text-xs shadow-md transition-colors pointer-events-none"
+                    className="mt-2 inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-stone-900 hover:bg-stone-800 text-white font-bold text-xs shadow-xs transition-colors pointer-events-none"
                   >
-                    <Upload className="w-3.5 h-3.5" />
+                    <Upload className="w-3.5 h-3.5 text-amber-400" />
                     <span>Select Photo from Device</span>
                   </button>
                 </div>
               </div>
             ) : (
-              <div className="relative rounded-2xl overflow-hidden border-2 border-[#EAB308] bg-[#0A0A0A] p-3 flex flex-col items-center">
+              <div className="relative rounded-2xl overflow-hidden border-2 border-amber-400 bg-stone-100 p-3 flex flex-col items-center">
                 {/* Acrylic Frame Mockup */}
                 <div
-                  className={`relative max-w-sm w-full aspect-[4/3] rounded-xl overflow-hidden border border-[#EAB308]/80 shadow-[0_8px_30px_rgba(0,0,0,0.9)] bg-[#121212] transition-all ${
-                    ledEnabled ? 'ring-4 ring-[#EAB308]/40 shadow-[0_0_35px_rgba(234,179,8,0.35)]' : ''
+                  className={`relative max-w-sm w-full aspect-[4/3] rounded-xl overflow-hidden border border-stone-300 shadow-md bg-stone-900 transition-all ${
+                    ledEnabled ? 'ring-4 ring-amber-400/40 shadow-[0_0_35px_rgba(234,179,8,0.35)]' : ''
                   }`}
                 >
                   <img
@@ -374,20 +374,20 @@ export default function AddPhotoModal({
                   <div className="absolute inset-0 pointer-events-none bg-gradient-to-tr from-transparent via-white/10 to-white/20" />
 
                   {/* Frame Badge */}
-                  <div className="absolute bottom-2 left-2 bg-[#121212]/90 border border-[#EAB308]/60 px-2 py-0.5 rounded text-[10px] text-[#EAB308] font-bold">
+                  <div className="absolute bottom-2 left-2 bg-stone-900/90 border border-amber-400/60 px-2 py-0.5 rounded text-[10px] text-amber-300 font-bold">
                     {product.title} • {activeSizeLabel}
                   </div>
                 </div>
 
                 <div className="mt-2.5 flex items-center justify-between w-full text-xs">
-                  <span className="text-[#D1D5DB] text-[11px] flex items-center gap-1">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-[#EAB308]" />
+                  <span className="text-stone-600 text-[11px] flex items-center gap-1">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
                     Photo ready for {product.title}
                   </span>
                   <button
                     type="button"
                     onClick={() => fileInputRef.current?.click()}
-                    className="text-[11px] font-bold text-[#EAB308] hover:text-[#FFFFFF] underline cursor-pointer"
+                    className="text-[11px] font-bold text-amber-700 hover:text-stone-900 underline cursor-pointer"
                   >
                     Replace Photo
                   </button>
@@ -399,9 +399,9 @@ export default function AddPhotoModal({
           {/* Size / Variant Selector with Custom Size */}
           <div className="space-y-2">
             <div className="flex items-center justify-between">
-              <label className="text-xs font-bold text-[#FFFFFF] uppercase tracking-wider block">
+              <label className="text-xs font-bold text-stone-900 uppercase tracking-wider block">
                 2. Frame Size:{' '}
-                <span className="text-[#EAB308] font-serif font-bold normal-case">
+                <span className="text-amber-800 font-serif font-bold normal-case">
                   {isCustomSize ? `${customWidth}" × ${customHeight}" Custom Size` : activeVariant.size}
                 </span>
               </label>
@@ -409,7 +409,7 @@ export default function AddPhotoModal({
                 <button
                   type="button"
                   onClick={() => setIsCustomSize(false)}
-                  className="text-[10px] font-bold text-[#EAB308] hover:underline uppercase tracking-wider cursor-pointer"
+                  className="text-[10px] font-bold text-amber-700 hover:underline uppercase tracking-wider cursor-pointer"
                 >
                   Standard Sizes
                 </button>
@@ -429,12 +429,12 @@ export default function AddPhotoModal({
                     }}
                     className={`p-2.5 rounded-xl border text-left transition-all cursor-pointer ${
                       isSelected
-                        ? 'border-[#EAB308] bg-[#1E1E1E] text-[#FFFFFF] ring-2 ring-[#EAB308]/60 shadow-sm'
-                        : 'border-[#2D2D2D] bg-[#161616] text-[#D1D5DB] hover:border-[#EAB308]/50 hover:text-white'
+                        ? 'border-amber-500 bg-amber-50 text-stone-950 ring-2 ring-amber-300 shadow-xs'
+                        : 'border-stone-200 bg-white text-stone-700 hover:border-amber-300'
                     }`}
                   >
                     <div className="font-bold text-xs truncate">{cleanSize}</div>
-                    <div className="text-[11px] text-[#EAB308] font-bold mt-0.5">
+                    <div className="text-[11px] text-amber-800 font-bold mt-0.5">
                       ₹{v.price.toLocaleString('en-IN')}
                     </div>
                   </button>
@@ -447,14 +447,14 @@ export default function AddPhotoModal({
                 onClick={() => setIsCustomSize(true)}
                 className={`p-2.5 rounded-xl border text-left transition-all cursor-pointer ${
                   isCustomSize
-                    ? 'border-[#EAB308] bg-[#1E1E1E] text-[#FFFFFF] ring-2 ring-[#EAB308]/60 shadow-sm'
-                    : 'border-[#2D2D2D] bg-[#161616] text-[#D1D5DB] hover:border-[#EAB308]/50 hover:text-white'
+                    ? 'border-amber-500 bg-amber-50 text-stone-950 ring-2 ring-amber-300 shadow-xs'
+                    : 'border-amber-300 bg-amber-50/50 text-stone-800 hover:border-amber-400'
                 }`}
               >
-                <div className="font-bold text-xs flex items-center gap-1 text-[#EAB308]">
-                  <Ruler className="w-3.5 h-3.5 text-[#EAB308]" /> Custom Size
+                <div className="font-bold text-xs flex items-center gap-1 text-amber-800">
+                  <Ruler className="w-3.5 h-3.5 text-amber-600" /> Custom Size
                 </div>
-                <div className="text-[11px] text-[#25D366] font-medium mt-0.5">
+                <div className="text-[11px] text-emerald-700 font-medium mt-0.5">
                   Price in WhatsApp
                 </div>
               </button>
@@ -475,10 +475,10 @@ export default function AddPhotoModal({
 
           {/* Lighting Toggle if product has LED */}
           {product.hasLedBacklight && (
-            <div className="bg-[#181818] border border-[#2D2D2D] rounded-xl p-3 flex items-center justify-between">
+            <div className="bg-stone-50 border border-stone-200 rounded-xl p-3 flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <Sun className="w-4 h-4 text-[#EAB308]" />
-                <span className="text-xs font-bold text-[#FFFFFF]">
+                <Sun className="w-4 h-4 text-amber-600" />
+                <span className="text-xs font-bold text-stone-900">
                   Warm LED Backlit Illumination
                 </span>
               </div>
@@ -487,8 +487,8 @@ export default function AddPhotoModal({
                 onClick={() => setLedEnabled(!ledEnabled)}
                 className={`px-3 py-1 rounded-full text-xs font-bold border transition-all cursor-pointer ${
                   ledEnabled
-                    ? 'bg-[#EAB308] text-black border-[#EAB308]'
-                    : 'bg-[#222222] text-[#D1D5DB] border-[#333333]'
+                    ? 'bg-[#EAB308] text-stone-950 border-amber-400'
+                    : 'bg-stone-200 text-stone-700 border-stone-300'
                 }`}
               >
                 {ledEnabled ? 'ON' : 'OFF'}
@@ -498,47 +498,47 @@ export default function AddPhotoModal({
 
           {/* Optional Personalization Text */}
           <div className="space-y-1.5">
-            <label className="text-xs font-bold text-[#FFFFFF] uppercase tracking-wider block">
-              3. Custom Text / Dedication <span className="text-[#D1D5DB] font-normal lowercase">(optional)</span>
+            <label className="text-xs font-bold text-stone-900 uppercase tracking-wider block">
+              3. Custom Text / Dedication <span className="text-stone-500 font-normal lowercase">(optional)</span>
             </label>
             <input
               type="text"
               value={customText}
               onChange={(e) => setCustomText(e.target.value)}
               placeholder="e.g. Ramesh &amp; Priya • 25th Anniversary • 12 May 2026"
-              className="w-full bg-[#161616] border border-[#2D2D2D] focus:border-[#EAB308] rounded-xl px-3 py-2 text-xs text-[#FFFFFF] placeholder:text-stone-500 outline-none transition-colors"
+              className="w-full bg-white border border-stone-300 focus:border-amber-500 rounded-xl px-3 py-2 text-xs text-stone-900 placeholder:text-stone-400 outline-none transition-colors"
               maxLength={80}
             />
           </div>
 
           {/* Price Summary */}
-          <div className="bg-[#181818] border border-[#2D2D2D] rounded-xl p-3.5 flex items-center justify-between">
+          <div className="bg-stone-50 border border-stone-200 rounded-xl p-3.5 flex items-center justify-between">
             {isCustomSize ? (
               <div className="flex items-center gap-2.5">
                 <div className="w-8 h-8 rounded-lg bg-[#25D366]/15 border border-[#25D366]/40 flex items-center justify-center text-[#25D366] shrink-0">
                   <MessageCircle className="w-4 h-4 fill-current" />
                 </div>
                 <div>
-                  <span className="text-[11px] text-[#D1D5DB] block">Custom Dimension Pricing</span>
-                  <span className="text-sm sm:text-base font-bold text-[#25D366] font-serif block">
+                  <span className="text-[11px] text-stone-500 block">Custom Dimension Pricing</span>
+                  <span className="text-sm sm:text-base font-bold text-emerald-700 font-serif block">
                     Price will be known in WhatsApp chat order
                   </span>
                 </div>
               </div>
             ) : (
               <div>
-                <span className="text-[11px] text-[#D1D5DB] block">Item Price with Custom Photo</span>
+                <span className="text-[11px] text-stone-500 block">Item Price with Custom Photo</span>
                 <div className="flex items-baseline gap-2 mt-0.5">
-                  <span className="text-lg font-bold text-[#FFFFFF] font-serif">
+                  <span className="text-lg font-bold text-stone-900 font-serif">
                     ₹{activePrice.toLocaleString('en-IN')}
                   </span>
                   {hasRealDiscount && (
-                    <span className="text-xs text-[#D1D5DB] line-through">
+                    <span className="text-xs text-stone-400 line-through">
                       ₹{activeMrp.toLocaleString('en-IN')}
                     </span>
                   )}
                   {hasRealDiscount && discountPercent > 0 && (
-                    <span className="text-[10px] font-bold text-[#EAB308] bg-[#EAB308]/15 px-1.5 py-0.5 rounded">
+                    <span className="text-[10px] font-bold text-amber-900 bg-amber-100 px-1.5 py-0.5 rounded border border-amber-300">
                       Save {discountPercent}%
                     </span>
                   )}
@@ -546,15 +546,15 @@ export default function AddPhotoModal({
               </div>
             )}
 
-            <div className="text-right text-[11px] text-[#D1D5DB]">
-              <span className="text-[#FFFFFF] font-semibold block">{activeSizeLabel}</span>
+            <div className="text-right text-[11px] text-stone-500">
+              <span className="text-stone-900 font-semibold block">{activeSizeLabel}</span>
               <span>1:1 WhatsApp proof before print</span>
             </div>
           </div>
         </div>
 
         {/* Footer Actions */}
-        <div className="p-4 sm:p-5 bg-[#181818] border-t border-[#2D2D2D] space-y-2 shrink-0">
+        <div className="p-4 sm:p-5 bg-stone-50 border-t border-stone-200 space-y-2 shrink-0">
           {isCustomSize ? (
             <div className="space-y-2">
               <button
@@ -572,16 +572,16 @@ export default function AddPhotoModal({
               <button
                 type="button"
                 onClick={() => handleAddToCartWithPhoto(false)}
-                className="w-full py-2.5 px-4 rounded-xl font-bold text-xs flex items-center justify-center gap-2 bg-[#EAB308] hover:bg-[#FACC15] text-black shadow-md border border-[#EAB308] transition-all cursor-pointer"
+                className="w-full py-2.5 px-4 rounded-xl font-bold text-xs flex items-center justify-center gap-2 bg-[#EAB308] hover:bg-[#CA8A04] text-stone-950 shadow-md border border-amber-400 transition-all cursor-pointer"
               >
                 {addedSuccess ? (
                   <>
-                    <Check className="w-4 h-4 text-black" />
+                    <Check className="w-4 h-4 text-stone-950" />
                     <span>Added to Cart!</span>
                   </>
                 ) : (
                   <>
-                    <ShoppingBag className="w-4 h-4 text-black" />
+                    <ShoppingBag className="w-4 h-4 text-stone-950" />
                     <span>Add to Cart • ₹{activePrice.toLocaleString('en-IN')}</span>
                   </>
                 )}
@@ -590,10 +590,10 @@ export default function AddPhotoModal({
               <button
                 type="button"
                 onClick={() => handleAddToCartWithPhoto(true)}
-                className="w-full py-2.5 px-4 rounded-xl font-bold text-xs flex items-center justify-center gap-2 bg-[#121212] hover:bg-[#222222] text-[#FFFFFF] hover:text-[#EAB308] border border-[#EAB308] transition-all cursor-pointer"
+                className="w-full py-2.5 px-4 rounded-xl font-bold text-xs flex items-center justify-center gap-2 bg-stone-900 hover:bg-stone-800 text-white border border-stone-900 transition-all cursor-pointer shadow-xs"
               >
                 <span>Instant Buy Now</span>
-                <ArrowRight className="w-4 h-4 text-[#EAB308]" />
+                <ArrowRight className="w-4 h-4 text-amber-400" />
               </button>
             </div>
           )}
@@ -606,13 +606,13 @@ export default function AddPhotoModal({
               disabled={waUploading}
               className={`font-semibold flex items-center gap-1.5 transition-colors ${
                 waUploading
-                  ? 'text-[#EAB308]/50 cursor-wait'
-                  : 'text-[#EAB308] hover:underline cursor-pointer'
+                  ? 'text-amber-600/50 cursor-wait'
+                  : 'text-amber-800 hover:underline cursor-pointer'
               }`}
             >
               {waUploading ? (
                 <>
-                  <svg className="animate-spin w-3.5 h-3.5 text-[#EAB308]" fill="none" viewBox="0 0 24 24">
+                  <svg className="animate-spin w-3.5 h-3.5 text-amber-600" fill="none" viewBox="0 0 24 24">
                     <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
                     <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z" />
                   </svg>

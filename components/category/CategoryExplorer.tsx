@@ -157,7 +157,7 @@ export default function CategoryExplorer({ initialCategories }: CategoryExplorer
       {/* 2. Interactive Filter Bar & Search Controls */}
       <div className="space-y-4 pt-2">
         {/* Master Lighting Segregation Switch: Backlight vs Normal Collections */}
-        <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3 p-2 bg-[#1E1E1E]/60 rounded-3xl border border-[#EAB308]/50 max-w-2xl mx-auto shadow-xs">
+        <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3 p-2 bg-stone-100 rounded-3xl border border-stone-200 max-w-2xl mx-auto shadow-xs">
           <button
             type="button"
             onClick={() => {
@@ -166,11 +166,11 @@ export default function CategoryExplorer({ initialCategories }: CategoryExplorer
             }}
             className={`px-4 py-2 rounded-2xl text-xs sm:text-sm font-bold transition-all cursor-pointer flex items-center gap-2 ${
               lightingFilter === 'all'
-                ? 'bg-[#EAB308] text-[#000000] shadow-sm border border-[#EAB308]'
-                : 'bg-white text-[#FFFFFF] hover:bg-[#121212] border border-[#2D2D2D]'
+                ? 'bg-[#EAB308] text-stone-950 shadow-sm border border-amber-400'
+                : 'bg-white text-stone-700 hover:bg-stone-50 border border-stone-200'
             }`}
           >
-            <Sparkles className="w-4 h-4 text-[#EAB308]" />
+            <Sparkles className="w-4 h-4 text-amber-600" />
             <span>All Master Collections ({initialCategories.length})</span>
           </button>
 
@@ -182,11 +182,11 @@ export default function CategoryExplorer({ initialCategories }: CategoryExplorer
             }}
             className={`px-4 py-2 rounded-2xl text-xs sm:text-sm font-bold transition-all cursor-pointer flex items-center gap-2 ${
               lightingFilter === 'backlight'
-                ? 'bg-gradient-to-r from-[#EAB308] via-[#A87928] to-[#181818] text-[#FFFFFF] shadow-md border border-[#FFF7CC] ring-2 ring-[#EAB308]/40 scale-102'
-                : 'bg-white text-[#CA8A04] hover:bg-[#121212] border border-[#EAB308]/60'
+                ? 'bg-gradient-to-r from-[#EAB308] to-amber-500 text-stone-950 shadow-md border border-amber-300 ring-2 ring-amber-400/40 scale-102'
+                : 'bg-white text-amber-800 hover:bg-amber-50 border border-amber-200'
             }`}
           >
-            <Flame className="w-4 h-4 text-amber-500 animate-pulse" />
+            <Flame className="w-4 h-4 text-amber-600 animate-pulse" />
             <span>✨ LED Backlit Collections ({backlightCount})</span>
           </button>
 
@@ -198,11 +198,11 @@ export default function CategoryExplorer({ initialCategories }: CategoryExplorer
             }}
             className={`px-4 py-2 rounded-2xl text-xs sm:text-sm font-bold transition-all cursor-pointer flex items-center gap-2 ${
               lightingFilter === 'normal'
-                ? 'bg-[#EAB308] text-[#000000] shadow-md border border-[#EAB308] ring-2 ring-[#EAB308]/30 scale-102'
-                : 'bg-white text-[#FFFFFF] hover:bg-[#121212] border border-[#2D2D2D]'
+                ? 'bg-[#EAB308] text-stone-950 shadow-md border border-amber-400 ring-2 ring-amber-400/30 scale-102'
+                : 'bg-white text-stone-700 hover:bg-stone-50 border border-stone-200'
             }`}
           >
-            <Sparkles className="w-4 h-4 text-[#EAB308]" />
+            <Sparkles className="w-4 h-4 text-amber-600" />
             <span>🖼️ Normal Acrylic Collections ({normalCount})</span>
           </button>
         </div>
@@ -292,21 +292,21 @@ export default function CategoryExplorer({ initialCategories }: CategoryExplorer
           <div className="space-y-12">
             {/* Section 1: LED Backlit Wall Art Collections */}
             <div className="space-y-6">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b-2 border-[#EAB308]/50 gap-2">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b-2 border-amber-300 gap-2">
                 <div>
-                  <span className="text-[10px] uppercase font-bold tracking-widest text-[#EAB308] bg-[#121212] px-2.5 py-0.5 rounded-full inline-flex items-center gap-1 shadow-xs">
-                    <Flame className="w-3 h-3 text-amber-500 animate-pulse" /> warm Illuminated Series
+                  <span className="text-[10px] uppercase font-bold tracking-widest text-amber-900 bg-amber-50 border border-amber-300 px-2.5 py-0.5 rounded-full inline-flex items-center gap-1 shadow-2xs">
+                    <Flame className="w-3 h-3 text-amber-600 animate-pulse" /> warm Illuminated Series
                   </span>
-                  <h2 className="font-serif font-bold text-2xl sm:text-3xl text-[#FFFFFF] mt-1">
+                  <h2 className="font-serif font-bold text-2xl sm:text-3xl text-stone-900 mt-1">
                     ✨ LED Backlit Wall Art Collections ({backlightCount})
                   </h2>
-                  <p className="text-xs sm:text-sm text-[#D1D5DB] mt-0.5">
+                  <p className="text-xs sm:text-sm text-stone-600 mt-0.5">
                     Illuminated sacred temple frames with warm golden halo glow, concealed wiring, and 12V BIS power adapters.
                   </p>
                 </div>
                 <Link
                   href="/shop?lighting=led"
-                  className="inline-flex items-center gap-1.5 text-xs font-bold text-[#EAB308] hover:text-[#FFFFFF] shrink-0"
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-800 hover:text-stone-900 shrink-0"
                 >
                   <span>Shop All LED Products</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -324,21 +324,21 @@ export default function CategoryExplorer({ initialCategories }: CategoryExplorer
 
             {/* Section 2: Normal Pure Crystal Acrylic Wall Art Collections */}
             <div className="space-y-6 pt-6">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b-2 border-[#2D2D2D] gap-2">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b-2 border-stone-200 gap-2">
                 <div>
-                  <span className="text-[10px] uppercase font-bold tracking-widest text-[#FFFFFF] bg-[#1E1E1E] px-2.5 py-0.5 rounded-full inline-flex items-center gap-1 shadow-xs">
-                    <Sparkles className="w-3 h-3 text-[#EAB308]" /> Museum Glass Clarity • Non-Lit
+                  <span className="text-[10px] uppercase font-bold tracking-widest text-stone-700 bg-stone-100 border border-stone-200 px-2.5 py-0.5 rounded-full inline-flex items-center gap-1 shadow-2xs">
+                    <Sparkles className="w-3 h-3 text-amber-600" /> Museum Glass Clarity • Non-Lit
                   </span>
-                  <h2 className="font-serif font-bold text-2xl sm:text-3xl text-[#FFFFFF] mt-1">
+                  <h2 className="font-serif font-bold text-2xl sm:text-3xl text-stone-900 mt-1">
                     🖼️ Normal Crystal Acrylic Collections ({normalCount})
                   </h2>
-                  <p className="text-xs sm:text-sm text-[#D1D5DB] mt-0.5">
+                  <p className="text-xs sm:text-sm text-stone-600 mt-0.5">
                     Non-lit premium acrylic photo frames with pure gold foil embellishments and precision-polished bevel edges. No wiring required.
                   </p>
                 </div>
                 <Link
                   href="/shop?lighting=none"
-                  className="inline-flex items-center gap-1.5 text-xs font-bold text-[#FFFFFF] hover:text-[#EAB308] shrink-0"
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-stone-900 hover:text-amber-800 shrink-0"
                 >
                   <span>Shop All Normal Products</span>
                   <ArrowRight className="w-3.5 h-3.5" />

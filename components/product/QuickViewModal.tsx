@@ -86,25 +86,25 @@ export default function QuickViewModal({ product, isOpen, onClose }: QuickViewMo
     <div className="fixed inset-0 z-50 overflow-y-auto">
       {/* Backdrop */}
       <div
-        className="fixed inset-0 bg-black/60 backdrop-blur-sm transition-opacity"
+        className="fixed inset-0 bg-stone-900/60 backdrop-blur-sm transition-opacity"
         onClick={onClose}
       />
 
       <div className="flex min-h-full items-center justify-center p-4">
-        <div className="relative w-full max-w-3xl bg-[#181818] rounded-2xl shadow-2xl border border-[#2D2D2D] overflow-hidden z-10 animate-in fade-in zoom-in-95 duration-200">
+        <div className="relative w-full max-w-3xl bg-white text-stone-900 rounded-2xl shadow-2xl border border-stone-200 overflow-hidden z-10 animate-in fade-in zoom-in-95 duration-200">
           {/* Close button */}
           <button
             type="button"
             onClick={onClose}
-            className="absolute right-4 top-4 z-20 p-2 text-gray-500 hover:text-white rounded-full bg-[#222222] hover:bg-[#333333] text-white shadow-sm transition-colors"
+            className="absolute right-4 top-4 z-20 p-2 text-stone-500 hover:text-stone-900 rounded-full bg-stone-100 hover:bg-stone-200 transition-colors shadow-xs cursor-pointer"
           >
             <X className="w-5 h-5" />
           </button>
 
           <div className="grid grid-cols-1 md:grid-cols-2">
             {/* Left Image View */}
-            <div className="p-6 bg-[#141414] flex flex-col justify-between">
-              <div className="aspect-square w-full relative rounded-xl overflow-hidden bg-[#181818] shadow-sm border border-[#2D2D2D]">
+            <div className="p-6 bg-stone-50 border-r border-stone-200 flex flex-col justify-between">
+              <div className="aspect-square w-full relative rounded-xl overflow-hidden bg-white shadow-xs border border-stone-200">
                 <img
                   src={currentImg}
                   alt={product.title}
@@ -114,7 +114,7 @@ export default function QuickViewModal({ product, isOpen, onClose }: QuickViewMo
                   className="w-full h-full object-cover"
                 />
                 {product.hasLedBacklight && (
-                  <span className="absolute top-3 left-3 bg-amber-500 text-stone-950 font-bold text-[10px] uppercase px-2.5 py-1 rounded-full shadow-md flex items-center gap-1">
+                  <span className="absolute top-3 left-3 bg-[#EAB308] text-stone-950 font-bold text-[10px] uppercase px-2.5 py-1 rounded-full shadow-xs flex items-center gap-1">
                     <Sparkles className="w-3 h-3" /> Warm Backlit LED
                   </span>
                 )}
@@ -128,8 +128,8 @@ export default function QuickViewModal({ product, isOpen, onClose }: QuickViewMo
                       key={i}
                       type="button"
                       onClick={() => setActiveImage(img)}
-                      className={`w-14 h-14 rounded-lg overflow-hidden border-2 shrink-0 transition-all ${
-                        currentImg === img ? 'border-amber-600 scale-105' : 'border-[#2D2D2D] opacity-70 hover:opacity-100'
+                      className={`w-14 h-14 rounded-lg overflow-hidden border-2 shrink-0 transition-all cursor-pointer ${
+                        currentImg === img ? 'border-amber-500 scale-105' : 'border-stone-200 opacity-70 hover:opacity-100'
                       }`}
                     >
                       <img src={img} alt="" className="w-full h-full object-cover" />
@@ -140,22 +140,20 @@ export default function QuickViewModal({ product, isOpen, onClose }: QuickViewMo
             </div>
 
             {/* Right Details */}
-            <div className="p-6 flex flex-col justify-between">
+            <div className="p-6 flex flex-col justify-between space-y-4">
               <div className="space-y-3">
                 <div className="flex items-center gap-2">
-                  <span className="text-[11px] uppercase tracking-wider font-semibold text-[#FFFFFF] bg-[#1E1E1E] border border-[#EAB308]/50 px-2.5 py-0.5 rounded-full inline-block">
+                  <span className="text-[11px] uppercase tracking-wider font-semibold text-stone-700 bg-stone-100 border border-stone-200 px-2.5 py-0.5 rounded-full inline-block">
                     {product.categoryName}
                   </span>
-                  <span className="text-[11px] uppercase tracking-wider font-bold text-[#EAB308] bg-[#181818] border border-[#2D2D2D] px-2.5 py-0.5 rounded-full inline-block capitalize">
+                  <span className="text-[11px] uppercase tracking-wider font-bold text-amber-800 bg-amber-50 border border-amber-200 px-2.5 py-0.5 rounded-full inline-block capitalize">
                     {product.shape || (product.orientation === 'vertical' ? 'portrait' : product.orientation === 'horizontal' ? 'landscape' : product.orientation)}
                   </span>
                 </div>
 
-                <h3 className="font-serif font-bold text-xl text-[#FFFFFF] leading-tight">
+                <h3 className="font-serif font-bold text-xl text-stone-900 leading-tight">
                   {product.title}
                 </h3>
-
-                
 
                 {/* Price */}
                 {isCustomSize ? (
@@ -167,15 +165,15 @@ export default function QuickViewModal({ product, isOpen, onClose }: QuickViewMo
                   </div>
                 ) : (
                   <div className="flex items-baseline gap-2.5 pt-1">
-                    <span className="font-serif text-2xl font-bold text-[#FFFFFF]">
+                    <span className="font-serif text-2xl font-bold text-stone-900">
                       ₹{activePrice.toLocaleString('en-IN')}
                     </span>
                     {currentVariant.mrp > currentVariant.price && (
                       <>
-                        <span className="text-sm text-[#D1D5DB]/70 line-through">
+                        <span className="text-sm text-stone-400 line-through">
                           ₹{activeMrp.toLocaleString('en-IN')}
                         </span>
-                        <span className="text-xs font-bold text-[#FFFFFF] bg-[#1E1E1E] px-2 py-0.5 rounded border border-[#EAB308]/40">
+                        <span className="text-xs font-bold text-amber-900 bg-amber-100 px-2 py-0.5 rounded border border-amber-300">
                           Save {Math.round(((currentVariant.mrp - currentVariant.price) / currentVariant.mrp) * 100)}%
                         </span>
                       </>
@@ -183,14 +181,14 @@ export default function QuickViewModal({ product, isOpen, onClose }: QuickViewMo
                   </div>
                 )}
 
-                <p className="text-xs text-[#D1D5DB] line-clamp-2">
+                <p className="text-xs text-stone-600 line-clamp-2">
                   {product.shortDescription}
                 </p>
 
                 {/* Size options */}
                 <div className="space-y-1.5 pt-2">
-                  <label className="text-xs font-semibold text-[#FFFFFF] block">
-                    Choose Size ({product.shape || product.orientation}): <span className="font-normal text-[#D1D5DB]">{currentVariant.size}</span>
+                  <label className="text-xs font-semibold text-stone-900 block">
+                    Choose Size ({product.shape || product.orientation}): <span className="font-normal text-stone-600">{currentVariant.size}</span>
                   </label>
                   <div className="grid grid-cols-2 gap-2">
                     {product.variants.map((v) => (
@@ -203,12 +201,12 @@ export default function QuickViewModal({ product, isOpen, onClose }: QuickViewMo
                         }}
                         className={`px-3 py-2 text-xs font-medium rounded-lg border text-left transition-all cursor-pointer ${
                           !isCustomSize && currentVariant.id === v.id
-                            ? 'border-[#EAB308] bg-[#1E1E1E] text-[#FFFFFF] font-bold ring-1 ring-[#EAB308]'
-                            : 'border-[#2D2D2D] text-[#FFFFFF] hover:border-[#EAB308]'
+                            ? 'border-amber-500 bg-amber-50 text-stone-900 font-bold ring-1 ring-amber-400'
+                            : 'border-stone-200 text-stone-700 hover:border-amber-300 bg-white'
                         }`}
                       >
-                        <div>{v.size.split('(')[0]}</div>
-                        <div className="text-[11px] text-[#FFFFFF] font-bold">₹{v.price.toLocaleString('en-IN')}</div>
+                        <div className="text-stone-900 font-semibold">{v.size.split('(')[0]}</div>
+                        <div className="text-[11px] text-amber-700 font-bold">₹{v.price.toLocaleString('en-IN')}</div>
                       </button>
                     ))}
 
@@ -218,12 +216,12 @@ export default function QuickViewModal({ product, isOpen, onClose }: QuickViewMo
                       onClick={() => setIsCustomSize(true)}
                       className={`px-3 py-2 text-xs font-medium rounded-lg border text-left transition-all cursor-pointer ${
                         isCustomSize
-                          ? 'border-[#EAB308] bg-[#1E1E1E] text-[#FFFFFF] font-bold ring-1 ring-[#EAB308]'
-                          : 'border-[#2D2D2D] text-[#FFFFFF] hover:border-[#EAB308]'
+                          ? 'border-amber-500 bg-amber-50 text-stone-900 font-bold ring-1 ring-amber-400'
+                          : 'border-stone-200 text-stone-700 hover:border-amber-300 bg-white'
                       }`}
                     >
-                      <div className="font-bold flex items-center gap-1 text-[#EAB308]">
-                        <Ruler className="w-3 h-3 text-[#EAB308]" /> Custom Size
+                      <div className="font-bold flex items-center gap-1 text-amber-700">
+                        <Ruler className="w-3 h-3 text-amber-600" /> Custom Size
                       </div>
                       <div className="text-[11px] text-[#25D366] font-medium">Price in WhatsApp chat</div>
                     </button>
@@ -245,20 +243,20 @@ export default function QuickViewModal({ product, isOpen, onClose }: QuickViewMo
 
                 {/* Quantity */}
                 <div className="flex items-center gap-3 pt-2">
-                  <span className="text-xs font-semibold text-[#FFFFFF]">Quantity:</span>
-                  <div className="flex items-center border border-[#2D2D2D] rounded-lg">
+                  <span className="text-xs font-semibold text-stone-900">Quantity:</span>
+                  <div className="flex items-center border border-stone-300 rounded-lg bg-stone-50">
                     <button
                       type="button"
                       onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                      className="px-2.5 py-1 text-[#FFFFFF] hover:bg-[#121212] rounded-l-lg"
+                      className="px-2.5 py-1 text-stone-700 hover:bg-stone-200 rounded-l-lg cursor-pointer font-bold"
                     >
                       -
                     </button>
-                    <span className="px-3 text-xs font-semibold text-[#FFFFFF]">{quantity}</span>
+                    <span className="px-3 text-xs font-semibold text-stone-900">{quantity}</span>
                     <button
                       type="button"
                       onClick={() => setQuantity(Math.min(10, quantity + 1))}
-                      className="px-2.5 py-1 text-[#FFFFFF] hover:bg-[#121212] rounded-r-lg"
+                      className="px-2.5 py-1 text-stone-700 hover:bg-stone-200 rounded-r-lg cursor-pointer font-bold"
                     >
                       +
                     </button>
@@ -275,7 +273,7 @@ export default function QuickViewModal({ product, isOpen, onClose }: QuickViewMo
                     )}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full bg-[#25D366] hover:bg-[#20BD5A] text-white py-3 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-md transition-all cursor-pointer"
+                    className="w-full bg-[#25D366] hover:bg-[#20BD5A] text-white py-3 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-md transition-all cursor-pointer uppercase tracking-wider"
                   >
                     <MessageCircle className="w-4 h-4 fill-white" />
                     <span>Order via WhatsApp (Price Known in Chat)</span>
@@ -284,24 +282,24 @@ export default function QuickViewModal({ product, isOpen, onClose }: QuickViewMo
                   <button
                     type="button"
                     onClick={handleBuyNow}
-                    className="w-full bg-[#EAB308] hover:bg-[#FACC15] text-[#000000] py-3 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-[0_4px_16px_rgba(234,179,8,0.25)] border border-[#EAB308]/50 transition-all cursor-pointer"
+                    className="w-full bg-[#EAB308] hover:bg-[#FACC15] text-stone-950 py-3 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-md border border-amber-500 transition-all cursor-pointer uppercase tracking-wider"
                   >
                     <span>Buy Now • ₹{(activePrice * quantity).toLocaleString('en-IN')}</span>
-                    <ArrowRight className="w-4 h-4 text-[#EAB308]" />
+                    <ArrowRight className="w-4 h-4 text-stone-950" />
                   </button>
                 )}
 
                 <div className="flex items-center justify-between text-xs pt-1">
-                  <span className="flex items-center gap-1 text-[#D1D5DB]">
-                    <ShieldCheck className="w-3.5 h-3.5 text-[#EAB308]" /> Protective Packaging
+                  <span className="flex items-center gap-1 text-stone-500">
+                    <ShieldCheck className="w-3.5 h-3.5 text-amber-600" /> Protective Packaging
                   </span>
                   <Link
                     href={`/product/${product.slug}`}
                     onClick={onClose}
-                    className="text-[#FFFFFF] hover:text-[#EAB308] font-semibold flex items-center gap-0.5 transition-colors"
+                    className="text-stone-800 hover:text-amber-700 font-semibold flex items-center gap-0.5 transition-colors"
                   >
                     <span>Full Product Specifications</span>
-                    <ArrowRight className="w-3 h-3 text-[#EAB308]" />
+                    <ArrowRight className="w-3 h-3 text-amber-600" />
                   </Link>
                 </div>
               </div>

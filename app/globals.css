@@ -3,23 +3,23 @@
 @tailwind utilities;
 
 :root {
-  --primary: #121212;
-  --primary-dark: #0A0A0A;
-  --secondary: #FFFFFF;
+  --primary: #FFFFFF;
+  --primary-dark: #F9FAFB;
+  --secondary: #18181B;
   --accent: #EAB308;
-  --background: #121212;
+  --background: #FFFFFF;
   --dark-background: #0A0A0A;
-  --card: #181818;
-  --card-foreground: #FFFFFF;
-  --border: #2A2A2A;
-  --input: #1E1E1E;
+  --card: #FFFFFF;
+  --card-foreground: #18181B;
+  --border: #E5E7EB;
+  --input: #FFFFFF;
   --ring: #EAB308;
-  --primary-text: #FFFFFF;
-  --secondary-text: #E5E7EB;
+  --primary-text: #18181B;
+  --secondary-text: #4B5563;
   --led-glow: #FDE047;
-  --foreground: #FFFFFF;
-  --muted: #1E1E1E;
-  --muted-foreground: #9CA3AF;
+  --foreground: #18181B;
+  --muted: #F3F4F6;
+  --muted-foreground: #6B7280;
   --destructive: #EF4444;
   --destructive-foreground: #FFFFFF;
   --radius: 0.625rem;
@@ -60,57 +60,57 @@ h1, h2, h3, h4, .font-serif {
   font-family: 'Gautami', 'Nirmala UI', 'Tiro Telugu', 'Noto Sans Telugu', system-ui, sans-serif;
 }
 
-/* Custom scrollbar in Matte Black & Golden Yellow */
+/* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #121212;
+  background: #F3F4F6;
 }
 ::-webkit-scrollbar-thumb {
   background: #EAB308;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #FACC15;
+  background: #CA8A04;
 }
 
 /* ==========================================================================
-   REUSABLE THEME UTILITY HELPERS — MATTE BLACK, GOLDEN YELLOW & WHITE
+   REUSABLE THEME UTILITY HELPERS
    ========================================================================== */
 .bg-deep-burgundy {
-  background-color: #121212;
+  background-color: #FFFFFF;
 }
 .bg-royal-maroon {
-  background-color: #181818;
+  background-color: #F9FAFB;
 }
 .bg-champagne-gold {
   background-color: #EAB308;
 }
 .bg-warm-ivory {
-  background-color: #121212;
+  background-color: #FFFFFF;
 }
 .bg-soft-cream {
-  background-color: #1A1A1A;
+  background-color: #F3F4F6;
 }
 .bg-antique-gold {
   background-color: #CA8A04;
 }
 .text-deep-burgundy {
-  color: #FFFFFF;
+  color: #18181B;
 }
 .text-royal-maroon {
-  color: #FFFFFF;
+  color: #18181B;
 }
 .text-champagne-gold {
-  color: #EAB308;
+  color: #B45309;
 }
 .text-antique-gold {
-  color: #FACC15;
+  color: #92400E;
 }
 .text-warm-content {
-  color: #E5E7EB;
+  color: #374151;
 }
 .border-champagne-gold {
   border-color: #EAB308;
@@ -119,19 +119,19 @@ h1, h2, h3, h4, .font-serif {
   border-color: #CA8A04;
 }
 .bg-royal-burgundy {
-  background-color: #121212;
+  background-color: #FFFFFF;
 }
 .bg-royal-dark {
-  background-color: #0A0A0A;
+  background-color: #FFFFFF;
 }
 .text-royal-burgundy {
-  color: #FFFFFF;
+  color: #18181B;
 }
 .text-secondary-muted {
-  color: #9CA3AF;
+  color: #6B7280;
 }
 .text-champagne-accent {
-  color: #FACC15;
+  color: #B45309;
 }
 .border-gold-subtle {
   border-color: rgba(234, 179, 8, 0.35);

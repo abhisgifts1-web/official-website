@@ -124,16 +124,16 @@ export default function CustomGiftsShowcase() {
   return (
     <section className="w-full max-w-[1760px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 py-6 sm:py-8 lg:py-10">
       {/* Header with Title and Filter Tabs */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 pb-4 border-b border-[#2D2D2D] gap-4">
+      <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 pb-4 border-b border-stone-200 gap-4">
         <div>
-          <div className="inline-flex items-center gap-1.5 text-xs uppercase tracking-widest font-bold text-[#FFFFFF] bg-[#181818] border border-[#EAB308] px-3.5 py-1 rounded-full shadow-2xs mb-2">
-            <Sparkles className="w-3.5 h-3.5 text-[#EAB308]" />
+          <div className="inline-flex items-center gap-1.5 text-xs uppercase tracking-widest font-bold text-amber-900 bg-amber-50 border border-amber-300 px-3.5 py-1 rounded-full shadow-2xs mb-2">
+            <Sparkles className="w-3.5 h-3.5 text-amber-600" />
             <span>100% Bespoke • Handcrafted Memories</span>
           </div>
-          <h2 className="font-serif font-bold text-2xl sm:text-3xl lg:text-4xl text-[#FFFFFF] tracking-tight">
+          <h2 className="font-serif font-bold text-2xl sm:text-3xl lg:text-4xl text-stone-900 tracking-tight">
             TRENDING CUSTOM GIFTS &amp; ACRYLIC KEEPSAKES
           </h2>
-          <p className="text-xs sm:text-sm text-[#D1D5DB] mt-1.5 max-w-2xl font-sans leading-relaxed">
+          <p className="text-xs sm:text-sm text-stone-600 mt-1.5 max-w-2xl font-sans leading-relaxed">
             Preserve your cherished moments with magical 360° motorized rotating photo lamps, liquid gold shimmer glitter frames, and warm backlit portrait heirlooms.
           </p>
         </div>
@@ -146,7 +146,7 @@ export default function CustomGiftsShowcase() {
             className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all whitespace-nowrap cursor-pointer ${
               activeFilter === 'all'
                 ? 'bg-[#EAB308] text-[#000000] border border-[#EAB308] shadow-xs'
-                : 'bg-[#181818] text-[#D1D5DB] border border-[#2D2D2D] hover:border-[#EAB308]'
+                : 'bg-stone-100 text-stone-700 border border-stone-200 hover:border-[#EAB308]'
             }`}
           >
             All Keepsakes
@@ -158,10 +158,10 @@ export default function CustomGiftsShowcase() {
             className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all whitespace-nowrap flex items-center gap-1.5 cursor-pointer ${
               activeFilter === 'lamps'
                 ? 'bg-[#EAB308] text-[#000000] border border-[#EAB308] shadow-xs'
-                : 'bg-[#181818] text-[#D1D5DB] border border-[#2D2D2D] hover:border-[#EAB308]'
+                : 'bg-stone-100 text-stone-700 border border-stone-200 hover:border-[#EAB308]'
             }`}
           >
-            <RotateCw className="w-3 h-3 text-[#EAB308]" />
+            <RotateCw className="w-3 h-3 text-amber-700" />
             <span>Rotating Lamps</span>
           </button>
 
@@ -171,10 +171,10 @@ export default function CustomGiftsShowcase() {
             className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all whitespace-nowrap flex items-center gap-1.5 cursor-pointer ${
               activeFilter === 'glitter'
                 ? 'bg-[#EAB308] text-[#000000] border border-[#EAB308] shadow-xs'
-                : 'bg-[#181818] text-[#D1D5DB] border border-[#2D2D2D] hover:border-[#EAB308]'
+                : 'bg-stone-100 text-stone-700 border border-stone-200 hover:border-[#EAB308]'
             }`}
           >
-            <Stars className="w-3 h-3 text-[#EAB308]" />
+            <Stars className="w-3 h-3 text-amber-700" />
             <span>Glitter Frames</span>
           </button>
 
@@ -184,10 +184,10 @@ export default function CustomGiftsShowcase() {
             className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all whitespace-nowrap flex items-center gap-1.5 cursor-pointer ${
               activeFilter === 'led'
                 ? 'bg-[#EAB308] text-[#000000] border border-[#EAB308] shadow-xs'
-                : 'bg-[#181818] text-[#D1D5DB] border border-[#2D2D2D] hover:border-[#EAB308]'
+                : 'bg-stone-100 text-stone-700 border border-stone-200 hover:border-[#EAB308]'
             }`}
           >
-            <Sun className="w-3 h-3 text-[#EAB308]" />
+            <Sun className="w-3 h-3 text-amber-700" />
             <span>LED Backlit</span>
           </button>
 
@@ -197,10 +197,10 @@ export default function CustomGiftsShowcase() {
             className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all whitespace-nowrap flex items-center gap-1.5 cursor-pointer ${
               activeFilter === 'couple_family'
                 ? 'bg-[#EAB308] text-[#000000] border border-[#EAB308] shadow-xs'
-                : 'bg-[#181818] text-[#D1D5DB] border border-[#2D2D2D] hover:border-[#EAB308]'
+                : 'bg-stone-100 text-stone-700 border border-stone-200 hover:border-[#EAB308]'
             }`}
           >
-            <Heart className="w-3 h-3 text-[#EAB308]" />
+            <Heart className="w-3 h-3 text-amber-700" />
             <span>Couple &amp; Family</span>
           </button>
         </div>
@@ -222,12 +222,12 @@ export default function CustomGiftsShowcase() {
             disabled={currentPage === 1}
             className={`inline-flex items-center gap-1 px-3.5 py-2 rounded-full text-xs font-bold transition-all cursor-pointer ${
               currentPage === 1
-                ? 'bg-[#222222] text-[#8C7A70] cursor-not-allowed opacity-60'
-                : 'bg-[#181818] text-[#FFFFFF] border border-[#2D2D2D] hover:border-[#EAB308] shadow-xs'
+                ? 'bg-stone-100 text-stone-400 cursor-not-allowed opacity-60'
+                : 'bg-white text-stone-800 border border-stone-200 hover:border-[#EAB308] shadow-xs'
             }`}
             aria-label="Previous page"
           >
-            <ChevronLeft className="w-4 h-4 text-[#EAB308]" />
+            <ChevronLeft className="w-4 h-4 text-amber-700" />
             <span className="hidden sm:inline">Previous</span>
           </button>
 
@@ -242,7 +242,7 @@ export default function CustomGiftsShowcase() {
                 className={`w-9 h-9 rounded-full text-xs font-bold transition-all cursor-pointer flex items-center justify-center ${
                   isActive
                     ? 'bg-[#EAB308] text-[#000000] border border-[#EAB308] shadow-xs scale-105'
-                    : 'bg-[#181818] text-[#D1D5DB] border border-[#2D2D2D] hover:border-[#EAB308]'
+                    : 'bg-white text-stone-700 border border-stone-200 hover:border-[#EAB308]'
                 }`}
               >
                 {pageNum}
@@ -256,13 +256,13 @@ export default function CustomGiftsShowcase() {
             disabled={currentPage === totalPages}
             className={`inline-flex items-center gap-1 px-3.5 py-2 rounded-full text-xs font-bold transition-all cursor-pointer ${
               currentPage === totalPages
-                ? 'bg-[#222222] text-[#8C7A70] cursor-not-allowed opacity-60'
-                : 'bg-[#181818] text-[#FFFFFF] border border-[#2D2D2D] hover:border-[#EAB308] shadow-xs'
+                ? 'bg-stone-100 text-stone-400 cursor-not-allowed opacity-60'
+                : 'bg-white text-stone-800 border border-stone-200 hover:border-[#EAB308] shadow-xs'
             }`}
             aria-label="Next page"
           >
             <span className="hidden sm:inline">Next</span>
-            <ChevronRight className="w-4 h-4 text-[#EAB308]" />
+            <ChevronRight className="w-4 h-4 text-amber-700" />
           </button>
         </div>
       )}

@@ -108,32 +108,32 @@ export default function AdminCustomersPage() {
 
   return (
     <AdminLayout>
-      <div className="space-y-6 max-w-7xl mx-auto">
+      <div className="space-y-6 max-w-7xl mx-auto text-stone-900">
         {/* Header */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-[#141414] border border-[#2D2D2D] p-5 sm:p-6 rounded-3xl">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white border border-stone-200 p-5 sm:p-6 rounded-3xl shadow-sm">
           <div>
             <div className="flex items-center gap-2 mb-1">
-              <span className="px-2.5 py-0.5 rounded-full bg-[#EAB308]/15 border border-[#EAB308]/40 text-[#FACC15] font-bold text-[10px] tracking-wider uppercase flex items-center gap-1">
-                <Sparkles className="w-3 h-3 text-[#EAB308]" />
+              <span className="px-2.5 py-0.5 rounded-full bg-amber-50 border border-amber-300 text-amber-800 font-bold text-[10px] tracking-wider uppercase flex items-center gap-1 shadow-2xs">
+                <Sparkles className="w-3 h-3 text-amber-700" />
                 Customer Directory
               </span>
             </div>
-            <h1 className="font-serif font-bold text-2xl sm:text-3xl text-white">
+            <h1 className="font-serif font-bold text-2xl sm:text-3xl text-stone-900">
               Ordered Customers
             </h1>
-            <p className="text-xs text-[#A1A1AA] mt-0.5">
+            <p className="text-xs text-stone-500 mt-0.5">
               Verified buyers who have ordered custom photo frames and sacred wall art, with 1-click WhatsApp messaging.
             </p>
           </div>
 
           <div className="flex items-center gap-3">
-            <div className="bg-[#1A1A1A] px-4 py-2 rounded-xl border border-[#2D2D2D] shadow-sm text-xs">
-              <span className="text-[#A1A1AA] block text-[10px] uppercase font-bold">Total Clients</span>
-              <span className="font-serif font-bold text-base text-white">{customerList.length}</span>
+            <div className="bg-stone-50 px-4 py-2 rounded-xl border border-stone-200 shadow-2xs text-xs">
+              <span className="text-stone-500 block text-[10px] uppercase font-bold">Total Clients</span>
+              <span className="font-serif font-bold text-base text-stone-900">{customerList.length}</span>
             </div>
-            <div className="bg-[#1A1A1A] px-4 py-2 rounded-xl border border-[#2D2D2D] shadow-sm text-xs">
-              <span className="text-[#A1A1AA] block text-[10px] uppercase font-bold">Gross Lifetime Value</span>
-              <span className="font-serif font-bold text-base text-emerald-400">
+            <div className="bg-stone-50 px-4 py-2 rounded-xl border border-stone-200 shadow-2xs text-xs">
+              <span className="text-stone-500 block text-[10px] uppercase font-bold">Gross Lifetime Value</span>
+              <span className="font-serif font-bold text-base text-emerald-700">
                 ₹{totalSpentAll.toLocaleString('en-IN')}
               </span>
             </div>
@@ -142,28 +142,28 @@ export default function AdminCustomersPage() {
 
         {/* Search Bar */}
         <div className="relative max-w-md">
-          <Search className="w-4 h-4 text-[#A1A1AA] absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+          <Search className="w-4 h-4 text-stone-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
           <input
             type="text"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Search by customer name, mobile, email, or city..."
-            className="w-full pl-10 pr-4 py-2.5 bg-[#141414] border border-[#2D2D2D] rounded-xl text-xs text-white placeholder-[#71717A] focus:outline-none focus:border-[#EAB308] shadow-sm"
+            className="w-full pl-10 pr-4 py-2.5 bg-white border border-stone-300 rounded-xl text-xs text-stone-900 placeholder-stone-400 focus:outline-none focus:border-amber-500 shadow-2xs"
           />
         </div>
 
         {/* Customers Table */}
-        <div className="bg-[#141414] rounded-3xl border border-[#2D2D2D] shadow-sm overflow-hidden">
+        <div className="bg-white rounded-3xl border border-stone-200 shadow-xs overflow-hidden">
           {loading ? (
-            <div className="py-12 text-center text-xs text-[#A1A1AA]">Loading customer accounts...</div>
+            <div className="py-12 text-center text-xs text-stone-500">Loading customer accounts...</div>
           ) : filteredCustomers.length === 0 ? (
-            <div className="py-12 text-center text-xs text-[#A1A1AA]">
+            <div className="py-12 text-center text-xs text-stone-500">
               No customers found matching &quot;{search}&quot;.
             </div>
           ) : (
             <div className="overflow-x-auto">
-              <table className="w-full text-left text-xs text-[#D1D5DB]">
-                <thead className="bg-[#1C1C1E] text-[#A1A1AA] border-b border-[#2D2D2D] uppercase font-semibold text-[10px] tracking-wider">
+              <table className="w-full text-left text-xs text-stone-700">
+                <thead className="bg-stone-100 text-stone-700 border-b border-stone-200 uppercase font-bold text-[10px] tracking-wider">
                   <tr>
                     <th className="py-3 px-4">Customer</th>
                     <th className="py-3 px-4">Contact &amp; WhatsApp</th>
@@ -174,7 +174,7 @@ export default function AdminCustomersPage() {
                     <th className="py-3 px-4 text-right">Actions</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-[#262626]">
+                <tbody className="divide-y divide-stone-100">
                   {filteredCustomers.map((c, i) => {
                     const cleanPhone = c.mobile.replace(/[^0-9]/g, '');
                     const waPhone = cleanPhone.length === 10 ? `91${cleanPhone}` : cleanPhone;
@@ -183,12 +183,12 @@ export default function AdminCustomersPage() {
                     )}`;
 
                     return (
-                      <tr key={i} className="hover:bg-[#1A1A1A] transition-colors">
+                      <tr key={i} className="hover:bg-stone-50 transition-colors">
                         <td className="py-3 px-4">
-                          <div className="font-bold text-white text-sm">{c.fullName}</div>
+                          <div className="font-bold text-stone-900 text-sm">{c.fullName}</div>
                           {c.email && (
-                            <div className="text-[11px] text-[#A1A1AA] flex items-center gap-1 mt-0.5">
-                              <Mail className="w-3 h-3 text-[#71717A]" />
+                            <div className="text-[11px] text-stone-500 flex items-center gap-1 mt-0.5">
+                              <Mail className="w-3 h-3 text-stone-400" />
                               <span>{c.email}</span>
                             </div>
                           )}
@@ -196,12 +196,12 @@ export default function AdminCustomersPage() {
 
                         <td className="py-3 px-4">
                           <div className="flex items-center gap-2">
-                            <span className="font-mono font-semibold text-white">{c.mobile}</span>
+                            <span className="font-mono font-semibold text-stone-900">{c.mobile}</span>
                             <a
                               href={waUrl}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-emerald-950/80 border border-emerald-500/40 text-emerald-300 text-[10px] font-bold transition-colors hover:bg-emerald-900"
+                              className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-emerald-50 border border-emerald-300 text-emerald-800 text-[10px] font-bold transition-colors hover:bg-emerald-100 shadow-2xs"
                               title="Chat with Customer on WhatsApp"
                             >
                               <MessageCircle className="w-3 h-3" />
@@ -211,36 +211,36 @@ export default function AdminCustomersPage() {
                         </td>
 
                         <td className="py-3 px-4 max-w-xs">
-                          <div className="flex items-start gap-1 text-[#D1D5DB] text-[11px]">
-                            <MapPin className="w-3 h-3 text-[#EAB308] shrink-0 mt-0.5" />
+                          <div className="flex items-start gap-1 text-stone-700 text-[11px]">
+                            <MapPin className="w-3 h-3 text-amber-700 shrink-0 mt-0.5" />
                             <span className="truncate">
                               {c.city}, {c.state} ({c.pincode})
                             </span>
                           </div>
-                          <p className="text-[10px] text-[#A1A1AA] truncate pl-4">
+                          <p className="text-[10px] text-stone-500 truncate pl-4">
                             {c.streetAddress}
                           </p>
                         </td>
 
                         <td className="py-3 px-4 text-center">
-                          <span className="inline-flex items-center justify-center px-2.5 py-0.5 rounded-full bg-[#1E1E1E] border border-[#333333] text-white font-bold text-[11px]">
+                          <span className="inline-flex items-center justify-center px-2.5 py-0.5 rounded-full bg-stone-100 border border-stone-200 text-stone-800 font-bold text-[11px]">
                             {c.orderCount}
                           </span>
                         </td>
 
-                        <td className="py-3 px-4 font-serif font-bold text-white">
+                        <td className="py-3 px-4 font-serif font-bold text-stone-900">
                           ₹{c.totalSpent.toLocaleString('en-IN')}
                         </td>
 
                         <td className="py-3 px-4">
-                          <div className="text-white font-medium text-[11px]">
+                          <div className="text-stone-900 font-medium text-[11px]">
                             {new Date(c.lastOrderDate).toLocaleDateString('en-IN', {
                               day: 'numeric',
                               month: 'short',
                               year: 'numeric',
                             })}
                           </div>
-                          <span className="text-[10px] font-mono text-[#A1A1AA]">
+                          <span className="text-[10px] font-mono text-stone-500">
                             #{c.lastOrderId}
                           </span>
                         </td>
