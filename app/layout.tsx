@@ -5,7 +5,7 @@ import { CartProvider } from '@/context/CartContext';
 import { WishlistProvider } from '@/context/WishlistContext';
 import AnnouncementBar from '@/components/layout/AnnouncementBar';
 import Header from '@/components/layout/Header';
-import Footer from '@/components/layout/Footer';
+import ConditionalFooter from '@/components/layout/ConditionalFooter';
 import CartDrawer from '@/components/cart/CartDrawer';
 import FloatingWhatsApp from '@/components/layout/FloatingWhatsApp';
 import { getLocalBusinessSchema } from '@/lib/seo/schema';
@@ -137,7 +137,7 @@ export default function RootLayout({
             <AnnouncementBar />
             <Header />
             <main className="flex-1">{children}</main>
-            <Footer />
+            <ConditionalFooter />
             <CartDrawer />
             <FloatingWhatsApp />
           </WishlistProvider>

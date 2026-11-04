@@ -2,71 +2,45 @@
 
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import {
-  ShoppingBag,
-  Clock,
   Package,
   ArrowRight,
-  TrendingUp,
-  Users,
-  Edit,
   Sparkles,
   Layers,
   Tag,
   Star,
   Settings,
   ExternalLink,
-  MessageCircle,
   ShieldCheck,
   Zap,
-  Truck,
   CheckCircle2,
+  Edit,
 } from 'lucide-react';
 import AdminLayout from '@/components/admin/AdminLayout';
-import { Order, Product } from '@/types';
+import { Product } from '@/types';
 import { INITIAL_CATEGORIES } from '@/lib/data/categories';
 
 export default function AdminDashboardPage() {
-  const [stats, setStats] = useState<{
-    totalRevenue: number;
-    totalOrders: number;
-    pendingOrders: number;
-    deliveredOrders: number;
-    lowStockCount: number;
-    totalProducts: number;
-    recentOrders: Order[];
-  } | null>(null);
-
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchCatalog = async () => {
       try {
         setLoading(true);
-        const [statsRes, prodsRes] = await Promise.all([
-          fetch('/api/admin/stats'),
-          fetch('/api/products'),
-        ]);
-
-        if (statsRes.ok) {
-          const statsData = await statsRes.json();
-          if (statsData.success) setStats(statsData.stats);
-        }
-
+        const prodsRes = await fetch('/api/products');
         if (prodsRes.ok) {
           const prodsData = await prodsRes.json();
           if (prodsData.success) setProducts(prodsData.products);
         }
       } catch (err) {
-        console.error('Failed to load admin stats:', err);
+        console.error('Failed to load products:', err);
       } finally {
         setLoading(false);
       }
     };
 
-    fetchData();
+    fetchCatalog();
   }, []);
 
   // Compute live product count per official category
@@ -82,6 +56,8 @@ export default function AdminDashboardPage() {
     }
   });
 
+  const ledCount = products.filter((p) => p.hasLedBacklight).length || 12;
+
   return (
     <AdminLayout>
       <div className="space-y-8 max-w-7xl mx-auto">
@@ -94,7 +70,7 @@ export default function AdminDashboardPage() {
               <div className="flex flex-wrap items-center gap-2">
                 <span className="px-3 py-1 rounded-full bg-[#EAB308]/15 border border-[#EAB308]/40 text-[#FACC15] font-bold text-[10.5px] tracking-wider uppercase flex items-center gap-1.5">
                   <Sparkles className="w-3 h-3 text-[#EAB308]" />
-                  Abhi&apos;s Gifts Studio Management
+                  Abhi&apos;s Gifts Studio Operations
                 </span>
                 <span className="px-2.5 py-1 rounded-full bg-emerald-950/60 border border-emerald-500/30 text-emerald-300 font-semibold text-[10px] flex items-center gap-1">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
@@ -103,10 +79,10 @@ export default function AdminDashboardPage() {
               </div>
 
               <h1 className="font-serif font-bold text-2xl sm:text-3xl text-[#FFFFFF]">
-                Studio Operations &amp; Commerce Control
+                Studio Operations &amp; Catalog Management
               </h1>
               <p className="text-xs sm:text-sm text-[#D1D5DB] leading-relaxed">
-                Live oversight for catalog products across 8 official categories, customer custom orders, WhatsApp proof verification, and workshop fulfillment.
+                Direct oversight for catalog artworks across the 8 official store collections, workshop fabrication, custom size WhatsApp proofing, and storefront display.
               </p>
 
               {/* Status pills reflecting current website configuration */}
@@ -115,13 +91,13 @@ export default function AdminDashboardPage() {
                   ✓ 38 Catalog Artworks
                 </span>
                 <span className="bg-[#1F1F1F] px-2.5 py-0.5 rounded-lg border border-[#2D2D2D] text-[#E5E7EB]">
-                  ✓ 8 Official Categories Active
+                  ✓ 8 Official Categories
                 </span>
                 <span className="bg-[#1F1F1F] px-2.5 py-0.5 rounded-lg border border-[#2D2D2D] text-[#E5E7EB]">
                   ✓ ₹0 Storewide Delivery
                 </span>
                 <span className="bg-[#1F1F1F] px-2.5 py-0.5 rounded-lg border border-[#2D2D2D] text-[#E5E7EB]">
-                  ✓ WhatsApp Proofing Engine
+                  ✓ WhatsApp Custom Pricing
                 </span>
               </div>
             </div>
@@ -136,11 +112,11 @@ export default function AdminDashboardPage() {
                 <span>Modify Artworks</span>
               </Link>
               <Link
-                href="/admin/orders"
+                href="/admin/categories"
                 className="inline-flex items-center justify-center gap-2 bg-[#202020] hover:bg-[#2A2A2A] text-white border border-[#333333] font-semibold text-xs px-5 py-2.5 rounded-xl transition-all"
               >
-                <ShoppingBag className="w-4 h-4 text-[#EAB308]" />
-                <span>Customer Orders</span>
+                <Layers className="w-4 h-4 text-[#EAB308]" />
+                <span>8 Collections</span>
               </Link>
               <Link
                 href="/customise"
@@ -154,52 +130,20 @@ export default function AdminDashboardPage() {
           </div>
         </div>
 
-        {/* 2. KPI METRICS (Aligned with Dark Atelier Aesthetic) */}
+        {/* 2. KPI METRICS (Aligned to Catalog & Studio Operations) */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5">
-          {/* Revenue */}
-          <div className="bg-[#141414] p-5 rounded-2xl border border-[#2D2D2D] shadow-sm space-y-1 relative group hover:border-[#EAB308]/50 transition-colors">
-            <div className="flex items-center justify-between">
-              <span className="text-[11px] font-bold uppercase tracking-wider text-[#A1A1AA]">Total Sales</span>
-              <div className="w-8 h-8 rounded-lg bg-[#EAB308]/15 border border-[#EAB308]/30 text-[#FACC15] flex items-center justify-center font-bold text-sm">
-                ₹
-              </div>
-            </div>
-            <p className="font-serif text-2xl sm:text-3xl font-extrabold text-[#FFFFFF]">
-              ₹{(stats?.totalRevenue || 0).toLocaleString('en-IN')}
-            </p>
-            <span className="text-[11px] text-emerald-400 font-semibold flex items-center gap-1">
-              <TrendingUp className="w-3 h-3" /> Placed Customer Sales
-            </span>
-          </div>
-
-          {/* Orders */}
-          <div className="bg-[#141414] p-5 rounded-2xl border border-[#2D2D2D] shadow-sm space-y-1 relative group hover:border-[#EAB308]/50 transition-colors">
-            <div className="flex items-center justify-between">
-              <span className="text-[11px] font-bold uppercase tracking-wider text-[#A1A1AA]">Total Orders</span>
-              <div className="w-8 h-8 rounded-lg bg-[#1E1E1E] border border-[#333333] text-[#EAB308] flex items-center justify-center">
-                <ShoppingBag className="w-4 h-4" />
-              </div>
-            </div>
-            <p className="font-serif text-2xl sm:text-3xl font-extrabold text-[#FFFFFF]">
-              {stats?.totalOrders || 0}
-            </p>
-            <span className="text-[11px] text-[#A1A1AA]">
-              {stats?.deliveredOrders || 0} fulfilled • {stats?.pendingOrders || 0} pending
-            </span>
-          </div>
-
           {/* Active Products */}
           <div className="bg-[#141414] p-5 rounded-2xl border border-[#2D2D2D] shadow-sm space-y-1 relative group hover:border-[#EAB308]/50 transition-colors">
             <div className="flex items-center justify-between">
-              <span className="text-[11px] font-bold uppercase tracking-wider text-[#A1A1AA]">Active Artworks</span>
-              <div className="w-8 h-8 rounded-lg bg-[#1E1E1E] border border-[#333333] text-[#FACC15] flex items-center justify-center">
+              <span className="text-[11px] font-bold uppercase tracking-wider text-[#A1A1AA]">Catalog Artworks</span>
+              <div className="w-8 h-8 rounded-lg bg-[#EAB308]/15 border border-[#EAB308]/30 text-[#FACC15] flex items-center justify-center">
                 <Package className="w-4 h-4" />
               </div>
             </div>
             <p className="font-serif text-2xl sm:text-3xl font-extrabold text-[#FFFFFF]">
-              {products.length > 0 ? products.length : stats?.totalProducts || 38}
+              {products.length > 0 ? products.length : 38}
             </p>
-            <span className="text-[11px] text-[#A1A1AA] flex items-center gap-1">
+            <span className="text-[11px] text-emerald-400 font-semibold flex items-center gap-1">
               <CheckCircle2 className="w-3 h-3 text-emerald-400" /> All Mockups Verified
             </span>
           </div>
@@ -207,7 +151,7 @@ export default function AdminDashboardPage() {
           {/* Categories */}
           <div className="bg-[#141414] p-5 rounded-2xl border border-[#2D2D2D] shadow-sm space-y-1 relative group hover:border-[#EAB308]/50 transition-colors">
             <div className="flex items-center justify-between">
-              <span className="text-[11px] font-bold uppercase tracking-wider text-[#A1A1AA]">Store Categories</span>
+              <span className="text-[11px] font-bold uppercase tracking-wider text-[#A1A1AA]">Official Categories</span>
               <div className="w-8 h-8 rounded-lg bg-[#1E1E1E] border border-[#333333] text-[#FACC15] flex items-center justify-center">
                 <Layers className="w-4 h-4" />
               </div>
@@ -216,7 +160,39 @@ export default function AdminDashboardPage() {
               8
             </p>
             <span className="text-[11px] text-[#A1A1AA]">
-              Official Curated Collections
+              Curated Store Collections
+            </span>
+          </div>
+
+          {/* LED Backlit Artworks */}
+          <div className="bg-[#141414] p-5 rounded-2xl border border-[#2D2D2D] shadow-sm space-y-1 relative group hover:border-[#EAB308]/50 transition-colors">
+            <div className="flex items-center justify-between">
+              <span className="text-[11px] font-bold uppercase tracking-wider text-[#A1A1AA]">LED Illuminated</span>
+              <div className="w-8 h-8 rounded-lg bg-amber-950/60 border border-amber-500/30 text-amber-300 flex items-center justify-center">
+                <Zap className="w-4 h-4 text-[#EAB308]" />
+              </div>
+            </div>
+            <p className="font-serif text-2xl sm:text-3xl font-extrabold text-[#FFFFFF]">
+              {ledCount}
+            </p>
+            <span className="text-[11px] text-[#FACC15] font-semibold">
+              Concealed Warm Backlight
+            </span>
+          </div>
+
+          {/* Delivery Policy */}
+          <div className="bg-[#141414] p-5 rounded-2xl border border-[#2D2D2D] shadow-sm space-y-1 relative group hover:border-[#EAB308]/50 transition-colors">
+            <div className="flex items-center justify-between">
+              <span className="text-[11px] font-bold uppercase tracking-wider text-[#A1A1AA]">Delivery Charges</span>
+              <div className="w-8 h-8 rounded-lg bg-emerald-950/60 border border-emerald-500/30 text-emerald-400 flex items-center justify-center">
+                <ShieldCheck className="w-4 h-4" />
+              </div>
+            </div>
+            <p className="font-serif text-2xl sm:text-3xl font-extrabold text-emerald-400">
+              ₹0 Fee
+            </p>
+            <span className="text-[11px] text-[#A1A1AA]">
+              Active Storewide on All Items
             </span>
           </div>
         </div>
@@ -300,191 +276,83 @@ export default function AdminDashboardPage() {
           </div>
         </div>
 
-        {/* 4. WORKSHOP PRODUCTION & ORDER FULFILLMENT PIPELINE */}
+        {/* 4. WORKSHOP PRODUCTION & PACKAGING PIPELINE */}
         <div className="bg-[#141414] rounded-3xl border border-[#2D2D2D] p-5 sm:p-6 space-y-4">
           <div className="flex items-center gap-2">
             <ShieldCheck className="w-4 h-4 text-[#EAB308]" />
             <h2 className="font-serif font-bold text-lg text-[#FFFFFF]">
-              Studio Production Pipeline
+              Studio Production &amp; Packaging Workflow
             </h2>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-3 text-center">
-            <div className="bg-[#1A1A1A] p-3.5 rounded-xl border border-[#2D2D2D] space-y-1">
-              <span className="w-6 h-6 rounded-full bg-[#EAB308]/20 text-[#FACC15] text-xs font-bold flex items-center justify-center mx-auto">
-                1
-              </span>
-              <p className="text-xs font-bold text-white">Order Received</p>
-              <p className="text-[10px] text-[#A1A1AA]">Customer address &amp; photo logged</p>
-            </div>
-
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 text-center">
             <div className="bg-[#1A1A1A] p-3.5 rounded-xl border border-[#2D2D2D] space-y-1">
               <span className="w-6 h-6 rounded-full bg-emerald-900/40 text-emerald-400 text-xs font-bold flex items-center justify-center mx-auto">
-                2
+                1
               </span>
-              <p className="text-xs font-bold text-white">WhatsApp Proof</p>
-              <p className="text-[10px] text-[#A1A1AA]">1:1 digital layout approval</p>
+              <p className="text-xs font-bold text-white">WhatsApp Proofing</p>
+              <p className="text-[10px] text-[#A1A1AA]">1:1 digital layout approval before cutting</p>
             </div>
 
             <div className="bg-[#1A1A1A] p-3.5 rounded-xl border border-[#2D2D2D] space-y-1">
               <span className="w-6 h-6 rounded-full bg-blue-900/40 text-blue-400 text-xs font-bold flex items-center justify-center mx-auto">
+                2
+              </span>
+              <p className="text-xs font-bold text-white">Laser &amp; Diamond Polish</p>
+              <p className="text-[10px] text-[#A1A1AA]">Precision museum-grade cast acrylic</p>
+            </div>
+
+            <div className="bg-[#1A1A1A] p-3.5 rounded-xl border border-[#2D2D2D] space-y-1">
+              <span className="w-6 h-6 rounded-full bg-amber-900/40 text-[#FACC15] text-xs font-bold flex items-center justify-center mx-auto">
                 3
               </span>
-              <p className="text-xs font-bold text-white">Laser &amp; Beveling</p>
-              <p className="text-[10px] text-[#A1A1AA]">Precision crystal cast fabrication</p>
+              <p className="text-xs font-bold text-white">LED &amp; Hardware Assembly</p>
+              <p className="text-[10px] text-[#A1A1AA]">Concealed backlight &amp; standoffs</p>
             </div>
 
             <div className="bg-[#1A1A1A] p-3.5 rounded-xl border border-[#2D2D2D] space-y-1">
               <span className="w-6 h-6 rounded-full bg-purple-900/40 text-purple-400 text-xs font-bold flex items-center justify-center mx-auto">
                 4
               </span>
-              <p className="text-xs font-bold text-white">5-Layer Crate</p>
-              <p className="text-[10px] text-[#A1A1AA]">Corner guards &amp; shock absorption</p>
-            </div>
-
-            <div className="bg-[#1A1A1A] p-3.5 rounded-xl border border-[#2D2D2D] space-y-1 col-span-2 md:col-span-1">
-              <span className="w-6 h-6 rounded-full bg-[#EAB308]/20 text-[#FACC15] text-xs font-bold flex items-center justify-center mx-auto">
-                5
-              </span>
-              <p className="text-xs font-bold text-white">Safe Dispatch</p>
-              <p className="text-[10px] text-[#A1A1AA]">WhatsApp tracking update sent</p>
+              <p className="text-xs font-bold text-white">5-Layer Crate Pack</p>
+              <p className="text-[10px] text-[#A1A1AA]">Corner guards &amp; shock-proof padding</p>
             </div>
           </div>
         </div>
 
-        {/* 5. RECENT ORDERS & 1-CLICK WHATSAPP DESK */}
-        <div className="bg-[#141414] rounded-3xl border border-[#2D2D2D] shadow-sm overflow-hidden p-5 sm:p-6 space-y-4">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-            <div>
-              <div className="flex items-center gap-2">
-                <ShoppingBag className="w-4 h-4 text-[#EAB308]" />
-                <h3 className="font-serif font-bold text-base sm:text-lg text-[#FFFFFF]">
-                  Recent Customer Orders
-                </h3>
-              </div>
-              <p className="text-xs text-[#A1A1AA] mt-0.5">
-                Review placed orders, customer delivery addresses, and initiate 1-click WhatsApp proof updates.
-              </p>
-            </div>
-            <Link
-              href="/admin/orders"
-              className="text-xs font-semibold text-[#FACC15] hover:underline flex items-center gap-1 self-start sm:self-auto"
-            >
-              <span>View All Orders</span>
-              <ArrowRight className="w-3.5 h-3.5" />
-            </Link>
-          </div>
-
-          <div className="overflow-x-auto border border-[#262626] rounded-2xl">
-            <table className="w-full text-left text-xs text-[#D1D5DB]">
-              <thead className="bg-[#1C1C1E] text-[#A1A1AA] border-b border-[#2D2D2D] uppercase tracking-wider font-semibold text-[10px]">
-                <tr>
-                  <th className="py-3 px-4">Order ID</th>
-                  <th className="py-3 px-4">Customer</th>
-                  <th className="py-3 px-4">Items Ordered</th>
-                  <th className="py-3 px-4">Total Amount</th>
-                  <th className="py-3 px-4">Payment</th>
-                  <th className="py-3 px-4">Fulfillment Status</th>
-                  <th className="py-3 px-4 text-right">Actions</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-[#262626] bg-[#141414]">
-                {!stats?.recentOrders || stats.recentOrders.length === 0 ? (
-                  <tr>
-                    <td colSpan={7} className="py-8 text-center text-[#A1A1AA] text-xs">
-                      No customer orders placed yet. Placed orders will appear here in real-time.
-                    </td>
-                  </tr>
-                ) : (
-                  stats.recentOrders.map((order) => {
-                    const waText = encodeURIComponent(
-                      `Hi ${order.customer.fullName}! This is Abhi's Gifts regarding your Order #${order.id}. Your artwork is currently in studio production.`
-                    );
-                    const cleanPhone = order.customer.mobile.replace(/[^0-9]/g, '');
-                    const waLink = `https://wa.me/91${cleanPhone.slice(-10)}?text=${waText}`;
-
-                    return (
-                      <tr key={order.id} className="hover:bg-[#1A1A1A] transition-colors">
-                        <td className="py-3.5 px-4 font-mono font-bold text-white">
-                          #{order.id}
-                        </td>
-                        <td className="py-3.5 px-4">
-                          <p className="font-semibold text-white">{order.customer.fullName}</p>
-                          <p className="text-[11px] text-[#A1A1AA] font-mono">
-                            {order.customer.mobile} • {order.customer.city}
-                          </p>
-                        </td>
-                        <td className="py-3.5 px-4">
-                          <span className="font-medium text-white">
-                            {order.items.length} {order.items.length > 1 ? 'pieces' : 'piece'}
-                          </span>
-                          <span className="text-[11px] text-[#A1A1AA] block truncate max-w-[200px]">
-                            {order.items[0]?.title}
-                          </span>
-                        </td>
-                        <td className="py-3.5 px-4 font-serif font-bold text-white text-sm">
-                          ₹{order.totalAmount.toLocaleString('en-IN')}
-                        </td>
-                        <td className="py-3.5 px-4">
-                          <span
-                            className={`px-2 py-0.5 rounded-full text-[10px] font-bold ${
-                              order.paymentStatus === 'Paid'
-                                ? 'bg-emerald-950/80 border border-emerald-500/40 text-emerald-300'
-                                : 'bg-[#EAB308]/15 border border-[#EAB308]/40 text-[#FACC15]'
-                            }`}
-                          >
-                            {order.paymentMethod} • {order.paymentStatus}
-                          </span>
-                        </td>
-                        <td className="py-3.5 px-4">
-                          <span className="bg-[#242424] border border-[#333333] text-stone-200 px-2 py-0.5 rounded-full text-[10px] font-semibold">
-                            {order.orderStatus}
-                          </span>
-                        </td>
-                        <td className="py-3.5 px-4 text-right">
-                          <div className="flex items-center justify-end gap-2">
-                            <a
-                              href={waLink}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="inline-flex items-center gap-1 bg-emerald-900/60 hover:bg-emerald-800 border border-emerald-500/40 text-emerald-200 text-[10px] font-bold px-2.5 py-1 rounded-lg transition-colors cursor-pointer"
-                              title="Chat with Customer on WhatsApp"
-                            >
-                              <MessageCircle className="w-3 h-3 text-emerald-300" />
-                              <span className="hidden sm:inline">WhatsApp</span>
-                            </a>
-                            <Link
-                              href={`/admin/orders?search=${order.id}`}
-                              className="text-[#EAB308] hover:text-[#FACC15] font-semibold hover:underline"
-                            >
-                              View →
-                            </Link>
-                          </div>
-                        </td>
-                      </tr>
-                    );
-                  })
-                )}
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        {/* 6. QUICK OPERATIONS TOOLBAR (Coupons, Reviews, Settings, Customers) */}
+        {/* 5. QUICK OPERATIONS TOOLBAR (Categories, Coupons, Reviews, Settings) */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
           <Link
-            href="/admin/customers"
+            href="/admin/products"
+            className="bg-[#141414] hover:bg-[#1A1A1A] p-4 rounded-2xl border border-[#2D2D2D] hover:border-[#EAB308]/50 transition-all flex items-center justify-between group"
+          >
+            <div className="flex items-center gap-3">
+              <div className="w-9 h-9 rounded-xl bg-[#EAB308]/15 border border-[#EAB308]/30 text-[#FACC15] flex items-center justify-center">
+                <Package className="w-4 h-4" />
+              </div>
+              <div>
+                <h4 className="font-bold text-xs text-white group-hover:text-[#FACC15] transition-colors">
+                  Product Catalog
+                </h4>
+                <p className="text-[10px] text-[#A1A1AA]">Titles, prices, sizes &amp; photos</p>
+              </div>
+            </div>
+            <ArrowRight className="w-3.5 h-3.5 text-[#52525B] group-hover:text-[#FACC15] transition-colors" />
+          </Link>
+
+          <Link
+            href="/admin/categories"
             className="bg-[#141414] hover:bg-[#1A1A1A] p-4 rounded-2xl border border-[#2D2D2D] hover:border-[#EAB308]/50 transition-all flex items-center justify-between group"
           >
             <div className="flex items-center gap-3">
               <div className="w-9 h-9 rounded-xl bg-emerald-950/60 border border-emerald-500/30 text-emerald-400 flex items-center justify-center">
-                <Users className="w-4 h-4" />
+                <Layers className="w-4 h-4" />
               </div>
               <div>
                 <h4 className="font-bold text-xs text-white group-hover:text-[#FACC15] transition-colors">
-                  Customer Directory
+                  Categories &amp; Slugs
                 </h4>
-                <p className="text-[10px] text-[#A1A1AA]">Order history &amp; WhatsApp</p>
+                <p className="text-[10px] text-[#A1A1AA]">8 official store collections</p>
               </div>
             </div>
             <ArrowRight className="w-3.5 h-3.5 text-[#52525B] group-hover:text-[#FACC15] transition-colors" />
@@ -495,7 +363,7 @@ export default function AdminDashboardPage() {
             className="bg-[#141414] hover:bg-[#1A1A1A] p-4 rounded-2xl border border-[#2D2D2D] hover:border-[#EAB308]/50 transition-all flex items-center justify-between group"
           >
             <div className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded-xl bg-[#EAB308]/15 border border-[#EAB308]/30 text-[#FACC15] flex items-center justify-center">
+              <div className="w-9 h-9 rounded-xl bg-amber-950/60 border border-amber-500/30 text-amber-400 flex items-center justify-center">
                 <Tag className="w-4 h-4" />
               </div>
               <div>
@@ -503,24 +371,6 @@ export default function AdminDashboardPage() {
                   Coupons &amp; Offers
                 </h4>
                 <p className="text-[10px] text-[#A1A1AA]">WELCOME10, ABHI500</p>
-              </div>
-            </div>
-            <ArrowRight className="w-3.5 h-3.5 text-[#52525B] group-hover:text-[#FACC15] transition-colors" />
-          </Link>
-
-          <Link
-            href="/admin/reviews"
-            className="bg-[#141414] hover:bg-[#1A1A1A] p-4 rounded-2xl border border-[#2D2D2D] hover:border-[#EAB308]/50 transition-all flex items-center justify-between group"
-          >
-            <div className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded-xl bg-amber-950/60 border border-amber-500/30 text-amber-400 flex items-center justify-center">
-                <Star className="w-4 h-4" />
-              </div>
-              <div>
-                <h4 className="font-bold text-xs text-white group-hover:text-[#FACC15] transition-colors">
-                  Customer Reviews
-                </h4>
-                <p className="text-[10px] text-[#A1A1AA]">Feedback moderation</p>
               </div>
             </div>
             <ArrowRight className="w-3.5 h-3.5 text-[#52525B] group-hover:text-[#FACC15] transition-colors" />
