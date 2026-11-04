@@ -97,21 +97,21 @@ export default function AdminProductsPage() {
   const initialForm = {
     title: '',
     slug: '',
-    categorySlug: 'lord-venkateswara-balaji',
-    categoryName: 'Lord Venkateswara (Balaji)',
-    categorySlugs: ['lord-venkateswara-balaji'] as string[],
-    artStyle: 'LED Backlit Acrylic',
+    categorySlug: 'acrylic-photo-frames',
+    categoryName: 'Acrylic Photo Frames',
+    categorySlugs: ['acrylic-photo-frames'] as string[],
+    artStyle: 'High-Definition Cast Acrylic',
     orientation: 'vertical' as ProductOrientation,
     shape: 'portrait' as OrientationShape,
     basePrice: 2499,
     baseMrp: 4999,
-    hasLedBacklight: true,
+    hasLedBacklight: false,
     isFeatured: true,
     isBestseller: false,
     shortDescription: '',
     description: '',
-    imageUrl: 'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=800&q=80',
-    tags: 'Balaji, Tirupati, LED Art',
+    imageUrl: '/images/collections/custom-portrait-frame.jpg',
+    tags: 'Acrylic Photo Frame, Hyderabad, Wall Decor',
     variants: getDefault4Variants('vertical', 2499, 4999),
     orientationVariants: getInitial4Orientations(2499, 4999),
   };
@@ -135,6 +135,11 @@ export default function AdminProductsPage() {
 
   useEffect(() => {
     fetchProducts();
+    if (typeof window !== 'undefined') {
+      const urlParams = new URLSearchParams(window.location.search);
+      const cat = urlParams.get('cat');
+      if (cat) setSelectedCat(cat);
+    }
   }, []);
 
   const handleEditProduct = (prod: Product) => {
@@ -507,7 +512,9 @@ export default function AdminProductsPage() {
       p.slug.toLowerCase().includes(search.toLowerCase()) ||
       p.categoryName.toLowerCase().includes(search.toLowerCase());
 
-    const matchesCat = selectedCat ? p.categorySlug === selectedCat : true;
+    const matchesCat = selectedCat
+      ? p.categorySlug === selectedCat || p.categorySlugs?.includes(selectedCat)
+      : true;
 
     const matchesOrientation = selectedOrientationFilter
       ? p.orientation === selectedOrientationFilter ||
@@ -519,14 +526,20 @@ export default function AdminProductsPage() {
 
   return (
     <AdminLayout>
-      <div className="space-y-6">
+      <div className="space-y-6 max-w-7xl mx-auto">
         {/* Page Header */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-[#141414] border border-[#2D2D2D] p-5 sm:p-6 rounded-3xl">
           <div>
-            <h1 className="font-serif font-bold text-2xl sm:text-3xl text-stone-900">
-              Product Catalog &amp; 4-Orientation Engine
+            <div className="flex items-center gap-2 mb-1">
+              <span className="px-2.5 py-0.5 rounded-full bg-[#EAB308]/15 border border-[#EAB308]/40 text-[#FACC15] font-bold text-[10px] tracking-wider uppercase flex items-center gap-1">
+                <Sparkles className="w-3 h-3 text-[#EAB308]" />
+                Catalog Operations
+              </span>
+            </div>
+            <h1 className="font-serif font-bold text-2xl sm:text-3xl text-white">
+              Artwork Catalog &amp; 4-Orientation Engine
             </h1>
-            <p className="text-xs text-stone-500 mt-1">
+            <p className="text-xs text-[#A1A1AA] mt-1">
               Configure 4 orientations (Portrait, Landscape, Square, Round) with distinct sizes, dimensions, and ₹ pricing for each artwork.
             </p>
           </div>
@@ -538,7 +551,7 @@ export default function AdminProductsPage() {
               setActiveOrientationTab('portrait');
               setModalOpen(true);
             }}
-            className="inline-flex items-center gap-2 bg-stone-900 hover:bg-amber-800 text-white px-4 py-2.5 rounded-xl font-bold text-xs transition-colors self-start sm:self-auto cursor-pointer"
+            className="inline-flex items-center gap-2 bg-[#EAB308] hover:bg-[#FACC15] text-black px-5 py-2.5 rounded-xl font-extrabold text-xs transition-all shadow-[0_2px_12px_rgba(234,179,8,0.25)] hover:scale-[1.02] self-start sm:self-auto cursor-pointer"
           >
             <Plus className="w-4 h-4" />
             <span>Add New Masterpiece</span>
@@ -546,15 +559,15 @@ export default function AdminProductsPage() {
         </div>
 
         {/* Toolbar & Filters */}
-        <div className="bg-white p-4 rounded-2xl border border-stone-200 shadow-2xs flex flex-col md:flex-row items-center justify-between gap-3 text-xs">
+        <div className="bg-[#141414] p-4 rounded-2xl border border-[#2D2D2D] shadow-2xs flex flex-col md:flex-row items-center justify-between gap-3 text-xs">
           <div className="relative w-full md:w-80">
-            <Search className="w-4 h-4 text-stone-400 absolute left-3 top-1/2 -translate-y-1/2" />
+            <Search className="w-4 h-4 text-[#A1A1AA] absolute left-3 top-1/2 -translate-y-1/2" />
             <input
               type="text"
               placeholder="Search by title, slug, or deity..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="w-full pl-9 pr-3 py-2 bg-stone-50 border border-stone-200 rounded-xl outline-none focus:border-amber-700 text-xs"
+              className="w-full pl-9 pr-3 py-2 bg-[#1A1A1A] border border-[#2D2D2D] rounded-xl outline-none focus:border-[#EAB308] text-xs text-white"
             />
           </div>
 
@@ -562,7 +575,7 @@ export default function AdminProductsPage() {
             <select
               value={selectedCat}
               onChange={(e) => setSelectedCat(e.target.value)}
-              className="px-3 py-2 bg-stone-50 border border-stone-200 rounded-xl outline-none text-xs"
+              className="px-3 py-2 bg-[#1A1A1A] border border-[#2D2D2D] rounded-xl outline-none text-xs text-white"
             >
               <option value="">All Categories ({INITIAL_CATEGORIES.length})</option>
               {INITIAL_CATEGORIES.map((c) => (
@@ -575,7 +588,7 @@ export default function AdminProductsPage() {
             <select
               value={selectedOrientationFilter}
               onChange={(e) => setSelectedOrientationFilter(e.target.value)}
-              className="px-3 py-2 bg-stone-50 border border-stone-200 rounded-xl outline-none text-xs font-medium"
+              className="px-3 py-2 bg-[#1A1A1A] border border-[#2D2D2D] rounded-xl outline-none text-xs font-medium text-white"
             >
               <option value="">All Orientations</option>
               <option value="vertical">Portrait (2:3)</option>
@@ -586,15 +599,15 @@ export default function AdminProductsPage() {
         </div>
 
         {/* Products Table */}
-        <div className="bg-white rounded-2xl border border-stone-200 shadow-2xs overflow-hidden">
+        <div className="bg-[#141414] rounded-2xl border border-[#2D2D2D] shadow-2xs overflow-hidden">
           {loading ? (
-            <div className="p-12 text-center text-xs text-stone-400">Loading catalog...</div>
+            <div className="p-12 text-center text-xs text-[#A1A1AA]">Loading catalog...</div>
           ) : filteredProducts.length === 0 ? (
-            <div className="p-12 text-center text-xs text-stone-400">No artworks match your criteria.</div>
+            <div className="p-12 text-center text-xs text-[#A1A1AA]">No artworks match your criteria.</div>
           ) : (
             <div className="overflow-x-auto">
-              <table className="w-full text-left text-xs text-stone-700">
-                <thead className="bg-stone-50 border-b border-stone-200 text-stone-500 font-bold uppercase tracking-wider text-[10px]">
+              <table className="w-full text-left text-xs text-[#D1D5DB]">
+                <thead className="bg-[#1C1C1E] border-b border-[#2D2D2D] text-[#A1A1AA] font-bold uppercase tracking-wider text-[10px]">
                   <tr>
                     <th className="py-3 px-4">Artwork</th>
                     <th className="py-3 px-4">Primary Orientation</th>
@@ -605,7 +618,7 @@ export default function AdminProductsPage() {
                     <th className="py-3 px-4 text-right">Actions</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-stone-100">
+                <tbody className="divide-y divide-[#262626]">
                   {filteredProducts.map((prod) => {
                     const orientationLabel =
                       prod.orientation === 'horizontal' || prod.shape === 'landscape'
@@ -623,18 +636,18 @@ export default function AdminProductsPage() {
                     const totalStock = fourSizes.reduce((acc, v) => acc + (v.stockCount || 0), 0);
 
                     return (
-                      <tr key={prod.id} className="hover:bg-amber-50/30 transition-colors">
+                      <tr key={prod.id} className="hover:bg-[#1A1A1A] transition-colors">
                         {/* Artwork column */}
                         <td className="py-3 px-4">
                           <div className="flex items-center gap-3">
                             <img
                               src={prod.images[0]}
                               alt={prod.title}
-                              className="w-12 h-12 object-cover rounded-xl border border-stone-200 shrink-0"
+                              className="w-12 h-12 object-cover rounded-xl border border-[#333333] shrink-0"
                             />
                             <div className="min-w-0">
-                              <p className="font-bold text-stone-900 truncate max-w-xs">{prod.title}</p>
-                              <p className="text-[11px] text-stone-400 font-mono truncate">{prod.slug}</p>
+                              <p className="font-bold text-white truncate max-w-xs">{prod.title}</p>
+                              <p className="text-[11px] text-[#A1A1AA] font-mono truncate">{prod.slug}</p>
                             </div>
                           </div>
                         </td>
@@ -642,11 +655,11 @@ export default function AdminProductsPage() {
                         {/* Orientation column */}
                         <td className="py-3 px-4">
                           <div className="space-y-1">
-                            <span className="inline-flex items-center px-2.5 py-1 rounded-lg bg-stone-100 border border-stone-200 text-stone-800 font-bold text-[11px] whitespace-nowrap">
+                            <span className="inline-flex items-center px-2.5 py-1 rounded-lg bg-[#1E1E1E] border border-[#333333] text-[#E5E7EB] font-bold text-[11px] whitespace-nowrap">
                               {orientationLabel}
                             </span>
-                            <div className="text-[10px] text-amber-900 font-medium flex items-center gap-1">
-                              <Sparkles className="w-2.5 h-2.5 text-amber-700" />
+                            <div className="text-[10px] text-[#FACC15] font-medium flex items-center gap-1">
+                              <Sparkles className="w-2.5 h-2.5 text-[#EAB308]" />
                               <span>4 Orientations Ready</span>
                             </div>
                           </div>
@@ -658,12 +671,12 @@ export default function AdminProductsPage() {
                             {fourSizes.map((v, i) => (
                               <div
                                 key={i}
-                                className="px-2 py-1 bg-stone-50 border border-stone-200 rounded-lg text-[10.5px] flex items-center justify-between gap-1.5"
+                                className="px-2 py-1 bg-[#1A1A1A] border border-[#2D2D2D] rounded-lg text-[10.5px] flex items-center justify-between gap-1.5"
                               >
-                                <span className="text-stone-600 font-medium truncate max-w-[110px]" title={v.size}>
+                                <span className="text-[#A1A1AA] font-medium truncate max-w-[110px]" title={v.size}>
                                   {v.size.replace(' inches', '"').replace(' (Grand Wall Size)', ' Grand').replace(' (Grand Sanctum)', '')}
                                 </span>
-                                <span className="font-bold font-serif text-amber-900 shrink-0">
+                                <span className="font-bold font-serif text-[#FACC15] shrink-0">
                                   ₹{v.price.toLocaleString('en-IN')}
                                 </span>
                               </div>
@@ -672,18 +685,18 @@ export default function AdminProductsPage() {
                         </td>
 
                         {/* Category */}
-                        <td className="py-3 px-4 text-stone-600 font-medium">
+                        <td className="py-3 px-4 text-[#D1D5DB] font-medium">
                           <span className="text-xs">{prod.categoryName}</span>
                         </td>
 
                         {/* Lighting Type */}
                         <td className="py-3 px-4">
                           {prod.hasLedBacklight ? (
-                            <span className="bg-amber-100 text-amber-900 border border-amber-300 font-bold px-2 py-0.5 rounded text-[10px] whitespace-nowrap">
-                              ✨ Warm warm LED
+                            <span className="bg-[#EAB308]/15 text-[#FACC15] border border-[#EAB308]/40 font-bold px-2 py-0.5 rounded text-[10px] whitespace-nowrap">
+                              ✨ Ambient LED
                             </span>
                           ) : (
-                            <span className="bg-stone-100 text-stone-700 px-2 py-0.5 rounded text-[10px] whitespace-nowrap">
+                            <span className="bg-[#1E1E1E] text-[#A1A1AA] border border-[#333333] px-2 py-0.5 rounded text-[10px] whitespace-nowrap">
                               Pure Acrylic
                             </span>
                           )}
@@ -691,7 +704,7 @@ export default function AdminProductsPage() {
 
                         {/* Stock */}
                         <td className="py-3 px-4 text-center">
-                          <span className="inline-flex items-center px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-[11px] font-bold">
+                          <span className="inline-flex items-center px-2 py-0.5 rounded-full bg-emerald-950/80 border border-emerald-500/40 text-emerald-300 text-[11px] font-bold">
                             {totalStock} in stock
                           </span>
                         </td>
@@ -702,7 +715,7 @@ export default function AdminProductsPage() {
                             <Link
                               href={`/product/${prod.slug}`}
                               target="_blank"
-                              className="p-1.5 text-stone-400 hover:text-stone-800 hover:bg-stone-100 rounded-lg transition-colors"
+                              className="p-1.5 text-[#9CA3AF] hover:text-[#FFFFFF] hover:bg-[#1E1E1E] rounded-lg transition-colors"
                               title="View on Storefront"
                             >
                               <ExternalLink className="w-4 h-4" />
