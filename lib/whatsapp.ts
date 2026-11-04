@@ -102,7 +102,6 @@ export function buildWhatsAppOrderMessage(data: WhatsAppOrderDetails): string {
   if (discountAmount > 0) {
     msg += `• Coupon Savings: -₹${discountAmount.toLocaleString('en-IN')}${couponCode ? ` (${couponCode})` : ''}\n`;
   }
-  msg += `• Delivery Fee: FREE (Zero Delivery Charges)\n`;
   const hasCustomSize = items.some(
     (it) =>
       it.size?.toLowerCase().includes('custom size') ||

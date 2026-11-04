@@ -103,7 +103,7 @@ export async function POST(req: NextRequest) {
       }
     }
 
-    // SERVER-SIDE SHIPPING CHARGE: Free delivery for every product across entire website
+    // SERVER-SIDE SHIPPING CHARGE: Zero delivery charges for every product across entire website
     const shippingFee = 0;
 
     const totalAmount = Math.max(0, computedSubtotal - discountAmount);

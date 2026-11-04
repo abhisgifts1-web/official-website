@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { Heart, Eye, ArrowRight, Sparkles, Truck, ShoppingBag, Camera, Ruler } from 'lucide-react';
+import { Heart, Eye, ArrowRight, Sparkles, ShoppingBag, Camera, Ruler } from 'lucide-react';
 import { Product } from '@/types';
 import { useCart } from '@/context/CartContext';
 import { useWishlist } from '@/context/WishlistContext';
@@ -293,10 +293,10 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
               )}
             </div>
 
-            {/* Delivery Signal */}
+            {/* Craft Signal */}
             <div className="flex items-center gap-1 text-[10px]">
               <span className="font-semibold text-[#D1D5DB] flex items-center gap-1 truncate">
-                <Truck className="w-3 h-3 text-[#EAB308] shrink-0" /> Free Doorstep Delivery
+                <Sparkles className="w-3 h-3 text-[#EAB308] shrink-0" /> Cast Acrylic Depth
               </span>
             </div>
 

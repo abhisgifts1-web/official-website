@@ -121,12 +121,21 @@ export function getAllProducts(filterOptions?: ProductFilterOptions): Product[] 
     } = filterOptions;
 
     if (category) {
+      const targetSlug = CATEGORY_SLUG_ALIASES[category] || category;
       list = list.filter(
         (p) =>
           p.categorySlug === category ||
+          p.categorySlug === targetSlug ||
           p.categorySlugs?.includes(category) ||
+          p.categorySlugs?.includes(targetSlug) ||
           p.categoryName.toLowerCase().includes(category.toLowerCase()) ||
-          p.tags.some((t) => t.toLowerCase() === category.toLowerCase() || t.toLowerCase().includes(category.toLowerCase().replace(/-/g, ' ')))
+          p.categoryName.toLowerCase().includes(targetSlug.toLowerCase()) ||
+          p.tags.some(
+            (t) =>
+              t.toLowerCase() === category.toLowerCase() ||
+              t.toLowerCase() === targetSlug.toLowerCase() ||
+              t.toLowerCase().includes(category.toLowerCase().replace(/-/g, ' '))
+          )
       );
     }
 

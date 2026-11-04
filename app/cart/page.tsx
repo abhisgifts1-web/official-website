@@ -240,13 +240,6 @@ export default function CartPage() {
               </div>
             )}
 
-            <div className="flex justify-between items-center">
-              <span>Standard Delivery</span>
-              <span className="font-bold text-emerald-400">
-                FREE
-              </span>
-            </div>
-
             <div className="flex justify-between text-base font-serif font-bold text-[#FFFFFF] pt-3 border-t border-[#2D2D2D]">
               <span>Final Total</span>
               <span className="text-[#FFFFFF] font-serif font-extrabold text-lg">₹{totalAmount.toLocaleString('en-IN')}</span>

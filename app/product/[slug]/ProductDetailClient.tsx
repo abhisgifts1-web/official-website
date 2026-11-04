@@ -11,7 +11,6 @@ import {
   ZoomIn,
   X,
   MessageCircle,
-  Truck,
   RotateCcw,
   Banknote,
   ThumbsUp,
@@ -1220,7 +1219,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                   </div>
                   <p className="text-[11px] text-[#D1D5DB] font-medium flex items-center gap-1.5">
                     <Sparkles className="w-3 h-3 text-[#EAB308] shrink-0" />
-                    <span>Inclusive of all taxes • Free Doorstep Delivery • Handcrafted in Hyderabad</span>
+                    <span>Inclusive of all taxes • Handcrafted in Hyderabad Studio</span>
                   </p>
                 </>
               )}
@@ -1524,9 +1523,9 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
             <div className="pt-3 border-t border-[#2D2D2D]">
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-center">
                 <div className="p-2.5 rounded-2xl bg-[#181818] border border-[#2D2D2D]/60 flex flex-col items-center space-y-1">
-                  <Truck className="w-5 h-5 text-[#EAB308]" />
-                  <span className="text-[10px] font-bold text-[#FFFFFF] leading-tight">Free Delivery</span>
-                  <span className="text-[9px] text-[#D1D5DB]">All Over India</span>
+                  <Sparkles className="w-5 h-5 text-[#EAB308]" />
+                  <span className="text-[10px] font-bold text-[#FFFFFF] leading-tight">HD Acrylic</span>
+                  <span className="text-[9px] text-[#D1D5DB]">Diamond Polished</span>
                 </div>
 
                 <div className="p-2.5 rounded-2xl bg-[#181818] border border-[#2D2D2D]/60 flex flex-col items-center space-y-1">
@@ -1587,7 +1586,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
               { id: 'specs', label: 'Technical Specifications' },
               { id: 'sizeguide', label: 'Size & Placement Guide' },
               { id: 'install', label: '3-Min Installation' },
-              { id: 'shipping', label: 'Packaging & Delivery' },
+              { id: 'shipping', label: 'Safe Packaging' },
               { id: 'reviews', label: `Collector Reviews (${reviewsList.length})` },
               { id: 'faq', label: 'Frequently Asked Questions' },
             ].map((tab) => (

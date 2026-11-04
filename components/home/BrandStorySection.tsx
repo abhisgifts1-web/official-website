@@ -99,12 +99,12 @@ const CRAFT_PILLARS: CraftPillar[] = [
     title: '5-Layer Honeycomb Crate Protection',
     tagline: 'Careful Multi-Layer Doorstep Packaging',
     description:
-      'Every consecrated heirloom is wrapped in anti-static velvet foam, cushioned with reinforced corner armor, and housed inside a 5-layer heavy-duty wooden honeycomb crate. Protected with reinforced corner guards and safe courier handling.',
+      'Every consecrated heirloom is wrapped in anti-static velvet foam, cushioned with reinforced corner armor, and housed inside a 5-layer heavy-duty wooden honeycomb crate. Protected with reinforced corner guards and safe transit handling.',
     icon: PackageCheck,
     specs: [
       { label: 'Packaging Armor', value: '5-Layer Honeycomb' },
       { label: 'Drop Tested', value: '1.5-Meter Certified' },
-      { label: 'Direct Courier', value: '19,000+ Pincodes' },
+      { label: 'Safe Transit', value: '19,000+ Pincodes' },
     ],
     image: '/images/lifestyle/living-room.jpg',
     fallbackImage: '/images/lifestyle/entrance-foyer.jpg',

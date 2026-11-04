@@ -5,17 +5,17 @@ export const INITIAL_PRODUCTS: Product[] = [
     "id": "prod-balaji-divine-led",
     "slug": "tirupati-balaji-divine-led-backlit-acrylic-wall-art",
     "categorySlugs": [
-      "lord-venkateswara-balaji",
-      "devotional-led-frames",
-      "led-backlit-wall-art"
+      "god-photo-frames",
+      "led-acrylic-photo-frames",
+      "acrylic-photo-frames"
     ],
     "shape": "portrait",
     "title": "Divine Tirupati Balaji 3D Acrylic LED Backlit Wall Art",
     "subtitle": "Sacred Lord Venkateswara with Shanku, Chakra & Namam in gold Detailing",
     "shortDescription": "Magnificent Lord Venkateswara Balaji wall art with dual-layer acrylic and golden warm backlit LED aura.",
     "description": "Immerse your home in the sacred vibrations of Tirumala with our flagship Tirupati Balaji wall art. Rendered with museum-grade UV-curable inks on premium acrylic, the divine silhouette features Lord Venkateswara adorned with Shanku, Chakra, and the sacred Tilak/Namam. The hidden back-glow LED creates a heavenly golden halo around the deity, turning any living room or pooja mandir into a sanctum of serenity.",
-    "categorySlug": "lord-venkateswara-balaji",
-    "categoryName": "Lord Venkateswara (Balaji)",
+    "categorySlug": "god-photo-frames",
+    "categoryName": "God Photo Frames",
     "deity": "Lord Venkateswara",
     "artStyle": "LED Backlit Acrylic",
     "orientation": "vertical",
@@ -123,9 +123,10 @@ export const INITIAL_PRODUCTS: Product[] = [
       "Shatterproof acrylic construction resists accidental bumps and moisture."
     ],
     "shippingHighlights": [
-      "Express Courier Shipping on this masterpiece.",
-      "Dispatched within 24-48 business hours with safe packaging.",
-      "Multi-layer protective packaging for safe courier transit."
+      "Multi-layer protective packaging for safe transit.",
+      "Precision diamond-cut cast acrylic with polished bevels.",
+      "Concealed French cleat mounting bracket & hardware included.",
+      "BIS certified 12V 2A power adapter included with LED frames."
     ],
     "reviews": [],
     "createdAt": "2026-08-01",
@@ -336,17 +337,17 @@ export const INITIAL_PRODUCTS: Product[] = [
     "id": "prod-shiva-adiyogi-led",
     "slug": "adiyogi-lord-shiva-meditation-led-wall-decor",
     "categorySlugs": [
-      "lord-shiva-shiv-parivar",
-      "devotional-led-frames",
-      "led-backlit-wall-art"
+      "god-photo-frames",
+      "led-acrylic-photo-frames",
+      "acrylic-photo-frames"
     ],
     "shape": "landscape",
     "title": "Adiyogi Lord Shiva Meditative LED Backlit Wall Art",
     "subtitle": "The First Yogi in Deep Dhyana with Crescent Moon & Trishul Radiance",
     "shortDescription": "Mesmerizing Lord Shiva Adiyogi silhouette with serene blue-warm dual tone ambient LED backlight.",
     "description": "Channel tranquility, inner stillness, and cosmic balance with our Adiyogi Lord Shiva wall art. The deep obsidian and midnight blue tones accentuate Mahadev in profound dhyana. When switched on, the crescent moon and sacred Trishul radiate an ethereal calm, transforming your meditation corner or master suite into an oasis of silence.",
-    "categorySlug": "lord-shiva-shiv-parivar",
-    "categoryName": "Lord Shiva & Shiv Parivar",
+    "categorySlug": "god-photo-frames",
+    "categoryName": "God Photo Frames",
     "deity": "Lord Shiva",
     "artStyle": "LED Backlit Acrylic",
     "orientation": "horizontal",
@@ -436,8 +437,10 @@ export const INITIAL_PRODUCTS: Product[] = [
       "Designed for 24/7 continuous ambient lighting use."
     ],
     "shippingHighlights": [
-      "Secure transit insured wooden box packaging.",
-      "Delivery across India in 3-5 days."
+      "Multi-layer protective packaging for safe transit.",
+      "Precision diamond-cut cast acrylic with polished bevels.",
+      "Concealed French cleat mounting bracket & hardware included.",
+      "BIS certified 12V 2A power adapter included with LED frames."
     ],
     "reviews": [],
     "createdAt": "2026-08-10"
@@ -449,8 +452,8 @@ export const INITIAL_PRODUCTS: Product[] = [
     "subtitle": "Golden Shubh-Labh Ganesha with Textured Gold Leaf Accents",
     "shortDescription": "Auspicious Lord Ganesha with textured gold highlights on pristine crystal acrylic panel.",
     "description": "Start every day with the blessing of Lord Ganesha, the remover of all obstacles and harbinger of prosperity. Featuring elegant calligraphy and traditional motifs overlaid on textured saffron and gold leaf gradients, this piece brings immense grace to your foyer, entrance, or office reception.",
-    "categorySlug": "lord-ganesha",
-    "categoryName": "Lord Ganesha",
+    "categorySlug": "god-photo-frames",
+    "categoryName": "God Photo Frames",
     "deity": "Lord Ganesha",
     "artStyle": "Devotional Acrylic",
     "orientation": "square",
@@ -535,12 +538,18 @@ export const INITIAL_PRODUCTS: Product[] = [
       "Scratch-resistant surface coating"
     ],
     "shippingHighlights": [
-      "Dispatched in 24 hours",
-      "Bubble-wrapped and protective packagingd"
+      "Multi-layer protective packaging for safe transit.",
+      "Precision diamond-cut cast acrylic with polished bevels.",
+      "Concealed French cleat mounting bracket & hardware included.",
+      "BIS certified 12V 2A power adapter included with LED frames."
     ],
     "reviews": [],
     "createdAt": "2026-08-15",
-    "shape": "square"
+    "shape": "square",
+    "categorySlugs": [
+      "god-photo-frames",
+      "acrylic-photo-frames"
+    ]
   },
   {
     "id": "prod-hanuman-chalisa-illuminated",
@@ -549,15 +558,15 @@ export const INITIAL_PRODUCTS: Product[] = [
     "subtitle": "Complete 40 Chaupais with Sacred Bajrangbali Silhouette & Warm Halo",
     "shortDescription": "The sacred Hanuman Chalisa inscribed in sharp Devanagari script flanked by Veera Hanuman with golden backlighting.",
     "description": "A monument of strength, devotion, and divine protection. The complete 40 verses of the Hanuman Chalisa are legibly rendered with high-precision micro-printing alongside the formidable profile of Veer Hanuman. The ambient backlight illuminates the verses, creating a protective and empowering energy in your home.",
-    "categorySlug": "lord-hanuman",
-    "categoryName": "Lord Hanuman & Hanuman Chalisa",
+    "categorySlug": "god-photo-frames",
+    "categoryName": "God Photo Frames",
     "deity": "Lord Hanuman",
     "artStyle": "LED Backlit Acrylic",
     "orientation": "vertical",
     "categorySlugs": [
-      "lord-hanuman",
-      "devotional-led-frames",
-      "led-backlit-wall-art"
+      "god-photo-frames",
+      "led-acrylic-photo-frames",
+      "acrylic-photo-frames"
     ],
     "shape": "portrait",
     "images": [
@@ -637,8 +646,10 @@ export const INITIAL_PRODUCTS: Product[] = [
       "Easy wipe clean with cotton cloth"
     ],
     "shippingHighlights": [
-      "safe packaging standard",
-      "All hanging accessories included"
+      "Multi-layer protective packaging for safe transit.",
+      "Precision diamond-cut cast acrylic with polished bevels.",
+      "Concealed French cleat mounting bracket & hardware included.",
+      "BIS certified 12V 2A power adapter included with LED frames."
     ],
     "reviews": [],
     "createdAt": "2026-08-20"
@@ -650,8 +661,8 @@ export const INITIAL_PRODUCTS: Product[] = [
     "subtitle": "Vrindavan Melody in Gold, Teal & Luminous Emerald Accents",
     "shortDescription": "Soulful Shri Radha Krishna portrait evoking divine romance, serenity, and unconditional love.",
     "description": "Celebrate the eternal harmony of Radha and Krishna with this lyrical work of art. The gentle posture, peacock feather crown (Mor Pankh), and golden flute are rendered with delicate artistic finesse on a luminous, glass-like acrylic sheet. Perfect for master bedrooms and intimate family living areas.",
-    "categorySlug": "radha-krishna",
-    "categoryName": "Radha Krishna",
+    "categorySlug": "god-photo-frames",
+    "categoryName": "God Photo Frames",
     "deity": "Radha Krishna",
     "artStyle": "Premium Acrylic",
     "orientation": "vertical",
@@ -727,27 +738,36 @@ export const INITIAL_PRODUCTS: Product[] = [
       "Clean with dry microfiber cloth"
     ],
     "shippingHighlights": [
-      "Express transit across all Indian pincodes"
+      "Multi-layer protective packaging for safe transit.",
+      "Precision diamond-cut cast acrylic with polished bevels.",
+      "Concealed French cleat mounting bracket & hardware included.",
+      "BIS certified 12V 2A power adapter included with LED frames."
     ],
     "reviews": [],
     "createdAt": "2026-09-01",
-    "shape": "portrait"
+    "shape": "portrait",
+    "categorySlugs": [
+      "god-photo-frames",
+      "acrylic-photo-frames",
+      "couple-wedding-frames"
+    ]
   },
   {
     "id": "prod-radha-krishna-divine-led",
     "slug": "radha-krishna-divine-bansuri-3d-led-acrylic-wall-art",
     "categorySlugs": [
-      "led-backlit-wall-art",
-      "devotional-led-frames",
-      "radha-krishna"
+      "god-photo-frames",
+      "led-acrylic-photo-frames",
+      "couple-wedding-frames",
+      "acrylic-photo-frames"
     ],
     "shape": "square",
     "title": "Radha Krishna Divine Bansuri & Kamadhenu 3D LED Wall Art",
     "subtitle": "Sacred Flute Melody with Golden Halo & Divine Kamadhenu Blessing",
     "shortDescription": "Mesmerizing Shri Radha Krishna portrait with golden bansuri, holy Kamadhenu calf, and warm Warm LED backlight.",
     "description": "Awaken celestial harmony and eternal devotion in your home with this masterwork 3D LED wall art. Featuring Lord Krishna playing his enchanting flute with beloved Radha Rani amidst golden blossoms and a sacred Kamadhenu calf, this premium acrylic piece comes alive with an ambient Warm halo that bathes your space in serenity and peace.",
-    "categorySlug": "led-backlit-wall-art",
-    "categoryName": "Backlit Acrylic Wall Art",
+    "categorySlug": "god-photo-frames",
+    "categoryName": "God Photo Frames",
     "deity": "Radha Krishna",
     "artStyle": "LED Backlit Acrylic",
     "orientation": "square",
@@ -858,9 +878,10 @@ export const INITIAL_PRODUCTS: Product[] = [
       "Shatterproof acrylic construction resists accidental bumps and moisture."
     ],
     "shippingHighlights": [
-      "Express Courier Shipping on this masterpiece.",
-      "Dispatched within 24-48 business hours with safe packaging.",
-      "Multi-layer protective packaging for safe courier transit."
+      "Multi-layer protective packaging for safe transit.",
+      "Precision diamond-cut cast acrylic with polished bevels.",
+      "Concealed French cleat mounting bracket & hardware included.",
+      "BIS certified 12V 2A power adapter included with LED frames."
     ],
     "reviews": [],
     "createdAt": "2026-10-25"
@@ -869,18 +890,17 @@ export const INITIAL_PRODUCTS: Product[] = [
     "id": "prod-ayodhya-ram-mandir-illuminated",
     "slug": "ayodhya-ram-janmabhoomi-mandir-3d-led-wall-decor",
     "categorySlugs": [
-      "lord-rama",
-      "premium-temple-designs",
-      "devotional-led-frames",
-      "led-backlit-wall-art"
+      "god-photo-frames",
+      "led-acrylic-photo-frames",
+      "acrylic-photo-frames"
     ],
     "shape": "landscape",
     "title": "Ayodhya Ram Mandir Architectural 3D LED Wall Art",
     "subtitle": "Nagara Style Grand Temple Architecture with Shriram Divya Tej",
     "shortDescription": "Magnificent architectural rendering of Ayodhya Shri Ram Temple with illuminated spires and golden dawn sky.",
     "description": "Commemorate the historic Ayodhya Shri Ram Janmabhoomi Mandir with our architectural wall masterpiece. The intricate Nagara-style stone carvings, towering Shikhara, and saffron flag fluttering high are backlit with warm amber LEDs, giving the illusion of an eternal evening aarti at the holy sanctum.",
-    "categorySlug": "lord-rama",
-    "categoryName": "Lord Rama & Ayodhya Mandir",
+    "categorySlug": "god-photo-frames",
+    "categoryName": "God Photo Frames",
     "deity": "Lord Rama",
     "artStyle": "LED Backlit Wall Art",
     "orientation": "horizontal",
@@ -955,7 +975,10 @@ export const INITIAL_PRODUCTS: Product[] = [
       "Safe acrylic sheet with rounded polished corners"
     ],
     "shippingHighlights": [
-      "Insured delivery with shock-absorbing foam"
+      "Multi-layer protective packaging for safe transit.",
+      "Precision diamond-cut cast acrylic with polished bevels.",
+      "Concealed French cleat mounting bracket & hardware included.",
+      "BIS certified 12V 2A power adapter included with LED frames."
     ],
     "reviews": [],
     "createdAt": "2026-09-10"
@@ -967,8 +990,8 @@ export const INITIAL_PRODUCTS: Product[] = [
     "subtitle": "Golden Lotus Throne with Showering Gold Coins & Auspicious Elephants",
     "shortDescription": "Goddess Lakshmi radiating divine blessings of wealth, health, and prosperity in pure gold leaf accents.",
     "description": "Invite timeless prosperity and grace into your abode with this Goddess Lakshmi wall panel. Surrounded by the eight forms (Ashta Lakshmi) and auspicious Gajraj (elephants) performing abhishekam, this artwork radiates golden warmth. Specially crafted for Diwali, Dhanteras, housewarmings, and everyday devotion.",
-    "categorySlug": "goddess-lakshmi",
-    "categoryName": "Goddess Lakshmi & Mahalakshmi",
+    "categorySlug": "god-photo-frames",
+    "categoryName": "God Photo Frames",
     "deity": "Goddess Lakshmi",
     "artStyle": "Devotional Acrylic",
     "orientation": "square",
@@ -1032,26 +1055,33 @@ export const INITIAL_PRODUCTS: Product[] = [
       "Dust with soft cloth"
     ],
     "shippingHighlights": [
-      "Doorstep delivery with safe packaging."
+      "Multi-layer protective packaging for safe transit.",
+      "Precision diamond-cut cast acrylic with polished bevels.",
+      "Concealed French cleat mounting bracket & hardware included.",
+      "BIS certified 12V 2A power adapter included with LED frames."
     ],
     "reviews": [],
     "createdAt": "2026-08-25",
-    "shape": "square"
+    "shape": "square",
+    "categorySlugs": [
+      "god-photo-frames",
+      "acrylic-photo-frames"
+    ]
   },
   {
     "id": "prod-ginkgo-botanical-modern-set3",
     "slug": "botanical-golden-ginkgo-leaves-triptych-acrylic-set",
     "categorySlugs": [
-      "modern-decorative-art",
-      "sets-of-two-three-frames"
+      "acrylic-photo-frames",
+      "family-baby-frames"
     ],
     "shape": "set-of-3",
     "title": "Golden Ginkgo Leaves Modern Botanical Triptych Set of 3",
     "subtitle": "Symbol of Longevity & Elegance in Gold Foil on Matte Cream Background",
     "shortDescription": "Trio of three matching acrylic vertical panels featuring organic ginkgo foliage with gold leaf shimmer.",
     "description": "An architectural ensemble designed to fill wide walls with organic balance. The Ginkgo biloba leaf has long stood for resilience, peace, and longevity. This 3-piece coordinated triptych brings nature-inspired luxury to your dining room, hallway, or conference room.",
-    "categorySlug": "modern-decorative-art",
-    "categoryName": "Modern Decorative Art",
+    "categorySlug": "acrylic-photo-frames",
+    "categoryName": "Acrylic Photo Frames",
     "artStyle": "Sets of Two or Three",
     "orientation": "vertical",
     "images": [
@@ -1114,7 +1144,10 @@ export const INITIAL_PRODUCTS: Product[] = [
       "Wipe clean with lint-free cloth"
     ],
     "shippingHighlights": [
-      "Safely boxed together with edge guards"
+      "Multi-layer protective packaging for safe transit.",
+      "Precision diamond-cut cast acrylic with polished bevels.",
+      "Concealed French cleat mounting bracket & hardware included.",
+      "BIS certified 12V 2A power adapter included with LED frames."
     ],
     "reviews": [],
     "createdAt": "2026-09-08"
@@ -1126,10 +1159,12 @@ export const INITIAL_PRODUCTS: Product[] = [
     "subtitle": "Upload Your Photo • Museum Acrylic Glass Depth • Custom Sizes & Inscriptions",
     "shortDescription": "Turn your wedding, family, or travel memories into crystal-clear frameless acrylic wall art.",
     "description": "Transform your special moments into heirloom wall art. Upload your favorite high-resolution photo and let our studio print it directly onto precision-polished premium acrylic. The frameless design creates a clean, modern floating aesthetic where your memories look vibrant and lifelike from every angle.",
-    "categorySlug": "personalized-family-photo-frames",
-    "categoryName": "Personalised Portrait Frames",
+    "categorySlug": "family-baby-frames",
+    "categoryName": "Family & Baby Frames",
     "categorySlugs": [
-      "personalized-family-photo-frames"
+      "family-baby-frames",
+      "acrylic-photo-frames",
+      "personalized-gifts"
     ],
     "artStyle": "Custom Photo Frames",
     "orientation": "vertical",
@@ -1222,7 +1257,10 @@ export const INITIAL_PRODUCTS: Product[] = [
       "UV protected print that never yellows"
     ],
     "shippingHighlights": [
-      "Dispatched in 48 hours after customer preview confirmation"
+      "Multi-layer protective packaging for safe transit.",
+      "Precision diamond-cut cast acrylic with polished bevels.",
+      "Concealed French cleat mounting bracket & hardware included.",
+      "BIS certified 12V 2A power adapter included with LED frames."
     ],
     "reviews": [],
     "createdAt": "2026-08-05"
@@ -1234,11 +1272,12 @@ export const INITIAL_PRODUCTS: Product[] = [
     "subtitle": "Upload Your Photo • Soft Ambient Golden Glow • Touch Dimmer Included",
     "shortDescription": "Turn your cherished memory into a lighted nocturnal work of art with our warm perimeter LED glow frame.",
     "description": "A magical gift for anniversaries, birthdays, and milestones. Your uploaded photo is printed on optical grade acrylic and illuminated from behind with precision LED diodes. At night, it casts a soothing, romantic ambient light that illuminates your memories with warmth and clarity.",
-    "categorySlug": "custom-led-photo-frames",
-    "categoryName": "Custom LED Backlit Photo Frames",
+    "categorySlug": "led-acrylic-photo-frames",
+    "categoryName": "LED Acrylic Photo Frames",
     "categorySlugs": [
-      "custom-led-photo-frames",
-      "led-backlit-wall-art"
+      "led-acrylic-photo-frames",
+      "personalized-gifts",
+      "acrylic-photo-frames"
     ],
     "artStyle": "Custom Photo Frames",
     "orientation": "vertical",
@@ -1315,7 +1354,10 @@ export const INITIAL_PRODUCTS: Product[] = [
       "Keep cord dry"
     ],
     "shippingHighlights": [
-      "Dispatched in 2 days with safe foam packaging"
+      "Multi-layer protective packaging for safe transit.",
+      "Precision diamond-cut cast acrylic with polished bevels.",
+      "Concealed French cleat mounting bracket & hardware included.",
+      "BIS certified 12V 2A power adapter included with LED frames."
     ],
     "reviews": [],
     "createdAt": "2026-09-15"
@@ -1327,10 +1369,12 @@ export const INITIAL_PRODUCTS: Product[] = [
     "subtitle": "Custom Family Name Inscribed • gold foil Accent • 5mm Crystal Glass",
     "shortDescription": "Cherished family heirlooms printed with high-gloss depth and custom gold foil surname inscriptions.",
     "description": "Celebrate family heritage with our mastercrafted heirloom acrylic frame. Personalize with your family name or wedding vow in shining gold foil script across the bottom of the crystal acrylic.",
-    "categorySlug": "personalized-family-photo-frames",
-    "categoryName": "Personalized Family Photo Frames",
+    "categorySlug": "family-baby-frames",
+    "categoryName": "Family & Baby Frames",
     "categorySlugs": [
-      "personalized-family-photo-frames"
+      "family-baby-frames",
+      "acrylic-photo-frames",
+      "personalized-gifts"
     ],
     "artStyle": "Custom Photo Frames",
     "orientation": "horizontal",
@@ -1411,7 +1455,10 @@ export const INITIAL_PRODUCTS: Product[] = [
       "Never fades or yellows"
     ],
     "shippingHighlights": [
-      "Dispatched in 48h after digital WhatsApp proof approval"
+      "Multi-layer protective packaging for safe transit.",
+      "Precision diamond-cut cast acrylic with polished bevels.",
+      "Concealed French cleat mounting bracket & hardware included.",
+      "BIS certified 12V 2A power adapter included with LED frames."
     ],
     "reviews": [],
     "createdAt": "2026-09-05"
@@ -1423,10 +1470,11 @@ export const INITIAL_PRODUCTS: Product[] = [
     "subtitle": "Coordinated Storyline • Matching Standoff Hardware • Full Wall Statement",
     "shortDescription": "Create an eye-catching story wall with 3 matching vertical frameless acrylic panels.",
     "description": "Turn your living room or staircase into a modern art gallery. This coordinated trio of acrylic panels lets you tell a complete visual story—from wedding day progressions to timeless family generations.",
-    "categorySlug": "sets-of-two-three-frames",
-    "categoryName": "Set of 2 & 3 Gallery Frames",
+    "categorySlug": "family-baby-frames",
+    "categoryName": "Family & Baby Frames",
     "categorySlugs": [
-      "sets-of-two-three-frames"
+      "family-baby-frames",
+      "acrylic-photo-frames"
     ],
     "artStyle": "Custom Photo Frames",
     "orientation": "vertical",
@@ -1508,7 +1556,10 @@ export const INITIAL_PRODUCTS: Product[] = [
       "Color guaranteed with long-lasting vibrancy"
     ],
     "shippingHighlights": [
-      "Individually padded slots within single heavy-duty crate"
+      "Multi-layer protective packaging for safe transit.",
+      "Precision diamond-cut cast acrylic with polished bevels.",
+      "Concealed French cleat mounting bracket & hardware included.",
+      "BIS certified 12V 2A power adapter included with LED frames."
     ],
     "reviews": [],
     "createdAt": "2026-09-20"
@@ -1520,8 +1571,8 @@ export const INITIAL_PRODUCTS: Product[] = [
     "subtitle": "Sabarimala Golden 18 Holy Steps (Pathinettam Padi) Motif & Divine Blessing",
     "shortDescription": "Sacred Lord Ayyappa wall art featuring the 18 holy steps and gold foil embellishments.",
     "description": "Evoke the pure devotion and protective shield of Swami Ayyappan in your household. Rendered in deep jewel tones and shimmering gold accents, depicting Lord Ayyappa seated in chin-mudra yogic poise surrounded by divine light. Highly revered during Mandala-Makaravilakku season and throughout the year.",
-    "categorySlug": "lord-ayyappa",
-    "categoryName": "Lord Ayyappa",
+    "categorySlug": "god-photo-frames",
+    "categoryName": "God Photo Frames",
     "deity": "Lord Ayyappa",
     "artStyle": "Devotional Acrylic",
     "orientation": "vertical",
@@ -1580,11 +1631,18 @@ export const INITIAL_PRODUCTS: Product[] = [
       "Clean with soft dry cloth"
     ],
     "shippingHighlights": [
-      "Bubble-packed and wooden crated for safety"
+      "Multi-layer protective packaging for safe transit.",
+      "Precision diamond-cut cast acrylic with polished bevels.",
+      "Concealed French cleat mounting bracket & hardware included.",
+      "BIS certified 12V 2A power adapter included with LED frames."
     ],
     "reviews": [],
     "createdAt": "2026-09-18",
-    "shape": "portrait"
+    "shape": "portrait",
+    "categorySlugs": [
+      "god-photo-frames",
+      "acrylic-photo-frames"
+    ]
   },
   {
     "id": "prod-lord-kartikeya-murugan-vel",
@@ -1593,8 +1651,8 @@ export const INITIAL_PRODUCTS: Product[] = [
     "subtitle": "The Commander of Divine Forces in Lustrous Gold & Royal Crimson",
     "shortDescription": "Magnificent Lord Murugan standing with the divine spear (Vel) and royal peacock in radiant acrylic depth.",
     "description": "Imbue your living environment with spiritual strength, victory, and supreme wisdom. Lord Murugan, with the sacred Vel (spear) that pierces ignorance and bestows courage, is captured with royal splendour. Accompanied by the majestic Mayil (peacock), this sacred wall decor is a cherished masterpiece for every Tamil & South Indian home.",
-    "categorySlug": "lord-kartikeya",
-    "categoryName": "Lord Kartikeya (Murugan)",
+    "categorySlug": "god-photo-frames",
+    "categoryName": "God Photo Frames",
     "deity": "Lord Kartikeya",
     "artStyle": "Devotional Acrylic",
     "orientation": "vertical",
@@ -1654,11 +1712,18 @@ export const INITIAL_PRODUCTS: Product[] = [
       "Microfiber wipe"
     ],
     "shippingHighlights": [
-      "Safe Courier courier delivery"
+      "Multi-layer protective packaging for safe transit.",
+      "Precision diamond-cut cast acrylic with polished bevels.",
+      "Concealed French cleat mounting bracket & hardware included.",
+      "BIS certified 12V 2A power adapter included with LED frames."
     ],
     "reviews": [],
     "createdAt": "2026-09-02",
-    "shape": "portrait"
+    "shape": "portrait",
+    "categorySlugs": [
+      "god-photo-frames",
+      "acrylic-photo-frames"
+    ]
   },
   {
     "id": "prod-maryada-purushottam-shri-ram",
@@ -1667,8 +1732,8 @@ export const INITIAL_PRODUCTS: Product[] = [
     "subtitle": "Supreme Lord Rama with Divine Kodanda Bow in Lustrous gold Frame",
     "shortDescription": "Magnificent portrayal of Lord Rama with the sacred Kodanda bow on premium acrylic.",
     "description": "Bring the righteous radiance and divine protection of Maryada Purushottam Shri Ram into your home. Rendered on Premium shatterproof premium acrylic with precision-polished edges, depicting Lord Rama in royal golden attire with the sacred Kodanda bow, radiating courage, peace, and dharma.",
-    "categorySlug": "lord-rama",
-    "categoryName": "Lord Rama",
+    "categorySlug": "god-photo-frames",
+    "categoryName": "God Photo Frames",
     "deity": "Lord Rama",
     "artStyle": "Devotional Acrylic",
     "orientation": "vertical",
@@ -1744,11 +1809,18 @@ export const INITIAL_PRODUCTS: Product[] = [
       "Microfiber wipe only"
     ],
     "shippingHighlights": [
-      "Safe 5-layer crated delivery across India"
+      "Multi-layer protective packaging for safe transit.",
+      "Precision diamond-cut cast acrylic with polished bevels.",
+      "Concealed French cleat mounting bracket & hardware included.",
+      "BIS certified 12V 2A power adapter included with LED frames."
     ],
     "reviews": [],
     "createdAt": "2026-09-25",
-    "shape": "portrait"
+    "shape": "portrait",
+    "categorySlugs": [
+      "god-photo-frames",
+      "acrylic-photo-frames"
+    ]
   },
   {
     "id": "prod-golden-deer-forest-acrylic",
@@ -1757,12 +1829,10 @@ export const INITIAL_PRODUCTS: Product[] = [
     "subtitle": "Auspicious Vastu Deer with gold Foliage on High-Gloss Acrylic",
     "shortDescription": "Symbol of grace, gentleness, and longevity rendered in shimmering gold tones on crystal acrylic.",
     "description": "Elevate your living space with this serene Golden Deer artwork. Representing prosperity and harmony in Indian vastu, the graceful golden stag is depicted amidst ethereal mist and luminous forest flora. High-resolution UV cure print on Cast Acrylic gives it mirror-like depth.",
-    "categorySlug": "deer-and-bird-artwork",
-    "categoryName": "Deer and Bird Artwork",
+    "categorySlug": "acrylic-photo-frames",
+    "categoryName": "Acrylic Photo Frames",
     "categorySlugs": [
-      "deer-and-bird-artwork",
-      "abstract-wall-decor",
-      "gold-abstract-designs"
+      "acrylic-photo-frames"
     ],
     "artStyle": "Modern Abstract Acrylic",
     "orientation": "horizontal",
@@ -1832,8 +1902,10 @@ export const INITIAL_PRODUCTS: Product[] = [
       "Do not use alcohol solvents"
     ],
     "shippingHighlights": [
-      "Insured honeycomb wooden crate packaging",
-      "Free express Courier shipping"
+      "Multi-layer protective packaging for safe transit.",
+      "Precision diamond-cut cast acrylic with polished bevels.",
+      "Concealed French cleat mounting bracket & hardware included.",
+      "BIS certified 12V 2A power adapter included with LED frames."
     ],
     "reviews": [],
     "createdAt": "2026-09-15"
@@ -1845,11 +1917,10 @@ export const INITIAL_PRODUCTS: Product[] = [
     "subtitle": "Vibrant Sacred Peacock Plumage with gold Embellishments",
     "shortDescription": "Majestic national bird with iridescent blues, emerald greens, and shimmering gold feathers.",
     "description": "Celebrate Indian regal artistry with our Royal Peacock crystal acrylic panel. Associated with Goddess Saraswati and Lord Kartikeya, the peacock radiates spiritual grace and elegance with shimmering gold foil details.",
-    "categorySlug": "deer-and-bird-artwork",
-    "categoryName": "Deer and Bird Artwork",
+    "categorySlug": "acrylic-photo-frames",
+    "categoryName": "Acrylic Photo Frames",
     "categorySlugs": [
-      "deer-and-bird-artwork",
-      "contemporary-luxury-art"
+      "acrylic-photo-frames"
     ],
     "artStyle": "Premium Acrylic",
     "orientation": "vertical",
@@ -1914,7 +1985,10 @@ export const INITIAL_PRODUCTS: Product[] = [
       "Microfiber wipe only"
     ],
     "shippingHighlights": [
-      "Safe Express Delivery"
+      "Multi-layer protective packaging for safe transit.",
+      "Precision diamond-cut cast acrylic with polished bevels.",
+      "Concealed French cleat mounting bracket & hardware included.",
+      "BIS certified 12V 2A power adapter included with LED frames."
     ],
     "reviews": [],
     "createdAt": "2026-09-20"
@@ -1926,12 +2000,10 @@ export const INITIAL_PRODUCTS: Product[] = [
     "subtitle": "Panoramic Mountain Peaks in Warm Morning Sunlight with 3D Depth",
     "shortDescription": "Spectacular mountain vista capturing golden sunrise rays across snow-capped peaks on acrylic.",
     "description": "Immerse your space in the supreme tranquility of the Himalayas. Rendered with subtle gold leaf highlights across mountain crests, this horizontal statement artwork brings immense visual depth and vastness to living room walls.",
-    "categorySlug": "mountain-landscape-art",
-    "categoryName": "Mountain Landscape Art",
+    "categorySlug": "acrylic-photo-frames",
+    "categoryName": "Acrylic Photo Frames",
     "categorySlugs": [
-      "mountain-landscape-art",
-      "landscape-wall-art",
-      "abstract-wall-decor"
+      "acrylic-photo-frames"
     ],
     "artStyle": "Landscape Acrylic",
     "orientation": "horizontal",
@@ -1996,7 +2068,10 @@ export const INITIAL_PRODUCTS: Product[] = [
       "Dust with clean microfiber feather cloth"
     ],
     "shippingHighlights": [
-      "Wooden reinforced crate delivery"
+      "Multi-layer protective packaging for safe transit.",
+      "Precision diamond-cut cast acrylic with polished bevels.",
+      "Concealed French cleat mounting bracket & hardware included.",
+      "BIS certified 12V 2A power adapter included with LED frames."
     ],
     "reviews": [],
     "createdAt": "2026-09-10"
@@ -2008,12 +2083,12 @@ export const INITIAL_PRODUCTS: Product[] = [
     "subtitle": "Coordinated Duo Pair in gold Leaf with Warm Amber Backlights",
     "shortDescription": "Pair of 2 complementary sacred panels featuring auspicious Omkara and Swastik symbols.",
     "description": "Bless your entrance or pooja mandir walls with this coordinated Diptych Set of 2 Frames. One panel features the primordial Omkara with cosmic vibrations; the companion panel features the auspicious Swastika surrounded by floral geometry.",
-    "categorySlug": "sets-of-two-three-frames",
-    "categoryName": "Set of 2 & 3 Gallery Frames",
+    "categorySlug": "god-photo-frames",
+    "categoryName": "God Photo Frames",
     "categorySlugs": [
-      "sets-of-two-three-frames",
-      "devotional-led-frames",
-      "led-backlit-wall-art"
+      "god-photo-frames",
+      "led-acrylic-photo-frames",
+      "acrylic-photo-frames"
     ],
     "artStyle": "Devotional Acrylic",
     "orientation": "vertical",
@@ -2067,7 +2142,10 @@ export const INITIAL_PRODUCTS: Product[] = [
       "Microfiber wipe only"
     ],
     "shippingHighlights": [
-      "Zero transit damage guarantee"
+      "Multi-layer protective packaging for safe transit.",
+      "Precision diamond-cut cast acrylic with polished bevels.",
+      "Concealed French cleat mounting bracket & hardware included.",
+      "BIS certified 12V 2A power adapter included with LED frames."
     ],
     "reviews": [],
     "createdAt": "2026-09-08"
@@ -2079,10 +2157,12 @@ export const INITIAL_PRODUCTS: Product[] = [
     "subtitle": "Custom Gold Inscribed Family Name & Anniversary Date",
     "shortDescription": "Generational family photo wall centerpiece with custom gold lettering and crystal acrylic clarity.",
     "description": "Commemorate your family lineage, silver jubilee, or parents 50th wedding anniversary with a statement heirloom piece. Features high-definition acrylic photo printing surrounded by custom gold foil inscriptions on shatterproof crystal acrylic.",
-    "categorySlug": "personalized-family-photo-frames",
-    "categoryName": "Personalized Family Photo Frames",
+    "categorySlug": "family-baby-frames",
+    "categoryName": "Family & Baby Frames",
     "categorySlugs": [
-      "personalized-family-photo-frames"
+      "family-baby-frames",
+      "acrylic-photo-frames",
+      "personalized-gifts"
     ],
     "artStyle": "Personalised Frame",
     "orientation": "horizontal",
@@ -2146,7 +2226,10 @@ export const INITIAL_PRODUCTS: Product[] = [
       "Microfiber wipe only"
     ],
     "shippingHighlights": [
-      "Insured 5-layer crate packaging"
+      "Multi-layer protective packaging for safe transit.",
+      "Precision diamond-cut cast acrylic with polished bevels.",
+      "Concealed French cleat mounting bracket & hardware included.",
+      "BIS certified 12V 2A power adapter included with LED frames."
     ],
     "reviews": [],
     "createdAt": "2026-09-05"
@@ -2155,16 +2238,15 @@ export const INITIAL_PRODUCTS: Product[] = [
     "id": "prod-seven-horses-vastu",
     "slug": "seven-running-horses-vastu-gold-acrylic-wall-art",
     "categorySlugs": [
-      "horses-and-wildlife",
-      "abstract-wall-decor"
+      "acrylic-photo-frames"
     ],
     "shape": "landscape",
     "title": "7 Running Horses Vastu gold Acrylic Wall Art",
     "subtitle": "Auspicious Surya Ashva Rising Sun Composition for Career Growth & Positive Energy",
     "shortDescription": "Magnificent 7 Running Horses rendered in gold foil details on crystal acrylic.",
     "description": "In Vedic Vastu Shastra, the 7 Running White Horses gallop toward victory, unstoppable progress, and financial vitality. Rendered with Swiss UV inks over precision-polished Cast Acrylic with gold liquid highlights, this landscape masterpiece energizes living rooms and executive suites.",
-    "categorySlug": "horses-and-wildlife",
-    "categoryName": "Horses and Wildlife",
+    "categorySlug": "acrylic-photo-frames",
+    "categoryName": "Acrylic Photo Frames",
     "artStyle": "Vastu Gold Acrylic",
     "orientation": "horizontal",
     "images": [
@@ -2240,7 +2322,10 @@ export const INITIAL_PRODUCTS: Product[] = [
       "UV resistant direct cure"
     ],
     "shippingHighlights": [
-      "Ships in 5-layer wood honeycomb crate"
+      "Multi-layer protective packaging for safe transit.",
+      "Precision diamond-cut cast acrylic with polished bevels.",
+      "Concealed French cleat mounting bracket & hardware included.",
+      "BIS certified 12V 2A power adapter included with LED frames."
     ],
     "reviews": [],
     "createdAt": "2026-09-10"
@@ -2249,16 +2334,15 @@ export const INITIAL_PRODUCTS: Product[] = [
     "id": "prod-golden-bodhi-tree",
     "slug": "golden-bodhi-tree-ginkgo-leaves-acrylic-wall-art",
     "categorySlugs": [
-      "trees-and-leaves",
-      "abstract-wall-decor"
+      "acrylic-photo-frames"
     ],
     "shape": "landscape",
     "title": "Sacred Golden Bodhi Tree & Ginkgo Leaves Acrylic Art",
     "subtitle": "Enlightenment Tree with Shimmering Gold Foil Leaves & Deep Emerald Backing",
     "shortDescription": "Symbol of spiritual awakening and enduring peace in liquid gold and high-gloss acrylic.",
     "description": "A timeless homage to the sacred Peepal/Bodhi tree under which seekers find stillness. Featuring branching golden foil leaves that capture ambient room lighting, layered on shatterproof crystal acrylic.",
-    "categorySlug": "trees-and-leaves",
-    "categoryName": "Trees and Leaves",
+    "categorySlug": "acrylic-photo-frames",
+    "categoryName": "Acrylic Photo Frames",
     "artStyle": "Botanical Gold Acrylic",
     "orientation": "horizontal",
     "images": [
@@ -2321,7 +2405,10 @@ export const INITIAL_PRODUCTS: Product[] = [
       "Clean with soft dry microfiber cloth"
     ],
     "shippingHighlights": [
-      "Multi-Layer Safe Packaging"
+      "Multi-layer protective packaging for safe transit.",
+      "Precision diamond-cut cast acrylic with polished bevels.",
+      "Concealed French cleat mounting bracket & hardware included.",
+      "BIS certified 12V 2A power adapter included with LED frames."
     ],
     "reviews": [],
     "createdAt": "2026-10-01"
@@ -2330,16 +2417,15 @@ export const INITIAL_PRODUCTS: Product[] = [
     "id": "prod-nine-koi-fish",
     "slug": "nine-auspicious-golden-koi-fish-acrylic-wall-decor",
     "categorySlugs": [
-      "koi-fish-designs",
-      "abstract-wall-decor"
+      "acrylic-photo-frames"
     ],
     "shape": "square",
     "title": "Auspicious Nine Golden Koi Fish Feng Shui Acrylic Art",
     "subtitle": "Symbol of Everlasting Flow of Wealth, Abundance & Harmonic Energy",
     "shortDescription": "Nine graceful koi fish circulating in circular harmony with metallic gold ripple accents.",
     "description": "In traditional Asian wisdom and modern vastu decor, nine koi fish (eight golden-red, one protector black) generate ceaseless prosperity, flowing opportunities, and calm vitality. precision-polished round corners with back-illumination.",
-    "categorySlug": "koi-fish-designs",
-    "categoryName": "Koi Fish Designs",
+    "categorySlug": "acrylic-photo-frames",
+    "categoryName": "Acrylic Photo Frames",
     "artStyle": "Feng Shui Fluid Acrylic",
     "orientation": "square",
     "images": [
@@ -2398,7 +2484,10 @@ export const INITIAL_PRODUCTS: Product[] = [
       "Microfiber wipe only"
     ],
     "shippingHighlights": [
-      "Courier express shipping"
+      "Multi-layer protective packaging for safe transit.",
+      "Precision diamond-cut cast acrylic with polished bevels.",
+      "Concealed French cleat mounting bracket & hardware included.",
+      "BIS certified 12V 2A power adapter included with LED frames."
     ],
     "reviews": [],
     "createdAt": "2026-10-05"
@@ -2407,17 +2496,16 @@ export const INITIAL_PRODUCTS: Product[] = [
     "id": "prod-emerald-gold-luxury",
     "slug": "emerald-liquid-gold-vein-abstract-luxury-acrylic-art",
     "categorySlugs": [
-      "contemporary-luxury-art",
-      "gold-abstract-designs",
-      "abstract-wall-decor"
+      "acrylic-photo-frames",
+      "glitter-photo-frames"
     ],
     "shape": "landscape",
     "title": "Emerald Liquid Gold Vein Abstract Luxury Acrylic Panel",
     "subtitle": "Deep Malachite Green with Metallic Gold Geode Ribbons & High-Gloss Depth",
     "shortDescription": "Contemporary luxury statement panel designed for double-height living spaces and modern villas.",
     "description": "An architectural statement piece combining jewel-toned emerald greens with cascading Gold liquid gold ribbons. Frameless floating design with precision concealed brackets.",
-    "categorySlug": "contemporary-luxury-art",
-    "categoryName": "Contemporary Luxury Wall Art",
+    "categorySlug": "acrylic-photo-frames",
+    "categoryName": "Acrylic Photo Frames",
     "artStyle": "Luxury Geode Acrylic",
     "orientation": "horizontal",
     "images": [
@@ -2476,7 +2564,10 @@ export const INITIAL_PRODUCTS: Product[] = [
       "Microfiber wipe only"
     ],
     "shippingHighlights": [
-      "Reinforced wooden crate delivery"
+      "Multi-layer protective packaging for safe transit.",
+      "Precision diamond-cut cast acrylic with polished bevels.",
+      "Concealed French cleat mounting bracket & hardware included.",
+      "BIS certified 12V 2A power adapter included with LED frames."
     ],
     "reviews": [],
     "createdAt": "2026-09-12"
@@ -2485,16 +2576,17 @@ export const INITIAL_PRODUCTS: Product[] = [
     "id": "prod-couple-wedding-keepsake",
     "slug": "custom-couple-wedding-vows-acrylic-keepsake-frame",
     "categorySlugs": [
-      "couple-wedding-photos",
-      "custom-frames"
+      "couple-wedding-frames",
+      "acrylic-photo-frames",
+      "personalized-gifts"
     ],
     "shape": "portrait",
     "title": "Customized Wedding Vows & Couple Acrylic Keepsake Frame",
     "subtitle": "High-Gloss Acrylic with Gold Foil Names, Wedding Date & Warm Halo Lighting",
     "shortDescription": "Immortalize your most cherished vows and bridal portraits on precision-polished acrylic.",
     "description": "Turn your sacred marriage ceremonies and romantic milestones into museum-quality heirlooms. We print your high-res photography with Swiss UV inks directly on Cast Acrylic with personalized gold script names and wedding dates.",
-    "categorySlug": "couple-wedding-photos",
-    "categoryName": "Couple and Wedding Photos",
+    "categorySlug": "couple-wedding-frames",
+    "categoryName": "Couple & Wedding Frames",
     "artStyle": "Custom Wedding Acrylic",
     "orientation": "vertical",
     "images": [
@@ -2557,7 +2649,10 @@ export const INITIAL_PRODUCTS: Product[] = [
       "Microfiber wipe only"
     ],
     "shippingHighlights": [
-      "Insured 5-layer crate packaging"
+      "Multi-layer protective packaging for safe transit.",
+      "Precision diamond-cut cast acrylic with polished bevels.",
+      "Concealed French cleat mounting bracket & hardware included.",
+      "BIS certified 12V 2A power adapter included with LED frames."
     ],
     "reviews": [],
     "createdAt": "2026-09-22"
@@ -2566,17 +2661,16 @@ export const INITIAL_PRODUCTS: Product[] = [
     "id": "prod-modern-illuminated-horizon",
     "slug": "modern-illuminated-celestial-horizon-acrylic-art",
     "categorySlugs": [
-      "modern-illuminated-art",
-      "gold-abstract-designs",
-      "led-backlit-wall-art"
+      "led-acrylic-photo-frames",
+      "acrylic-photo-frames"
     ],
     "shape": "landscape",
     "title": "Modern Illuminated Celestial Horizon Acrylic Art",
     "subtitle": "Golden Constellations & Minimalist Architectural Lines with Ambient Backlight",
     "shortDescription": "Contemporary illuminated horizon lines creating sophisticated luxury ambience.",
     "description": "Designed for modern minimalists and contemporary luxury homes. Fine metallic gold contours layered across deep noir acrylic with hidden perimeter Warm halo backlights.",
-    "categorySlug": "modern-illuminated-art",
-    "categoryName": "Modern Illuminated Wall Art",
+    "categorySlug": "led-acrylic-photo-frames",
+    "categoryName": "LED Acrylic Photo Frames",
     "artStyle": "Contemporary Illuminated",
     "orientation": "horizontal",
     "images": [
@@ -2634,7 +2728,10 @@ export const INITIAL_PRODUCTS: Product[] = [
       "Microfiber wipe only"
     ],
     "shippingHighlights": [
-      "safe packaging standard"
+      "Multi-layer protective packaging for safe transit.",
+      "Precision diamond-cut cast acrylic with polished bevels.",
+      "Concealed French cleat mounting bracket & hardware included.",
+      "BIS certified 12V 2A power adapter included with LED frames."
     ],
     "reviews": [],
     "createdAt": "2026-10-12"
@@ -2643,17 +2740,17 @@ export const INITIAL_PRODUCTS: Product[] = [
     "id": "prod-ganesha-vighnaharta-led",
     "slug": "lord-ganesha-vighnaharta-divine-led-backlit-acrylic-art",
     "categorySlugs": [
-      "lord-ganesha",
-      "devotional-led-frames",
-      "led-backlit-wall-art"
+      "god-photo-frames",
+      "led-acrylic-photo-frames",
+      "acrylic-photo-frames"
     ],
     "shape": "square",
     "title": "Lord Ganesha Vighnaharta Divine LED Backlit Acrylic Art",
     "subtitle": "Auspicious Remover of Obstacles with Sanctum Warm Golden Backlight",
     "shortDescription": "Lord Ganesha illuminated with Warm halo backlight and gold foil detailing on crystal acrylic.",
     "description": "Invite divine auspiciousness and prosperity into your entrance, pooja mandir, or living space with this handcrafted Lord Ganesha LED Backlit artwork. Embedded with energy-efficient Warm LED halo channels that emanate a tranquil golden radiance, casting sacred warmth across the room.",
-    "categorySlug": "devotional-led-frames",
-    "categoryName": "Devotional LED Frames",
+    "categorySlug": "god-photo-frames",
+    "categoryName": "God Photo Frames",
     "deity": "Lord Ganesha",
     "artStyle": "LED Backlit Acrylic",
     "orientation": "square",
@@ -2717,8 +2814,10 @@ export const INITIAL_PRODUCTS: Product[] = [
       "Microfiber wipe only. Use included adapter."
     ],
     "shippingHighlights": [
-      "Express Delivery",
-      "Multi-Layer Safe Packaging"
+      "Multi-layer protective packaging for safe transit.",
+      "Precision diamond-cut cast acrylic with polished bevels.",
+      "Concealed French cleat mounting bracket & hardware included.",
+      "BIS certified 12V 2A power adapter included with LED frames."
     ],
     "reviews": [],
     "createdAt": "2026-10-18"
@@ -2727,17 +2826,17 @@ export const INITIAL_PRODUCTS: Product[] = [
     "id": "prod-lakshmi-prosperity-led",
     "slug": "goddess-mahalakshmi-prosperity-divine-led-backlit-acrylic-art",
     "categorySlugs": [
-      "goddess-lakshmi",
-      "devotional-led-frames",
-      "led-backlit-wall-art"
+      "god-photo-frames",
+      "led-acrylic-photo-frames",
+      "acrylic-photo-frames"
     ],
     "shape": "square",
     "title": "Goddess Mahalakshmi Prosperity Divine LED Backlit Acrylic Art",
     "subtitle": "Ashta Lakshmi with Golden Lotus & Radiant Warm Backlight Aura",
     "shortDescription": "Goddess Lakshmi radiating eternal wealth, abundance, and auspicious grace with golden backlighting.",
     "description": "Consecrate your sanctum with the divine presence of Goddess Mahalakshmi. Rendered with high-definition Swiss UV technology on cast acrylic with pure gold leaf accents. Switched on, the backlighting creates an ethereal halo, filling your sanctum with serene warmth and prosperity vibrations.",
-    "categorySlug": "devotional-led-frames",
-    "categoryName": "Devotional LED Frames",
+    "categorySlug": "god-photo-frames",
+    "categoryName": "God Photo Frames",
     "deity": "Goddess Lakshmi",
     "artStyle": "LED Backlit Acrylic",
     "orientation": "square",
@@ -2801,8 +2900,10 @@ export const INITIAL_PRODUCTS: Product[] = [
       "Microfiber wipe only. Use included adapter."
     ],
     "shippingHighlights": [
-      "Express Delivery",
-      "Multi-Layer Safe Packaging"
+      "Multi-layer protective packaging for safe transit.",
+      "Precision diamond-cut cast acrylic with polished bevels.",
+      "Concealed French cleat mounting bracket & hardware included.",
+      "BIS certified 12V 2A power adapter included with LED frames."
     ],
     "reviews": [],
     "createdAt": "2026-10-18"
@@ -2811,21 +2912,26 @@ export const INITIAL_PRODUCTS: Product[] = [
     "id": "prod-balaji-sanctum-gold-acrylic",
     "slug": "lord-venkateswara-balaji-Gold-gold-acrylic-wall-art",
     "categorySlugs": [
-      "lord-venkateswara-balaji",
-      "premium-acrylic-wall-art"
+      "god-photo-frames",
+      "acrylic-photo-frames"
     ],
     "shape": "portrait",
     "title": "Lord Venkateswara Balaji gold Acrylic Wall Art",
     "subtitle": "Sacred Tirupati Balaji with Shanku, Chakra & Namam in gold Accents",
     "shortDescription": "Divine Lord Venkateswara Balaji on Premium shatterproof crystal acrylic with precision beveled edges.",
     "description": "Invoke timeless blessings, spiritual abundance, and peace with our classic Lord Venkateswara Balaji pure acrylic heirloom. Masterfully printed with museum-grade UV-cured inks on ultra-clear Cast Acrylic and embellished with gold foil details. Finished with hand-buffed beveled edges and pre-installed stainless steel wall mounts.",
-    "categorySlug": "lord-venkateswara-balaji",
-    "categoryName": "Lord Balaji / Venkateswara",
+    "categorySlug": "god-photo-frames",
+    "categoryName": "God Photo Frames",
     "deity": "Lord Venkateswara",
     "artStyle": "gold Embellished Acrylic",
     "orientation": "vertical",
     "images": [
-      "/images/mockups/lord-venkateswara-balaji-Gold-gold-acrylic-wall-art/primary-square.jpg"
+      "/images/mockups/lord-venkateswara-balaji-24k-gold-acrylic-wall-art/primary-square.jpg",
+      "/images/mockups/lord-venkateswara-balaji-24k-gold-acrylic-wall-art/mockup-interior.jpg",
+      "/images/mockups/lord-venkateswara-balaji-24k-gold-acrylic-wall-art/mockup-living-room.jpg",
+      "/images/mockups/lord-venkateswara-balaji-24k-gold-acrylic-wall-art/mockup-foyer.jpg",
+      "/images/mockups/lord-venkateswara-balaji-24k-gold-acrylic-wall-art/mockup-detail.jpg",
+      "/images/mockups/lord-venkateswara-balaji-24k-gold-acrylic-wall-art/mockup-artistic.jpg"
     ],
     "tags": [
       "Balaji",
@@ -2901,8 +3007,10 @@ export const INITIAL_PRODUCTS: Product[] = [
       "Do not use alcohol or chemical glass cleaners."
     ],
     "shippingHighlights": [
-      "Multi-Layer Safe Packaging with zero breakages",
-      "Free express courier delivery across India"
+      "Multi-layer protective packaging for safe transit.",
+      "Precision diamond-cut cast acrylic with polished bevels.",
+      "Concealed French cleat mounting bracket & hardware included.",
+      "BIS certified 12V 2A power adapter included with LED frames."
     ],
     "reviews": [],
     "createdAt": "2026-08-05"
@@ -2911,16 +3019,16 @@ export const INITIAL_PRODUCTS: Product[] = [
     "id": "prod-shiva-meditation-pure-acrylic",
     "slug": "lord-shiva-mahadev-dhyana-mudra-acrylic-wall-art",
     "categorySlugs": [
-      "lord-shiva-shiv-parivar",
-      "premium-acrylic-wall-art"
+      "god-photo-frames",
+      "acrylic-photo-frames"
     ],
     "shape": "portrait",
     "title": "Lord Shiva Mahadev Dhyana Mudra Acrylic Wall Art",
     "subtitle": "Adiyogi in Deep Meditative Trance with Crescent Moon & Sacred Damru",
     "shortDescription": "Serene Mahadev in Dhyana posture on Premium high-gloss shatterproof crystal acrylic.",
     "description": "Channel profound silence, spiritual grounding, and cosmic peace into your sanctum with this Lord Shiva acrylic artwork. Layered with high-definition pigments and gold foil contours, Mahadev in profound samadhi creates an aura of tranquility for your yoga room, study, or living area.",
-    "categorySlug": "lord-shiva-shiv-parivar",
-    "categoryName": "Lord Shiva",
+    "categorySlug": "god-photo-frames",
+    "categoryName": "God Photo Frames",
     "deity": "Lord Shiva",
     "artStyle": "Meditative Sacred Acrylic",
     "orientation": "vertical",
@@ -2984,8 +3092,10 @@ export const INITIAL_PRODUCTS: Product[] = [
       "Microfiber wipe only."
     ],
     "shippingHighlights": [
-      "Courier express shipping",
-      "safe packaging standard"
+      "Multi-layer protective packaging for safe transit.",
+      "Precision diamond-cut cast acrylic with polished bevels.",
+      "Concealed French cleat mounting bracket & hardware included.",
+      "BIS certified 12V 2A power adapter included with LED frames."
     ],
     "reviews": [],
     "createdAt": "2026-08-12"
@@ -2994,21 +3104,26 @@ export const INITIAL_PRODUCTS: Product[] = [
     "id": "prod-hanuman-sankat-mochan-acrylic",
     "slug": "sankat-mochan-lord-hanuman-Gold-gold-acrylic-wall-art",
     "categorySlugs": [
-      "lord-hanuman",
-      "premium-acrylic-wall-art"
+      "god-photo-frames",
+      "acrylic-photo-frames"
     ],
     "shape": "portrait",
     "title": "Sankat Mochan Lord Hanuman gold Acrylic Wall Art",
     "subtitle": "Divine Protector with Gada & Sanjeevani Mountain in Radiant Gold Embellishment",
     "shortDescription": "Majestic Lord Hanuman wall artwork in ultra-clear acrylic with gold leaf highlights.",
     "description": "Fill your home with unmatched courage, devotion, and supreme protection with this handcrafted Lord Hanuman acrylic wall decor. Depicting the mighty Bajrangbali carrying the Sanjeevani mountain with his golden mace (Gada), rendered on shatterproof Premium optical acrylic.",
-    "categorySlug": "lord-hanuman",
-    "categoryName": "Lord Hanuman",
+    "categorySlug": "god-photo-frames",
+    "categoryName": "God Photo Frames",
     "deity": "Lord Hanuman",
     "artStyle": "Vedic Devotional Acrylic",
     "orientation": "vertical",
     "images": [
-      "/images/mockups/sankat-mochan-lord-hanuman-Gold-gold-acrylic-wall-art/primary-square.jpg"
+      "/images/mockups/sankat-mochan-lord-hanuman-24k-gold-acrylic-wall-art/primary-square.jpg",
+      "/images/mockups/sankat-mochan-lord-hanuman-24k-gold-acrylic-wall-art/mockup-interior.jpg",
+      "/images/mockups/sankat-mochan-lord-hanuman-24k-gold-acrylic-wall-art/mockup-living-room.jpg",
+      "/images/mockups/sankat-mochan-lord-hanuman-24k-gold-acrylic-wall-art/mockup-foyer.jpg",
+      "/images/mockups/sankat-mochan-lord-hanuman-24k-gold-acrylic-wall-art/mockup-detail.jpg",
+      "/images/mockups/sankat-mochan-lord-hanuman-24k-gold-acrylic-wall-art/mockup-artistic.jpg"
     ],
     "tags": [
       "Hanuman",
@@ -3063,7 +3178,10 @@ export const INITIAL_PRODUCTS: Product[] = [
       "Microfiber wipe only."
     ],
     "shippingHighlights": [
-      "Express Delivery"
+      "Multi-layer protective packaging for safe transit.",
+      "Precision diamond-cut cast acrylic with polished bevels.",
+      "Concealed French cleat mounting bracket & hardware included.",
+      "BIS certified 12V 2A power adapter included with LED frames."
     ],
     "reviews": [],
     "createdAt": "2026-08-15"
@@ -3072,16 +3190,16 @@ export const INITIAL_PRODUCTS: Product[] = [
     "id": "prod-premium-gallery-frame-styles",
     "slug": "luxury-beveled-floating-border-acrylic-masterpiece-frame",
     "categorySlugs": [
-      "premium-frame-styles",
-      "premium-acrylic-wall-art"
+      "personalized-gifts",
+      "acrylic-photo-frames"
     ],
     "shape": "portrait",
     "title": "Luxury Beveled & Floating Border Crystal Acrylic Masterpiece Frame",
     "subtitle": "Signature Quad-Layer Beveled Finish with gold Perimeter Inlay",
     "shortDescription": "Museum-standard frameless floating acrylic design engineered for prestige family & sacred photography.",
     "description": "Elevate your interiors with our flagship premium framing profile. Featuring optical-grade Cast Acrylic with precision-cut 45-degree chamfered edges, an integrated floating wall-offset suspension system, and subtle gold-embossed accent liners that transform any photograph or artwork into a gallery centerpiece.",
-    "categorySlug": "premium-frame-styles",
-    "categoryName": "Gold, Black & Premium Frame Styles",
+    "categorySlug": "personalized-gifts",
+    "categoryName": "Personalized Gifts",
     "artStyle": "Museum Gallery Framing",
     "orientation": "vertical",
     "images": [
@@ -3143,7 +3261,10 @@ export const INITIAL_PRODUCTS: Product[] = [
       "Microfiber wipe only."
     ],
     "shippingHighlights": [
-      "safe packaging standard"
+      "Multi-layer protective packaging for safe transit.",
+      "Precision diamond-cut cast acrylic with polished bevels.",
+      "Concealed French cleat mounting bracket & hardware included.",
+      "BIS certified 12V 2A power adapter included with LED frames."
     ],
     "reviews": [],
     "createdAt": "2026-10-01"
@@ -3152,21 +3273,25 @@ export const INITIAL_PRODUCTS: Product[] = [
     "id": "prod-signature-premium-crystal-acrylic-art",
     "slug": "signature-Gold-gold-embellished-crystal-acrylic-wall-art",
     "categorySlugs": [
-      "premium-acrylic-wall-art",
-      "contemporary-luxury-art",
-      "abstract-wall-decor"
+      "personalized-gifts",
+      "acrylic-photo-frames"
     ],
     "shape": "landscape",
     "title": "Signature gold Embellished Crystal Acrylic Wall Art",
     "subtitle": "Flagship Luxury Panel Combining Fluid Gold Textures & Optical Cast Acrylic",
     "shortDescription": "Prestige contemporary wall art panel handcrafted with liquid gold foil veins.",
     "description": "The pinnacle of modern Indian luxury wall decor. Our master artisans hand-apply genuine Gold metallic leaf pigments between twin sheets of optical-clarity acrylic, creating mesmerizing depth, light reflection, and timeless grandeur for executive suites and high-end living spaces.",
-    "categorySlug": "premium-acrylic-wall-art",
-    "categoryName": "Premium Acrylic Wall Art",
+    "categorySlug": "personalized-gifts",
+    "categoryName": "Personalized Gifts",
     "artStyle": "High-End Luxury Acrylic",
     "orientation": "horizontal",
     "images": [
-      "/images/mockups/signature-Gold-gold-embellished-crystal-acrylic-wall-art/primary-square.jpg"
+      "/images/mockups/signature-24k-gold-embellished-crystal-acrylic-wall-art/primary-square.jpg",
+      "/images/mockups/signature-24k-gold-embellished-crystal-acrylic-wall-art/mockup-interior.jpg",
+      "/images/mockups/signature-24k-gold-embellished-crystal-acrylic-wall-art/mockup-living-room.jpg",
+      "/images/mockups/signature-24k-gold-embellished-crystal-acrylic-wall-art/mockup-foyer.jpg",
+      "/images/mockups/signature-24k-gold-embellished-crystal-acrylic-wall-art/mockup-detail.jpg",
+      "/images/mockups/signature-24k-gold-embellished-crystal-acrylic-wall-art/mockup-artistic.jpg"
     ],
     "tags": [
       "Premium Acrylic",
@@ -3220,7 +3345,10 @@ export const INITIAL_PRODUCTS: Product[] = [
       "Microfiber wipe only."
     ],
     "shippingHighlights": [
-      "Reinforced wooden crate delivery"
+      "Multi-layer protective packaging for safe transit.",
+      "Precision diamond-cut cast acrylic with polished bevels.",
+      "Concealed French cleat mounting bracket & hardware included.",
+      "BIS certified 12V 2A power adapter included with LED frames."
     ],
     "reviews": [],
     "createdAt": "2026-10-05"
@@ -3230,7 +3358,8 @@ export const INITIAL_PRODUCTS: Product[] = [
     "slug": "enchanted-liquid-gold-glitter-acrylic-photo-frame",
     "categorySlugs": [
       "glitter-photo-frames",
-      "custom-frames"
+      "acrylic-photo-frames",
+      "personalized-gifts"
     ],
     "shape": "portrait",
     "title": "Enchanted Liquid Gold Shimmer Glitter Acrylic Photo Frame",
@@ -3332,8 +3461,10 @@ export const INITIAL_PRODUCTS: Product[] = [
       "Do not use abrasive solvents or ammonia based cleaners."
     ],
     "shippingHighlights": [
-      "Pre-assembled with safety seal packaging",
-      "Express 48h dispatch across India"
+      "Multi-layer protective packaging for safe transit.",
+      "Precision diamond-cut cast acrylic with polished bevels.",
+      "Concealed French cleat mounting bracket & hardware included.",
+      "BIS certified 12V 2A power adapter included with LED frames."
     ],
     "reviews": [],
     "createdAt": "2026-11-01"
@@ -3343,8 +3474,9 @@ export const INITIAL_PRODUCTS: Product[] = [
     "slug": "sparkling-diamond-glitter-wedding-photo-frame",
     "categorySlugs": [
       "glitter-photo-frames",
-      "custom-frames",
-      "couple-wedding-photos"
+      "couple-wedding-frames",
+      "personalized-gifts",
+      "acrylic-photo-frames"
     ],
     "shape": "portrait",
     "title": "Sparkling Diamond Glitter Anniversary & Couple Photo Frame",
@@ -3428,7 +3560,10 @@ export const INITIAL_PRODUCTS: Product[] = [
       "Clean with soft cotton or microfiber cloth."
     ],
     "shippingHighlights": [
-      "Ships in shockproof multi-layer foam packaging"
+      "Multi-layer protective packaging for safe transit.",
+      "Precision diamond-cut cast acrylic with polished bevels.",
+      "Concealed French cleat mounting bracket & hardware included.",
+      "BIS certified 12V 2A power adapter included with LED frames."
     ],
     "reviews": [],
     "createdAt": "2026-11-01"
@@ -3437,18 +3572,17 @@ export const INITIAL_PRODUCTS: Product[] = [
     "id": "prod-motorized-360-rotating-lamp",
     "slug": "motorized-360-rotating-led-cylinder-photo-lamp",
     "categorySlugs": [
-      "rotating-photo-lamps",
-      "custom-frames",
-      "custom-led-photo-frames",
-      "led-backlit-wall-art"
+      "360-rotating-photo-lamps",
+      "led-acrylic-photo-frames",
+      "personalized-gifts"
     ],
     "shape": "portrait",
     "title": "Motorized 360° Rotating Cylindrical LED Photo Lamp",
     "subtitle": "Continuous Whisper-Silent Motor • 4-5 Panoramic Photo Carousel • Warm Glow",
     "shortDescription": "Motorized 360-degree cylindrical lamps glowing warmly with multiple cherished photographs.",
     "description": "Watch your treasured memories gently revolve in warm golden light. Our signature motorized 360-degree rotating photo lamp features a continuous whisper-silent micro-gear motor that smoothly rotates a 4-to-5 photograph cylindrical acrylic collage. Emitting a soothing Warm ambient glow with low-voltage 12V BIS certified power, it serves as an enchanting bedside lamp and a captivating conversation piece for any home.",
-    "categorySlug": "rotating-photo-lamps",
-    "categoryName": "Rotating Photo Lamps",
+    "categorySlug": "360-rotating-photo-lamps",
+    "categoryName": "360° Rotating Photo Lamps",
     "artStyle": "Motorized Illuminated Lamp",
     "orientation": "vertical",
     "images": [
@@ -3534,8 +3668,10 @@ export const INITIAL_PRODUCTS: Product[] = [
       "Gently dust with dry microfiber cloth."
     ],
     "shippingHighlights": [
-      "Rigid shockproof packaging with foam mold protection",
-      "Ready to plug and play right out of the box"
+      "Multi-layer protective packaging for safe transit.",
+      "Precision diamond-cut cast acrylic with polished bevels.",
+      "Concealed French cleat mounting bracket & hardware included.",
+      "BIS certified 12V 2A power adapter included with LED frames."
     ],
     "reviews": [],
     "createdAt": "2026-11-01"
@@ -3544,18 +3680,17 @@ export const INITIAL_PRODUCTS: Product[] = [
     "id": "prod-hexagonal-tower-rotating-lamp",
     "slug": "crystal-tower-hexagonal-rotating-photo-lamp",
     "categorySlugs": [
-      "rotating-photo-lamps",
-      "custom-frames",
-      "custom-led-photo-frames",
-      "led-backlit-wall-art"
+      "360-rotating-photo-lamps",
+      "led-acrylic-photo-frames",
+      "personalized-gifts"
     ],
     "shape": "portrait",
     "title": "Crystal Tower Hexagonal Rotating LED Photo Keepsake Lamp",
     "subtitle": "6-Sided Multi-Memory Display • Remote Controlled Warm & Ambient Light • Touch Switch Base",
     "shortDescription": "Six multi-sided acrylic photo panels revolving smoothly on a solid hardwood pedestal with built-in warm LED illumination.",
     "description": "Six precious memories illuminated in one sculptural centerpiece. The Crystal Tower features six high-clarity acrylic photo facets mounted onto an architectural rotating pedestal with touch-sensitive dimming and wireless remote control. Handcrafted with warm Warm LEDs, it effortlessly rotates to display every memory from birthdays, family vacations, and weddings with warm, golden vibrancy.",
-    "categorySlug": "rotating-photo-lamps",
-    "categoryName": "Rotating Photo Lamps",
+    "categorySlug": "360-rotating-photo-lamps",
+    "categoryName": "360° Rotating Photo Lamps",
     "artStyle": "Hexagonal Tower Lamp",
     "orientation": "vertical",
     "images": [
@@ -3624,8 +3759,10 @@ export const INITIAL_PRODUCTS: Product[] = [
       "Clean facets with clean dry microfiber cloth."
     ],
     "shippingHighlights": [
-      "Delivered in bespoke gift packaging with satin ribbons",
-      "protective packagingd"
+      "Multi-layer protective packaging for safe transit.",
+      "Precision diamond-cut cast acrylic with polished bevels.",
+      "Concealed French cleat mounting bracket & hardware included.",
+      "BIS certified 12V 2A power adapter included with LED frames."
     ],
     "reviews": [],
     "createdAt": "2026-11-01"

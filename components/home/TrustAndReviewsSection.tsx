@@ -82,14 +82,14 @@ export default function TrustAndReviewsSection() {
             </p>
           </div>
 
-          {/* Pillar 3: Express Delivery */}
+          {/* Pillar 3: Studio Craftsmanship */}
           <div className="flex flex-col items-center sm:items-start text-center sm:text-left space-y-2">
             <div className="w-12 h-12 rounded-2xl bg-[#121212] text-[#FFFFFF] border border-[#EAB308]/50 flex items-center justify-center shadow-2xs">
-              <Truck className="w-5 h-5 text-[#EAB308]" />
+              <Sparkles className="w-5 h-5 text-[#EAB308]" />
             </div>
-            <h4 className="font-bold text-xs sm:text-sm text-[#FFFFFF]">Express Delivery</h4>
+            <h4 className="font-bold text-xs sm:text-sm text-[#FFFFFF]">Direct Workshop</h4>
             <p className="text-[11px] text-[#D1D5DB] leading-snug">
-              Express courier shipping with multi-layer safe packaging.
+              Custom fabricated directly at our Hyderabad studio with proof preview.
             </p>
           </div>
 

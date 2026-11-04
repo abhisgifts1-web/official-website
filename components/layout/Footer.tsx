@@ -6,7 +6,6 @@ import Image from 'next/image';
 import {
   ShieldCheck,
   Sparkles,
-  Truck,
   RotateCcw,
   Phone,
   Mail,
@@ -63,11 +62,11 @@ export default function Footer() {
           {/* Value 3 */}
           <div className="flex items-center gap-2.5 sm:gap-3.5">
             <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-[#EAB308]/15 border border-[#EAB308]/30 flex items-center justify-center text-[#FACC15] shrink-0">
-              <Truck className="w-4 h-4 sm:w-5 sm:h-5" />
+              <Sparkles className="w-4 h-4 sm:w-5 sm:h-5" />
             </div>
             <div className="min-w-0">
-              <h4 className="text-[11px] sm:text-xs md:text-sm font-semibold text-[#FFFFFF] leading-snug">Express Delivery</h4>
-              <p className="text-[10px] sm:text-[11px] text-[#E5E7EB]/70 leading-tight">Insured Doorstep Dispatch</p>
+              <h4 className="text-[11px] sm:text-xs md:text-sm font-semibold text-[#FFFFFF] leading-snug">Direct Workshop</h4>
+              <p className="text-[10px] sm:text-[11px] text-[#E5E7EB]/70 leading-tight">Handcrafted in Hyderabad</p>
             </div>
           </div>
 
@@ -213,16 +212,6 @@ export default function Footer() {
                     </Link>
                   </li>
                   <li>
-                    <Link href="/shipping-policy" className="hover:text-[#FACC15] transition-colors block py-0.5">
-                      Shipping Policy
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/return-refund-policy" className="hover:text-[#FACC15] transition-colors block py-0.5">
-                      Returns &amp; Refunds
-                    </Link>
-                  </li>
-                  <li>
                     <Link href="/faq" className="hover:text-[#FACC15] transition-colors block py-0.5">
                       Help &amp; FAQs
                     </Link>
@@ -322,12 +311,8 @@ export default function Footer() {
               Terms &amp; Conditions
             </Link>
             <span className="w-1 h-1 rounded-full bg-white/20" />
-            <Link href="/shipping-policy" className="hover:text-[#FACC15] transition-colors py-0.5">
-              Shipping Policy
-            </Link>
-            <span className="w-1 h-1 rounded-full bg-white/20" />
-            <Link href="/return-refund-policy" className="hover:text-[#FACC15] transition-colors py-0.5">
-              Returns &amp; Refunds
+            <Link href="/faq" className="hover:text-[#FACC15] transition-colors py-0.5">
+              FAQs
             </Link>
             <span className="w-1 h-1 rounded-full bg-white/20" />
             <Link href="/admin/login" className="text-[#EAB308]/80 hover:text-[#FFFFFF] transition-colors py-0.5">

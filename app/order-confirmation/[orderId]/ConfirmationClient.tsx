@@ -208,10 +208,6 @@ export default function ConfirmationClient({ order }: Props) {
               <span>-₹{order.discountAmount.toLocaleString('en-IN')}</span>
             </div>
           )}
-          <div className="flex justify-between">
-            <span>Delivery Charge:</span>
-            <span>{order.shippingFee === 0 ? 'FREE' : `₹${order.shippingFee}`}</span>
-          </div>
           <div className="flex justify-between text-base font-serif font-bold text-stone-900 pt-2 border-t border-stone-200">
             <span>Total Paid:</span>
             <span className="text-amber-900">₹{order.totalAmount.toLocaleString('en-IN')}</span>

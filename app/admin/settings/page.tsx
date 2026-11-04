@@ -118,7 +118,7 @@ export default function AdminSettingsPage() {
             <h4 className="font-serif font-bold text-sm text-stone-900">Delivery Rules & Rates</h4>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="font-semibold text-stone-700 block mb-1">Free Delivery Threshold (₹)</label>
+                <label className="font-semibold text-stone-700 block mb-1">Standard Delivery Threshold (₹)</label>
                 <input
                   type="number"
                   value={settings.freeShippingThreshold}

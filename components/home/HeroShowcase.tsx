@@ -365,11 +365,11 @@ export default function HeroShowcase() {
 
               <div className="group flex items-center gap-3 p-3 rounded-2xl bg-[#181818] border border-[#2D2D2D] hover:border-[#EAB308] transition-all duration-300 shadow-xs hover:-translate-y-1 hover:shadow-md">
                 <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#EAB308]/20 to-[#EAB308]/10 border border-[#EAB308]/60 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
-                  <Truck className="w-4 h-4 text-[#EAB308]" />
+                  <ShieldCheck className="w-4 h-4 text-[#EAB308]" />
                 </div>
                 <div className="text-left">
                   <span className="font-bold text-[#FFFFFF] text-xs block leading-tight tracking-tight uppercase">
-                    Express Courier
+                    Safe Packaging
                   </span>
                   <span className="text-[11px] text-[#D1D5DB] block mt-0.5 font-medium">5-Layer Crate Pack</span>
                 </div>

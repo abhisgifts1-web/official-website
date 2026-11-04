@@ -101,7 +101,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     }
   }
 
-  // Free delivery for every product across the entire website
+  // Zero delivery charges for every product across the entire website
   const shippingFee = 0;
   const totalAmount = Math.max(0, subtotal - discountAmount);
   const freeShippingProgress = 0;

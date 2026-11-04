@@ -274,13 +274,6 @@ export default function CartDrawer() {
                   </div>
                 )}
 
-                <div className="flex justify-between items-center">
-                  <span>Standard Delivery</span>
-                  <span className="font-bold text-emerald-400">
-                    FREE
-                  </span>
-                </div>
-
                 <div className="flex justify-between text-sm sm:text-base font-bold text-[#FFFFFF] pt-2 border-t border-[#2D2D2D]">
                   <span>Final Total</span>
                   <span className="text-[#FFFFFF] font-serif font-extrabold text-base">₹{totalAmount.toLocaleString('en-IN')}</span>

@@ -6,7 +6,6 @@ import {
   Sparkles,
   Phone,
   ShieldCheck,
-  Truck,
   Flame,
   ArrowRight,
 } from 'lucide-react';
@@ -48,10 +47,10 @@ export default function AnnouncementBar() {
 
       <span className="w-1.5 h-1.5 rounded-full bg-[#FACC15]/50 shrink-0" />
 
-      {/* 4. Delivery */}
+      {/* 4. Craftsmanship */}
       <span className="flex items-center gap-1.5 shrink-0 text-[#E5E7EB]">
-        <Truck className="w-3.5 h-3.5 text-[#FACC15] shrink-0" />
-        <span className="font-medium">Free Doorstep Delivery Across India</span>
+        <Sparkles className="w-3.5 h-3.5 text-[#FACC15] shrink-0" />
+        <span className="font-medium">Direct Workshop Fabrication</span>
       </span>
 
       <span className="w-1.5 h-1.5 rounded-full bg-[#FACC15]/50 shrink-0" />

@@ -39,7 +39,7 @@ export const CATEGORY_TO_PRODUCT_SLUG: Record<string, string> = {
   'contemporary-luxury-art': 'emerald-liquid-gold-vein-abstract-luxury-acrylic-art',
   'modern-decorative-art': 'botanical-golden-ginkgo-leaves-triptych-acrylic-set',
   'abstract-wall-decor': 'emerald-liquid-gold-vein-abstract-luxury-acrylic-art',
-  'premium-acrylic-wall-art': 'signature-Gold-gold-embellished-crystal-acrylic-wall-art',
+  'premium-acrylic-wall-art': 'signature-gold-embellished-crystal-acrylic-wall-art',
 };
 
 export function getProductSlugForCategory(categorySlug: string): string {

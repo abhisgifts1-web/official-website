@@ -644,7 +644,7 @@ export default function CustomizerStudio() {
       selectedSizeId === 'custom'
         ? `• Price: Price will be known in this WhatsApp chat order (Custom Quote)`
         : `• Estimated Price: ₹${pricing.price.toLocaleString('en-IN')}`,
-      `Can you share a digital proof and final delivery timeline for Hyderabad / Courier?`,
+      `Can you share a digital proof and fabrication timeline?`,
     ]
       .filter(Boolean)
       .join('\n');
@@ -783,7 +783,7 @@ export default function CustomizerStudio() {
                 </div>
                 <div className="flex items-center gap-1.5 justify-center lg:justify-start">
                   <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                  <span>Courier Delivery</span>
+                  <span>Safe Packaging</span>
                 </div>
               </div>
             </div>
@@ -1453,8 +1453,8 @@ export default function CustomizerStudio() {
                   <span className="font-semibold text-[#FFFFFF]">{activeLedObj.name}</span>
                 </div>
                 <div className="flex justify-between text-emerald-400 font-semibold pt-1 border-t border-[#2D2D2D]">
-                  <span>Delivery Shipping:</span>
-                  <span>FREE Doorstep Delivery (₹0)</span>
+                  <span>Packaging:</span>
+                  <span>Multi-Layer Protective Box</span>
                 </div>
               </div>
 

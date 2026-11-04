@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'Acrylic Photo Frames in Hyderabad | crystal acrylic Art',
-    description: 'Looking for high-end acrylic photo frames in Hyderabad? Direct manufacturing, custom sizes, precision-polished bevels & free doorstep delivery.',
+    description: 'Looking for high-end acrylic photo frames in Hyderabad? Direct manufacturing, custom sizes, precision-polished bevels & handcrafted studio quality.',
     url: 'https://abhigifts.com/acrylic-photo-frames-hyderabad',
   },
 };
@@ -46,7 +46,7 @@ export default function AcrylicPhotoFramesHyderabadPage() {
         },
         {
           title: 'All Hyderabad Neighborhoods Served',
-          desc: 'Fast express courier and bike delivery across Banjara Hills, Jubilee Hills, Madhapur, Gachibowli, Kukatpally, Dilsukhnagar, and Secunderabad.',
+          desc: 'Direct workshop dispatch across Banjara Hills, Jubilee Hills, Madhapur, Gachibowli, Kukatpally, Dilsukhnagar, and Secunderabad.',
         },
       ]}
       products={relevantProducts}

@@ -25,7 +25,7 @@ Crafted with Next.js 14 App Router, TypeScript, Tailwind CSS, Mongoose / MongoDB
 
 ### 3. Shopping Bag & Checkout
 - **Slide-Over Bag & Dedicated Cart Page:** Item preview, variant details, quantity controls, and custom photo thumbnails.
-- **Free Delivery Progress Meter:** Visual indicator showing amount remaining to unlock courier shipping.
+- **Shopping Bag:** Interactive cart drawer with real-time subtotal and coupon redemption.
 - **Verified Promo Coupons:** Server-side coupon verification (`WELCOME10`, `ABHI500`, `FESTIVE15`).
 - **Encrypted Checkout:** 2-step checkout collecting shipping address and payment method.
 - **Payment Methods Supported:**

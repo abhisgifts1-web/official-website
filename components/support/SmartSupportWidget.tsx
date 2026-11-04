@@ -79,10 +79,10 @@ const FAQ_KNOWLEDGE_BASE: {
     },
   },
   {
-    keywords: ['shipping', 'delivery', 'time', 'days', 'hyderabad', 'dilsukhnagar', 'fast', 'courier', 'urgent'],
-    question: 'What are the delivery timelines and shipping charges?',
+    keywords: ['timeline', 'days', 'hyderabad', 'dilsukhnagar', 'fast', 'production', 'crafting', 'urgent'],
+    question: 'What are the production and dispatch timelines?',
     answer:
-      "• 100% Free Doorstep Delivery across India on all orders (₹0 shipping fee for every product).\n• Local Hyderabad & Dilsukhnagar: Same-day / Next-day dispatch with 24-48 hr delivery.\n• Rest of India: 3 to 5 business days via BlueDart, Delhivery, or DTDC Express.\nEvery frame is packed with multi-layer bubble wrap, edge corner guards, and sturdy wooden crates for safe, protected transit.",
+      "• Local Hyderabad & Dilsukhnagar: Studio fabrication with prompt dispatch.\n• Rest of India: 3 to 5 business days transit time.\nEvery frame is packed with multi-layer bubble wrap, edge corner guards, and sturdy wooden crates for safe, protected transit.",
     action: {
       label: 'Customise a Frame',
       href: '/customise',
@@ -100,13 +100,14 @@ const FAQ_KNOWLEDGE_BASE: {
     },
   },
   {
-    keywords: ['return', 'refund', 'damage', 'broken', 'replacement', 'transit', 'guarantee', 'policy'],
-    question: 'What is your return & damage policy?',
+    keywords: ['proof', 'whatsapp', 'approval', 'damage', 'transit', 'guarantee'],
+    question: 'How do you ensure proof approval and safe transit?',
     answer:
-      "We offer a secure packaging Replacement Guarantee!\nIf your artwork arrives damaged, broken, or with a manufacturing defect, simply record a brief unboxing video and share it with our WhatsApp support within 48 hours. We will manufacture and dispatch a brand-new replacement immediately at zero extra cost to you.",
+      "We provide 1:1 WhatsApp digital proofing before fabrication! Our designers share a preview of your artwork for confirmation before laser cutting. Every frame is encased in 5-layer protective packaging with reinforced corner armor for safe transit.",
     action: {
-      label: 'Read Return Policy',
-      href: '/return-refund-policy',
+      label: 'Chat with Us on WhatsApp',
+      isWhatsApp: true,
+      waText: 'Hi Abhi Gifts! I have a question about proof preview and packaging.',
     },
   },
   {
@@ -446,7 +447,7 @@ export default function SmartSupportWidget() {
                 onClick={() => triggerFaq(FAQ_KNOWLEDGE_BASE[3])}
                 className="text-[11px] font-medium bg-[#1E1E1E] text-white border border-[#2D2D2D] hover:border-[#EAB308] px-2.5 py-1 rounded-full shrink-0 transition-colors cursor-pointer"
               >
-                🚚 Shipping &amp; Hyderabad
+                ⏱️ Dispatch Timelines
               </button>
               <button
                 type="button"
@@ -460,7 +461,7 @@ export default function SmartSupportWidget() {
                 onClick={() => triggerFaq(FAQ_KNOWLEDGE_BASE[5])}
                 className="text-[11px] font-medium bg-[#1E1E1E] text-white border border-[#2D2D2D] hover:border-[#EAB308] px-2.5 py-1 rounded-full shrink-0 transition-colors cursor-pointer"
               >
-                🛡️ Packaging & Delivery
+                🛡️ Proof &amp; Packaging
               </button>
               <button
                 type="button"

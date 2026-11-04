@@ -334,10 +334,10 @@ export default function LocalLandingPageView({
         {/* Coverage Neighborhoods */}
         <div className="bg-[#121212] rounded-2xl p-6 border border-[#2D2D2D] space-y-4">
           <h3 className="font-serif font-bold text-base sm:text-lg text-[#FFFFFF]">
-            Fast Local Express Delivery Across Hyderabad &amp; Telangana
+            Local Hyderabad Studio Service &amp; Dispatch
           </h3>
           <p className="text-xs text-[#785E59] leading-relaxed">
-            We provide same-day or 24-48 hour courier and bike dispatch across all key Hyderabad localities:
+            We provide prompt workshop dispatch across all key Hyderabad localities:
           </p>
 
           <div className="flex flex-wrap gap-2 text-[11px] text-[#FFFFFF]">

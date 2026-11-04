@@ -444,7 +444,7 @@ export default function AdminProductsPage() {
         ],
         shippingHighlights: [
           'safe packaging standard',
-          'safe packaging standard in courier transit',
+          'safe packaging standard in transit',
         ],
       };
 

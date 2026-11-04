@@ -559,15 +559,6 @@ export default function CheckoutPage() {
               </div>
             )}
 
-            <div className="flex justify-between items-center">
-              <span>Express Insured Shipping</span>
-              <span className="font-bold text-emerald-400">
-                FREE
-              </span>
-            </div>
-
-            
-
             <div className="flex justify-between text-base font-serif font-bold text-[#FFFFFF] pt-3 border-t border-[#2D2D2D]">
               <span>Final Total Payable</span>
               <span className="font-extrabold text-xl text-[#FFFFFF]">
@@ -606,7 +597,7 @@ export default function CheckoutPage() {
 
             <div className="flex items-center justify-center gap-1.5 text-[11px] text-[#8C7A70] text-center">
               <ShieldCheck className="w-3.5 h-3.5 text-[#EAB308]" />
-              <span>Multi-Layer Protective Packaging • Secure Courier Dispatch</span>
+              <span>Multi-Layer Protective Packaging • Handcrafted in Hyderabad</span>
             </div>
           </div>
         </div>
