@@ -2,7 +2,7 @@
 
 import React, { useState, useMemo, useEffect } from 'react';
 import Link from 'next/link';
-import { Sparkles, ArrowRight, Flame, Layers, Award, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import { INITIAL_PRODUCTS } from '@/lib/data/mockProducts';
 import ProductCard from '@/components/product/ProductCard';
 
@@ -85,17 +85,16 @@ export default function BestsellersShowcase() {
   return (
     <section className="w-full max-w-[1760px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 py-6 sm:py-8 lg:py-10">
       {/* Header with Title and Filter Tabs */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 pb-4 border-b border-stone-200 gap-4">
+      <div className="flex flex-col md:flex-row md:items-end justify-between mb-6 sm:mb-8 pb-3 border-b border-stone-200 gap-4">
         <div>
-          <div className="inline-flex items-center gap-1.5 text-xs uppercase tracking-widest font-bold text-amber-900 bg-amber-50 border border-amber-300 px-3.5 py-1 rounded-full shadow-2xs mb-2">
-            <Sparkles className="w-3.5 h-3.5 text-amber-600" />
-            <span>Customer Favorites • Handcrafted Heirlooms</span>
-          </div>
-          <h2 className="font-serif font-bold text-2xl sm:text-3xl lg:text-4xl text-stone-900 tracking-tight">
-            THE MOST LOVED DIVINE MASTERPIECES
+          <span className="text-xs uppercase tracking-widest font-semibold text-amber-800">
+            Customer Favorites
+          </span>
+          <h2 className="font-serif font-bold text-2xl sm:text-3xl text-stone-900 tracking-tight mt-0.5">
+            Best-Selling Photo Frames
           </h2>
-          <p className="text-xs sm:text-sm text-stone-600 mt-1.5 max-w-2xl font-sans leading-relaxed">
-            Curated selection of our most revered sanctum heirlooms and collector favorites, gracing over 10,000+ homes and pooja mandirs across India.
+          <p className="text-xs sm:text-sm text-stone-600 mt-1 max-w-xl font-sans">
+            Our most popular handcrafted acrylic and LED photo frames, created with museum-grade precision.
           </p>
         </div>
 
@@ -104,74 +103,73 @@ export default function BestsellersShowcase() {
           <button
             type="button"
             onClick={() => handleFilterChange('all')}
-            className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all whitespace-nowrap cursor-pointer ${
+            className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all whitespace-nowrap cursor-pointer ${
               activeFilter === 'all'
-                ? 'bg-[#EAB308] text-[#000000] border border-[#EAB308] shadow-xs'
-                : 'bg-stone-100 text-stone-700 border border-stone-200 hover:border-[#EAB308]'
+                ? 'bg-stone-900 text-white shadow-2xs'
+                : 'bg-stone-100 text-stone-700 hover:bg-stone-200'
             }`}
           >
-            All Masterpieces
+            All Frames
           </button>
           <button
             type="button"
             onClick={() => handleFilterChange('led')}
-            className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all whitespace-nowrap flex items-center gap-1 cursor-pointer ${
+            className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all whitespace-nowrap cursor-pointer ${
               activeFilter === 'led'
-                ? 'bg-[#EAB308] text-[#000000] border border-[#EAB308] shadow-xs'
-                : 'bg-stone-100 text-stone-700 border border-stone-200 hover:border-[#EAB308]'
+                ? 'bg-stone-900 text-white shadow-2xs'
+                : 'bg-stone-100 text-stone-700 hover:bg-stone-200'
             }`}
           >
-            <Flame className="w-3 h-3 text-amber-600" />
-            <span>LED Backlit</span>
+            LED Backlit
           </button>
           <button
             type="button"
             onClick={() => handleFilterChange('deities')}
-            className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all whitespace-nowrap cursor-pointer ${
+            className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all whitespace-nowrap cursor-pointer ${
               activeFilter === 'deities'
-                ? 'bg-[#EAB308] text-[#000000] border border-[#EAB308] shadow-xs'
-                : 'bg-stone-100 text-stone-700 border border-stone-200 hover:border-[#EAB308]'
+                ? 'bg-stone-900 text-white shadow-2xs'
+                : 'bg-stone-100 text-stone-700 hover:bg-stone-200'
             }`}
           >
-            Sacred Deities
+            Devotional Art
           </button>
           <button
             type="button"
             onClick={() => handleFilterChange('vastu')}
-            className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all whitespace-nowrap cursor-pointer ${
+            className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all whitespace-nowrap cursor-pointer ${
               activeFilter === 'vastu'
-                ? 'bg-[#EAB308] text-[#000000] border border-[#EAB308] shadow-xs'
-                : 'bg-stone-100 text-stone-700 border border-stone-200 hover:border-[#EAB308]'
+                ? 'bg-stone-900 text-white shadow-2xs'
+                : 'bg-stone-100 text-stone-700 hover:bg-stone-200'
             }`}
           >
-            Vastu &amp; Modern
+            Vastu &amp; Keepsakes
           </button>
         </div>
       </div>
 
-      {/* Responsive Grid of Real Products */}
+      {/* Responsive Grid of Product Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 sm:gap-5">
         {paginatedProducts.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}
       </div>
 
-      {/* Interactive Page Navigation Controls (Page 1 / Page 2) */}
+      {/* Page Navigation Controls */}
       {totalPages > 1 && (
         <div className="mt-8 flex items-center justify-center gap-2">
           <button
             type="button"
             onClick={() => goToPage(currentPage - 1)}
             disabled={currentPage === 1}
-            className={`inline-flex items-center gap-1 px-3.5 py-2 rounded-full text-xs font-bold transition-all cursor-pointer ${
+            className={`inline-flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-semibold transition-all cursor-pointer ${
               currentPage === 1
                 ? 'bg-stone-100 text-stone-400 cursor-not-allowed opacity-60'
-                : 'bg-white text-stone-800 border border-stone-200 hover:border-[#EAB308] shadow-xs'
+                : 'bg-white text-stone-800 border border-stone-200 hover:bg-stone-50 shadow-2xs'
             }`}
             aria-label="Previous page"
           >
-            <ChevronLeft className="w-4 h-4 text-amber-700" />
-            <span className="hidden sm:inline">Previous</span>
+            <ChevronLeft className="w-3.5 h-3.5 text-stone-600" />
+            <span className="hidden sm:inline">Prev</span>
           </button>
 
           {Array.from({ length: totalPages }).map((_, idx) => {
@@ -182,10 +180,10 @@ export default function BestsellersShowcase() {
                 key={pageNum}
                 type="button"
                 onClick={() => goToPage(pageNum)}
-                className={`w-9 h-9 rounded-full text-xs font-bold transition-all cursor-pointer flex items-center justify-center ${
+                className={`w-8 h-8 rounded-full text-xs font-semibold transition-all cursor-pointer flex items-center justify-center ${
                   isActive
-                    ? 'bg-[#EAB308] text-[#000000] border border-[#EAB308] shadow-xs scale-105'
-                    : 'bg-white text-stone-700 border border-stone-200 hover:border-[#EAB308]'
+                    ? 'bg-stone-900 text-white shadow-2xs'
+                    : 'bg-white text-stone-700 border border-stone-200 hover:bg-stone-50'
                 }`}
               >
                 {pageNum}
@@ -197,15 +195,15 @@ export default function BestsellersShowcase() {
             type="button"
             onClick={() => goToPage(currentPage + 1)}
             disabled={currentPage === totalPages}
-            className={`inline-flex items-center gap-1 px-3.5 py-2 rounded-full text-xs font-bold transition-all cursor-pointer ${
+            className={`inline-flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-semibold transition-all cursor-pointer ${
               currentPage === totalPages
                 ? 'bg-stone-100 text-stone-400 cursor-not-allowed opacity-60'
-                : 'bg-white text-stone-800 border border-stone-200 hover:border-[#EAB308] shadow-xs'
+                : 'bg-white text-stone-800 border border-stone-200 hover:bg-stone-50 shadow-2xs'
             }`}
             aria-label="Next page"
           >
             <span className="hidden sm:inline">Next</span>
-            <ChevronRight className="w-4 h-4 text-amber-700" />
+            <ChevronRight className="w-3.5 h-3.5 text-stone-600" />
           </button>
         </div>
       )}
@@ -214,11 +212,10 @@ export default function BestsellersShowcase() {
       <div className="mt-8 sm:mt-10 text-center">
         <Link
           href="/shop"
-          className="inline-flex items-center justify-center gap-2.5 bg-[#EAB308] hover:bg-[#FACC15] text-[#000000] font-bold text-xs sm:text-sm px-8 py-3.5 rounded-full shadow-md border border-[#EAB308]/80 transition-all hover:scale-[1.02] tracking-wider uppercase group"
+          className="inline-flex items-center justify-center gap-2 bg-white hover:bg-stone-50 text-stone-900 font-semibold text-xs sm:text-sm px-6 py-3 rounded-full border border-stone-300 transition-colors shadow-2xs group"
         >
-          <Sparkles className="w-4 h-4 text-[#EAB308]" />
-          <span>View All Divine Masterpieces</span>
-          <ArrowRight className="w-4 h-4 text-[#EAB308] group-hover:translate-x-1 transition-transform" />
+          <span>Explore All Collections</span>
+          <ArrowRight className="w-4 h-4 text-stone-600 group-hover:translate-x-0.5 transition-transform" />
         </Link>
       </div>
     </section>

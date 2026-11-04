@@ -2,7 +2,8 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { Sparkles, ArrowRight, Flame } from 'lucide-react';
+import Image from 'next/image';
+import { ArrowRight, Sparkles } from 'lucide-react';
 
 export interface EditorialCategory {
   id: string;
@@ -12,93 +13,80 @@ export interface EditorialCategory {
   href: string;
   image: string;
   fallbackImage: string;
-  spanClass: string;
-  hasLedBadge?: boolean;
 }
 
 export const EDITORIAL_CATEGORIES: EditorialCategory[] = [
   {
     id: 'acrylic-photo-frames',
     name: 'Acrylic Photo Frames',
-    subtitle: 'Ultra-clear crystal shatterproof acrylic photo frames with laser diamond-beveled edges and vibrant depth.',
-    badge: 'Diamond Beveled',
+    subtitle: 'Crystal clear shatterproof acrylic with beveled edges',
+    badge: 'Classic',
     href: '/category/acrylic-photo-frames',
     image: '/images/collections/custom-portrait-frame.jpg',
     fallbackImage: '/images/collections/custom-portrait-frame.jpg',
-    spanClass: 'lg:col-span-6 md:col-span-6',
   },
   {
     id: 'led-acrylic-photo-frames',
     name: 'LED Acrylic Photo Frames',
-    subtitle: 'Warm golden halo backlights creating an authentic ambient aura with low-voltage 12V BIS certified power adapter.',
-    badge: 'Warm LED Glow',
+    subtitle: 'Warm golden halo backlights with 12V adapter',
+    badge: 'Warm LED',
     href: '/category/led-acrylic-photo-frames',
     image: '/images/collections/custom-led-photo-frame.jpg',
     fallbackImage: '/images/collections/custom-led-photo-frame.jpg',
-    spanClass: 'lg:col-span-6 md:col-span-6',
-    hasLedBadge: true,
   },
   {
     id: 'glitter-photo-frames',
     name: 'Glitter Photo Frames',
-    subtitle: 'Enchanted floating liquid gold & diamond shimmer glitter acrylic photo frames bringing luminous sparkle to special memories.',
-    badge: 'Liquid Gold Shimmer',
+    subtitle: 'Enchanted floating liquid gold & diamond shimmer',
+    badge: 'Liquid Gold',
     href: '/category/glitter-photo-frames',
     image: '/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg',
     fallbackImage: '/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/primary-square.jpg',
-    spanClass: 'lg:col-span-6 md:col-span-6',
   },
   {
     id: '360-rotating-photo-lamps',
     name: '360° Rotating Photo Lamps',
-    subtitle: 'Motorized 360-degree rotating cylinder LED photo lamps with whisper-silent rotation showcasing multiple cherished memories.',
-    badge: '360° Motorized Warm LED',
+    subtitle: 'Motorized silent rotation showcasing multiple photos',
+    badge: 'Rotating LED',
     href: '/category/360-rotating-photo-lamps',
     image: '/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/primary-square.jpg',
     fallbackImage: '/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/primary-square.jpg',
-    spanClass: 'lg:col-span-6 md:col-span-6',
-    hasLedBadge: true,
   },
   {
     id: 'god-photo-frames',
-    name: 'God Photo Frames',
-    subtitle: 'Sacred 3D crystal acrylic & warm LED backlit wall art of Tirupati Balaji, Lord Shiva, Ganesha, Hanuman, Rama & Lakshmi.',
-    badge: 'Sacred Devotion',
+    name: 'Devotional Wall Art',
+    subtitle: 'Sacred acrylic & warm LED sanctum frames',
+    badge: 'Devotional',
     href: '/category/god-photo-frames',
     image: '/images/wall-decor/categories/devotional/balaji-category.jpg',
     fallbackImage: '/images/divine/ram-mandir.jpg',
-    spanClass: 'lg:col-span-6 md:col-span-6',
-    hasLedBadge: true,
   },
   {
     id: 'family-baby-frames',
     name: 'Family & Baby Frames',
-    subtitle: 'Heartfelt personalized family heirloom frames, baby milestone memories, and multi-photo wall gallery collages.',
-    badge: 'Family Heirlooms',
+    subtitle: 'Heartfelt heirlooms and baby milestone collages',
+    badge: 'Heirlooms',
     href: '/category/family-baby-frames',
     image: '/images/collections/family-photo-frame.jpg',
     fallbackImage: '/images/collections/family-photo-frame.jpg',
-    spanClass: 'lg:col-span-6 md:col-span-6',
   },
   {
     id: 'couple-wedding-frames',
     name: 'Couple & Wedding Frames',
-    subtitle: 'Cherished wedding vow acrylic keepsakes, romantic anniversary milestones, and elegant couple portraits in crystal depth.',
-    badge: 'Wedding & Love',
+    subtitle: 'Wedding vow keepsakes and anniversary portraits',
+    badge: 'Wedding',
     href: '/category/couple-wedding-frames',
     image: '/images/mockups/custom-couple-wedding-vows-acrylic-keepsake-frame/primary-square.jpg',
     fallbackImage: '/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/primary-square.jpg',
-    spanClass: 'lg:col-span-6 md:col-span-6',
   },
   {
     id: 'personalized-gifts',
-    name: 'Personalized Gifts',
-    subtitle: 'Bespoke personalized photo gifts, custom names & dedication inscriptions precision-crafted in Hyderabad with proof on WhatsApp.',
-    badge: 'Bespoke Gifts',
+    name: 'Personalized Photo Gifts',
+    subtitle: 'Bespoke custom names & dedication inscriptions',
+    badge: 'Personalized',
     href: '/category/personalized-gifts',
     image: '/images/collections/gallery-set-photo-frames.jpg',
     fallbackImage: '/images/collections/custom-led-photo-frame.jpg',
-    spanClass: 'lg:col-span-6 md:col-span-6',
   },
 ];
 
@@ -106,90 +94,72 @@ export default function CategoryShowcase() {
   return (
     <section className="w-full max-w-[1760px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 py-6 sm:py-8 lg:py-10">
       {/* Section Header */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-10 pb-4 border-b border-stone-200 gap-4">
+      <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-6 sm:mb-8 pb-3 border-b border-stone-200 gap-3">
         <div>
-          <div className="inline-flex items-center gap-1.5 text-xs uppercase tracking-widest font-bold text-amber-900 bg-amber-50 border border-amber-300 px-3.5 py-1 rounded-full shadow-2xs mb-2">
-            <Sparkles className="w-3.5 h-3.5 text-amber-600" />
-            <span>Featured Collections</span>
-          </div>
-          <h2 className="font-serif font-bold text-2xl sm:text-3xl lg:text-4xl text-stone-900 tracking-tight">
-            EXPLORE OUR CATEGORIES
+          <span className="text-xs uppercase tracking-widest font-semibold text-amber-800">
+            Handcrafted Collections
+          </span>
+          <h2 className="font-serif font-bold text-2xl sm:text-3xl text-stone-900 tracking-tight mt-0.5">
+            Shop By Category
           </h2>
-          <p className="text-xs sm:text-sm text-stone-600 mt-1.5 max-w-2xl font-sans leading-relaxed">
-            Find the perfect expression of faith, love, and cherished memories. Handcrafted with museum-grade crystal acrylic and precision illumination.
+          <p className="text-xs sm:text-sm text-stone-600 mt-1 max-w-xl font-sans">
+            From crystal clear acrylic frames to warm backlit LED art, explore collections designed for your home.
           </p>
         </div>
 
         <Link
           href="/category"
-          className="text-xs sm:text-sm font-bold text-stone-900 hover:text-amber-800 flex items-center gap-2 group transition-colors shrink-0 uppercase tracking-wider"
+          className="text-xs sm:text-sm font-semibold text-stone-800 hover:text-amber-800 flex items-center gap-1.5 transition-colors shrink-0 group"
         >
           <span>View All Categories</span>
-          <ArrowRight className="w-4 h-4 text-amber-700 group-hover:translate-x-1 transition-transform" />
+          <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
         </Link>
       </div>
 
-      {/* Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-4 sm:gap-5 lg:gap-6">
-        {EDITORIAL_CATEGORIES.map((cat) => {
-          return (
-            <Link
-              key={cat.id}
-              href={cat.href}
-              className={`group relative rounded-3xl overflow-hidden bg-white border border-stone-200 hover:border-[#EAB308] shadow-sm hover:shadow-[0_16px_36px_rgba(0,0,0,0.15)] transition-all duration-500 flex flex-col justify-end min-h-[280px] sm:min-h-[320px] lg:min-h-[340px] p-5 sm:p-6 lg:p-7 ${cat.spanClass}`}
-            >
-              {/* Background Artwork Image with Hover Zoom */}
+      {/* Clean 4-Column Grid with Equal Image Dimensions */}
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3.5 sm:gap-5 lg:gap-6">
+        {EDITORIAL_CATEGORIES.map((cat) => (
+          <Link
+            key={cat.id}
+            href={cat.href}
+            className="group flex flex-col bg-white rounded-xl sm:rounded-2xl border border-stone-200 hover:border-stone-300 hover:shadow-md transition-all duration-300 overflow-hidden"
+          >
+            {/* Equal Aspect Ratio Image Container */}
+            <div className="relative aspect-square w-full overflow-hidden bg-stone-100">
               <img
                 src={cat.image}
                 alt={cat.name}
+                loading="lazy"
                 onError={(e) => {
                   (e.target as HTMLImageElement).src = cat.fallbackImage;
                 }}
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-108"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-104"
               />
+              {cat.badge && (
+                <span className="absolute top-2.5 left-2.5 bg-white/90 backdrop-blur-xs text-stone-800 text-[10px] sm:text-xs font-semibold px-2 py-0.5 rounded-full border border-stone-200 shadow-2xs">
+                  {cat.badge}
+                </span>
+              )}
+            </div>
 
-              {/* Multi-Stop Cinematic Gradient Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent transition-opacity duration-300" />
-
-              {/* Subtle Golden Sheen on Hover */}
-              <div className="absolute inset-0 bg-[#EAB308]/0 group-hover:bg-[#EAB308]/10 transition-colors duration-500 pointer-events-none" />
-
-              {/* Top Badge */}
-              <div className="absolute top-4 left-4 z-20 flex items-center gap-2">
-                {cat.badge && (
-                  <span className="bg-black/75 backdrop-blur-md text-white text-[11px] font-bold px-3 py-1 rounded-full border border-white/20 shadow-md flex items-center gap-1.5">
-                    {cat.hasLedBadge ? (
-                      <Flame className="w-3.5 h-3.5 text-[#EAB308] animate-pulse" />
-                    ) : (
-                      <Sparkles className="w-3.5 h-3.5 text-[#EAB308]" />
-                    )}
-                    <span>{cat.badge}</span>
-                  </span>
-                )}
-              </div>
-
-              {/* Bottom Content Area */}
-              <div className="relative z-20 space-y-2">
-                <h3 className="font-serif font-bold text-xl sm:text-2xl text-white group-hover:text-[#FACC15] transition-colors leading-snug drop-shadow-sm">
+            {/* Product Category Content */}
+            <div className="p-3 sm:p-4 flex flex-col flex-1 justify-between bg-white">
+              <div>
+                <h3 className="font-serif font-bold text-sm sm:text-base text-stone-900 group-hover:text-amber-800 transition-colors line-clamp-1">
                   {cat.name}
                 </h3>
-
-                <p className="text-xs sm:text-[13px] text-white/90 line-clamp-2 leading-relaxed font-sans max-w-xl">
+                <p className="text-[11px] sm:text-xs text-stone-500 line-clamp-1 mt-0.5 font-sans">
                   {cat.subtitle}
                 </p>
-
-                {/* Explore Collection Link with Animated Gold Arrow */}
-                <div className="pt-2 flex items-center gap-2 text-xs font-bold text-[#FACC15] group-hover:text-white uppercase tracking-wider transition-colors">
-                  <span>Explore Collection</span>
-                  <ArrowRight className="w-4 h-4 text-[#FACC15] group-hover:translate-x-1.5 transition-transform" />
-                </div>
               </div>
 
-              {/* Gold Accent Corner Border on Hover */}
-              <div className="absolute inset-0 border-2 border-transparent group-hover:border-[#EAB308]/70 rounded-3xl transition-colors duration-500 pointer-events-none" />
-            </Link>
-          );
-        })}
+              <div className="pt-2 sm:pt-3 flex items-center gap-1 text-[11px] sm:text-xs font-semibold text-stone-700 group-hover:text-amber-800 transition-colors">
+                <span>Explore Frames</span>
+                <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
+              </div>
+            </div>
+          </Link>
+        ))}
       </div>
     </section>
   );

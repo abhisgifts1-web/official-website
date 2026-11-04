@@ -271,30 +271,22 @@ export default function SmartSupportWidget() {
           </button>
         )}
 
-        {/* Support Launcher (Smart Assistant) */}
-        <div className="flex flex-col items-end gap-2 pointer-events-auto">
-          {/* Smart Assistant Launcher Pill */}
+        {/* Support Launcher (Smart Assistant) - Small, Unobtrusive & Sleek */}
+        <div className="pointer-events-auto">
           <button
             type="button"
             onClick={() => {
               setIsOpen(!isOpen);
               setHasNewBadge(false);
             }}
-            className="group inline-flex items-center gap-2 bg-white hover:bg-stone-50 text-stone-900 px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-full shadow-xl border border-amber-300 transition-all duration-300 hover:scale-105 cursor-pointer backdrop-blur-md"
+            className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white hover:bg-stone-50 text-stone-800 shadow-md border border-stone-300 flex items-center justify-center transition-all duration-200 hover:scale-105 cursor-pointer relative"
             aria-label="Open Customer Support Assistant"
+            title="Customer Support Assistant"
           >
-            <div className="relative">
-              <Bot className="w-4 h-4 text-amber-600 group-hover:rotate-12 transition-transform" />
-              {hasNewBadge && (
-                <span className="absolute -top-1 -right-1 w-2 h-2 bg-amber-500 rounded-full animate-ping" />
-              )}
-            </div>
-            <span className="text-xs font-bold tracking-wide font-sans hidden sm:inline text-stone-900">
-              Need Help?
-            </span>
-            <span className="text-[10px] uppercase font-bold text-amber-800 bg-amber-50 border border-amber-200 px-1.5 py-0.5 rounded-full">
-              AI Support
-            </span>
+            <Bot className="w-4 h-4 sm:w-5 sm:h-5 text-amber-700" />
+            {hasNewBadge && (
+              <span className="absolute top-0 right-0 w-2 h-2 bg-amber-500 rounded-full" />
+            )}
           </button>
         </div>
       </div>
