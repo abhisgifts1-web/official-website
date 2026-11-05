@@ -275,10 +275,23 @@ export default function HeroShowcase() {
 
               {/* Main Headline */}
               <div className="space-y-2">
-                <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-stone-900 tracking-tight leading-[1.14]">
-                  Premium Custom Photo Frames{' '}
-                  <span className="block text-transparent bg-clip-text bg-gradient-to-r from-amber-600 via-amber-700 to-yellow-600">
-                    in Hyderabad
+                <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight leading-[1.14]">
+                  <span className="block overflow-hidden">
+                    <span className="inline-block animate-headline-line-1 animate-dark-text-shimmer">
+                      Premium Custom
+                    </span>
+                  </span>
+                  <span className="block overflow-hidden">
+                    <span className="inline-block animate-headline-line-2 animate-dark-text-shimmer">
+                      Photo Frames
+                    </span>
+                  </span>
+                  <span className="block overflow-hidden pt-0.5 sm:pt-1">
+                    <span className="inline-block animate-headline-line-3">
+                      <span className="inline-block animate-gold-text-shimmer font-extrabold">
+                        in Hyderabad
+                      </span>
+                    </span>
                   </span>
                 </h1>
               </div>
