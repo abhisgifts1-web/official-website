@@ -479,6 +479,7 @@ export default function CustomizerStudio() {
   const [fileError, setFileError] = useState<string | null>(null);
   const [uploadProgress, setUploadProgress] = useState<number | null>(null);
   const [isHovered, setIsHovered] = useState<boolean>(false);
+  const [waUploading, setWaUploading] = useState<boolean>(false);
 
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -637,7 +638,52 @@ export default function CustomizerStudio() {
     return `${currentSizeObj.label} (${currentSizeObj.dimensionsCm})`;
   }, [selectedSizeId, customWidth, customHeight, currentSizeObj]);
 
-  // Dynamic WhatsApp Prefilled Inquiry URL
+  // Dynamic WhatsApp Prefilled Inquiry URL & Photo Upload Handler
+  const handleWhatsAppInquiry = async () => {
+    let photoUrl = previewImage;
+    if (previewImage && previewImage.startsWith('data:')) {
+      setWaUploading(true);
+      try {
+        const res = await fetch('/api/upload-photo', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ image: previewImage }),
+        });
+        const uploadRes = await res.json();
+        if (uploadRes && uploadRes.url) {
+          photoUrl = `${window.location.origin}${uploadRes.url}`;
+        }
+      } catch (err) {
+        console.warn('Uploading custom photo for WhatsApp failed:', err);
+      } finally {
+        setWaUploading(false);
+      }
+    } else if (previewImage && !previewImage.startsWith('http')) {
+      photoUrl = `${window.location.origin}${previewImage.startsWith('/') ? '' : '/'}${previewImage}`;
+    }
+
+    const details = [
+      `Hi Abhi's Gifts! 🙏 I would like to order a Custom Photo Frame:`,
+      `• *Category:* ${activeCategoryObj.name}`,
+      `• *Orientation:* ${orientation.toUpperCase()}`,
+      `• *Dimensions:* ${displaySizeLabel}`,
+      `• *Finish:* ${activeFinishObj.name}`,
+      `• *Lighting:* ${activeLedObj.name}`,
+      customText ? `• *Inscription:* "${customText}"` : '',
+      specialInstructions ? `• *Instructions:* "${specialInstructions}"` : '',
+      `• *Auto-Calculated Price:* ₹${pricing.price.toLocaleString('en-IN')}`,
+      photoUrl
+        ? `\n📸 *Customer Uploaded Custom Photo Link:*\n${photoUrl}\n👉 *(Open link to view/download original high-res customer photo)*\n`
+        : '',
+      `Please confirm my proof and share payment & dispatch details. Thank you!`,
+    ]
+      .filter(Boolean)
+      .join('\n');
+
+    const cleanWa = (INITIAL_SETTINGS.whatsappNumber || '919032372782').replace(/[^0-9]/g, '');
+    window.open(`https://wa.me/${cleanWa}?text=${encodeURIComponent(details)}`, '_blank');
+  };
+
   const whatsappInquiryUrl = useMemo(() => {
     const details = [
       `Hi Abhi's Gifts! I would like to inquire about ordering a Custom Photo Frame:`,
@@ -1463,15 +1509,24 @@ export default function CustomizerStudio() {
                   <ArrowRight className="w-4 h-4 text-stone-950" />
                 </button>
 
-                <a
-                  href={whatsappInquiryUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full bg-[#25D366]/15 hover:bg-[#25D366]/25 text-[#128C7E] border border-[#25D366]/40 py-2.5 rounded-xl font-bold text-xs shadow-xs transition-all cursor-pointer flex items-center justify-center gap-2"
+                <button
+                  type="button"
+                  onClick={handleWhatsAppInquiry}
+                  disabled={waUploading}
+                  className="w-full bg-[#25D366]/15 hover:bg-[#25D366]/25 text-[#128C7E] border border-[#25D366]/40 py-2.5 rounded-xl font-bold text-xs shadow-xs transition-all cursor-pointer flex items-center justify-center gap-2 disabled:opacity-60"
                 >
-                  <MessageCircle className="w-4 h-4 fill-current text-[#25D366]" />
-                  <span>Order or Inquire via WhatsApp • ₹{pricing.price.toLocaleString('en-IN')}</span>
-                </a>
+                  {waUploading ? (
+                    <>
+                      <div className="w-4 h-4 border-2 border-[#128C7E] border-t-transparent rounded-full animate-spin" />
+                      <span>Uploading Photo for WhatsApp...</span>
+                    </>
+                  ) : (
+                    <>
+                      <MessageCircle className="w-4 h-4 fill-current text-[#25D366]" />
+                      <span>Order or Inquire via WhatsApp • ₹{pricing.price.toLocaleString('en-IN')}</span>
+                    </>
+                  )}
+                </button>
               </div>
             </div>
           </div>
@@ -1653,15 +1708,24 @@ export default function CustomizerStudio() {
           </div>
 
           <div className="flex flex-wrap items-center justify-center gap-3 shrink-0">
-            <a
-              href={whatsappInquiryUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-[#25D366] hover:bg-[#20BD5A] text-white font-bold text-xs sm:text-sm px-7 py-3.5 rounded-full shadow-md transition-all hover:scale-105 flex items-center gap-2 uppercase tracking-wider"
+            <button
+              type="button"
+              onClick={handleWhatsAppInquiry}
+              disabled={waUploading}
+              className="bg-[#25D366] hover:bg-[#20BD5A] text-white font-bold text-xs sm:text-sm px-7 py-3.5 rounded-full shadow-md transition-all hover:scale-105 flex items-center gap-2 uppercase tracking-wider cursor-pointer disabled:opacity-60"
             >
-              <MessageCircle className="w-4 h-4 text-white fill-current" />
-              <span>Need Help? Chat With Our Artisans</span>
-            </a>
+              {waUploading ? (
+                <>
+                  <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                  <span>Uploading Photo...</span>
+                </>
+              ) : (
+                <>
+                  <MessageCircle className="w-4 h-4 text-white fill-current" />
+                  <span>Need Help? Chat With Our Artisans</span>
+                </>
+              )}
+            </button>
 
             <a
               href="tel:917780269927"

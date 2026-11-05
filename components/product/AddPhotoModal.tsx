@@ -146,42 +146,48 @@ export default function AddPhotoModal({
   const handleWhatsAppOrder = async () => {
     let photoUrl: string | null = null;
 
-    if (photoPreview && photoPreview.startsWith('data:')) {
-      setWaUploading(true);
-      try {
-        const res = await fetch('/api/upload-photo', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ image: photoPreview }),
-        });
-        const data = await res.json();
-        if (data.url) {
-          photoUrl = `${window.location.origin}${data.url}`;
+    if (photoPreview) {
+      if (photoPreview.startsWith('data:')) {
+        setWaUploading(true);
+        try {
+          const res = await fetch('/api/upload-photo', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ image: photoPreview }),
+          });
+          const data = await res.json();
+          if (data && data.url) {
+            photoUrl = `${window.location.origin}${data.url}`;
+          }
+        } catch (err) {
+          console.error('Error uploading custom photo for WhatsApp order:', err);
+        } finally {
+          setWaUploading(false);
         }
-      } catch {
-        // If upload fails, fall back to no URL (still open WA with text)
-      } finally {
-        setWaUploading(false);
+      } else {
+        photoUrl = photoPreview.startsWith('http')
+          ? photoPreview
+          : `${window.location.origin}${photoPreview.startsWith('/') ? '' : '/'}${photoPreview}`;
       }
     }
 
     // Build WhatsApp message with photo URL if available
     const lines = [
       `Hello Abhi's Gifts! 🙏`,
-      `I want to place a custom order for:`,
+      `I want to place an order for:`,
       `📦 *${product.title}*`,
       ``,
       photoUrl
-        ? `🖼️ *My Custom Photo:* ${photoUrl}`
+        ? `📸 *Customer Custom Photo:* ${photoUrl}\n👉 (Open link to view/download original high-res customer photo)`
         : photoPreview
-        ? `🖼️ Photo: Uploading separately in this chat`
-        : `🖼️ Photo: Using original artwork`,
+        ? `📸 *Custom Photo:* [Uploaded with order - sharing directly in chat]`
+        : `🖼️ *Artwork:* Using catalog artwork`,
       `📐 *Size:* ${activeSizeLabel}`,
       `💰 *Price:* ₹${activePrice.toLocaleString('en-IN')}`,
       ledEnabled ? `💡 *Lighting:* LED Backlit (12V Adapter)` : '',
       customText.trim() ? `✍️ *Text/Dedication:* "${customText.trim()}"` : '',
       ``,
-      `Please confirm and assist me with proofing before printing. Thank you!`,
+      `Please confirm my order and share proofing layout before printing. Thank you!`,
     ].filter(Boolean).join('\n');
 
     const waNum = (INITIAL_SETTINGS.whatsappNumber || '919032372782').replace(/[^0-9]/g, '');
@@ -579,10 +585,22 @@ export default function AddPhotoModal({
             type="button"
             onClick={handleWhatsAppOrder}
             disabled={waUploading}
-            className="w-full py-2.5 px-4 rounded-xl font-bold text-xs flex items-center justify-center gap-2 bg-[#25D366]/15 hover:bg-[#25D366]/25 text-[#128C7E] border border-[#25D366]/40 transition-all cursor-pointer"
+            className="w-full py-2.5 px-4 rounded-xl font-bold text-xs flex items-center justify-center gap-2 bg-[#25D366]/15 hover:bg-[#25D366]/25 text-[#128C7E] border border-[#25D366]/40 transition-all cursor-pointer disabled:opacity-60"
           >
-            <MessageCircle className="w-4 h-4 fill-current text-[#25D366]" />
-            <span>Order via WhatsApp (₹{activePrice.toLocaleString('en-IN')})</span>
+            {waUploading ? (
+              <>
+                <svg className="animate-spin w-4 h-4 text-[#128C7E]" fill="none" viewBox="0 0 24 24">
+                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z" />
+                </svg>
+                <span>Uploading Photo for WhatsApp...</span>
+              </>
+            ) : (
+              <>
+                <MessageCircle className="w-4 h-4 fill-current text-[#25D366]" />
+                <span>Order via WhatsApp (₹{activePrice.toLocaleString('en-IN')})</span>
+              </>
+            )}
           </button>
 
           <div className="flex items-center justify-between text-xs pt-1">

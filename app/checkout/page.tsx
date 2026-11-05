@@ -142,12 +142,10 @@ export default function CheckoutPage() {
               if (uploadData && uploadData.url) {
                 const fullUrl = `${window.location.origin}${uploadData.url}`;
                 updatedItem.image = fullUrl;
-                if (updatedItem.customization) {
-                  updatedItem.customization = {
-                    ...updatedItem.customization,
-                    previewUrl: fullUrl,
-                  };
-                }
+                updatedItem.customization = {
+                  ...(updatedItem.customization || {}),
+                  previewUrl: fullUrl,
+                };
               }
             } catch (err) {
               console.warn('Could not upload base64 image during checkout:', err);

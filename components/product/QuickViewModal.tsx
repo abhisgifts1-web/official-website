@@ -272,7 +272,11 @@ export default function QuickViewModal({ product, isOpen, onClose }: QuickViewMo
                 {isCustomSize && (
                   <a
                     href={`https://wa.me/${(INITIAL_SETTINGS.whatsappNumber || '919032372782').replace(/[^0-9]/g, '')}?text=${encodeURIComponent(
-                      `Hello Abhi's Gifts! I would like to order "${product.title}" in Custom Size (${customWidth}x${customHeight} inches, ₹${activePrice.toLocaleString('en-IN')}). Please assist with proofing.`
+                      `Hello Abhi's Gifts! 🙏\nI want to place an order for: "${product.title}"\n• Custom Size: ${customWidth}x${customHeight} inches (${customSizeCalc.dimensionsCm})\n• Auto-Calculated Price: ₹${activePrice.toLocaleString('en-IN')}\n• Artwork Reference: ${
+                        typeof window !== 'undefined' && product.images?.[0]
+                          ? `${window.location.origin}${product.images[0].startsWith('/') ? '' : '/'}${product.images[0]}`
+                          : product.images?.[0] || ''
+                      }\nPlease assist me with proofing before printing. Thank you!`
                     )}`}
                     target="_blank"
                     rel="noopener noreferrer"

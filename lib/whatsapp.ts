@@ -62,30 +62,39 @@ export function buildWhatsAppOrderMessage(data: WhatsAppOrderDetails): string {
       msg += `   ▫ *Custom Inscription:* "${item.customization.customText}"\n`;
     }
 
-    // Include the Photo / Artwork Image Link
-    const rawImg = item.customization?.previewUrl || item.image;
-    if (rawImg) {
-      if (rawImg.startsWith('data:')) {
-        msg += `   ▫ *Custom Photo:* [Customer photo uploaded with order]\n`;
+    // Include the Custom Photo / Artwork Image Link
+    const customPhotoUrl = item.customization?.previewUrl;
+    const baseImageUrl = item.image;
+
+    // Check if customer provided a custom photo
+    const isCustom =
+      Boolean(customPhotoUrl) ||
+      item.title.toLowerCase().includes('custom photo') ||
+      item.variantId.toLowerCase().includes('custom') ||
+      item.productId === 'prod-custom-photo-acrylic-frame' ||
+      (baseImageUrl && baseImageUrl.includes('custom-photos'));
+
+    const photoToLink = customPhotoUrl || (isCustom ? baseImageUrl : null);
+
+    if (photoToLink) {
+      if (photoToLink.startsWith('data:')) {
+        msg += `   📸 *Custom Customer Photo:* [Customer photo attached with order]\n`;
       } else {
-        let fullImgUrl = rawImg;
+        let fullImgUrl = photoToLink;
         if (!fullImgUrl.startsWith('http://') && !fullImgUrl.startsWith('https://')) {
           const origin = (baseUrl || (typeof window !== 'undefined' ? window.location.origin : '') || 'https://abhisgifts.com').replace(/\/$/, '');
           fullImgUrl = `${origin}${fullImgUrl.startsWith('/') ? '' : '/'}${fullImgUrl}`;
         }
-
-        const isCustomPhoto =
-          item.title.toLowerCase().includes('custom photo') ||
-          item.variantId.toLowerCase().includes('custom') ||
-          item.productId === 'prod-custom-photo-acrylic-frame' ||
-          rawImg.includes('custom-photos');
-
-        if (isCustomPhoto) {
-          msg += `   ▫ *Custom Photo:* ${fullImgUrl}\n`;
-        } else {
-          msg += `   ▫ *Selected Artwork Image:* ${fullImgUrl}\n`;
-        }
+        msg += `   📸 *Custom Customer Photo Link:* ${fullImgUrl}\n`;
+        msg += `   👉 *(Click link to view/download original high-res customer photo)*\n`;
       }
+    } else if (baseImageUrl) {
+      let fullImgUrl = baseImageUrl;
+      if (!fullImgUrl.startsWith('http://') && !fullImgUrl.startsWith('https://')) {
+        const origin = (baseUrl || (typeof window !== 'undefined' ? window.location.origin : '') || 'https://abhisgifts.com').replace(/\/$/, '');
+        fullImgUrl = `${origin}${fullImgUrl.startsWith('/') ? '' : '/'}${fullImgUrl}`;
+      }
+      msg += `   🖼️ *Selected Artwork Image:* ${fullImgUrl}\n`;
     }
   });
 
@@ -101,7 +110,7 @@ export function buildWhatsAppOrderMessage(data: WhatsAppOrderDetails): string {
       it.variantId?.toLowerCase().includes('custom-size')
   );
   if (hasCustomSize) {
-    msg += `• *Note:* Exact price for custom size will be known & confirmed in this WhatsApp chat.\n`;
+    msg += `• *Note:* Custom size price is auto-calculated based on area scaling.\n`;
   }
   msg += `• *Grand Total: ₹${totalAmount.toLocaleString('en-IN')}*\n`;
 

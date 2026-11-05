@@ -804,12 +804,17 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
 
   // WhatsApp Custom Size & Consultation
   const cleanWaNumber = (INITIAL_SETTINGS.whatsappNumber || '919032372782').replace(/[^0-9]/g, '');
+  const artworkImgRef = product.images?.[0]
+    ? product.images[0].startsWith('http')
+      ? product.images[0]
+      : `${typeof window !== 'undefined' ? window.location.origin : 'https://abhisgifts.com'}${product.images[0].startsWith('/') ? '' : '/'}${product.images[0]}`
+    : '';
   const whatsappCustomSizeUrl = `https://wa.me/${cleanWaNumber}?text=${encodeURIComponent(
-    `Hello Abhi's Gifts! I would like to order "${product.title}" (${selectedShape.toUpperCase()} layout, ${
+    `Hello Abhi's Gifts! 🙏\nI want to place an order for: "${product.title}"\n• Layout: ${selectedShape.toUpperCase()}\n• Dimensions: ${
       isCustomSize
         ? `Custom Size: ${customSizeCalc.widthInches}x${customSizeCalc.heightInches} inches (${customSizeCalc.dimensionsCm})`
         : (currentSizeObj ? currentSizeObj.label : '12x18') + ' in'
-    }, ${selectedFrame} finish, ₹${currentPricing.price.toLocaleString('en-IN')}). Please assist with proofing.`
+    }\n• Finish: ${selectedFrame}\n• Auto-Calculated Price: ₹${currentPricing.price.toLocaleString('en-IN')}\n${artworkImgRef ? `• Artwork Link: ${artworkImgRef}\n` : ''}\nPlease assist me with proofing before printing. Thank you!`
   )}`;
 
   // Post review
@@ -1961,8 +1966,11 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
             {isCustomSize ? (
               <>
                 <div className="text-right">
-                  <span className="font-serif font-bold text-xs sm:text-sm text-emerald-700 block leading-tight">
-                    Price in WhatsApp chat
+                  <span className="font-serif font-bold text-xs sm:text-sm text-stone-900 block leading-tight">
+                    ₹{currentPricing.price.toLocaleString('en-IN')}
+                  </span>
+                  <span className="text-[10px] text-emerald-700 font-semibold block leading-none">
+                    Custom Sized
                   </span>
                 </div>
                 <a
