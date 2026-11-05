@@ -6,7 +6,6 @@ import {
   Sparkles,
   ChevronLeft,
   ChevronRight,
-  Star,
   ArrowRight,
 } from 'lucide-react';
 
@@ -301,18 +300,6 @@ export default function HeroShowcase() {
                 >
                   <span>Customize Your Frame</span>
                 </Link>
-              </div>
-
-              {/* Trust & Social Proof Row */}
-              <div className="pt-2 border-t border-stone-100 flex items-center gap-3">
-                <div className="flex items-center text-amber-500 text-sm">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
-                  ))}
-                </div>
-                <p className="text-xs sm:text-sm text-stone-600">
-                  <strong className="text-stone-900 font-semibold">4.9/5 Rating</strong> · Trusted by 12,000+ Happy Homes in Telangana &amp; Andhra
-                </p>
               </div>
             </div>
 

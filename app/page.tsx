@@ -5,7 +5,6 @@ import HeroShowcase from '@/components/home/HeroShowcase';
 import BestsellersShowcase from '@/components/home/BestsellersShowcase';
 import WhyChooseUsSection from '@/components/home/WhyChooseUsSection';
 import CustomizationProcessSection from '@/components/home/CustomizationProcessSection';
-import TestimonialsSection from '@/components/home/TestimonialsSection';
 import ContactCtaSection from '@/components/home/ContactCtaSection';
 
 export default function HomePage() {
@@ -23,10 +22,7 @@ export default function HomePage() {
       {/* 5. Customization Process Section */}
       <CustomizationProcessSection />
 
-      {/* 6. Customer Testimonials */}
-      <TestimonialsSection />
-
-      {/* 7. Contact and WhatsApp CTA Section */}
+      {/* 6. Contact and WhatsApp CTA Section */}
       <ContactCtaSection />
     </div>
   );

@@ -1146,59 +1146,38 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                 </p>
               )}
 
-              {/* Rating & Review Counter */}
-              <div className="flex items-center gap-2 text-xs text-stone-600 pt-0.5">
-                {reviewsList.length > 0 ? (
-                  <>
-                    <div className="flex items-center text-[#EAB308]">
-                      {[...Array(5)].map((_, i) => (
-                        <Star
-                          key={i}
-                          className={`w-3.5 h-3.5 ${
-                            i < Math.round(product.rating || 5)
-                              ? 'fill-[#C69A42] text-[#EAB308]'
-                              : 'text-stone-300'
-                          }`}
-                        />
-                      ))}
-                    </div>
-                    <span className="font-bold text-stone-900">
-                      {(product.rating || 5).toFixed(1)} / 5.0
-                    </span>
-                    <span className="text-stone-300">•</span>
-                    <button
-                      type="button"
-                      onClick={() => {
-                        setActiveTab('reviews');
-                        const el = document.getElementById('product-tabs-section');
-                        if (el) el.scrollIntoView({ behavior: 'smooth' });
-                      }}
-                      className="text-amber-800 hover:text-stone-900 hover:underline font-semibold cursor-pointer transition-colors"
-                    >
-                      {reviewsList.length} {reviewsList.length === 1 ? 'Review' : 'Reviews'}
-                    </button>
-                  </>
-                ) : (
-                  <>
-                    <div className="flex items-center text-stone-300">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="w-3.5 h-3.5 text-stone-300" />
-                      ))}
-                    </div>
-                    <button
-                      type="button"
-                      onClick={() => {
-                        setActiveTab('reviews');
-                        const el = document.getElementById('product-tabs-section');
-                        if (el) el.scrollIntoView({ behavior: 'smooth' });
-                      }}
-                      className="text-stone-600 hover:text-stone-900 hover:underline cursor-pointer transition-colors"
-                    >
-                      No reviews yet • <span className="text-amber-700 font-medium">Be the first to review</span>
-                    </button>
-                  </>
-                )}
-              </div>
+              {/* Rating & Review Counter (Only displayed if verified customer reviews exist) */}
+              {reviewsList.length > 0 && (
+                <div className="flex items-center gap-2 text-xs text-stone-600 pt-0.5">
+                  <div className="flex items-center text-[#EAB308]">
+                    {[...Array(5)].map((_, i) => (
+                      <Star
+                        key={i}
+                        className={`w-3.5 h-3.5 ${
+                          i < Math.round(product.rating || 5)
+                            ? 'fill-[#C69A42] text-[#EAB308]'
+                            : 'text-stone-300'
+                        }`}
+                      />
+                    ))}
+                  </div>
+                  <span className="font-bold text-stone-900">
+                    {(product.rating || 5).toFixed(1)} / 5.0
+                  </span>
+                  <span className="text-stone-300">•</span>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setActiveTab('reviews');
+                      const el = document.getElementById('product-tabs-section');
+                      if (el) el.scrollIntoView({ behavior: 'smooth' });
+                    }}
+                    className="text-amber-800 hover:text-stone-900 hover:underline font-semibold cursor-pointer transition-colors"
+                  >
+                    {reviewsList.length} {reviewsList.length === 1 ? 'Review' : 'Reviews'}
+                  </button>
+                </div>
+              )}
             </div>
 
             {/* Dynamic Pricing Banner */}
@@ -1619,7 +1598,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
               { id: 'sizeguide', label: 'Size & Placement Guide' },
               { id: 'install', label: '3-Min Installation' },
               { id: 'shipping', label: 'Safe Packaging' },
-              { id: 'reviews', label: `Collector Reviews (${reviewsList.length})` },
+              ...(reviewsList.length > 0 ? [{ id: 'reviews', label: `Reviews (${reviewsList.length})` }] : []),
               { id: 'faq', label: 'Frequently Asked Questions' },
             ].map((tab) => (
               <button
@@ -1793,7 +1772,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
             )}
 
             {/* TAB 7: REVIEWS */}
-            {activeTab === 'reviews' && (
+            {activeTab === 'reviews' && reviewsList.length > 0 && (
               <div className="space-y-8 max-w-3xl">
                 <div className="flex items-center justify-between bg-stone-50 p-6 rounded-3xl border border-stone-200 shadow-2xs">
                   <div>
