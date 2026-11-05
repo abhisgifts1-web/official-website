@@ -406,10 +406,10 @@ export default function HeroShowcase() {
                     key={deity.id}
                     type="button"
                     onClick={() => handleSelect(idx)}
-                    className={`relative flex-1 min-w-[56px] h-11 sm:h-13 lg:h-14 rounded-lg overflow-hidden border-2 transition-all duration-200 cursor-pointer ${
+                    className={`relative flex-1 min-w-[56px] h-11 sm:h-13 lg:h-14 rounded-lg overflow-hidden border border-white/10 cursor-pointer ${
                       currentIndex === idx
-                        ? 'border-amber-500 scale-105 shadow-md ring-1 ring-amber-400/40'
-                        : 'border-stone-200 opacity-60 hover:opacity-100 hover:border-amber-300'
+                        ? 'opacity-100'
+                        : 'opacity-40 hover:opacity-75'
                     }`}
                     aria-label={`Select ${deity.shortName}`}
                   >
