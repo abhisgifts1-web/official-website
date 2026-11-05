@@ -2,67 +2,49 @@
 
 import React, { useState, useMemo, useEffect } from 'react';
 import Link from 'next/link';
-import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ArrowRight, ChevronLeft, ChevronRight, Sparkles } from 'lucide-react';
 import { INITIAL_PRODUCTS } from '@/lib/data/mockProducts';
+import { filterProductsByCategory } from '@/lib/categoryRules';
 import ProductCard from '@/components/product/ProductCard';
+import { Product } from '@/types';
 
-type FilterType = 'all' | 'led' | 'deities' | 'vastu';
+const SHOWCASE_TABS = [
+  { id: 'all', label: 'All Popular' },
+  { id: 'acrylic-photo-frames', label: 'Acrylic Frames' },
+  { id: 'led-acrylic-photo-frames', label: 'LED Frames' },
+  { id: 'glitter-photo-frames', label: 'Glitter Frames' },
+  { id: '360-rotating-photo-lamps', label: 'Rotating Lamps' },
+  { id: 'god-photo-frames', label: 'God Photo Frames' },
+  { id: 'family-baby-frames', label: 'Family & Baby' },
+  { id: 'couple-wedding-frames', label: 'Couple & Wedding' },
+  { id: 'personalized-gifts', label: 'Personalized Gifts' },
+];
 
-const ITEMS_PER_PAGE = 5;
+const ITEMS_PER_PAGE = 10;
 
 export default function BestsellersShowcase() {
-  const [activeFilter, setActiveFilter] = useState<FilterType>('all');
+  const [activeFilter, setActiveFilter] = useState<string>('all');
   const [currentPage, setCurrentPage] = useState<number>(1);
-
-  const bestsellerSlugs = useMemo(() => [
-    'tirupati-balaji-divine-led-backlit-acrylic-wall-art',
-    'seven-running-horses-vastu-gold-acrylic-wall-art',
-    'radha-krishna-divine-flute-acrylic-wall-decor',
-    'ayodhya-ram-janmabhoomi-mandir-3d-led-wall-decor',
-    'adiyogi-lord-shiva-meditation-led-wall-decor',
-    'lord-ganesha-auspicious-gold-leaf-acrylic-wall-art',
-    'ashta-lakshmi-wealth-prosperity-acrylic-wall-decor',
-    'shri-hanuman-chalisa-full-inscribed-led-acrylic-frame',
-    'sacred-om-swastik-divine-acrylic-diptych-set-of-2',
-    'golden-bodhi-tree-ginkgo-leaves-acrylic-wall-art',
-  ], []);
-
-  const allBestsellers = useMemo(() => {
-    return bestsellerSlugs
-      .map((slug) => INITIAL_PRODUCTS.find((p) => p.slug === slug))
-      .filter((p): p is (typeof INITIAL_PRODUCTS)[0] => !!p);
-  }, [bestsellerSlugs]);
-
-  const [bestsellerProducts, setBestsellerProducts] = useState(allBestsellers);
+  const [allProducts, setAllProducts] = useState<Product[]>(INITIAL_PRODUCTS);
 
   useEffect(() => {
-    fetch('/api/products?bestseller=true')
+    fetch('/api/products')
       .then((r) => r.json())
       .then((d) => {
         if (d.success && d.products?.length) {
-          const mapped = bestsellerSlugs
-            .map((slug) => d.products.find((p: any) => p.slug === slug))
-            .filter(Boolean);
-          if (mapped.length > 0) {
-            setBestsellerProducts(mapped);
-          }
+          setAllProducts(d.products);
         }
       })
       .catch(() => {});
-  }, [bestsellerSlugs]);
+  }, []);
 
   const filteredProducts = useMemo(() => {
-    switch (activeFilter) {
-      case 'led':
-        return bestsellerProducts.filter((p) => p.hasLedBacklight);
-      case 'deities':
-        return bestsellerProducts.filter((p) => p.deity || p.categorySlug.includes('devotional') || p.categorySlug.includes('lord'));
-      case 'vastu':
-        return bestsellerProducts.filter((p) => p.categorySlug.includes('abstract') || p.tags.includes('Vastu'));
-      default:
-        return bestsellerProducts;
+    if (activeFilter === 'all') {
+      // Return bestsellers first
+      return [...allProducts].sort((a, b) => (b.isBestseller ? 1 : 0) - (a.isBestseller ? 1 : 0));
     }
-  }, [activeFilter, bestsellerProducts]);
+    return filterProductsByCategory(allProducts, activeFilter);
+  }, [activeFilter, allProducts]);
 
   const totalPages = Math.max(1, Math.ceil(filteredProducts.length / ITEMS_PER_PAGE));
 
@@ -71,8 +53,8 @@ export default function BestsellersShowcase() {
     return filteredProducts.slice(startIndex, startIndex + ITEMS_PER_PAGE);
   }, [filteredProducts, currentPage]);
 
-  const handleFilterChange = (filter: FilterType) => {
-    setActiveFilter(filter);
+  const handleFilterChange = (filterId: string) => {
+    setActiveFilter(filterId);
     setCurrentPage(1);
   };
 
@@ -83,76 +65,71 @@ export default function BestsellersShowcase() {
   };
 
   return (
-    <section className="w-full max-w-[1760px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 py-6 sm:py-8 lg:py-10">
+    <section id="category-showcase" className="w-full max-w-[1760px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 py-6 sm:py-8 lg:py-10">
       {/* Header with Title and Filter Tabs */}
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-6 sm:mb-8 pb-3 border-b border-stone-200 gap-4">
         <div>
-          <span className="text-xs uppercase tracking-widest font-semibold text-amber-800">
-            Customer Favorites
+          <span className="text-xs uppercase tracking-widest font-semibold text-amber-800 flex items-center gap-1.5">
+            <Sparkles className="w-3.5 h-3.5 text-amber-600" />
+            Curated Collections
           </span>
           <h2 className="font-serif font-bold text-2xl sm:text-3xl text-stone-900 tracking-tight mt-0.5">
-            Best-Selling Photo Frames
+            {activeFilter === 'all'
+              ? 'Best-Selling Photo Frames & Sacred Art'
+              : SHOWCASE_TABS.find((t) => t.id === activeFilter)?.label || 'Artworks'}
           </h2>
           <p className="text-xs sm:text-sm text-stone-600 mt-1 max-w-xl font-sans">
-            Our most popular handcrafted acrylic and LED photo frames, created with museum-grade precision.
+            Handcrafted with museum-grade diamond-polished acrylic and vibrant depth in Hyderabad.
           </p>
         </div>
 
-        {/* Filter Pills */}
+        {/* Filter Pills matching the 8 Core Categories */}
         <div className="flex items-center gap-1.5 overflow-x-auto min-w-0 max-w-full pb-1 sm:pb-0 scrollbar-none">
-          <button
-            type="button"
-            onClick={() => handleFilterChange('all')}
-            className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all whitespace-nowrap cursor-pointer ${
-              activeFilter === 'all'
-                ? 'bg-stone-900 text-white shadow-2xs'
-                : 'bg-stone-100 text-stone-700 hover:bg-stone-200'
-            }`}
-          >
-            All Frames
-          </button>
-          <button
-            type="button"
-            onClick={() => handleFilterChange('led')}
-            className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all whitespace-nowrap cursor-pointer ${
-              activeFilter === 'led'
-                ? 'bg-stone-900 text-white shadow-2xs'
-                : 'bg-stone-100 text-stone-700 hover:bg-stone-200'
-            }`}
-          >
-            LED Backlit
-          </button>
-          <button
-            type="button"
-            onClick={() => handleFilterChange('deities')}
-            className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all whitespace-nowrap cursor-pointer ${
-              activeFilter === 'deities'
-                ? 'bg-stone-900 text-white shadow-2xs'
-                : 'bg-stone-100 text-stone-700 hover:bg-stone-200'
-            }`}
-          >
-            Devotional Art
-          </button>
-          <button
-            type="button"
-            onClick={() => handleFilterChange('vastu')}
-            className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all whitespace-nowrap cursor-pointer ${
-              activeFilter === 'vastu'
-                ? 'bg-stone-900 text-white shadow-2xs'
-                : 'bg-stone-100 text-stone-700 hover:bg-stone-200'
-            }`}
-          >
-            Vastu &amp; Keepsakes
-          </button>
+          {SHOWCASE_TABS.map((tab) => {
+            const isActive = activeFilter === tab.id;
+            return (
+              <button
+                key={tab.id}
+                type="button"
+                onClick={() => handleFilterChange(tab.id)}
+                className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all whitespace-nowrap cursor-pointer shadow-2xs ${
+                  isActive
+                    ? 'bg-stone-900 text-white shadow-xs'
+                    : 'bg-stone-100 text-stone-700 hover:bg-stone-200 hover:text-stone-900'
+                }`}
+              >
+                {tab.label}
+              </button>
+            );
+          })}
         </div>
       </div>
 
       {/* Responsive Grid of Product Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 sm:gap-5">
-        {paginatedProducts.map((product) => (
-          <ProductCard key={product.id} product={product} />
-        ))}
-      </div>
+      {paginatedProducts.length === 0 ? (
+        <div className="text-center py-12 text-stone-500 text-xs">
+          No artworks found in this category.
+        </div>
+      ) : (
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 sm:gap-5">
+          {paginatedProducts.map((product) => (
+            <ProductCard key={product.id} product={product} />
+          ))}
+        </div>
+      )}
+
+      {/* View Full Category Link */}
+      {activeFilter !== 'all' && (
+        <div className="mt-6 text-center">
+          <Link
+            href={`/category/${activeFilter}`}
+            className="inline-flex items-center gap-2 px-6 py-2.5 bg-stone-100 hover:bg-stone-200 text-stone-900 font-bold text-xs rounded-full transition-colors"
+          >
+            <span>Explore all {SHOWCASE_TABS.find((t) => t.id === activeFilter)?.label}</span>
+            <ArrowRight className="w-3.5 h-3.5" />
+          </Link>
+        </div>
+      )}
 
       {/* Page Navigation Controls */}
       {totalPages > 1 && (

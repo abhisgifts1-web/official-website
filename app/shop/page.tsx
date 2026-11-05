@@ -13,6 +13,7 @@ import {
 } from 'lucide-react';
 import { INITIAL_CATEGORIES } from '@/lib/data/categories';
 import { INITIAL_PRODUCTS } from '@/lib/data/mockProducts';
+import { filterProductsByCategory } from '@/lib/categoryRules';
 import ProductGrid from '@/components/product/ProductGrid';
 import { ProductOrientation } from '@/types';
 
@@ -76,21 +77,7 @@ function ShopContent() {
     }
 
     if (selectedCategory) {
-      list = list.filter(
-        (p) =>
-          p.categorySlug === selectedCategory ||
-          p.categorySlugs?.includes(selectedCategory) ||
-          p.categoryName.toLowerCase().includes(selectedCategory.toLowerCase()) ||
-          p.tags.some((t) => t.toLowerCase() === selectedCategory.toLowerCase()) ||
-          (selectedCategory === 'led-acrylic-photo-frames' && p.hasLedBacklight) ||
-          (selectedCategory === 'acrylic-photo-frames' && !p.hasLedBacklight) ||
-          (selectedCategory === 'god-photo-frames' && (Boolean(p.deity) || p.categorySlug.includes('lord') || p.categorySlug.includes('goddess') || p.categorySlug.includes('radha') || p.categorySlug.includes('hanuman') || p.categorySlug.includes('ram') || p.categorySlug.includes('shiva') || p.categorySlug.includes('balaji') || p.categorySlug.includes('ganesha') || p.categorySlug.includes('devotional'))) ||
-          (selectedCategory === 'family-baby-frames' && (p.categorySlug.includes('family') || p.tags?.some((t) => t.toLowerCase().includes('family') || t.toLowerCase().includes('baby')))) ||
-          (selectedCategory === 'couple-wedding-frames' && (p.categorySlug.includes('wedding') || p.categorySlug.includes('couple'))) ||
-          (selectedCategory === 'glitter-photo-frames' && (p.categorySlug.includes('glitter') || p.tags?.some((t) => t.toLowerCase().includes('glitter')))) ||
-          (selectedCategory === '360-rotating-photo-lamps' && (p.categorySlug.includes('rotating') || p.tags?.some((t) => t.toLowerCase().includes('rotating') || t.toLowerCase().includes('lamp')))) ||
-          (selectedCategory === 'personalized-gifts' && (p.categorySlug.includes('photo') || p.tags?.some((t) => t.toLowerCase().includes('custom') || t.toLowerCase().includes('gift'))))
-      );
+      list = filterProductsByCategory(list, selectedCategory);
     }
 
     

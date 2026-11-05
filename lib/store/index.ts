@@ -12,6 +12,7 @@ import {
 } from '@/types';
 import { INITIAL_PRODUCTS } from '../data/mockProducts';
 import { INITIAL_CATEGORIES, CATEGORY_SLUG_ALIASES } from '../data/categories';
+import { filterProductsByCategory } from '../categoryRules';
 import { INITIAL_ORDERS } from '../data/mockOrders';
 import { INITIAL_COUPONS } from '../data/coupons';
 import { INITIAL_SETTINGS } from '../data/settings';
@@ -121,22 +122,7 @@ export function getAllProducts(filterOptions?: ProductFilterOptions): Product[] 
     } = filterOptions;
 
     if (category) {
-      const targetSlug = CATEGORY_SLUG_ALIASES[category] || category;
-      list = list.filter(
-        (p) =>
-          p.categorySlug === category ||
-          p.categorySlug === targetSlug ||
-          p.categorySlugs?.includes(category) ||
-          p.categorySlugs?.includes(targetSlug) ||
-          p.categoryName.toLowerCase().includes(category.toLowerCase()) ||
-          p.categoryName.toLowerCase().includes(targetSlug.toLowerCase()) ||
-          p.tags.some(
-            (t) =>
-              t.toLowerCase() === category.toLowerCase() ||
-              t.toLowerCase() === targetSlug.toLowerCase() ||
-              t.toLowerCase().includes(category.toLowerCase().replace(/-/g, ' '))
-          )
-      );
+      list = filterProductsByCategory(list, category);
     }
 
     if (search && search.trim()) {

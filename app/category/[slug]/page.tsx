@@ -5,6 +5,7 @@ import { notFound, redirect } from 'next/navigation';
 import { Sparkles, Home, MapPin, Truck, ShieldCheck, CheckCircle2 } from 'lucide-react';
 import { getCategoryBySlug, getAllCategories, getAllProducts } from '@/lib/store';
 import { CATEGORY_SLUG_ALIASES } from '@/lib/data/categories';
+import { filterProductsByCategory } from '@/lib/categoryRules';
 import CategoryClientView from '@/components/category/CategoryClientView';
 import { getBreadcrumbSchema } from '@/lib/seo/schema';
 
@@ -159,91 +160,8 @@ export default function CategoryPage({ params }: CategoryPageProps) {
   const slug = category.slug;
   const seoOverride = LOCAL_SEO_CATEGORY_OVERRIDES[slug];
 
-  // Multi-category matching + smart category matching
-  const categoryProducts = allProducts.filter((p) => {
-    // 1. Direct or multi-category assignment
-    if (p.categorySlug === slug || p.categorySlugs?.includes(slug)) {
-      return true;
-    }
-
-    // 2. Smart matching for the 8 official categories
-    if (slug === 'acrylic-photo-frames') {
-      return (
-        !p.hasLedBacklight ||
-        p.categorySlug === 'acrylic-photo-frames' ||
-        p.categorySlugs?.includes('acrylic-photo-frames') ||
-        p.tags?.some((t) => t.toLowerCase().includes('acrylic'))
-      );
-    }
-    if (slug === 'led-acrylic-photo-frames' || slug === 'led-backlit-wall-art' || slug === 'custom-led-photo-frames') {
-      return p.hasLedBacklight;
-    }
-    if (slug === 'glitter-photo-frames') {
-      return (
-        p.categorySlug === 'glitter-photo-frames' ||
-        p.categorySlugs?.includes('glitter-photo-frames') ||
-        p.tags?.some((t) => t.toLowerCase().includes('glitter'))
-      );
-    }
-    if (slug === '360-rotating-photo-lamps' || slug === 'rotating-photo-lamps') {
-      return (
-        p.categorySlug.includes('rotating') ||
-        p.tags?.some((t) => t.toLowerCase().includes('rotating') || t.toLowerCase().includes('lamp'))
-      );
-    }
-    if (slug === 'god-photo-frames' || slug === 'devotional-led-frames') {
-      return (
-        Boolean(p.deity) ||
-        p.categorySlug.includes('lord') ||
-        p.categorySlug.includes('goddess') ||
-        p.categorySlug.includes('radha') ||
-        p.categorySlug.includes('hanuman') ||
-        p.categorySlug.includes('ram') ||
-        p.categorySlug.includes('shiva') ||
-        p.categorySlug.includes('balaji') ||
-        p.categorySlug.includes('ganesha') ||
-        p.categorySlug.includes('ayyappa') ||
-        p.categorySlug.includes('kartikeya') ||
-        p.categorySlug.includes('devotional') ||
-        p.tags?.some((t) => ['balaji', 'shiva', 'ganesha', 'hanuman', 'ram', 'lakshmi', 'krishna', 'ayyappa', 'murugan', 'temple', 'mandir', 'devotional'].includes(t.toLowerCase()))
-      );
-    }
-    if (slug === 'family-baby-frames' || slug === 'personalized-family-photo-frames' || slug === 'sets-of-two-three-frames') {
-      return (
-        p.categorySlug.includes('family') ||
-        p.tags?.some((t) => t.toLowerCase().includes('family') || t.toLowerCase().includes('baby') || t.toLowerCase().includes('heirloom') || t.toLowerCase().includes('triptych'))
-      );
-    }
-    if (slug === 'couple-wedding-frames' || slug === 'couple-wedding-photos') {
-      return (
-        p.categorySlug.includes('wedding') ||
-        p.categorySlug.includes('couple') ||
-        p.tags?.some((t) => t.toLowerCase().includes('wedding') || t.toLowerCase().includes('couple') || t.toLowerCase().includes('anniversary'))
-      );
-    }
-    if (slug === 'personalized-gifts' || slug === 'custom-frames') {
-      return (
-        p.categorySlug.includes('photo') ||
-        p.categorySlug.includes('custom') ||
-        p.tags?.some((t) => t.toLowerCase().includes('custom') || t.toLowerCase().includes('personalized') || t.toLowerCase().includes('gift'))
-      );
-    }
-
-    // 3. Backward compatibility for legacy slugs
-    if (slug === 'modern-illuminated-art') {
-      return p.hasLedBacklight && (p.categorySlug === 'modern-illuminated-art' || p.tags.some((t) => t.toLowerCase().includes('modern') || t.toLowerCase().includes('horizon')));
-    }
-    if (slug === 'horses-and-wildlife') {
-      return p.categorySlug === 'horses-and-wildlife' || p.tags.some((t) => t.toLowerCase().includes('horse') || t.toLowerCase().includes('wildlife'));
-    }
-    if (slug === 'trees-and-leaves') {
-      return p.categorySlug === 'trees-and-leaves' || p.tags.some((t) => t.toLowerCase().includes('tree') || t.toLowerCase().includes('leaves') || t.toLowerCase().includes('ginkgo'));
-    }
-    if (slug === 'koi-fish-designs') {
-      return p.categorySlug === 'koi-fish-designs' || p.tags.some((t) => t.toLowerCase().includes('koi') || t.toLowerCase().includes('fish'));
-    }
-    return false;
-  });
+  // Accurate product category matching powered by master categoryRules
+  const categoryProducts = filterProductsByCategory(allProducts, slug);
 
   const breadcrumbs = [
     { name: 'Home', url: '/' },
