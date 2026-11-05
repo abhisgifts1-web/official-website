@@ -295,7 +295,7 @@ export default function LocalLandingPageView({
           </h2>
 
           <p className="text-xs sm:text-sm text-stone-600 leading-relaxed">
-            Customers in Hyderabad are warmly welcome to visit our workshop studio in Dilsukhnagar to inspect physical material samples, inspect physical acrylic samples, compare against traditional glass, test warm LED backlighting, and pick up custom orders directly.
+            Customers in Hyderabad are warmly welcome to visit our workshop studio in Dilsukhnagar to inspect physical material samples, inspect physical acrylic samples, compare against traditional glass, test LED backlighting, and pick up custom orders directly.
           </p>
 
           <div className="space-y-2 text-xs sm:text-sm text-stone-800">

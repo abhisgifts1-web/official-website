@@ -28,7 +28,7 @@ export default function LedPhotoFramesHyderabadPage() {
       slug="led-photo-frames-hyderabad"
       keyword="LED Photo Frames in Hyderabad"
       h1Title="LED Photo Frames in Hyderabad — warm Ambient Backlit Art"
-      subtitle="Transform your family portraits, wedding vows, and sacred pooja mandir deities into breathtaking illuminated nocturnal art. Abhi's Gifts manufactures premium warm LED photo frames in Hyderabad with concealed light-guides, high-efficiency Epistar LEDs, and safe 12V BIS certified power adapters."
+      subtitle="Transform your family portraits, wedding vows, and sacred pooja mandir deities into breathtaking illuminated nocturnal art. Abhi's Gifts manufactures premium LED photo frames in Hyderabad with concealed light-guides, high-efficiency Epistar LEDs, and safe 12V BIS certified power adapters."
       locationName="Hyderabad & Telangana"
       metaDescription="Looking for LED photo frames in Hyderabad? Discover warm backlit acrylic frames, custom photo night-glow frames, and devotional LED wall art from Abhi's Gifts."
       introParagraphs={[

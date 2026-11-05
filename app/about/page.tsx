@@ -62,7 +62,7 @@ const SPECIALTIES = [
   },
   {
     title: 'LED Acrylic Photo Frames',
-    description: 'Concealed warm LED illumination casting a soothing halo around your most treasured memories.',
+    description: 'Concealed LED illumination casting a soothing halo around your most treasured memories.',
     icon: Lightbulb,
   },
   {

@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     title: `${title} Collection — Abhi Gifts`,
-    description: `Explore our exclusive ${title} wall art series crafted in crystal acrylic and warm LED lighting.`,
+    description: `Explore our exclusive ${title} wall art series crafted in crystal acrylic and LED lighting.`,
   };
 }
 

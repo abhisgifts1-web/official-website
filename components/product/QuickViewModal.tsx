@@ -35,7 +35,7 @@ export default function QuickViewModal({ product, isOpen, onClose }: QuickViewMo
     size: 'Standard',
     dimensionsCm: '30 x 45 cm',
     finish: 'Acrylic Ultra-Gloss',
-    lighting: product?.hasLedBacklight ? 'Warm LED Backlit (12V Adapter)' : 'No Lighting (Pure Art)',
+    lighting: product?.hasLedBacklight ? 'LED Backlit (12V Adapter)' : 'No Lighting (Pure Art)',
     price: product?.basePrice || 0,
     mrp: product?.baseMrp || 0,
     sku: 'AG-DEF',

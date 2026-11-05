@@ -19,7 +19,7 @@ export default function WhyChooseUsSection() {
     },
     {
       icon: Sun,
-      title: 'Warm LED Backlighting',
+      title: 'LED Backlighting',
       description:
         'Certified low-voltage 12V ambient LEDs that produce a soothing golden halo while remaining cool to the touch.',
     },

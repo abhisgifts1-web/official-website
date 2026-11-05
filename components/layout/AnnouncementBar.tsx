@@ -34,7 +34,7 @@ export default function AnnouncementBar() {
       <span className="flex items-center gap-1.5 shrink-0 text-[#FFFFFF]">
         <Flame className="w-3.5 h-3.5 text-[#FACC15] animate-pulse shrink-0" />
         <span className="font-medium">
-          Custom Photo Frames • Warm LED Light Frames
+          Custom Photo Frames • LED Light Frames
         </span>
         <Link
           href="/shop"

@@ -28,7 +28,7 @@ export default function PhotoFramesDilsukhnagarPage() {
       slug="photo-frames-dilsukhnagar"
       keyword="Photo Frames in Dilsukhnagar"
       h1Title="Photo Frames in Dilsukhnagar — Abhi's Gifts Studio"
-      subtitle="Looking for a reliable photo frame shop near you in Dilsukhnagar? Abhi's Gifts brings you museum-grade cast acrylic photo frames, warm LED backlit frames, and personalized family heirlooms with same-day digital WhatsApp preview and direct workshop pickup."
+      subtitle="Looking for a reliable photo frame shop near you in Dilsukhnagar? Abhi's Gifts brings you museum-grade cast acrylic photo frames, LED backlit frames, and personalized family heirlooms with same-day digital WhatsApp preview and direct workshop pickup."
       locationName="Dilsukhnagar, Hyderabad"
       metaDescription="Looking for photo frames in Dilsukhnagar? Visit Abhi's Gifts near Dilsukhnagar Metro Station for custom acrylic frames, LED frames, and wedding keepsakes."
       introParagraphs={[
@@ -75,7 +75,7 @@ export default function PhotoFramesDilsukhnagarPage() {
         {
           question: 'Do you offer LED photo frames in Dilsukhnagar?',
           answer:
-            'Yes, we manufacture warm LED backlit acrylic photo frames equipped with 12V low-voltage safety adapters and high-efficiency Epistar LEDs that create a gentle golden ambient halo around your photo.',
+            'Yes, we manufacture LED backlit acrylic photo frames equipped with 12V low-voltage safety adapters and high-efficiency Epistar LEDs that create a gentle golden ambient halo around your photo.',
         },
       ]}
     />

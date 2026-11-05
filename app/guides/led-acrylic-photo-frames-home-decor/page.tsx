@@ -60,7 +60,7 @@ export default function LedAcrylicPhotoFramesHomeDecorGuide() {
         </h1>
 
         <p className="text-sm sm:text-base text-stone-600 leading-relaxed">
-          How illuminated warm LED photo frames turn dark walls into calming, luxury sanctuaries across Hyderabad apartments and independent homes.
+          How illuminated LED photo frames turn dark walls into calming, luxury sanctuaries across Hyderabad apartments and independent homes.
         </p>
       </header>
 

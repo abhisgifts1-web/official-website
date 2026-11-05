@@ -242,7 +242,7 @@ export default function RoomVisualizerSection() {
       : selectedArtwork.image;
 
   const whatsappInquiryUrl = `https://wa.me/917780269927?text=${encodeURIComponent(
-    `Hi Abhi's Gifts! I used the Sacred Space Visualizer on your website. I am interested in:\n- Artwork: ${selectedArtwork.name}\n- Room Environment: ${selectedRoom.name}\n- Size: ${selectedSize.label} (${selectedSize.desc})\n- Finish: ${selectedFinish.name}\n- Lighting: ${isLedOn ? 'warm LED On' : 'Non-Lit'}\nCan you share final price, WhatsApp digital proof & delivery time to Hyderabad?`
+    `Hi Abhi's Gifts! I used the Sacred Space Visualizer on your website. I am interested in:\n- Artwork: ${selectedArtwork.name}\n- Room Environment: ${selectedRoom.name}\n- Size: ${selectedSize.label} (${selectedSize.desc})\n- Finish: ${selectedFinish.name}\n- Lighting: ${isLedOn ? 'LED On' : 'Non-Lit'}\nCan you share final price, WhatsApp digital proof & delivery time to Hyderabad?`
   )}`;
 
   return (
@@ -354,7 +354,7 @@ export default function RoomVisualizerSection() {
                   {isLedOn ? (
                     <>
                       <Moon className="w-3.5 h-3.5 text-[#FACC15] animate-pulse" />
-                      <span>warm LED: ON</span>
+                      <span>LED: ON</span>
                     </>
                   ) : (
                     <>
@@ -396,7 +396,7 @@ export default function RoomVisualizerSection() {
                     {/* Specular Acrylic Gloss Sweep Reflection */}
                     <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-transparent pointer-events-none" />
 
-                    {/* Inner Warm LED Perimeter Strip when ON */}
+                    {/* Inner LED Perimeter Strip when ON */}
                     {isLedOn && (
                       <div className="absolute inset-0 border-2 border-amber-300/40 pointer-events-none shadow-[inset_0_0_15px_rgba(255,215,130,0.5)]" />
                     )}
@@ -559,7 +559,7 @@ export default function RoomVisualizerSection() {
                   <span className="text-[11px] text-[#785E59] uppercase tracking-wider block">Selected Configuration:</span>
                   <h4 className="font-serif font-bold text-base text-[#FFFFFF]">{selectedArtwork.name}</h4>
                   <p className="text-xs text-[#785E59]">
-                    {selectedSize.label} • {selectedFinish.name} • {isLedOn ? 'warm Warm LED' : 'Premium Acrylic'}
+                    {selectedSize.label} • {selectedFinish.name} • {isLedOn ? 'LED' : 'Premium Acrylic'}
                   </p>
                 </div>
                 <div className="text-right">

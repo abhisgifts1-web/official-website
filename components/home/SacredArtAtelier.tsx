@@ -241,7 +241,7 @@ const CRAFTSMANSHIP_STAGES: CraftsmanshipStage[] = [
     shortDesc:
       'Decorative elements and carefully aligned components come together in a considered assembly.',
     fullStory:
-      'Inside our anti-static Hyderabad cleanroom, master guild artisans hand-apply genuine pure gold leaf embellishments to the sacred Mukut crown, divine halos, and Vedic mantras. Low-voltage warm Epistar warm LED perimeter channels are calibrated and sealed with moisture-resistant composite armor.',
+      'Inside our anti-static Hyderabad cleanroom, master guild artisans hand-apply genuine pure gold leaf embellishments to the sacred Mukut crown, divine halos, and Vedic mantras. Low-voltage warm Epistar LED perimeter channels are calibrated and sealed with moisture-resistant composite armor.',
     image: '/images/atelier/stage-3-craft.jpg',
     imageHd: '/images/atelier/stage-3-craft-hd.jpg',
     specs: ['pure gold leaf Embellishment', 'Calibrated warm Epistar LEDs', 'Hermetic Cleanroom Assembly'],
@@ -473,7 +473,7 @@ export default function SacredArtAtelier() {
                 <div className="absolute bottom-3 left-3 w-3 h-3 rounded-full bg-gradient-to-br from-[#F0D79B] via-[#C99B45] to-[#8C6737] shadow border border-amber-950/60 pointer-events-none animate-stud-twinkle-3" />
                 <div className="absolute bottom-3 right-3 w-3 h-3 rounded-full bg-gradient-to-br from-[#F0D79B] via-[#C99B45] to-[#8C6737] shadow border border-amber-950/60 pointer-events-none animate-stud-twinkle-4" />
 
-                {/* Top-Right Badge: warm LED Aura */}
+                {/* Top-Right Badge: LED Aura */}
                 <div className="absolute top-3 right-3 sm:top-4 sm:right-4 bg-stone-900/85 backdrop-blur-md px-3 py-1 rounded-full border border-amber-400/50 text-[10px] font-mono text-amber-300 flex items-center gap-1.5 shadow-md">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#FACC15] animate-pulse" />
                   <span>warm Backlit Aura</span>
@@ -1026,7 +1026,7 @@ export default function SacredArtAtelier() {
                   <span className="font-serif italic text-amber-800">Timeless Beauty.</span>
                 </h3>
                 <p className="text-sm sm:text-base font-sans text-stone-600 leading-relaxed">
-                  Explore the craftsmanship behind a frame created to make your most meaningful moments stand out. Handcrafted in our Hyderabad atelier with premium cast acrylic, archival micro-pigments, pure gold leaf accents, and warm LED illumination.
+                  Explore the craftsmanship behind a frame created to make your most meaningful moments stand out. Handcrafted in our Hyderabad atelier with premium cast acrylic, archival micro-pigments, pure gold leaf accents, and LED illumination.
                 </p>
 
                 {/* Craftsmanship Pillars */}

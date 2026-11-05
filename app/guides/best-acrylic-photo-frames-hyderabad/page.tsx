@@ -108,7 +108,7 @@ export default function BestAcrylicPhotoFramesHyderabadGuide() {
           <ul className="list-disc pl-5 space-y-1.5">
             <li><strong>Apartment Entryways &amp; Foyers:</strong> 12x18 inches or 16x24 inches vertical portrait.</li>
             <li><strong>Living Room Sofa Backdrops:</strong> 24x36 inches single frame or a <Link href="/category/sets-of-two-three-frames" className="text-amber-800 font-semibold underline decoration-amber-400">symmetrical triptych set of 3</Link>.</li>
-            <li><strong>Bedrooms &amp; Bedside:</strong> 12x12 inch <Link href="/led-photo-frames-hyderabad" className="text-amber-800 font-semibold underline decoration-amber-400">warm LED night-glow frame</Link>.</li>
+            <li><strong>Bedrooms &amp; Bedside:</strong> 12x12 inch <Link href="/led-photo-frames-hyderabad" className="text-amber-800 font-semibold underline decoration-amber-400">LED night-glow frame</Link>.</li>
             <li><strong>Pooja Mandir Sanctums:</strong> Sacred devotional acrylic frames (Tirupati Balaji, Ganesha, Shiva) in 18x24 inches.</li>
           </ul>
         </section>

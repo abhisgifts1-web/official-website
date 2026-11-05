@@ -49,7 +49,7 @@ export default function AddPhotoModal({
     size: 'Standard',
     dimensionsCm: '30 x 45 cm',
     finish: 'Acrylic Ultra-Gloss',
-    lighting: product.hasLedBacklight ? 'Warm LED Backlit (12V Adapter)' : 'No Lighting (Pure Art)',
+    lighting: product.hasLedBacklight ? 'LED Backlit (12V Adapter)' : 'No Lighting (Pure Art)',
     price: product.basePrice,
     mrp: product.baseMrp,
     sku: 'AG-DEF',
@@ -175,7 +175,7 @@ export default function AddPhotoModal({
         : `🖼️ Photo: Using original artwork`,
       `📐 *Size:* ${activeSizeLabel}`,
       `💰 *Price:* ${isCustomSize ? 'Price will be known in this WhatsApp chat order (Custom Quote)' : `₹${activePrice.toLocaleString('en-IN')}`}`,
-      ledEnabled ? `💡 *Lighting:* Warm LED Backlit (12V Adapter)` : '',
+      ledEnabled ? `💡 *Lighting:* LED Backlit (12V Adapter)` : '',
       customText.trim() ? `✍️ *Text/Dedication:* "${customText.trim()}"` : '',
       ``,
       `Please confirm and assist me with proofing before printing. Thank you!`,
@@ -217,7 +217,7 @@ export default function AddPhotoModal({
         variantId: isCustomSize ? `custom-size-${customWidth}x${customHeight}-photo` : `${activeVariant.id}-custom-photo`,
         size: activeSizeLabel,
         finish: activeVariant.finish,
-        lighting: ledEnabled ? 'Warm LED Backlit (12V Adapter)' : 'No Lighting (Pure Art)',
+        lighting: ledEnabled ? 'LED Backlit (12V Adapter)' : 'No Lighting (Pure Art)',
         shape: (product.shape === 'portrait' || product.shape === 'landscape' || product.shape === 'square' || product.shape === 'round')
           ? product.shape
           : product.orientation === 'vertical'
@@ -479,7 +479,7 @@ export default function AddPhotoModal({
               <div className="flex items-center gap-2">
                 <Sun className="w-4 h-4 text-amber-600" />
                 <span className="text-xs font-bold text-stone-900">
-                  Warm LED Backlit Illumination
+                  LED Backlit Illumination
                 </span>
               </div>
               <button

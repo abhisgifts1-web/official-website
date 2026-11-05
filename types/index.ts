@@ -8,7 +8,7 @@ export interface OrientationVariantsMap {
   round: ProductVariant[];
 }
 export type ArtworkFinish = 'Acrylic Ultra-Gloss' | 'Floating Framed Canvas' | 'Matte Fine Wood' | 'Brushed Gold Aluminum';
-export type LightingType = 'Warm LED Backlit (12V Adapter)' | 'RGB Multi-Color Remote' | 'No Lighting (Pure Art)';
+export type LightingType = 'LED Backlit (12V Adapter)' | 'RGB Multi-Color Remote' | 'No Lighting (Pure Art)';
 
 export interface ProductVariant {
   id: string;

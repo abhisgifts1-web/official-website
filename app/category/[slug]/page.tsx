@@ -51,7 +51,7 @@ const LOCAL_SEO_CATEGORY_OVERRIDES: Record<string, { title: string; description:
   },
   'god-photo-frames': {
     title: "God Photo Frames Hyderabad | Sacred Balaji, Shiva, Ganesha Acrylic Art — Abhi's Gifts",
-    description: 'Divine 3D crystal acrylic and warm LED backlit God photo frames in Hyderabad. Tirupati Balaji, Lord Shiva, Ganesha, Hanuman, Rama & Lakshmi frames.',
+    description: 'Divine 3D crystal acrylic and LED backlit God photo frames in Hyderabad. Tirupati Balaji, Lord Shiva, Ganesha, Hanuman, Rama & Lakshmi frames.',
     h1: 'God Photo Frames in Hyderabad & Dilsukhnagar',
   },
   'family-baby-frames': {
@@ -97,7 +97,7 @@ const LOCAL_SEO_CATEGORY_OVERRIDES: Record<string, { title: string; description:
   },
   'led-backlit-wall-art': {
     title: "LED Acrylic Frames Hyderabad | warm Illuminated Wall Art — Abhi's Gifts",
-    description: 'Shop luxury LED acrylic frames in Hyderabad. Sacred Tirupati Balaji, Ganesha, Shiva, Radha Krishna & modern illuminated art with high-efficiency Epistar warm LEDs. Fast delivery across Hyderabad.',
+    description: 'Shop luxury LED acrylic frames in Hyderabad. Sacred Tirupati Balaji, Ganesha, Shiva, Radha Krishna & modern illuminated art with high-efficiency Epistar LEDs. Fast delivery across Hyderabad.',
     h1: 'LED Acrylic Frames & Backlit Art in Hyderabad',
   },
   
@@ -288,7 +288,7 @@ export default function CategoryPage({ params }: CategoryPageProps) {
             <span className="text-xs uppercase tracking-widest font-bold text-amber-400 bg-amber-950/80 border border-amber-500/40 px-3 py-1 rounded-full inline-flex items-center gap-1.5">
               <Sparkles className="w-3.5 h-3.5" />
               {category.lightingType === 'backlight' || category.group === 'led-backlight'
-                ? '✨ warm LED Backlit Series (12V Adapter)'
+                ? '✨ LED Backlit Series (12V Adapter)'
                 : '🖼️ Normal Pure Crystal Acrylic Series (Non-Lit gold Gold)'}
             </span>
             <span className="text-[11px] font-semibold text-emerald-400 bg-emerald-950/60 border border-emerald-500/30 px-2.5 py-0.5 rounded-full inline-flex items-center gap-1">

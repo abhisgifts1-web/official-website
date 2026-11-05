@@ -170,7 +170,7 @@ export default function TrustAndReviewsSection() {
                 No Reviews Yet • Be The First To Share
               </h3>
               <p className="text-xs sm:text-sm text-stone-600 leading-relaxed font-sans">
-                Every piece is handcrafted with precision cast acrylic and warm LED lighting at our Dilsukhnagar workshop. Bring home a sacred masterpiece and be the first to share your reflections.
+                Every piece is handcrafted with precision cast acrylic and LED lighting at our Dilsukhnagar workshop. Bring home a sacred masterpiece and be the first to share your reflections.
               </p>
             </div>
 

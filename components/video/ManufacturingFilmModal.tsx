@@ -44,11 +44,11 @@ const FILM_SCENES: SceneData[] = [
     title: 'Raw Materials & Texture Inspection',
     subtitle: 'Virgin optical-grade cast acrylic, micro-pigment inks & gold foil accents',
     voiceover:
-      'In our artisanal workshop, creation begins with uncompromising raw materials: cast acrylic high-density imported virgin cast acrylic with 99.2% optical purity, high-resolution Lord Ganesha artwork, gold foil foil leaf detailing, and calibrated warm LED LED light components.',
+      'In our artisanal workshop, creation begins with uncompromising raw materials: cast acrylic high-density imported virgin cast acrylic with 99.2% optical purity, high-resolution Lord Ganesha artwork, gold foil foil leaf detailing, and calibrated LED LED light components.',
     specs: [
       { label: 'Acrylic Purity', value: '99.2% Cast' },
       { label: 'Gold Leaf', value: 'specular gold' },
-      { label: 'LED Kelvin', value: 'warm LED' },
+      { label: 'LED Kelvin', value: 'LED' },
     ],
     visualHighlights: [
       'Cinematic macro shot of crystal acrylic edge grain',
@@ -101,7 +101,7 @@ const FILM_SCENES: SceneData[] = [
     title: '3D Exploded-View Vertical Alignment',
     subtitle: 'Hovering 5-layer convergence into a unified sacred masterpiece',
     voiceover:
-      'All five engineering tiers align vertically in precision space: the acrylic panel shield, hand-embellished gold foil foil halos, the archival Ganesha print, the warm LED light-guide, and the moisture-armor backing plate, snapping into microscopic register with stainless studs.',
+      'All five engineering tiers align vertically in precision space: the acrylic panel shield, hand-embellished gold foil foil halos, the archival Ganesha print, the LED light-guide, and the moisture-armor backing plate, snapping into microscopic register with stainless studs.',
     specs: [
       { label: 'Layer Count', value: '5 Physical Tiers' },
       { label: 'Alignment Tolerance', value: '0.1 mm' },
@@ -111,7 +111,7 @@ const FILM_SCENES: SceneData[] = [
       'Layer 1: cast acrylic front optical acrylic shield with corner studs',
       'Layer 2: gold pure gold leaf mukut (crown) and divine prabhavali halo',
       'Layer 3: 1200 DPI archival devotional Lord Ganesha canvas',
-      'Layer 4: warm LED perimeter LED diode light-guide',
+      'Layer 4: LED perimeter LED diode light-guide',
       'Layer 5: Acoustic-damped moisture-seal backing with laser French cleat',
     ],
   },
@@ -131,7 +131,7 @@ const FILM_SCENES: SceneData[] = [
     visualHighlights: [
       'Artisan in white cotton gloves wiping crystal surface with microfiber',
       'Illuminating inspection lamp checking gold leaf mukut reflections',
-      '12V toggle click igniting the warm golden LED halo with zero flicker',
+      '12V toggle click igniting the golden LED halo with zero flicker',
     ],
   },
   {
@@ -141,10 +141,10 @@ const FILM_SCENES: SceneData[] = [
     title: 'Final Reveal on Statuario Marble Mandir Altar',
     subtitle: 'Flanked by brass ghee diyas, fresh jasmine & warm nocturnal glow',
     voiceover:
-      'The finished Lord Ganesha heirloom stands triumphant on Statuario cream marble. Flanked by flickering brass ghee lamps and fragrant jasmine blossoms, the warm LED golden halo illuminates the living wall, transforming the home into a sanctuary of peace, auspiciousness, and prosperity.',
+      'The finished Lord Ganesha heirloom stands triumphant on Statuario cream marble. Flanked by flickering brass ghee lamps and fragrant jasmine blossoms, the LED golden halo illuminates the living wall, transforming the home into a sanctuary of peace, auspiciousness, and prosperity.',
     specs: [
       { label: 'Altar Surface', value: 'Italian Marble' },
-      { label: 'Ambiance', value: 'warm LED Temple Aura' },
+      { label: 'Ambiance', value: 'LED Temple Aura' },
       { label: 'Vibration', value: 'Auspicious Shanti' },
     ],
     visualHighlights: [
@@ -196,7 +196,7 @@ export default function ManufacturingFilmModal({ isOpen, onClose, defaultScene =
   if (!isOpen) return null;
 
   const whatsappInquiryUrl = `https://wa.me/917780269927?text=${encodeURIComponent(
-    `Hi Abhi's Gifts! I watched your 4K Manufacturing Film for the Lord Ganesha 3D LED Backlit Frame. The 5-layer craftsmanship and warm LED lighting look exceptional. Can you share available sizes and pricing?`
+    `Hi Abhi's Gifts! I watched your 4K Manufacturing Film for the Lord Ganesha 3D LED Backlit Frame. The 5-layer craftsmanship and LED lighting look exceptional. Can you share available sizes and pricing?`
   )}`;
 
   return (
@@ -315,7 +315,7 @@ export default function ManufacturingFilmModal({ isOpen, onClose, defaultScene =
                     className="absolute inset-0 rounded-xl border-2 border-amber-400 bg-amber-500/20 shadow-lg flex items-center justify-center"
                     style={{ transform: 'translateZ(-25px)' }}
                   >
-                    <span className="text-[10px] font-mono text-amber-300 uppercase font-bold">4. warm LED LED</span>
+                    <span className="text-[10px] font-mono text-amber-300 uppercase font-bold">4. LED LED</span>
                   </div>
                   <div
                     className="absolute inset-0 rounded-xl border-2 border-[#EAB308] overflow-hidden shadow-xl"

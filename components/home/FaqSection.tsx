@@ -14,7 +14,7 @@ export const HOMEPAGE_FAQS: FaqItem[] = [
     a: 'We use premium imported cast acrylic with precision CNC beveled edges. Unlike ordinary glass that poses breakage hazards, our acrylic is shatterproof, UV-resistant, and reproduces vibrant colors with immense optical depth.',
   },
   {
-    q: 'How does the warm LED backlighting work? What is included?',
+    q: 'How does the LED backlighting work? What is included?',
     a: 'Our LED backlit art arrives fully assembled with energy-efficient warm golden SMD LED diodes pre-fitted behind the acrylic panel. Every piece includes a 12V 2A BIS-certified wall adapter with a 2.5-meter discreet transparent power cable and an inline ON/OFF switch.',
   },
   {

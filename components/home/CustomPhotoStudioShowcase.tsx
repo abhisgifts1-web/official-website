@@ -161,7 +161,7 @@ export default function CustomPhotoStudioShowcase() {
                 Turn Cherished Moments into Glowing Acrylic Photo Frames
               </h2>
               <p className="text-xs sm:text-sm text-stone-600 mt-1.5 leading-relaxed font-sans max-w-2xl">
-                Upload your wedding, family, baby, or travel memories. We transform them into premium crystal acrylic wall frames and warm LED night-glow pieces, delivered safely to your doorstep.
+                Upload your wedding, family, baby, or travel memories. We transform them into premium crystal acrylic wall frames and LED night-glow pieces, delivered safely to your doorstep.
               </p>
             </div>
 

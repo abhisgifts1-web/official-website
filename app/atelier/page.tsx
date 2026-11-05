@@ -5,7 +5,7 @@ import SacredArtAtelier from '@/components/home/SacredArtAtelier';
 export const metadata: Metadata = {
   title: "The Sacred Art Atelier • Artisanal Craftsmanship | Abhi's Gifts",
   description:
-    'Experience the cinematic creation of luxury Hindu devotional photo frames. cast acrylic, archival micro-pigments, golden foil embellishments, and warm LED halos handcrafted in Hyderabad.',
+    'Experience the cinematic creation of luxury Hindu devotional photo frames. cast acrylic, archival micro-pigments, golden foil embellishments, and LED halos handcrafted in Hyderabad.',
   alternates: {
     canonical: 'https://abhigifts.com/atelier',
   },

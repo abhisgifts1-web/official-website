@@ -28,7 +28,7 @@ export default function CustomizedGiftsDilsukhnagarPage() {
       slug="customized-gifts-dilsukhnagar"
       keyword="Customized Gifts in Dilsukhnagar"
       h1Title="Customized Gifts in Dilsukhnagar — Meaningful Personalized Keepsakes"
-      subtitle="Celebrate life's most precious milestones with customized gifts in Dilsukhnagar from Abhi's Gifts. From personalized wedding vow acrylic plaques and warm LED night-glow frames to gold foil surname heirlooms, give a gift that shines forever."
+      subtitle="Celebrate life's most precious milestones with customized gifts in Dilsukhnagar from Abhi's Gifts. From personalized wedding vow acrylic plaques and LED night-glow frames to gold foil surname heirlooms, give a gift that shines forever."
       locationName="Dilsukhnagar, Hyderabad"
       metaDescription="Order customized gifts in Dilsukhnagar! Personalized wedding keepsakes, couple acrylic frames, and gold foil photo plaques with luxury gift box packaging."
       introParagraphs={[
@@ -60,7 +60,7 @@ export default function CustomizedGiftsDilsukhnagarPage() {
         {
           question: 'What types of customized gifts can I order in Dilsukhnagar?',
           answer:
-            'We create personalized acrylic photo frames, warm LED night-glow photo frames, circular medallion anniversary plaques, gold foil family crest heirlooms, and consecrated devotional wall art.',
+            'We create personalized acrylic photo frames, LED night-glow photo frames, circular medallion anniversary plaques, gold foil family crest heirlooms, and consecrated devotional wall art.',
         },
         {
           question: 'Can I add custom text, names, and wedding dates to the frame?',

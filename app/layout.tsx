@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     template: '%s | Abhi\'s Gifts — Hyderabad',
   },
   description:
-    'Looking for premium acrylic photo frames in Hyderabad or Dilsukhnagar? Abhi\'s Gifts manufactures cast cast acrylic frames, warm LED photo frames, glitter frames, and personalized gifts with WhatsApp proofing & fast delivery.',
+    'Looking for premium acrylic photo frames in Hyderabad or Dilsukhnagar? Abhi\'s Gifts manufactures cast cast acrylic frames, LED photo frames, glitter frames, and personalized gifts with WhatsApp proofing & fast delivery.',
   keywords: [
     'Acrylic Photo Frames in Hyderabad',
     'LED Photo Frames in Hyderabad',
@@ -87,7 +87,7 @@ export const metadata: Metadata = {
     siteName: "Abhi's Gifts",
     title: 'Acrylic Photo Frames in Hyderabad | Abhi\'s Gifts',
     description:
-      'Discover premium acrylic photo frames, warm LED illuminated photo frames, glitter frames, and personalized gifts in Hyderabad & Dilsukhnagar. Handcrafted with museum-grade cast acrylic.',
+      'Discover premium acrylic photo frames, LED illuminated photo frames, glitter frames, and personalized gifts in Hyderabad & Dilsukhnagar. Handcrafted with museum-grade cast acrylic.',
     images: [
       {
         url: 'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=1200&q=80',

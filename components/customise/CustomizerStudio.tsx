@@ -826,7 +826,7 @@ export default function CustomizerStudio() {
                   />
                   <div className="absolute bottom-2 inset-x-2 bg-stone-900/80 backdrop-blur-xs p-2 rounded-xl text-center">
                     <span className="text-[10px] font-bold text-amber-300 block">LED Night-Glow</span>
-                    <span className="text-[9px] text-white/90">Warm LED Halo</span>
+                    <span className="text-[9px] text-white/90">LED Halo</span>
                   </div>
                 </div>
               </div>
@@ -1593,7 +1593,7 @@ export default function CustomizerStudio() {
                 Choose Your Frame
               </h3>
               <p className="text-xs text-stone-600 leading-relaxed">
-                Select your preferred frame category, dimensions, and warm LED backlight.
+                Select your preferred frame category, dimensions, and LED backlight.
               </p>
               <div className="text-[11px] font-bold text-amber-700 flex items-center gap-1 pt-1">
                 <Check className="w-3.5 h-3.5 text-emerald-600" />

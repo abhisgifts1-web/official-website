@@ -35,7 +35,7 @@ const ROOMS: RoomScene[] = [
     label: 'Living Room',
     icon: '🛋️',
     title: 'Grand Living Room Wall',
-    subtitle: 'Tirupati Lord Balaji 3D Acrylic with Golden warm LED Halo',
+    subtitle: 'Tirupati Lord Balaji 3D Acrylic with Golden LED Halo',
     artworkName: 'Lord Venkateswara Balaji 3D LED Backlit Art',
     artworkSlug: 'lord-venkateswara-balaji',
     artworkSize: '24 x 36 Inches (60 x 90 cm)',

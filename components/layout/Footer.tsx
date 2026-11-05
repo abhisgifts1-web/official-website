@@ -104,7 +104,7 @@ export default function Footer() {
                   />
                 </Link>
                 <p className="text-xs sm:text-[13px] text-stone-600 leading-relaxed max-w-sm">
-                  Handcrafted personalized acrylic photo frames, warm LED illuminated memories, and luxury wall art. Made with care in Hyderabad.
+                  Handcrafted personalized acrylic photo frames, LED illuminated memories, and luxury wall art. Made with care in Hyderabad.
                 </p>
               </div>
 

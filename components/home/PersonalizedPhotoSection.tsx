@@ -138,7 +138,7 @@ const CUSTOM_FRAMES: CustomFrameOption[] = [
   },
   {
     id: 'night-glow',
-    name: 'warm LED Warm LED Halo Frame',
+    name: 'LED LED Halo Frame',
     badge: 'Trending Gift',
     price: 'From ₹2,499',
     defaultArtworkId: 'ganesha',
@@ -146,8 +146,8 @@ const CUSTOM_FRAMES: CustomFrameOption[] = [
     shape: 'Illuminated Frame',
     shapeType: 'square',
     dimensionsLabel: 'Square 24" × 24" (Warm White Glow)',
-    description: 'Concealed Epistar warm LED warm LEDs cast a serene golden halo around your sacred artwork or cherished memory.',
-    highlights: ['warm LED Warm Golden Backlight', 'long-lasting Rated Epistar LEDs', 'Certified 12V BIS Low Voltage', 'Inline ON/OFF Switch'],
+    description: 'Concealed Epistar LED LEDs cast a serene golden halo around your sacred artwork or cherished memory.',
+    highlights: ['LED Warm Golden Backlight', 'long-lasting Rated Epistar LEDs', 'Certified 12V BIS Low Voltage', 'Inline ON/OFF Switch'],
   },
   {
     id: 'gold-crest',
@@ -226,7 +226,7 @@ export default function PersonalizedPhotoSection() {
   const activeTitle = userUploadedPhoto ? 'Your Custom Uploaded Photo' : `${selectedArt.name} — ${selectedArt.subtitle}`;
 
   const whatsappInquiryUrl = `https://wa.me/917780269927?text=${encodeURIComponent(
-    `Hi Abhi's Gifts! I am exploring your Custom Photo & Sacred Frame Atelier:\n- Frame Style: ${selectedFrame.name} (${selectedFrame.price})\n- Artwork / Photo: ${activeTitle}\n- Dimensions: ${selectedFrame.dimensionsLabel}\n- Lighting: ${isLedOn ? 'warm LED LED On' : 'Non-Lit'}\nCan you share final pricing, custom sizing options, and a free WhatsApp digital proof?`
+    `Hi Abhi's Gifts! I am exploring your Custom Photo & Sacred Frame Atelier:\n- Frame Style: ${selectedFrame.name} (${selectedFrame.price})\n- Artwork / Photo: ${activeTitle}\n- Dimensions: ${selectedFrame.dimensionsLabel}\n- Lighting: ${isLedOn ? 'LED LED On' : 'Non-Lit'}\nCan you share final pricing, custom sizing options, and a free WhatsApp digital proof?`
   )}`;
 
   return (
@@ -256,7 +256,7 @@ export default function PersonalizedPhotoSection() {
             </h2>
 
             <p className="text-xs sm:text-sm text-[#D1D5DB] leading-relaxed max-w-2xl font-sans">
-              Experience your sacred wall art or personal milestones at breathtaking scale. Choose from our iconic devotional masterpieces or upload your family portrait. Engineered with precision beveled beveled cast acrylic, pre-installed floating mounts, and optional warm LED warm LED illumination.
+              Experience your sacred wall art or personal milestones at breathtaking scale. Choose from our iconic devotional masterpieces or upload your family portrait. Engineered with precision beveled beveled cast acrylic, pre-installed floating mounts, and optional LED LED illumination.
             </p>
           </div>
 
@@ -321,7 +321,7 @@ export default function PersonalizedPhotoSection() {
                       {frame.hasLed && (
                         <span className="text-[10px] font-bold text-amber-700 bg-amber-100/80 px-2 py-0.5 rounded-full flex items-center gap-1 border border-amber-300/50">
                           <Zap className="w-2.5 h-2.5 text-amber-600 fill-amber-600" />
-                          <span>warm LED LED</span>
+                          <span>LED LED</span>
                         </span>
                       )}
                     </div>
@@ -400,12 +400,12 @@ export default function PersonalizedPhotoSection() {
                     ? 'bg-[#1C0912] text-[#FACC15] border-[#EAB308] shadow-[0_0_20px_rgba(214,170,85,0.4)]'
                     : 'bg-white text-[#D1D5DB] border-[#2D2D2D] hover:text-[#FFFFFF]'
                 }`}
-                title="Toggle warm LED Warm Golden Backlight"
+                title="Toggle LED Warm Golden Backlight"
               >
                 {isLedOn ? (
                   <>
                     <Zap className="w-3.5 h-3.5 text-amber-400 fill-amber-400" />
-                    <span>warm LED Glow: ON</span>
+                    <span>LED Glow: ON</span>
                   </>
                 ) : (
                   <>
@@ -466,12 +466,12 @@ export default function PersonalizedPhotoSection() {
                   : undefined,
             }}
           >
-            {/* Ambient Dark Overlay for interior backgrounds when warm LED LED is active */}
+            {/* Ambient Dark Overlay for interior backgrounds when LED LED is active */}
             {(wallMode === 'pooja' || wallMode === 'living') && isLedOn && (
               <div className="absolute inset-0 bg-black/50 backdrop-blur-[1px] transition-all duration-700 pointer-events-none" />
             )}
 
-            {/* warm LED Golden LED Halo radiating 360° across the Wall */}
+            {/* LED Golden LED Halo radiating 360° across the Wall */}
             {isLedOn && (selectedFrame.hasLed || selectedArt.hasLed) && (
               <div
                 className={`absolute pointer-events-none transition-all duration-700 ${
@@ -727,7 +727,7 @@ export default function PersonalizedPhotoSection() {
                 precision beveled Fabrication &amp; Delivery
               </h4>
               <p className="text-xs text-[#D1D5DB] leading-relaxed">
-                Fabricated with premium acrylic and long-lasting Epistar warm LEDs. Packed in 5-layer wood-reinforced crates with direct studio pickup or doorstep delivery.
+                Fabricated with premium acrylic and long-lasting Epistar LEDs. Packed in 5-layer wood-reinforced crates with direct studio pickup or doorstep delivery.
               </p>
               <div className="pt-2 text-[11px] font-bold text-[#EAB308] flex items-center gap-1">
                 <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />

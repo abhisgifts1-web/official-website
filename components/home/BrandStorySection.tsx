@@ -88,7 +88,7 @@ const CRAFT_PILLARS: CraftPillar[] = [
     ],
     image: '/images/wall-decor/products/led/ayodhya-ram-mandir-sanctum.jpg',
     fallbackImage: '/images/divine/ram-mandir.jpg',
-    imageAlt: 'Calibrated warm LED illuminated sanctum frame',
+    imageAlt: 'Calibrated LED illuminated sanctum frame',
     badge1: 'Warm Ambient LED',
     badge2: 'Concealed Heat-Sink Wiring',
     mantraAnnotation: 'Warm Temple Diya Light • Zero Eye Glare',
@@ -210,7 +210,7 @@ export default function BrandStorySection() {
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 animate-sanctum-reveal"
               />
 
-              {/* Multi-layered Warm LED Corona Backdrop */}
+              {/* Multi-layered LED Corona Backdrop */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/35 pointer-events-none" />
 
               {/* Dynamic Acrylic Specular Sheen */}

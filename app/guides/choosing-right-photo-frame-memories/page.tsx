@@ -127,7 +127,7 @@ export default function ChoosingRightPhotoFrameMemoriesGuide() {
             <li>You have children, toddlers, or pets at home and want zero risk of broken glass shards.</li>
             <li>Your home has contemporary, minimalist, or luxury interior decor with floating furniture.</li>
             <li>You want photographs to have vibrant, high-gloss 3D depth.</li>
-            <li>You desire nocturnal ambient backlighting with integrated warm LEDs.</li>
+            <li>You desire nocturnal ambient backlighting with integrated LEDs.</li>
           </ul>
         </section>
 

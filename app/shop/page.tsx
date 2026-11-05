@@ -219,7 +219,7 @@ function ShopContent() {
               <div className="space-y-1.5 text-xs">
                 {[
                   { id: 'all', label: `All Artwork Types (${totalArtworksCount})` },
-                  { id: 'led', label: `✨ Warm LED Backlit (${ledArtworksCount})` },
+                  { id: 'led', label: `✨ LED Backlit (${ledArtworksCount})` },
                   { id: 'none', label: `🖼️ Normal Crystal Acrylic (${normalArtworksCount})` },
                 ].map((item) => (
                   <label key={item.id} className="flex items-center gap-2 cursor-pointer p-1 rounded hover:bg-stone-100 transition-colors">

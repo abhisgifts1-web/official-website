@@ -196,7 +196,7 @@ export default function AdminProductsPage() {
         dimensionsCm: v.dimensionsCm.trim(),
         finish: 'Acrylic Ultra-Gloss' as const,
         lighting: formData.hasLedBacklight
-          ? ('Warm LED Backlit (12V Adapter)' as const)
+          ? ('LED Backlit (12V Adapter)' as const)
           : ('No Lighting (Pure Art)' as const),
         price: Number(v.price),
         mrp: Number(v.mrp),
@@ -755,7 +755,7 @@ export default function AdminProductsPage() {
                         onChange={(e) => setFormData({ ...formData, hasLedBacklight: e.target.checked })}
                         className="rounded text-amber-600 accent-amber-500"
                       />
-                      <span className="font-semibold text-stone-900">Warm LED Backlight</span>
+                      <span className="font-semibold text-stone-900">LED Backlight</span>
                     </label>
 
                     <label className="flex items-center gap-2 cursor-pointer text-xs text-stone-800">

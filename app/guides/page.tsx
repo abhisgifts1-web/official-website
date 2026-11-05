@@ -7,7 +7,7 @@ import { getBreadcrumbSchema } from '@/lib/seo/schema';
 export const metadata: Metadata = {
   title: "Photo Frame & Wall Art Guides | Abhi's Gifts Hyderabad",
   description:
-    'Expert buying guides and advice on acrylic photo frames, warm LED backlit frames, personalized photo gifts, and framing tips for Hyderabad and Dilsukhnagar homes.',
+    'Expert buying guides and advice on acrylic photo frames, LED backlit frames, personalized photo gifts, and framing tips for Hyderabad and Dilsukhnagar homes.',
   alternates: {
     canonical: 'https://abhigifts.com/guides',
   },
@@ -41,7 +41,7 @@ const GUIDES = [
     slug: 'led-acrylic-photo-frames-home-decor',
     title: 'LED Acrylic Photo Frames for Home Decoration: Warm Ambient Lighting Ideas',
     excerpt:
-      'Discover how warm LED backlit acrylic photo frames enhance living rooms, bedrooms, and sacred pooja mandir sanctums with soft evening illumination.',
+      'Discover how LED backlit acrylic photo frames enhance living rooms, bedrooms, and sacred pooja mandir sanctums with soft evening illumination.',
     date: 'Updated November 2026',
     readTime: '7 min read',
     tag: 'Interior Decor',
@@ -102,7 +102,7 @@ export default function GuidesIndexPage() {
         </h1>
 
         <p className="text-xs sm:text-sm text-stone-600 max-w-2xl leading-relaxed">
-          Crafted by the master artisans at Abhi&apos;s Gifts. Explore in-depth guides on selecting acrylic photo frames, warm LED lighting, sizing recommendations, and thoughtful personalized gifts in Hyderabad.
+          Crafted by the master artisans at Abhi&apos;s Gifts. Explore in-depth guides on selecting acrylic photo frames, LED lighting, sizing recommendations, and thoughtful personalized gifts in Hyderabad.
         </p>
       </div>
 

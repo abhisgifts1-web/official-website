@@ -225,7 +225,7 @@ export default function InteractiveLedExperience() {
                 }`}
               >
                 <Zap className="w-3 h-3 text-amber-700" />
-                <span>warm ambient LED Glow (100%)</span>
+                <span>ambient LED Glow (100%)</span>
               </button>
             </div>
 
@@ -243,21 +243,21 @@ export default function InteractiveLedExperience() {
               onClick={(e) => handleMove(e.clientX)}
               className="relative w-full aspect-[4/3] sm:aspect-[16/11] max-w-[640px] rounded-2xl sm:rounded-3xl overflow-hidden border border-stone-300 shadow-md cursor-ew-resize select-none"
             >
-              {/* Layer 1: AFTER — warm ambient Warm LED Backlit Image (Full Container) */}
+              {/* Layer 1: AFTER — warm ambient LED Backlit Image (Full Container) */}
               <div className="absolute inset-0 w-full h-full bg-[#18060C]">
                 <img
                   src={selectedItem.ledImage}
-                  alt={`${selectedItem.name} warm ambient LED Illuminated`}
+                  alt={`${selectedItem.name} ambient LED Illuminated`}
                   className="w-full h-full object-cover"
                 />
 
                 {/* warm ambient Ambient Halo Glow Layer */}
                 <div className="absolute inset-0 bg-radial from-[#EAB308]/25 via-transparent to-transparent pointer-events-none" />
 
-                {/* Top Right Label: warm ambient LED BACKLIT */}
+                {/* Top Right Label: ambient LED BACKLIT */}
                 <div className="absolute top-2.5 sm:top-3.5 right-2.5 sm:right-3.5 z-20 bg-stone-900/90 text-amber-300 border border-amber-400/50 px-2 sm:px-3 py-0.5 sm:py-1 rounded-full text-[10px] sm:text-xs font-bold shadow-md backdrop-blur-xs flex items-center gap-1 sm:gap-1.5 pointer-events-none">
                   <Flame className="w-3.5 h-3.5 text-amber-400" />
-                  <span>AFTER: warm ambient LED GLOW</span>
+                  <span>AFTER: ambient LED GLOW</span>
                 </div>
               </div>
 
@@ -292,7 +292,7 @@ export default function InteractiveLedExperience() {
 
               {/* Instruction Pill at Bottom */}
               <div className="absolute bottom-3 left-1/2 -translate-x-1/2 z-20 bg-black/70 text-white/90 px-3.5 py-1 rounded-full text-[11px] font-medium backdrop-blur-xs pointer-events-none">
-                Drag slider ↔ to compare daylight vs warm ambient LED
+                Drag slider ↔ to compare daylight vs ambient LED
               </div>
             </div>
           </div>

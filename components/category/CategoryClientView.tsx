@@ -165,7 +165,7 @@ export default function CategoryClientView({ category, products }: CategoryClien
                 className="w-full bg-white border border-stone-300 rounded-xl px-3 py-2 outline-none font-medium text-stone-900"
               >
                 <option value="all">All Styles</option>
-                <option value="led">✨ warm LED Backlit</option>
+                <option value="led">✨ LED Backlit</option>
                 <option value="none">Pure Crystal Acrylic</option>
               </select>
             </div>
@@ -210,7 +210,7 @@ export default function CategoryClientView({ category, products }: CategoryClien
 
           {selectedLighting !== 'all' && (
             <span className="bg-amber-100 text-amber-900 px-3 py-1 rounded-full flex items-center gap-1.5 font-medium border border-amber-200">
-              {selectedLighting === 'led' ? '✨ Warm LED Backlit' : 'Pure Crystal Acrylic'}
+              {selectedLighting === 'led' ? '✨ LED Backlit' : 'Pure Crystal Acrylic'}
               <button type="button" onClick={() => setSelectedLighting('all')}>
                 <X className="w-3 h-3 hover:text-amber-700" />
               </button>

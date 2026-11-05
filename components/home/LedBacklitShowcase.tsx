@@ -161,7 +161,7 @@ export default function LedBacklitShowcase() {
                 Sacred Illumination That Transforms Any Room
               </h2>
               <p className="text-xs sm:text-sm text-stone-300 mt-1 leading-relaxed font-sans max-w-2xl">
-                Bring the peaceful glow of the temple sanctum into your home. Hidden warm golden LEDs radiate behind crystal acrylic, casting a gentle aura that creates a serene spiritual atmosphere day and night.
+                Bring the peaceful glow of the temple sanctum into your home. Hidden golden LEDs radiate behind crystal acrylic, casting a gentle aura that creates a serene spiritual atmosphere day and night.
               </p>
             </div>
 

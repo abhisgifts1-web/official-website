@@ -30,7 +30,7 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
     size: 'Standard',
     dimensionsCm: '30 x 45 cm',
     finish: 'Acrylic Ultra-Gloss',
-    lighting: product.hasLedBacklight ? 'Warm LED Backlit (12V Adapter)' : 'No Lighting (Pure Art)',
+    lighting: product.hasLedBacklight ? 'LED Backlit (12V Adapter)' : 'No Lighting (Pure Art)',
     price: product.basePrice,
     mrp: product.baseMrp,
     sku: 'AG-DEF',

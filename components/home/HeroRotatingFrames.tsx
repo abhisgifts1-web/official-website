@@ -530,7 +530,7 @@ export default function HeroRotatingFrames() {
         className="relative w-full h-[280px] sm:h-[310px] lg:h-[330px] xl:h-[345px] flex items-center justify-center my-1.5 sm:my-2 overflow-visible"
         style={{ perspective: '1200px' }}
       >
-        {/* Soft Golden Outer Glow Halo & Rotating Conic Sunburst Rays (warm LED Radiance #FFD58A) */}
+        {/* Soft Golden Outer Glow Halo & Rotating Conic Sunburst Rays (LED Radiance #FFD58A) */}
         <div
           className={`absolute w-[270px] sm:w-[310px] lg:w-[340px] h-[270px] sm:h-[310px] lg:h-[340px] rounded-full blur-3xl pointer-events-none transition-all duration-700 -z-10 ${
             isAartiMode
@@ -618,7 +618,7 @@ export default function HeroRotatingFrames() {
               }}
             />
 
-            {/* Double Ornate Gold Foil Outer Bevel Rim with warm LED Illumination */}
+            {/* Double Ornate Gold Foil Outer Bevel Rim with LED Illumination */}
             <div
               className={`relative w-full h-full rounded-2xl p-2 transition-all duration-500 ${
                 isAartiMode
