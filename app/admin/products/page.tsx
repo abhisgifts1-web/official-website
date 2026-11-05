@@ -11,10 +11,25 @@ import {
   Edit2,
   Sparkles,
   RotateCw,
+  Ruler,
+  CheckCircle2,
 } from 'lucide-react';
 import AdminLayout from '@/components/admin/AdminLayout';
 import { Product, ProductOrientation, OrientationShape } from '@/types';
 import { INITIAL_CATEGORIES } from '@/lib/data/categories';
+
+const POPULAR_FRAME_SIZES = [
+  { size: '8 x 12 inches', dimensionsCm: '20 x 30 cm', label: '8x12"' },
+  { size: '10 x 15 inches', dimensionsCm: '25 x 38 cm', label: '10x15"' },
+  { size: '12 x 18 inches', dimensionsCm: '30 x 45 cm', label: '12x18"' },
+  { size: '16 x 20 inches', dimensionsCm: '40 x 50 cm', label: '16x20"' },
+  { size: '16 x 24 inches', dimensionsCm: '40 x 60 cm', label: '16x24"' },
+  { size: '18 x 24 inches', dimensionsCm: '45 x 60 cm', label: '18x24"' },
+  { size: '20 x 30 inches', dimensionsCm: '50 x 75 cm', label: '20x30"' },
+  { size: '24 x 36 inches', dimensionsCm: '60 x 90 cm', label: '24x36"' },
+  { size: '30 x 48 inches (Grand Wall Size)', dimensionsCm: '75 x 120 cm', label: '30x48"' },
+  { size: '36 x 48 inches (Palace Size)', dimensionsCm: '90 x 120 cm', label: '36x48"' },
+];
 
 interface AdminFormVariant {
   id: string;
@@ -49,6 +64,16 @@ export default function AdminProductsPage() {
   const [modalOpen, setModalOpen] = useState(false);
   const [editingSlug, setEditingSlug] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
+
+  // Quick Add Size Option state (accessible directly from any product row in the table)
+  const [quickSizeProduct, setQuickSizeProduct] = useState<Product | null>(null);
+  const [quickSizeName, setQuickSizeName] = useState('');
+  const [quickSizeCm, setQuickSizeCm] = useState('');
+  const [quickSizePrice, setQuickSizePrice] = useState(2499);
+  const [quickSizeMrp, setQuickSizeMrp] = useState(4999);
+  const [quickSizeStock, setQuickSizeStock] = useState(25);
+  const [quickSizeSaving, setQuickSizeSaving] = useState(false);
+  const [quickSizeSuccess, setQuickSizeSuccess] = useState('');
 
   // Form state
   const initialForm = {
@@ -181,6 +206,120 @@ export default function AdminProductsPage() {
       ...prev,
       variants: defaults,
     }));
+  };
+
+  // Dynamically add a new size option to the current product
+  const handleAddSizeOption = (prefill?: { size: string; dimensionsCm: string }) => {
+    const currentCount = formData.variants.length;
+    const baseP = formData.basePrice || 2499;
+    const baseM = formData.baseMrp || 4999;
+    const multiplier = 1 + currentCount * 0.35;
+    const suggestedPrice = Math.max(999, Math.round((baseP * multiplier) / 100) * 100 - 1);
+    const suggestedMrp = Math.max(1999, Math.round((baseM * multiplier) / 100) * 100 - 1);
+
+    const newVariant: AdminFormVariant = {
+      id: `size-${Date.now()}-${currentCount + 1}`,
+      size: prefill?.size || '',
+      dimensionsCm: prefill?.dimensionsCm || '',
+      price: suggestedPrice,
+      mrp: suggestedMrp,
+      inStock: true,
+      stockCount: 25,
+    };
+
+    setFormData((prev) => ({
+      ...prev,
+      variants: [...prev.variants, newVariant],
+    }));
+  };
+
+  // Remove a specific size option from the product
+  const handleRemoveSizeOption = (index: number) => {
+    if (formData.variants.length <= 1) {
+      alert('Every product must have at least one size option.');
+      return;
+    }
+    setFormData((prev) => {
+      const updated = prev.variants.filter((_, i) => i !== index);
+      return {
+        ...prev,
+        variants: updated,
+        basePrice: updated[0]?.price || prev.basePrice,
+        baseMrp: updated[0]?.mrp || prev.baseMrp,
+      };
+    });
+  };
+
+  // Open the Quick Add Size Option modal for a specific product directly from the table
+  const handleOpenQuickAddSize = (prod: Product) => {
+    setQuickSizeProduct(prod);
+    setQuickSizeName('');
+    setQuickSizeCm('');
+    const baseP = prod.basePrice || 2499;
+    const baseM = prod.baseMrp || 4999;
+    const currentCount = prod.variants?.length || 4;
+    const multiplier = 1 + currentCount * 0.35;
+    setQuickSizePrice(Math.round((baseP * multiplier) / 100) * 100 - 1);
+    setQuickSizeMrp(Math.round((baseM * multiplier) / 100) * 100 - 1);
+    setQuickSizeStock(25);
+    setQuickSizeSuccess('');
+  };
+
+  // Save the new size directly to the product in DB and memory
+  const handleSaveQuickSize = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!quickSizeProduct || !quickSizeName.trim()) return;
+
+    setQuickSizeSaving(true);
+    setQuickSizeSuccess('');
+
+    try {
+      const existing = quickSizeProduct.variants || [];
+      const newVar = {
+        id: `var-${Date.now()}`,
+        size: quickSizeName.trim(),
+        dimensionsCm: quickSizeCm.trim() || 'Custom cm',
+        finish: 'Acrylic Ultra-Gloss' as const,
+        lighting: quickSizeProduct.hasLedBacklight
+          ? ('LED Backlit (12V Adapter)' as const)
+          : ('No Lighting (Pure Art)' as const),
+        price: Number(quickSizePrice),
+        mrp: Number(quickSizeMrp),
+        sku: `AG-${quickSizeProduct.slug.substring(0, 6).toUpperCase()}-${existing.length + 1}`,
+        inStock: true,
+        stockCount: Number(quickSizeStock) || 25,
+      };
+
+      const updatedVariants = [...existing, newVar];
+
+      const res = await fetch(`/api/products/${quickSizeProduct.slug}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          variants: updatedVariants,
+          orientationVariants: {
+            portrait: updatedVariants,
+            landscape: updatedVariants,
+            square: updatedVariants,
+          },
+        }),
+      });
+
+      const data = await res.json();
+      if (res.ok && data.success) {
+        setQuickSizeSuccess(`Added size "${quickSizeName}" successfully!`);
+        setTimeout(() => {
+          setQuickSizeProduct(null);
+          fetchProducts();
+        }, 1100);
+      } else {
+        alert(data.error || 'Failed to add size option.');
+      }
+    } catch {
+      alert('Failed to add size option. Please try again.');
+    } finally {
+      setQuickSizeSaving(false);
+    }
   };
 
   const handleSaveProduct = async (e: React.FormEvent) => {
@@ -394,7 +533,7 @@ export default function AdminProductsPage() {
                 <thead className="bg-stone-100 border-b border-stone-200 text-stone-700 font-bold uppercase tracking-wider text-[10px]">
                   <tr>
                     <th className="py-3 px-4">Artwork</th>
-                    <th className="py-3 px-4">4 Sizes &amp; Pricing</th>
+                    <th className="py-3 px-4">Configured Sizes &amp; Pricing</th>
                     <th className="py-3 px-4">Category</th>
                     <th className="py-3 px-4">Lighting</th>
                     <th className="py-3 px-4 text-center">Total Stock</th>
@@ -404,12 +543,11 @@ export default function AdminProductsPage() {
                 <tbody className="divide-y divide-stone-100">
                   {filteredProducts.map((prod) => {
                     const primaryVariants =
-                        prod.variants && prod.variants.length > 0
+                      prod.variants && prod.variants.length > 0
                         ? prod.variants
                         : getDefault4Variants(prod.basePrice, prod.baseMrp);
 
-                    const fourSizes = primaryVariants.slice(0, 4);
-                    const totalStock = fourSizes.reduce((acc, v) => acc + (v.stockCount || 0), 0);
+                    const totalStock = primaryVariants.reduce((acc, v) => acc + (v.stockCount || 0), 0);
 
                     return (
                       <tr key={prod.id} className="hover:bg-stone-50 transition-colors">
@@ -428,22 +566,35 @@ export default function AdminProductsPage() {
                           </div>
                         </td>
 
-                        {/* 4 Sizes & Prices Pills column */}
+                        {/* All Sizes & Prices Pills column with Quick Add Size button */}
                         <td className="py-3 px-4">
-                          <div className="grid grid-cols-2 gap-1.5">
-                            {fourSizes.map((v, i) => (
-                              <div
-                                key={i}
-                                className="px-2 py-1 bg-stone-50 border border-stone-200 rounded-lg text-[10.5px] flex items-center justify-between gap-1.5"
+                          <div className="flex flex-col gap-1.5 max-w-md">
+                            <div className="flex flex-wrap gap-1.5">
+                              {primaryVariants.map((v, i) => (
+                                <div
+                                  key={i}
+                                  className="px-2 py-1 bg-stone-50 border border-stone-200 rounded-lg text-[10.5px] flex items-center gap-1.5"
+                                >
+                                  <span className="text-stone-700 font-medium truncate max-w-[120px]" title={v.size}>
+                                    {v.size.replace(' inches', '"').replace(' (Grand Wall Size)', ' Grand').replace(' (Grand Sanctum)', '')}
+                                  </span>
+                                  <span className="font-bold font-serif text-amber-800 shrink-0">
+                                    ₹{v.price.toLocaleString('en-IN')}
+                                  </span>
+                                </div>
+                              ))}
+                            </div>
+                            <div>
+                              <button
+                                type="button"
+                                onClick={() => handleOpenQuickAddSize(prod)}
+                                className="inline-flex items-center gap-1 text-[10.5px] font-bold text-amber-900 bg-amber-50 hover:bg-amber-100 border border-amber-300 px-2 py-0.5 rounded-md transition-colors cursor-pointer shadow-2xs"
+                                title="Quickly add a new size option to this product"
                               >
-                                <span className="text-stone-600 font-medium truncate max-w-[110px]" title={v.size}>
-                                  {v.size.replace(' inches', '"').replace(' (Grand Wall Size)', ' Grand').replace(' (Grand Sanctum)', '')}
-                                </span>
-                                <span className="font-bold font-serif text-amber-800 shrink-0">
-                                  ₹{v.price.toLocaleString('en-IN')}
-                                </span>
-                              </div>
-                            ))}
+                                <Plus className="w-3 h-3 text-amber-700" />
+                                <span>+ Add Size Option</span>
+                              </button>
+                            </div>
                           </div>
                         </td>
 
@@ -475,6 +626,15 @@ export default function AdminProductsPage() {
                         {/* Actions */}
                         <td className="py-3 px-4 text-right">
                           <div className="flex items-center justify-end gap-1.5">
+                            <button
+                              type="button"
+                              onClick={() => handleOpenQuickAddSize(prod)}
+                              className="px-2 py-1 text-xs font-bold bg-amber-50 hover:bg-amber-100 text-amber-900 border border-amber-300 rounded-lg flex items-center gap-1 transition-colors cursor-pointer shadow-2xs"
+                              title="Add Size Option"
+                            >
+                              <Plus className="w-3.5 h-3.5 text-amber-700" />
+                              <span>+ Size</span>
+                            </button>
                             <Link
                               href={`/product/${prod.slug}`}
                               target="_blank"
@@ -607,43 +767,72 @@ export default function AdminProductsPage() {
                   </div>
                 </div>
 
-                {/* 2. 4 Sizes & Pricing Engine */}
+                {/* 2. Sizes & Dynamic Pricing Engine */}
                 <div className="space-y-4 pt-5 border-t border-stone-200">
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                     <div>
                       <h4 className="font-bold text-stone-900 text-sm flex items-center gap-2">
                         <span className="w-5 h-5 rounded-full bg-amber-100 text-amber-800 text-xs flex items-center justify-center font-bold">2</span>
-                        Artwork Sizes &amp; Individual Pricing (₹)
+                        <span>Artwork Sizes &amp; Individual Pricing (₹)</span>
+                        <span className="text-[11px] font-bold px-2 py-0.5 rounded-full bg-amber-500/15 text-amber-900 border border-amber-300">
+                          {formData.variants.length} {formData.variants.length === 1 ? 'Size' : 'Sizes'}
+                        </span>
                       </h4>
                       <p className="text-[11px] text-stone-600">
-                        Configure dimensions, selling price (₹), original MRP (₹), and stock for each size tier.
+                        Configure dimensions, selling price (₹), MRP (₹), and stock for each size option. Add as many sizes as needed.
                       </p>
                     </div>
 
-                    <button
-                      type="button"
-                      onClick={handleAutofillStandardSizes}
-                      className="px-3 py-1.5 rounded-xl border border-amber-300 bg-amber-50 hover:bg-amber-100 text-amber-900 text-[11px] font-bold flex items-center gap-1.5 transition-colors cursor-pointer self-start sm:self-auto"
-                      title="Reset dimensions to standard default sizes"
-                    >
-                      <RotateCw className="w-3 h-3 text-amber-700" />
-                      <span>Reset Standard Sizes</span>
-                    </button>
+                    <div className="flex items-center gap-2 shrink-0">
+                      <button
+                        type="button"
+                        onClick={() => handleAddSizeOption()}
+                        className="px-3 py-1.5 rounded-xl border border-amber-500 bg-[#EAB308] hover:bg-[#FACC15] text-stone-950 text-[11px] font-extrabold flex items-center gap-1.5 transition-colors cursor-pointer shadow-xs"
+                        title="Add a new custom size option"
+                      >
+                        <Plus className="w-3.5 h-3.5" />
+                        <span>+ Add Size Option</span>
+                      </button>
+                      <button
+                        type="button"
+                        onClick={handleAutofillStandardSizes}
+                        className="px-2.5 py-1.5 rounded-xl border border-stone-300 bg-white hover:bg-stone-100 text-stone-700 text-[11px] font-semibold flex items-center gap-1.5 transition-colors cursor-pointer"
+                        title="Reset dimensions to standard 4 default sizes"
+                      >
+                        <RotateCw className="w-3 h-3 text-stone-500" />
+                        <span>Reset 4 Sizes</span>
+                      </button>
+                    </div>
                   </div>
 
-                  {/* 4 Size Cards */}
+                  {/* Popular Size Quick Add Presets */}
+                  <div className="p-3 bg-amber-50/70 border border-amber-200/90 rounded-2xl">
+                    <div className="flex items-center gap-1.5 mb-2">
+                      <Ruler className="w-3.5 h-3.5 text-amber-800" />
+                      <span className="text-xs font-bold text-amber-950">Quick Add Popular Sizes:</span>
+                      <span className="text-[10px] text-amber-800 font-medium">(click to append directly)</span>
+                    </div>
+                    <div className="flex flex-wrap gap-1.5">
+                      {POPULAR_FRAME_SIZES.map((preset) => (
+                        <button
+                          key={preset.size}
+                          type="button"
+                          onClick={() => handleAddSizeOption(preset)}
+                          className="px-2.5 py-1 rounded-lg bg-white border border-amber-300 hover:border-amber-500 text-amber-950 text-[11px] font-semibold hover:bg-amber-400 hover:text-black transition-all cursor-pointer shadow-2xs flex items-center gap-1"
+                        >
+                          <Plus className="w-3 h-3 text-amber-700" />
+                          <span>{preset.size}</span>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Size Cards Grid */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
                     {formData.variants.map((v, i) => {
-                      const tierTitles = [
-                        'Size 1 (Small / Alcove)',
-                        'Size 2 (Medium / Standard)',
-                        'Size 3 (Large / Statement)',
-                        'Size 4 (Grand Masterpiece)',
-                      ];
-
                       return (
                         <div
-                          key={i}
+                          key={v.id || i}
                           className="p-4 rounded-2xl bg-stone-50 border border-stone-200 space-y-3 relative hover:border-amber-400 transition-colors shadow-xs"
                         >
                           <div className="flex items-center justify-between border-b border-stone-200 pb-2">
@@ -651,19 +840,36 @@ export default function AdminProductsPage() {
                               <span className="w-4 h-4 rounded-full bg-[#EAB308] text-stone-950 text-[10px] flex items-center justify-center font-bold">
                                 {i + 1}
                               </span>
-                              {tierTitles[i]}
+                              <span>Size Option {i + 1}</span>
+                              {v.size && (
+                                <span className="font-mono text-[10.5px] text-stone-600 bg-white px-1.5 py-0.5 rounded border border-stone-200">
+                                  {v.size}
+                                </span>
+                              )}
                             </span>
-                            <label className="flex items-center gap-1.5 cursor-pointer text-[11px]">
-                              <input
-                                type="checkbox"
-                                checked={v.inStock}
-                                onChange={(e) => handleVariantChange(i, 'inStock', e.target.checked)}
-                                className="rounded text-amber-600 accent-amber-500"
-                              />
-                              <span className={v.inStock ? 'text-emerald-700 font-bold' : 'text-stone-400'}>
-                                {v.inStock ? 'In Stock' : 'Out of Stock'}
-                              </span>
-                            </label>
+                            <div className="flex items-center gap-2">
+                              <label className="flex items-center gap-1.5 cursor-pointer text-[11px]">
+                                <input
+                                  type="checkbox"
+                                  checked={v.inStock}
+                                  onChange={(e) => handleVariantChange(i, 'inStock', e.target.checked)}
+                                  className="rounded text-amber-600 accent-amber-500"
+                                />
+                                <span className={v.inStock ? 'text-emerald-700 font-bold' : 'text-stone-400'}>
+                                  {v.inStock ? 'In Stock' : 'Out'}
+                                </span>
+                              </label>
+                              {formData.variants.length > 1 && (
+                                <button
+                                  type="button"
+                                  onClick={() => handleRemoveSizeOption(i)}
+                                  className="p-1 text-stone-400 hover:text-rose-600 hover:bg-rose-50 rounded-lg transition-colors cursor-pointer"
+                                  title="Remove this size option"
+                                >
+                                  <Trash2 className="w-3.5 h-3.5" />
+                                </button>
+                              )}
+                            </div>
                           </div>
 
                           <div className="grid grid-cols-2 gap-2">
@@ -738,6 +944,16 @@ export default function AdminProductsPage() {
                       );
                     })}
                   </div>
+
+                  {/* Add Another Size Option dashed button */}
+                  <button
+                    type="button"
+                    onClick={() => handleAddSizeOption()}
+                    className="w-full py-3 rounded-2xl border-2 border-dashed border-amber-300 hover:border-amber-500 bg-amber-50/50 hover:bg-amber-100/70 text-amber-950 font-extrabold text-xs flex items-center justify-center gap-2 transition-all cursor-pointer shadow-2xs"
+                  >
+                    <Plus className="w-4 h-4 text-amber-800" />
+                    <span>+ Add Another Size Option to this Product</span>
+                  </button>
                 </div>
 
                 {/* 3. Options & Badges */}
@@ -836,6 +1052,182 @@ export default function AdminProductsPage() {
                     className="px-6 py-2.5 bg-[#EAB308] hover:bg-[#FACC15] disabled:opacity-50 text-stone-950 rounded-xl font-extrabold transition-all shadow-md cursor-pointer flex items-center gap-1.5 text-xs border border-amber-500 uppercase tracking-wider"
                   >
                     {saving ? 'Saving Changes...' : editingSlug ? 'Update Artwork & Sizes' : 'Save New Masterpiece'}
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        )}
+
+        {/* Quick Add Size Option Modal */}
+        {quickSizeProduct && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs overflow-y-auto">
+            <div className="bg-white rounded-3xl max-w-lg w-full p-6 shadow-2xl border border-stone-200 my-8 text-stone-900">
+              <div className="flex items-center justify-between border-b border-stone-200 pb-3 mb-4">
+                <div className="flex items-center gap-2.5">
+                  <div className="w-8 h-8 rounded-xl bg-amber-100 text-amber-800 flex items-center justify-center">
+                    <Ruler className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <h3 className="font-serif font-bold text-base text-stone-900">
+                      Add Size Option
+                    </h3>
+                    <p className="text-[11px] text-stone-500">
+                      Add a custom or preset size to this product
+                    </p>
+                  </div>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setQuickSizeProduct(null)}
+                  className="p-1.5 text-stone-400 hover:text-stone-900 hover:bg-stone-100 rounded-full transition-colors cursor-pointer"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+              </div>
+
+              {/* Product Info Preview */}
+              <div className="flex items-center gap-3 p-2.5 bg-stone-50 rounded-2xl border border-stone-200 mb-4">
+                <img
+                  src={quickSizeProduct.images[0]}
+                  alt={quickSizeProduct.title}
+                  className="w-12 h-12 rounded-xl object-cover border border-stone-200 shrink-0"
+                />
+                <div className="min-w-0">
+                  <h4 className="font-bold text-xs text-stone-900 truncate">{quickSizeProduct.title}</h4>
+                  <p className="text-[11px] text-stone-500">
+                    Currently has <span className="font-semibold text-amber-800">{quickSizeProduct.variants?.length || 4}</span> configured sizes
+                  </p>
+                </div>
+              </div>
+
+              {/* Success Banner */}
+              {quickSizeSuccess && (
+                <div className="p-3 mb-4 rounded-xl bg-emerald-50 border border-emerald-300 text-emerald-800 text-xs font-bold flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 shrink-0 text-emerald-600" />
+                  <span>{quickSizeSuccess}</span>
+                </div>
+              )}
+
+              {/* Quick Preset Selector */}
+              <div className="mb-4">
+                <label className="text-[11px] font-bold text-stone-700 block mb-1.5">
+                  Select Popular Preset (or type custom below):
+                </label>
+                <div className="flex flex-wrap gap-1.5">
+                  {POPULAR_FRAME_SIZES.map((preset) => {
+                    const isSelected = quickSizeName === preset.size;
+                    return (
+                      <button
+                        key={preset.size}
+                        type="button"
+                        onClick={() => {
+                          setQuickSizeName(preset.size);
+                          setQuickSizeCm(preset.dimensionsCm);
+                        }}
+                        className={`px-2.5 py-1 rounded-lg text-[11px] font-semibold border transition-all cursor-pointer ${
+                          isSelected
+                            ? 'bg-[#EAB308] border-amber-600 text-stone-950 font-bold shadow-xs'
+                            : 'bg-stone-50 border-stone-200 text-stone-700 hover:bg-amber-50 hover:border-amber-300 hover:text-amber-900'
+                        }`}
+                      >
+                        {preset.size}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* Form */}
+              <form onSubmit={handleSaveQuickSize} className="space-y-3.5">
+                <div className="grid grid-cols-2 gap-3">
+                  <div>
+                    <label className="text-[11px] font-semibold text-stone-700 block mb-1">
+                      Size Dimensions (inches) *
+                    </label>
+                    <input
+                      type="text"
+                      required
+                      placeholder="e.g. 14 x 20 inches"
+                      value={quickSizeName}
+                      onChange={(e) => setQuickSizeName(e.target.value)}
+                      className="w-full px-3 py-2 bg-white border border-stone-300 rounded-xl text-xs font-medium text-stone-900 focus:border-amber-500 outline-none"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="text-[11px] font-semibold text-stone-700 block mb-1">
+                      Dimensions (cm)
+                    </label>
+                    <input
+                      type="text"
+                      placeholder="e.g. 35 x 50 cm"
+                      value={quickSizeCm}
+                      onChange={(e) => setQuickSizeCm(e.target.value)}
+                      className="w-full px-3 py-2 bg-white border border-stone-300 rounded-xl text-xs text-stone-900 focus:border-amber-500 outline-none"
+                    />
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-3 gap-2.5">
+                  <div>
+                    <label className="text-[11px] font-semibold text-amber-900 block mb-1">
+                      Selling Price (₹) *
+                    </label>
+                    <input
+                      type="number"
+                      required
+                      min={1}
+                      value={quickSizePrice}
+                      onChange={(e) => setQuickSizePrice(Number(e.target.value))}
+                      className="w-full px-3 py-2 bg-white border border-amber-300 rounded-xl text-xs font-bold text-amber-900 focus:border-amber-500 outline-none"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="text-[11px] font-semibold text-stone-700 block mb-1">
+                      MRP (₹) *
+                    </label>
+                    <input
+                      type="number"
+                      required
+                      min={1}
+                      value={quickSizeMrp}
+                      onChange={(e) => setQuickSizeMrp(Number(e.target.value))}
+                      className="w-full px-3 py-2 bg-white border border-stone-300 rounded-xl text-xs text-stone-700 focus:border-amber-500 outline-none"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="text-[11px] font-semibold text-stone-700 block mb-1">
+                      Stock Count
+                    </label>
+                    <input
+                      type="number"
+                      min={0}
+                      value={quickSizeStock}
+                      onChange={(e) => setQuickSizeStock(Number(e.target.value))}
+                      className="w-full px-3 py-2 bg-white border border-stone-300 rounded-xl text-xs text-stone-900 focus:border-amber-500 outline-none"
+                    />
+                  </div>
+                </div>
+
+                {/* Submit Actions */}
+                <div className="flex items-center justify-end gap-2.5 pt-3 border-t border-stone-200">
+                  <button
+                    type="button"
+                    onClick={() => setQuickSizeProduct(null)}
+                    className="px-4 py-2 border border-stone-300 rounded-xl text-stone-700 hover:bg-stone-100 text-xs font-semibold cursor-pointer"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    type="submit"
+                    disabled={quickSizeSaving || !quickSizeName.trim()}
+                    className="px-5 py-2 bg-[#EAB308] hover:bg-[#FACC15] disabled:opacity-50 text-stone-950 rounded-xl font-bold text-xs flex items-center gap-1.5 transition-all shadow-xs cursor-pointer border border-amber-500"
+                  >
+                    <Plus className="w-3.5 h-3.5" />
+                    <span>{quickSizeSaving ? 'Saving Size...' : 'Save Size Option'}</span>
                   </button>
                 </div>
               </form>
