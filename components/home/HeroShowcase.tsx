@@ -4,8 +4,6 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import {
   Sparkles,
-  ChevronLeft,
-  ChevronRight,
   ArrowRight,
 } from 'lucide-react';
 
@@ -349,31 +347,6 @@ export default function HeroShowcase() {
                       {currentDeity.dimension}
                     </span>
                   </div>
-
-                  {/* Prev / Next Arrows */}
-                  <button
-                    type="button"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      handlePrev();
-                    }}
-                    className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white/85 hover:bg-white text-stone-900 shadow-lg flex items-center justify-center backdrop-blur-sm transition-all hover:scale-105 active:scale-95 cursor-pointer z-10"
-                    aria-label="Previous frame"
-                  >
-                    <ChevronLeft className="w-6 h-6" />
-                  </button>
-
-                  <button
-                    type="button"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      handleNext();
-                    }}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white/85 hover:bg-white text-stone-900 shadow-lg flex items-center justify-center backdrop-blur-sm transition-all hover:scale-105 active:scale-95 cursor-pointer z-10"
-                    aria-label="Next frame"
-                  >
-                    <ChevronRight className="w-6 h-6" />
-                  </button>
 
                   {/* Bottom Info Bar Overlay */}
                   <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-stone-950 via-stone-950/80 to-transparent pt-8 pb-3.5 px-4 sm:px-5">
