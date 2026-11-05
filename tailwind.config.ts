@@ -78,21 +78,6 @@ const config: Config = {
           800: "#1E1E1E",
           900: "#121212",
         },
-
-        // Aliases for backward compatibility
-        emerald: {
-          50: "#181818",
-          100: "#1C1C1C",
-          200: "#222222",
-          300: "#2A2A2A",
-          400: "#383838",
-          500: "#4B4B4B",
-          600: "#2A2A2A",
-          700: "#1E1E1E",
-          800: "#161616",
-          900: "#121212",
-          950: "#0A0A0A",
-        },
         gold: {
           50: "#FEFCE8",
           100: "#FEF9C3",
@@ -145,7 +130,7 @@ const config: Config = {
         glow: "0 0 25px rgba(234, 179, 8, 0.45)",
         "led-glow": "0 0 35px rgba(253, 224, 71, 0.65)",
         burgundy: "0 8px 30px -4px rgba(0, 0, 0, 0.70)",
-        emerald: "0 8px 30px -4px rgba(0, 0, 0, 0.70)",
+        emerald: "0 8px 30px -4px rgba(16, 185, 129, 0.40)",
         gold: "0 8px 30px -4px rgba(234, 179, 8, 0.40)",
       },
     },

@@ -130,9 +130,9 @@ export default function Footer() {
                     href={whatsappUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 hover:bg-emerald-100 border border-emerald-300 text-emerald-800 text-xs font-semibold transition-all shadow-xs"
+                    className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E8F5E9] hover:bg-[#C8E6C9] border border-[#81C784]/80 text-[#1B5E20] text-xs font-bold transition-all shadow-xs"
                   >
-                    <MessageCircle className="w-3.5 h-3.5 text-emerald-600" />
+                    <MessageCircle className="w-3.5 h-3.5 text-[#25D366] shrink-0" />
                     <span>WhatsApp: +91 90323 72782</span>
                   </a>
                 </div>
@@ -263,12 +263,12 @@ export default function Footer() {
         </div>
 
         {/* 3. LOCAL SEO STRIP */}
-        <div className="mt-8 sm:mt-10 pt-5 sm:pt-6 border-t border-stone-200 flex flex-col md:flex-row items-start md:items-center justify-between gap-2.5 sm:gap-3 text-xs text-stone-500">
+        <div className="mt-8 sm:mt-10 pt-5 sm:pt-6 border-t border-stone-200 flex flex-col md:flex-row items-start md:items-center justify-between gap-2.5 sm:gap-3 text-xs text-stone-600 font-medium">
           <div className="flex items-center gap-1.5 text-xs text-amber-800 font-semibold shrink-0">
             <MapPin className="w-3.5 h-3.5 shrink-0 text-amber-700" />
             <span>Hyderabad &amp; Dilsukhnagar Workshop:</span>
           </div>
-          <div className="flex flex-wrap items-center gap-x-2.5 sm:gap-x-3 gap-y-1.5 text-[11px] text-stone-600">
+          <div className="flex flex-wrap items-center gap-x-2.5 sm:gap-x-3 gap-y-1.5 text-[11px] text-stone-700">
             <Link href="/acrylic-photo-frames-hyderabad" className="hover:text-amber-800 transition-colors">
               Acrylic Photo Frames Hyderabad
             </Link>
@@ -293,12 +293,12 @@ export default function Footer() {
 
         {/* 4. BOTTOM COPYRIGHT & LEGAL BAR */}
         <div
-          className="mt-5 sm:mt-6 pt-5 border-t border-stone-200 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-stone-500"
+          className="mt-5 sm:mt-6 pt-5 border-t border-stone-200 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-stone-600"
           style={{
             paddingBottom: 'max(0.75rem, env(safe-area-inset-bottom, 0px))',
           }}
         >
-          <p className="text-center sm:text-left text-[11px]">
+          <p className="text-center sm:text-left text-[11px] text-stone-600 font-medium">
             © {new Date().getFullYear()} <strong>Abhi&apos;s Gifts</strong>. All rights reserved. Handcrafted with care in Hyderabad, India.
           </p>
 
