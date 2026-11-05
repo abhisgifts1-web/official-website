@@ -993,7 +993,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                   )}
 
                   <div
-                    className={`relative w-full h-full overflow-hidden transition-all duration-500 rounded-2xl ${
+                    className={`relative w-full h-full overflow-hidden rounded-2xl ${
                       isGlitterFrame
                         ? 'border-2 border-stone-200 shadow-md'
                         : selectedFrame === 'gold'
@@ -1277,9 +1277,9 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                     <button
                       type="button"
                       onClick={() => handleSelectFrame('gold')}
-                      className={`p-2.5 rounded-2xl border-2 transition-all flex flex-col items-center text-center gap-1.5 cursor-pointer ${
+                      className={`p-2.5 rounded-2xl border-2 flex flex-col items-center text-center gap-1.5 cursor-pointer ${
                         selectedFrame === 'gold'
-                          ? 'border-amber-500 bg-amber-50/60 ring-2 ring-amber-300/60 shadow-xs'
+                          ? 'border-amber-500 bg-amber-50/60 shadow-xs'
                           : 'border-stone-200 bg-stone-50 hover:border-amber-400'
                       }`}
                     >
@@ -1298,9 +1298,9 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                     <button
                       type="button"
                       onClick={() => handleSelectFrame('black')}
-                      className={`p-2.5 rounded-2xl border-2 transition-all flex flex-col items-center text-center gap-1.5 cursor-pointer ${
+                      className={`p-2.5 rounded-2xl border-2 flex flex-col items-center text-center gap-1.5 cursor-pointer ${
                         selectedFrame === 'black'
-                          ? 'border-stone-900 bg-stone-100 ring-2 ring-stone-400/60 shadow-xs'
+                          ? 'border-stone-900 bg-stone-100 shadow-xs'
                           : 'border-stone-200 bg-stone-50 hover:border-amber-400'
                       }`}
                     >
@@ -1319,9 +1319,9 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                     <button
                       type="button"
                       onClick={() => handleSelectFrame('without')}
-                      className={`p-2.5 rounded-2xl border-2 transition-all flex flex-col items-center text-center gap-1.5 cursor-pointer ${
+                      className={`p-2.5 rounded-2xl border-2 flex flex-col items-center text-center gap-1.5 cursor-pointer ${
                         selectedFrame === 'without'
-                          ? 'border-amber-500 bg-amber-50/60 ring-2 ring-amber-300/60 shadow-xs'
+                          ? 'border-amber-500 bg-amber-50/60 shadow-xs'
                           : 'border-stone-200 bg-stone-50 hover:border-amber-400'
                       }`}
                     >

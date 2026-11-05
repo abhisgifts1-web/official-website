@@ -983,7 +983,7 @@ export default function CustomizerStudio() {
                 >
                   {/* Outer Frame Finish Container */}
                   <div
-                    className={`relative w-full h-full overflow-hidden bg-stone-950 transition-all duration-300 ${
+                    className={`relative w-full h-full overflow-hidden bg-stone-950 ${
                       'rounded-2xl'
                     } ${
                       finish === 'wooden-box'
