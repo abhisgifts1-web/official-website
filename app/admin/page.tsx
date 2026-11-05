@@ -335,7 +335,7 @@ export default function AdminDashboardPage() {
                       <h3 className="font-serif font-bold text-sm text-stone-900 group-hover:text-[#CA8A04] transition-colors leading-snug">
                         {cat.name}
                       </h3>
-                      <p className="text-[11px] text-stone-500 line-clamp-2 mt-0.5 leading-relaxed">
+                      <p className="text-[11px] text-stone-600 line-clamp-2 mt-0.5 leading-relaxed font-medium">
                         {cat.description}
                       </p>
                     </div>
@@ -352,7 +352,7 @@ export default function AdminDashboardPage() {
                     <Link
                       href={`/category/${cat.slug}`}
                       target="_blank"
-                      className="text-stone-500 hover:text-stone-900 flex items-center gap-0.5 font-medium"
+                      className="text-stone-700 hover:text-stone-950 flex items-center gap-0.5 font-semibold"
                     >
                       <span>Live View</span>
                       <ExternalLink className="w-2.5 h-2.5 text-[#CA8A04]" />
@@ -379,7 +379,7 @@ export default function AdminDashboardPage() {
                 1
               </span>
               <p className="text-xs font-bold text-stone-900">Auto Sizing &amp; Proofing</p>
-              <p className="text-[10.5px] text-stone-500">Live area pricing calculation &amp; 1:1 WhatsApp digital mock approval</p>
+              <p className="text-[10.5px] text-stone-600 font-medium">Live area pricing calculation &amp; 1:1 WhatsApp digital mock approval</p>
             </div>
 
             <div className="bg-stone-50 p-4 rounded-2xl border border-stone-200 space-y-1.5">
@@ -387,7 +387,7 @@ export default function AdminDashboardPage() {
                 2
               </span>
               <p className="text-xs font-bold text-stone-900">Laser &amp; Diamond Polish</p>
-              <p className="text-[10.5px] text-stone-500">High-definition 3mm/5mm museum-grade cast acrylic precision cut</p>
+              <p className="text-[10.5px] text-stone-600 font-medium">High-definition 3mm/5mm museum-grade cast acrylic precision cut</p>
             </div>
 
             <div className="bg-stone-50 p-4 rounded-2xl border border-stone-200 space-y-1.5">
@@ -395,7 +395,7 @@ export default function AdminDashboardPage() {
                 3
               </span>
               <p className="text-xs font-bold text-stone-900">Ambient LED Assembly</p>
-              <p className="text-[10.5px] text-stone-500">Concealed perimeter LED strip &amp; 12V 2A power adapter integration</p>
+              <p className="text-[10.5px] text-stone-600 font-medium">Concealed perimeter LED strip &amp; 12V 2A power adapter integration</p>
             </div>
 
             <div className="bg-stone-50 p-4 rounded-2xl border border-stone-200 space-y-1.5">
@@ -403,7 +403,7 @@ export default function AdminDashboardPage() {
                 4
               </span>
               <p className="text-xs font-bold text-stone-900">5-Layer Crate Pack</p>
-              <p className="text-[10.5px] text-stone-500">Heavy-duty corner guards &amp; shockproof foam for zero-breakage transit</p>
+              <p className="text-[10.5px] text-stone-600 font-medium">Heavy-duty corner guards &amp; shockproof foam for zero-breakage transit</p>
             </div>
           </div>
         </div>
@@ -422,7 +422,7 @@ export default function AdminDashboardPage() {
                 <h4 className="font-bold text-xs text-stone-900 group-hover:text-[#CA8A04] transition-colors">
                   Product Catalog
                 </h4>
-                <p className="text-[10px] text-stone-500">Titles, prices, sizes &amp; photos</p>
+                <p className="text-[10px] text-stone-600 font-medium">Titles, prices, sizes &amp; photos</p>
               </div>
             </div>
             <ArrowRight className="w-3.5 h-3.5 text-stone-400 group-hover:text-[#CA8A04] transition-colors" />
@@ -440,7 +440,7 @@ export default function AdminDashboardPage() {
                 <h4 className="font-bold text-xs text-stone-900 group-hover:text-[#CA8A04] transition-colors">
                   Orders &amp; Tracking
                 </h4>
-                <p className="text-[10px] text-stone-500">Dispatches &amp; proofing</p>
+                <p className="text-[10px] text-stone-600 font-medium">Dispatches &amp; proofing</p>
               </div>
             </div>
             <ArrowRight className="w-3.5 h-3.5 text-stone-400 group-hover:text-[#CA8A04] transition-colors" />
@@ -458,7 +458,7 @@ export default function AdminDashboardPage() {
                 <h4 className="font-bold text-xs text-stone-900 group-hover:text-[#CA8A04] transition-colors">
                   Coupons &amp; Offers
                 </h4>
-                <p className="text-[10px] text-stone-500">Promo codes &amp; discounts</p>
+                <p className="text-[10px] text-stone-600 font-medium">Promo codes &amp; discounts</p>
               </div>
             </div>
             <ArrowRight className="w-3.5 h-3.5 text-stone-400 group-hover:text-[#CA8A04] transition-colors" />
@@ -476,7 +476,7 @@ export default function AdminDashboardPage() {
                 <h4 className="font-bold text-xs text-stone-900 group-hover:text-[#CA8A04] transition-colors">
                   Studio Settings
                 </h4>
-                <p className="text-[10px] text-stone-500">Phone, GST, notices &amp; store</p>
+                <p className="text-[10px] text-stone-600 font-medium">Phone, GST, notices &amp; store</p>
               </div>
             </div>
             <ArrowRight className="w-3.5 h-3.5 text-stone-400 group-hover:text-[#CA8A04] transition-colors" />

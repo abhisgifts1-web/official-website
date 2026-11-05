@@ -172,7 +172,7 @@ export default function CustomSizeInput({
             <span className="text-[11px] font-bold text-stone-900 block">
               Auto-Calculated Custom Size Price
             </span>
-            <span className="text-[10px] text-stone-500">
+            <span className="text-[10px] text-stone-700 font-medium">
               Proportionally calculated from standard sizes &amp; finishes
             </span>
           </div>
@@ -197,7 +197,7 @@ export default function CustomSizeInput({
       </div>
 
       {!compact && (
-        <p className="text-[11px] text-stone-500 leading-relaxed flex items-center gap-1.5">
+        <p className="text-[11px] text-stone-700 font-medium leading-relaxed flex items-center gap-1.5">
           <Info className="w-3.5 h-3.5 text-amber-600 shrink-0" />
           <span>Every custom frame is cut to your exact millimeter dimensions at our Hyderabad atelier.</span>
         </p>

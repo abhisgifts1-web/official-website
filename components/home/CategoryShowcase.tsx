@@ -88,7 +88,7 @@ export default function CategoryShowcase() {
         <h2 className="font-serif font-bold text-2xl sm:text-3xl text-stone-900 tracking-tight">
           Shop by Category
         </h2>
-        <p className="text-xs sm:text-sm text-stone-500 mt-1 font-sans">
+        <p className="text-xs sm:text-sm text-stone-600 mt-1 font-medium font-sans">
           Explore handcrafted acrylic, LED, and personalized frames
         </p>
       </div>
@@ -132,7 +132,7 @@ export default function CategoryShowcase() {
               </div>
 
               {/* Category Name Below Circle */}
-              <span className="mt-2 sm:mt-2.5 text-center font-semibold text-xs sm:text-[13px] text-stone-800 group-hover:text-amber-800 transition-colors leading-tight line-clamp-2">
+              <span className="mt-2 sm:mt-2.5 text-center font-bold text-xs sm:text-[13px] text-stone-900 group-hover:text-amber-900 transition-colors leading-tight line-clamp-2">
                 {cat.name}
               </span>
             </Link>

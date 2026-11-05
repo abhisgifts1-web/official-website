@@ -633,37 +633,21 @@ h1, h2, h3, h4, h5, h6, .font-serif {
 .animate-gold-text-shimmer {
   background: linear-gradient(
     100deg,
-    #D97706 0%,
-    #B45309 18%,
-    #F59E0B 38%,
-    #FEF08A 48%,
-    #FFFFFF 52%,
-    #FEF08A 56%,
-    #F59E0B 66%,
-    #B45309 82%,
-    #D97706 100%
+    #92400E 0%,
+    #B45309 25%,
+    #D97706 50%,
+    #B45309 75%,
+    #92400E 100%
   );
-  background-size: 220% auto;
+  background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: goldTextShimmer 3.6s ease-in-out infinite, goldAuraBreathe 3.2s ease-in-out infinite;
+  color: #B45309;
+  animation: goldTextShimmer 3.6s ease-in-out infinite;
 }
 
 .animate-dark-text-shimmer {
-  background: linear-gradient(
-    100deg,
-    #1c1917 0%,
-    #292524 35%,
-    #44403c 48%,
-    #78716c 52%,
-    #44403c 56%,
-    #292524 65%,
-    #1c1917 100%
-  );
-  background-size: 250% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: darkTextShimmer 5.5s ease-in-out infinite;
+  color: #1c1917;
 }
 
 .animate-gold-aura {

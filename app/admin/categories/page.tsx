@@ -99,7 +99,7 @@ export default function AdminCategoriesPage() {
             <h1 className="font-serif font-bold text-2xl sm:text-3xl text-stone-900">
               Official Store Categories
             </h1>
-            <p className="text-xs text-stone-500 mt-0.5">
+            <p className="text-xs text-stone-600 font-medium mt-0.5">
               Manage the 8 official collections published on the storefront. All products map directly to these categories.
             </p>
           </div>
@@ -162,7 +162,7 @@ export default function AdminCategoriesPage() {
                     <h3 className="font-serif font-bold text-base text-stone-900 group-hover:text-amber-800 transition-colors leading-snug">
                       {cat.name}
                     </h3>
-                    <p className="text-xs text-stone-500 line-clamp-2 mt-1 leading-relaxed">
+                    <p className="text-xs text-stone-600 font-medium line-clamp-2 mt-1 leading-relaxed">
                       {cat.description}
                     </p>
                   </div>
@@ -179,7 +179,7 @@ export default function AdminCategoriesPage() {
                       href={`/category/${cat.slug}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-stone-500 hover:text-stone-900 font-medium flex items-center gap-1 transition-colors"
+                      className="text-stone-700 hover:text-stone-950 font-semibold flex items-center gap-1 transition-colors"
                     >
                       <span>Storefront</span>
                       <ExternalLink className="w-3 h-3 text-amber-700" />

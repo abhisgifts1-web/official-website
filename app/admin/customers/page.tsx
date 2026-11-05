@@ -248,10 +248,10 @@ export default function AdminCustomersPage() {
                         <td className="py-3 px-4 text-right">
                           <Link
                             href={`/admin/orders?search=${c.mobile}`}
-                            className="inline-flex items-center gap-1 text-[#EAB308] hover:text-[#FACC15] font-semibold hover:underline text-[11px]"
+                            className="inline-flex items-center gap-1 text-amber-800 hover:text-amber-950 font-bold hover:underline text-[11px]"
                           >
                             <span>Orders</span>
-                            <ExternalLink className="w-3 h-3" />
+                            <ExternalLink className="w-3 h-3 text-amber-700" />
                           </Link>
                         </td>
                       </tr>

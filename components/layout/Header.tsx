@@ -294,7 +294,7 @@ export default function Header() {
               <Link
                 href="/customise"
                 onClick={() => setMobileMenuOpen(false)}
-                className="mt-2.5 inline-block bg-gradient-to-r from-[#EAB308] to-[#FACC15] text-[#FFFFFF] px-3.5 py-1 rounded-lg text-xs font-bold transition-all"
+                className="mt-2.5 inline-block bg-gradient-to-r from-[#EAB308] to-[#FACC15] text-black font-extrabold px-3.5 py-1.5 rounded-lg text-xs shadow-xs transition-all active:scale-95"
               >
                 Customise Now →
               </Link>

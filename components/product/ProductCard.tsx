@@ -199,7 +199,7 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
         <div className="p-3 sm:p-3.5 flex-1 flex flex-col justify-between">
           <div className="space-y-1">
             {/* Category Tag */}
-            <p className="text-[10px] sm:text-[11px] font-semibold text-stone-500 uppercase tracking-wider truncate">
+            <p className="text-[10px] sm:text-[11px] font-bold text-stone-700 uppercase tracking-wider truncate">
               {product.categoryName}
             </p>
 
@@ -217,7 +217,7 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
                   ₹{activePrice.toLocaleString('en-IN')}
                 </span>
                 {hasRealDiscount && (
-                  <span className="text-[11px] text-stone-400 line-through whitespace-nowrap">
+                  <span className="text-[11px] text-stone-500 line-through whitespace-nowrap">
                     ₹{activeMrp.toLocaleString('en-IN')}
                   </span>
                 )}

@@ -1623,10 +1623,10 @@ export default function CustomizerStudio() {
                 <button
                   type="button"
                   onClick={() => handleApplyPreset(prod.preset, prod.title)}
-                  className="w-full bg-stone-100 hover:bg-amber-500 hover:text-white text-stone-900 border border-stone-200 hover:border-amber-500 font-bold text-xs py-2.5 rounded-xl transition-all flex items-center justify-center gap-2 cursor-pointer uppercase tracking-wider group-hover:shadow-xs"
+                  className="w-full bg-stone-100 hover:bg-amber-500 hover:text-stone-950 text-stone-900 border border-stone-200 hover:border-amber-500 font-bold text-xs py-2.5 rounded-xl transition-all flex items-center justify-center gap-2 cursor-pointer uppercase tracking-wider group-hover:shadow-xs"
                 >
                   <span>Customize This Style</span>
-                  <ArrowRight className="w-3.5 h-3.5 text-amber-700 group-hover:text-white" />
+                  <ArrowRight className="w-3.5 h-3.5 text-amber-700 group-hover:text-stone-950" />
                 </button>
               </div>
             </div>
