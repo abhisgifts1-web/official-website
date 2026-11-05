@@ -13,6 +13,7 @@ export const DEFAULT_ADMIN: AdminUser & { passwordHash: string } = {
   email: 'admin@abhigifts.com',
   name: 'Abhi Gifts Administrator',
   role: 'superadmin',
+  avatar: '',
   passwordHash: bcrypt.hashSync('AbhiGifts@2026!Admin', 10),
 };
 
@@ -30,6 +31,7 @@ export async function createAdminToken(user: AdminUser): Promise<string> {
     email: user.email,
     name: user.name,
     role: user.role,
+    avatar: user.avatar || '',
   })
     .setProtectedHeader({ alg: 'HS256' })
     .setIssuedAt()
@@ -47,6 +49,7 @@ export async function verifyAdminToken(token: string): Promise<AdminUser | null>
       email: payload.email as string,
       name: payload.name as string,
       role: payload.role as 'superadmin' | 'admin' | 'manager',
+      avatar: (payload.avatar as string) || '',
     };
   } catch {
     return null;

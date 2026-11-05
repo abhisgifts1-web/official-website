@@ -181,6 +181,7 @@ export interface AdminUser {
   email: string;
   name: string;
   role: 'superadmin' | 'admin' | 'manager';
+  avatar?: string;
 }
 
 export interface SiteSettings {

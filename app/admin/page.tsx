@@ -409,7 +409,7 @@ export default function AdminDashboardPage() {
         </div>
 
         {/* 6. QUICK OPERATIONS TOOLBAR */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3.5">
           <Link
             href="/admin/products"
             className="bg-white hover:bg-stone-50 p-4 rounded-2xl border border-stone-200 hover:border-[#EAB308] transition-all flex items-center justify-between group shadow-xs"
@@ -441,6 +441,24 @@ export default function AdminDashboardPage() {
                   Orders &amp; Tracking
                 </h4>
                 <p className="text-[10px] text-stone-600 font-medium">Dispatches &amp; proofing</p>
+              </div>
+            </div>
+            <ArrowRight className="w-3.5 h-3.5 text-stone-400 group-hover:text-[#CA8A04] transition-colors" />
+          </Link>
+
+          <Link
+            href="/admin/team"
+            className="bg-white hover:bg-stone-50 p-4 rounded-2xl border border-stone-200 hover:border-[#EAB308] transition-all flex items-center justify-between group shadow-xs"
+          >
+            <div className="flex items-center gap-3">
+              <div className="w-9 h-9 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 flex items-center justify-center">
+                <ShieldCheck className="w-4 h-4 text-emerald-700" />
+              </div>
+              <div>
+                <h4 className="font-bold text-xs text-stone-900 group-hover:text-[#CA8A04] transition-colors">
+                  Team &amp; Staff
+                </h4>
+                <p className="text-[10px] text-stone-600 font-medium">Personal photos &amp; access</p>
               </div>
             </div>
             <ArrowRight className="w-3.5 h-3.5 text-stone-400 group-hover:text-[#CA8A04] transition-colors" />

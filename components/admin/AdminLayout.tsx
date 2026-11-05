@@ -13,6 +13,8 @@ import {
   Users,
   Star,
   Settings,
+  ShieldCheck,
+  Camera,
   LogOut,
   ExternalLink,
   Menu,
@@ -31,6 +33,7 @@ const NAV_ITEMS = [
   { label: '8 Store Collections', href: '/admin/categories', icon: Layers },
   { label: 'Orders & Inquiries', href: '/admin/orders', icon: ShoppingBag },
   { label: 'Ordered Customers', href: '/admin/customers', icon: Users },
+  { label: 'Team & Staff', href: '/admin/team', icon: ShieldCheck },
   { label: 'Promotions & Coupons', href: '/admin/coupons', icon: Tag },
   { label: 'Reviews Moderation', href: '/admin/reviews', icon: Star },
   { label: 'Store Settings', href: '/admin/settings', icon: Settings },
@@ -146,11 +149,31 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
         <div className="p-3.5 border-t border-stone-800 space-y-2.5 bg-[#0A0A0A]">
           <div className="flex items-center justify-between text-xs px-1">
             <div className="flex items-center gap-2.5 min-w-0">
-              <div className="w-8 h-8 rounded-full bg-[#1E1E1E] border border-[#EAB308]/40 text-[#FACC15] flex items-center justify-center font-bold text-xs shrink-0 shadow-inner">
-                A
-              </div>
+              <Link
+                href="/admin/team"
+                className="relative group/userAvatar w-9 h-9 rounded-full bg-[#1E1E1E] border border-[#EAB308]/50 text-[#FACC15] flex items-center justify-center font-bold text-xs shrink-0 shadow-inner overflow-hidden cursor-pointer"
+                title="Change My Profile Photo"
+              >
+                {adminUser?.avatar ? (
+                  <img
+                    src={adminUser.avatar}
+                    alt={adminUser.name}
+                    className="w-full h-full object-cover"
+                  />
+                ) : (
+                  <span>{adminUser?.name?.charAt(0).toUpperCase() || 'A'}</span>
+                )}
+                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover/userAvatar:opacity-100 flex items-center justify-center text-white transition-opacity">
+                  <Camera className="w-3.5 h-3.5 text-[#FACC15]" />
+                </div>
+              </Link>
               <div className="truncate">
-                <p className="font-bold text-stone-100 truncate text-[11px]">{adminUser?.name || 'Studio Administrator'}</p>
+                <Link
+                  href="/admin/team"
+                  className="font-bold text-stone-100 truncate text-[11px] block hover:text-[#FACC15] transition-colors"
+                >
+                  {adminUser?.name || 'Studio Administrator'}
+                </Link>
                 <p className="text-[10px] text-stone-400 truncate">{adminUser?.email || 'admin@abhigifts.com'}</p>
               </div>
             </div>
@@ -280,6 +303,34 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
                 );
               })}
             </nav>
+
+            <div className="pt-2 border-t border-stone-800 flex items-center gap-2.5 px-1">
+              <Link
+                href="/admin/team"
+                onClick={() => setSidebarOpen(false)}
+                className="w-9 h-9 rounded-full bg-[#1E1E1E] border border-[#EAB308]/50 text-[#FACC15] flex items-center justify-center font-bold text-xs shrink-0 overflow-hidden"
+              >
+                {adminUser?.avatar ? (
+                  <img
+                    src={adminUser.avatar}
+                    alt={adminUser.name}
+                    className="w-full h-full object-cover"
+                  />
+                ) : (
+                  <span>{adminUser?.name?.charAt(0).toUpperCase() || 'A'}</span>
+                )}
+              </Link>
+              <div className="truncate min-w-0">
+                <Link
+                  href="/admin/team"
+                  onClick={() => setSidebarOpen(false)}
+                  className="font-bold text-stone-100 text-xs block truncate hover:text-[#FACC15]"
+                >
+                  {adminUser?.name || 'Studio Administrator'}
+                </Link>
+                <p className="text-[10px] text-stone-400 truncate">{adminUser?.email || 'admin@abhigifts.com'}</p>
+              </div>
+            </div>
 
             <button
               type="button"

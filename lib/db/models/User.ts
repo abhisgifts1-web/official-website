@@ -5,6 +5,7 @@ export interface UserDocument extends Document {
   passwordHash: string;
   name: string;
   role: 'superadmin' | 'admin' | 'manager';
+  avatar?: string;
 }
 
 const UserSchema = new Schema(
@@ -13,6 +14,7 @@ const UserSchema = new Schema(
     passwordHash: { type: String, required: true },
     name: { type: String, required: true },
     role: { type: String, enum: ['superadmin', 'admin', 'manager'], default: 'admin' },
+    avatar: { type: String, default: '' },
   },
   { timestamps: true }
 );
