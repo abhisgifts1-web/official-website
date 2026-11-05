@@ -2,7 +2,14 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Sparkles } from 'lucide-react';
+import {
+  Sparkles,
+  ChevronLeft,
+  ChevronRight,
+  Star,
+  CheckCircle2,
+  ArrowRight,
+} from 'lucide-react';
 
 export interface HeroDeity {
   id: string;
@@ -20,7 +27,7 @@ export interface HeroDeity {
   originalPrice: string;
 }
 
-// Category strip data — matches the uploaded design
+// Category strip data — matches the circular category design
 const HERO_CATEGORIES = [
   {
     label: 'Acrylic Photo\nFrames',
@@ -28,7 +35,7 @@ const HERO_CATEGORIES = [
     image: '/images/collections/custom-portrait-frame.jpg',
   },
   {
-    label: 'LED Photo Frames',
+    label: 'LED Photo\nFrames',
     slug: 'led-acrylic-photo-frames',
     image: '/images/collections/custom-led-photo-frame.jpg',
   },
@@ -43,7 +50,7 @@ const HERO_CATEGORIES = [
     image: '/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/primary-square.jpg',
   },
   {
-    label: 'God Photo Frames',
+    label: 'God Photo\nFrames',
     slug: 'god-photo-frames',
     image: '/images/wall-decor/categories/devotional/balaji-category.jpg',
   },
@@ -53,12 +60,12 @@ const HERO_CATEGORIES = [
     image: '/images/collections/family-photo-frame.jpg',
   },
   {
-    label: 'Couple & Wedding',
+    label: 'Couple &\nWedding',
     slug: 'couple-wedding-frames',
     image: '/images/mockups/custom-couple-wedding-vows-acrylic-keepsake-frame/primary-square.jpg',
   },
   {
-    label: 'Personalized Gifts',
+    label: 'Personalized\nGifts',
     slug: 'personalized-gifts',
     image: '/images/collections/gallery-set-photo-frames.jpg',
   },
@@ -70,7 +77,7 @@ export const HERO_DEITIES: HeroDeity[] = [
     id: 'radha-krishna',
     name: 'Radha Krishna — Divine Vrindavan',
     shortName: 'Radha Krishna',
-    subtitle: 'Celestial Vrindavan Flute • Divine Love & Harmony',
+    subtitle: 'Celestial Flute • Divine Love & Harmony',
     blessing: 'Infuses your home with unconditional affection, emotional healing & joyful tranquility.',
     image: '/images/divine/radha-krishna.jpg',
     slug: 'radha-krishna-divine-flute-acrylic-wall-decor',
@@ -158,7 +165,7 @@ export const HERO_DEITIES: HeroDeity[] = [
   },
 ];
 
-const AUTO_SCROLL_INTERVAL = 5000;
+const AUTO_SCROLL_INTERVAL = 5500;
 
 export default function HeroShowcase() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -215,30 +222,35 @@ export default function HeroShowcase() {
   };
 
   return (
-    <section className="bg-white">
-
+    <section className="bg-white overflow-hidden">
       {/* ══════════════════════════════════════
-          CATEGORY STRIP  (matches uploaded screenshot)
+          1. PREMIUM CATEGORY STRIP (TOP)
          ══════════════════════════════════════ */}
-      <div className="border-b border-gray-100 py-5 px-4">
-        <div className="max-w-6xl mx-auto">
-          <div className="flex items-start justify-center gap-5 sm:gap-8 overflow-x-auto pb-1" style={{ scrollbarWidth: 'none' }}>
+      <div className="border-b border-stone-200/80 bg-stone-50/60 py-4 sm:py-5 px-3 sm:px-6">
+        <div className="max-w-7xl mx-auto">
+          <div
+            className="flex items-start justify-start md:justify-center gap-4 sm:gap-6 lg:gap-8 overflow-x-auto pb-1 scroll-smooth scrollbar-none"
+            style={{ scrollbarWidth: 'none' }}
+          >
             {HERO_CATEGORIES.map((cat) => (
               <Link
                 key={cat.slug}
                 href={`/category/${cat.slug}`}
-                className="flex flex-col items-center gap-2 group shrink-0 w-16 sm:w-20"
+                className="flex flex-col items-center gap-2 group shrink-0 w-[72px] sm:w-[88px] lg:w-[96px] text-center"
               >
-                {/* Circle image */}
-                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full overflow-hidden border-2 border-gray-200 group-hover:border-amber-400 transition-colors duration-200 shadow-sm">
+                {/* Circle Frame */}
+                <div className="relative w-14 h-14 sm:w-16 sm:h-16 lg:w-18 lg:h-18 rounded-full p-0.5 bg-white shadow-xs border border-stone-200 group-hover:border-amber-500 group-hover:shadow-md transition-all duration-300 group-hover:scale-105 overflow-hidden flex items-center justify-center">
                   <img
                     src={cat.image}
                     alt={cat.label.replace('\n', ' ')}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    className="w-full h-full object-cover rounded-full group-hover:scale-110 transition-transform duration-500"
+                    loading="eager"
                   />
+                  <div className="absolute inset-0 rounded-full ring-1 ring-inset ring-black/5" />
                 </div>
-                {/* Label */}
-                <span className="text-[10px] sm:text-[11px] text-center text-gray-700 group-hover:text-amber-600 transition-colors font-medium leading-tight whitespace-pre-line">
+
+                {/* Category Label */}
+                <span className="text-[11px] sm:text-xs text-stone-700 group-hover:text-amber-700 font-medium leading-tight tracking-tight transition-colors whitespace-pre-line">
                   {cat.label}
                 </span>
               </Link>
@@ -248,96 +260,193 @@ export default function HeroShowcase() {
       </div>
 
       {/* ══════════════════════════════════════
-          MAIN HERO
+          2. MAIN HERO SECTION (TWO-COLUMN)
          ══════════════════════════════════════ */}
-      <div className="py-10">
-        <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+      <div className="py-8 sm:py-12 lg:py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            
+            {/* ── Left Column: Editorial Content & CTAs ── */}
+            <div className="lg:col-span-6 space-y-6">
+              
+              {/* Studio Origin Pill */}
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-50/90 border border-amber-200 text-amber-900 text-xs font-semibold tracking-wide shadow-2xs">
+                <Sparkles className="w-3.5 h-3.5 text-amber-600 animate-pulse" />
+                <span>HYDERABAD’S PREMIER PHOTO ATELIER</span>
+              </div>
 
-          {/* Left — Text */}
-          <div className="space-y-5">
-            <h1 className="text-3xl lg:text-4xl font-bold text-gray-900 leading-tight">
-              Premium Acrylic &amp; Customized<br />
-              <span className="text-amber-600">Photo Frames in Hyderabad</span>
-            </h1>
-            <p className="text-base text-gray-600 leading-relaxed">
-              Discover beautifully crafted acrylic, LED and customized photo frames designed to make your memories unforgettable. Handcrafted at our Dilsukhnagar studio.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3">
-              <Link
-                href="/shop"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-amber-500 hover:bg-amber-600 text-white font-semibold rounded-full transition-colors shadow-sm"
-              >
-                <Sparkles className="w-4 h-4" />
-                Explore Collections
-              </Link>
-              <Link
-                href="/customise"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold rounded-full transition-colors"
-              >
-                Customize Your Frame
-              </Link>
+              {/* Main Headline */}
+              <div className="space-y-2">
+                <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-stone-900 tracking-tight leading-[1.18]">
+                  Premium Custom Photo Frames{' '}
+                  <span className="block text-transparent bg-clip-text bg-gradient-to-r from-amber-600 via-amber-700 to-yellow-600">
+                    in Hyderabad
+                  </span>
+                </h1>
+                <p className="text-base sm:text-lg text-stone-600 leading-relaxed font-sans pt-1">
+                  Discover beautifully crafted acrylic, warm ambient LED, and personalized keepsake frames designed to make your memories unforgettable. Handcrafted with precision at our Dilsukhnagar studio.
+                </p>
+              </div>
+
+              {/* Value Highlights */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 pt-1 text-xs sm:text-sm text-stone-700 font-medium">
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-amber-600 shrink-0" />
+                  <span>4mm Cast Acrylic</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-amber-600 shrink-0" />
+                  <span>Warm Ambient LED</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-amber-600 shrink-0" />
+                  <span>WhatsApp Preview</span>
+                </div>
+              </div>
+
+              {/* Primary & Secondary Action Buttons */}
+              <div className="flex flex-col sm:flex-row gap-3 pt-2">
+                <Link
+                  href="/shop"
+                  className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 bg-stone-900 hover:bg-black text-white font-semibold rounded-full shadow-md hover:shadow-lg transition-all duration-200 group text-sm sm:text-base cursor-pointer"
+                >
+                  <Sparkles className="w-4 h-4 text-amber-400 group-hover:rotate-12 transition-transform" />
+                  <span>Explore Collections</span>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
+
+                <Link
+                  href="/customise"
+                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-white hover:bg-stone-50 text-stone-800 font-semibold rounded-full border-2 border-stone-200 hover:border-stone-400 transition-all duration-200 text-sm sm:text-base cursor-pointer"
+                >
+                  <span>Customize Your Frame</span>
+                </Link>
+              </div>
+
+              {/* Trust & Social Proof Row */}
+              <div className="pt-2 border-t border-stone-100 flex items-center gap-3">
+                <div className="flex items-center text-amber-500 text-sm">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
+                  ))}
+                </div>
+                <p className="text-xs sm:text-sm text-stone-600">
+                  <strong className="text-stone-900 font-semibold">4.9/5 Rating</strong> · Trusted by 12,000+ Happy Homes in Telangana &amp; Andhra
+                </p>
+              </div>
             </div>
-          </div>
 
-          {/* Right — Carousel */}
-          <div
-            className="relative rounded-2xl overflow-hidden shadow-lg cursor-pointer"
-            onMouseEnter={() => setIsPaused(true)}
-            onMouseLeave={() => setIsPaused(false)}
-            onTouchStart={handleTouchStart}
-            onTouchEnd={handleTouchEnd}
-          >
-            <img
-              key={currentDeity.id}
-              src={currentDeity.image}
-              alt={currentDeity.name}
-              className="w-full aspect-video object-cover"
-            />
-            {/* Deity name overlay */}
-            <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/60 to-transparent px-4 py-3">
-              <p className="text-white text-sm font-semibold">{currentDeity.name}</p>
-              <p className="text-amber-300 text-xs">{currentDeity.price}</p>
+            {/* ── Right Column: Framed Masterpiece Showcase & Thumbnails ── */}
+            <div className="lg:col-span-6 space-y-4">
+              
+              {/* Luxury Frame Container */}
+              <div
+                className="relative bg-stone-950 p-2 sm:p-2.5 rounded-2xl shadow-2xl ring-1 ring-black/10 overflow-hidden group select-none cursor-pointer"
+                onMouseEnter={() => setIsPaused(true)}
+                onMouseLeave={() => setIsPaused(false)}
+                onTouchStart={handleTouchStart}
+                onTouchEnd={handleTouchEnd}
+              >
+                {/* 16:9 Image Viewport with Acrylic Sheen */}
+                <div className="relative aspect-[16/10] sm:aspect-[16/9] w-full rounded-xl overflow-hidden bg-stone-900">
+                  <img
+                    key={currentDeity.id}
+                    src={currentDeity.image}
+                    alt={currentDeity.name}
+                    className="w-full h-full object-cover transition-opacity duration-500"
+                  />
+                  
+                  {/* Subtle top glare reflection line */}
+                  <div className="absolute inset-x-0 top-0 h-1/3 bg-gradient-to-b from-white/10 to-transparent pointer-events-none" />
+
+                  {/* Top Floating Badges */}
+                  <div className="absolute top-3 inset-x-3 flex items-center justify-between pointer-events-none">
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md text-amber-300 text-[11px] font-semibold border border-amber-400/20 shadow-xs">
+                      <Sparkles className="w-3 h-3 text-amber-400" />
+                      3D LED Backlit Frame
+                    </span>
+                    <span className="px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-md text-white/90 text-[11px] font-medium border border-white/10 shadow-xs">
+                      {currentDeity.dimension}
+                    </span>
+                  </div>
+
+                  {/* Prev / Next Arrows */}
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handlePrev();
+                    }}
+                    className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/85 hover:bg-white text-stone-900 shadow-lg flex items-center justify-center backdrop-blur-sm transition-all hover:scale-105 active:scale-95 cursor-pointer z-10"
+                    aria-label="Previous frame"
+                  >
+                    <ChevronLeft className="w-5 h-5" />
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleNext();
+                    }}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/85 hover:bg-white text-stone-900 shadow-lg flex items-center justify-center backdrop-blur-sm transition-all hover:scale-105 active:scale-95 cursor-pointer z-10"
+                    aria-label="Next frame"
+                  >
+                    <ChevronRight className="w-5 h-5" />
+                  </button>
+
+                  {/* Bottom Info Bar Overlay */}
+                  <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-stone-950 via-stone-950/80 to-transparent pt-8 pb-3 px-4">
+                    <div className="flex items-end justify-between gap-3">
+                      <div className="min-w-0">
+                        <p className="text-white text-sm sm:text-base font-semibold truncate tracking-tight">
+                          {currentDeity.name}
+                        </p>
+                        <p className="text-amber-300 text-xs font-medium truncate">
+                          {currentDeity.subtitle}
+                        </p>
+                      </div>
+                      <div className="shrink-0 text-right">
+                        <span className="text-amber-400 text-base sm:text-lg font-bold">
+                          {currentDeity.price}
+                        </span>
+                        <span className="text-stone-400 text-xs line-through ml-2">
+                          {currentDeity.originalPrice}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Tightly Bound Thumbnails Directly Under The Frame */}
+              <div className="flex items-center justify-center sm:justify-between gap-2 overflow-x-auto pb-1 scrollbar-none" style={{ scrollbarWidth: 'none' }}>
+                {HERO_DEITIES.map((deity, idx) => (
+                  <button
+                    key={deity.id}
+                    type="button"
+                    onClick={() => handleSelect(idx)}
+                    className={`relative shrink-0 w-14 sm:w-16 h-10 sm:h-11 rounded-lg overflow-hidden border-2 transition-all duration-200 cursor-pointer ${
+                      currentIndex === idx
+                        ? 'border-amber-500 scale-105 shadow-md ring-1 ring-amber-400/40'
+                        : 'border-stone-200 opacity-60 hover:opacity-100 hover:border-amber-300'
+                    }`}
+                    aria-label={`Select ${deity.shortName}`}
+                  >
+                    <img
+                      src={deity.image}
+                      alt={deity.shortName}
+                      className="w-full h-full object-cover"
+                    />
+                  </button>
+                ))}
+              </div>
+
             </div>
-            {/* Prev / Next */}
-            <button
-              type="button"
-              onClick={handlePrev}
-              className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white w-8 h-8 rounded-full shadow flex items-center justify-center text-gray-700 transition"
-              aria-label="Previous"
-            >
-              ‹
-            </button>
-            <button
-              type="button"
-              onClick={handleNext}
-              className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white w-8 h-8 rounded-full shadow flex items-center justify-center text-gray-700 transition"
-              aria-label="Next"
-            >
-              ›
-            </button>
-          </div>
-        </div>
 
-        {/* Thumbnail strip */}
-        <div className="max-w-6xl mx-auto mt-5 px-4 flex justify-center gap-2 overflow-x-auto" style={{ scrollbarWidth: 'none' }}>
-          {HERO_DEITIES.map((deity, idx) => (
-            <button
-              key={deity.id}
-              type="button"
-              onClick={() => handleSelect(idx)}
-              className={`shrink-0 w-16 h-11 rounded-lg overflow-hidden border-2 transition-all ${
-                currentIndex === idx
-                  ? 'border-amber-500 scale-105 shadow-md'
-                  : 'border-gray-200 hover:border-amber-300'
-              }`}
-              aria-label={`Select ${deity.shortName}`}
-            >
-              <img src={deity.image} alt={deity.shortName} className="w-full h-full object-cover" />
-            </button>
-          ))}
+          </div>
         </div>
       </div>
-
     </section>
   );
 }
