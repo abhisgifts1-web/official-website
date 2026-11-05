@@ -222,21 +222,21 @@ export default function HeroShowcase() {
   };
 
   return (
-    <section className="bg-white overflow-hidden">
+    <section className="bg-white overflow-hidden w-full lg:min-h-[calc(100vh-115px)] flex flex-col justify-between">
       {/* ══════════════════════════════════════
-          1. PREMIUM CATEGORY STRIP (TOP)
+          1. FULL WIDTH CATEGORY STRIP (TOP)
          ══════════════════════════════════════ */}
-      <div className="border-b border-stone-200/80 bg-stone-50/60 py-4 sm:py-5 px-3 sm:px-6">
-        <div className="max-w-7xl mx-auto">
+      <div className="w-full border-b border-stone-200/80 bg-stone-50/70 py-3 sm:py-4 px-3 sm:px-6 lg:px-12 xl:px-16 2xl:px-24">
+        <div className="w-full max-w-[1920px] mx-auto">
           <div
-            className="flex items-start justify-start md:justify-center gap-4 sm:gap-6 lg:gap-8 overflow-x-auto pb-1 scroll-smooth scrollbar-none"
+            className="flex items-start justify-start md:justify-around xl:justify-center gap-4 sm:gap-6 lg:gap-10 xl:gap-12 overflow-x-auto pb-1 scroll-smooth scrollbar-none"
             style={{ scrollbarWidth: 'none' }}
           >
             {HERO_CATEGORIES.map((cat) => (
               <Link
                 key={cat.slug}
                 href={`/category/${cat.slug}`}
-                className="flex flex-col items-center gap-2 group shrink-0 w-[72px] sm:w-[88px] lg:w-[96px] text-center"
+                className="flex flex-col items-center gap-2 group shrink-0 w-[74px] sm:w-[92px] lg:w-[104px] text-center cursor-pointer"
               >
                 {/* Circle Frame */}
                 <div className="relative w-14 h-14 sm:w-16 sm:h-16 lg:w-18 lg:h-18 rounded-full p-0.5 bg-white shadow-xs border border-stone-200 group-hover:border-amber-500 group-hover:shadow-md transition-all duration-300 group-hover:scale-105 overflow-hidden flex items-center justify-center">
@@ -260,14 +260,14 @@ export default function HeroShowcase() {
       </div>
 
       {/* ══════════════════════════════════════
-          2. MAIN HERO SECTION (TWO-COLUMN)
+          2. FULL-WIDTH & VIEWPORT-HEIGHT HERO (TWO-COLUMN)
          ══════════════════════════════════════ */}
-      <div className="py-8 sm:py-12 lg:py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+      <div className="w-full flex-1 flex items-center py-6 sm:py-8 lg:py-10 px-4 sm:px-6 lg:px-12 xl:px-16 2xl:px-24">
+        <div className="w-full max-w-[1920px] mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 xl:gap-16 items-center">
             
             {/* ── Left Column: Editorial Content & CTAs ── */}
-            <div className="lg:col-span-6 space-y-6">
+            <div className="lg:col-span-6 xl:col-span-6 space-y-4 sm:space-y-5 lg:space-y-6">
               
               {/* Studio Origin Pill */}
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-50/90 border border-amber-200 text-amber-900 text-xs font-semibold tracking-wide shadow-2xs">
@@ -277,13 +277,13 @@ export default function HeroShowcase() {
 
               {/* Main Headline */}
               <div className="space-y-2">
-                <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-stone-900 tracking-tight leading-[1.18]">
+                <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-stone-900 tracking-tight leading-[1.14]">
                   Premium Custom Photo Frames{' '}
                   <span className="block text-transparent bg-clip-text bg-gradient-to-r from-amber-600 via-amber-700 to-yellow-600">
                     in Hyderabad
                   </span>
                 </h1>
-                <p className="text-base sm:text-lg text-stone-600 leading-relaxed font-sans pt-1">
+                <p className="text-base sm:text-lg lg:text-xl text-stone-600 leading-relaxed font-sans pt-1 max-w-2xl">
                   Discover beautifully crafted acrylic, warm ambient LED, and personalized keepsake frames designed to make your memories unforgettable. Handcrafted with precision at our Dilsukhnagar studio.
                 </p>
               </div>
@@ -305,10 +305,10 @@ export default function HeroShowcase() {
               </div>
 
               {/* Primary & Secondary Action Buttons */}
-              <div className="flex flex-col sm:flex-row gap-3 pt-2">
+              <div className="flex flex-col sm:flex-row gap-3 pt-1">
                 <Link
                   href="/shop"
-                  className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 bg-stone-900 hover:bg-black text-white font-semibold rounded-full shadow-md hover:shadow-lg transition-all duration-200 group text-sm sm:text-base cursor-pointer"
+                  className="inline-flex items-center justify-center gap-2.5 px-8 py-4 bg-stone-900 hover:bg-black text-white font-semibold rounded-full shadow-md hover:shadow-xl transition-all duration-200 group text-sm sm:text-base cursor-pointer"
                 >
                   <Sparkles className="w-4 h-4 text-amber-400 group-hover:rotate-12 transition-transform" />
                   <span>Explore Collections</span>
@@ -317,7 +317,7 @@ export default function HeroShowcase() {
 
                 <Link
                   href="/customise"
-                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-white hover:bg-stone-50 text-stone-800 font-semibold rounded-full border-2 border-stone-200 hover:border-stone-400 transition-all duration-200 text-sm sm:text-base cursor-pointer"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white hover:bg-stone-50 text-stone-800 font-semibold rounded-full border-2 border-stone-200 hover:border-stone-400 transition-all duration-200 text-sm sm:text-base cursor-pointer"
                 >
                   <span>Customize Your Frame</span>
                 </Link>
@@ -337,18 +337,18 @@ export default function HeroShowcase() {
             </div>
 
             {/* ── Right Column: Framed Masterpiece Showcase & Thumbnails ── */}
-            <div className="lg:col-span-6 space-y-4">
+            <div className="lg:col-span-6 xl:col-span-6 space-y-3 sm:space-y-4">
               
               {/* Luxury Frame Container */}
               <div
-                className="relative bg-stone-950 p-2 sm:p-2.5 rounded-2xl shadow-2xl ring-1 ring-black/10 overflow-hidden group select-none cursor-pointer"
+                className="relative bg-stone-950 p-2 sm:p-3 rounded-2xl shadow-2xl ring-1 ring-black/10 overflow-hidden group select-none cursor-pointer w-full"
                 onMouseEnter={() => setIsPaused(true)}
                 onMouseLeave={() => setIsPaused(false)}
                 onTouchStart={handleTouchStart}
                 onTouchEnd={handleTouchEnd}
               >
                 {/* 16:9 Image Viewport with Acrylic Sheen */}
-                <div className="relative aspect-[16/10] sm:aspect-[16/9] w-full rounded-xl overflow-hidden bg-stone-900">
+                <div className="relative aspect-[16/10] sm:aspect-[16/9] w-full max-h-[560px] rounded-xl overflow-hidden bg-stone-900">
                   <img
                     key={currentDeity.id}
                     src={currentDeity.image}
@@ -377,10 +377,10 @@ export default function HeroShowcase() {
                       e.stopPropagation();
                       handlePrev();
                     }}
-                    className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/85 hover:bg-white text-stone-900 shadow-lg flex items-center justify-center backdrop-blur-sm transition-all hover:scale-105 active:scale-95 cursor-pointer z-10"
+                    className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white/85 hover:bg-white text-stone-900 shadow-lg flex items-center justify-center backdrop-blur-sm transition-all hover:scale-105 active:scale-95 cursor-pointer z-10"
                     aria-label="Previous frame"
                   >
-                    <ChevronLeft className="w-5 h-5" />
+                    <ChevronLeft className="w-6 h-6" />
                   </button>
 
                   <button
@@ -389,28 +389,28 @@ export default function HeroShowcase() {
                       e.stopPropagation();
                       handleNext();
                     }}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/85 hover:bg-white text-stone-900 shadow-lg flex items-center justify-center backdrop-blur-sm transition-all hover:scale-105 active:scale-95 cursor-pointer z-10"
+                    className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white/85 hover:bg-white text-stone-900 shadow-lg flex items-center justify-center backdrop-blur-sm transition-all hover:scale-105 active:scale-95 cursor-pointer z-10"
                     aria-label="Next frame"
                   >
-                    <ChevronRight className="w-5 h-5" />
+                    <ChevronRight className="w-6 h-6" />
                   </button>
 
                   {/* Bottom Info Bar Overlay */}
-                  <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-stone-950 via-stone-950/80 to-transparent pt-8 pb-3 px-4">
+                  <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-stone-950 via-stone-950/80 to-transparent pt-8 pb-3.5 px-4 sm:px-5">
                     <div className="flex items-end justify-between gap-3">
                       <div className="min-w-0">
-                        <p className="text-white text-sm sm:text-base font-semibold truncate tracking-tight">
+                        <p className="text-white text-sm sm:text-base lg:text-lg font-semibold truncate tracking-tight">
                           {currentDeity.name}
                         </p>
-                        <p className="text-amber-300 text-xs font-medium truncate">
+                        <p className="text-amber-300 text-xs sm:text-sm font-medium truncate">
                           {currentDeity.subtitle}
                         </p>
                       </div>
                       <div className="shrink-0 text-right">
-                        <span className="text-amber-400 text-base sm:text-lg font-bold">
+                        <span className="text-amber-400 text-lg sm:text-xl font-bold">
                           {currentDeity.price}
                         </span>
-                        <span className="text-stone-400 text-xs line-through ml-2">
+                        <span className="text-stone-400 text-xs sm:text-sm line-through ml-2">
                           {currentDeity.originalPrice}
                         </span>
                       </div>
@@ -420,13 +420,13 @@ export default function HeroShowcase() {
               </div>
 
               {/* Tightly Bound Thumbnails Directly Under The Frame */}
-              <div className="flex items-center justify-center sm:justify-between gap-2 overflow-x-auto pb-1 scrollbar-none" style={{ scrollbarWidth: 'none' }}>
+              <div className="flex items-center justify-between gap-2 sm:gap-3 overflow-x-auto pb-1 scrollbar-none" style={{ scrollbarWidth: 'none' }}>
                 {HERO_DEITIES.map((deity, idx) => (
                   <button
                     key={deity.id}
                     type="button"
                     onClick={() => handleSelect(idx)}
-                    className={`relative shrink-0 w-14 sm:w-16 h-10 sm:h-11 rounded-lg overflow-hidden border-2 transition-all duration-200 cursor-pointer ${
+                    className={`relative flex-1 min-w-[56px] h-11 sm:h-13 lg:h-14 rounded-lg overflow-hidden border-2 transition-all duration-200 cursor-pointer ${
                       currentIndex === idx
                         ? 'border-amber-500 scale-105 shadow-md ring-1 ring-amber-400/40'
                         : 'border-stone-200 opacity-60 hover:opacity-100 hover:border-amber-300'
