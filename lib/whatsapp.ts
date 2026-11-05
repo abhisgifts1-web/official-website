@@ -57,14 +57,7 @@ export function buildWhatsAppOrderMessage(data: WhatsAppOrderDetails): string {
     if (item.finish) msg += `   ▫ *Finish:* ${item.finish}\n`;
     if (item.lighting) msg += `   ▫ *Lighting:* ${item.lighting}\n`;
     msg += `   ▫ *Quantity:* ${item.quantity}\n`;
-    const isCustom =
-      item.size?.toLowerCase().includes('custom size') ||
-      item.variantId?.toLowerCase().includes('custom-size');
-    if (isCustom) {
-      msg += `   ▫ *Price:* Price will be known in WhatsApp chat order (Custom Quote)\n`;
-    } else {
-      msg += `   ▫ *Price:* ₹${(item.unitPrice * item.quantity).toLocaleString('en-IN')}\n`;
-    }
+    msg += `   ▫ *Price:* ₹${(item.unitPrice * item.quantity).toLocaleString('en-IN')}\n`;
     if (item.customization?.customText) {
       msg += `   ▫ *Custom Inscription:* "${item.customization.customText}"\n`;
     }

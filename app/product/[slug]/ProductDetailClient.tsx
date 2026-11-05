@@ -579,8 +579,25 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
       hasLed: product.hasLedBacklight && isAartiGlow,
       frameType: selectedFrame,
       thickness: selectedThickness,
+      variants: availableSizes.length > 0 ? availableSizes : (liveProduct.variants || product.variants),
+      basePrice: liveProduct.basePrice || product.basePrice,
+      baseMrp: liveProduct.baseMrp || product.baseMrp,
     });
-  }, [customWidth, customHeight, product.hasLedBacklight, isAartiGlow, selectedFrame, selectedThickness]);
+  }, [
+    customWidth,
+    customHeight,
+    product.hasLedBacklight,
+    isAartiGlow,
+    selectedFrame,
+    selectedThickness,
+    availableSizes,
+    liveProduct.variants,
+    product.variants,
+    liveProduct.basePrice,
+    product.basePrice,
+    liveProduct.baseMrp,
+    product.baseMrp,
+  ]);
 
   // Active pricing calculation
   const currentPricing = useMemo(() => {
@@ -792,11 +809,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
       isCustomSize
         ? `Custom Size: ${customSizeCalc.widthInches}x${customSizeCalc.heightInches} inches (${customSizeCalc.dimensionsCm})`
         : (currentSizeObj ? currentSizeObj.label : '12x18') + ' in'
-    }, ${selectedFrame} finish${
-      isCustomSize
-        ? '). Price will be known in this WhatsApp chat order. Please assist with price quote and proofing.'
-        : `, ₹${currentPricing.price.toLocaleString('en-IN')}). Please assist with proofing.`
-    }`
+    }, ${selectedFrame} finish, ₹${currentPricing.price.toLocaleString('en-IN')}). Please assist with proofing.`
   )}`;
 
   // Post review
@@ -1182,46 +1195,36 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
 
             {/* Dynamic Pricing Banner */}
             <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-stone-50 via-amber-50/40 to-stone-50 border border-stone-200 space-y-1.5 shadow-2xs">
-              {isCustomSize ? (
-                <div className="flex items-center gap-3 py-1">
-                  <div className="w-10 h-10 rounded-xl bg-[#25D366]/15 border border-[#25D366]/40 flex items-center justify-center text-[#25D366] shrink-0">
-                    <MessageCircle className="w-5 h-5 fill-current" />
-                  </div>
-                  <div>
-                    <span className="text-lg sm:text-xl font-serif font-bold text-emerald-700 block">
-                      Price will be known in WhatsApp chat order
+              <div className="flex items-baseline justify-between gap-2 flex-wrap">
+                <div className="flex items-baseline gap-3">
+                  <span className="text-3xl sm:text-4xl font-serif font-bold text-stone-900">
+                    ₹{currentPricing.price.toLocaleString('en-IN')}
+                  </span>
+                  {currentPricing.mrp > currentPricing.price && (
+                    <span className="text-base sm:text-lg text-stone-400 line-through font-normal">
+                      ₹{currentPricing.mrp.toLocaleString('en-IN')}
                     </span>
-                    <p className="text-[11px] text-stone-600 mt-0.5">
-                      Custom sizes are quoted directly by our artisans on WhatsApp based on your exact measurements &amp; finish.
-                    </p>
-                  </div>
+                  )}
                 </div>
-              ) : (
-                <>
-                  <div className="flex items-baseline justify-between gap-2 flex-wrap">
-                    <div className="flex items-baseline gap-3">
-                      <span className="text-3xl sm:text-4xl font-serif font-bold text-stone-900">
-                        ₹{currentPricing.price.toLocaleString('en-IN')}
-                      </span>
-                      {currentPricing.mrp > currentPricing.price && (
-                        <span className="text-base sm:text-lg text-stone-400 line-through font-normal">
-                          ₹{currentPricing.mrp.toLocaleString('en-IN')}
-                        </span>
-                      )}
-                    </div>
 
-                    {discountPercent > 0 && (
-                      <span className="text-xs font-bold text-amber-900 bg-amber-100 border border-amber-300 px-3 py-1 rounded-full shadow-2xs">
-                        Save {discountPercent}% OFF
-                      </span>
-                    )}
-                  </div>
-                  <p className="text-[11px] text-stone-600 font-medium flex items-center gap-1.5">
-                    <Sparkles className="w-3 h-3 text-amber-600 shrink-0" />
-                    <span>Inclusive of all taxes • Handcrafted in Hyderabad Studio</span>
-                  </p>
-                </>
+                {discountPercent > 0 && (
+                  <span className="text-xs font-bold text-amber-900 bg-amber-100 border border-amber-300 px-3 py-1 rounded-full shadow-2xs">
+                    Save {discountPercent}% OFF
+                  </span>
+                )}
+              </div>
+
+              {isCustomSize && (
+                <div className="pt-0.5 flex items-center gap-1.5 text-xs text-amber-900 font-medium">
+                  <Sparkles className="w-3.5 h-3.5 text-amber-600 shrink-0" />
+                  <span>Custom Laser-Cut Size ({customSizeCalc.widthInches}&quot; × {customSizeCalc.heightInches}&quot;) • Calculated from standard sizes</span>
+                </div>
               )}
+
+              <p className="text-[11px] text-stone-600 font-medium flex items-center gap-1.5 pt-0.5">
+                <Sparkles className="w-3 h-3 text-amber-600 shrink-0" />
+                <span>Inclusive of all taxes • Handcrafted in Hyderabad Studio</span>
+              </p>
             </div>
 
             {/* Customization 1: Frame Style (Hidden for Glitter Photo Frames) */}
@@ -1474,56 +1477,45 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
 
               {/* CTA Buttons */}
               <div className="pt-1">
-                {isCustomSize ? (
-                  <a
-                    href={whatsappCustomSizeUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full bg-[#25D366] hover:bg-[#20BD5A] text-white font-bold text-sm sm:text-base py-3.5 rounded-2xl shadow-md border border-[#25D366]/50 transition-all flex items-center justify-center gap-2 cursor-pointer hover:shadow-lg active:scale-[0.99]"
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {/* Instant Buy Now Button */}
+                  <button
+                    type="button"
+                    onClick={handleBuyNow}
+                    className="w-full bg-gradient-to-r from-[#EAB308] via-[#FACC15] to-[#EAB308] hover:from-[#FACC15] hover:to-[#EAB308] text-stone-950 font-bold text-sm sm:text-base py-3.5 rounded-2xl shadow-md border border-[#EAB308]/50 transition-all flex items-center justify-center gap-2 cursor-pointer hover:shadow-lg active:scale-[0.99]"
                   >
-                    <MessageCircle className="w-5 h-5 fill-white" />
-                    <span>Order via WhatsApp (Price Known in Chat)</span>
-                    <ArrowRight className="w-4 h-4 text-white" />
-                  </a>
-                ) : (
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    {/* Instant Buy Now Button */}
-                    <button
-                      type="button"
-                      onClick={handleBuyNow}
-                      className="w-full bg-gradient-to-r from-[#EAB308] via-[#FACC15] to-[#EAB308] hover:from-[#FACC15] hover:to-[#EAB308] text-stone-950 font-bold text-sm sm:text-base py-3.5 rounded-2xl shadow-md border border-[#EAB308]/50 transition-all flex items-center justify-center gap-2 cursor-pointer hover:shadow-lg active:scale-[0.99]"
-                    >
-                      <span>Buy Now</span>
-                      <ArrowRight className="w-4 h-4 text-stone-900" />
-                    </button>
+                    <span>Buy Now</span>
+                    <ArrowRight className="w-4 h-4 text-stone-900" />
+                  </button>
 
-                    {/* Add to Cart Button */}
-                    <button
-                      type="button"
-                      onClick={handleAddToCart}
-                      className="w-full bg-stone-100 hover:bg-stone-200 active:bg-stone-300 text-stone-900 font-bold text-sm sm:text-base py-3.5 rounded-2xl border-2 border-stone-300 shadow-xs transition-colors flex items-center justify-center gap-2 cursor-pointer"
-                    >
-                      <ShoppingBag className="w-4 h-4 text-amber-600" />
-                      <span>Add to Cart</span>
-                    </button>
-                  </div>
-                )}
+                  {/* Add to Cart Button */}
+                  <button
+                    type="button"
+                    onClick={handleAddToCart}
+                    className="w-full bg-stone-100 hover:bg-stone-200 active:bg-stone-300 text-stone-900 font-bold text-sm sm:text-base py-3.5 rounded-2xl border-2 border-stone-300 shadow-xs transition-colors flex items-center justify-center gap-2 cursor-pointer"
+                  >
+                    <ShoppingBag className="w-4 h-4 text-amber-600" />
+                    <span>Add to Cart</span>
+                  </button>
+                </div>
               </div>
 
-              {/* WhatsApp Enquiry Button */}
-              {!isCustomSize && (
-                <div className="pt-1">
-                  <a
-                    href={whatsappCustomSizeUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full bg-[#25D366]/10 hover:bg-[#25D366]/20 border border-[#25D366]/30 text-[#128C7E] font-bold text-xs py-3 rounded-2xl transition-all flex items-center justify-center gap-2 cursor-pointer shadow-2xs"
-                  >
-                    <MessageCircle className="w-4 h-4 fill-current text-[#25D366]" />
-                    <span>Need Custom Sizing or Advice? Inquire on WhatsApp</span>
-                  </a>
-                </div>
-              )}
+              {/* WhatsApp Enquiry & Direct Order Button */}
+              <div className="pt-1">
+                <a
+                  href={whatsappCustomSizeUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full bg-[#25D366]/10 hover:bg-[#25D366]/20 border border-[#25D366]/30 text-[#128C7E] font-bold text-xs py-3 rounded-2xl transition-all flex items-center justify-center gap-2 cursor-pointer shadow-2xs"
+                >
+                  <MessageCircle className="w-4 h-4 fill-current text-[#25D366]" />
+                  <span>
+                    {isCustomSize
+                      ? `Order Custom Size via WhatsApp (₹${currentPricing.price.toLocaleString('en-IN')})`
+                      : 'Need Custom Sizing or Advice? Inquire on WhatsApp'}
+                  </span>
+                </a>
+              </div>
 
               <p className="text-[11px] text-stone-500 text-center font-medium">
                 🔒 100% Secure Checkout • UPI, Credit/Debit Cards &amp; NetBanking

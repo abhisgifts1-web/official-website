@@ -47,8 +47,11 @@ export default function QuickViewModal({ product, isOpen, onClose }: QuickViewMo
     return calculateCustomDimensions(customWidth, customHeight, {
       hasLed: Boolean(product?.hasLedBacklight),
       frameType: currentVariant.finish,
+      variants: product?.variants,
+      basePrice: product?.basePrice,
+      baseMrp: product?.baseMrp,
     });
-  }, [customWidth, customHeight, product?.hasLedBacklight, currentVariant.finish]);
+  }, [customWidth, customHeight, product?.hasLedBacklight, currentVariant.finish, product?.variants, product?.basePrice, product?.baseMrp]);
 
   // Early return safely AFTER all React hooks
   if (!isOpen || !product) return null;
@@ -156,30 +159,21 @@ export default function QuickViewModal({ product, isOpen, onClose }: QuickViewMo
                 </h3>
 
                 {/* Price */}
-                {isCustomSize ? (
-                  <div className="flex items-center gap-2 pt-1">
-                    <MessageCircle className="w-4 h-4 text-[#25D366] fill-current" />
-                    <span className="font-serif text-sm sm:text-base font-bold text-[#25D366]">
-                      Price will be known in WhatsApp chat order
-                    </span>
-                  </div>
-                ) : (
-                  <div className="flex items-baseline gap-2.5 pt-1">
-                    <span className="font-serif text-2xl font-bold text-stone-900">
-                      ₹{activePrice.toLocaleString('en-IN')}
-                    </span>
-                    {currentVariant.mrp > currentVariant.price && (
-                      <>
-                        <span className="text-sm text-stone-400 line-through">
-                          ₹{activeMrp.toLocaleString('en-IN')}
-                        </span>
-                        <span className="text-xs font-bold text-amber-900 bg-amber-100 px-2 py-0.5 rounded border border-amber-300">
-                          Save {Math.round(((currentVariant.mrp - currentVariant.price) / currentVariant.mrp) * 100)}%
-                        </span>
-                      </>
-                    )}
-                  </div>
-                )}
+                <div className="flex items-baseline gap-2.5 pt-1">
+                  <span className="font-serif text-2xl font-bold text-stone-900">
+                    ₹{activePrice.toLocaleString('en-IN')}
+                  </span>
+                  {activeMrp > activePrice && (
+                    <>
+                      <span className="text-sm text-stone-400 line-through">
+                        ₹{activeMrp.toLocaleString('en-IN')}
+                      </span>
+                      <span className="text-xs font-bold text-amber-900 bg-amber-100 px-2 py-0.5 rounded border border-amber-300">
+                        Save {Math.round(((activeMrp - activePrice) / activeMrp) * 100)}%
+                      </span>
+                    </>
+                  )}
+                </div>
 
                 <p className="text-xs text-stone-600 line-clamp-2">
                   {product.shortDescription}
@@ -264,29 +258,29 @@ export default function QuickViewModal({ product, isOpen, onClose }: QuickViewMo
                 </div>
               </div>
 
-              {/* Action Button: Direct Buy Now or WhatsApp Order for Custom Size */}
+              {/* Action Button: Direct Buy Now with WhatsApp Order Option */}
               <div className="space-y-2 pt-4">
-                {isCustomSize ? (
+                <button
+                  type="button"
+                  onClick={handleBuyNow}
+                  className="w-full bg-[#EAB308] hover:bg-[#FACC15] text-stone-950 py-3 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-md border border-amber-500 transition-all cursor-pointer uppercase tracking-wider"
+                >
+                  <span>Buy Now • ₹{(activePrice * quantity).toLocaleString('en-IN')}</span>
+                  <ArrowRight className="w-4 h-4 text-stone-950" />
+                </button>
+
+                {isCustomSize && (
                   <a
                     href={`https://wa.me/${(INITIAL_SETTINGS.whatsappNumber || '919032372782').replace(/[^0-9]/g, '')}?text=${encodeURIComponent(
-                      `Hello Abhi's Gifts! I would like to order "${product.title}" in Custom Size (${customWidth}x${customHeight} inches). Price will be known in WhatsApp chat order. Please assist with proofing & price quote.`
+                      `Hello Abhi's Gifts! I would like to order "${product.title}" in Custom Size (${customWidth}x${customHeight} inches, ₹${activePrice.toLocaleString('en-IN')}). Please assist with proofing.`
                     )}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full bg-[#25D366] hover:bg-[#20BD5A] text-white py-3 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-md transition-all cursor-pointer uppercase tracking-wider"
+                    className="w-full bg-[#25D366]/10 hover:bg-[#25D366]/20 border border-[#25D366]/40 text-[#128C7E] py-2.5 rounded-xl font-bold text-xs flex items-center justify-center gap-2 transition-all cursor-pointer"
                   >
-                    <MessageCircle className="w-4 h-4 fill-white" />
-                    <span>Order via WhatsApp (Price Known in Chat)</span>
+                    <MessageCircle className="w-4 h-4 fill-current text-[#25D366]" />
+                    <span>Order via WhatsApp (₹{activePrice.toLocaleString('en-IN')})</span>
                   </a>
-                ) : (
-                  <button
-                    type="button"
-                    onClick={handleBuyNow}
-                    className="w-full bg-[#EAB308] hover:bg-[#FACC15] text-stone-950 py-3 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-md border border-amber-500 transition-all cursor-pointer uppercase tracking-wider"
-                  >
-                    <span>Buy Now • ₹{(activePrice * quantity).toLocaleString('en-IN')}</span>
-                    <ArrowRight className="w-4 h-4 text-stone-950" />
-                  </button>
                 )}
 
                 <div className="flex items-center justify-between text-xs pt-1">

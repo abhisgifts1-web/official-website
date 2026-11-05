@@ -154,21 +154,13 @@ export default function CartPage() {
                   </div>
 
                   <div className="text-right">
-                    {item.size?.toLowerCase().includes('custom size') || item.variantId?.toLowerCase().includes('custom-size') ? (
-                      <span className="font-serif font-bold text-xs sm:text-sm text-[#25D366] block">
-                        Price will be known in WhatsApp chat order
+                    <span className="font-serif font-bold text-base sm:text-lg text-stone-900">
+                      ₹{(item.unitPrice * item.quantity).toLocaleString('en-IN')}
+                    </span>
+                    {item.unitMrp > item.unitPrice && (
+                      <span className="block text-xs text-stone-400 line-through">
+                        ₹{(item.unitMrp * item.quantity).toLocaleString('en-IN')}
                       </span>
-                    ) : (
-                      <>
-                        <span className="font-serif font-bold text-base sm:text-lg text-stone-900">
-                          ₹{(item.unitPrice * item.quantity).toLocaleString('en-IN')}
-                        </span>
-                        {item.unitMrp > item.unitPrice && (
-                          <span className="block text-xs text-stone-400 line-through">
-                            ₹{(item.unitMrp * item.quantity).toLocaleString('en-IN')}
-                          </span>
-                        )}
-                      </>
                     )}
                   </div>
                 </div>

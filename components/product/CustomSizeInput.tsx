@@ -162,14 +162,37 @@ export default function CustomSizeInput({
         </div>
       </div>
 
-      {/* WhatsApp Custom Size Price Notice */}
-      <div className="bg-[#25D366]/10 border border-[#25D366]/40 rounded-xl p-2.5 flex items-center gap-2.5 text-xs text-stone-900">
-        <MessageCircle className="w-4 h-4 text-[#25D366] shrink-0 fill-current" />
-        <div>
-          <span className="font-bold text-emerald-800 block">Price will be known in WhatsApp chat order</span>
-          <span className="text-[10px] sm:text-[11px] text-stone-600">
-            Custom sizes are laser-cut to your exact dimensions. Direct quotation and digital proof will be shared in WhatsApp chat.
-          </span>
+      {/* Auto-Calculated Price Display */}
+      <div className="bg-amber-50/80 border border-amber-300 rounded-xl p-3 flex items-center justify-between gap-3 text-xs text-stone-900 shadow-2xs">
+        <div className="flex items-center gap-2">
+          <div className="w-8 h-8 rounded-lg bg-amber-100 border border-amber-300 flex items-center justify-center text-amber-800 shrink-0">
+            <Sparkles className="w-4 h-4 text-amber-700" />
+          </div>
+          <div>
+            <span className="text-[11px] font-bold text-stone-900 block">
+              Auto-Calculated Custom Size Price
+            </span>
+            <span className="text-[10px] text-stone-500">
+              Proportionally calculated from standard sizes &amp; finishes
+            </span>
+          </div>
+        </div>
+        <div className="text-right shrink-0">
+          <div className="flex items-baseline gap-1.5 justify-end">
+            <span className="font-serif font-bold text-base sm:text-lg text-stone-900">
+              ₹{calc.price.toLocaleString('en-IN')}
+            </span>
+            {calc.mrp > calc.price && (
+              <span className="text-[11px] text-stone-400 line-through">
+                ₹{calc.mrp.toLocaleString('en-IN')}
+              </span>
+            )}
+          </div>
+          {calc.discountPercent > 0 && (
+            <span className="text-[9px] font-bold text-amber-900 bg-amber-100 px-1.5 py-0.5 rounded border border-amber-200">
+              Save {calc.discountPercent}%
+            </span>
+          )}
         </div>
       </div>
 
