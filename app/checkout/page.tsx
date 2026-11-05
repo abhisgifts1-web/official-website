@@ -24,6 +24,7 @@ import { useCart } from '@/context/CartContext';
 import { ShippingAddress } from '@/types';
 import { getWhatsAppOrderUrl } from '@/lib/whatsapp';
 import { INITIAL_SETTINGS } from '@/lib/data/settings';
+import { compressImageToDataUrl } from '@/lib/utils/imageCompress';
 
 type PaymentOption = 'whatsapp' | 'online';
 
@@ -133,14 +134,15 @@ export default function CheckoutPage() {
 
           if (imgToUpload) {
             try {
+              const compressed = await compressImageToDataUrl(imgToUpload);
               const res = await fetch('/api/upload-photo', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ image: imgToUpload }),
+                body: JSON.stringify({ image: compressed }),
               });
               const uploadData = await res.json();
-              if (uploadData && uploadData.url) {
-                const fullUrl = `${window.location.origin}${uploadData.url}`;
+              const fullUrl = uploadData?.cdnUrl || (uploadData?.url ? `${window.location.origin}${uploadData.url}` : null);
+              if (fullUrl) {
                 updatedItem.image = fullUrl;
                 updatedItem.customization = {
                   ...(updatedItem.customization || {}),

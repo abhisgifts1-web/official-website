@@ -72,13 +72,13 @@ export function buildWhatsAppOrderMessage(data: WhatsAppOrderDetails): string {
       item.title.toLowerCase().includes('custom photo') ||
       item.variantId.toLowerCase().includes('custom') ||
       item.productId === 'prod-custom-photo-acrylic-frame' ||
-      (baseImageUrl && baseImageUrl.includes('custom-photos'));
+      (baseImageUrl && (baseImageUrl.includes('custom-photos') || baseImageUrl.includes('/api/uploads/') || baseImageUrl.includes('tmpfiles')));
 
     const photoToLink = customPhotoUrl || (isCustom ? baseImageUrl : null);
 
     if (photoToLink) {
       if (photoToLink.startsWith('data:')) {
-        msg += `   📸 *Custom Customer Photo:* [Customer photo attached with order]\n`;
+        msg += `   📸 *Custom Customer Photo:* [Uploaded with order - sharing directly in chat]\n`;
       } else {
         let fullImgUrl = photoToLink;
         if (!fullImgUrl.startsWith('http://') && !fullImgUrl.startsWith('https://')) {
@@ -88,7 +88,7 @@ export function buildWhatsAppOrderMessage(data: WhatsAppOrderDetails): string {
         msg += `   📸 *Custom Customer Photo Link:* ${fullImgUrl}\n`;
         msg += `   👉 *(Click link to view/download original high-res customer photo)*\n`;
       }
-    } else if (baseImageUrl) {
+    } else if (baseImageUrl && !baseImageUrl.startsWith('data:')) {
       let fullImgUrl = baseImageUrl;
       if (!fullImgUrl.startsWith('http://') && !fullImgUrl.startsWith('https://')) {
         const origin = (baseUrl || (typeof window !== 'undefined' ? window.location.origin : '') || 'https://abhisgifts.com').replace(/\/$/, '');

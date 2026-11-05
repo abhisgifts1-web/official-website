@@ -26,6 +26,7 @@ import CustomSizeInput from './CustomSizeInput';
 import { calculateCustomDimensions } from '@/lib/utils/customSize';
 import { useCart } from '@/context/CartContext';
 import { INITIAL_SETTINGS } from '@/lib/data/settings';
+import { compressImageToDataUrl } from '@/lib/utils/imageCompress';
 
 interface AddPhotoModalProps {
   product: Product;
@@ -69,6 +70,7 @@ export default function AddPhotoModal({
   const [customWidth, setCustomWidth] = useState<number>(24);
   const [customHeight, setCustomHeight] = useState<number>(36);
   const [waUploading, setWaUploading] = useState(false);
+  const [uploadedPhotoUrl, setUploadedPhotoUrl] = useState<string | null>(null);
 
   // Sync if initialVariant changes
   React.useEffect(() => {
@@ -104,16 +106,45 @@ export default function AddPhotoModal({
   // Early return AFTER all hooks
   if (!isOpen) return null;
 
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) {
+  // Pre-upload photo in the background as soon as user selects it
+  const processAndPreUpload = async (file: File) => {
+    try {
       const reader = new FileReader();
-      reader.onload = (event) => {
-        if (event.target?.result) {
-          setPhotoPreview(event.target.result as string);
+      reader.onload = async (event) => {
+        const rawResult = event.target?.result as string;
+        if (!rawResult) return;
+        setPhotoPreview(rawResult);
+        setUploadedPhotoUrl(null);
+
+        try {
+          setWaUploading(true);
+          const compressed = await compressImageToDataUrl(rawResult);
+          const res = await fetch('/api/upload-photo', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ image: compressed }),
+          });
+          const data = await res.json();
+          const finalUrl = data?.cdnUrl || (data?.url ? `${window.location.origin}${data.url}` : null);
+          if (finalUrl) {
+            setUploadedPhotoUrl(finalUrl);
+          }
+        } catch (uploadErr) {
+          console.warn('Pre-uploading photo notice:', uploadErr);
+        } finally {
+          setWaUploading(false);
         }
       };
       reader.readAsDataURL(file);
+    } catch (err) {
+      console.warn('File read error:', err);
+    }
+  };
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      processAndPreUpload(file);
     }
   };
 
@@ -132,33 +163,27 @@ export default function AddPhotoModal({
     setIsDragging(false);
     const file = e.dataTransfer.files?.[0];
     if (file && file.type.startsWith('image/')) {
-      const reader = new FileReader();
-      reader.onload = (event) => {
-        if (event.target?.result) {
-          setPhotoPreview(event.target.result as string);
-        }
-      };
-      reader.readAsDataURL(file);
+      processAndPreUpload(file);
     }
   };
 
   // WhatsApp order handler — uploads photo to server, includes public URL in message
   const handleWhatsAppOrder = async () => {
-    let photoUrl: string | null = null;
+    let photoUrl = uploadedPhotoUrl;
 
-    if (photoPreview) {
+    if (!photoUrl && photoPreview) {
       if (photoPreview.startsWith('data:')) {
         setWaUploading(true);
         try {
+          const compressed = await compressImageToDataUrl(photoPreview);
           const res = await fetch('/api/upload-photo', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ image: photoPreview }),
+            body: JSON.stringify({ image: compressed }),
           });
           const data = await res.json();
-          if (data && data.url) {
-            photoUrl = `${window.location.origin}${data.url}`;
-          }
+          photoUrl = data?.cdnUrl || (data?.url ? `${window.location.origin}${data.url}` : null);
+          if (photoUrl) setUploadedPhotoUrl(photoUrl);
         } catch (err) {
           console.error('Error uploading custom photo for WhatsApp order:', err);
         } finally {
@@ -178,9 +203,9 @@ export default function AddPhotoModal({
       `📦 *${product.title}*`,
       ``,
       photoUrl
-        ? `📸 *Customer Custom Photo:* ${photoUrl}\n👉 (Open link to view/download original high-res customer photo)`
+        ? `📸 *Custom Customer Photo Link:* ${photoUrl}\n👉 *(Click link to view/download original high-res customer photo)*`
         : photoPreview
-        ? `📸 *Custom Photo:* [Uploaded with order - sharing directly in chat]`
+        ? `📸 *Custom Photo:* [Customer photo attached with order]`
         : `🖼️ *Artwork:* Using catalog artwork`,
       `📐 *Size:* ${activeSizeLabel}`,
       `💰 *Price:* ₹${activePrice.toLocaleString('en-IN')}`,
@@ -195,17 +220,20 @@ export default function AddPhotoModal({
   };
 
   const handleAddToCartWithPhoto = async (redirectCheckout = false) => {
-    let finalImage = photoPreview || product.images[0];
-    if (photoPreview && photoPreview.startsWith('data:')) {
+    let finalImage = uploadedPhotoUrl || photoPreview || product.images[0];
+    if (!uploadedPhotoUrl && photoPreview && photoPreview.startsWith('data:')) {
       try {
+        const compressed = await compressImageToDataUrl(photoPreview);
         const res = await fetch('/api/upload-photo', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ image: photoPreview }),
+          body: JSON.stringify({ image: compressed }),
         });
         const uploadRes = await res.json();
-        if (uploadRes && uploadRes.url) {
-          finalImage = `${window.location.origin}${uploadRes.url}`;
+        const uploadedLink = uploadRes?.cdnUrl || (uploadRes?.url ? `${window.location.origin}${uploadRes.url}` : null);
+        if (uploadedLink) {
+          finalImage = uploadedLink;
+          setUploadedPhotoUrl(uploadedLink);
         }
       } catch (err) {
         console.warn('Pre-uploading custom photo failed', err);

@@ -33,6 +33,7 @@ import {
 import { useCart } from '@/context/CartContext';
 import { ProductOrientation } from '@/types';
 import { INITIAL_SETTINGS } from '@/lib/data/settings';
+import { compressImageToDataUrl } from '@/lib/utils/imageCompress';
 
 // =========================================================================
 // TYPES & CONFIGURATION
@@ -480,6 +481,7 @@ export default function CustomizerStudio() {
   const [uploadProgress, setUploadProgress] = useState<number | null>(null);
   const [isHovered, setIsHovered] = useState<boolean>(false);
   const [waUploading, setWaUploading] = useState<boolean>(false);
+  const [uploadedPhotoUrl, setUploadedPhotoUrl] = useState<string | null>(null);
 
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -552,11 +554,33 @@ export default function CustomizerStudio() {
     }
 
     const reader = new FileReader();
-    reader.onload = () => {
-      setPreviewImage(reader.result as string);
+    reader.onload = async () => {
+      const resultData = reader.result as string;
+      setPreviewImage(resultData);
       setIsUserUploaded(true);
       setZoomLevel(1.0);
       setRotation(0);
+      setUploadedPhotoUrl(null);
+
+      // Pre-upload in the background for instant WhatsApp sharing
+      try {
+        setWaUploading(true);
+        const compressed = await compressImageToDataUrl(resultData);
+        const res = await fetch('/api/upload-photo', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ image: compressed }),
+        });
+        const uploadRes = await res.json();
+        const finalUrl = uploadRes?.cdnUrl || (uploadRes?.url ? `${window.location.origin}${uploadRes.url}` : null);
+        if (finalUrl) {
+          setUploadedPhotoUrl(finalUrl);
+        }
+      } catch (err) {
+        console.warn('Pre-uploading photo failed:', err);
+      } finally {
+        setWaUploading(false);
+      }
     };
     reader.onerror = () => {
       setFileError('Failed to read image file. Please try another image.');
@@ -640,26 +664,31 @@ export default function CustomizerStudio() {
 
   // Dynamic WhatsApp Prefilled Inquiry URL & Photo Upload Handler
   const handleWhatsAppInquiry = async () => {
-    let photoUrl = previewImage;
-    if (previewImage && previewImage.startsWith('data:')) {
-      setWaUploading(true);
-      try {
-        const res = await fetch('/api/upload-photo', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ image: previewImage }),
-        });
-        const uploadRes = await res.json();
-        if (uploadRes && uploadRes.url) {
-          photoUrl = `${window.location.origin}${uploadRes.url}`;
+    let photoUrl = uploadedPhotoUrl;
+
+    if (!photoUrl && previewImage) {
+      if (previewImage.startsWith('data:')) {
+        setWaUploading(true);
+        try {
+          const compressed = await compressImageToDataUrl(previewImage);
+          const res = await fetch('/api/upload-photo', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ image: compressed }),
+          });
+          const uploadRes = await res.json();
+          photoUrl = uploadRes?.cdnUrl || (uploadRes?.url ? `${window.location.origin}${uploadRes.url}` : null);
+          if (photoUrl) setUploadedPhotoUrl(photoUrl);
+        } catch (err) {
+          console.warn('Uploading custom photo for WhatsApp failed:', err);
+        } finally {
+          setWaUploading(false);
         }
-      } catch (err) {
-        console.warn('Uploading custom photo for WhatsApp failed:', err);
-      } finally {
-        setWaUploading(false);
+      } else {
+        photoUrl = previewImage.startsWith('http')
+          ? previewImage
+          : `${window.location.origin}${previewImage.startsWith('/') ? '' : '/'}${previewImage}`;
       }
-    } else if (previewImage && !previewImage.startsWith('http')) {
-      photoUrl = `${window.location.origin}${previewImage.startsWith('/') ? '' : '/'}${previewImage}`;
     }
 
     const details = [
@@ -673,7 +702,7 @@ export default function CustomizerStudio() {
       specialInstructions ? `• *Instructions:* "${specialInstructions}"` : '',
       `• *Auto-Calculated Price:* ₹${pricing.price.toLocaleString('en-IN')}`,
       photoUrl
-        ? `\n📸 *Customer Uploaded Custom Photo Link:*\n${photoUrl}\n👉 *(Open link to view/download original high-res customer photo)*\n`
+        ? `\n📸 *Customer Uploaded Custom Photo Link:*\n${photoUrl}\n👉 *(Click link to view/download original high-res customer photo)*\n`
         : '',
       `Please confirm my proof and share payment & dispatch details. Thank you!`,
     ]
@@ -695,6 +724,7 @@ export default function CustomizerStudio() {
       customText ? `• Inscription: "${customText}"` : '',
       specialInstructions ? `• Instructions: "${specialInstructions}"` : '',
       `• Estimated Price: ₹${pricing.price.toLocaleString('en-IN')}`,
+      uploadedPhotoUrl ? `• Photo Link: ${uploadedPhotoUrl}` : '',
       `Can you share a digital proof and fabrication timeline?`,
     ]
       .filter(Boolean)
@@ -711,21 +741,25 @@ export default function CustomizerStudio() {
     customText,
     specialInstructions,
     pricing.price,
+    uploadedPhotoUrl,
   ]);
 
   // Add To Cart & Checkout
   const handleOrderNow = async () => {
-    let finalPreview = previewImage;
-    if (previewImage && previewImage.startsWith('data:')) {
+    let finalPreview = uploadedPhotoUrl || previewImage;
+    if (!uploadedPhotoUrl && previewImage && previewImage.startsWith('data:')) {
       try {
+        const compressed = await compressImageToDataUrl(previewImage);
         const res = await fetch('/api/upload-photo', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ image: previewImage }),
+          body: JSON.stringify({ image: compressed }),
         });
         const uploadRes = await res.json();
-        if (uploadRes && uploadRes.url) {
-          finalPreview = `${window.location.origin}${uploadRes.url}`;
+        const uploadedLink = uploadRes?.cdnUrl || (uploadRes?.url ? `${window.location.origin}${uploadRes.url}` : null);
+        if (uploadedLink) {
+          finalPreview = uploadedLink;
+          setUploadedPhotoUrl(uploadedLink);
         }
       } catch (err) {
         console.warn('Pre-uploading customizer preview failed', err);
