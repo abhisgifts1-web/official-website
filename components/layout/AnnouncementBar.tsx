@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import {
   Sparkles,
   Phone,
@@ -12,6 +13,12 @@ import {
 import { INITIAL_SETTINGS } from '@/lib/data/settings';
 
 export default function AnnouncementBar() {
+  const pathname = usePathname();
+
+  // Hide announcement ticker entirely on admin dashboard & portal routes
+  if (pathname?.startsWith('/admin')) {
+    return null;
+  }
     const tickerItems = (
     <div className="flex items-center gap-6 sm:gap-10 shrink-0 px-3">
       {/* 1. Craftsmanship */}

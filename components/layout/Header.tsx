@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 import {
   Menu,
   X,
@@ -32,6 +32,7 @@ import { useCart } from '@/context/CartContext';
 import { useWishlist } from '@/context/WishlistContext';
 
 export default function Header() {
+  const pathname = usePathname();
   const router = useRouter();
   const { cartCount, openCart } = useCart();
   const { wishlistCount } = useWishlist();
@@ -87,6 +88,11 @@ export default function Header() {
       setSearchQuery('');
     }
   };
+
+  // Hide storefront header on admin dashboard & portal routes
+  if (pathname?.startsWith('/admin')) {
+    return null;
+  }
 
   return (
     <>
