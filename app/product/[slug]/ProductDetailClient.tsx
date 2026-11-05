@@ -992,17 +992,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                     />
                   )}
 
-                  <div
-                    className={`relative w-full h-full overflow-hidden rounded-2xl ${
-                      isGlitterFrame
-                        ? 'border-2 border-stone-200 shadow-md'
-                        : selectedFrame === 'gold'
-                        ? 'border-[12px] sm:border-[16px] border-[#EAB308] shadow-[0_16px_36px_rgba(198,154,66,0.38)] ring-1 ring-[#946F25]'
-                        : selectedFrame === 'black'
-                        ? 'border-[12px] sm:border-[16px] border-[#1C1917] shadow-[0_16px_36px_rgba(0,0,0,0.45)] ring-1 ring-stone-900'
-                        : 'border-2 border-stone-300 shadow-md'
-                    }`}
-                  >
+                  <div className="relative w-full h-full overflow-hidden rounded-2xl border border-stone-200 shadow-md">
                     {/* Main Artwork Image with Smooth Zoom tracking */}
                     <img
                       src={activeImage}
@@ -1087,10 +1077,10 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                         key={i}
                         type="button"
                         onClick={() => setActiveImageIndex(i)}
-                        className={`w-16 h-16 sm:w-20 sm:h-20 shrink-0 rounded-2xl overflow-hidden border-2 transition-all bg-stone-100 cursor-pointer relative group ${
+                        className={`w-16 h-16 sm:w-20 sm:h-20 shrink-0 rounded-2xl overflow-hidden border-2 bg-stone-100 cursor-pointer relative group ${
                           isSelected
-                            ? 'border-amber-500 ring-2 ring-amber-300 scale-102 shadow-md'
-                            : 'border-stone-200 opacity-80 hover:opacity-100 hover:border-amber-400'
+                            ? 'border-stone-900 opacity-100 shadow-xs'
+                            : 'border-stone-200 opacity-70 hover:opacity-100 hover:border-stone-400'
                         }`}
                         title={label}
                         aria-label={label}
@@ -1103,11 +1093,8 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                               (e.target as HTMLImageElement).src = product.images[0];
                             }
                           }}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                          className="w-full h-full object-cover"
                         />
-                        {isSelected && (
-                          <div className="absolute inset-0 bg-amber-500/10 pointer-events-none" />
-                        )}
                       </button>
                     );
                   })}
@@ -1279,11 +1266,11 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                       onClick={() => handleSelectFrame('gold')}
                       className={`p-2.5 rounded-2xl border-2 flex flex-col items-center text-center gap-1.5 cursor-pointer ${
                         selectedFrame === 'gold'
-                          ? 'border-amber-500 bg-amber-50/60 shadow-xs'
-                          : 'border-stone-200 bg-stone-50 hover:border-amber-400'
+                          ? 'border-stone-900 bg-stone-100 shadow-xs'
+                          : 'border-stone-200 bg-stone-50 hover:border-stone-400'
                       }`}
                     >
-                      <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl overflow-hidden border border-amber-300 shadow-xs bg-white">
+                      <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl overflow-hidden border border-stone-200 shadow-xs bg-white">
                         <img
                           src="/images/frames/gold-border-ref.jpg"
                           alt="Champagne Gold Aluminium Frame Border"
@@ -1301,10 +1288,10 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                       className={`p-2.5 rounded-2xl border-2 flex flex-col items-center text-center gap-1.5 cursor-pointer ${
                         selectedFrame === 'black'
                           ? 'border-stone-900 bg-stone-100 shadow-xs'
-                          : 'border-stone-200 bg-stone-50 hover:border-amber-400'
+                          : 'border-stone-200 bg-stone-50 hover:border-stone-400'
                       }`}
                     >
-                      <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl overflow-hidden border border-stone-300 shadow-xs bg-white">
+                      <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl overflow-hidden border border-stone-200 shadow-xs bg-white">
                         <img
                           src="/images/frames/black-border-ref.jpg"
                           alt="Matte Black Aluminium Frame Border"
@@ -1321,8 +1308,8 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                       onClick={() => handleSelectFrame('without')}
                       className={`p-2.5 rounded-2xl border-2 flex flex-col items-center text-center gap-1.5 cursor-pointer ${
                         selectedFrame === 'without'
-                          ? 'border-amber-500 bg-amber-50/60 shadow-xs'
-                          : 'border-stone-200 bg-stone-50 hover:border-amber-400'
+                          ? 'border-stone-900 bg-stone-100 shadow-xs'
+                          : 'border-stone-200 bg-stone-50 hover:border-stone-400'
                       }`}
                     >
                       <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl overflow-hidden border border-stone-200 shadow-xs bg-white">
