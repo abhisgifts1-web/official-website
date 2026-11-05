@@ -7,7 +7,6 @@ import {
   ChevronLeft,
   ChevronRight,
   Star,
-  CheckCircle2,
   ArrowRight,
 } from 'lucide-react';
 
@@ -283,25 +282,6 @@ export default function HeroShowcase() {
                     in Hyderabad
                   </span>
                 </h1>
-                <p className="text-base sm:text-lg lg:text-xl text-stone-600 leading-relaxed font-sans pt-1 max-w-2xl">
-                  Discover beautifully crafted acrylic, warm ambient LED, and personalized keepsake frames designed to make your memories unforgettable. Handcrafted with precision at our Dilsukhnagar studio.
-                </p>
-              </div>
-
-              {/* Value Highlights */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 pt-1 text-xs sm:text-sm text-stone-700 font-medium">
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-amber-600 shrink-0" />
-                  <span>4mm Cast Acrylic</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-amber-600 shrink-0" />
-                  <span>Warm Ambient LED</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-amber-600 shrink-0" />
-                  <span>WhatsApp Preview</span>
-                </div>
               </div>
 
               {/* Primary & Secondary Action Buttons */}
