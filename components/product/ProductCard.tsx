@@ -3,12 +3,11 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { Heart, Eye, ArrowRight, Sparkles, ShoppingBag, Camera, Ruler } from 'lucide-react';
+import { Heart, Eye, ArrowRight, Sparkles } from 'lucide-react';
 import { Product } from '@/types';
 import { useCart } from '@/context/CartContext';
 import { useWishlist } from '@/context/WishlistContext';
 import QuickViewModal from './QuickViewModal';
-import AddPhotoModal from './AddPhotoModal';
 
 interface ProductCardProps {
   product: Product;
@@ -21,7 +20,6 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
   const { isInWishlist, toggleWishlist } = useWishlist();
 
   const [isQuickViewOpen, setIsQuickViewOpen] = useState(false);
-  const [isCustomizerOpen, setIsCustomizerOpen] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const [imgError, setImgError] = useState(false);
 
@@ -199,16 +197,11 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
 
         {/* Content Details */}
         <div className="p-3 sm:p-3.5 flex-1 flex flex-col justify-between">
-          <div className="space-y-1.5">
-            {/* Category Tag & Orientation Badge */}
-            <div className="flex items-center justify-between gap-1.5">
-              <span className="text-[9px] sm:text-[10px] font-bold tracking-wider uppercase text-stone-700 bg-stone-100 border border-stone-200 px-2 py-0.5 rounded-md truncate max-w-[130px]">
-                {product.deity || product.categoryName}
-              </span>
-              <span className="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-amber-900 bg-amber-50 border border-amber-200 px-2 py-0.5 rounded-md shrink-0 capitalize">
-                {product.shape || (product.orientation === 'vertical' ? 'portrait' : product.orientation === 'horizontal' ? 'landscape' : product.orientation)}
-              </span>
-            </div>
+          <div className="space-y-1">
+            {/* Category Tag */}
+            <p className="text-[10px] sm:text-[11px] font-semibold text-stone-500 uppercase tracking-wider truncate">
+              {product.categoryName}
+            </p>
 
             {/* Product Title */}
             <Link href={`/product/${product.slug}`} prefetch={true} className="block group-hover:text-amber-800 transition-colors">
@@ -217,67 +210,10 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
               </h3>
             </Link>
 
-            {/* Category & Size Indicator */}
-            <div className="flex items-center justify-between text-[11px] font-semibold text-stone-500">
-              <span className="text-stone-500">
-                {product.categoryName}
-              </span>
-              <span className="font-medium text-amber-800">
-                {activeVariant.size.split('(')[0].trim()}
-              </span>
-            </div>
-
-            {/* Interactive Size Chips calibrated for this card's orientation */}
-            {product.variants.length > 1 && (
-              <div className="pt-1 flex items-center gap-1 overflow-x-auto no-scrollbar">
-                {product.variants.map((v) => {
-                  const isSelected = activeVariant.id === v.id;
-                  const cleanSize = v.size.split('(')[0].replace('inches', 'in').replace('Diameter', 'Dia').trim();
-                  return (
-                    <button
-                      key={v.id}
-                      type="button"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        setSelectedVariant(v);
-                      }}
-                      className={`px-1.5 py-0.5 rounded-md text-[10px] font-semibold border transition-all shrink-0 cursor-pointer ${
-                        isSelected
-                          ? 'border-[#EAB308] bg-amber-50 text-amber-950 font-bold ring-1 ring-[#EAB308]/40 shadow-xs'
-                          : 'border-stone-200 bg-stone-50 text-stone-700 hover:border-[#EAB308] hover:text-stone-900'
-                      }`}
-                      title={`${v.size} - ₹${v.price}`}
-                    >
-                      {cleanSize}
-                    </button>
-                  );
-                })}
-
-                {/* Custom Size Chip */}
-                <button
-                  type="button"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    setIsCustomizerOpen(true);
-                  }}
-                  className="px-1.5 py-0.5 rounded-md text-[10px] font-semibold border border-amber-300 bg-amber-50 text-amber-900 hover:bg-[#EAB308] hover:text-black transition-all shrink-0 cursor-pointer flex items-center gap-0.5"
-                  title={`Enter custom dimensions for ${product.title}`}
-                >
-                  <Ruler className="w-2.5 h-2.5" />
-                  <span>Custom Size</span>
-                </button>
-              </div>
-            )}
-          </div>
-
-          {/* Pricing, Delivery & Always-Visible Action Section */}
-          <div className="mt-2.5 pt-2 border-t border-stone-200 flex flex-col gap-2">
-            {/* Pricing Row */}
-            <div className="flex items-baseline justify-between gap-1.5">
+            {/* Pricing */}
+            <div className="flex items-baseline justify-between pt-1">
               <div className="flex items-baseline gap-1.5">
-                <span className="font-serif text-base sm:text-lg font-bold text-stone-900 whitespace-nowrap">
+                <span className="font-serif text-sm sm:text-base font-bold text-stone-900 whitespace-nowrap">
                   ₹{activePrice.toLocaleString('en-IN')}
                 </span>
                 {hasRealDiscount && (
@@ -292,64 +228,20 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
                 </span>
               )}
             </div>
+          </div>
 
-            {/* Craft Signal */}
-            <div className="flex items-center gap-1 text-[10px]">
-              <span className="font-semibold text-stone-500 flex items-center gap-1 truncate">
-                <Sparkles className="w-3 h-3 text-[#EAB308] shrink-0" /> Cast Acrylic Depth
-              </span>
-            </div>
-
-            {/* Combined Option: Custom Photo & Size */}
+          {/* Action Button */}
+          <div className="pt-2.5">
             <button
               type="button"
-              onClick={(e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                setIsCustomizerOpen(true);
-              }}
-              className="w-full min-h-[38px] py-2 px-2.5 rounded-xl font-sans text-xs font-bold flex items-center justify-center gap-2 transition-all duration-200 border border-amber-300 bg-amber-50/70 hover:bg-[#EAB308] text-amber-950 hover:text-black shadow-xs cursor-pointer group/custom active:scale-[0.98]"
-              title={`Customise photo & size for ${product.title}`}
-              aria-label={`Customise photo & size for ${product.title}`}
+              onClick={handleInstantBuyNow}
+              className="w-full min-h-[38px] py-2 px-3 rounded-xl font-sans text-xs font-bold flex items-center justify-center gap-1.5 transition-all duration-200 shadow-2xs active:scale-[0.98] bg-[#EAB308] hover:bg-[#FACC15] text-black hover:shadow-xs border border-[#EAB308] cursor-pointer"
+              aria-label={`Buy ${product.title} now`}
+              title="Buy It Now"
             >
-              <Sparkles className="w-3.5 h-3.5 text-amber-700 group-hover/custom:text-black transition-colors shrink-0" />
-              <span className="truncate font-extrabold">Customise: Photo &amp; Size</span>
-              <Camera className="w-3.5 h-3.5 text-amber-700 group-hover/custom:text-black transition-colors shrink-0" />
+              <span>Buy Now</span>
+              <ArrowRight className="w-3.5 h-3.5 text-black shrink-0" />
             </button>
-
-            {/* Action Buttons: Always Visible on Screen */}
-            <div className="flex items-center gap-1.5 pt-0.5">
-              <button
-                type="button"
-                onClick={handleInstantBuyNow}
-                className="flex-1 min-h-[40px] sm:min-h-[42px] py-2 px-2 sm:px-2.5 rounded-xl font-sans text-xs sm:text-xs font-bold flex items-center justify-center gap-1 sm:gap-1.5 transition-all duration-200 shadow-xs outline-none focus-visible:ring-2 focus-visible:ring-[#EAB308] active:scale-[0.98] bg-[#EAB308] hover:bg-[#FACC15] text-black hover:shadow-md border border-[#EAB308] cursor-pointer min-w-0"
-                aria-label={`Buy ${product.title} now`}
-                title="Buy It Now"
-              >
-                <span className="truncate">Buy Now</span>
-                <ArrowRight className="w-3.5 h-3.5 text-black shrink-0" />
-              </button>
-
-              <button
-                type="button"
-                onClick={handleAddToCartClick}
-                className="min-w-[40px] min-h-[40px] p-2 rounded-xl border border-stone-200 hover:border-[#EAB308] bg-stone-100 hover:bg-stone-200 text-stone-800 hover:text-black transition-colors shadow-2xs outline-none focus-visible:ring-2 focus-visible:ring-[#EAB308] flex items-center justify-center shrink-0 cursor-pointer"
-                aria-label={`Add ${product.title} to cart`}
-                title="Add to Cart"
-              >
-                <ShoppingBag className="w-3.5 h-3.5" />
-              </button>
-
-              <button
-                type="button"
-                onClick={() => setIsQuickViewOpen(true)}
-                className="hidden sm:flex min-w-[40px] min-h-[40px] p-2 rounded-xl border border-stone-200 hover:border-[#EAB308] bg-stone-100 hover:bg-stone-200 text-stone-800 hover:text-black transition-colors shadow-2xs outline-none focus-visible:ring-2 focus-visible:ring-[#EAB308] items-center justify-center shrink-0 cursor-pointer"
-                aria-label={`Quick view ${product.title}`}
-                title="Quick View"
-              >
-                <Eye className="w-3.5 h-3.5" />
-              </button>
-            </div>
           </div>
         </div>
       </div>
@@ -359,14 +251,6 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
         product={product}
         isOpen={isQuickViewOpen}
         onClose={() => setIsQuickViewOpen(false)}
-      />
-
-      {/* Unified Photo & Size Customization Modal */}
-      <AddPhotoModal
-        product={product}
-        selectedVariant={activeVariant}
-        isOpen={isCustomizerOpen}
-        onClose={() => setIsCustomizerOpen(false)}
       />
     </>
   );
