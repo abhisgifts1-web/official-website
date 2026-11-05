@@ -240,7 +240,7 @@ export default function AdminProductsPage() {
           {
             label: 'Lighting Technology',
             value: formData.hasLedBacklight
-              ? 'Epistar Warm Glow LED Perimeter (12V Safe)'
+              ? 'Epistar Ambient Glow LED Perimeter (12V Safe)'
               : 'Non-Lit Museum Art',
           },
         ],

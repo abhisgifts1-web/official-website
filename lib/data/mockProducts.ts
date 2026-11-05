@@ -2219,7 +2219,7 @@ export const INITIAL_PRODUCTS: Product[] = [
       },
       {
         "label": "Lighting",
-        "value": "Warm Epistar Warm SMD LED with 12V 2A Adapter"
+        "value": "High-Lumen Ambient SMD LED with 12V 2A Adapter"
       }
     ],
     "materialAndCare": [
@@ -2642,7 +2642,7 @@ export const INITIAL_PRODUCTS: Product[] = [
       },
       {
         "label": "Lighting",
-        "value": "Warm Epistar Warm SMD LED with 12V 2A Adapter"
+        "value": "High-Lumen Ambient SMD LED with 12V 2A Adapter"
       }
     ],
     "materialAndCare": [
@@ -2721,7 +2721,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "specifications": [
       {
         "label": "Lighting",
-        "value": "Warm Epistar Warm SMD LED with 12V 2A Adapter"
+        "value": "High-Lumen Ambient SMD LED with 12V 2A Adapter"
       }
     ],
     "materialAndCare": [
@@ -2803,7 +2803,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "specifications": [
       {
         "label": "Lighting",
-        "value": "Warm Epistar Warm SMD LED with 12V 2A Adapter"
+        "value": "High-Lumen Ambient SMD LED with 12V 2A Adapter"
       },
       {
         "label": "Material",
@@ -2889,7 +2889,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "specifications": [
       {
         "label": "Lighting",
-        "value": "Warm Epistar Warm SMD LED with 12V 2A Adapter"
+        "value": "High-Lumen Ambient SMD LED with 12V 2A Adapter"
       },
       {
         "label": "Material",
@@ -3656,7 +3656,7 @@ export const INITIAL_PRODUCTS: Product[] = [
       },
       {
         "label": "LED System",
-        "value": "Warm Golden Warm Epistar LEDs with 12V BIS Certified Power Adapter"
+        "value": "Ambient Epistar LEDs with 12V BIS Certified Power Adapter"
       },
       {
         "label": "Base Material",
@@ -3751,7 +3751,7 @@ export const INITIAL_PRODUCTS: Product[] = [
       },
       {
         "label": "Lighting",
-        "value": "Warm Epistar LEDs with Low Voltage Adapter"
+        "value": "Ambient Epistar LEDs with Low Voltage Adapter"
       }
     ],
     "materialAndCare": [
