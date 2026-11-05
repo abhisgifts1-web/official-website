@@ -133,10 +133,11 @@ const config: Config = {
         warmstone: "#2A2A2A",
       },
       fontFamily: {
-        cinzel: ["var(--font-cinzel)", "Cinzel", "serif"],
-        marcellus: ["var(--font-marcellus)", "Marcellus", "serif"],
-        serif: ["var(--font-cinzel)", "var(--font-marcellus)", "var(--font-serif)", "Playfair Display", "Georgia", "serif"],
-        sans: ["var(--font-sans)", "Inter", "system-ui", "sans-serif"],
+        poppins: ["var(--font-poppins)", "Poppins", "sans-serif"],
+        sans: ["var(--font-poppins)", "Poppins", "Inter", "system-ui", "sans-serif"],
+        serif: ["var(--font-poppins)", "Poppins", "sans-serif"],
+        cinzel: ["var(--font-poppins)", "Poppins", "sans-serif"],
+        marcellus: ["var(--font-poppins)", "Poppins", "sans-serif"],
       },
       boxShadow: {
         warm: "0 4px 20px -2px rgba(0, 0, 0, 0.65)",

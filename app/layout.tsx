@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next';
-import { Cinzel, Marcellus, Playfair_Display, Plus_Jakarta_Sans } from 'next/font/google';
+import { Poppins, Cinzel, Marcellus, Playfair_Display, Plus_Jakarta_Sans } from 'next/font/google';
 import './globals.css';
 import { CartProvider } from '@/context/CartContext';
 import { WishlistProvider } from '@/context/WishlistContext';
@@ -9,6 +9,13 @@ import ConditionalFooter from '@/components/layout/ConditionalFooter';
 import CartDrawer from '@/components/cart/CartDrawer';
 import FloatingWhatsApp from '@/components/layout/FloatingWhatsApp';
 import { getLocalBusinessSchema } from '@/lib/seo/schema';
+
+const poppinsFont = Poppins({
+  subsets: ['latin'],
+  variable: '--font-poppins',
+  display: 'swap',
+  weight: ['300', '400', '500', '600', '700', '800'],
+});
 
 const cinzelFont = Cinzel({
   subsets: ['latin'],
@@ -123,7 +130,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${cinzelFont.variable} ${marcellusFont.variable} ${serifFont.variable} ${sansFont.variable}`}
+      className={`${poppinsFont.variable} ${cinzelFont.variable} ${marcellusFont.variable} ${serifFont.variable} ${sansFont.variable}`}
     >
       <head>
         <script
