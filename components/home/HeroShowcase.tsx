@@ -30,42 +30,42 @@ const HERO_CATEGORIES = [
   {
     label: 'Acrylic Photo\nFrames',
     slug: 'acrylic-photo-frames',
-    image: '/images/collections/custom-portrait-frame.jpg',
+    image: '/images/mockups/round-diamond-beveled-crystal-acrylic-photo-frame/primary-square.jpg',
   },
   {
     label: 'LED Photo\nFrames',
     slug: 'led-acrylic-photo-frames',
-    image: '/images/collections/custom-led-photo-frame.jpg',
+    image: '/images/mockups/custom-led-backlit-acrylic-photo-frame/primary-square.jpg',
   },
   {
     label: 'Glitter Photo\nFrames',
     slug: 'glitter-photo-frames',
-    image: '/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg',
+    image: '/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/primary-square.jpg',
   },
   {
     label: '360° Rotating\nLamps',
     slug: '360-rotating-photo-lamps',
-    image: '/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/primary-square.jpg',
+    image: '/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/primary-square.jpg',
   },
   {
     label: 'God Photo\nFrames',
     slug: 'god-photo-frames',
-    image: '/images/wall-decor/categories/devotional/balaji-category.jpg',
+    image: '/images/divine/lord-balaji.jpg',
   },
   {
     label: 'Family & Baby\nFrames',
     slug: 'family-baby-frames',
-    image: '/images/collections/family-photo-frame.jpg',
+    image: '/images/mockups/personalized-family-heirloom-gold-script-acrylic-frame/primary-square.jpg',
   },
   {
     label: 'Couple &\nWedding',
     slug: 'couple-wedding-frames',
-    image: '/images/mockups/custom-couple-wedding-vows-acrylic-keepsake-frame/primary-square.jpg',
+    image: '/images/mockups/custom-couple-wedding-vows-acrylic-keepsake-frame/mockup-artistic.jpg',
   },
   {
     label: 'Personalized\nGifts',
     slug: 'personalized-gifts',
-    image: '/images/collections/gallery-set-photo-frames.jpg',
+    image: '/images/mockups/triptych-set-of-three-gallery-acrylic-photo-frames/primary-square.jpg',
   },
 ];
 
