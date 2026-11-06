@@ -21,7 +21,10 @@ interface CartContextType {
   addToCart: (item: Omit<CartItem, 'id'>, openDrawer?: boolean) => void;
   removeFromCart: (itemId: string) => void;
   updateQuantity: (itemId: string, quantity: number) => void;
-  applyCoupon: (code: string) => Promise<{ success: boolean; message: string }>;
+  applyCoupon: (
+    code: string,
+    customerIdentifier?: string
+  ) => Promise<{ success: boolean; message: string; discountAmount?: number }>;
   removeCoupon: () => void;
   clearCart: () => void;
 }
@@ -88,13 +91,34 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   let discountAmount = 0;
   if (appliedCoupon) {
     if (subtotal >= appliedCoupon.minOrderValue) {
-      if (appliedCoupon.discountType === 'percentage') {
-        const rawDisc = (subtotal * appliedCoupon.discountValue) / 100;
-        discountAmount = appliedCoupon.maxDiscount ? Math.min(rawDisc, appliedCoupon.maxDiscount) : rawDisc;
-      } else {
-        discountAmount = appliedCoupon.discountValue;
+      let eligibleSubtotal = subtotal;
+
+      if (
+        appliedCoupon.applicableProducts &&
+        appliedCoupon.applicableProducts.length > 0 &&
+        !appliedCoupon.applicableProducts.includes('all')
+      ) {
+        const eligibleItems = items.filter((it) =>
+          appliedCoupon.applicableProducts!.some(
+            (ap) =>
+              (it.productId && ap.toLowerCase() === it.productId.toLowerCase()) ||
+              (it.slug && ap.toLowerCase() === it.slug.toLowerCase())
+          )
+        );
+        eligibleSubtotal = eligibleItems.reduce((acc, it) => acc + it.unitPrice * it.quantity, 0);
       }
-      discountAmount = Math.min(discountAmount, subtotal);
+
+      if (eligibleSubtotal > 0) {
+        if (appliedCoupon.discountType === 'percentage') {
+          const rawDisc = (eligibleSubtotal * appliedCoupon.discountValue) / 100;
+          discountAmount = appliedCoupon.maxDiscount ? Math.min(rawDisc, appliedCoupon.maxDiscount) : rawDisc;
+        } else {
+          discountAmount = Math.min(appliedCoupon.discountValue, eligibleSubtotal);
+        }
+        discountAmount = Math.round(Math.min(discountAmount, subtotal));
+      } else {
+        discountAmount = 0;
+      }
     } else {
       // Order subtotal fell below requirement; auto-remove or zero out
       discountAmount = 0;
@@ -149,13 +173,26 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     );
   };
 
-  const applyCoupon = async (code: string): Promise<{ success: boolean; message: string }> => {
+  const applyCoupon = async (
+    code: string,
+    customerIdentifier?: string
+  ): Promise<{ success: boolean; message: string; discountAmount?: number }> => {
     setCouponError(null);
     try {
       const res = await fetch('/api/coupons/validate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ code, subtotal }),
+        body: JSON.stringify({
+          code: code.trim().toUpperCase(),
+          subtotal,
+          customerIdentifier,
+          items: items.map((it) => ({
+            productId: it.productId,
+            slug: it.slug,
+            unitPrice: it.unitPrice,
+            quantity: it.quantity,
+          })),
+        }),
       });
       const data = await res.json();
 
@@ -166,7 +203,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
       }
 
       setAppliedCoupon(data.coupon);
-      return { success: true, message: data.message };
+      return { success: true, message: data.message, discountAmount: data.discountAmount };
     } catch {
       const fallbackMsg = 'Failed to apply coupon. Please check connection.';
       setCouponError(fallbackMsg);

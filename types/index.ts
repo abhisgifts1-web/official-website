@@ -120,16 +120,34 @@ export interface CartItem {
   customization?: CartCustomization;
 }
 
+export interface CouponUsageRecord {
+  customer: string; // mobile number or email
+  orderId: string;
+  date: string;
+  discountAmount: number;
+}
+
 export interface Coupon {
+  id?: string;
   code: string;
   discountType: 'percentage' | 'fixed';
   discountValue: number;
   minOrderValue: number;
   maxDiscount?: number;
   description: string;
-  validFrom?: string; // e.g. "2026-11-06"
-  expiresAt: string;  // e.g. "2027-12-31"
+  startDate?: string;
+  validFrom?: string; // backwards compatibility alias
+  expiryDate?: string;
+  expiresAt: string;  // backwards compatibility
+  usageLimit?: number; // 0 or undefined = unlimited
+  usageCount?: number;
+  perCustomerLimit?: number; // default 1
+  applicableProducts?: string[]; // empty or ['all'] = all products, else product slugs/ids
+  usedBy?: CouponUsageRecord[];
+  totalDiscountGiven?: number;
   active: boolean;
+  createdAt?: string;
+  updatedAt?: string;
 }
 
 export interface ShippingAddress {

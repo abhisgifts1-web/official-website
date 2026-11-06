@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getAllOrders, createOrder, validateCoupon, getAllProducts } from '@/lib/store';
+import { getAllOrders, createOrder, validateCoupon, recordCouponUsage, getAllProducts } from '@/lib/store';
 import { getAuthenticatedAdmin } from '@/lib/auth';
 import { INITIAL_SETTINGS } from '@/lib/data/settings';
 
@@ -96,7 +96,12 @@ export async function POST(req: NextRequest) {
     let validatedCouponCode: string | undefined = undefined;
 
     if (couponCode && couponCode.trim()) {
-      const couponCheck = validateCoupon(couponCode, computedSubtotal);
+      const customerIdentifier = customer.mobile || customer.email;
+      const couponCheck = validateCoupon(couponCode, computedSubtotal, {
+        customerIdentifier,
+        items: validatedItems,
+      });
+
       if (couponCheck.valid) {
         discountAmount = couponCheck.discountAmount;
         validatedCouponCode = couponCheck.coupon?.code;
@@ -134,6 +139,15 @@ export async function POST(req: NextRequest) {
       orderStatus: isPaid ? 'Confirmed' : 'Pending',
       notes: notes ? notes.trim() : undefined,
     });
+
+    // ATOMIC COUPON USAGE TRACKING
+    if (validatedCouponCode && discountAmount > 0) {
+      recordCouponUsage(validatedCouponCode, {
+        customer: (customer.mobile || customer.email || 'customer').trim(),
+        orderId: createdOrder.id,
+        discountAmount,
+      });
+    }
 
     return NextResponse.json({ success: true, order: createdOrder }, { status: 201 });
   } catch (err: any) {

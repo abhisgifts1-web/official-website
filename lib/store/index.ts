@@ -396,63 +396,218 @@ export function getAllCoupons(): Coupon[] {
   return [...store.coupons];
 }
 
-export function validateCoupon(code: string, subtotal: number): { valid: boolean; discountAmount: number; coupon?: Coupon; message?: string } {
+export function getCouponByCode(code: string): Coupon | null {
+  const cleanCode = code.trim().toUpperCase();
+  return store.coupons.find((c) => c.code.toUpperCase() === cleanCode) || null;
+}
+
+export interface ValidateCouponOptions {
+  customerIdentifier?: string; // mobile number or email
+  items?: Array<{ productId?: string; slug?: string; unitPrice?: number; quantity?: number }>;
+}
+
+export function validateCoupon(
+  code: string,
+  subtotal: number,
+  options?: ValidateCouponOptions
+): {
+  valid: boolean;
+  discountAmount: number;
+  coupon?: Coupon;
+  message?: string;
+  discountType?: 'percentage' | 'fixed';
+  discountValue?: number;
+} {
   const cleanCode = code.trim().toUpperCase();
   const coupon = store.coupons.find((c) => c.code.toUpperCase() === cleanCode);
 
   if (!coupon) {
-    return { valid: false, discountAmount: 0, message: 'Invalid coupon code.' };
+    return { valid: false, discountAmount: 0, message: `Coupon code "${cleanCode}" does not exist.` };
   }
 
   if (!coupon.active) {
-    return { valid: false, discountAmount: 0, message: 'This coupon is no longer active.' };
+    return { valid: false, discountAmount: 0, message: 'This coupon is currently inactive.' };
   }
 
-  if (coupon.validFrom && new Date(coupon.validFrom).getTime() > Date.now()) {
-    return { valid: false, discountAmount: 0, message: `This coupon is valid starting from ${coupon.validFrom}.` };
+  const startDate = coupon.startDate || coupon.validFrom;
+  if (startDate && new Date(startDate).getTime() > Date.now()) {
+    return { valid: false, discountAmount: 0, message: `This coupon will be valid starting from ${startDate}.` };
   }
 
-  if (new Date(coupon.expiresAt).getTime() < Date.now()) {
+  const expiryDate = coupon.expiryDate || coupon.expiresAt;
+  if (expiryDate && new Date(expiryDate).getTime() < Date.now()) {
     return { valid: false, discountAmount: 0, message: 'This coupon has expired.' };
   }
 
+  // Total usage limit check
+  if (coupon.usageLimit && coupon.usageLimit > 0 && (coupon.usageCount || 0) >= coupon.usageLimit) {
+    return { valid: false, discountAmount: 0, message: 'This coupon has reached its maximum total usage limit.' };
+  }
+
+  // Per-customer usage limit check
+  if (options?.customerIdentifier && coupon.perCustomerLimit && coupon.perCustomerLimit > 0) {
+    const cleanCustomer = options.customerIdentifier.trim().toLowerCase();
+    const customerUsedCount = (coupon.usedBy || []).filter(
+      (u) => u.customer.trim().toLowerCase() === cleanCustomer
+    ).length;
+
+    if (customerUsedCount >= coupon.perCustomerLimit) {
+      return {
+        valid: false,
+        discountAmount: 0,
+        message: `You have reached the maximum redemption limit (${coupon.perCustomerLimit} use${coupon.perCustomerLimit === 1 ? '' : 's'}) for this coupon.`,
+      };
+    }
+  }
+
+  // Minimum order value check
   if (subtotal < coupon.minOrderValue) {
     return {
       valid: false,
       discountAmount: 0,
-      message: `Minimum order value of ₹${coupon.minOrderValue.toLocaleString('en-IN')} required for this coupon.`,
+      message: `Minimum order value of ₹${coupon.minOrderValue.toLocaleString('en-IN')} required for coupon "${coupon.code}". (Current cart: ₹${subtotal.toLocaleString('en-IN')})`,
     };
+  }
+
+  // Applicable products check
+  let eligibleSubtotal = subtotal;
+  if (
+    coupon.applicableProducts &&
+    coupon.applicableProducts.length > 0 &&
+    !coupon.applicableProducts.includes('all')
+  ) {
+    if (options?.items && options.items.length > 0) {
+      const eligibleItems = options.items.filter((item) =>
+        coupon.applicableProducts!.some(
+          (ap) =>
+            (item.productId && ap.toLowerCase() === item.productId.toLowerCase()) ||
+            (item.slug && ap.toLowerCase() === item.slug.toLowerCase())
+        )
+      );
+
+      if (eligibleItems.length === 0) {
+        return {
+          valid: false,
+          discountAmount: 0,
+          message: 'This coupon is valid only for selected artworks in our collection.',
+        };
+      }
+
+      eligibleSubtotal = eligibleItems.reduce(
+        (sum, it) => sum + (Number(it.unitPrice) || 0) * (Number(it.quantity) || 1),
+        0
+      );
+    }
   }
 
   let discount = 0;
   if (coupon.discountType === 'percentage') {
-    discount = (subtotal * coupon.discountValue) / 100;
+    discount = (eligibleSubtotal * coupon.discountValue) / 100;
     if (coupon.maxDiscount && discount > coupon.maxDiscount) {
       discount = coupon.maxDiscount;
     }
   } else {
-    discount = coupon.discountValue;
+    discount = Math.min(coupon.discountValue, eligibleSubtotal);
   }
+
+  const finalDiscount = Math.round(Math.min(discount, subtotal));
 
   return {
     valid: true,
-    discountAmount: Math.min(discount, subtotal),
+    discountAmount: finalDiscount,
     coupon,
-    message: `Coupon "${coupon.code}" applied successfully! You saved ₹${discount.toLocaleString('en-IN')}.`,
+    discountType: coupon.discountType,
+    discountValue: coupon.discountValue,
+    message: `Coupon "${coupon.code}" applied successfully! You saved ₹${finalDiscount.toLocaleString('en-IN')}.`,
   };
 }
 
 export function createCoupon(coupon: Coupon): Coupon {
   const cleanCode = coupon.code.trim().toUpperCase();
-  const normalized: Coupon = { ...coupon, code: cleanCode };
+  const normalized: Coupon = {
+    ...coupon,
+    code: cleanCode,
+    startDate: coupon.startDate || coupon.validFrom || new Date().toISOString().split('T')[0],
+    validFrom: coupon.validFrom || coupon.startDate || new Date().toISOString().split('T')[0],
+    expiryDate: coupon.expiryDate || coupon.expiresAt || '2027-12-31',
+    expiresAt: coupon.expiresAt || coupon.expiryDate || '2027-12-31',
+    usageCount: coupon.usageCount || 0,
+    totalDiscountGiven: coupon.totalDiscountGiven || 0,
+    usedBy: coupon.usedBy || [],
+    applicableProducts: coupon.applicableProducts || ['all'],
+    createdAt: coupon.createdAt || new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
+  };
+
   const existingIdx = store.coupons.findIndex((c) => c.code.toUpperCase() === cleanCode);
   if (existingIdx !== -1) {
-    store.coupons[existingIdx] = normalized;
+    store.coupons[existingIdx] = {
+      ...store.coupons[existingIdx],
+      ...normalized,
+    };
   } else {
     store.coupons.unshift(normalized);
   }
   savePersistedCoupons(store.coupons);
   return normalized;
+}
+
+export function updateCoupon(code: string, updates: Partial<Coupon>): Coupon | null {
+  const cleanCode = code.trim().toUpperCase();
+  const existingIdx = store.coupons.findIndex((c) => c.code.toUpperCase() === cleanCode);
+  if (existingIdx === -1) return null;
+
+  const current = store.coupons[existingIdx];
+  const updated: Coupon = {
+    ...current,
+    ...updates,
+    code: updates.code ? updates.code.trim().toUpperCase() : current.code,
+    startDate: updates.startDate || updates.validFrom || current.startDate || current.validFrom,
+    validFrom: updates.validFrom || updates.startDate || current.validFrom || current.startDate,
+    expiryDate: updates.expiryDate || updates.expiresAt || current.expiryDate || current.expiresAt,
+    expiresAt:
+      updates.expiresAt ||
+      updates.expiryDate ||
+      current.expiresAt ||
+      current.expiryDate ||
+      '2027-12-31',
+    updatedAt: new Date().toISOString(),
+  };
+
+  store.coupons[existingIdx] = updated;
+  savePersistedCoupons(store.coupons);
+  return updated;
+}
+
+export function recordCouponUsage(
+  code: string,
+  record: { customer: string; orderId: string; discountAmount: number }
+): boolean {
+  const cleanCode = code.trim().toUpperCase();
+  const index = store.coupons.findIndex((c) => c.code.toUpperCase() === cleanCode);
+  if (index === -1) return false;
+
+  const current = store.coupons[index];
+  const updatedUsedBy = [
+    ...(current.usedBy || []),
+    {
+      customer: record.customer.trim().toLowerCase(),
+      orderId: record.orderId,
+      date: new Date().toISOString(),
+      discountAmount: record.discountAmount,
+    },
+  ];
+
+  store.coupons[index] = {
+    ...current,
+    usageCount: (current.usageCount || 0) + 1,
+    totalDiscountGiven: (current.totalDiscountGiven || 0) + record.discountAmount,
+    usedBy: updatedUsedBy,
+    updatedAt: new Date().toISOString(),
+  };
+
+  savePersistedCoupons(store.coupons);
+  return true;
 }
 
 export function deleteCoupon(code: string): boolean {
