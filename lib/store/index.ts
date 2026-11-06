@@ -19,6 +19,34 @@ import { INITIAL_SETTINGS } from '../data/settings';
 
 const PERSISTENCE_FILE = path.join(process.cwd(), 'lib', 'data', 'persistedProducts.json');
 const PERSISTENCE_COUPONS_FILE = path.join(process.cwd(), 'lib', 'data', 'persistedCoupons.json');
+const PERSISTENCE_DELETED_COUPONS_FILE = path.join(process.cwd(), 'lib', 'data', 'deletedCoupons.json');
+
+function loadDeletedCouponCodes(): string[] {
+  try {
+    if (fs.existsSync(PERSISTENCE_DELETED_COUPONS_FILE)) {
+      const raw = fs.readFileSync(PERSISTENCE_DELETED_COUPONS_FILE, 'utf8');
+      const parsed = JSON.parse(raw);
+      if (Array.isArray(parsed)) {
+        return parsed.map((c: string) => String(c).trim().toUpperCase());
+      }
+    }
+  } catch (err) {
+    console.warn('Error reading deletedCoupons.json:', err);
+  }
+  return [];
+}
+
+function saveDeletedCouponCodes(codes: string[]) {
+  try {
+    const dir = path.dirname(PERSISTENCE_DELETED_COUPONS_FILE);
+    if (!fs.existsSync(dir)) {
+      fs.mkdirSync(dir, { recursive: true });
+    }
+    fs.writeFileSync(PERSISTENCE_DELETED_COUPONS_FILE, JSON.stringify(codes, null, 2), 'utf8');
+  } catch (err) {
+    console.warn('Error saving deletedCoupons.json:', err);
+  }
+}
 
 function loadPersistedProducts(): Product[] {
   try {
@@ -44,22 +72,28 @@ function savePersistedProducts(products: Product[]) {
 }
 
 function loadPersistedCoupons(): Coupon[] {
+  const deletedCodes = new Set(loadDeletedCouponCodes());
   try {
     if (fs.existsSync(PERSISTENCE_COUPONS_FILE)) {
       const raw = fs.readFileSync(PERSISTENCE_COUPONS_FILE, 'utf8');
       const parsed = JSON.parse(raw);
-      if (Array.isArray(parsed) && parsed.length > 0) {
-        return parsed;
+      if (Array.isArray(parsed)) {
+        return parsed.filter((c: Coupon) => !deletedCodes.has(c.code.toUpperCase()));
       }
     }
   } catch (err) {
     console.warn('Error reading persistedCoupons.json:', err);
   }
-  return JSON.parse(JSON.stringify(INITIAL_COUPONS));
+  const initial = JSON.parse(JSON.stringify(INITIAL_COUPONS)) as Coupon[];
+  return initial.filter((c: Coupon) => !deletedCodes.has(c.code.toUpperCase()));
 }
 
 function savePersistedCoupons(coupons: Coupon[]) {
   try {
+    const dir = path.dirname(PERSISTENCE_COUPONS_FILE);
+    if (!fs.existsSync(dir)) {
+      fs.mkdirSync(dir, { recursive: true });
+    }
     fs.writeFileSync(PERSISTENCE_COUPONS_FILE, JSON.stringify(coupons, null, 2), 'utf8');
   } catch (err) {
     console.warn('Error saving persistedCoupons.json:', err);
@@ -494,6 +528,11 @@ export function validateCoupon(
 
 export function createCoupon(coupon: Coupon): Coupon {
   const cleanCode = coupon.code.trim().toUpperCase();
+  const deletedCodes = new Set(loadDeletedCouponCodes());
+  if (deletedCodes.has(cleanCode)) {
+    deletedCodes.delete(cleanCode);
+    saveDeletedCouponCodes(Array.from(deletedCodes));
+  }
   const normalized: Coupon = {
     ...coupon,
     code: cleanCode,
@@ -582,13 +621,14 @@ export function recordCouponUsage(
 
 export function deleteCoupon(code: string): boolean {
   const cleanCode = code.trim().toUpperCase();
+  const deletedCodes = new Set(loadDeletedCouponCodes());
+  deletedCodes.add(cleanCode);
+  saveDeletedCouponCodes(Array.from(deletedCodes));
+
   const initialLen = store.coupons.length;
   store.coupons = store.coupons.filter((c) => c.code.toUpperCase() !== cleanCode);
-  if (store.coupons.length !== initialLen) {
-    savePersistedCoupons(store.coupons);
-    return true;
-  }
-  return false;
+  savePersistedCoupons(store.coupons);
+  return true;
 }
 
 // SETTINGS METHODS

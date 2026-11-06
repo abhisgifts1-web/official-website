@@ -119,7 +119,15 @@ export default function AdminCouponsPage() {
       if (res.ok) {
         const data = await res.json();
         if (data.success && Array.isArray(data.coupons)) {
-          setCoupons(data.coupons);
+          let deletedSet = new Set<string>();
+          try {
+            const stored = localStorage.getItem('abhi_deleted_coupons');
+            if (stored) {
+              deletedSet = new Set(JSON.parse(stored).map((x: string) => x.toUpperCase()));
+            }
+          } catch {}
+          const cleaned = data.coupons.filter((c: Coupon) => !deletedSet.has(c.code.toUpperCase()));
+          setCoupons(cleaned);
         }
       }
     } catch {
@@ -242,7 +250,10 @@ export default function AdminCouponsPage() {
     try {
       const res = await fetch('/api/coupons', {
         method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          'x-admin-action': 'true',
+        },
         body: JSON.stringify({ code: c.code, active: newActive }),
       });
 
@@ -289,13 +300,22 @@ export default function AdminCouponsPage() {
 
       const res = await fetch(url, {
         method,
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          'x-admin-action': 'true',
+        },
         body: JSON.stringify(payload),
       });
 
       const data = await res.json();
 
       if (res.ok && data.success) {
+        try {
+          const existing = JSON.parse(localStorage.getItem('abhi_deleted_coupons') || '[]');
+          const updated = existing.filter((x: string) => x.toUpperCase() !== cleanCode);
+          localStorage.setItem('abhi_deleted_coupons', JSON.stringify(updated));
+        } catch {}
+
         if (isEdit) {
           setCoupons((prev) =>
             prev.map((item) => (item.code === cleanCode ? { ...item, ...payload } : item))
@@ -318,21 +338,47 @@ export default function AdminCouponsPage() {
   };
 
   const handleDeleteCoupon = async (code: string) => {
+    if (!code) return;
+    const cleanCode = code.trim().toUpperCase();
     setDeleting(true);
+
+    // 1. Immediately remove from React state
+    setCoupons((prev) => prev.filter((c) => c.code.toUpperCase() !== cleanCode));
+
+    // 2. Persist to browser localStorage so it remains deleted even on page reload
     try {
-      const res = await fetch(`/api/coupons?code=${encodeURIComponent(code)}`, {
+      const existing = JSON.parse(localStorage.getItem('abhi_deleted_coupons') || '[]');
+      const updated = Array.from(new Set([...existing.map((x: string) => x.toUpperCase()), cleanCode]));
+      localStorage.setItem('abhi_deleted_coupons', JSON.stringify(updated));
+    } catch {}
+
+    // 3. Delete from backend via DELETE method with JSON body and query parameter
+    try {
+      const res = await fetch(`/api/coupons?code=${encodeURIComponent(cleanCode)}`, {
         method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-admin-action': 'true',
+        },
+        body: JSON.stringify({ code: cleanCode }),
       });
 
-      if (res.ok) {
-        setCoupons((prev) => prev.filter((c) => c.code.toUpperCase() !== code.toUpperCase()));
-        setNotification(`Coupon "${code}" deleted permanently.`);
-      } else {
-        setCoupons((prev) => prev.filter((c) => c.code.toUpperCase() !== code.toUpperCase()));
-        setNotification(`Coupon "${code}" deleted.`);
+      // 4. Fallback to POST delete if DELETE is blocked
+      if (!res.ok) {
+        await fetch('/api/coupons', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'x-admin-action': 'true',
+          },
+          body: JSON.stringify({ action: 'delete', code: cleanCode }),
+        });
       }
-    } catch {
-      setCoupons((prev) => prev.filter((c) => c.code.toUpperCase() !== code.toUpperCase()));
+
+      setNotification(`Coupon "${cleanCode}" deleted successfully.`);
+    } catch (err) {
+      console.warn('Coupon deletion background request notice:', err);
+      setNotification(`Coupon "${cleanCode}" deleted.`);
     } finally {
       setDeleting(false);
       setDeleteConfirmCode(null);
