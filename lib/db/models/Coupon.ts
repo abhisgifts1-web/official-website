@@ -11,6 +11,7 @@ const CouponSchema = new Schema(
     minOrderValue: { type: Number, default: 0 },
     maxDiscount: Number,
     description: { type: String, required: true },
+    validFrom: { type: String },
     expiresAt: { type: String, required: true },
     active: { type: Boolean, default: true },
   },

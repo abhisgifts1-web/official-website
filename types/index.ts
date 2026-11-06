@@ -57,6 +57,7 @@ export interface Product {
   shape?: 'portrait' | 'landscape' | 'square' | 'round' | 'set-of-2' | 'set-of-3';
   images: string[]; // Primary, secondary, wall mockups, angle views
   tags: string[];
+  couponCode?: string; // Specific coupon code assigned to this product
   isFeatured?: boolean;
   isBestseller?: boolean;
   isNewArrival?: boolean;
@@ -126,7 +127,8 @@ export interface Coupon {
   minOrderValue: number;
   maxDiscount?: number;
   description: string;
-  expiresAt: string;
+  validFrom?: string; // e.g. "2026-11-06"
+  expiresAt: string;  // e.g. "2027-12-31"
   active: boolean;
 }
 

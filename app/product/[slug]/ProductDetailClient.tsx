@@ -31,6 +31,7 @@ import {
   Eye,
   Flame,
   Camera,
+  Tag,
 } from 'lucide-react';
 import AddPhotoModal from '@/components/product/AddPhotoModal';
 import CustomSizeInput from '@/components/product/CustomSizeInput';
@@ -1231,6 +1232,20 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                 <span>Inclusive of all taxes • Handcrafted in Hyderabad Studio</span>
               </p>
             </div>
+
+            {/* Applicable Coupon Code Pill */}
+            {(liveProduct?.couponCode || product.couponCode) && (
+              <div className="flex items-center gap-2 p-3 bg-amber-50/90 border border-amber-300 rounded-2xl text-xs text-amber-950 font-medium shadow-2xs">
+                <Tag className="w-4 h-4 text-amber-700 shrink-0" />
+                <span>
+                  Special Promo: Apply coupon code{' '}
+                  <strong className="font-mono bg-white px-2 py-0.5 rounded-md border border-amber-300 text-amber-900 font-extrabold shadow-2xs">
+                    {liveProduct?.couponCode || product.couponCode}
+                  </strong>{' '}
+                  at checkout for discount!
+                </span>
+              </div>
+            )}
 
             {/* Customization 1: Frame Style (Hidden for Glitter Photo Frames) */}
             {!isGlitterFrame && (

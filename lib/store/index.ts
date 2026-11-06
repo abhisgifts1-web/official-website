@@ -18,6 +18,7 @@ import { INITIAL_COUPONS } from '../data/coupons';
 import { INITIAL_SETTINGS } from '../data/settings';
 
 const PERSISTENCE_FILE = path.join(process.cwd(), 'lib', 'data', 'persistedProducts.json');
+const PERSISTENCE_COUPONS_FILE = path.join(process.cwd(), 'lib', 'data', 'persistedCoupons.json');
 
 function loadPersistedProducts(): Product[] {
   try {
@@ -42,6 +43,29 @@ function savePersistedProducts(products: Product[]) {
   }
 }
 
+function loadPersistedCoupons(): Coupon[] {
+  try {
+    if (fs.existsSync(PERSISTENCE_COUPONS_FILE)) {
+      const raw = fs.readFileSync(PERSISTENCE_COUPONS_FILE, 'utf8');
+      const parsed = JSON.parse(raw);
+      if (Array.isArray(parsed) && parsed.length > 0) {
+        return parsed;
+      }
+    }
+  } catch (err) {
+    console.warn('Error reading persistedCoupons.json:', err);
+  }
+  return JSON.parse(JSON.stringify(INITIAL_COUPONS));
+}
+
+function savePersistedCoupons(coupons: Coupon[]) {
+  try {
+    fs.writeFileSync(PERSISTENCE_COUPONS_FILE, JSON.stringify(coupons, null, 2), 'utf8');
+  } catch (err) {
+    console.warn('Error saving persistedCoupons.json:', err);
+  }
+}
+
 // Global singleton cache in memory across fast refresh in dev
 interface GlobalDataStore {
   products: Product[];
@@ -62,7 +86,7 @@ if (!global.__abhiGiftsStore) {
     products: JSON.parse(JSON.stringify(INITIAL_PRODUCTS)),
     categories: JSON.parse(JSON.stringify(INITIAL_CATEGORIES)),
     orders: JSON.parse(JSON.stringify(INITIAL_ORDERS)),
-    coupons: JSON.parse(JSON.stringify(INITIAL_COUPONS)),
+    coupons: loadPersistedCoupons(),
     settings: JSON.parse(JSON.stringify(INITIAL_SETTINGS)),
     enquiries: [
       {
@@ -384,6 +408,10 @@ export function validateCoupon(code: string, subtotal: number): { valid: boolean
     return { valid: false, discountAmount: 0, message: 'This coupon is no longer active.' };
   }
 
+  if (coupon.validFrom && new Date(coupon.validFrom).getTime() > Date.now()) {
+    return { valid: false, discountAmount: 0, message: `This coupon is valid starting from ${coupon.validFrom}.` };
+  }
+
   if (new Date(coupon.expiresAt).getTime() < Date.now()) {
     return { valid: false, discountAmount: 0, message: 'This coupon has expired.' };
   }
@@ -415,8 +443,27 @@ export function validateCoupon(code: string, subtotal: number): { valid: boolean
 }
 
 export function createCoupon(coupon: Coupon): Coupon {
-  store.coupons.push(coupon);
-  return coupon;
+  const cleanCode = coupon.code.trim().toUpperCase();
+  const normalized: Coupon = { ...coupon, code: cleanCode };
+  const existingIdx = store.coupons.findIndex((c) => c.code.toUpperCase() === cleanCode);
+  if (existingIdx !== -1) {
+    store.coupons[existingIdx] = normalized;
+  } else {
+    store.coupons.unshift(normalized);
+  }
+  savePersistedCoupons(store.coupons);
+  return normalized;
+}
+
+export function deleteCoupon(code: string): boolean {
+  const cleanCode = code.trim().toUpperCase();
+  const initialLen = store.coupons.length;
+  store.coupons = store.coupons.filter((c) => c.code.toUpperCase() !== cleanCode);
+  if (store.coupons.length !== initialLen) {
+    savePersistedCoupons(store.coupons);
+    return true;
+  }
+  return false;
 }
 
 // SETTINGS METHODS

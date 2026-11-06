@@ -42,6 +42,7 @@ const ProductSchema = new Schema(
     orientation: { type: String, enum: ['vertical', 'horizontal', 'square', 'round'], required: true },
     images: [{ type: String }],
     tags: [{ type: String }],
+    couponCode: { type: String },
     isFeatured: { type: Boolean, default: false },
     isBestseller: { type: Boolean, default: false },
     isNewArrival: { type: Boolean, default: false },
