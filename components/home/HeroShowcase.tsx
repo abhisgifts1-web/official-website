@@ -232,13 +232,13 @@ export default function HeroShowcase() {
               <Link
                 key={cat.slug}
                 href={`/category/${cat.slug}`}
-                className="category-wave-item flex flex-col items-center gap-2.5 group shrink-0 w-[74px] sm:w-[92px] lg:w-[104px] text-center cursor-pointer select-none"
+                className="category-wave-item flex flex-col items-center gap-2 group shrink-0 w-[78px] sm:w-[92px] lg:w-[104px] text-center cursor-pointer select-none"
                 style={{ animationDelay: `${idx * 0.18}s` }}
               >
-                {/* Outer Luxury Golden Ring with Breathing Pulse */}
-                <div className="relative w-15 h-15 sm:w-17 sm:h-17 lg:w-19 lg:h-19 rounded-full p-[2.5px] bg-gradient-to-tr from-amber-400 via-amber-200 to-amber-500 group-hover:from-amber-500 group-hover:via-yellow-300 group-hover:to-amber-600 transition-all duration-500 shadow-xs group-hover:shadow-[0_8px_24px_rgba(217,119,6,0.36)] group-hover:scale-110 flex items-center justify-center animate-category-ring">
-                  {/* Inner White Well / Clipping Circle */}
-                  <div className="w-full h-full rounded-full overflow-hidden bg-white p-0.5 relative flex items-center justify-center">
+                {/* Outer Luxury Golden Ring with Breathing Pulse (Horizontal Oval / Capsule Shape) */}
+                <div className="relative w-[74px] h-[50px] sm:w-[86px] sm:h-[58px] lg:w-[96px] lg:h-[64px] rounded-full p-[2.5px] bg-gradient-to-tr from-amber-400 via-amber-200 to-amber-500 group-hover:from-amber-500 group-hover:via-yellow-300 group-hover:to-amber-600 transition-all duration-500 shadow-xs group-hover:shadow-[0_8px_24px_rgba(217,119,6,0.36)] group-hover:scale-108 flex items-center justify-center animate-category-ring">
+                  {/* Inner White Well / Clipping Capsule */}
+                  <div className="w-full h-full rounded-full overflow-hidden bg-white p-[1.5px] relative flex items-center justify-center">
                     <img
                       src={cat.image}
                       alt={cat.label.replace('\n', ' ')}
