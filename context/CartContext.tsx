@@ -87,38 +87,17 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   const cartCount = items.reduce((sum, item) => sum + item.quantity, 0);
   const subtotal = items.reduce((sum, item) => sum + item.unitPrice * item.quantity, 0);
 
-  // Recalculate discount
+  // Recalculate discount (applicable directly to all products)
   let discountAmount = 0;
   if (appliedCoupon) {
     if (subtotal >= appliedCoupon.minOrderValue) {
-      let eligibleSubtotal = subtotal;
-
-      if (
-        appliedCoupon.applicableProducts &&
-        appliedCoupon.applicableProducts.length > 0 &&
-        !appliedCoupon.applicableProducts.includes('all')
-      ) {
-        const eligibleItems = items.filter((it) =>
-          appliedCoupon.applicableProducts!.some(
-            (ap) =>
-              (it.productId && ap.toLowerCase() === it.productId.toLowerCase()) ||
-              (it.slug && ap.toLowerCase() === it.slug.toLowerCase())
-          )
-        );
-        eligibleSubtotal = eligibleItems.reduce((acc, it) => acc + it.unitPrice * it.quantity, 0);
-      }
-
-      if (eligibleSubtotal > 0) {
-        if (appliedCoupon.discountType === 'percentage') {
-          const rawDisc = (eligibleSubtotal * appliedCoupon.discountValue) / 100;
-          discountAmount = appliedCoupon.maxDiscount ? Math.min(rawDisc, appliedCoupon.maxDiscount) : rawDisc;
-        } else {
-          discountAmount = Math.min(appliedCoupon.discountValue, eligibleSubtotal);
-        }
-        discountAmount = Math.round(Math.min(discountAmount, subtotal));
+      if (appliedCoupon.discountType === 'percentage') {
+        const rawDisc = (subtotal * appliedCoupon.discountValue) / 100;
+        discountAmount = appliedCoupon.maxDiscount ? Math.min(rawDisc, appliedCoupon.maxDiscount) : rawDisc;
       } else {
-        discountAmount = 0;
+        discountAmount = Math.min(appliedCoupon.discountValue, subtotal);
       }
+      discountAmount = Math.round(Math.min(discountAmount, subtotal));
     } else {
       // Order subtotal fell below requirement; auto-remove or zero out
       discountAmount = 0;

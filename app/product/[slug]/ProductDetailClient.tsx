@@ -1233,19 +1233,17 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
               </p>
             </div>
 
-            {/* Applicable Coupon Code Pill */}
-            {(liveProduct?.couponCode || product.couponCode) && (
-              <div className="flex items-center gap-2 p-3 bg-amber-50/90 border border-amber-300 rounded-2xl text-xs text-amber-950 font-medium shadow-2xs">
-                <Tag className="w-4 h-4 text-amber-700 shrink-0" />
-                <span>
-                  Special Promo: Apply coupon code{' '}
-                  <strong className="font-mono bg-white px-2 py-0.5 rounded-md border border-amber-300 text-amber-900 font-extrabold shadow-2xs">
-                    {liveProduct?.couponCode || product.couponCode}
-                  </strong>{' '}
-                  at checkout for discount!
-                </span>
-              </div>
-            )}
+            {/* Universal Promotional Coupon Banner */}
+            <div className="flex items-center gap-2 p-3 bg-amber-50/90 border border-amber-300 rounded-2xl text-xs text-amber-950 font-medium shadow-2xs">
+              <Tag className="w-4 h-4 text-amber-700 shrink-0" />
+              <span>
+                Special Offer: Apply coupon code{' '}
+                <strong className="font-mono bg-white px-2 py-0.5 rounded-md border border-amber-300 text-amber-900 font-extrabold shadow-2xs">
+                  ABHIS10
+                </strong>{' '}
+                at checkout for instant discount!
+              </span>
+            </div>
 
             {/* Customization 1: Frame Style (Hidden for Glitter Photo Frames) */}
             {!isGlitterFrame && (

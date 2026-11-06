@@ -469,45 +469,15 @@ export function validateCoupon(
     };
   }
 
-  // Applicable products check
-  let eligibleSubtotal = subtotal;
-  if (
-    coupon.applicableProducts &&
-    coupon.applicableProducts.length > 0 &&
-    !coupon.applicableProducts.includes('all')
-  ) {
-    if (options?.items && options.items.length > 0) {
-      const eligibleItems = options.items.filter((item) =>
-        coupon.applicableProducts!.some(
-          (ap) =>
-            (item.productId && ap.toLowerCase() === item.productId.toLowerCase()) ||
-            (item.slug && ap.toLowerCase() === item.slug.toLowerCase())
-        )
-      );
-
-      if (eligibleItems.length === 0) {
-        return {
-          valid: false,
-          discountAmount: 0,
-          message: 'This coupon is valid only for selected artworks in our collection.',
-        };
-      }
-
-      eligibleSubtotal = eligibleItems.reduce(
-        (sum, it) => sum + (Number(it.unitPrice) || 0) * (Number(it.quantity) || 1),
-        0
-      );
-    }
-  }
-
+  // Applicable directly to all products across the catalog
   let discount = 0;
   if (coupon.discountType === 'percentage') {
-    discount = (eligibleSubtotal * coupon.discountValue) / 100;
+    discount = (subtotal * coupon.discountValue) / 100;
     if (coupon.maxDiscount && discount > coupon.maxDiscount) {
       discount = coupon.maxDiscount;
     }
   } else {
-    discount = Math.min(coupon.discountValue, eligibleSubtotal);
+    discount = Math.min(coupon.discountValue, subtotal);
   }
 
   const finalDiscount = Math.round(Math.min(discount, subtotal));

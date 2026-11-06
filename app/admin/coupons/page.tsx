@@ -633,11 +633,9 @@ export default function AdminCouponsPage() {
                     </div>
 
                     <div className="flex items-center justify-between">
-                      <span>Applicable Products:</span>
-                      <span className="font-semibold text-amber-800 bg-amber-50 border border-amber-200 px-2 py-0.5 rounded-md text-[10.5px]">
-                        {isApplicableAll
-                          ? 'All Products'
-                          : `${c.applicableProducts!.length} Selected Artwork${c.applicableProducts!.length === 1 ? '' : 's'}`}
+                      <span>Product Eligibility:</span>
+                      <span className="font-semibold text-emerald-800 bg-emerald-50 border border-emerald-300 px-2 py-0.5 rounded-md text-[10.5px]">
+                        All Products Storewide
                       </span>
                     </div>
 
@@ -959,95 +957,22 @@ export default function AdminCouponsPage() {
                   </div>
                 </div>
 
-                {/* 6. Applicable Products Selector */}
-                <div className="space-y-2 p-3 bg-stone-50 border border-stone-200 rounded-2xl">
-                  <div className="flex items-center justify-between">
-                    <label className="font-bold text-stone-900 text-xs flex items-center gap-1.5">
-                      <ShoppingBag className="w-3.5 h-3.5 text-amber-700" />
-                      <span>Applicable Products</span>
-                    </label>
-                    <span className="text-[10.5px] text-stone-500 font-medium">
-                      {!formData.applicableProducts || formData.applicableProducts.includes('all')
-                        ? 'All products eligible'
-                        : `${formData.applicableProducts.length} selected`}
-                    </span>
-                  </div>
-
-                  <div className="flex items-center gap-3">
-                    <label className="flex items-center gap-1.5 text-xs text-stone-800 cursor-pointer">
-                      <input
-                        type="radio"
-                        name="productScope"
-                        checked={!formData.applicableProducts || formData.applicableProducts.includes('all')}
-                        onChange={() => setFormData({ ...formData, applicableProducts: ['all'] })}
-                        className="accent-amber-500"
-                      />
-                      <span>All Products in Catalog</span>
-                    </label>
-
-                    <label className="flex items-center gap-1.5 text-xs text-stone-800 cursor-pointer">
-                      <input
-                        type="radio"
-                        name="productScope"
-                        checked={
-                          Boolean(formData.applicableProducts) &&
-                          formData.applicableProducts!.length > 0 &&
-                          !formData.applicableProducts!.includes('all')
-                        }
-                        onChange={() =>
-                          setFormData({
-                            ...formData,
-                            applicableProducts:
-                              formData.applicableProducts && !formData.applicableProducts.includes('all')
-                                ? formData.applicableProducts
-                                : [],
-                          })
-                        }
-                        className="accent-amber-500"
-                      />
-                      <span>Selected Products Only</span>
-                    </label>
-                  </div>
-
-                  {/* Product List when "Selected Products Only" is active */}
-                  {formData.applicableProducts && !formData.applicableProducts.includes('all') && (
-                    <div className="pt-2 space-y-2">
-                      <input
-                        type="text"
-                        placeholder="Search artworks to select..."
-                        value={productSearch}
-                        onChange={(e) => setProductSearch(e.target.value)}
-                        className="w-full px-2.5 py-1.5 bg-white border border-stone-300 rounded-lg text-xs outline-none focus:border-amber-500 text-stone-900 placeholder-stone-400"
-                      />
-
-                      <div className="max-h-40 overflow-y-auto divide-y divide-stone-100 border border-stone-200 rounded-xl bg-white p-1">
-                        {products
-                          .filter((p) => p.title.toLowerCase().includes(productSearch.toLowerCase()))
-                          .map((p) => {
-                            const isSelected = (formData.applicableProducts || []).includes(p.slug);
-                            return (
-                              <label
-                                key={p.id}
-                                className="flex items-center gap-2 p-2 hover:bg-stone-50 rounded-lg cursor-pointer text-xs"
-                              >
-                                <input
-                                  type="checkbox"
-                                  checked={isSelected}
-                                  onChange={() => toggleProductSelection(p.slug)}
-                                  className="accent-amber-500 rounded"
-                                />
-                                <img
-                                  src={p.images[0]}
-                                  alt={p.title}
-                                  className="w-7 h-7 object-cover rounded-md border border-stone-200 shrink-0"
-                                />
-                                <span className="font-medium text-stone-800 truncate">{p.title}</span>
-                              </label>
-                            );
-                          })}
-                      </div>
+                {/* 6. Product Scope */}
+                <div className="p-3.5 bg-emerald-50/70 border border-emerald-200/90 rounded-2xl flex items-center justify-between text-xs">
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-8 h-8 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center shrink-0">
+                      <ShoppingBag className="w-4 h-4" />
                     </div>
-                  )}
+                    <div>
+                      <p className="font-bold text-stone-900">Directly Applicable to All Products</p>
+                      <p className="text-[10.5px] text-stone-500">
+                        This promotional coupon applies universally to all artworks, photo frames, and customized gifts.
+                      </p>
+                    </div>
+                  </div>
+                  <span className="text-[10.5px] font-bold text-emerald-800 bg-emerald-100 border border-emerald-300 px-2.5 py-1 rounded-full shrink-0">
+                    Storewide
+                  </span>
                 </div>
 
                 {/* 7. Offer Description */}

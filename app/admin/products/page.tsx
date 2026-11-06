@@ -76,10 +76,6 @@ export default function AdminProductsPage() {
   const [quickSizeSaving, setQuickSizeSaving] = useState(false);
   const [quickSizeSuccess, setQuickSizeSuccess] = useState('');
 
-  // Inline Product Coupon state for instant editing in table
-  const [inlineCouponMap, setInlineCouponMap] = useState<Record<string, string>>({});
-  const [savingCouponSlug, setSavingCouponSlug] = useState<string | null>(null);
-
   // Form state
   const initialForm = {
     title: '',
@@ -99,7 +95,6 @@ export default function AdminProductsPage() {
     description: '',
     imageUrl: '/images/collections/custom-portrait-frame.jpg',
     tags: 'Acrylic Photo Frame, Hyderabad, Wall Decor',
-    couponCode: '',
     variants: getDefault4Variants(2499, 4999),
   };
 
@@ -169,7 +164,6 @@ export default function AdminProductsPage() {
       description: prod.description || '',
       imageUrl: prod.images[0] || '',
       tags: (prod.tags || []).join(', '),
-      couponCode: prod.couponCode || '',
       variants: existingVariants,
     });
 
@@ -329,38 +323,6 @@ export default function AdminProductsPage() {
     }
   };
 
-  // Instant inline coupon update directly from product row
-  const handleInlineCouponChange = (slug: string, value: string) => {
-    setInlineCouponMap((prev) => ({ ...prev, [slug]: value.toUpperCase() }));
-  };
-
-  const handleInlineCouponSave = async (slug: string) => {
-    const rawVal = inlineCouponMap[slug];
-    if (rawVal === undefined) return;
-    const cleanCoupon = rawVal.trim().toUpperCase();
-
-    try {
-      setSavingCouponSlug(slug);
-      const res = await fetch(`/api/products/${slug}`, {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ couponCode: cleanCoupon || null }),
-      });
-
-      if (res.ok) {
-        setProducts((prev) =>
-          prev.map((p) =>
-            p.slug === slug ? { ...p, couponCode: cleanCoupon || undefined } : p
-          )
-        );
-      }
-    } catch {
-      // ignore
-    } finally {
-      setSavingCouponSlug(null);
-    }
-  };
-
   const handleSaveProduct = async (e: React.FormEvent) => {
     e.preventDefault();
     setSaving(true);
@@ -400,7 +362,6 @@ export default function AdminProductsPage() {
         orientation: formData.orientation,
         images: [formData.imageUrl.trim()],
         tags: formData.tags.split(',').map((t) => t.trim()),
-        couponCode: formData.couponCode.trim().toUpperCase() || undefined,
         isFeatured: formData.isFeatured,
         isBestseller: formData.isBestseller,
         isNewArrival: true,
@@ -575,7 +536,6 @@ export default function AdminProductsPage() {
                     <th className="py-3 px-4">Artwork</th>
                     <th className="py-3 px-4">Configured Sizes &amp; Pricing</th>
                     <th className="py-3 px-4">Category</th>
-                    <th className="py-3 px-4">Coupon</th>
                     <th className="py-3 px-4">Lighting</th>
                     <th className="py-3 px-4 text-center">Total Stock</th>
                     <th className="py-3 px-4 text-right">Actions</th>
@@ -642,38 +602,6 @@ export default function AdminProductsPage() {
                         {/* Category */}
                         <td className="py-3 px-4 text-stone-700 font-medium">
                           <span className="text-xs">{prod.categoryName}</span>
-                        </td>
-
-                        {/* Coupon Code Input Box Column */}
-                        <td className="py-3 px-4">
-                          <div className="flex flex-col gap-1">
-                            <div className="relative flex items-center">
-                              <input
-                                type="text"
-                                placeholder="coupon code"
-                                value={
-                                  inlineCouponMap[prod.slug] !== undefined
-                                    ? inlineCouponMap[prod.slug]
-                                    : (prod.couponCode || '')
-                                }
-                                onChange={(e) => handleInlineCouponChange(prod.slug, e.target.value)}
-                                onBlur={() => handleInlineCouponSave(prod.slug)}
-                                onKeyDown={(e) => {
-                                  if (e.key === 'Enter') {
-                                    e.preventDefault();
-                                    handleInlineCouponSave(prod.slug);
-                                  }
-                                }}
-                                className="w-28 sm:w-32 px-2.5 py-1.5 bg-stone-50 hover:bg-white focus:bg-white border border-stone-200 focus:border-amber-500 rounded-lg text-xs font-mono font-bold uppercase text-amber-900 placeholder:normal-case placeholder:font-normal placeholder-stone-400 outline-none transition-all shadow-2xs"
-                                title="Type coupon code and press Enter or blur to save"
-                              />
-                            </div>
-                            {savingCouponSlug === prod.slug && (
-                              <span className="text-[10px] text-amber-700 font-semibold animate-pulse">
-                                Saving...
-                              </span>
-                            )}
-                          </div>
                         </td>
 
                         {/* Lighting Type */}
@@ -839,32 +767,15 @@ export default function AdminProductsPage() {
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    <div>
-                      <label className="font-semibold text-stone-800 block mb-1 flex items-center gap-1.5">
-                        <Tag className="w-3.5 h-3.5 text-amber-600" />
-                        <span>Coupon Code</span>
-                        <span className="text-[10px] text-stone-400 font-normal">(Optional promo)</span>
-                      </label>
-                      <input
-                        type="text"
-                        value={formData.couponCode}
-                        onChange={(e) => setFormData({ ...formData, couponCode: e.target.value.toUpperCase() })}
-                        className="w-full px-3 py-2 bg-white border border-stone-300 rounded-xl outline-none font-mono text-xs uppercase font-bold text-amber-900 focus:border-amber-500 placeholder-stone-400"
-                        placeholder="coupon code"
-                      />
-                    </div>
-
-                    <div>
-                      <label className="font-semibold text-stone-800 block mb-1">Art Style / Finish</label>
-                      <input
-                        type="text"
-                        value={formData.artStyle}
-                        onChange={(e) => setFormData({ ...formData, artStyle: e.target.value })}
-                        className="w-full px-3 py-2 bg-white border border-stone-300 rounded-xl outline-none text-xs text-stone-900 placeholder-stone-400"
-                        placeholder="e.g. High-Definition Cast Acrylic"
-                      />
-                    </div>
+                  <div>
+                    <label className="font-semibold text-stone-800 block mb-1">Art Style / Finish</label>
+                    <input
+                      type="text"
+                      value={formData.artStyle}
+                      onChange={(e) => setFormData({ ...formData, artStyle: e.target.value })}
+                      className="w-full px-3 py-2 bg-white border border-stone-300 rounded-xl outline-none text-xs text-stone-900 placeholder-stone-400"
+                      placeholder="e.g. High-Definition Cast Acrylic"
+                    />
                   </div>
                 </div>
 
