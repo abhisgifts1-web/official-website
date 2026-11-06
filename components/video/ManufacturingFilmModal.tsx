@@ -122,7 +122,7 @@ const FILM_SCENES: SceneData[] = [
     title: 'Artisanal White-Glove Polish & Luminescence Testing',
     subtitle: 'Microfiber surface sanitization, gold adhesion & circuit certification',
     voiceover:
-      'In a dust-free enclosure, white-gloved master artisans inspect every millimeter under calibrated raking light. The gold foil is tested for adhesion, the surface is polished with anti-static microfiber, and the 12V LED circuit is tested for pure 3000 Kelvin warmth.',
+      'In a dust-free enclosure, white-gloved master artisans inspect every millimeter under calibrated raking light. The gold foil is tested for adhesion, the surface is polished with anti-static microfiber, and the 12V LED circuit is tested for warm golden illumination.',
     specs: [
       { label: 'Quality Standard', value: '100% Zero-Defect' },
       { label: 'Circuit Voltage', value: '12V Low Voltage' },

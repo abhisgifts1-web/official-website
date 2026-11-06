@@ -341,7 +341,7 @@ export default function HeroShowcase() {
                   <div className="absolute top-3 inset-x-3 flex items-center justify-between pointer-events-none">
                     <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md text-amber-300 text-[11px] font-semibold border border-amber-400/20 shadow-xs">
                       <Sparkles className="w-3 h-3 text-amber-400" />
-                      3D LED Backlit Frame
+                      Premium Acrylic Frame
                     </span>
                     <span className="px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-md text-white/90 text-[11px] font-medium border border-white/10 shadow-xs">
                       {currentDeity.dimension}

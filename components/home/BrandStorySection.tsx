@@ -79,7 +79,7 @@ const CRAFT_PILLARS: CraftPillar[] = [
     title: 'Warm Ambient LED Aura',
     tagline: 'Authentic Brass Temple Diya Luminescence',
     description:
-      'Low-voltage certified 12V Epistar LED diodes calibrated to precisely 3000 Kelvins — reproducing the holy golden hue of ghee lamps in Indian sanctums. Hidden rear channels prevent heat emission and cast a serene corona halo across living walls without glare.',
+      'Low-voltage certified 12V Epistar LED diodes calibrated to warm ambient illumination — reproducing the holy golden hue of ghee lamps in Indian sanctums. Hidden rear channels prevent heat emission and cast a serene corona halo across living walls without glare.',
     icon: Flame,
     specs: [
       { label: 'Color Temp', value: 'Temple Diya Light' },

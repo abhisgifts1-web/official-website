@@ -26,7 +26,7 @@ import { getWhatsAppOrderUrl } from '@/lib/whatsapp';
 import { INITIAL_SETTINGS } from '@/lib/data/settings';
 import { compressImageToDataUrl } from '@/lib/utils/imageCompress';
 
-type PaymentOption = 'whatsapp' | 'online';
+type PaymentOption = 'whatsapp';
 
 export default function CheckoutPage() {
   const router = useRouter();
@@ -402,68 +402,29 @@ export default function CheckoutPage() {
           <div className="bg-white p-6 sm:p-7 rounded-3xl border border-stone-200 shadow-sm space-y-4">
             <h3 className="font-serif font-bold text-lg text-stone-900 flex items-center gap-2">
               <CreditCard className="w-5 h-5 text-amber-600" />
-              <span>2. Choose Payment Method</span>
+              <span>2. Payment &amp; Proofing Method</span>
             </h3>
 
             <div className="space-y-3">
-              {/* Option A: WhatsApp Priority Order */}
-              <label
-                className={`flex items-start gap-3.5 p-4 rounded-2xl border transition-all cursor-pointer ${
-                  paymentMethod === 'whatsapp'
-                    ? 'border-[#25D366] bg-[#25D366]/5 ring-1 ring-[#25D366]/40'
-                    : 'border-stone-200 bg-white hover:border-amber-400'
-                }`}
-              >
-                <input
-                  type="radio"
-                  name="paymentMethod"
-                  value="whatsapp"
-                  checked={paymentMethod === 'whatsapp'}
-                  onChange={() => setPaymentMethod('whatsapp')}
-                  className="mt-1 accent-[#25D366]"
-                />
+              {/* Direct WhatsApp Order */}
+              <div className="flex items-start gap-3.5 p-4 rounded-2xl border border-[#25D366] bg-[#25D366]/5 ring-1 ring-[#25D366]/40">
+                <div className="w-8 h-8 rounded-full bg-[#25D366] flex items-center justify-center shrink-0 mt-0.5 text-white">
+                  <MessageCircle className="w-4 h-4 fill-white" />
+                </div>
                 <div className="flex-1">
                   <div className="flex items-center gap-2">
                     <span className="font-bold text-xs sm:text-sm text-stone-900">
-                      Direct WhatsApp Order &amp; Proofing
+                      Direct WhatsApp Order &amp; Digital Proofing
                     </span>
-                    <span className="text-[10px] font-bold text-[#25D366] bg-[#25D366]/10 px-2 py-0.5 rounded-full">
-                      Recommended
-                    </span>
-                  </div>
-                  <p className="text-xs text-stone-600 mt-1 leading-relaxed">
-                    Instantly forwards your order details to our WhatsApp team. Get a 1:1 digital proof from our designers and pay via UPI (GPay/PhonePe/Paytm).
-                  </p>
-                </div>
-              </label>
-
-              {/* Option B: Online Payment */}
-              <label
-                className={`flex items-start gap-3.5 p-4 rounded-2xl border transition-all cursor-pointer ${
-                  paymentMethod === 'online'
-                    ? 'border-amber-500 bg-amber-50/50 ring-1 ring-amber-400'
-                    : 'border-stone-200 bg-white hover:border-amber-400'
-                }`}
-              >
-                <input
-                  type="radio"
-                  name="paymentMethod"
-                  value="online"
-                  checked={paymentMethod === 'online'}
-                  onChange={() => setPaymentMethod('online')}
-                  className="mt-1 accent-amber-500"
-                />
-                <div className="flex-1">
-                  <div className="flex items-center gap-2">
-                    <span className="font-bold text-xs sm:text-sm text-stone-900">
-                      Online Payment (UPI, Credit/Debit Cards, NetBanking)
+                    <span className="text-[10px] font-bold text-[#25D366] bg-[#25D366]/15 px-2 py-0.5 rounded-full">
+                      Verified
                     </span>
                   </div>
                   <p className="text-xs text-stone-600 mt-1 leading-relaxed">
-                    100% secure payment with automated receipt and order updates.
+                    Instantly forwards your order details and photos to our workshop team on WhatsApp. Receive a 1:1 digital proof before printing and pay conveniently via UPI (GPay/PhonePe/Paytm).
                   </p>
                 </div>
-              </label>
+              </div>
             </div>
           </div>
 
@@ -573,22 +534,15 @@ export default function CheckoutPage() {
               className={`w-full py-4 rounded-2xl font-bold text-sm sm:text-base shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer uppercase tracking-wider ${
                 submitting
                   ? 'bg-stone-300 text-stone-500 cursor-not-allowed'
-                  : paymentMethod === 'whatsapp'
-                  ? 'bg-[#25D366] hover:bg-[#20BD5A] text-white hover:scale-[1.01]'
-                  : 'bg-[#EAB308] hover:bg-[#FACC15] text-stone-950 hover:scale-[1.01]'
+                  : 'bg-[#25D366] hover:bg-[#20BD5A] text-white hover:scale-[1.01]'
               }`}
             >
               {submitting ? (
                 <span>Confirming Order...</span>
-              ) : paymentMethod === 'whatsapp' ? (
+              ) : (
                 <>
                   <MessageCircle className="w-5 h-5 fill-white" />
                   <span>Order via WhatsApp • ₹{finalPayable.toLocaleString('en-IN')}</span>
-                </>
-              ) : (
-                <>
-                  <ShieldCheck className="w-5 h-5 text-stone-950" />
-                  <span>Complete Purchase • ₹{finalPayable.toLocaleString('en-IN')}</span>
                 </>
               )}
             </button>

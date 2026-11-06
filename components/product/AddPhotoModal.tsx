@@ -510,44 +510,6 @@ export default function AddPhotoModal({
             )}
           </div>
 
-          {/* Lighting Toggle if product has LED */}
-          {product.hasLedBacklight && (
-            <div className="bg-stone-50 border border-stone-200 rounded-xl p-3 flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <Sun className="w-4 h-4 text-amber-600" />
-                <span className="text-xs font-bold text-stone-900">
-                  LED Backlit Illumination
-                </span>
-              </div>
-              <button
-                type="button"
-                onClick={() => setLedEnabled(!ledEnabled)}
-                className={`px-3 py-1 rounded-full text-xs font-bold border transition-all cursor-pointer ${
-                  ledEnabled
-                    ? 'bg-[#EAB308] text-stone-950 border-amber-400'
-                    : 'bg-stone-200 text-stone-700 border-stone-300'
-                }`}
-              >
-                {ledEnabled ? 'ON' : 'OFF'}
-              </button>
-            </div>
-          )}
-
-          {/* Optional Personalization Text */}
-          <div className="space-y-1.5">
-            <label className="text-xs font-bold text-stone-900 uppercase tracking-wider block">
-              3. Custom Text / Dedication <span className="text-stone-500 font-normal lowercase">(optional)</span>
-            </label>
-            <input
-              type="text"
-              value={customText}
-              onChange={(e) => setCustomText(e.target.value)}
-              placeholder="e.g. Ramesh &amp; Priya • 25th Anniversary • 12 May 2026"
-              className="w-full bg-white border border-stone-300 focus:border-amber-500 rounded-xl px-3 py-2 text-xs text-stone-900 placeholder:text-stone-400 outline-none transition-colors"
-              maxLength={80}
-            />
-          </div>
-
           {/* Price Summary */}
           <div className="bg-stone-50 border border-stone-200 rounded-xl p-3.5 flex items-center justify-between">
             <div>
