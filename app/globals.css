@@ -806,3 +806,36 @@ h1, h2, h3, h4, h5, h6, .font-serif {
 .animate-subtle-float {
   animation: subtleFloat 5s ease-in-out infinite;
 }
+
+/* 22. Category Medallion Floating Wave & Luxury Story Ring Animations */
+@keyframes categoryFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes goldStoryRingPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 14px 2px rgba(245, 158, 11, 0.3);
+  }
+}
+
+.category-wave-item {
+  animation: categoryFloat 4.2s ease-in-out infinite;
+  will-change: transform;
+}
+
+.category-wave-item:hover {
+  animation-play-state: paused;
+}
+
+.animate-category-ring {
+  animation: goldStoryRingPulse 3s ease-in-out infinite;
+}
+

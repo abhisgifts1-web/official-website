@@ -228,25 +228,32 @@ export default function HeroShowcase() {
             className="flex items-start justify-start md:justify-around xl:justify-center gap-4 sm:gap-6 lg:gap-10 xl:gap-12 overflow-x-auto pb-1 scroll-smooth scrollbar-none"
             style={{ scrollbarWidth: 'none' }}
           >
-            {HERO_CATEGORIES.map((cat) => (
+            {HERO_CATEGORIES.map((cat, idx) => (
               <Link
                 key={cat.slug}
                 href={`/category/${cat.slug}`}
-                className="flex flex-col items-center gap-2 group shrink-0 w-[74px] sm:w-[92px] lg:w-[104px] text-center cursor-pointer"
+                className="category-wave-item flex flex-col items-center gap-2.5 group shrink-0 w-[74px] sm:w-[92px] lg:w-[104px] text-center cursor-pointer select-none"
+                style={{ animationDelay: `${idx * 0.18}s` }}
               >
-                {/* Circle Frame */}
-                <div className="relative w-14 h-14 sm:w-16 sm:h-16 lg:w-18 lg:h-18 rounded-full p-0.5 bg-white shadow-xs border border-stone-200 group-hover:border-amber-500 group-hover:shadow-md transition-all duration-300 group-hover:scale-105 overflow-hidden flex items-center justify-center">
-                  <img
-                    src={cat.image}
-                    alt={cat.label.replace('\n', ' ')}
-                    className="w-full h-full object-cover rounded-full group-hover:scale-110 transition-transform duration-500"
-                    loading="eager"
-                  />
-                  <div className="absolute inset-0 rounded-full ring-1 ring-inset ring-black/5" />
+                {/* Outer Luxury Golden Ring with Breathing Pulse */}
+                <div className="relative w-15 h-15 sm:w-17 sm:h-17 lg:w-19 lg:h-19 rounded-full p-[2.5px] bg-gradient-to-tr from-amber-400 via-amber-200 to-amber-500 group-hover:from-amber-500 group-hover:via-yellow-300 group-hover:to-amber-600 transition-all duration-500 shadow-xs group-hover:shadow-[0_8px_24px_rgba(217,119,6,0.36)] group-hover:scale-110 flex items-center justify-center animate-category-ring">
+                  {/* Inner White Well / Clipping Circle */}
+                  <div className="w-full h-full rounded-full overflow-hidden bg-white p-0.5 relative flex items-center justify-center">
+                    <img
+                      src={cat.image}
+                      alt={cat.label.replace('\n', ' ')}
+                      className="w-full h-full object-cover rounded-full group-hover:scale-115 transition-transform duration-500 ease-out"
+                      loading="eager"
+                    />
+                    {/* Diagonal Acrylic Light Sheen Sweep on Hover */}
+                    <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-transparent via-white/50 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out pointer-events-none" />
+                    {/* Subtle Inner Ring */}
+                    <div className="absolute inset-0 rounded-full ring-1 ring-inset ring-black/10 pointer-events-none" />
+                  </div>
                 </div>
 
                 {/* Category Label */}
-                <span className="text-[11px] sm:text-xs text-stone-700 group-hover:text-amber-700 font-medium leading-tight tracking-tight transition-colors whitespace-pre-line">
+                <span className="text-[11px] sm:text-xs text-stone-700 group-hover:text-amber-800 font-semibold leading-tight tracking-tight transition-all duration-300 group-hover:-translate-y-0.5 whitespace-pre-line">
                   {cat.label}
                 </span>
               </Link>
