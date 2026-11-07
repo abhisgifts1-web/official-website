@@ -15,6 +15,7 @@ import {
   ChevronDown,
   ArrowRight,
   Layers,
+  Camera,
 } from 'lucide-react';
 
 function WhatsAppIcon({ className = 'w-4 h-4 sm:w-5 sm:h-5' }: { className?: string }) {
@@ -46,16 +47,25 @@ export default function Header() {
   const [searchQuery, setSearchQuery] = useState('');
   const [scrolled, setScrolled] = useState(false);
   const searchInputRef = useRef<HTMLInputElement>(null);
+
+  // Active Tab & Select Animation State
+  const [activeTab, setActiveTab] = useState<string>('home');
+  const [hoveredTab, setHoveredTab] = useState<string | null>(null);
+  const [pillStyle, setPillStyle] = useState({ left: 0, width: 0, opacity: 0 });
+  const navContainerRef = useRef<HTMLDivElement>(null);
+  const tabRefs = useRef<{ [key: string]: HTMLElement | null }>({});
   const menuTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const handleMenuEnter = () => {
     if (menuTimeoutRef.current) clearTimeout(menuTimeoutRef.current);
+    setHoveredTab('categories');
     setMegaMenuOpen(true);
   };
 
   const handleMenuLeave = () => {
     if (menuTimeoutRef.current) clearTimeout(menuTimeoutRef.current);
     menuTimeoutRef.current = setTimeout(() => {
+      setHoveredTab(null);
       setMegaMenuOpen(false);
     }, 220);
   };
@@ -73,6 +83,51 @@ export default function Header() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Sync active tab with current URL route
+  useEffect(() => {
+    if (!pathname) return;
+    if (pathname === '/') {
+      setActiveTab('home');
+    } else if (pathname === '/customise') {
+      setActiveTab('custom');
+    } else if (pathname.startsWith('/category') || pathname === '/collections') {
+      setActiveTab('categories');
+    } else if (pathname === '/shop') {
+      if (typeof window !== 'undefined' && window.location.search.includes('lighting=led')) {
+        setActiveTab('led');
+      } else if (typeof window !== 'undefined' && window.location.search.includes('lighting=none')) {
+        setActiveTab('normal');
+      } else {
+        setActiveTab('shop');
+      }
+    }
+  }, [pathname]);
+
+  // Recalculate sliding select animation pill position
+  useEffect(() => {
+    const targetKey = hoveredTab || (activeTab !== 'home' ? activeTab : null);
+    if (!targetKey) {
+      setPillStyle((prev) => ({ ...prev, opacity: 0 }));
+      return;
+    }
+
+    const targetEl = tabRefs.current[targetKey];
+    const containerEl = navContainerRef.current;
+
+    if (targetEl && containerEl) {
+      const containerRect = containerEl.getBoundingClientRect();
+      const targetRect = targetEl.getBoundingClientRect();
+
+      setPillStyle({
+        left: targetRect.left - containerRect.left,
+        width: targetRect.width,
+        opacity: 1,
+      });
+    } else {
+      setPillStyle((prev) => ({ ...prev, opacity: 0 }));
+    }
+  }, [hoveredTab, activeTab, megaMenuOpen]);
 
   // Keyboard escape listener & body scroll lock
   useEffect(() => {
@@ -118,6 +173,40 @@ export default function Header() {
     return null;
   }
 
+  // Curated Navigation Options
+  const NAV_OPTIONS = [
+    {
+      id: 'led',
+      label: 'LED Backlit Art',
+      href: '/shop?lighting=led',
+      icon: <Flame className="w-3.5 h-3.5 text-[#EAB308] animate-pulse shrink-0" />,
+      highlight: true,
+    },
+    {
+      id: 'normal',
+      label: 'Normal Acrylic Art',
+      href: '/shop?lighting=none',
+      icon: <Sparkles className="w-3.5 h-3.5 text-[#EAB308] shrink-0" />,
+    },
+    {
+      id: 'custom',
+      label: 'Custom Photos',
+      href: '/customise',
+      icon: <Camera className="w-3.5 h-3.5 text-[#EAB308] shrink-0" />,
+    },
+    {
+      id: 'categories',
+      label: 'Categories',
+      icon: <Layers className="w-3.5 h-3.5 text-[#EAB308] shrink-0" />,
+      isMegaMenu: true,
+    },
+    {
+      id: 'shop',
+      label: 'Shop All',
+      href: '/shop',
+    },
+  ];
+
   return (
     <>
       <header
@@ -152,134 +241,208 @@ export default function Header() {
               </Link>
             </div>
 
-            {/* Middle: Categories Navigation Option (Desktop) */}
-            <div className="hidden lg:flex items-center justify-center flex-1 max-w-xl mx-auto px-4">
+            {/* Middle: Clean Luxury Desktop Navigation with Sliding Select Animation */}
+            <nav className="hidden lg:flex items-center justify-center flex-1 max-w-3xl 2xl:max-w-4xl mx-auto px-2">
               <div
-                className="relative"
-                onMouseEnter={handleMenuEnter}
-                onMouseLeave={handleMenuLeave}
+                ref={navContainerRef}
+                className="relative flex items-center bg-[#1A1A1A]/80 backdrop-blur-md p-1 rounded-full border border-[#EAB308]/40 shadow-2xs"
               >
-                <button
-                  type="button"
-                  aria-haspopup="true"
-                  aria-expanded={megaMenuOpen}
-                  onClick={() => setMegaMenuOpen((prev) => !prev)}
-                  className={`py-2 px-4 rounded-full text-xs xl:text-sm font-semibold transition-all duration-200 flex items-center gap-2 outline-none cursor-pointer border shadow-2xs ${
-                    megaMenuOpen
-                      ? 'bg-[#1E1E1E] text-[#FACC15] border-[#EAB308] shadow-[0_0_15px_rgba(234,179,8,0.25)]'
-                      : 'bg-[#181818]/90 text-white hover:text-[#FACC15] border-[#EAB308]/40 hover:border-[#EAB308]'
-                  }`}
-                >
-                  <Layers className="w-4 h-4 text-[#EAB308]" />
-                  <span>Categories</span>
-                  <ChevronDown
-                    className={`w-3.5 h-3.5 transition-transform duration-200 ${
-                      megaMenuOpen ? 'rotate-180 text-[#EAB308]' : 'text-[#D1D5DB]'
-                    }`}
-                  />
-                </button>
+                {/* Animated Sliding Selection Pill */}
+                <div
+                  className="absolute top-1 bottom-1 rounded-full bg-gradient-to-r from-[#121212] via-[#262626] to-[#121212] shadow-[0_3px_14px_rgba(0,0,0,0.5)] border border-[#EAB308]/60 transition-all duration-300 ease-[cubic-bezier(0.2,0.9,0.3,1)] pointer-events-none"
+                  style={{
+                    left: `${pillStyle.left}px`,
+                    width: `${pillStyle.width}px`,
+                    opacity: pillStyle.opacity,
+                  }}
+                />
 
-                {/* Click-Outside Dimmed Page Backdrop */}
-                {megaMenuOpen && (
-                  <div
-                    className="fixed inset-0 top-[60px] bg-black/60 backdrop-blur-xs z-40 transition-opacity animate-in fade-in duration-200"
-                    onClick={() => setMegaMenuOpen(false)}
-                    aria-hidden="true"
-                  />
-                )}
+                {NAV_OPTIONS.map((item) => {
+                  const isActive = (hoveredTab || activeTab) === item.id;
+                  const isCurrentSelected = activeTab === item.id;
 
-                {/* Mega Menu Dropdown */}
-                {megaMenuOpen && (
-                  <div
-                    onMouseEnter={handleMenuEnter}
-                    onMouseLeave={handleMenuLeave}
-                    className="fixed top-[62px] sm:top-[68px] left-1/2 -translate-x-1/2 w-[96vw] max-w-6xl 2xl:max-w-7xl rounded-3xl shadow-[0_25px_80px_rgba(0,0,0,0.6)] border-2 border-[#EAB308]/80 p-5 sm:p-7 z-50 animate-in fade-in zoom-in-95 slide-in-from-top-2 duration-200 text-[#FFFFFF] select-auto"
-                    style={{ backgroundColor: '#141414' }}
-                  >
-                    {/* Header Bar */}
-                    <div className="flex items-center justify-between pb-3.5 mb-4 border-b border-[#2D2D2D]/80">
-                      <div className="flex items-center gap-2.5">
-                        <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-[#181818] to-[#0A0A0A] flex items-center justify-center text-[#FACC15] border border-[#EAB308]/50 shadow-xs">
-                          <Layers className="w-4 h-4" />
-                        </div>
-                        <div>
-                          <h3 className="font-serif font-bold text-base sm:text-lg text-[#FFFFFF] leading-tight">
-                            Explore Our Categories
-                          </h3>
-                          <p className="text-[11px] text-[#D1D5DB] font-sans">
-                            8 Featured Categories • Premium Acrylic Photo Frames &amp; Custom Gifts
-                          </p>
-                        </div>
-                      </div>
-
-                      <button
-                        type="button"
-                        onClick={() => setMegaMenuOpen(false)}
-                        className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold text-[#FFFFFF] bg-[#1E1E1E] hover:bg-[#2A2A2A] border border-[#EAB308]/60 transition-all cursor-pointer shadow-2xs hover:scale-105 active:scale-95"
-                        aria-label="Close categories menu"
+                  if (item.isMegaMenu) {
+                    return (
+                      <div
+                        key={item.id}
+                        className="relative"
+                        onMouseEnter={handleMenuEnter}
+                        onMouseLeave={handleMenuLeave}
                       >
-                        <X className="w-3.5 h-3.5 text-[#FFFFFF]" />
-                        <span>Close</span>
-                      </button>
-                    </div>
+                        <button
+                          ref={(el) => {
+                            tabRefs.current[item.id] = el;
+                          }}
+                          type="button"
+                          aria-haspopup="true"
+                          aria-expanded={megaMenuOpen}
+                          onClick={() => {
+                            setActiveTab(item.id);
+                            setMegaMenuOpen((prev) => !prev);
+                          }}
+                          className={`relative z-10 py-1.5 px-2 xl:px-3.5 2xl:px-4 rounded-full text-[11.5px] xl:text-[13px] font-semibold transition-all duration-200 flex items-center gap-1 xl:gap-1.5 whitespace-nowrap outline-none cursor-pointer active:scale-95 ${
+                            isActive || megaMenuOpen
+                              ? 'text-[#FFFFFF] font-bold drop-shadow-xs'
+                              : 'text-[#FFFFFF] hover:text-[#EAB308]'
+                          }`}
+                        >
+                          {item.icon}
+                          <span>{item.label}</span>
+                          <ChevronDown
+                            className={`w-3.5 h-3.5 transition-transform duration-200 ${
+                              megaMenuOpen ? 'rotate-180 text-[#EAB308]' : 'text-[#D1D5DB]'
+                            }`}
+                          />
+                        </button>
 
-                    <div className="space-y-4">
-                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
-                        {INITIAL_CATEGORIES.map((cat) => (
-                          <Link
-                            key={cat.id}
-                            href={`/category/${cat.slug}`}
-                            onClick={() => setMegaMenuOpen(false)}
-                            className="group relative flex flex-col justify-between p-3.5 rounded-2xl border border-[#2D2D2D] hover:border-[#EAB308] shadow-2xs hover:shadow-xs transition-all duration-200 bg-[#1A1A1A] hover:bg-[#202020]"
+                        {/* Click-Outside Dimmed Page Backdrop */}
+                        {megaMenuOpen && (
+                          <div
+                            className="fixed inset-0 top-[60px] bg-black/60 backdrop-blur-xs z-40 transition-opacity animate-in fade-in duration-200"
+                            onClick={() => {
+                              setMegaMenuOpen(false);
+                              setHoveredTab(null);
+                            }}
+                            aria-hidden="true"
+                          />
+                        )}
+
+                        {/* Mega Menu Dropdown */}
+                        {megaMenuOpen && (
+                          <div
+                            onMouseEnter={handleMenuEnter}
+                            onMouseLeave={handleMenuLeave}
+                            className="fixed top-[62px] sm:top-[68px] left-1/2 -translate-x-1/2 w-[96vw] max-w-6xl 2xl:max-w-7xl rounded-3xl shadow-[0_25px_80px_rgba(0,0,0,0.6)] border-2 border-[#EAB308]/80 p-5 sm:p-7 z-50 animate-in fade-in zoom-in-95 slide-in-from-top-2 duration-200 text-[#FFFFFF] select-auto"
+                            style={{ backgroundColor: '#141414' }}
                           >
-                            <div>
-                              <div className="flex items-start justify-between gap-1.5">
-                                <span className="font-serif font-bold text-xs sm:text-sm text-[#FFFFFF] group-hover:text-[#EAB308] transition-colors line-clamp-1">
-                                  {cat.name}
-                                </span>
-                                {cat.lightingType === 'backlight' && (
-                                  <span className="text-[9px] font-bold text-yellow-400 bg-yellow-950/50 px-1.5 py-0.5 rounded border border-amber-300 shrink-0">
-                                    LED
-                                  </span>
-                                )}
+                            {/* Header Bar */}
+                            <div className="flex items-center justify-between pb-3.5 mb-4 border-b border-[#2D2D2D]/80">
+                              <div className="flex items-center gap-2.5">
+                                <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-[#181818] to-[#0A0A0A] flex items-center justify-center text-[#FACC15] border border-[#EAB308]/50 shadow-xs">
+                                  <Layers className="w-4 h-4" />
+                                </div>
+                                <div>
+                                  <h3 className="font-serif font-bold text-base sm:text-lg text-[#FFFFFF] leading-tight">
+                                    Explore Our Categories
+                                  </h3>
+                                  <p className="text-[11px] text-[#D1D5DB] font-sans">
+                                    8 Featured Categories • Premium Acrylic Photo Frames &amp; Custom Gifts
+                                  </p>
+                                </div>
                               </div>
-                              <span className="text-[11px] text-[#D1D5DB] block line-clamp-2 mt-1.5 leading-snug">
-                                {cat.description}
-                              </span>
-                            </div>
-                            <div className="mt-3 pt-2 border-t border-[#2D2D2D] flex items-center justify-between text-[11px] font-semibold text-[#EAB308]">
-                              <span>Explore</span>
-                              <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
-                            </div>
-                          </Link>
-                        ))}
-                      </div>
 
-                      <div className="pt-3 flex items-center justify-between border-t border-[#2D2D2D]">
-                        <Link
-                          href="/category"
-                          onClick={() => setMegaMenuOpen(false)}
-                          className="inline-flex items-center gap-1.5 text-xs font-bold text-[#FFFFFF] hover:text-[#EAB308] group"
-                        >
-                          <Sparkles className="w-3.5 h-3.5 text-[#EAB308]" />
-                          <span>View All 8 Categories</span>
-                          <ArrowRight className="w-3.5 h-3.5 text-[#EAB308] group-hover:translate-x-1 transition-transform" />
-                        </Link>
+                              <button
+                                type="button"
+                                onClick={() => {
+                                  setMegaMenuOpen(false);
+                                  setHoveredTab(null);
+                                }}
+                                className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold text-[#FFFFFF] bg-[#1E1E1E] hover:bg-[#2A2A2A] border border-[#EAB308]/60 transition-all cursor-pointer shadow-2xs hover:scale-105 active:scale-95"
+                                aria-label="Close categories menu"
+                              >
+                                <X className="w-3.5 h-3.5 text-[#FFFFFF]" />
+                                <span>Close</span>
+                              </button>
+                            </div>
 
-                        <Link
-                          href="/shop"
-                          onClick={() => setMegaMenuOpen(false)}
-                          className="inline-flex items-center gap-1.5 text-xs font-bold text-[#EAB308] hover:underline"
-                        >
-                          <span>Shop Full Catalog</span>
-                          <ArrowRight className="w-3.5 h-3.5" />
-                        </Link>
+                            <div className="space-y-4">
+                              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
+                                {INITIAL_CATEGORIES.map((cat) => (
+                                  <Link
+                                    key={cat.id}
+                                    href={`/category/${cat.slug}`}
+                                    onClick={() => {
+                                      setMegaMenuOpen(false);
+                                      setHoveredTab(null);
+                                    }}
+                                    className="group relative flex flex-col justify-between p-3.5 rounded-2xl border border-[#2D2D2D] hover:border-[#EAB308] shadow-2xs hover:shadow-xs transition-all duration-200 bg-[#1A1A1A] hover:bg-[#202020]"
+                                  >
+                                    <div>
+                                      <div className="flex items-start justify-between gap-1.5">
+                                        <span className="font-serif font-bold text-xs sm:text-sm text-[#FFFFFF] group-hover:text-[#EAB308] transition-colors line-clamp-1">
+                                          {cat.name}
+                                        </span>
+                                        {cat.lightingType === 'backlight' && (
+                                          <span className="text-[9px] font-bold text-yellow-400 bg-yellow-950/50 px-1.5 py-0.5 rounded border border-amber-300 shrink-0">
+                                            LED
+                                          </span>
+                                        )}
+                                      </div>
+                                      <span className="text-[11px] text-[#D1D5DB] block line-clamp-2 mt-1.5 leading-snug">
+                                        {cat.description}
+                                      </span>
+                                    </div>
+                                    <div className="mt-3 pt-2 border-t border-[#2D2D2D] flex items-center justify-between text-[11px] font-semibold text-[#EAB308]">
+                                      <span>Explore</span>
+                                      <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+                                    </div>
+                                  </Link>
+                                ))}
+                              </div>
+
+                              <div className="pt-3 flex items-center justify-between border-t border-[#2D2D2D]">
+                                <Link
+                                  href="/category"
+                                  onClick={() => {
+                                    setMegaMenuOpen(false);
+                                    setHoveredTab(null);
+                                  }}
+                                  className="inline-flex items-center gap-1.5 text-xs font-bold text-[#FFFFFF] hover:text-[#EAB308] group"
+                                >
+                                  <Sparkles className="w-3.5 h-3.5 text-[#EAB308]" />
+                                  <span>View All 8 Categories</span>
+                                  <ArrowRight className="w-3.5 h-3.5 text-[#EAB308] group-hover:translate-x-1 transition-transform" />
+                                </Link>
+
+                                <Link
+                                  href="/shop"
+                                  onClick={() => {
+                                    setMegaMenuOpen(false);
+                                    setHoveredTab(null);
+                                  }}
+                                  className="inline-flex items-center gap-1.5 text-xs font-bold text-[#EAB308] hover:underline"
+                                >
+                                  <span>Shop Full Catalog</span>
+                                  <ArrowRight className="w-3.5 h-3.5" />
+                                </Link>
+                              </div>
+                            </div>
+                          </div>
+                        )}
                       </div>
-                    </div>
-                  </div>
-                )}
+                    );
+                  }
+
+                  return (
+                    <Link
+                      key={item.id}
+                      ref={(el) => {
+                        tabRefs.current[item.id] = el;
+                      }}
+                      href={item.href || '/'}
+                      onMouseEnter={() => setHoveredTab(item.id)}
+                      onMouseLeave={() => setHoveredTab(null)}
+                      onClick={() => {
+                        setActiveTab(item.id);
+                        setMegaMenuOpen(false);
+                      }}
+                      className={`relative z-10 py-1.5 px-2 xl:px-3 2xl:px-4 rounded-full text-[11.5px] xl:text-[13px] font-semibold transition-colors duration-200 flex items-center gap-1 xl:gap-1.5 whitespace-nowrap outline-none active:scale-95 ${
+                        isActive
+                          ? 'text-[#FFFFFF] font-bold drop-shadow-xs'
+                          : 'text-[#FFFFFF] hover:text-[#EAB308]'
+                      }`}
+                    >
+                      {item.icon}
+                      <span>{item.label}</span>
+                      {/* Active Golden Shimmer Indicator */}
+                      {isCurrentSelected && (
+                        <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-3 h-0.5 bg-[#EAB308] rounded-full shadow-[0_0_8px_#D6AA55]" />
+                      )}
+                    </Link>
+                  );
+                })}
               </div>
-            </div>
+            </nav>
 
             {/* Right: WhatsApp Hotline, Search, Wishlist, Cart */}
             <div className="flex items-center gap-0.5 min-[360px]:gap-1 sm:gap-2 shrink-0">
