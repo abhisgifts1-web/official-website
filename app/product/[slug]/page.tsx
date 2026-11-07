@@ -97,17 +97,6 @@ export default function ProductDetailPage({ params }: Props) {
         name: "Abhi's Gifts",
       },
     },
-    ...(product.reviewCount > 0
-      ? {
-          aggregateRating: {
-            '@type': 'AggregateRating',
-            ratingValue: product.rating,
-            reviewCount: product.reviewCount,
-            bestRating: '5',
-            worstRating: '1',
-          },
-        }
-      : {}),
   };
 
   return (

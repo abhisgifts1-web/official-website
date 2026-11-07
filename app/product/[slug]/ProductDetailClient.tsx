@@ -24,7 +24,6 @@ import {
   ChevronLeft,
   Ruler,
   ShoppingBag,
-  Star,
   MapPin,
   HelpCircle,
   Layers,
@@ -36,7 +35,7 @@ import {
 import AddPhotoModal from '@/components/product/AddPhotoModal';
 import CustomSizeInput from '@/components/product/CustomSizeInput';
 import { calculateCustomDimensions } from '@/lib/utils/customSize';
-import { Product, ProductReview } from '@/types';
+import { Product } from '@/types';
 import { useCart } from '@/context/CartContext';
 import { useWishlist } from '@/context/WishlistContext';
 import { INITIAL_SETTINGS } from '@/lib/data/settings';
@@ -502,16 +501,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
   const mainPurchaseRef = useRef<HTMLDivElement>(null);
 
   // Tabs state
-  const [activeTab, setActiveTab] = useState<'overview' | 'craft' | 'specs' | 'sizeguide' | 'install' | 'shipping' | 'reviews' | 'faq'>('overview');
-
-  // Customer Reviews state
-  const [reviewsList, setReviewsList] = useState<ProductReview[]>(product.reviews || []);
-  const [reviewName, setReviewName] = useState('');
-  const [reviewCity, setReviewCity] = useState('');
-  const [reviewRating, setReviewRating] = useState(5);
-  const [reviewComment, setReviewComment] = useState('');
-  const [submittingReview, setSubmittingReview] = useState(false);
-  const [reviewSuccess, setReviewSuccess] = useState(false);
+  const [activeTab, setActiveTab] = useState<'overview' | 'craft' | 'specs' | 'sizeguide' | 'install' | 'shipping' | 'faq'>('overview');
 
   const wishlisted = isInWishlist(product.slug);
 
@@ -817,40 +807,6 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
         : (currentSizeObj ? currentSizeObj.label : '12x18') + ' in'
     }\n• Finish: ${selectedFrame}\n• Auto-Calculated Price: ₹${currentPricing.price.toLocaleString('en-IN')}\n${artworkImgRef ? `• Artwork Link: ${artworkImgRef}\n` : ''}\nPlease assist me with proofing before printing. Thank you!`
   )}`;
-
-  // Post review
-  const handleReviewSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!reviewName.trim() || !reviewComment.trim()) return;
-
-    setSubmittingReview(true);
-    try {
-      const res = await fetch('/api/reviews', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          productSlug: product.slug,
-          authorName: reviewName,
-          city: reviewCity || 'India',
-          rating: reviewRating,
-          comment: reviewComment,
-        }),
-      });
-
-      const data = await res.json();
-      if (res.ok && data.success) {
-        setReviewsList((prev) => [data.review, ...prev]);
-        setReviewSuccess(true);
-        setReviewName('');
-        setReviewCity('');
-        setReviewComment('');
-      }
-    } catch {
-      // fallback
-    } finally {
-      setSubmittingReview(false);
-    }
-  };
 
   const handleShare = () => {
     if (typeof navigator !== 'undefined' && navigator.clipboard) {
@@ -1163,39 +1119,6 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                 <p className="text-xs sm:text-sm text-stone-600 font-medium leading-relaxed">
                   {product.subtitle}
                 </p>
-              )}
-
-              {/* Rating & Review Counter (Only displayed if verified customer reviews exist) */}
-              {reviewsList.length > 0 && (
-                <div className="flex items-center gap-2 text-xs text-stone-600 pt-0.5">
-                  <div className="flex items-center text-[#EAB308]">
-                    {[...Array(5)].map((_, i) => (
-                      <Star
-                        key={i}
-                        className={`w-3.5 h-3.5 ${
-                          i < Math.round(product.rating || 5)
-                            ? 'fill-[#C69A42] text-[#EAB308]'
-                            : 'text-stone-300'
-                        }`}
-                      />
-                    ))}
-                  </div>
-                  <span className="font-bold text-stone-900">
-                    {(product.rating || 5).toFixed(1)} / 5.0
-                  </span>
-                  <span className="text-stone-300">•</span>
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setActiveTab('reviews');
-                      const el = document.getElementById('product-tabs-section');
-                      if (el) el.scrollIntoView({ behavior: 'smooth' });
-                    }}
-                    className="text-amber-800 hover:text-stone-900 hover:underline font-semibold cursor-pointer transition-colors"
-                  >
-                    {reviewsList.length} {reviewsList.length === 1 ? 'Review' : 'Reviews'}
-                  </button>
-                </div>
               )}
             </div>
 
@@ -1608,7 +1531,6 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
               { id: 'sizeguide', label: 'Size & Placement Guide' },
               { id: 'install', label: '3-Min Installation' },
               { id: 'shipping', label: 'Safe Packaging' },
-              ...(reviewsList.length > 0 ? [{ id: 'reviews', label: `Reviews (${reviewsList.length})` }] : []),
               { id: 'faq', label: 'Frequently Asked Questions' },
             ].map((tab) => (
               <button
@@ -1781,121 +1703,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
               </div>
             )}
 
-            {/* TAB 7: REVIEWS */}
-            {activeTab === 'reviews' && reviewsList.length > 0 && (
-              <div className="space-y-8 max-w-3xl">
-                <div className="flex items-center justify-between bg-stone-50 p-6 rounded-3xl border border-stone-200 shadow-2xs">
-                  <div>
-                    <h4 className="font-serif font-bold text-lg text-stone-900">Collector Feedback &amp; Stories</h4>
-                    <p className="text-xs text-stone-600 mt-0.5">
-                      {reviewsList.length > 0
-                        ? `${reviewsList.length} verified customer stories from homes across India`
-                        : 'No reviews yet for this artwork. Be the first to share your reflections!'}
-                    </p>
-                  </div>
-                  <div className="text-right">
-                    <span className="font-serif text-3xl font-bold text-stone-900">
-                      {reviewsList.length > 0 ? (product.rating || 5).toFixed(1) : '0.0'}
-                    </span>
-                    <span className="text-xs text-stone-500 block">
-                      {reviewsList.length > 0 ? 'Out of 5.0 Stars' : '0 Reviews'}
-                    </span>
-                  </div>
-                </div>
-
-                {/* Review Submission Form */}
-                <form onSubmit={handleReviewSubmit} className="bg-stone-50 p-6 rounded-3xl border border-stone-200 space-y-4 shadow-2xs">
-                  <h4 className="font-serif font-bold text-base text-stone-900">Leave a Collector Review</h4>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-                    <div>
-                      <label className="text-xs font-semibold text-stone-700 block mb-1">Your Full Name</label>
-                      <input
-                        type="text"
-                        required
-                        placeholder="e.g. Ramesh Kumar"
-                        value={reviewName}
-                        onChange={(e) => setReviewName(e.target.value)}
-                        className="w-full px-3.5 py-2 text-xs bg-white border border-stone-300 rounded-xl outline-none focus:border-amber-500 text-stone-900"
-                      />
-                    </div>
-                    <div>
-                      <label className="text-xs font-semibold text-stone-700 block mb-1">Your City</label>
-                      <input
-                        type="text"
-                        placeholder="e.g. Hyderabad"
-                        value={reviewCity}
-                        onChange={(e) => setReviewCity(e.target.value)}
-                        className="w-full px-3.5 py-2 text-xs bg-white border border-stone-300 rounded-xl outline-none focus:border-amber-500 text-stone-900"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="text-xs font-semibold text-stone-700 block mb-1">Your Experience &amp; Feedback</label>
-                    <textarea
-                      rows={3}
-                      required
-                      placeholder="Share how this sacred artwork radiates in your home and how it was packaged..."
-                      value={reviewComment}
-                      onChange={(e) => setReviewComment(e.target.value)}
-                      className="w-full px-3.5 py-2 text-xs bg-white border border-stone-300 rounded-xl outline-none focus:border-amber-500 text-stone-900"
-                    />
-                  </div>
-
-                  <button
-                    type="submit"
-                    disabled={submittingReview}
-                    className="bg-[#EAB308] hover:bg-[#CA8A04] disabled:opacity-50 text-stone-950 text-xs font-bold px-6 py-3 rounded-xl shadow-xs transition-colors cursor-pointer"
-                  >
-                    {submittingReview ? 'Submitting...' : 'Post Customer Review'}
-                  </button>
-                  {reviewSuccess && (
-                    <p className="text-xs text-emerald-800 font-medium">
-                      ✓ Thank you! Your review has been recorded.
-                    </p>
-                  )}
-                </form>
-
-                {/* Reviews List / Empty State */}
-                {reviewsList.length === 0 ? (
-                  <div className="p-8 rounded-2xl border border-dashed border-stone-300 bg-stone-50/50 text-center space-y-2">
-                    <p className="text-sm font-semibold text-stone-900">No customer reviews yet</p>
-                    <p className="text-xs text-stone-600">
-                      Have you ordered or received this artwork? Be the first to share your experience using the form above!
-                    </p>
-                  </div>
-                ) : (
-                  <div className="space-y-4">
-                    {reviewsList.map((rev) => (
-                      <div key={rev.id} className="p-5 rounded-2xl border border-stone-200 bg-white space-y-2 shadow-2xs">
-                        <div className="flex items-center justify-between text-xs">
-                          <div className="flex items-center gap-2">
-                            <span className="font-bold text-stone-900">{rev.authorName}</span>
-                            <span className="text-stone-500">• {rev.city}</span>
-                            {rev.verifiedBuyer && (
-                              <span className="text-[10px] bg-emerald-50 text-emerald-800 font-bold px-2 py-0.5 rounded-full border border-emerald-200">
-                                Verified Purchase
-                              </span>
-                            )}
-                          </div>
-                          <span className="text-stone-500">{rev.createdAt}</span>
-                        </div>
-
-                        <div className="flex items-center gap-1.5 text-[11px] font-semibold text-amber-700">
-                          <Sparkles className="w-3 h-3 text-amber-600" />
-                          <span>Verified Collector</span>
-                        </div>
-
-                        <h5 className="font-bold text-xs text-stone-900">{rev.title}</h5>
-                        <p className="text-xs text-stone-600 leading-relaxed">{rev.comment}</p>
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>
-            )}
-
-            {/* TAB 8: FAQ */}
+            {/* TAB 7: FAQ */}
             {activeTab === 'faq' && (
               <div className="space-y-4 max-w-3xl">
                 {[

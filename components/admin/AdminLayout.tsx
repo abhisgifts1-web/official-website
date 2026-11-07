@@ -9,7 +9,6 @@ import {
   Package,
   Layers,
   Tag,
-  Star,
   Settings,
   ShieldCheck,
   Camera,
@@ -31,7 +30,6 @@ const NAV_ITEMS = [
   { label: '8 Store Collections', href: '/admin/categories', icon: Layers },
   { label: 'Team & Staff', href: '/admin/team', icon: ShieldCheck },
   { label: 'Promotions & Coupons', href: '/admin/coupons', icon: Tag },
-  { label: 'Reviews Moderation', href: '/admin/reviews', icon: Star },
   { label: 'Store Settings', href: '/admin/settings', icon: Settings },
 ];
 
