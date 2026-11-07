@@ -174,7 +174,7 @@ export default function ContactSupportSection() {
         </div>
         <div className="flex items-center gap-3 shrink-0">
           <a
-            href="https://instagram.com/abhis_gifts_"
+            href="https://www.instagram.com/abhis_gifts_?cplk=MWtkNTJla2s3NTQw"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-tr from-[#fd5949] via-[#d6249f] to-[#285AEB] text-white text-xs font-bold shadow-sm hover:scale-105 active:scale-95 transition-all"
@@ -184,7 +184,7 @@ export default function ContactSupportSection() {
           </a>
 
           <a
-            href="https://youtube.com/@abhisgifts"
+            href="https://youtube.com/@abhis_gifts?si=Ap98aZU7b21rJA_8"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#CC0000] hover:bg-[#FF0000] text-white text-xs font-bold shadow-sm hover:scale-105 active:scale-95 transition-all"

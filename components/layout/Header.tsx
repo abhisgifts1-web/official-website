@@ -448,7 +448,7 @@ export default function Header() {
 
               {/* Instagram Option */}
               <a
-                href="https://instagram.com/abhis_gifts_"
+                href="https://www.instagram.com/abhis_gifts_?cplk=MWtkNTJla2s3NTQw"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-8 h-8 min-[360px]:w-9 min-[360px]:h-9 sm:w-10 sm:h-10 p-1.5 text-white bg-gradient-to-tr from-[#fd5949] via-[#d6249f] to-[#285AEB] hover:opacity-90 border border-pink-400/50 rounded-full transition-all shadow-2xs hover:scale-110 active:scale-95 flex items-center justify-center cursor-pointer"
@@ -460,11 +460,11 @@ export default function Header() {
 
               {/* YouTube Option */}
               <a
-                href="https://youtube.com/@abhisgifts"
+                href="https://youtube.com/@abhis_gifts?si=Ap98aZU7b21rJA_8"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-8 h-8 min-[360px]:w-9 min-[360px]:h-9 sm:w-10 sm:h-10 p-1.5 text-white bg-[#CC0000] hover:bg-[#FF0000] border border-red-500/60 rounded-full transition-all shadow-2xs hover:scale-110 active:scale-95 flex items-center justify-center cursor-pointer"
-                title="Watch on YouTube (@abhisgifts)"
+                title="Watch on YouTube (@abhis_gifts)"
                 aria-label="Watch on YouTube"
               >
                 <YouTubeIcon className="w-4 h-4 sm:w-4.5 sm:h-4.5 fill-current shrink-0" />
@@ -617,7 +617,7 @@ export default function Header() {
 
               <div className="grid grid-cols-2 gap-2">
                 <a
-                  href="https://instagram.com/abhis_gifts_"
+                  href="https://www.instagram.com/abhis_gifts_?cplk=MWtkNTJla2s3NTQw"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2 p-2 bg-[#1A1A1A] hover:bg-[#222222] text-[#FFFFFF] border border-pink-500/40 rounded-xl font-bold text-xs shadow-2xs transition-colors"
@@ -629,7 +629,7 @@ export default function Header() {
                 </a>
 
                 <a
-                  href="https://youtube.com/@abhisgifts"
+                  href="https://youtube.com/@abhis_gifts?si=Ap98aZU7b21rJA_8"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2 p-2 bg-[#1A1A1A] hover:bg-[#222222] text-[#FFFFFF] border border-red-500/40 rounded-xl font-bold text-xs shadow-2xs transition-colors"

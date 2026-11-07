@@ -679,7 +679,7 @@ export default function AboutPage() {
                   Instagram
                 </span>
                 <a
-                  href="https://instagram.com/abhis_gifts_"
+                  href="https://www.instagram.com/abhis_gifts_?cplk=MWtkNTJla2s3NTQw"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-stone-800 hover:text-amber-700 transition-colors mt-0.5 block font-semibold text-xs sm:text-sm"
@@ -699,12 +699,12 @@ export default function AboutPage() {
                   YouTube
                 </span>
                 <a
-                  href="https://youtube.com/@abhisgifts"
+                  href="https://youtube.com/@abhis_gifts?si=Ap98aZU7b21rJA_8"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-stone-800 hover:text-amber-700 transition-colors mt-0.5 block font-semibold text-xs sm:text-sm"
                 >
-                  @abhisgifts
+                  @abhis_gifts
                 </a>
               </div>
             </div>

@@ -32,8 +32,8 @@ export default function Footer() {
   const whatsappUrl = `https://wa.me/${INITIAL_SETTINGS.whatsappNumber.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(
     'Hi Abhi Gifts! I would like to inquire about custom photo frames and gifts.'
   )}`;
-  const instagramUrl = INITIAL_SETTINGS.instagramUrl || 'https://instagram.com/abhis_gifts_';
-  const youtubeUrl = INITIAL_SETTINGS.youtubeUrl || 'https://youtube.com/@abhisgifts';
+  const instagramUrl = INITIAL_SETTINGS.instagramUrl || 'https://www.instagram.com/abhis_gifts_?cplk=MWtkNTJla2s3NTQw';
+  const youtubeUrl = INITIAL_SETTINGS.youtubeUrl || 'https://youtube.com/@abhis_gifts?si=Ap98aZU7b21rJA_8';
 
   return (
     <footer className="bg-black text-stone-300 border-t border-stone-800 relative overflow-hidden select-none">

@@ -129,7 +129,7 @@ export default function AdminSettingsPage() {
                 <label className="font-semibold text-stone-700 block mb-1">Instagram Profile URL</label>
                 <input
                   type="url"
-                  placeholder="https://instagram.com/abhis_gifts_"
+                  placeholder="https://www.instagram.com/abhis_gifts_?cplk=MWtkNTJla2s3NTQw"
                   value={settings.instagramUrl || ''}
                   onChange={(e) => setSettings({ ...settings, instagramUrl: e.target.value })}
                   className="w-full px-3 py-2 bg-stone-50 border border-stone-300 rounded-xl outline-none focus:border-amber-500 text-stone-900"
@@ -140,7 +140,7 @@ export default function AdminSettingsPage() {
                 <label className="font-semibold text-stone-700 block mb-1">YouTube Channel URL</label>
                 <input
                   type="url"
-                  placeholder="https://youtube.com/@abhisgifts"
+                  placeholder="https://youtube.com/@abhis_gifts?si=Ap98aZU7b21rJA_8"
                   value={settings.youtubeUrl || ''}
                   onChange={(e) => setSettings({ ...settings, youtubeUrl: e.target.value })}
                   className="w-full px-3 py-2 bg-stone-50 border border-stone-300 rounded-xl outline-none focus:border-amber-500 text-stone-900"
