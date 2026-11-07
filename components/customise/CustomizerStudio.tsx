@@ -817,7 +817,7 @@ export default function CustomizerStudio() {
             <div className="space-y-4 max-w-3xl text-center lg:text-left">
               <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-bold text-stone-900 bg-white border border-amber-300 px-4 py-1.5 rounded-full shadow-xs">
                 <Sparkles className="w-3.5 h-3.5 text-amber-600 animate-pulse" />
-                <span>PERSONALISED ARTISAN STUDIO • HYDERABAD</span>
+                <span>PERSONALISED ARTISAN WORKSHOP • HYDERABAD</span>
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping ml-0.5" />
               </div>
 
@@ -959,7 +959,7 @@ export default function CustomizerStudio() {
                   {[
                     { id: 'ivory', label: 'Warm Ivory' },
                     { id: 'night', label: 'Sanctum Night' },
-                    { id: 'studio', label: 'Minimal Studio' },
+                    { id: 'studio', label: 'Minimal Gallery' },
                   ].map((w) => (
                     <button
                       key={w.id}
@@ -1217,7 +1217,7 @@ export default function CustomizerStudio() {
                       {isUserUploaded ? 'Your Photograph Active' : 'Upload Your High-Resolution Photo'}
                     </h4>
                     <p className="text-[11px] text-stone-500">
-                      Supports JPG, JPEG, PNG, WebP up to 15MB • Studio color-calibrated
+                      Supports JPG, JPEG, PNG, WebP up to 15MB • Precision color-calibrated
                     </p>
                   </div>
                 </div>
@@ -1580,7 +1580,7 @@ export default function CustomizerStudio() {
             Explore Custom Photo Frame Creations
           </h2>
           <p className="text-xs sm:text-sm text-stone-600">
-            Every style is hand-fabricated in our Dilsukhnagar workshop. Click "Customize This Style" to load any configuration directly into the designer studio above.
+            Every style is hand-fabricated in our Dilsukhnagar workshop. Click "Customize This Style" to load any configuration directly into the designer above.
           </p>
         </div>
 

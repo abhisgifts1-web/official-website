@@ -223,7 +223,7 @@ export default function Footer() {
                   </li>
                   <li>
                     <Link href="/about" className="hover:text-amber-300 transition-colors block py-0.5">
-                      About Our Studio
+                      About Us
                     </Link>
                   </li>
                 </ul>

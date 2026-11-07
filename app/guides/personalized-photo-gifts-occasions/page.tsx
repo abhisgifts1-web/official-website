@@ -97,7 +97,7 @@ export default function PersonalizedPhotoGiftsOccasionsGuide() {
             4. Quick Ordering &amp; Express Delivery in Hyderabad
           </h2>
           <p>
-            Need a gift today? Abhi&apos;s Gifts offers express manufacturing and direct studio pickup near Dilsukhnagar Metro, or same-day local delivery across Hyderabad.
+            Need a gift today? Abhi&apos;s Gifts offers express manufacturing and direct store pickup near Dilsukhnagar Metro, or same-day local delivery across Hyderabad.
           </p>
           <div className="pt-2">
             <Link

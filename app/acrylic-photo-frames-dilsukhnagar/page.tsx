@@ -63,7 +63,7 @@ export default function AcrylicPhotoFramesDilsukhnagarPage() {
             'Acrylic frames offer superior 99.2% optical clarity without green-tint distortion, are completely shatterproof (safe around kids), 50% lighter than glass, and feature modern frameless floating mounts that suit contemporary interiors.',
         },
         {
-          question: 'What acrylic sheet thickness do you use at your Dilsukhnagar studio?',
+          question: 'What acrylic sheet thickness do you use at your Dilsukhnagar workshop?',
           answer:
             'We strictly use premium and 5mm high-density imported virgin cast acrylic. We never use cheap 2mm or 3mm extruded sheets that bend, warp, or scratch easily.',
         },

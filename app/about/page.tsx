@@ -48,7 +48,7 @@ export const metadata: Metadata = {
         url: '/images/lifestyle/living-room.jpg',
         width: 1200,
         height: 630,
-        alt: "Abhi's Gifts Studio - Dilsukhnagar, Hyderabad",
+        alt: "Abhi's Gifts - Dilsukhnagar, Hyderabad",
       },
     ],
   },
@@ -705,7 +705,7 @@ export default function AboutPage() {
                 href="/customise"
                 className="inline-flex items-center gap-2 bg-white hover:bg-stone-50 text-stone-800 font-bold text-xs uppercase tracking-wider px-6 py-3 rounded-full border border-stone-300 transition-all hover:scale-105 active:scale-95 cursor-pointer shadow-xs"
               >
-                <span>Custom Studio</span>
+                <span>Custom Workshop</span>
               </Link>
             </div>
           </div>

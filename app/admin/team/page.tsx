@@ -277,7 +277,7 @@ export default function AdminTeamPage() {
             <div className="space-y-3 text-center sm:text-left flex-1 min-w-0">
               <div>
                 <h3 className="font-serif font-bold text-xl text-stone-900 truncate">
-                  {currentAdmin?.name || 'Studio Administrator'}
+                  {currentAdmin?.name || 'Administrator'}
                 </h3>
                 <p className="text-xs text-stone-600 font-medium truncate flex items-center justify-center sm:justify-start gap-1.5 mt-0.5">
                   <Mail className="w-3.5 h-3.5 text-stone-400" />
@@ -501,7 +501,7 @@ export default function AdminTeamPage() {
                     onChange={(e) => setNewRole(e.target.value as any)}
                     className="w-full px-3 py-2 bg-stone-50 border border-stone-300 rounded-xl outline-none focus:border-amber-600 font-medium"
                   >
-                    <option value="admin">Admin (Full Studio &amp; Order Operations)</option>
+                    <option value="admin">Admin (Full Store &amp; Order Operations)</option>
                     <option value="manager">Store Manager (Catalog &amp; Packaging)</option>
                   </select>
                 </div>

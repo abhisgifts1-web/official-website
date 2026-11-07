@@ -232,7 +232,7 @@ export default function CategoryPage({ params }: CategoryPageProps) {
           </div>
           <div>
             <p className="font-bold text-sm text-stone-900">Local Hyderabad &amp; Dilsukhnagar Fast Delivery</p>
-            <p className="text-stone-600">Order online or visit our Dilsukhnagar studio. 100% safe packaging standard across Telangana.</p>
+            <p className="text-stone-600">Order online or visit our Dilsukhnagar store. 100% safe packaging standard across Telangana.</p>
           </div>
         </div>
         <div className="flex items-center gap-2 shrink-0">

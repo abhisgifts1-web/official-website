@@ -6,7 +6,7 @@ export const INITIAL_SETTINGS: SiteSettings = {
   supportPhone: '+91 90323 72782',
   supportEmail: 'abhisgifts@gmail.com',
   whatsappNumber: '+919032372782',
-  announcementText: '✨ Handcrafted Photo Frames & Custom Art • Dilsukhnagar, Hyderabad Studio',
+  announcementText: '✨ Handcrafted Photo Frames & Custom Art • Dilsukhnagar, Hyderabad Store',
   freeShippingThreshold: 0,
   defaultShippingFee: 0,
   codAvailable: false,

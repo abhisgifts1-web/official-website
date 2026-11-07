@@ -26,7 +26,7 @@ export default function PrivacyPolicyPage() {
         <section className="space-y-2">
           <h2 className="font-serif font-bold text-xl text-stone-900">2. Customer Photo Upload Privacy</h2>
           <p>
-            Images uploaded through our Custom Photo Frame Studio are treated with strict confidentiality. They are used exclusively for manufacturing your ordered artwork, never shared with third parties, and permanently purged from production servers after order completion.
+            Images uploaded through our Custom Photo Frame Customizer are treated with strict confidentiality. They are used exclusively for manufacturing your ordered artwork, never shared with third parties, and permanently purged from production servers after order completion.
           </p>
         </section>
 

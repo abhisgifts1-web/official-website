@@ -151,7 +151,7 @@ export default function GuidesIndexPage() {
         <div className="space-y-2 text-center md:text-left">
           <span className="text-xs font-bold uppercase tracking-widest text-amber-800 flex items-center justify-center md:justify-start gap-1.5 font-semibold">
             <MapPin className="w-3.5 h-3.5" />
-            <span>DILSUKHNAGAR STUDIO &amp; WORKSHOP</span>
+            <span>DILSUKHNAGAR STORE &amp; WORKSHOP</span>
           </span>
           <h3 className="font-serif font-bold text-xl sm:text-2xl text-stone-900">
             Need personalized advice on photo sizing or frame thickness?

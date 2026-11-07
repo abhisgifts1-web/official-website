@@ -35,8 +35,8 @@ const SUPPORT_FAQS = [
     a: 'Our LED Backlit frames come complete with a certified 12V 2A power adapter and a 2-meter concealed cord. It connects directly to any standard domestic 220V wall socket and consumes minimal power while remaining completely cool to touch.',
   },
   {
-    q: 'Can I visit your physical studio in Hyderabad?',
-    a: "Yes, you are warmly invited! Our studio is located at Dilsukhnagar, Hyderabad, Telangana – 500036. You can explore our gallery of physical cast acrylic samples, warm backlit LED setups, rotating lamps, and glitter frames in person.",
+    q: 'Can I visit your physical store in Hyderabad?',
+    a: "Yes, you are warmly invited! Our store is located at Dilsukhnagar, Hyderabad, Telangana – 500036. You can explore our gallery of physical cast acrylic samples, warm backlit LED setups, rotating lamps, and glitter frames in person.",
   },
 ];
 
@@ -123,7 +123,7 @@ export default function ContactSupportSection() {
               <MapPin className="w-5 h-5 text-stone-700" />
             </div>
             <div>
-              <h3 className="font-serif font-bold text-base text-stone-900">Hyderabad Studio</h3>
+              <h3 className="font-serif font-bold text-base text-stone-900">Hyderabad Store</h3>
               <p className="text-xs text-stone-600 mt-1 font-sans leading-relaxed">
                 {INITIAL_SETTINGS.businessAddress}
               </p>

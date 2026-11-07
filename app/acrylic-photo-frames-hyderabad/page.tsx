@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'Acrylic Photo Frames in Hyderabad | crystal acrylic Art',
-    description: 'Looking for high-end acrylic photo frames in Hyderabad? Direct manufacturing, custom sizes, precision-polished bevels & handcrafted studio quality.',
+    description: 'Looking for high-end acrylic photo frames in Hyderabad? Direct manufacturing, custom sizes, precision-polished bevels & handcrafted artisanal quality.',
     url: 'https://abhigifts.com/acrylic-photo-frames-hyderabad',
   },
 };
@@ -60,7 +60,7 @@ export default function AcrylicPhotoFramesHyderabadPage() {
         {
           question: 'Where can I buy acrylic photo frames in Hyderabad?',
           answer:
-            'You can order online directly from Abhi\'s Gifts (abhigifts.com) with doorstep delivery across Hyderabad, or visit our central studio in Dilsukhnagar near the Metro Station to see physical material samples.',
+            'You can order online directly from Abhi\'s Gifts (abhigifts.com) with doorstep delivery across Hyderabad, or visit our central workshop & store in Dilsukhnagar near the Metro Station to see physical material samples.',
         },
         {
           question: 'How do acrylic photo frames compare to traditional glass photo frames in Hyderabad?',

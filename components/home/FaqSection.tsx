@@ -23,7 +23,7 @@ export const HOMEPAGE_FAQS: FaqItem[] = [
   },
   {
     q: 'How does custom photo frame ordering and proof approval work?',
-    a: 'Visit our dedicated Customizer Studio (/customise). You can upload your high-resolution photo (JPEG, PNG, WebP up to 15MB), preview it on walls, and select your frame style. Before manufacturing, our artisan team shares an exact 1:1 digital proof on WhatsApp for your sign-off.',
+    a: 'Visit our dedicated Customizer (/customise). You can upload your high-resolution photo (JPEG, PNG, WebP up to 15MB), preview it on walls, and select your frame style. Before manufacturing, our artisan team shares an exact 1:1 digital proof on WhatsApp for your sign-off.',
   },
   {
     q: 'How does ordering and delivery work?',

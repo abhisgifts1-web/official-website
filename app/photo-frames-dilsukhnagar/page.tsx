@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'Photo Frames in Dilsukhnagar | Photo Frame Shop Near Me',
-    description: 'Custom acrylic photo frames, LED backlit frames & personalized gifts in Dilsukhnagar, Hyderabad. Visit our studio or order online.',
+    description: 'Custom acrylic photo frames, LED backlit frames & personalized gifts in Dilsukhnagar, Hyderabad. Visit our store or order online.',
     url: 'https://abhigifts.com/photo-frames-dilsukhnagar',
   },
 };
@@ -27,12 +27,12 @@ export default function PhotoFramesDilsukhnagarPage() {
     <LocalLandingPageView
       slug="photo-frames-dilsukhnagar"
       keyword="Photo Frames in Dilsukhnagar"
-      h1Title="Photo Frames in Dilsukhnagar — Abhi's Gifts Studio"
+      h1Title="Photo Frames in Dilsukhnagar — Abhi's Gifts"
       subtitle="Looking for a reliable photo frame shop near you in Dilsukhnagar? Abhi's Gifts brings you museum-grade cast acrylic photo frames, LED backlit frames, and personalized family heirlooms with same-day digital WhatsApp preview and direct workshop pickup."
       locationName="Dilsukhnagar, Hyderabad"
       metaDescription="Looking for photo frames in Dilsukhnagar? Visit Abhi's Gifts near Dilsukhnagar Metro Station for custom acrylic frames, LED frames, and wedding keepsakes."
       introParagraphs={[
-        "Nestled right in the commercial heart of Dilsukhnagar near the Metro Station, Abhi's Gifts has been the go-to destination for families, newlyweds, and interior decor enthusiasts seeking premium photo frames in Dilsukhnagar. Unlike generic photo studios that use fragile glass and cheap synthetic plastic moldings, our workshop specializes in premium high-density imported cast acrylic that is 100% shatterproof, optically crystalline, and precision beveled.",
+        "Nestled right in the commercial heart of Dilsukhnagar near the Metro Station, Abhi's Gifts has been the go-to destination for families, newlyweds, and interior decor enthusiasts seeking premium photo frames in Dilsukhnagar. Unlike generic framing shops that use fragile glass and cheap synthetic plastic moldings, our workshop specializes in premium high-density imported cast acrylic that is 100% shatterproof, optically crystalline, and precision beveled.",
         "Whether you are framing a child's milestone birthday, a sacred Tirupati Balaji or Ganesha pooja room portrait, an anniversary keepsake, or a prestigious corporate award, we provide bespoke sizing from compact 8x10 inch desks to grand 6x4 foot living room feature walls. Customers in Dilsukhnagar, Kothapet, Chaitanyapuri, and Malakpet can easily walk in to check physical samples or order online for same-day delivery.",
       ]}
       whyChoosePoints={[
@@ -60,17 +60,17 @@ export default function PhotoFramesDilsukhnagarPage() {
         {
           question: 'Where is your photo frame shop located in Dilsukhnagar?',
           answer:
-            'Our studio and workshop is situated on Main Road, near Dilsukhnagar Metro Station, Hyderabad 500060. We are easily accessible from Kothapet, Malakpet, Chaitanyapuri, and LB Nagar with dedicated parking nearby.',
+            'Our store and workshop is situated on Main Road, near Dilsukhnagar Metro Station, Hyderabad 500060. We are easily accessible from Kothapet, Malakpet, Chaitanyapuri, and LB Nagar with dedicated parking nearby.',
         },
         {
-          question: 'Can I pick up my photo frame order directly from your Dilsukhnagar studio?',
+          question: 'Can I pick up my photo frame order directly from your Dilsukhnagar store?',
           answer:
             'Yes! You can choose direct store pickup at our Dilsukhnagar workshop once your order is crafted and inspected. Alternatively, we provide express local delivery directly to your doorstep across Hyderabad.',
         },
         {
           question: 'How do I search for a "photo frame shop near me" in Dilsukhnagar?',
           answer:
-            'Abhi\'s Gifts is centrally located in Dilsukhnagar. If you are anywhere in Dilsukhnagar, Chaitanyapuri, Kothapet, or Saroornagar, our studio is just minutes away. You can also send your photo on WhatsApp to +91 77802 69927 to get an instant digital proof without visiting.',
+            'Abhi\'s Gifts is centrally located in Dilsukhnagar. If you are anywhere in Dilsukhnagar, Chaitanyapuri, Kothapet, or Saroornagar, our store is just minutes away. You can also send your photo on WhatsApp to +91 77802 69927 to get an instant digital proof without visiting.',
         },
         {
           question: 'Do you offer LED photo frames in Dilsukhnagar?',

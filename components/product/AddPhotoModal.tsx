@@ -627,7 +627,7 @@ export default function AddPhotoModal({
               className="text-[#D1D5DB] hover:text-[#FFFFFF] font-semibold flex items-center gap-1"
             >
               <Sparkles className="w-3 h-3 text-[#EAB308]" />
-              <span>Open in Full 3D Studio</span>
+              <span>Open in Full 3D Customizer</span>
             </Link>
           </div>
 

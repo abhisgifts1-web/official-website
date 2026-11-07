@@ -32,7 +32,7 @@ export default function AnnouncementBar() {
       {/* 2. Studio Location */}
       <span className="flex items-center gap-1.5 shrink-0 text-[#E5E7EB]">
         <ShieldCheck className="w-3.5 h-3.5 text-[#FACC15] shrink-0" />
-        <span className="font-medium">Dilsukhnagar, Hyderabad Studio</span>
+        <span className="font-medium">Dilsukhnagar, Hyderabad Store</span>
       </span>
 
       <span className="w-1.5 h-1.5 rounded-full bg-[#FACC15]/50 shrink-0" />

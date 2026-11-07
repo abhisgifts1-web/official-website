@@ -136,7 +136,7 @@ export default function ChoosingRightPhotoFrameMemoriesGuide() {
             3. Experience the Quality in Person in Dilsukhnagar
           </h2>
           <p>
-            If you live in Hyderabad, visit the Abhi&apos;s Gifts workshop studio near Dilsukhnagar Metro Station to physically feel the weight of our cast acrylic, test the precision CNC edges, and inspect live illuminated LED displays.
+            If you live in Hyderabad, visit the Abhi&apos;s Gifts workshop near Dilsukhnagar Metro Station to physically feel the weight of our cast acrylic, test the precision CNC edges, and inspect live illuminated LED displays.
           </p>
         </section>
       </div>

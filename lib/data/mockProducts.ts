@@ -1158,7 +1158,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "title": "Custom Personalised High-Definition Acrylic Photo Frame",
     "subtitle": "Upload Your Photo • Museum Acrylic Glass Depth • Custom Sizes & Inscriptions",
     "shortDescription": "Turn your wedding, family, or travel memories into crystal-clear frameless acrylic wall art.",
-    "description": "Transform your special moments into heirloom wall art. Upload your favorite high-resolution photo and let our studio print it directly onto precision-polished premium acrylic. The frameless design creates a clean, modern floating aesthetic where your memories look vibrant and lifelike from every angle.",
+    "description": "Transform your special moments into heirloom wall art. Upload your favorite high-resolution photo and let our artisans print it directly onto precision-polished premium acrylic. The frameless design creates a clean, modern floating aesthetic where your memories look vibrant and lifelike from every angle.",
     "categorySlug": "family-baby-frames",
     "categoryName": "Family & Baby Frames",
     "categorySlugs": [
@@ -1241,7 +1241,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "specifications": [
       {
         "label": "Photo Enhancement",
-        "value": "Complimentary professional studio color correction & sharpness check"
+        "value": "Complimentary professional photo color correction & sharpness check"
       },
       {
         "label": "Acrylic Thickness",

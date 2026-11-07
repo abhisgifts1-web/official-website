@@ -182,7 +182,7 @@ export default function PersonalizedPhotoSection() {
   const [selectedFrame, setSelectedFrame] = useState<CustomFrameOption>(CUSTOM_FRAMES[0]);
   const [selectedArt, setSelectedArt] = useState<ArtReference>(ART_REFERENCES[0]);
   const [isLedOn, setIsLedOn] = useState<boolean>(true);
-  const [wallMode, setWallMode] = useState<'pooja' | 'living' | 'studio'>('studio');
+  const [wallMode, setWallMode] = useState<'pooja' | 'living' | 'gallery'>('gallery');
   const [userUploadedPhoto, setUserUploadedPhoto] = useState<string | null>(null);
   const [customInscription, setCustomInscription] = useState<string>(CUSTOM_FRAMES[2].defaultInscription || '');
   const [isHovered, setIsHovered] = useState(false);
@@ -265,7 +265,7 @@ export default function PersonalizedPhotoSection() {
               href="/customise"
               className="inline-flex items-center gap-2 bg-[#EAB308] hover:bg-[#FACC15] text-[#000000] font-bold text-xs sm:text-sm px-6 py-3 rounded-full shadow-md hover:shadow-lg transition-all duration-300 group uppercase tracking-wider"
             >
-              <span>Open Customizer Studio</span>
+              <span>Open Customizer</span>
               <ArrowRight className="w-4 h-4 text-[#FACC15] group-hover:translate-x-1 transition-transform" />
             </Link>
 
@@ -378,9 +378,9 @@ export default function PersonalizedPhotoSection() {
               </button>
               <button
                 type="button"
-                onClick={() => setWallMode('studio')}
+                onClick={() => setWallMode('gallery')}
                 className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
-                  wallMode === 'studio'
+                  wallMode === 'gallery'
                     ? 'bg-white text-[#FFFFFF] shadow-2xs font-bold'
                     : 'text-[#D1D5DB] hover:text-[#FFFFFF]'
                 }`}
@@ -727,7 +727,7 @@ export default function PersonalizedPhotoSection() {
                 precision beveled Fabrication &amp; Delivery
               </h4>
               <p className="text-xs text-[#D1D5DB] leading-relaxed">
-                Fabricated with premium acrylic and long-lasting Epistar LEDs. Packed in 5-layer wood-reinforced crates with direct studio pickup or doorstep delivery.
+                Fabricated with premium acrylic and long-lasting Epistar LEDs. Packed in 5-layer wood-reinforced crates with direct store pickup or doorstep delivery.
               </p>
               <div className="pt-2 text-[11px] font-bold text-[#EAB308] flex items-center gap-1">
                 <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
@@ -752,7 +752,7 @@ export default function PersonalizedPhotoSection() {
                 href="/customise"
                 className="bg-[#EAB308] hover:bg-[#FACC15] text-[#FFFFFF] font-bold text-xs sm:text-sm px-6 py-3 rounded-full shadow-md transition-all hover:scale-105 uppercase tracking-wider"
               >
-                Launch Studio Customizer →
+                Launch Customizer →
               </Link>
 
               <a

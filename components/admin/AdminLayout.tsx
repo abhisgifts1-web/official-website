@@ -26,7 +26,7 @@ interface AdminLayoutProps {
 }
 
 const NAV_ITEMS = [
-  { label: 'Studio Overview', href: '/admin', icon: LayoutDashboard },
+  { label: 'Overview', href: '/admin', icon: LayoutDashboard },
   { label: 'Catalog Artworks', href: '/admin/products', icon: Package },
   { label: '8 Store Collections', href: '/admin/categories', icon: Layers },
   { label: 'Team & Staff', href: '/admin/team', icon: ShieldCheck },
@@ -113,7 +113,7 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
           <div className="flex items-center gap-1.5">
             <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#181818] border border-[#EAB308]/30 text-[#FACC15] text-[10px] font-bold tracking-wider uppercase">
               <span className="w-1.5 h-1.5 rounded-full bg-[#EAB308] animate-pulse" />
-              Studio Operations
+              Store Operations
             </span>
           </div>
         </div>
@@ -168,7 +168,7 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
                   href="/admin/team"
                   className="font-bold text-stone-100 truncate text-[11px] block hover:text-[#FACC15] transition-colors"
                 >
-                  {adminUser?.name || 'Studio Administrator'}
+                  {adminUser?.name || 'Administrator'}
                 </Link>
                 <p className="text-[10px] text-stone-400 truncate">{adminUser?.email || 'admin@abhigifts.com'}</p>
               </div>
@@ -219,7 +219,7 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
               <Menu className="w-5 h-5" />
             </button>
             <div className="flex items-center gap-2 text-xs text-stone-400">
-              <Link href="/admin" className="hover:text-[#FACC15] font-semibold transition-colors">Abhi&apos;s Studio</Link>
+              <Link href="/admin" className="hover:text-[#FACC15] font-semibold transition-colors">Abhi&apos;s Gifts</Link>
               <ChevronRight className="w-3.5 h-3.5 text-stone-600" />
               <span className="text-white font-bold capitalize">
                 {pathname.replace('/admin/', '').replace('/admin', 'Overview') || 'Dashboard'}
@@ -234,7 +234,7 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
             </span>
             <span className="hidden sm:inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-emerald-950/80 border border-emerald-500/40 text-emerald-300 text-[11px] font-medium">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-              Online Studio Active
+              Online Store Active
             </span>
             <Link
               href="/"
@@ -322,7 +322,7 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
                   onClick={() => setSidebarOpen(false)}
                   className="font-bold text-stone-100 text-xs block truncate hover:text-[#FACC15]"
                 >
-                  {adminUser?.name || 'Studio Administrator'}
+                  {adminUser?.name || 'Administrator'}
                 </Link>
                 <p className="text-[10px] text-stone-400 truncate">{adminUser?.email || 'admin@abhigifts.com'}</p>
               </div>

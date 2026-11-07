@@ -82,14 +82,14 @@ export default function TrustAndReviewsSection() {
             </p>
           </div>
 
-          {/* Pillar 3: Studio Craftsmanship */}
+          {/* Pillar 3: Workshop Craftsmanship */}
           <div className="flex flex-col items-center sm:items-start text-center sm:text-left space-y-2">
             <div className="w-12 h-12 rounded-2xl bg-white text-stone-900 border border-stone-200 flex items-center justify-center shadow-2xs">
               <Sparkles className="w-5 h-5 text-amber-700" />
             </div>
             <h4 className="font-bold text-xs sm:text-sm text-stone-900">Direct Workshop</h4>
             <p className="text-[11px] text-stone-600 leading-snug">
-              Custom fabricated directly at our Hyderabad studio with proof preview.
+              Custom fabricated directly at our Hyderabad workshop with proof preview.
             </p>
           </div>
 
@@ -100,7 +100,7 @@ export default function TrustAndReviewsSection() {
             </div>
             <h4 className="font-bold text-xs sm:text-sm text-stone-900">Artisan Support</h4>
             <p className="text-[11px] text-stone-600 leading-snug">
-              Direct Hyderabad studio assistance on WhatsApp &amp; phone for custom sizing.
+              Direct Hyderabad assistance on WhatsApp &amp; phone for custom sizing.
             </p>
           </div>
 

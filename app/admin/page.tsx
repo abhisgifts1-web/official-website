@@ -105,7 +105,7 @@ export default function AdminDashboardPage() {
               </div>
 
               <h1 className="font-serif font-bold text-2xl sm:text-3xl text-white tracking-tight">
-                Studio Operations &amp; Catalog Management
+                Store Operations &amp; Catalog Management
               </h1>
               <p className="text-xs sm:text-sm text-stone-300 leading-relaxed">
                 Direct atelier oversight for artworks across all 8 official collections, automated custom size pricing engine, workshop fabrication pipeline, and live storefront display.
@@ -160,7 +160,7 @@ export default function AdminDashboardPage() {
                 className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-amber-950/80 to-stone-900 hover:from-amber-900/80 hover:to-stone-850 text-[#FACC15] border border-[#EAB308]/40 font-semibold text-xs px-5 py-2.5 rounded-xl transition-all"
               >
                 <Sparkles className="w-4 h-4 text-[#EAB308]" />
-                <span>Customizer Studio ↗</span>
+                <span>Customizer ↗</span>
               </Link>
             </div>
           </div>
@@ -256,7 +256,7 @@ export default function AdminDashboardPage() {
 
           <div className="bg-white p-5 rounded-2xl border border-stone-200 shadow-xs flex items-center justify-between">
             <div>
-              <p className="text-[11px] font-bold uppercase tracking-wider text-stone-500">Studio Revenue</p>
+              <p className="text-[11px] font-bold uppercase tracking-wider text-stone-500">Total Revenue</p>
               <p className="font-serif text-2xl font-extrabold text-stone-900 mt-1">
                 ₹{(stats?.totalRevenue ?? 0).toLocaleString('en-IN')}
               </p>
@@ -369,7 +369,7 @@ export default function AdminDashboardPage() {
           <div className="flex items-center gap-2">
             <ShieldCheck className="w-4 h-4 text-[#CA8A04]" />
             <h2 className="font-serif font-bold text-lg text-stone-900">
-              Studio Production &amp; Packaging Workflow
+              Production &amp; Packaging Workflow
             </h2>
           </div>
 
@@ -492,7 +492,7 @@ export default function AdminDashboardPage() {
               </div>
               <div>
                 <h4 className="font-bold text-xs text-stone-900 group-hover:text-[#CA8A04] transition-colors">
-                  Studio Settings
+                  Store Settings
                 </h4>
                 <p className="text-[10px] text-stone-600 font-medium">Phone, GST, notices &amp; store</p>
               </div>

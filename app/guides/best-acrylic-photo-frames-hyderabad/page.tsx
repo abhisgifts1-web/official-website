@@ -79,7 +79,7 @@ export default function BestAcrylicPhotoFramesHyderabadGuide() {
             Cast acrylic is produced by pouring virgin MMA liquid monomer between two sheets of optical glass. This creates a dense molecular matrix resulting in 99.2% optical purity, high scratch resistance, and zero yellowing over long-lasting vibrancy. Extruded acrylic, on the other hand, is a cheaper mass-molded plastic that scratches easily, exhibits optical warpage, and yellows within 12 to 18 months under Hyderabad&apos;s ambient sunlight.
           </p>
           <div className="p-4 rounded-xl bg-stone-50 border border-stone-200 text-stone-800 text-xs">
-            💡 <strong>Artisan Tip:</strong> Always verify that your framing studio specifies <strong>premium or 5mm high-density imported cast acrylic</strong>. At Abhi&apos;s Gifts in Dilsukhnagar, we exclusively utilize virgin cast acrylic sheets.
+            💡 <strong>Artisan Tip:</strong> Always verify that your framing workshop specifies <strong>premium or 5mm high-density imported cast acrylic</strong>. At Abhi&apos;s Gifts in Dilsukhnagar, we exclusively utilize virgin cast acrylic sheets.
           </div>
         </section>
 
@@ -118,7 +118,7 @@ export default function BestAcrylicPhotoFramesHyderabadGuide() {
             5. Why Buy Direct from Abhi&apos;s Gifts in Dilsukhnagar?
           </h2>
           <p>
-            By purchasing directly from our workshop studio near Dilsukhnagar Metro, you eliminate middlemen commissions, receive a free 1:1 WhatsApp digital proof before manufacturing, and enjoy 100% transit damage replacement across Hyderabad.
+            By purchasing directly from our workshop near Dilsukhnagar Metro, you eliminate middlemen commissions, receive a free 1:1 WhatsApp digital proof before manufacturing, and enjoy 100% transit damage replacement across Hyderabad.
           </p>
           <div className="flex flex-wrap gap-3 pt-2">
             <Link
@@ -131,7 +131,7 @@ export default function BestAcrylicPhotoFramesHyderabadGuide() {
               href="/photo-frames-dilsukhnagar"
               className="border border-stone-300 text-stone-900 px-5 py-2.5 rounded-full font-bold text-xs hover:bg-stone-50 transition-colors shadow-2xs"
             >
-              Visit Our Dilsukhnagar Studio
+              Visit Our Dilsukhnagar Store
             </Link>
           </div>
         </section>

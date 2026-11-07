@@ -127,7 +127,7 @@ export default function CustomPhotoStudioShowcase() {
             <div className="flex flex-wrap items-center justify-between gap-2.5">
               <span className="text-[11px] uppercase tracking-widest font-bold text-[#FFFFFF] bg-[#E8D5BD] border border-[#EAB308]/60 px-3.5 py-1 rounded-full inline-flex items-center gap-1.5 shadow-2xs">
                 <Camera className="w-3.5 h-3.5 text-[#D1D5DB] animate-pulse" />
-                <span>Dedicated Artisan Studio</span>
+                <span>Dedicated Artisan Workshop</span>
               </span>
 
               {/* Day / Night View Toggle */}
@@ -244,7 +244,7 @@ export default function CustomPhotoStudioShowcase() {
                 className="inline-flex items-center gap-2 bg-gradient-to-r from-[#181818] via-[#222222] to-[#0A0A0A] hover:from-[#222222] hover:to-[#181818] text-white font-semibold text-xs sm:text-sm px-6 py-2.5 rounded-full shadow-warm transition-all duration-300 hover:shadow-[0_0_20px_rgba(180,83,9,0.35)] hover:-translate-y-0.5 group"
               >
                 <Sparkles className="w-3.5 h-3.5 text-[#EAB308] animate-pulse" />
-                <span>Launch Customizer Studio</span>
+                <span>Launch Customizer</span>
                 <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
               </Link>
 

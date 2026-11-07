@@ -222,21 +222,21 @@ export default function HeroShowcase() {
       {/* ══════════════════════════════════════
           1. FULL WIDTH CATEGORY STRIP (TOP)
          ══════════════════════════════════════ */}
-      <div className="w-full border-b border-stone-200/80 bg-stone-50/70 py-3 sm:py-4 px-3 sm:px-6 lg:px-12 xl:px-16 2xl:px-24">
+      <div className="w-full border-b border-stone-200/80 bg-stone-50/70 py-4 sm:py-5 px-3 sm:px-6 lg:px-12 xl:px-16 2xl:px-24">
         <div className="w-full max-w-[1920px] mx-auto">
           <div
-            className="flex items-start justify-start md:justify-around xl:justify-center gap-4 sm:gap-6 lg:gap-10 xl:gap-12 overflow-x-auto pb-1 scroll-smooth scrollbar-none"
+            className="flex items-start justify-start md:justify-around xl:justify-center gap-4 sm:gap-6 lg:gap-8 xl:gap-10 overflow-x-auto pb-1 scroll-smooth scrollbar-none"
             style={{ scrollbarWidth: 'none' }}
           >
             {HERO_CATEGORIES.map((cat, idx) => (
               <Link
                 key={cat.slug}
                 href={`/category/${cat.slug}`}
-                className="category-wave-item flex flex-col items-center gap-2 group shrink-0 w-[78px] sm:w-[92px] lg:w-[104px] text-center cursor-pointer select-none"
+                className="category-wave-item flex flex-col items-center gap-2.5 group shrink-0 w-[94px] sm:w-[110px] lg:w-[124px] text-center cursor-pointer select-none"
                 style={{ animationDelay: `${idx * 0.18}s` }}
               >
                 {/* Outer Luxury Golden Ring with Breathing Pulse (Horizontal Oval / Capsule Shape) */}
-                <div className="relative w-[74px] h-[50px] sm:w-[86px] sm:h-[58px] lg:w-[96px] lg:h-[64px] rounded-full p-[2.5px] bg-gradient-to-tr from-amber-400 via-amber-200 to-amber-500 group-hover:from-amber-500 group-hover:via-yellow-300 group-hover:to-amber-600 transition-all duration-500 shadow-xs group-hover:shadow-[0_8px_24px_rgba(217,119,6,0.36)] group-hover:scale-108 flex items-center justify-center animate-category-ring">
+                <div className="relative w-[90px] h-[60px] sm:w-[104px] sm:h-[70px] lg:w-[118px] lg:h-[78px] rounded-full p-[2.5px] sm:p-[3px] bg-gradient-to-tr from-amber-400 via-amber-200 to-amber-500 group-hover:from-amber-500 group-hover:via-yellow-300 group-hover:to-amber-600 transition-all duration-500 shadow-xs group-hover:shadow-[0_8px_24px_rgba(217,119,6,0.36)] group-hover:scale-108 flex items-center justify-center animate-category-ring">
                   {/* Inner White Well / Clipping Capsule */}
                   <div className="w-full h-full rounded-full overflow-hidden bg-white p-[1.5px] relative flex items-center justify-center">
                     <img
@@ -253,7 +253,7 @@ export default function HeroShowcase() {
                 </div>
 
                 {/* Category Label */}
-                <span className="text-[11px] sm:text-xs text-stone-700 group-hover:text-amber-800 font-semibold leading-tight tracking-tight transition-all duration-300 group-hover:-translate-y-0.5 whitespace-pre-line">
+                <span className="text-xs sm:text-[13px] text-stone-800 group-hover:text-amber-800 font-bold leading-tight tracking-tight transition-all duration-300 group-hover:-translate-y-0.5 whitespace-pre-line">
                   {cat.label}
                 </span>
               </Link>

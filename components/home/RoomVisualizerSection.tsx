@@ -258,7 +258,7 @@ export default function RoomVisualizerSection() {
           <div className="space-y-2.5 max-w-3xl">
             <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#FFFFFF] bg-white border border-[#EAB308]/60 px-4 py-1.5 rounded-full shadow-2xs">
               <Compass className="w-3.5 h-3.5 text-[#EAB308] animate-spin-slow" />
-              <span>INTERACTIVE SACRED SPACE VISUALIZER • VASTU STUDIO</span>
+              <span>INTERACTIVE SACRED SPACE VISUALIZER • VASTU GALLERY</span>
             </div>
 
             <h2 className="font-serif font-bold text-2xl sm:text-3xl lg:text-4xl xl:text-5xl text-[#FFFFFF] tracking-tight leading-tight">

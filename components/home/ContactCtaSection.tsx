@@ -17,7 +17,7 @@ export default function ContactCtaSection() {
           {/* Left: Info & Headline */}
           <div className="lg:col-span-7 space-y-4">
             <span className="text-xs uppercase tracking-widest font-semibold text-amber-800">
-              Direct Hyderabad Studio
+              Direct Hyderabad Store
             </span>
             <h2 className="font-serif font-bold text-2xl sm:text-3xl lg:text-4xl text-stone-900 tracking-tight leading-tight">
               Need Help or a Custom Frame Size?

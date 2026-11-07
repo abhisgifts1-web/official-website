@@ -52,7 +52,7 @@ export default function AdminOrdersPage() {
   const handleOpenDetail = (order: Order) => {
     setSelectedOrder(order);
     setUpdatingStatus(order.orderStatus);
-    setCourierPartner(order.courierPartner || 'Direct Studio Dispatch');
+    setCourierPartner(order.courierPartner || 'Direct Workshop Dispatch');
     setTrackingNumber(order.trackingNumber || '');
   };
 
@@ -332,7 +332,7 @@ export default function AdminOrdersPage() {
                     <label className="text-[#D1D5DB] font-semibold block mb-1">Dispatch / Logistics</label>
                     <input
                       type="text"
-                      placeholder="e.g. Studio Logistics / BlueDart"
+                      placeholder="e.g. Workshop Logistics / BlueDart"
                       value={courierPartner}
                       onChange={(e) => setCourierPartner(e.target.value)}
                       className="w-full px-3 py-2 bg-[#242424] border border-[#333333] rounded-xl outline-none text-white text-xs"

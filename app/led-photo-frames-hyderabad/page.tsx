@@ -65,7 +65,7 @@ export default function LedPhotoFramesHyderabadPage() {
         {
           question: 'Can I order a custom photo with LED backlighting in Hyderabad?',
           answer:
-            'Yes! You can upload any high-resolution photo on our customizer studio or WhatsApp us. We will prepare a 1:1 backlit digital proof showing the exact LED illumination effect before building it.',
+            'Yes! You can upload any high-resolution photo on our customizer or WhatsApp us. We will prepare a 1:1 backlit digital proof showing the exact LED illumination effect before building it.',
         },
         {
           question: 'What is included in the LED photo frame package?',

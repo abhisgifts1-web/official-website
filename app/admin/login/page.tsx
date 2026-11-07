@@ -53,7 +53,7 @@ export default function AdminLoginPage() {
             />
           </div>
           <h1 className="font-serif font-bold text-2xl text-stone-900">
-            Studio Admin Portal
+            Admin Portal
           </h1>
           <p className="text-xs text-stone-500">
             Abhi Gifts Business &amp; Operations Console
@@ -118,7 +118,7 @@ export default function AdminLoginPage() {
             className="w-full bg-[#EAB308] hover:bg-[#FACC15] disabled:opacity-50 text-black font-extrabold text-xs sm:text-sm py-3.5 rounded-xl shadow-md flex items-center justify-center gap-2 transition-all cursor-pointer"
           >
             <Lock className="w-4 h-4 text-black" />
-            <span>{loading ? 'Authenticating...' : 'Sign In to Studio Portal'}</span>
+            <span>{loading ? 'Authenticating...' : 'Sign In to Portal'}</span>
           </button>
         </form>
 

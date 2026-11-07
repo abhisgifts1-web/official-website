@@ -1229,7 +1229,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
 
               <p className="text-[11px] text-stone-600 font-medium flex items-center gap-1.5 pt-0.5">
                 <Sparkles className="w-3 h-3 text-amber-600 shrink-0" />
-                <span>Inclusive of all taxes • Handcrafted in Hyderabad Studio</span>
+                <span>Inclusive of all taxes • Handcrafted in Hyderabad Workshop</span>
               </p>
             </div>
 

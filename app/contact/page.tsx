@@ -61,7 +61,7 @@ export default function ContactPage() {
           <Sparkles className="w-3.5 h-3.5 text-amber-600" /> We Are Here to Assist
         </span>
         <h1 className="font-serif font-bold text-3xl sm:text-5xl text-stone-900">
-          Contact Our Studio
+          Contact Us
         </h1>
         <p className="text-xs sm:text-sm text-stone-600">
           Have queries about custom temple measurements, bulk gifting, or custom photo frames? Reach out to our artisan team.
@@ -72,7 +72,7 @@ export default function ContactPage() {
         {/* Contact Info (5 cols) */}
         <div className="lg:col-span-5 bg-stone-50 text-stone-700 p-5 sm:p-8 rounded-2xl sm:rounded-3xl space-y-6 shadow-sm border border-stone-200">
           <div className="space-y-2">
-            <h3 className="font-serif font-bold text-xl text-stone-900">Abhi&apos;s Gifts Studio</h3>
+            <h3 className="font-serif font-bold text-xl text-stone-900">Abhi&apos;s Gifts Workshop &amp; Store</h3>
             <p className="text-xs text-stone-600 leading-relaxed">
               Dilsukhnagar, Hyderabad, Telangana – 500036.
             </p>
@@ -110,7 +110,7 @@ export default function ContactPage() {
             <div className="flex items-start gap-3">
               <Clock className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
               <div>
-                <strong className="text-stone-900 block">Studio Hours:</strong>
+                <strong className="text-stone-900 block">Store Hours:</strong>
                 <span>Monday – Saturday: 9:30 AM – 7:00 PM IST</span>
               </div>
             </div>

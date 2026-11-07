@@ -9,7 +9,7 @@ export default function WhyChooseUsSection() {
       icon: Sparkles,
       title: 'Direct Workshop Fabrication',
       description:
-        'Crafted in-house at our Dilsukhnagar, Hyderabad studio. No middlemen, ensuring authentic quality and direct pricing.',
+        'Crafted in-house at our Dilsukhnagar, Hyderabad workshop. No middlemen, ensuring authentic quality and direct pricing.',
     },
     {
       icon: ShieldCheck,

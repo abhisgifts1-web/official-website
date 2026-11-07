@@ -33,7 +33,7 @@ export default function CustomizedGiftsDilsukhnagarPage() {
       metaDescription="Order customized gifts in Dilsukhnagar! Personalized wedding keepsakes, couple acrylic frames, and gold foil photo plaques with luxury gift box packaging."
       introParagraphs={[
         "Finding a memorable, high-quality gift for weddings, anniversaries, housewarmings, or birthdays in Dilsukhnagar used to mean settling for generic mugs, cushions, or ordinary printed frames. Abhi's Gifts reimagined personalized gifting by merging museum-grade crystal acrylic craftsmanship with emotional storytelling and luxury packaging.",
-        "Every customized gift crafted at our Dilsukhnagar studio can be personalized with couple names, wedding dates, customized vows, special anniversary messages, or sacred Sanskrit shlokas rendered in genuine gold foil. Arrives sealed with a gold satin ribbon and certificate of artisanal authenticity—ready to bring tears of joy to your loved ones.",
+        "Every customized gift crafted at our Dilsukhnagar workshop can be personalized with couple names, wedding dates, customized vows, special anniversary messages, or sacred Sanskrit shlokas rendered in genuine gold foil. Arrives sealed with a gold satin ribbon and certificate of artisanal authenticity—ready to bring tears of joy to your loved ones.",
       ]}
       whyChoosePoints={[
         {

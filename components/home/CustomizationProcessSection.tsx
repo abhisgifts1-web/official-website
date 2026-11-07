@@ -91,7 +91,7 @@ export default function CustomizationProcessSection() {
           className="inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 sm:py-3.5 rounded-full bg-stone-900 hover:bg-black text-white font-semibold text-xs sm:text-sm transition-all shadow-sm group"
         >
           <Sparkles className="w-4 h-4 text-amber-400" />
-          <span>Open Customizer Studio</span>
+          <span>Open Customizer</span>
           <ArrowRight className="w-4 h-4 text-stone-400 group-hover:translate-x-0.5 transition-transform" />
         </Link>
 

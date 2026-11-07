@@ -55,10 +55,10 @@ export default function AdminSettingsPage() {
             </span>
           </div>
           <h1 className="font-serif font-bold text-2xl sm:text-3xl text-stone-900">
-            Studio Settings &amp; Configuration
+            Store Settings &amp; Configuration
           </h1>
           <p className="text-xs text-stone-500 mt-0.5">
-            Manage customer support contact channels, announcement bar ticker, studio address, and fiscal tax details.
+            Manage customer support contact channels, announcement bar ticker, workshop address, and fiscal tax details.
           </p>
         </div>
 
@@ -83,7 +83,7 @@ export default function AdminSettingsPage() {
 
           {/* Contact Details */}
           <div className="border-t border-stone-100 pt-5 space-y-4">
-            <h4 className="font-serif font-bold text-sm text-stone-900">Customer Support &amp; Studio Hotline</h4>
+            <h4 className="font-serif font-bold text-sm text-stone-900">Customer Support &amp; Direct Hotline</h4>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label className="font-semibold text-stone-700 block mb-1">Customer Support Phone</label>
@@ -145,7 +145,7 @@ export default function AdminSettingsPage() {
 
           {/* Address */}
           <div className="border-t border-stone-100 pt-5 space-y-2">
-            <label className="font-semibold text-stone-700 block">Registered Workshop &amp; Studio Address</label>
+            <label className="font-semibold text-stone-700 block">Registered Workshop &amp; Store Address</label>
             <input
               type="text"
               value={settings.businessAddress}

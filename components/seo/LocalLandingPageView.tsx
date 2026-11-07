@@ -96,7 +96,7 @@ export default function LocalLandingPageView({
           <div className="flex flex-wrap items-center gap-2">
             <span className="text-xs uppercase tracking-widest font-bold text-stone-900 bg-white border border-amber-300 px-3.5 py-1 rounded-full inline-flex items-center gap-1.5 shadow-xs">
               <MapPin className="w-3.5 h-3.5 text-amber-600" />
-              <span>{locationName} • Telangana Certified Studio</span>
+              <span>{locationName} • Telangana Certified Workshop</span>
             </span>
             <span className="text-xs font-semibold text-emerald-800 bg-emerald-50 border border-emerald-300 px-3 py-1 rounded-full inline-flex items-center gap-1.5">
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
@@ -287,15 +287,15 @@ export default function LocalLandingPageView({
         <div className="space-y-4">
           <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-amber-800 bg-amber-50 border border-amber-200 px-3 py-1 rounded-full">
             <MapPin className="w-3.5 h-3.5 text-amber-600" />
-            <span>VISIT OUR STUDIO IN DILSUKHNAGAR</span>
+            <span>VISIT US IN DILSUKHNAGAR</span>
           </div>
 
           <h2 className="font-serif font-bold text-2xl sm:text-3xl text-stone-900">
-            Abhi&apos;s Gifts Studio
+            Abhi&apos;s Gifts Workshop &amp; Store
           </h2>
 
           <p className="text-xs sm:text-sm text-stone-600 leading-relaxed">
-            Customers in Hyderabad are warmly welcome to visit our workshop studio in Dilsukhnagar to inspect physical material samples, inspect physical acrylic samples, compare against traditional glass, test LED backlighting, and pick up custom orders directly.
+            Customers in Hyderabad are warmly welcome to visit our workshop in Dilsukhnagar to inspect physical material samples, inspect physical acrylic samples, compare against traditional glass, test LED backlighting, and pick up custom orders directly.
           </p>
 
           <div className="space-y-2 text-xs sm:text-sm text-stone-800">
@@ -326,7 +326,7 @@ export default function LocalLandingPageView({
               href="tel:+917780269927"
               className="border border-stone-300 text-stone-800 px-5 py-2.5 rounded-full text-xs font-bold hover:bg-stone-50 transition-colors uppercase tracking-wider cursor-pointer"
             >
-              Call Studio Now
+              Call Us Now
             </a>
           </div>
         </div>
@@ -334,7 +334,7 @@ export default function LocalLandingPageView({
         {/* Coverage Neighborhoods */}
         <div className="bg-stone-50 rounded-2xl p-6 border border-stone-200 space-y-4">
           <h3 className="font-serif font-bold text-base sm:text-lg text-stone-900">
-            Local Hyderabad Studio Service &amp; Dispatch
+            Local Hyderabad Service &amp; Dispatch
           </h3>
           <p className="text-xs text-stone-600 leading-relaxed">
             We provide prompt workshop dispatch across all key Hyderabad localities:
