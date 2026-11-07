@@ -30,6 +30,7 @@ import {
   Layers,
   Building2,
 } from 'lucide-react';
+import { InstagramIcon, YouTubeIcon } from '@/components/icons/SocialIcons';
 
 export const metadata: Metadata = {
   title: "About Us • Abhi's Gifts | Frame Your Memories — Dilsukhnagar, Hyderabad",
@@ -670,7 +671,9 @@ export default function AboutPage() {
 
             {/* Instagram */}
             <div className="flex items-start gap-3 p-4 rounded-2xl bg-white border border-stone-200 shadow-xs">
-              <Camera className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
+              <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-[#fd5949] via-[#d6249f] to-[#285AEB] flex items-center justify-center shrink-0">
+                <InstagramIcon className="w-4 h-4 text-white fill-current" />
+              </div>
               <div>
                 <span className="text-[11px] font-mono text-amber-800 uppercase block font-bold">
                   Instagram
@@ -679,9 +682,29 @@ export default function AboutPage() {
                   href="https://instagram.com/abhis_gifts_"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-stone-800 hover:text-amber-700 transition-colors mt-0.5 block font-semibold"
+                  className="text-stone-800 hover:text-amber-700 transition-colors mt-0.5 block font-semibold text-xs sm:text-sm"
                 >
                   @abhis_gifts_
+                </a>
+              </div>
+            </div>
+
+            {/* YouTube */}
+            <div className="flex items-start gap-3 p-4 rounded-2xl bg-white border border-stone-200 shadow-xs">
+              <div className="w-8 h-8 rounded-lg bg-[#CC0000] flex items-center justify-center shrink-0">
+                <YouTubeIcon className="w-4 h-4 text-white fill-current" />
+              </div>
+              <div>
+                <span className="text-[11px] font-mono text-amber-800 uppercase block font-bold">
+                  YouTube
+                </span>
+                <a
+                  href="https://youtube.com/@abhisgifts"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-stone-800 hover:text-amber-700 transition-colors mt-0.5 block font-semibold text-xs sm:text-sm"
+                >
+                  @abhisgifts
                 </a>
               </div>
             </div>

@@ -217,6 +217,8 @@ export interface SiteSettings {
   codFee: number;
   businessAddress: string;
   gstNumber?: string;
+  instagramUrl?: string;
+  youtubeUrl?: string;
 }
 
 export interface ContactEnquiry {

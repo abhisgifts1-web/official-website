@@ -13,6 +13,7 @@ import {
   MessageCircle,
   Send,
 } from 'lucide-react';
+import { WhatsAppIcon, InstagramIcon, YouTubeIcon } from '@/components/icons/SocialIcons';
 import { INITIAL_SETTINGS } from '@/lib/data/settings';
 
 export default function Footer() {
@@ -31,6 +32,8 @@ export default function Footer() {
   const whatsappUrl = `https://wa.me/${INITIAL_SETTINGS.whatsappNumber.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(
     'Hi Abhi Gifts! I would like to inquire about custom photo frames and gifts.'
   )}`;
+  const instagramUrl = INITIAL_SETTINGS.instagramUrl || 'https://instagram.com/abhis_gifts_';
+  const youtubeUrl = INITIAL_SETTINGS.youtubeUrl || 'https://youtube.com/@abhisgifts';
 
   return (
     <footer className="bg-black text-stone-300 border-t border-stone-800 relative overflow-hidden select-none">
@@ -125,16 +128,42 @@ export default function Footer() {
                     {INITIAL_SETTINGS.supportEmail}
                   </a>
                 </div>
-                <div className="pt-1.5">
+                <div className="pt-2 space-y-2">
                   <a
                     href={whatsappUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1B5E20]/30 hover:bg-[#1B5E20]/60 border border-[#4CAF50]/60 text-[#A5D6A7] text-xs font-bold transition-all shadow-xs"
                   >
-                    <MessageCircle className="w-3.5 h-3.5 text-[#25D366] shrink-0" />
+                    <WhatsAppIcon className="w-3.5 h-3.5 text-[#25D366] shrink-0" />
                     <span>WhatsApp: +91 90323 72782</span>
                   </a>
+
+                  <div className="flex items-center gap-2">
+                    <a
+                      href={instagramUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#1A1A1A] hover:bg-[#252525] border border-pink-500/50 text-white text-xs font-bold transition-all shadow-xs hover:border-pink-400 group"
+                    >
+                      <span className="w-4 h-4 rounded-sm bg-gradient-to-tr from-[#fd5949] via-[#d6249f] to-[#285AEB] flex items-center justify-center shrink-0">
+                        <InstagramIcon className="w-2.5 h-2.5 text-white fill-current" />
+                      </span>
+                      <span>Instagram</span>
+                    </a>
+
+                    <a
+                      href={youtubeUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#1A1A1A] hover:bg-[#252525] border border-red-500/50 text-white text-xs font-bold transition-all shadow-xs hover:border-red-400 group"
+                    >
+                      <span className="w-4 h-4 rounded-sm bg-[#CC0000] flex items-center justify-center shrink-0">
+                        <YouTubeIcon className="w-2.5 h-2.5 text-white fill-current" />
+                      </span>
+                      <span>YouTube</span>
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>

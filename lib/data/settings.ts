@@ -13,4 +13,6 @@ export const INITIAL_SETTINGS: SiteSettings = {
   codFee: 0,
   businessAddress: "Abhi's Gifts, Dilsukhnagar, Hyderabad, Telangana – 500036, India",
   gstNumber: '36AAAAA0000A1Z5',
+  instagramUrl: 'https://instagram.com/abhis_gifts_',
+  youtubeUrl: 'https://youtube.com/@abhisgifts',
 };

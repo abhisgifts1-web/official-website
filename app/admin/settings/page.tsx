@@ -124,6 +124,28 @@ export default function AdminSettingsPage() {
                   className="w-full px-3 py-2 bg-stone-50 border border-stone-300 rounded-xl outline-none font-mono text-amber-900 font-bold"
                 />
               </div>
+
+              <div>
+                <label className="font-semibold text-stone-700 block mb-1">Instagram Profile URL</label>
+                <input
+                  type="url"
+                  placeholder="https://instagram.com/abhis_gifts_"
+                  value={settings.instagramUrl || ''}
+                  onChange={(e) => setSettings({ ...settings, instagramUrl: e.target.value })}
+                  className="w-full px-3 py-2 bg-stone-50 border border-stone-300 rounded-xl outline-none focus:border-amber-500 text-stone-900"
+                />
+              </div>
+
+              <div>
+                <label className="font-semibold text-stone-700 block mb-1">YouTube Channel URL</label>
+                <input
+                  type="url"
+                  placeholder="https://youtube.com/@abhisgifts"
+                  value={settings.youtubeUrl || ''}
+                  onChange={(e) => setSettings({ ...settings, youtubeUrl: e.target.value })}
+                  className="w-full px-3 py-2 bg-stone-50 border border-stone-300 rounded-xl outline-none focus:border-amber-500 text-stone-900"
+                />
+              </div>
             </div>
           </div>
 

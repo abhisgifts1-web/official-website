@@ -15,6 +15,7 @@ import {
   ExternalLink,
   Sparkles,
 } from 'lucide-react';
+import { InstagramIcon, YouTubeIcon } from '@/components/icons/SocialIcons';
 import { INITIAL_SETTINGS } from '@/lib/data/settings';
 
 const SUPPORT_FAQS = [
@@ -158,6 +159,39 @@ export default function ContactSupportSection() {
               <span>Customise Your Frame →</span>
             </Link>
           </div>
+        </div>
+      </div>
+
+      {/* Social Community Channels: Instagram & YouTube */}
+      <div className="max-w-3xl mx-auto mb-10 bg-gradient-to-r from-stone-900 via-stone-800 to-stone-900 rounded-3xl p-5 sm:p-6 text-white border border-stone-700 shadow-md flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="text-center sm:text-left">
+          <h4 className="font-serif font-bold text-base sm:text-lg text-amber-400">
+            Follow Our Official Channels
+          </h4>
+          <p className="text-xs text-stone-300 mt-0.5">
+            Watch real customer unboxing videos, custom frame crafting, and latest promotions.
+          </p>
+        </div>
+        <div className="flex items-center gap-3 shrink-0">
+          <a
+            href="https://instagram.com/abhis_gifts_"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-tr from-[#fd5949] via-[#d6249f] to-[#285AEB] text-white text-xs font-bold shadow-sm hover:scale-105 active:scale-95 transition-all"
+          >
+            <InstagramIcon className="w-4 h-4 fill-current" />
+            <span>Instagram</span>
+          </a>
+
+          <a
+            href="https://youtube.com/@abhisgifts"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#CC0000] hover:bg-[#FF0000] text-white text-xs font-bold shadow-sm hover:scale-105 active:scale-95 transition-all"
+          >
+            <YouTubeIcon className="w-4 h-4 fill-current" />
+            <span>YouTube</span>
+          </a>
         </div>
       </div>
 
