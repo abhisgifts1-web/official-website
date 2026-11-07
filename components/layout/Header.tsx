@@ -12,6 +12,9 @@ import {
   Search,
   Heart,
   ShoppingBag,
+  ChevronDown,
+  ArrowRight,
+  Layers,
 } from 'lucide-react';
 
 function WhatsAppIcon({ className = 'w-4 h-4 sm:w-5 sm:h-5' }: { className?: string }) {
@@ -38,10 +41,30 @@ export default function Header() {
   const { wishlistCount } = useWishlist();
 
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [megaMenuOpen, setMegaMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [scrolled, setScrolled] = useState(false);
   const searchInputRef = useRef<HTMLInputElement>(null);
+  const menuTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  const handleMenuEnter = () => {
+    if (menuTimeoutRef.current) clearTimeout(menuTimeoutRef.current);
+    setMegaMenuOpen(true);
+  };
+
+  const handleMenuLeave = () => {
+    if (menuTimeoutRef.current) clearTimeout(menuTimeoutRef.current);
+    menuTimeoutRef.current = setTimeout(() => {
+      setMegaMenuOpen(false);
+    }, 220);
+  };
+
+  useEffect(() => {
+    return () => {
+      if (menuTimeoutRef.current) clearTimeout(menuTimeoutRef.current);
+    };
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -56,6 +79,7 @@ export default function Header() {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
         setMobileMenuOpen(false);
+        setMegaMenuOpen(false);
         setSearchOpen(false);
       }
     };
@@ -126,6 +150,135 @@ export default function Header() {
                   className="h-8 sm:h-9.5 md:h-11 lg:h-12 xl:h-13 2xl:h-14 w-auto object-contain transition-transform group-hover:scale-[1.03]"
                 />
               </Link>
+            </div>
+
+            {/* Middle: Categories Navigation Option (Desktop) */}
+            <div className="hidden lg:flex items-center justify-center flex-1 max-w-xl mx-auto px-4">
+              <div
+                className="relative"
+                onMouseEnter={handleMenuEnter}
+                onMouseLeave={handleMenuLeave}
+              >
+                <button
+                  type="button"
+                  aria-haspopup="true"
+                  aria-expanded={megaMenuOpen}
+                  onClick={() => setMegaMenuOpen((prev) => !prev)}
+                  className={`py-2 px-4 rounded-full text-xs xl:text-sm font-semibold transition-all duration-200 flex items-center gap-2 outline-none cursor-pointer border shadow-2xs ${
+                    megaMenuOpen
+                      ? 'bg-[#1E1E1E] text-[#FACC15] border-[#EAB308] shadow-[0_0_15px_rgba(234,179,8,0.25)]'
+                      : 'bg-[#181818]/90 text-white hover:text-[#FACC15] border-[#EAB308]/40 hover:border-[#EAB308]'
+                  }`}
+                >
+                  <Layers className="w-4 h-4 text-[#EAB308]" />
+                  <span>Categories</span>
+                  <ChevronDown
+                    className={`w-3.5 h-3.5 transition-transform duration-200 ${
+                      megaMenuOpen ? 'rotate-180 text-[#EAB308]' : 'text-[#D1D5DB]'
+                    }`}
+                  />
+                </button>
+
+                {/* Click-Outside Dimmed Page Backdrop */}
+                {megaMenuOpen && (
+                  <div
+                    className="fixed inset-0 top-[60px] bg-black/60 backdrop-blur-xs z-40 transition-opacity animate-in fade-in duration-200"
+                    onClick={() => setMegaMenuOpen(false)}
+                    aria-hidden="true"
+                  />
+                )}
+
+                {/* Mega Menu Dropdown */}
+                {megaMenuOpen && (
+                  <div
+                    onMouseEnter={handleMenuEnter}
+                    onMouseLeave={handleMenuLeave}
+                    className="fixed top-[62px] sm:top-[68px] left-1/2 -translate-x-1/2 w-[96vw] max-w-6xl 2xl:max-w-7xl rounded-3xl shadow-[0_25px_80px_rgba(0,0,0,0.6)] border-2 border-[#EAB308]/80 p-5 sm:p-7 z-50 animate-in fade-in zoom-in-95 slide-in-from-top-2 duration-200 text-[#FFFFFF] select-auto"
+                    style={{ backgroundColor: '#141414' }}
+                  >
+                    {/* Header Bar */}
+                    <div className="flex items-center justify-between pb-3.5 mb-4 border-b border-[#2D2D2D]/80">
+                      <div className="flex items-center gap-2.5">
+                        <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-[#181818] to-[#0A0A0A] flex items-center justify-center text-[#FACC15] border border-[#EAB308]/50 shadow-xs">
+                          <Layers className="w-4 h-4" />
+                        </div>
+                        <div>
+                          <h3 className="font-serif font-bold text-base sm:text-lg text-[#FFFFFF] leading-tight">
+                            Explore Our Categories
+                          </h3>
+                          <p className="text-[11px] text-[#D1D5DB] font-sans">
+                            8 Featured Categories • Premium Acrylic Photo Frames &amp; Custom Gifts
+                          </p>
+                        </div>
+                      </div>
+
+                      <button
+                        type="button"
+                        onClick={() => setMegaMenuOpen(false)}
+                        className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold text-[#FFFFFF] bg-[#1E1E1E] hover:bg-[#2A2A2A] border border-[#EAB308]/60 transition-all cursor-pointer shadow-2xs hover:scale-105 active:scale-95"
+                        aria-label="Close categories menu"
+                      >
+                        <X className="w-3.5 h-3.5 text-[#FFFFFF]" />
+                        <span>Close</span>
+                      </button>
+                    </div>
+
+                    <div className="space-y-4">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
+                        {INITIAL_CATEGORIES.map((cat) => (
+                          <Link
+                            key={cat.id}
+                            href={`/category/${cat.slug}`}
+                            onClick={() => setMegaMenuOpen(false)}
+                            className="group relative flex flex-col justify-between p-3.5 rounded-2xl border border-[#2D2D2D] hover:border-[#EAB308] shadow-2xs hover:shadow-xs transition-all duration-200 bg-[#1A1A1A] hover:bg-[#202020]"
+                          >
+                            <div>
+                              <div className="flex items-start justify-between gap-1.5">
+                                <span className="font-serif font-bold text-xs sm:text-sm text-[#FFFFFF] group-hover:text-[#EAB308] transition-colors line-clamp-1">
+                                  {cat.name}
+                                </span>
+                                {cat.lightingType === 'backlight' && (
+                                  <span className="text-[9px] font-bold text-yellow-400 bg-yellow-950/50 px-1.5 py-0.5 rounded border border-amber-300 shrink-0">
+                                    LED
+                                  </span>
+                                )}
+                              </div>
+                              <span className="text-[11px] text-[#D1D5DB] block line-clamp-2 mt-1.5 leading-snug">
+                                {cat.description}
+                              </span>
+                            </div>
+                            <div className="mt-3 pt-2 border-t border-[#2D2D2D] flex items-center justify-between text-[11px] font-semibold text-[#EAB308]">
+                              <span>Explore</span>
+                              <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+                            </div>
+                          </Link>
+                        ))}
+                      </div>
+
+                      <div className="pt-3 flex items-center justify-between border-t border-[#2D2D2D]">
+                        <Link
+                          href="/category"
+                          onClick={() => setMegaMenuOpen(false)}
+                          className="inline-flex items-center gap-1.5 text-xs font-bold text-[#FFFFFF] hover:text-[#EAB308] group"
+                        >
+                          <Sparkles className="w-3.5 h-3.5 text-[#EAB308]" />
+                          <span>View All 8 Categories</span>
+                          <ArrowRight className="w-3.5 h-3.5 text-[#EAB308] group-hover:translate-x-1 transition-transform" />
+                        </Link>
+
+                        <Link
+                          href="/shop"
+                          onClick={() => setMegaMenuOpen(false)}
+                          className="inline-flex items-center gap-1.5 text-xs font-bold text-[#EAB308] hover:underline"
+                        >
+                          <span>Shop Full Catalog</span>
+                          <ArrowRight className="w-3.5 h-3.5" />
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
             </div>
 
             {/* Right: WhatsApp Hotline, Search, Wishlist, Cart */}
