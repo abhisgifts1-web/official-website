@@ -12,6 +12,7 @@ import {
   MapPin,
   MessageCircle,
   Send,
+  ArrowUpRight,
 } from 'lucide-react';
 import { WhatsAppIcon, InstagramIcon, YouTubeIcon } from '@/components/icons/SocialIcons';
 import { INITIAL_SETTINGS } from '@/lib/data/settings';
@@ -321,12 +322,7 @@ export default function Footer() {
         </div>
 
         {/* 4. BOTTOM COPYRIGHT & LEGAL BAR */}
-        <div
-          className="mt-5 sm:mt-6 pt-5 border-t border-stone-800 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-stone-400"
-          style={{
-            paddingBottom: 'max(0.75rem, env(safe-area-inset-bottom, 0px))',
-          }}
-        >
+        <div className="mt-5 sm:mt-6 pt-5 border-t border-stone-800 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-stone-400">
           <p className="text-center sm:text-left text-[11px] text-stone-400 font-medium">
             © {new Date().getFullYear()} <strong className="text-stone-200">Abhi&apos;s Gifts</strong>. All rights reserved. Handcrafted with care in Hyderabad, India.
           </p>
@@ -348,6 +344,52 @@ export default function Footer() {
               Staff
             </Link>
           </div>
+        </div>
+
+        {/* 5. DEVELOPED BY SLRJ DIGITAL BRANDING STRIP */}
+        <div
+          className="mt-4 sm:mt-5 pt-3.5 sm:pt-4 border-t border-stone-800/60 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs"
+          style={{
+            paddingBottom: 'max(0.75rem, env(safe-area-inset-bottom, 0px))',
+          }}
+        >
+          <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2 sm:gap-2.5 text-[11px] text-stone-400">
+            <span className="text-stone-400 font-normal">Developed by</span>
+            <a
+              href="https://www.slrjdigital.in"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="SLRJ Digital — Website Development Company in India"
+              title="SLRJ Digital — Learn. Build. Grow."
+              className="group inline-flex items-center gap-1.5 text-stone-200 hover:text-white transition-colors"
+            >
+              <Image
+                src="/images/slrj/slrj-mark-white.png"
+                alt="SLRJ Digital Logo"
+                width={16}
+                height={17}
+                className="w-3.5 h-auto object-contain opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-200"
+              />
+              <span className="font-semibold text-stone-200 group-hover:text-amber-400 transition-colors">
+                SLRJ Digital
+              </span>
+            </a>
+            <span className="text-stone-700 hidden sm:inline" aria-hidden="true">•</span>
+            <span className="text-stone-400 text-[11px] font-medium tracking-wide">
+              Learn. Build. Grow.
+            </span>
+          </div>
+
+          <a
+            href="https://www.slrjdigital.in/contact"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Contact SLRJ Digital for website development"
+            className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-medium text-stone-300 hover:text-white bg-stone-900/90 hover:bg-stone-800 border border-stone-800 hover:border-stone-700 transition-all duration-200 group shadow-2xs hover:scale-[1.02] active:scale-[0.98]"
+          >
+            <span>Contact Us</span>
+            <ArrowUpRight className="w-3 h-3 text-stone-400 group-hover:text-amber-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
+          </a>
         </div>
       </div>
     </footer>
