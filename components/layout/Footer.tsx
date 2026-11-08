@@ -361,18 +361,16 @@ export default function Footer() {
               rel="noopener noreferrer"
               aria-label="SLRJ Digital — Website Development Company in India"
               title="SLRJ Digital — Learn. Build. Grow."
-              className="group inline-flex items-center gap-1.5 text-stone-200 hover:text-white transition-colors"
+              className="group inline-flex items-center transition-all duration-200"
             >
               <Image
-                src="/images/slrj/slrj-mark-white.png"
-                alt="SLRJ Digital Logo"
-                width={16}
-                height={17}
-                className="w-3.5 h-auto object-contain opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-200"
+                src="/images/slrj/slrj-logo-white.png"
+                alt="SLRJ Digital"
+                width={130}
+                height={16}
+                className="h-3.5 sm:h-4 w-auto object-contain opacity-90 group-hover:opacity-100 group-hover:scale-[1.03] transition-all duration-200"
               />
-              <span className="font-semibold text-stone-200 group-hover:text-amber-400 transition-colors">
-                SLRJ Digital
-              </span>
+              <span className="sr-only">SLRJ Digital</span>
             </a>
             <span className="text-stone-700 hidden sm:inline" aria-hidden="true">•</span>
             <span className="text-stone-400 text-[11px] font-medium tracking-wide">
