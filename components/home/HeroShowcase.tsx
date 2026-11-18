@@ -235,20 +235,20 @@ export default function HeroShowcase() {
                 className="category-wave-item flex flex-col items-center gap-2.5 group shrink-0 w-[94px] sm:w-[110px] lg:w-[124px] text-center cursor-pointer select-none"
                 style={{ animationDelay: `${idx * 0.18}s` }}
               >
-                {/* Outer Luxury Golden Ring with Breathing Pulse (Horizontal Oval / Capsule Shape) */}
-                <div className="relative w-[90px] h-[60px] sm:w-[104px] sm:h-[70px] lg:w-[118px] lg:h-[78px] rounded-full p-[2.5px] sm:p-[3px] bg-gradient-to-tr from-amber-400 via-amber-200 to-amber-500 group-hover:from-amber-500 group-hover:via-yellow-300 group-hover:to-amber-600 transition-all duration-500 shadow-xs group-hover:shadow-[0_8px_24px_rgba(217,119,6,0.36)] group-hover:scale-108 flex items-center justify-center animate-category-ring">
-                  {/* Inner White Well / Clipping Capsule */}
-                  <div className="w-full h-full rounded-full overflow-hidden bg-white p-[1.5px] relative flex items-center justify-center">
+                {/* Outer Luxury Golden Ring with Breathing Pulse (Square Shape) */}
+                <div className="relative w-[82px] h-[82px] sm:w-[96px] sm:h-[96px] lg:w-[110px] lg:h-[110px] aspect-square rounded-2xl p-[2.5px] sm:p-[3px] bg-gradient-to-tr from-amber-400 via-amber-200 to-amber-500 group-hover:from-amber-500 group-hover:via-yellow-300 group-hover:to-amber-600 transition-all duration-500 shadow-xs group-hover:shadow-[0_8px_24px_rgba(217,119,6,0.36)] group-hover:scale-105 flex items-center justify-center animate-category-ring">
+                  {/* Inner White Well / Clipping Square */}
+                  <div className="w-full h-full rounded-[13px] overflow-hidden bg-white p-[1.5px] relative flex items-center justify-center">
                     <img
                       src={cat.image}
                       alt={cat.label.replace('\n', ' ')}
-                      className="w-full h-full object-cover rounded-full group-hover:scale-115 transition-transform duration-500 ease-out"
+                      className="w-full h-full object-cover object-center rounded-[11px] group-hover:scale-110 transition-transform duration-500 ease-out"
                       loading="eager"
                     />
                     {/* Diagonal Acrylic Light Sheen Sweep on Hover */}
-                    <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-transparent via-white/50 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out pointer-events-none" />
+                    <div className="absolute inset-0 rounded-[11px] bg-gradient-to-tr from-transparent via-white/50 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out pointer-events-none" />
                     {/* Subtle Inner Ring */}
-                    <div className="absolute inset-0 rounded-full ring-1 ring-inset ring-black/10 pointer-events-none" />
+                    <div className="absolute inset-0 rounded-[11px] ring-1 ring-inset ring-black/10 pointer-events-none" />
                   </div>
                 </div>
 

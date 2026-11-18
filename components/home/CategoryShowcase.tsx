@@ -116,9 +116,9 @@ export default function CategoryShowcase() {
               href={cat.href}
               className="group flex flex-col items-center shrink-0 text-center w-[84px] sm:w-[100px] md:w-[110px] lg:w-[120px] cursor-pointer"
             >
-              {/* Circular Photo Container */}
-              <div className="relative w-20 h-20 sm:w-24 sm:h-24 md:w-26 md:h-26 lg:w-28 lg:h-28 rounded-full p-1 bg-white border-2 border-stone-200 group-hover:border-amber-500 shadow-2xs group-hover:shadow-md transition-all duration-300 group-hover:scale-105 overflow-hidden flex items-center justify-center">
-                <div className="w-full h-full rounded-full overflow-hidden bg-stone-100 relative">
+              {/* Square Photo Container */}
+              <div className="relative w-20 h-20 sm:w-24 sm:h-24 lg:w-28 lg:h-28 aspect-square rounded-2xl p-1 bg-white border-2 border-stone-200 group-hover:border-amber-500 shadow-2xs group-hover:shadow-md transition-all duration-300 group-hover:scale-105 overflow-hidden flex items-center justify-center">
+                <div className="w-full h-full rounded-xl overflow-hidden bg-stone-100 relative">
                   <img
                     src={cat.image}
                     alt={cat.name}
@@ -126,7 +126,7 @@ export default function CategoryShowcase() {
                     onError={(e) => {
                       (e.target as HTMLImageElement).src = cat.fallbackImage;
                     }}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-110"
                   />
                 </div>
               </div>
