@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useMemo, useEffect, Suspense } from 'react';
+import React, { useState, useMemo, useEffect, useRef, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import {
   SlidersHorizontal,
@@ -10,12 +10,15 @@ import {
   Sparkles,
   RotateCcw,
   Flame,
+  ChevronLeft,
+  ChevronRight,
 } from 'lucide-react';
 import { INITIAL_CATEGORIES } from '@/lib/data/categories';
 import { INITIAL_PRODUCTS } from '@/lib/data/mockProducts';
 import { filterProductsByCategory } from '@/lib/categoryRules';
 import ProductGrid from '@/components/product/ProductGrid';
 import { ProductOrientation } from '@/types';
+import { EDITORIAL_CATEGORIES } from '@/components/home/CategoryShowcase';
 
 function ShopContent() {
   const searchParams = useSearchParams();
@@ -34,6 +37,7 @@ function ShopContent() {
   const [sortBy, setSortBy] = useState<string>(initialSort);
   const [mobileFilterOpen, setMobileFilterOpen] = useState(false);
   const [liveProducts, setLiveProducts] = useState(INITIAL_PRODUCTS);
+  const categoryScrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     fetch('/api/products')
@@ -149,6 +153,120 @@ function ShopContent() {
           <p className="text-xs sm:text-sm md:text-base text-stone-600 mt-2 leading-relaxed font-sans">
             Browse our complete collection of acrylic photo frames, warm backlit LED panels, and personal photo heirlooms.
           </p>
+        </div>
+      </div>
+
+      {/* Interactive Square Category Showcase Strip */}
+      <div className="mb-8 sm:mb-10 pb-6 border-b border-stone-200/80">
+        <div className="flex items-center justify-between mb-4 px-1">
+          <div>
+            <h2 className="font-serif font-bold text-lg sm:text-xl text-stone-900 flex items-center gap-2">
+              <Sparkles className="w-4 h-4 text-amber-500" />
+              <span>Explore by Category</span>
+            </h2>
+            <p className="text-xs text-stone-500">
+              Select a category to instantly filter our collection
+            </p>
+          </div>
+          {selectedCategory && (
+            <button
+              type="button"
+              onClick={() => setSelectedCategory('')}
+              className="text-xs font-semibold text-amber-700 hover:text-amber-800 hover:underline flex items-center gap-1 cursor-pointer"
+            >
+              <RotateCcw className="w-3 h-3" />
+              <span>Show All Categories</span>
+            </button>
+          )}
+        </div>
+
+        <div className="relative group/categoryCarousel">
+          {/* Scroll Left Button */}
+          <button
+            type="button"
+            onClick={() => {
+              if (categoryScrollRef.current) {
+                categoryScrollRef.current.scrollBy({ left: -260, behavior: 'smooth' });
+              }
+            }}
+            className="hidden md:flex absolute -left-3 lg:-left-5 top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full bg-white/95 hover:bg-white text-stone-700 hover:text-amber-800 border border-stone-200 shadow-md items-center justify-center transition-all opacity-0 group-hover/categoryCarousel:opacity-100 hover:scale-110 cursor-pointer"
+            aria-label="Scroll left"
+          >
+            <ChevronLeft className="w-4 h-4" />
+          </button>
+
+          {/* Square Category Items */}
+          <div
+            ref={categoryScrollRef}
+            className="flex items-start gap-3 sm:gap-5 md:gap-6 lg:gap-7 overflow-x-auto scroll-smooth scrollbar-none py-2 px-1 sm:px-2 justify-start md:justify-around xl:justify-center"
+            style={{ scrollbarWidth: 'none' }}
+          >
+            {EDITORIAL_CATEGORIES.map((cat) => {
+              const isSelected = selectedCategory === cat.id;
+              return (
+                <button
+                  key={cat.id}
+                  type="button"
+                  onClick={() => handleCategorySelect(isSelected ? '' : cat.id)}
+                  className={`group flex flex-col items-center shrink-0 text-center w-[90px] sm:w-[106px] lg:w-[120px] cursor-pointer select-none transition-transform duration-300 ${
+                    isSelected ? 'scale-105' : 'hover:scale-102'
+                  }`}
+                >
+                  {/* Outer Luxury Golden Ring (Square Shape) */}
+                  <div
+                    className={`relative w-[78px] h-[78px] sm:w-[92px] sm:h-[92px] lg:w-[104px] lg:h-[104px] aspect-square rounded-2xl p-[2.5px] transition-all duration-300 flex items-center justify-center ${
+                      isSelected
+                        ? 'bg-gradient-to-tr from-amber-500 via-amber-300 to-amber-600 ring-2 ring-amber-500 shadow-[0_6px_20px_rgba(234,179,8,0.45)]'
+                        : 'bg-gradient-to-tr from-amber-400 via-amber-200 to-amber-500 hover:from-amber-500 hover:via-yellow-300 hover:to-amber-600 shadow-xs hover:shadow-md'
+                    }`}
+                  >
+                    {/* Inner Clipping Square */}
+                    <div className="w-full h-full rounded-[13px] overflow-hidden bg-white p-[1.5px] relative flex items-center justify-center">
+                      <img
+                        src={cat.image}
+                        alt={cat.name}
+                        loading="lazy"
+                        onError={(e) => {
+                          (e.target as HTMLImageElement).src = cat.fallbackImage;
+                        }}
+                        className="w-full h-full object-cover object-center rounded-[11px] group-hover:scale-110 transition-transform duration-500 ease-out"
+                      />
+                      {/* Active Overlay Checkmark or Accent */}
+                      {isSelected && (
+                        <div className="absolute inset-0 rounded-[11px] bg-amber-500/20 ring-1 ring-inset ring-amber-500/60 flex items-center justify-center pointer-events-none" />
+                      )}
+                      {/* Diagonal Acrylic Light Sheen on Hover */}
+                      <div className="absolute inset-0 rounded-[11px] bg-gradient-to-tr from-transparent via-white/50 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out pointer-events-none" />
+                      <div className="absolute inset-0 rounded-[11px] ring-1 ring-inset ring-black/10 pointer-events-none" />
+                    </div>
+                  </div>
+
+                  {/* Category Name Below Square */}
+                  <span
+                    className={`mt-2 sm:mt-2.5 text-center font-bold text-xs sm:text-[13px] transition-colors leading-tight line-clamp-2 max-w-[105px] ${
+                      isSelected ? 'text-amber-800 underline underline-offset-2' : 'text-stone-800 group-hover:text-amber-800'
+                    }`}
+                  >
+                    {cat.name}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Scroll Right Button */}
+          <button
+            type="button"
+            onClick={() => {
+              if (categoryScrollRef.current) {
+                categoryScrollRef.current.scrollBy({ left: 260, behavior: 'smooth' });
+              }
+            }}
+            className="hidden md:flex absolute -right-3 lg:-right-5 top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full bg-white/95 hover:bg-white text-stone-700 hover:text-amber-800 border border-stone-200 shadow-md items-center justify-center transition-all opacity-0 group-hover/categoryCarousel:opacity-100 hover:scale-110 cursor-pointer"
+            aria-label="Scroll right"
+          >
+            <ChevronRight className="w-4 h-4" />
+          </button>
         </div>
       </div>
 
