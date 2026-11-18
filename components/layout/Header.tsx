@@ -16,6 +16,9 @@ import {
   ArrowRight,
   Layers,
   Camera,
+  Home,
+  Info,
+  Phone,
 } from 'lucide-react';
 import { WhatsAppIcon, InstagramIcon, YouTubeIcon } from '@/components/icons/SocialIcons';
 import { INITIAL_CATEGORIES } from '@/lib/data/categories';
@@ -78,23 +81,26 @@ export default function Header() {
     if (pathname === '/') {
       setActiveTab('home');
     } else if (pathname === '/customise') {
-      setActiveTab('custom');
-    } else if (pathname.startsWith('/category') || pathname === '/collections') {
-      setActiveTab('categories');
-    } else if (pathname === '/shop') {
-      if (typeof window !== 'undefined' && window.location.search.includes('lighting=led')) {
-        setActiveTab('led');
-      } else if (typeof window !== 'undefined' && window.location.search.includes('lighting=none')) {
-        setActiveTab('normal');
-      } else {
-        setActiveTab('shop');
-      }
+      setActiveTab('customized');
+    } else if (pathname === '/about') {
+      setActiveTab('about');
+    } else if (pathname === '/contact') {
+      setActiveTab('contact');
+    } else if (
+      pathname.startsWith('/shop') ||
+      pathname.startsWith('/category') ||
+      pathname.startsWith('/collections') ||
+      pathname.startsWith('/product')
+    ) {
+      setActiveTab('shop');
+    } else {
+      setActiveTab('');
     }
   }, [pathname]);
 
   // Recalculate sliding select animation pill position
   useEffect(() => {
-    const targetKey = hoveredTab || (activeTab !== 'home' ? activeTab : null);
+    const targetKey = hoveredTab || activeTab;
     if (!targetKey) {
       setPillStyle((prev) => ({ ...prev, opacity: 0 }));
       return;
@@ -162,36 +168,44 @@ export default function Header() {
   }
 
   // Curated Navigation Options
-  const NAV_OPTIONS = [
+  interface NavOption {
+    id: string;
+    label: string;
+    href: string;
+    icon: React.ReactNode;
+    isMegaMenu?: boolean;
+  }
+
+  const NAV_OPTIONS: NavOption[] = [
     {
-      id: 'led',
-      label: 'LED Backlit Art',
-      href: '/shop?lighting=led',
-      icon: <Flame className="w-3.5 h-3.5 text-[#EAB308] animate-pulse shrink-0" />,
-      highlight: true,
-    },
-    {
-      id: 'normal',
-      label: 'Normal Acrylic Art',
-      href: '/shop?lighting=none',
-      icon: <Sparkles className="w-3.5 h-3.5 text-[#EAB308] shrink-0" />,
-    },
-    {
-      id: 'custom',
-      label: 'Custom Photos',
-      href: '/customise',
-      icon: <Camera className="w-3.5 h-3.5 text-[#EAB308] shrink-0" />,
-    },
-    {
-      id: 'categories',
-      label: 'Categories',
-      icon: <Layers className="w-3.5 h-3.5 text-[#EAB308] shrink-0" />,
-      isMegaMenu: true,
+      id: 'home',
+      label: 'Home',
+      href: '/',
+      icon: <Home className="w-3.5 h-3.5 text-[#EAB308] shrink-0" />,
     },
     {
       id: 'shop',
-      label: 'Shop All',
+      label: 'Shop',
       href: '/shop',
+      icon: <ShoppingBag className="w-3.5 h-3.5 text-[#EAB308] shrink-0" />,
+    },
+    {
+      id: 'customized',
+      label: 'Customized',
+      href: '/customise',
+      icon: <Sparkles className="w-3.5 h-3.5 text-[#EAB308] shrink-0" />,
+    },
+    {
+      id: 'about',
+      label: 'About',
+      href: '/about',
+      icon: <Info className="w-3.5 h-3.5 text-[#EAB308] shrink-0" />,
+    },
+    {
+      id: 'contact',
+      label: 'Contact',
+      href: '/contact',
+      icon: <Phone className="w-3.5 h-3.5 text-[#EAB308] shrink-0" />,
     },
   ];
 
@@ -666,45 +680,47 @@ export default function Header() {
                 <Link
                   href="/"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="block px-3 py-2 text-[#FFFFFF] font-semibold rounded-xl hover:bg-[#1E1E1E] text-xs sm:text-sm"
+                  className={`block px-3 py-2 font-semibold rounded-xl text-xs sm:text-sm transition-colors ${
+                    pathname === '/' ? 'bg-[#1E1E1E] text-[#EAB308]' : 'text-[#FFFFFF] hover:bg-[#1E1E1E]'
+                  }`}
                 >
                   Home
                 </Link>
                 <Link
-                  href="/shop?lighting=led"
+                  href="/shop"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="flex items-center justify-between px-3 py-2 bg-[#121212] text-[#FACC15] font-bold rounded-xl text-xs sm:text-sm border border-[#EAB308]/50 shadow-xs"
+                  className={`block px-3 py-2 font-semibold rounded-xl text-xs sm:text-sm transition-colors ${
+                    pathname === '/shop' ? 'bg-[#1E1E1E] text-[#EAB308]' : 'text-[#FFFFFF] hover:bg-[#1E1E1E]'
+                  }`}
                 >
-                  <span className="flex items-center gap-1.5">
-                    <Flame className="w-3.5 h-3.5 text-amber-400 animate-pulse" />
-                    <span>✨ LED Backlit Art</span>
-                  </span>
-                  <span className="text-[10px] bg-[#EAB308] text-[#000000] px-2 py-0.5 rounded-full font-bold">18 Designs</span>
-                </Link>
-                <Link
-                  href="/shop?lighting=none"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="flex items-center justify-between px-3 py-2 bg-[#141414] text-[#FFFFFF] font-bold rounded-xl text-xs sm:text-sm border border-[#2D2D2D] shadow-2xs"
-                >
-                  <span className="flex items-center gap-1.5">
-                    <Sparkles className="w-3.5 h-3.5 text-[#EAB308]" />
-                    <span>🖼️ Normal Acrylic Art</span>
-                  </span>
-                  <span className="text-[10px] bg-[#1E1E1E] text-[#FFFFFF] px-2 py-0.5 rounded-full">17 Designs</span>
+                  Shop
                 </Link>
                 <Link
                   href="/customise"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="block px-3 py-2 text-[#FFFFFF] font-semibold rounded-xl hover:bg-[#1E1E1E] text-xs sm:text-sm"
+                  className={`block px-3 py-2 font-semibold rounded-xl text-xs sm:text-sm transition-colors ${
+                    pathname === '/customise' ? 'bg-[#1E1E1E] text-[#EAB308]' : 'text-[#FFFFFF] hover:bg-[#1E1E1E]'
+                  }`}
                 >
-                  🎨 Custom Photo Frames
+                  Customized
                 </Link>
                 <Link
-                  href="/shop"
+                  href="/about"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="block px-3 py-2 text-[#FFFFFF] font-semibold rounded-xl hover:bg-[#1E1E1E] text-xs sm:text-sm"
+                  className={`block px-3 py-2 font-semibold rounded-xl text-xs sm:text-sm transition-colors ${
+                    pathname === '/about' ? 'bg-[#1E1E1E] text-[#EAB308]' : 'text-[#FFFFFF] hover:bg-[#1E1E1E]'
+                  }`}
                 >
-                  Shop Full Catalog
+                  About
+                </Link>
+                <Link
+                  href="/contact"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={`block px-3 py-2 font-semibold rounded-xl text-xs sm:text-sm transition-colors ${
+                    pathname === '/contact' ? 'bg-[#1E1E1E] text-[#EAB308]' : 'text-[#FFFFFF] hover:bg-[#1E1E1E]'
+                  }`}
+                >
+                  Contact
                 </Link>
               </div>
 
