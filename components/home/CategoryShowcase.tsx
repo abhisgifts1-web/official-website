@@ -2,7 +2,7 @@
 
 import React, { useRef } from 'react';
 import Link from 'next/link';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Sparkles } from 'lucide-react';
 
 export interface EditorialCategory {
   id: string;
@@ -76,49 +76,56 @@ export default function CategoryShowcase() {
 
   const scroll = (direction: 'left' | 'right') => {
     if (scrollRef.current) {
-      const scrollAmount = direction === 'left' ? -260 : 260;
+      const scrollAmount = direction === 'left' ? -280 : 280;
       scrollRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
     }
   };
 
   return (
-    <section className="w-full max-w-[1760px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 py-6 sm:py-8 lg:py-10">
-      {/* Section Header */}
-      <div className="text-center mb-6 sm:mb-8">
-        <h2 className="font-serif font-bold text-2xl sm:text-3xl text-stone-900 tracking-tight">
+    <section className="w-full max-w-[1760px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 py-8 sm:py-10 lg:py-12 border-b border-stone-200/70 bg-gradient-to-b from-stone-50/50 to-white">
+      {/* Classical Section Header */}
+      <div className="text-center mb-7 sm:mb-9">
+        <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-amber-50/90 border border-amber-200 text-amber-900 text-xs font-semibold tracking-wider uppercase mb-2.5 shadow-2xs">
+          <Sparkles className="w-3.5 h-3.5 text-amber-600 animate-pulse" />
+          <span>Curated Collections</span>
+        </div>
+        <h2 className="font-serif font-bold text-2xl sm:text-3xl lg:text-4xl text-stone-900 tracking-tight">
           Shop by Category
         </h2>
-        <p className="text-xs sm:text-sm text-stone-600 mt-1 font-medium font-sans">
-          Explore handcrafted acrylic, LED, and personalized frames
+        <p className="text-xs sm:text-sm text-stone-600 mt-2 font-medium font-sans max-w-xl mx-auto">
+          Explore handcrafted acrylic, illuminated LED, and personalized heirloom photo frames
         </p>
       </div>
 
-      {/* Circular Category Strip with Left / Right Scroll Controls */}
+      {/* Category Strip Carousel with Left / Right Scroll Controls */}
       <div className="relative group/carousel">
-        {/* Left Arrow Button (Visible on hover on larger screens) */}
+        {/* Left Arrow Button */}
         <button
           type="button"
           onClick={() => scroll('left')}
-          className="hidden md:flex absolute -left-3 lg:-left-5 top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full bg-white/95 hover:bg-white text-stone-700 hover:text-stone-900 border border-stone-200 shadow-md items-center justify-center transition-all opacity-0 group-hover/carousel:opacity-100 hover:scale-105 cursor-pointer"
+          className="hidden md:flex absolute -left-3 lg:-left-5 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white/95 hover:bg-white text-stone-700 hover:text-amber-800 border border-stone-200 shadow-md items-center justify-center transition-all opacity-0 group-hover/carousel:opacity-100 hover:scale-110 cursor-pointer"
           aria-label="Scroll left"
         >
           <ChevronLeft className="w-5 h-5" />
         </button>
 
-        {/* Circular Items Container */}
+        {/* Square Items Container */}
         <div
           ref={scrollRef}
-          className="flex items-start gap-4 sm:gap-6 md:gap-7 lg:gap-8 overflow-x-auto scroll-smooth scrollbar-none py-2 px-2 sm:px-4 justify-start md:justify-center"
+          className="flex items-start gap-4 sm:gap-6 md:gap-7 lg:gap-8 overflow-x-auto scroll-smooth scrollbar-none py-3 px-2 sm:px-4 justify-start md:justify-around xl:justify-center"
+          style={{ scrollbarWidth: 'none' }}
         >
-          {EDITORIAL_CATEGORIES.map((cat) => (
+          {EDITORIAL_CATEGORIES.map((cat, idx) => (
             <Link
               key={cat.id}
               href={cat.href}
-              className="group flex flex-col items-center shrink-0 text-center w-[84px] sm:w-[100px] md:w-[110px] lg:w-[120px] cursor-pointer"
+              className="category-wave-item group flex flex-col items-center shrink-0 text-center w-[94px] sm:w-[110px] lg:w-[124px] cursor-pointer select-none"
+              style={{ animationDelay: `${idx * 0.18}s` }}
             >
-              {/* Square Photo Container */}
-              <div className="relative w-20 h-20 sm:w-24 sm:h-24 lg:w-28 lg:h-28 aspect-square rounded-2xl p-1 bg-white border-2 border-stone-200 group-hover:border-amber-500 shadow-2xs group-hover:shadow-md transition-all duration-300 group-hover:scale-105 overflow-hidden flex items-center justify-center">
-                <div className="w-full h-full rounded-xl overflow-hidden bg-stone-100 relative">
+              {/* Outer Luxury Golden Ring with Breathing Pulse (Square Shape) */}
+              <div className="relative w-[82px] h-[82px] sm:w-[96px] sm:h-[96px] lg:w-[110px] lg:h-[110px] aspect-square rounded-2xl p-[2.5px] sm:p-[3px] bg-gradient-to-tr from-amber-400 via-amber-200 to-amber-500 group-hover:from-amber-500 group-hover:via-yellow-300 group-hover:to-amber-600 transition-all duration-500 shadow-xs group-hover:shadow-[0_8px_24px_rgba(217,119,6,0.36)] group-hover:scale-105 flex items-center justify-center animate-category-ring">
+                {/* Inner White Well / Clipping Square */}
+                <div className="w-full h-full rounded-[13px] overflow-hidden bg-white p-[1.5px] relative flex items-center justify-center">
                   <img
                     src={cat.image}
                     alt={cat.name}
@@ -126,24 +133,28 @@ export default function CategoryShowcase() {
                     onError={(e) => {
                       (e.target as HTMLImageElement).src = cat.fallbackImage;
                     }}
-                    className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-110"
+                    className="w-full h-full object-cover object-center rounded-[11px] group-hover:scale-110 transition-transform duration-500 ease-out"
                   />
+                  {/* Diagonal Acrylic Light Sheen Sweep on Hover */}
+                  <div className="absolute inset-0 rounded-[11px] bg-gradient-to-tr from-transparent via-white/50 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out pointer-events-none" />
+                  {/* Subtle Inner Ring */}
+                  <div className="absolute inset-0 rounded-[11px] ring-1 ring-inset ring-black/10 pointer-events-none" />
                 </div>
               </div>
 
-              {/* Category Name Below Circle */}
-              <span className="mt-2 sm:mt-2.5 text-center font-bold text-xs sm:text-[13px] text-stone-900 group-hover:text-amber-900 transition-colors leading-tight line-clamp-2">
+              {/* Category Name Below Square */}
+              <span className="mt-2.5 sm:mt-3 text-center font-bold text-xs sm:text-[13px] text-stone-800 group-hover:text-amber-800 transition-colors leading-tight line-clamp-2 max-w-[110px]">
                 {cat.name}
               </span>
             </Link>
           ))}
         </div>
 
-        {/* Right Arrow Button (Visible on hover on larger screens) */}
+        {/* Right Arrow Button */}
         <button
           type="button"
           onClick={() => scroll('right')}
-          className="hidden md:flex absolute -right-3 lg:-right-5 top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full bg-white/95 hover:bg-white text-stone-700 hover:text-stone-900 border border-stone-200 shadow-md items-center justify-center transition-all opacity-0 group-hover/carousel:opacity-100 hover:scale-105 cursor-pointer"
+          className="hidden md:flex absolute -right-3 lg:-right-5 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white/95 hover:bg-white text-stone-700 hover:text-amber-800 border border-stone-200 shadow-md items-center justify-center transition-all opacity-0 group-hover/carousel:opacity-100 hover:scale-110 cursor-pointer"
           aria-label="Scroll right"
         >
           <ChevronRight className="w-5 h-5" />

@@ -23,50 +23,6 @@ export interface HeroDeity {
   originalPrice: string;
 }
 
-// Category strip data — matches the circular category design
-const HERO_CATEGORIES = [
-  {
-    label: 'Acrylic Photo\nFrames',
-    slug: 'acrylic-photo-frames',
-    image: '/images/mockups/round-diamond-beveled-crystal-acrylic-photo-frame/primary-square.jpg',
-  },
-  {
-    label: 'LED Photo\nFrames',
-    slug: 'led-acrylic-photo-frames',
-    image: '/images/mockups/custom-led-backlit-acrylic-photo-frame/primary-square.jpg',
-  },
-  {
-    label: 'Glitter Photo\nFrames',
-    slug: 'glitter-photo-frames',
-    image: '/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/primary-square.jpg',
-  },
-  {
-    label: '360° Rotating\nLamps',
-    slug: '360-rotating-photo-lamps',
-    image: '/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/primary-square.jpg',
-  },
-  {
-    label: 'God Photo\nFrames',
-    slug: 'god-photo-frames',
-    image: '/images/divine/lord-balaji.jpg',
-  },
-  {
-    label: 'Family & Baby\nFrames',
-    slug: 'family-baby-frames',
-    image: '/images/mockups/personalized-family-heirloom-gold-script-acrylic-frame/primary-square.jpg',
-  },
-  {
-    label: 'Couple &\nWedding',
-    slug: 'couple-wedding-frames',
-    image: '/images/mockups/custom-couple-wedding-vows-acrylic-keepsake-frame/mockup-artistic.jpg',
-  },
-  {
-    label: 'Personalized\nGifts',
-    slug: 'personalized-gifts',
-    image: '/images/mockups/triptych-set-of-three-gallery-acrylic-photo-frames/primary-square.jpg',
-  },
-];
-
 // Six individual landscape 16:9 divine devotional masterpieces
 export const HERO_DEITIES: HeroDeity[] = [
   {
@@ -218,52 +174,9 @@ export default function HeroShowcase() {
   };
 
   return (
-    <section className="bg-white overflow-hidden w-full lg:min-h-[calc(100vh-115px)] flex flex-col justify-between">
+    <section className="bg-white overflow-hidden w-full lg:min-h-[calc(100vh-115px)] flex flex-col justify-center">
       {/* ══════════════════════════════════════
-          1. FULL WIDTH CATEGORY STRIP (TOP)
-         ══════════════════════════════════════ */}
-      <div className="w-full border-b border-stone-200/80 bg-stone-50/70 py-4 sm:py-5 px-3 sm:px-6 lg:px-12 xl:px-16 2xl:px-24">
-        <div className="w-full max-w-[1920px] mx-auto">
-          <div
-            className="flex items-start justify-start md:justify-around xl:justify-center gap-4 sm:gap-6 lg:gap-8 xl:gap-10 overflow-x-auto pb-1 scroll-smooth scrollbar-none"
-            style={{ scrollbarWidth: 'none' }}
-          >
-            {HERO_CATEGORIES.map((cat, idx) => (
-              <Link
-                key={cat.slug}
-                href={`/category/${cat.slug}`}
-                className="category-wave-item flex flex-col items-center gap-2.5 group shrink-0 w-[94px] sm:w-[110px] lg:w-[124px] text-center cursor-pointer select-none"
-                style={{ animationDelay: `${idx * 0.18}s` }}
-              >
-                {/* Outer Luxury Golden Ring with Breathing Pulse (Square Shape) */}
-                <div className="relative w-[82px] h-[82px] sm:w-[96px] sm:h-[96px] lg:w-[110px] lg:h-[110px] aspect-square rounded-2xl p-[2.5px] sm:p-[3px] bg-gradient-to-tr from-amber-400 via-amber-200 to-amber-500 group-hover:from-amber-500 group-hover:via-yellow-300 group-hover:to-amber-600 transition-all duration-500 shadow-xs group-hover:shadow-[0_8px_24px_rgba(217,119,6,0.36)] group-hover:scale-105 flex items-center justify-center animate-category-ring">
-                  {/* Inner White Well / Clipping Square */}
-                  <div className="w-full h-full rounded-[13px] overflow-hidden bg-white p-[1.5px] relative flex items-center justify-center">
-                    <img
-                      src={cat.image}
-                      alt={cat.label.replace('\n', ' ')}
-                      className="w-full h-full object-cover object-center rounded-[11px] group-hover:scale-110 transition-transform duration-500 ease-out"
-                      loading="eager"
-                    />
-                    {/* Diagonal Acrylic Light Sheen Sweep on Hover */}
-                    <div className="absolute inset-0 rounded-[11px] bg-gradient-to-tr from-transparent via-white/50 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out pointer-events-none" />
-                    {/* Subtle Inner Ring */}
-                    <div className="absolute inset-0 rounded-[11px] ring-1 ring-inset ring-black/10 pointer-events-none" />
-                  </div>
-                </div>
-
-                {/* Category Label */}
-                <span className="text-xs sm:text-[13px] text-stone-800 group-hover:text-amber-800 font-bold leading-tight tracking-tight transition-all duration-300 group-hover:-translate-y-0.5 whitespace-pre-line">
-                  {cat.label}
-                </span>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* ══════════════════════════════════════
-          2. FULL-WIDTH & VIEWPORT-HEIGHT HERO (TWO-COLUMN)
+          FULL-WIDTH & VIEWPORT-HEIGHT HERO (TWO-COLUMN)
          ══════════════════════════════════════ */}
       <div className="w-full flex-1 flex items-center py-6 sm:py-8 lg:py-10 px-4 sm:px-6 lg:px-12 xl:px-16 2xl:px-24">
         <div className="w-full max-w-[1920px] mx-auto">
