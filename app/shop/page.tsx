@@ -413,89 +413,16 @@ function ShopContent() {
 
         {/* PRODUCTS AREA (4 cols on lg, 5 cols on xl) */}
         <div className="lg:col-span-4 xl:col-span-5 space-y-6">
-          {/* Master Lighting Mode Quick Switch Bar */}
-          <div className="flex flex-wrap items-center gap-2 p-1.5 bg-stone-100 rounded-2xl border border-stone-200 shadow-2xs">
+          {/* Mobile Filter Button */}
+          <div className="lg:hidden flex items-center justify-between pb-2">
             <button
               type="button"
-              onClick={() => {
-                setSelectedLighting('all');
-                setSelectedCategory('');
-              }}
-              className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
-                selectedLighting === 'all'
-                  ? 'bg-[#EAB308] text-stone-950 shadow-xs border border-amber-400'
-                  : 'bg-white text-stone-700 hover:bg-stone-50 border border-stone-200'
-              }`}
+              onClick={() => setMobileFilterOpen(true)}
+              className="flex items-center justify-center gap-1.5 bg-stone-100 px-4 py-2 rounded-xl text-xs font-bold text-stone-900 border border-stone-300 cursor-pointer shadow-2xs"
             >
-              <Sparkles className="w-3.5 h-3.5 text-amber-600" />
-              <span>All Artworks ({totalArtworksCount})</span>
+              <SlidersHorizontal className="w-3.5 h-3.5 text-amber-600" />
+              <span>Filters ({filteredProducts.length} items)</span>
             </button>
-
-            <button
-              type="button"
-              onClick={() => {
-                setSelectedLighting('led');
-                setSelectedCategory('');
-              }}
-              className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
-                selectedLighting === 'led'
-                  ? 'bg-gradient-to-r from-[#EAB308] to-amber-500 text-stone-950 shadow-md border border-amber-300 ring-2 ring-amber-400/40 scale-102'
-                  : 'bg-white text-amber-800 hover:bg-amber-50 border border-amber-200'
-              }`}
-            >
-              <Flame className="w-3.5 h-3.5 text-amber-600 animate-pulse" />
-              <span>✨ LED Backlit Art ({ledArtworksCount})</span>
-            </button>
-
-            <button
-              type="button"
-              onClick={() => {
-                setSelectedLighting('none');
-                setSelectedCategory('');
-              }}
-              className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
-                selectedLighting === 'none'
-                  ? 'bg-[#EAB308] text-stone-950 shadow-md border border-amber-400 ring-2 ring-amber-400/30 scale-102'
-                  : 'bg-white text-stone-700 hover:bg-stone-50 border border-stone-200'
-              }`}
-            >
-              <Sparkles className="w-3.5 h-3.5 text-amber-600" />
-              <span>🖼️ Normal Acrylic Art ({normalArtworksCount})</span>
-            </button>
-          </div>
-
-          {/* Controls Bar */}
-          <div className="bg-white p-4 rounded-2xl border border-stone-200 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-4">
-            <div className="flex items-center gap-2">
-              <button
-                type="button"
-                onClick={() => setMobileFilterOpen(true)}
-                className="lg:hidden flex items-center justify-center gap-1.5 bg-stone-100 px-3.5 py-2 min-h-[40px] rounded-xl text-xs font-bold text-stone-900 border border-stone-300 cursor-pointer"
-              >
-                <SlidersHorizontal className="w-3.5 h-3.5 text-amber-600" />
-                <span>Filters</span>
-              </button>
-              <span className="text-xs text-stone-600 font-medium">
-                Showing <strong className="text-stone-900">{filteredProducts.length}</strong> of {INITIAL_PRODUCTS.length} artworks
-              </span>
-            </div>
-
-            {/* Sort Dropdown */}
-            <div className="flex items-center gap-2 w-full sm:w-auto justify-end">
-              <label htmlFor="shop-sort" className="text-xs text-stone-600 whitespace-nowrap">Sort by:</label>
-              <select
-                id="shop-sort"
-                value={sortBy}
-                onChange={(e) => setSortBy(e.target.value)}
-                className="px-3 py-2 min-h-[40px] text-xs bg-stone-50 border border-stone-300 rounded-xl text-stone-900 outline-none focus:border-amber-500 font-medium cursor-pointer"
-              >
-                <option value="featured">Featured Artworks</option>
-                <option value="bestseller">Popular &amp; Bestselling</option>
-                <option value="newest">Newest Arrivals</option>
-                <option value="price-asc">Price: Low to High</option>
-                <option value="price-desc">Price: High to Low</option>
-              </select>
-            </div>
           </div>
 
           {/* Active Filter Badges */}
