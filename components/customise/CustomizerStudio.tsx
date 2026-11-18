@@ -466,7 +466,7 @@ export default function CustomizerStudio() {
   const [selectedSizeId, setSelectedSizeId] = useState<string>('12x18');
   const [customWidth, setCustomWidth] = useState<number>(24);
   const [customHeight, setCustomHeight] = useState<number>(18);
-  const [finish, setFinish] = useState<FrameFinish>('floating-standoff');
+  const [finish, setFinish] = useState<FrameFinish>('crystal-gloss');
   const [led, setLed] = useState<LedOption>('warm-white');
   const [customText, setCustomText] = useState<string>('The Sharma Family • Consecrated 2026');
   const [specialInstructions, setSpecialInstructions] = useState<string>('');
@@ -1392,78 +1392,10 @@ export default function CustomizerStudio() {
               )}
             </div>
 
-            {/* Step D: Select Frame Finish */}
-            <div className="space-y-2">
-              <label className="text-xs font-bold uppercase tracking-wider text-stone-900 flex items-center justify-between">
-                <span>Step 4: Select Frame Finish & LED Lighting</span>
-                <span className="text-[10px] text-amber-700 font-semibold">{activeFinishObj.name}</span>
-              </label>
-
-              <div className="space-y-1.5">
-                {FRAME_FINISHES.map((f) => {
-                  const isSelected = finish === f.id;
-                  return (
-                    <button
-                      key={f.id}
-                      type="button"
-                      onClick={() => setFinish(f.id)}
-                      className={`w-full p-2.5 rounded-xl border text-left transition-all cursor-pointer flex items-center justify-between ${
-                        isSelected
-                          ? 'border-amber-500 bg-amber-50/60 ring-1 ring-amber-400'
-                          : 'border-stone-200 hover:border-amber-300 bg-white'
-                      }`}
-                    >
-                      <div>
-                        <div className="text-xs font-bold text-stone-900">{f.name}</div>
-                        <div className="text-[10px] text-stone-500">{f.subtitle}</div>
-                      </div>
-                      <span className="text-xs font-semibold text-amber-700">
-                        {f.priceAddition > 0 ? `+₹${f.priceAddition}` : 'Included'}
-                      </span>
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-
-            {/* Step E: LED Options */}
-            <div className="space-y-2">
-              <label className="text-xs font-bold uppercase tracking-wider text-stone-900 flex items-center justify-between">
-                <span>Step 4B: LED Backlight Color (Warm Halo)</span>
-                <span className="text-[10px] text-amber-700 font-semibold">{activeLedObj.name}</span>
-              </label>
-
-              <div className="grid grid-cols-2 gap-2">
-                {LED_OPTIONS.map((l) => {
-                  const isSelected = led === l.id;
-                  return (
-                    <button
-                      key={l.id}
-                      type="button"
-                      onClick={() => setLed(l.id)}
-                      className={`p-2.5 sm:p-3 min-h-[50px] rounded-xl border text-left transition-all cursor-pointer flex flex-col justify-between ${
-                        isSelected
-                          ? 'border-amber-500 bg-amber-50/60 ring-1 ring-amber-400'
-                          : 'border-stone-200 hover:border-amber-300 bg-white'
-                      }`}
-                    >
-                      <div className="flex items-center justify-between">
-                        <span className="text-xs font-bold text-stone-900">{l.temperature}</span>
-                        {l.id !== 'none' && (
-                          <Zap className="w-3 h-3 text-amber-500 fill-amber-500" />
-                        )}
-                      </div>
-                      <div className="text-[10px] text-stone-500 mt-0.5">{l.name.split('(')[0]}</div>
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-
             {/* Optional Personal Inscription */}
             <div className="space-y-1">
               <label className="text-xs font-bold uppercase tracking-wider text-stone-900 block">
-                Step 5: Add Personal Message / Inscription (Optional)
+                Step 4: Add Personal Message / Inscription (Optional)
               </label>
               <input
                 type="text"
@@ -1498,7 +1430,7 @@ export default function CustomizerStudio() {
             <div className="bg-stone-50 p-4 sm:p-5 rounded-2xl border border-stone-200 space-y-3">
               <div className="flex items-baseline justify-between border-b border-stone-200 pb-2.5">
                 <div>
-                  <span className="text-xs text-stone-500 block">Step 6: Live Price &amp; Configuration Review</span>
+                  <span className="text-xs text-stone-500 block">Step 5: Live Price &amp; Configuration Review</span>
                   <div className="flex items-baseline gap-2">
                     <span className="font-serif text-2xl sm:text-3xl font-bold text-stone-900">
                       ₹{pricing.price.toLocaleString('en-IN')}
@@ -1517,14 +1449,6 @@ export default function CustomizerStudio() {
                 <div className="flex justify-between">
                   <span>Size &amp; Category:</span>
                   <span className="font-semibold text-stone-900">{displaySizeLabel}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Finish &amp; Hardware:</span>
-                  <span className="font-semibold text-stone-900">{activeFinishObj.name}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Lighting:</span>
-                  <span className="font-semibold text-stone-900">{activeLedObj.name}</span>
                 </div>
                 <div className="flex justify-between text-emerald-700 font-semibold pt-1 border-t border-stone-200">
                   <span>Packaging:</span>
