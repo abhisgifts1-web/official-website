@@ -158,17 +158,8 @@ function ShopContent() {
 
       {/* Interactive Square Category Showcase Strip */}
       <div className="mb-8 sm:mb-10 pb-6 border-b border-stone-200/80">
-        <div className="flex items-center justify-between mb-4 px-1">
-          <div>
-            <h2 className="font-serif font-bold text-lg sm:text-xl text-stone-900 flex items-center gap-2">
-              <Sparkles className="w-4 h-4 text-amber-500" />
-              <span>Explore by Category</span>
-            </h2>
-            <p className="text-xs text-stone-500">
-              Select a category to instantly filter our collection
-            </p>
-          </div>
-          {selectedCategory && (
+        {selectedCategory && (
+          <div className="flex justify-end mb-3 px-1">
             <button
               type="button"
               onClick={() => setSelectedCategory('')}
@@ -177,8 +168,8 @@ function ShopContent() {
               <RotateCcw className="w-3 h-3" />
               <span>Show All Categories</span>
             </button>
-          )}
-        </div>
+          </div>
+        )}
 
         <div className="relative group/categoryCarousel">
           {/* Scroll Left Button */}
