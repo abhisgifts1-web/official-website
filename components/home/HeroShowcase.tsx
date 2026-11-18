@@ -132,43 +132,21 @@ export default function HeroShowcase() {
       className="relative w-full bg-[#08080A] text-white overflow-hidden select-none"
     >
       {/* ═════════════════════════════════════════════════════════════════════
-          1. CINEMATIC BACKGROUND TREATMENT
-          High-resolution Radha Krishna primary artwork prominently on right,
-          sophisticated dark gradient overlay, and subtle golden ambient lighting.
+          1. LUXURY AMBIENT BACKGROUND
+          Clean deep charcoal backdrop with subtle golden ambient light & depth
          ═════════════════════════════════════════════════════════════════════ */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        {/* Primary Radha Krishna background artwork with smooth transition */}
-        {FEATURED_ARTWORKS.map((artwork, idx) => (
-          <div
-            key={artwork.id}
-            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-              selectedArtworkIndex === idx ? 'opacity-100' : 'opacity-0 pointer-events-none'
-            }`}
-          >
-            <img
-              src={artwork.image}
-              alt={artwork.name}
-              className="w-full h-full object-cover object-[80%_center] lg:object-[72%_center] xl:object-[68%_center] scale-105 transition-transform duration-10000 ease-out"
-            />
-          </div>
-        ))}
-
-        {/* Sophisticated Dark Gradient Overlays:
-            Stronger behind the text on left, lighter and vibrant around the artwork on right */}
-        {/* Left-to-right gradient scrim */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#08080A] via-[#08080A]/90 sm:via-[#08080A]/80 md:via-[#08080A]/70 lg:via-[#08080A]/40 to-transparent" />
-        
-        {/* Secondary multi-layer radial gradient for high readability behind typography */}
-        <div className="absolute inset-y-0 left-0 w-full lg:w-3/5 bg-gradient-to-r from-[#08080A] via-[#08080A]/85 to-transparent" />
-
         {/* Subtle Warm Golden Ambient Light & Depth on right side */}
-        <div className="absolute top-1/4 right-[5%] sm:right-[15%] w-72 sm:w-96 lg:w-[32rem] h-72 sm:h-96 lg:h-[32rem] rounded-full bg-radial from-amber-400/20 via-amber-500/5 to-transparent blur-3xl pointer-events-none animate-pulse duration-4000" />
+        <div className="absolute top-1/4 right-[5%] sm:right-[15%] w-72 sm:w-96 lg:w-[32rem] h-72 sm:h-96 lg:h-[32rem] rounded-full bg-radial from-amber-400/15 via-amber-500/5 to-transparent blur-3xl pointer-events-none animate-pulse duration-4000" />
 
-        {/* Subtle animated golden breathing flare */}
+        {/* Subtle golden breathing flare */}
         <div className="absolute -top-24 right-1/4 w-80 h-80 rounded-full bg-amber-300/10 blur-3xl pointer-events-none" />
 
+        {/* Subtle ambient glow on left bottom */}
+        <div className="absolute bottom-10 left-[5%] w-72 h-72 rounded-full bg-amber-500/5 blur-3xl pointer-events-none" />
+
         {/* Top & Bottom seamless blending vignettes */}
-        <div className="absolute top-0 inset-x-0 h-20 bg-gradient-to-b from-[#08080A]/90 to-transparent" />
+        <div className="absolute top-0 inset-x-0 h-20 bg-gradient-to-b from-[#08080A] to-transparent" />
         <div className="absolute bottom-0 inset-x-0 h-28 bg-gradient-to-t from-[#08080A] via-[#08080A]/70 to-transparent" />
       </div>
 
