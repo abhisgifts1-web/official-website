@@ -174,11 +174,37 @@ export default function HeroShowcase() {
   };
 
   return (
-    <section className="bg-white overflow-hidden w-full lg:min-h-[calc(100vh-115px)] flex flex-col justify-center">
+    <section className="relative bg-stone-950 overflow-hidden w-full lg:min-h-[calc(100vh-115px)] flex flex-col justify-center">
+      {/* ── Background Rotating Deity Masterpieces with Same Animation ── */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        {HERO_DEITIES.map((deity, idx) => (
+          <div
+            key={deity.id}
+            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+              currentIndex === idx ? 'opacity-100' : 'opacity-0'
+            }`}
+          >
+            <img
+              src={deity.image}
+              alt={deity.name}
+              className={`w-full h-full object-cover object-center transition-transform duration-7000 ease-out ${
+                currentIndex === idx ? 'scale-105' : 'scale-100'
+              }`}
+            />
+          </div>
+        ))}
+
+        {/* Ambient Dark Scrim & Gradient Overlays for High Legibility */}
+        <div className="absolute inset-0 bg-stone-950/75 sm:bg-gradient-to-r sm:from-stone-950/95 sm:via-stone-950/80 sm:to-stone-950/45" />
+        <div className="absolute inset-0 bg-radial-[circle_at_70%_50%] from-transparent via-stone-950/20 to-stone-950/70" />
+        <div className="absolute bottom-0 inset-x-0 h-28 bg-gradient-to-t from-stone-950/90 to-transparent" />
+        <div className="absolute top-0 inset-x-0 h-16 bg-gradient-to-b from-stone-950/50 to-transparent" />
+      </div>
+
       {/* ══════════════════════════════════════
           FULL-WIDTH & VIEWPORT-HEIGHT HERO (TWO-COLUMN)
          ══════════════════════════════════════ */}
-      <div className="w-full flex-1 flex items-center py-6 sm:py-8 lg:py-10 px-4 sm:px-6 lg:px-12 xl:px-16 2xl:px-24">
+      <div className="relative z-10 w-full flex-1 flex items-center py-8 sm:py-10 lg:py-12 px-4 sm:px-6 lg:px-12 xl:px-16 2xl:px-24">
         <div className="w-full max-w-[1920px] mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 xl:gap-16 items-center">
             
@@ -186,8 +212,8 @@ export default function HeroShowcase() {
             <div className="lg:col-span-6 xl:col-span-6 space-y-4 sm:space-y-5 lg:space-y-6">
               
               {/* Studio Origin Pill */}
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-50/90 border border-amber-200 text-amber-900 text-xs font-semibold tracking-wide shadow-2xs">
-                <Sparkles className="w-3.5 h-3.5 text-amber-600 animate-pulse" />
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/15 border border-amber-400/30 text-amber-300 text-xs font-semibold tracking-wide shadow-2xs backdrop-blur-md">
+                <Sparkles className="w-3.5 h-3.5 text-amber-400 animate-pulse" />
                 <span>HYDERABAD’S PREMIER PHOTO ATELIER</span>
               </div>
 
@@ -195,18 +221,18 @@ export default function HeroShowcase() {
               <div className="space-y-2">
                 <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight leading-[1.14]">
                   <span className="block overflow-hidden">
-                    <span className="inline-block animate-headline-line-1 text-stone-900">
+                    <span className="inline-block animate-headline-line-1 text-white">
                       Premium Custom
                     </span>
                   </span>
                   <span className="block overflow-hidden">
-                    <span className="inline-block animate-headline-line-2 text-stone-900">
+                    <span className="inline-block animate-headline-line-2 text-stone-100">
                       Photo Frames
                     </span>
                   </span>
                   <span className="block overflow-hidden pt-0.5 sm:pt-1">
                     <span className="inline-block animate-headline-line-3">
-                      <span className="inline-block text-amber-800 font-extrabold animate-gold-text-shimmer">
+                      <span className="inline-block text-amber-300 font-extrabold animate-gold-text-shimmer">
                         in Hyderabad
                       </span>
                     </span>
@@ -214,20 +240,30 @@ export default function HeroShowcase() {
                 </h1>
               </div>
 
+              {/* Active Deity Blessing & Mantra Highlight */}
+              <div className="space-y-1.5 max-w-xl">
+                <p className="text-amber-200/90 font-serif text-sm sm:text-base italic tracking-wide">
+                  {currentDeity.mantra}
+                </p>
+                <p className="text-stone-300 text-xs sm:text-sm leading-relaxed line-clamp-2">
+                  {currentDeity.blessing}
+                </p>
+              </div>
+
               {/* Primary & Secondary Action Buttons */}
               <div className="flex flex-col sm:flex-row gap-3 pt-1">
                 <Link
                   href="/shop"
-                  className="inline-flex items-center justify-center gap-2.5 px-8 py-4 bg-stone-900 hover:bg-black text-white font-semibold rounded-full shadow-md hover:shadow-xl transition-all duration-200 group text-sm sm:text-base cursor-pointer"
+                  className="inline-flex items-center justify-center gap-2.5 px-8 py-4 bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500 hover:from-amber-400 hover:to-amber-300 text-stone-950 font-bold rounded-full shadow-lg shadow-amber-500/20 hover:shadow-xl transition-all duration-200 group text-sm sm:text-base cursor-pointer"
                 >
-                  <Sparkles className="w-4 h-4 text-amber-400 group-hover:rotate-12 transition-transform" />
+                  <Sparkles className="w-4 h-4 text-stone-950 group-hover:rotate-12 transition-transform" />
                   <span>Explore Collections</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
 
                 <Link
                   href="/customise"
-                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white hover:bg-stone-50 text-stone-800 font-semibold rounded-full border-2 border-stone-200 hover:border-stone-400 transition-all duration-200 text-sm sm:text-base cursor-pointer"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-full border border-white/25 hover:border-white/40 backdrop-blur-md transition-all duration-200 text-sm sm:text-base cursor-pointer"
                 >
                   <span>Customize Your Frame</span>
                 </Link>
@@ -239,7 +275,7 @@ export default function HeroShowcase() {
               
               {/* Luxury Frame Container */}
               <div
-                className="relative bg-stone-950 p-2 sm:p-3 rounded-2xl shadow-2xl ring-1 ring-black/10 overflow-hidden group select-none cursor-pointer w-full"
+                className="relative bg-stone-950/80 backdrop-blur-md p-2 sm:p-3 rounded-2xl shadow-2xl ring-1 ring-amber-400/20 border border-white/10 overflow-hidden group select-none cursor-pointer w-full"
                 onMouseEnter={() => setIsPaused(true)}
                 onMouseLeave={() => setIsPaused(false)}
                 onTouchStart={handleTouchStart}
@@ -255,7 +291,7 @@ export default function HeroShowcase() {
                   />
                   
                   {/* Subtle top glare reflection line */}
-                  <div className="absolute inset-x-0 top-0 h-1/3 bg-gradient-to-b from-white/10 to-transparent pointer-events-none" />
+                  <div className="absolute inset-x-0 top-0 h-1/3 bg-gradient-to-b from-white/15 to-transparent pointer-events-none" />
 
                   {/* Top Floating Badges */}
                   <div className="absolute top-3 inset-x-3 flex items-center justify-between pointer-events-none">
@@ -269,7 +305,7 @@ export default function HeroShowcase() {
                   </div>
 
                   {/* Bottom Info Bar Overlay */}
-                  <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-stone-950 via-stone-950/80 to-transparent pt-8 pb-3.5 px-4 sm:px-5">
+                  <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-stone-950 via-stone-950/85 to-transparent pt-8 pb-3.5 px-4 sm:px-5">
                     <div className="flex items-end justify-between gap-3">
                       <div className="min-w-0">
                         <p className="text-white text-sm sm:text-base lg:text-lg font-semibold truncate tracking-tight">
@@ -299,10 +335,10 @@ export default function HeroShowcase() {
                     key={deity.id}
                     type="button"
                     onClick={() => handleSelect(idx)}
-                    className={`relative flex-1 min-w-[56px] h-11 sm:h-13 lg:h-14 rounded-lg overflow-hidden border border-white/10 cursor-pointer ${
+                    className={`relative flex-1 min-w-[56px] h-11 sm:h-13 lg:h-14 rounded-lg overflow-hidden border transition-all duration-300 cursor-pointer ${
                       currentIndex === idx
-                        ? 'opacity-100'
-                        : 'opacity-40 hover:opacity-75'
+                        ? 'opacity-100 border-amber-400 ring-2 ring-amber-400/40 scale-105 shadow-md shadow-amber-500/20'
+                        : 'opacity-40 hover:opacity-75 border-white/20'
                     }`}
                     aria-label={`Select ${deity.shortName}`}
                   >
