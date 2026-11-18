@@ -5,279 +5,444 @@ import Link from 'next/link';
 import {
   Sparkles,
   ArrowRight,
+  ShieldCheck,
+  Gem,
+  Palette,
+  Truck,
+  Eye,
+  CheckCircle2,
 } from 'lucide-react';
 
-export interface HeroDeity {
+export interface FeaturedArtwork {
   id: string;
   name: string;
-  shortName: string;
   subtitle: string;
-  blessing: string;
+  tagline: string;
   image: string;
+  frameMockup: string;
   slug: string;
-  accent: string;
-  mantra: string;
-  deityIcon: string;
-  dimension: string;
   price: string;
   originalPrice: string;
+  dimensions: string;
+  isBestseller: boolean;
 }
 
-// Six individual landscape 16:9 divine devotional masterpieces
-export const HERO_DEITIES: HeroDeity[] = [
+export const FEATURED_ARTWORKS: FeaturedArtwork[] = [
   {
     id: 'radha-krishna',
     name: 'Radha Krishna — Divine Vrindavan',
-    shortName: 'Radha Krishna',
-    subtitle: 'Celestial Flute • Divine Love & Harmony',
-    blessing: 'Infuses your home with unconditional affection, emotional healing & joyful tranquility.',
+    subtitle: 'Celestial Flute • 3D LED Backlit Acrylic',
+    tagline: 'Infuses unconditional affection, emotional healing & joyful tranquility into your home.',
     image: '/images/divine/radha-krishna.jpg',
-    slug: 'radha-krishna-divine-flute-acrylic-wall-decor',
-    accent: '#D6AA55',
-    mantra: '॥ రాధే రాధే • హరే కృష్ణ హరే రామ ॥',
-    deityIcon: '🦚',
-    dimension: '18" × 12"',
+    frameMockup: '/images/mockups/radha-krishna-divine-bansuri-3d-led-acrylic-wall-art/primary-square.jpg',
+    slug: 'radha-krishna-divine-bansuri-3d-led-acrylic-wall-art',
     price: '₹2,799',
     originalPrice: '₹4,299',
+    dimensions: '24" × 16"',
+    isBestseller: true,
   },
   {
     id: 'lord-balaji',
     name: 'Lord Balaji — Tirupati Blessings',
-    shortName: 'Lord Balaji',
     subtitle: 'Kaliyuga Varada • Flagship 3D Gold Heirloom',
-    blessing: 'Shields family against planetary doshas, relieves debts & welcomes Vaikuntha abundance.',
+    tagline: 'Shields family against negativity & welcomes Vaikuntha abundance.',
     image: '/images/divine/lord-balaji.jpg',
+    frameMockup: '/images/divine/lord-balaji.jpg',
     slug: 'tirupati-balaji-divine-led-backlit-acrylic-wall-art',
-    accent: '#D6AA55',
-    mantra: '॥ ఓం నమో భగవతే వేంకటేశాయ • గోవింద హరి గోవింద ॥',
-    deityIcon: '🔱',
-    dimension: '24" × 16"',
     price: '₹3,499',
     originalPrice: '₹5,499',
+    dimensions: '24" × 16"',
+    isBestseller: true,
   },
   {
     id: 'adiyogi-shiva',
     name: 'Adiyogi Shiva — Eternal Meditation',
-    shortName: 'Adiyogi Shiva',
     subtitle: 'Crescent Moon Sanctum • Mahadev Cosmic Energy',
-    blessing: 'Dissolves mental stress and chaotic energy, awakening deep meditative stillness.',
+    tagline: 'Dissolves mental stress, awakening deep stillness and serenity.',
     image: '/images/divine/adiyogi-shiva.jpg',
+    frameMockup: '/images/divine/adiyogi-shiva.jpg',
     slug: 'adiyogi-lord-shiva-meditation-led-wall-decor',
-    accent: '#D6AA55',
-    mantra: '॥ ఓం నమః శివాయ • కర్పూర గౌరం కరుణావతారమ్ ॥',
-    deityIcon: '🌙',
-    dimension: '20" × 14"',
     price: '₹2,999',
     originalPrice: '₹4,799',
+    dimensions: '20" × 14"',
+    isBestseller: false,
   },
   {
     id: 'lord-ganesha',
     name: 'Lord Ganesha — Vighnaharta',
-    shortName: 'Lord Ganesha',
     subtitle: 'Prathama Pujya • Remover of All Obstacles',
-    blessing: 'Clears stumbling blocks in business & career, ushering in auspicious Shubh-Labh prosperity.',
+    tagline: 'Ushers in auspicious Shubh-Labh prosperity & auspicious blessings.',
     image: '/images/divine/lord-ganesha.jpg',
+    frameMockup: '/images/divine/lord-ganesha.jpg',
     slug: 'lord-ganesha-vighnaharta-divine-led-backlit-acrylic-art',
-    accent: '#D6AA55',
-    mantra: '॥ ఓం గం గణపతయే నమః • వక్రతుండ మహాకాయ ॥',
-    deityIcon: '🐘',
-    dimension: '18" × 12"',
     price: '₹2,799',
     originalPrice: '₹4,299',
+    dimensions: '18" × 12"',
+    isBestseller: true,
   },
   {
     id: 'maa-lakshmi',
     name: 'Maa Lakshmi — Goddess of Prosperity',
-    shortName: 'Maa Lakshmi',
     subtitle: 'Ashta Lakshmi Abundance • Sacred Kuber Zone',
-    blessing: 'Bestows 8-fold wealth, nourishment, courage, wisdom and domestic auspiciousness.',
+    tagline: 'Bestows 8-fold wealth, nourishment, courage and domestic grace.',
     image: '/images/divine/maa-lakshmi.jpg',
+    frameMockup: '/images/divine/maa-lakshmi.jpg',
     slug: 'ashta-lakshmi-wealth-prosperity-acrylic-wall-decor',
-    accent: '#D6AA55',
-    mantra: '॥ ఓం శ్రీం హ్రీం క్లీం మహాలక్ష్మ్యై నమః ॥',
-    deityIcon: '🌸',
-    dimension: '24" × 16"',
     price: '₹3,299',
     originalPrice: '₹4,999',
+    dimensions: '24" × 16"',
+    isBestseller: true,
   },
   {
     id: 'ram-mandir',
     name: 'Ram Mandir — Ayodhya Divine Heritage',
-    shortName: 'Ram Mandir',
     subtitle: 'Consecrated Ram Lalla • Maryada Purushottam',
-    blessing: 'Infuses household with moral fortitude, fearless protection and righteous dharma.',
+    tagline: 'Infuses households with moral fortitude and righteous protection.',
     image: '/images/divine/ram-mandir.jpg',
+    frameMockup: '/images/divine/ram-mandir.jpg',
     slug: 'ayodhya-ram-janmabhoomi-mandir-3d-led-wall-decor',
-    accent: '#D6AA55',
-    mantra: '॥ శ్రీరామ జయరామ జయ జయ రామ ॥',
-    deityIcon: '🏹',
-    dimension: '20" × 14"',
     price: '₹2,999',
     originalPrice: '₹4,699',
+    dimensions: '20" × 14"',
+    isBestseller: false,
   },
 ];
 
-const AUTO_SCROLL_INTERVAL = 5500;
-
 export default function HeroShowcase() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
-  const [timerResetKey, setTimerResetKey] = useState(0);
-  const [touchStartX, setTouchStartX] = useState<number | null>(null);
+  const [selectedArtworkIndex, setSelectedArtworkIndex] = useState(0);
+  const activeArtwork = FEATURED_ARTWORKS[selectedArtworkIndex];
 
-  const currentDeity = HERO_DEITIES[currentIndex];
-
-  // Preload images
+  // Preload primary high-resolution imagery
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      HERO_DEITIES.forEach((deity) => {
+      FEATURED_ARTWORKS.forEach((artwork) => {
         const img = new window.Image();
-        img.src = deity.image;
+        img.src = artwork.image;
+        if (artwork.frameMockup && artwork.frameMockup !== artwork.image) {
+          const frameImg = new window.Image();
+          frameImg.src = artwork.frameMockup;
+        }
       });
     }
   }, []);
 
-  // Auto scroll
-  useEffect(() => {
-    if (isPaused) return;
-    const timer = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % HERO_DEITIES.length);
-    }, AUTO_SCROLL_INTERVAL);
-    return () => clearInterval(timer);
-  }, [isPaused, timerResetKey]);
-
-  const handleNext = () => {
-    setCurrentIndex((prev) => (prev + 1) % HERO_DEITIES.length);
-    setTimerResetKey((prev) => prev + 1);
-  };
-
-  const handlePrev = () => {
-    setCurrentIndex((prev) => (prev - 1 + HERO_DEITIES.length) % HERO_DEITIES.length);
-    setTimerResetKey((prev) => prev + 1);
-  };
-
-  const handleTouchStart = (e: React.TouchEvent) => {
-    setTouchStartX(e.touches[0].clientX);
-  };
-
-  const handleTouchEnd = (e: React.TouchEvent) => {
-    if (touchStartX === null) return;
-    const diff = touchStartX - e.changedTouches[0].clientX;
-    if (diff > 45) handleNext();
-    else if (diff < -45) handlePrev();
-    setTouchStartX(null);
-  };
-
   return (
     <section
-      className="relative bg-stone-950 overflow-hidden w-full min-h-[520px] sm:min-h-[580px] lg:min-h-[calc(100vh-115px)] flex flex-col justify-center select-none"
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
-      onTouchStart={handleTouchStart}
-      onTouchEnd={handleTouchEnd}
+      aria-label="Hero Section"
+      className="relative w-full bg-[#08080A] text-white overflow-hidden select-none"
     >
-      {/* ── Background Rotating Deity Masterpieces with Same Animation ── */}
+      {/* ═════════════════════════════════════════════════════════════════════
+          1. CINEMATIC BACKGROUND TREATMENT
+          High-resolution Radha Krishna primary artwork prominently on right,
+          sophisticated dark gradient overlay, and subtle golden ambient lighting.
+         ═════════════════════════════════════════════════════════════════════ */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        {HERO_DEITIES.map((deity, idx) => (
+        {/* Primary Radha Krishna background artwork with smooth transition */}
+        {FEATURED_ARTWORKS.map((artwork, idx) => (
           <div
-            key={deity.id}
+            key={artwork.id}
             className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-              currentIndex === idx ? 'opacity-100' : 'opacity-0'
+              selectedArtworkIndex === idx ? 'opacity-100' : 'opacity-0 pointer-events-none'
             }`}
           >
             <img
-              src={deity.image}
-              alt={deity.name}
-              className={`w-full h-full object-cover object-center transition-transform duration-7000 ease-out ${
-                currentIndex === idx ? 'scale-105' : 'scale-100'
-              }`}
+              src={artwork.image}
+              alt={artwork.name}
+              className="w-full h-full object-cover object-[80%_center] lg:object-[72%_center] xl:object-[68%_center] scale-105 transition-transform duration-10000 ease-out"
             />
           </div>
         ))}
 
-        {/* Ambient Dark Scrim & Gradient Overlays for High Legibility */}
-        <div className="absolute inset-0 bg-stone-950/75 sm:bg-gradient-to-r sm:from-stone-950/95 sm:via-stone-950/80 sm:to-stone-950/45" />
-        <div className="absolute inset-0 bg-radial-[circle_at_70%_50%] from-transparent via-stone-950/20 to-stone-950/70" />
-        <div className="absolute bottom-0 inset-x-0 h-28 bg-gradient-to-t from-stone-950/90 to-transparent" />
-        <div className="absolute top-0 inset-x-0 h-16 bg-gradient-to-b from-stone-950/50 to-transparent" />
+        {/* Sophisticated Dark Gradient Overlays:
+            Stronger behind the text on left, lighter and vibrant around the artwork on right */}
+        {/* Left-to-right gradient scrim */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#08080A] via-[#08080A]/90 sm:via-[#08080A]/80 md:via-[#08080A]/70 lg:via-[#08080A]/40 to-transparent" />
+        
+        {/* Secondary multi-layer radial gradient for high readability behind typography */}
+        <div className="absolute inset-y-0 left-0 w-full lg:w-3/5 bg-gradient-to-r from-[#08080A] via-[#08080A]/85 to-transparent" />
+
+        {/* Subtle Warm Golden Ambient Light & Depth on right side */}
+        <div className="absolute top-1/4 right-[5%] sm:right-[15%] w-72 sm:w-96 lg:w-[32rem] h-72 sm:h-96 lg:h-[32rem] rounded-full bg-radial from-amber-400/20 via-amber-500/5 to-transparent blur-3xl pointer-events-none animate-pulse duration-4000" />
+
+        {/* Subtle animated golden breathing flare */}
+        <div className="absolute -top-24 right-1/4 w-80 h-80 rounded-full bg-amber-300/10 blur-3xl pointer-events-none" />
+
+        {/* Top & Bottom seamless blending vignettes */}
+        <div className="absolute top-0 inset-x-0 h-20 bg-gradient-to-b from-[#08080A]/90 to-transparent" />
+        <div className="absolute bottom-0 inset-x-0 h-28 bg-gradient-to-t from-[#08080A] via-[#08080A]/70 to-transparent" />
       </div>
 
-      {/* ══════════════════════════════════════
-          HERO CONTENT (FULL-WIDTH HERO)
-         ══════════════════════════════════════ */}
-      <div className="relative z-10 w-full flex items-center py-12 sm:py-16 lg:py-24 px-4 sm:px-6 lg:px-12 xl:px-16 2xl:px-24">
-        <div className="w-full max-w-[1920px] mx-auto">
-          <div className="max-w-2xl lg:max-w-3xl space-y-5 sm:space-y-6">
+      {/* ═════════════════════════════════════════════════════════════════════
+          2. MAIN HERO CONTENT CONTAINER (TWO-COLUMN CINEMATIC COMPOSITION)
+         ═════════════════════════════════════════════════════════════════════ */}
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 sm:pt-12 lg:pt-16 pb-12 sm:pb-16 lg:pb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 xl:gap-16 items-center">
+          
+          {/* ─────────────────────────────────────────────────────────────
+              LEFT CONTENT SECTION: Typography & Conversion Hierarchy
+             ───────────────────────────────────────────────────────────── */}
+          <div className="lg:col-span-7 flex flex-col items-start space-y-5 sm:space-y-6">
             
-            {/* Studio Origin Pill */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/15 border border-amber-400/30 text-amber-300 text-xs font-semibold tracking-wide shadow-2xs backdrop-blur-md">
-              <Sparkles className="w-3.5 h-3.5 text-amber-400 animate-pulse" />
-              <span>HYDERABAD’S PREMIER PHOTO ATELIER</span>
+            {/* Small Premium Badge */}
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-amber-500/20 via-amber-400/10 to-amber-500/20 border border-amber-400/40 text-amber-300 text-[10px] sm:text-xs font-semibold tracking-widest uppercase shadow-sm backdrop-blur-md">
+              <Sparkles className="w-3.5 h-3.5 text-amber-400 animate-pulse shrink-0" />
+              <span>HYDERABAD&apos;S PREMIUM PHOTO FRAME STUDIO</span>
             </div>
 
-            {/* Main Headline */}
-            <div className="space-y-2">
-              <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight leading-[1.14]">
-                <span className="block overflow-hidden">
-                  <span className="inline-block animate-headline-line-1 text-white">
-                    Premium Custom
-                  </span>
-                </span>
-                <span className="block overflow-hidden">
-                  <span className="inline-block animate-headline-line-2 text-stone-100">
-                    Photo Frames
-                  </span>
-                </span>
-                <span className="block overflow-hidden pt-0.5 sm:pt-1">
-                  <span className="inline-block animate-headline-line-3">
-                    <span className="inline-block text-amber-300 font-extrabold animate-gold-text-shimmer">
-                      in Hyderabad
+            {/* Main Heading */}
+            <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-bold tracking-tight text-white leading-[1.12]">
+              <span className="block text-white drop-shadow-sm">
+                Turn Your Precious
+              </span>
+              <span className="block text-stone-100 drop-shadow-sm">
+                Moments Into
+              </span>
+              <span className="block pt-0.5 sm:pt-1 bg-gradient-to-r from-[#FDE047] via-[#FACC15] to-[#EAB308] bg-clip-text text-transparent font-extrabold filter drop-shadow-[0_2px_14px_rgba(234,179,8,0.35)]">
+                Timeless Memories.
+              </span>
+            </h1>
+
+            {/* Supporting Description */}
+            <p className="text-stone-300 text-sm sm:text-base lg:text-lg leading-relaxed max-w-xl font-normal drop-shadow-xs">
+              Discover beautifully crafted LED photo frames, divine acrylic artwork, and personalized gifts designed to make every moment unforgettable.
+            </p>
+
+            {/* Premium Featured Product Information Component */}
+            <div className="w-full max-w-lg p-3 sm:p-3.5 rounded-2xl bg-[#121216]/80 hover:bg-[#15151B]/90 border border-amber-400/30 backdrop-blur-md shadow-lg transition-all duration-300 group">
+              <div className="flex items-center justify-between gap-3 sm:gap-4">
+                
+                {/* Product Thumbnail */}
+                <div className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-xl overflow-hidden shrink-0 border border-amber-400/50 shadow-md">
+                  <img
+                    src={activeArtwork.frameMockup || activeArtwork.image}
+                    alt={activeArtwork.name}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-tr from-black/20 via-transparent to-white/10 pointer-events-none" />
+                </div>
+
+                {/* Product Meta */}
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center gap-2 flex-wrap mb-0.5">
+                    <span className="text-white font-bold text-xs sm:text-sm truncate">
+                      {activeArtwork.name}
                     </span>
-                  </span>
-                </span>
-              </h1>
-            </div>
+                    {activeArtwork.isBestseller && (
+                      <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[9px] sm:text-[10px] font-bold uppercase tracking-wider bg-amber-500/25 text-amber-300 border border-amber-400/40">
+                        Bestseller
+                      </span>
+                    )}
+                  </div>
+                  <p className="text-stone-400 text-[11px] sm:text-xs truncate">
+                    {activeArtwork.subtitle}
+                  </p>
+                  <div className="flex items-center gap-2 mt-1">
+                    <span className="text-amber-300 font-extrabold text-xs sm:text-sm">
+                      Starting from {activeArtwork.price}
+                    </span>
+                    <span className="text-stone-400 line-through text-[11px]">
+                      {activeArtwork.originalPrice}
+                    </span>
+                  </div>
+                </div>
 
-            {/* Active Deity Blessing & Mantra Highlight */}
-            <div className="space-y-2 max-w-xl">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/40 border border-amber-400/30 backdrop-blur-md">
-                <span className="text-sm">{currentDeity.deityIcon}</span>
-                <span className="text-amber-300 font-bold text-xs sm:text-sm">
-                  {currentDeity.name}
-                </span>
-                <span className="text-stone-400 text-xs">•</span>
-                <span className="text-white font-bold text-xs sm:text-sm">{currentDeity.price}</span>
+                {/* Quick Link Arrow */}
+                <Link
+                  href={`/product/${activeArtwork.slug}`}
+                  aria-label={`View details for ${activeArtwork.name}`}
+                  className="p-2 sm:p-2.5 rounded-xl bg-amber-500/10 hover:bg-amber-500/25 text-amber-300 border border-amber-400/30 transition-all shrink-0 group-hover:translate-x-0.5"
+                >
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
               </div>
-              <p className="text-amber-200/90 font-serif text-sm sm:text-base italic tracking-wide">
-                {currentDeity.mantra}
-              </p>
-              <p className="text-stone-300 text-xs sm:text-sm leading-relaxed">
-                {currentDeity.blessing}
-              </p>
             </div>
 
-            {/* Primary & Secondary Action Buttons */}
-            <div className="flex flex-col sm:flex-row gap-3 pt-2">
+            {/* Call-to-Action Buttons */}
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-1 w-full sm:w-auto">
+              {/* Primary CTA */}
               <Link
                 href="/shop"
-                className="inline-flex items-center justify-center gap-2.5 px-8 py-4 bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500 hover:from-amber-400 hover:to-amber-300 text-stone-950 font-bold rounded-full shadow-lg shadow-amber-500/20 hover:shadow-xl transition-all duration-200 group text-sm sm:text-base cursor-pointer"
+                className="group relative inline-flex items-center justify-center gap-2.5 px-7 py-3.5 sm:px-8 sm:py-4 rounded-full bg-gradient-to-r from-[#F5D061] via-[#EAB308] to-[#D97706] hover:from-[#FDE047] hover:to-[#EAB308] text-stone-950 font-bold text-sm sm:text-base shadow-lg shadow-amber-500/25 hover:shadow-xl hover:shadow-amber-500/40 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 cursor-pointer text-center"
               >
-                <Sparkles className="w-4 h-4 text-stone-950 group-hover:rotate-12 transition-transform" />
                 <span>Explore Collections</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="w-4 h-4 text-stone-950 group-hover:translate-x-1.5 transition-transform duration-300 shrink-0" />
               </Link>
 
+              {/* Secondary CTA */}
               <Link
                 href="/customise"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-full border border-white/25 hover:border-white/40 backdrop-blur-md transition-all duration-200 text-sm sm:text-base cursor-pointer"
+                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 sm:px-8 sm:py-4 rounded-full bg-white/[0.06] hover:bg-white/[0.12] text-white hover:text-amber-200 font-semibold text-sm sm:text-base border border-amber-400/40 hover:border-amber-300/80 backdrop-blur-md hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 cursor-pointer text-center shadow-xs"
               >
-                <span>Customize Your Frame</span>
+                <Sparkles className="w-4 h-4 text-amber-400 shrink-0" />
+                <span>Create Your Custom Frame</span>
               </Link>
+            </div>
+
+          </div>
+
+          {/* ─────────────────────────────────────────────────────────────
+              RIGHT CONTENT SECTION: Floating Visual Product Showcase
+             ───────────────────────────────────────────────────────────── */}
+          <div className="lg:col-span-5 flex flex-col items-center justify-center pt-4 lg:pt-0">
+            
+            {/* Realistic Floating Master Frame Container */}
+            <div className="relative w-full max-w-sm sm:max-w-md lg:max-w-lg group">
+              
+              {/* Soft Ambient Golden LED Halo (3000K Pulse Aura) */}
+              <div className="absolute -inset-2.5 sm:-inset-4 rounded-3xl bg-gradient-to-tr from-amber-500/35 via-yellow-400/25 to-amber-600/30 blur-2xl opacity-75 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+
+              {/* Dimensional Realistic Frame Bezel & Acrylic Panel */}
+              <div className="relative rounded-2xl sm:rounded-3xl p-2.5 sm:p-3.5 bg-gradient-to-b from-[#252528] via-[#141417] to-[#0A0A0C] border border-amber-400/40 shadow-2xl transition-all duration-500 animate-divine-float motion-reduce:animate-none">
+                
+                {/* Outer Frame Lip / Bevel Glare */}
+                <div className="relative rounded-xl sm:rounded-2xl overflow-hidden aspect-[4/3] bg-stone-900 border border-amber-500/30 shadow-inner">
+                  
+                  {/* Master Framed Artwork Image */}
+                  <img
+                    src={activeArtwork.frameMockup || activeArtwork.image}
+                    alt={activeArtwork.name}
+                    className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-102"
+                  />
+
+                  {/* Realistic Acrylic Specular Reflection Highlight */}
+                  <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-transparent pointer-events-none" />
+
+                  {/* Realistic Top Corner Acrylic Floating Pill */}
+                  <div className="absolute top-2.5 left-2.5 sm:top-3 sm:left-3 px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-md border border-amber-400/40 text-[10px] sm:text-[11px] font-semibold text-amber-300 flex items-center gap-1.5 shadow-sm">
+                    <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-ping" />
+                    <span>3D LED Acrylic Frame</span>
+                  </div>
+
+                  {/* Dimension Tag */}
+                  <div className="absolute top-2.5 right-2.5 sm:top-3 sm:right-3 px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-md border border-white/20 text-[10px] font-medium text-stone-200">
+                    {activeArtwork.dimensions}
+                  </div>
+
+                  {/* Bottom Integrated Floating Info Card */}
+                  <div className="absolute bottom-2.5 inset-x-2.5 sm:bottom-3 sm:inset-x-3 p-3 rounded-xl bg-[#0F0F12]/85 backdrop-blur-md border border-amber-400/30 flex items-center justify-between gap-3 shadow-lg">
+                    <div className="min-w-0">
+                      <p className="text-white font-bold text-xs sm:text-sm truncate">
+                        {activeArtwork.name}
+                      </p>
+                      <p className="text-amber-300/90 text-[11px] truncate">
+                        {activeArtwork.subtitle}
+                      </p>
+                    </div>
+                    <Link
+                      href={`/product/${activeArtwork.slug}`}
+                      className="px-3 py-1.5 rounded-lg bg-amber-500 hover:bg-amber-400 text-stone-950 font-bold text-xs shrink-0 flex items-center gap-1 transition-colors"
+                    >
+                      <Eye className="w-3.5 h-3.5" />
+                      <span>View</span>
+                    </Link>
+                  </div>
+                </div>
+
+              </div>
+
+              {/* Secondary Product Thumbnails Carousel Switcher */}
+              <div className="mt-4 sm:mt-5 w-full">
+                <div className="flex items-center justify-between mb-2 px-1">
+                  <span className="text-[11px] sm:text-xs font-semibold text-stone-400 tracking-wider uppercase">
+                    Featured Masterpieces
+                  </span>
+                  <span className="text-[11px] text-amber-400 font-medium">
+                    {selectedArtworkIndex + 1} of {FEATURED_ARTWORKS.length}
+                  </span>
+                </div>
+
+                <div className="grid grid-cols-6 gap-2">
+                  {FEATURED_ARTWORKS.map((artwork, idx) => {
+                    const isActive = selectedArtworkIndex === idx;
+                    return (
+                      <button
+                        key={artwork.id}
+                        type="button"
+                        onClick={() => setSelectedArtworkIndex(idx)}
+                        aria-label={`Select ${artwork.name}`}
+                        className={`relative aspect-square rounded-lg sm:rounded-xl overflow-hidden transition-all duration-300 border ${
+                          isActive
+                            ? 'border-amber-400 ring-2 ring-amber-400/60 scale-105 shadow-md shadow-amber-500/20'
+                            : 'border-stone-700/60 opacity-60 hover:opacity-100 hover:border-amber-400/40'
+                        }`}
+                      >
+                        <img
+                          src={artwork.image}
+                          alt={artwork.name}
+                          className="w-full h-full object-cover"
+                        />
+                        {isActive && (
+                          <div className="absolute inset-0 bg-amber-500/15 pointer-events-none" />
+                        )}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+      {/* ═════════════════════════════════════════════════════════════════════
+          3. PREMIUM TRUST INDICATORS (BOTTOM HORIZONTAL ROW)
+          Subtle minimal row highlighting genuine core customer assurances.
+         ═════════════════════════════════════════════════════════════════════ */}
+      <div className="relative z-10 w-full border-t border-amber-500/20 bg-[#0C0C0F]/90 backdrop-blur-md py-4 sm:py-5 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:divide-x lg:divide-stone-800">
+            
+            {/* 1. Premium Quality */}
+            <div className="flex items-center gap-3 sm:px-3">
+              <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-amber-500/10 border border-amber-400/30 flex items-center justify-center shrink-0">
+                <Gem className="w-4 h-4 sm:w-5 sm:h-5 text-amber-400" />
+              </div>
+              <div className="min-w-0">
+                <p className="text-white font-bold text-xs sm:text-sm">Premium Quality</p>
+                <p className="text-stone-400 text-[11px] sm:text-xs truncate">4mm Ultra-Gloss Acrylic</p>
+              </div>
+            </div>
+
+            {/* 2. Custom Personalization */}
+            <div className="flex items-center gap-3 sm:px-3">
+              <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-amber-500/10 border border-amber-400/30 flex items-center justify-center shrink-0">
+                <Palette className="w-4 h-4 sm:w-5 sm:h-5 text-amber-400" />
+              </div>
+              <div className="min-w-0">
+                <p className="text-white font-bold text-xs sm:text-sm">Custom Personalization</p>
+                <p className="text-stone-400 text-[11px] sm:text-xs truncate">Tailored to Any Photo</p>
+              </div>
+            </div>
+
+            {/* 3. Secure Payments */}
+            <div className="flex items-center gap-3 sm:px-3">
+              <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-amber-500/10 border border-amber-400/30 flex items-center justify-center shrink-0">
+                <ShieldCheck className="w-4 h-4 sm:w-5 sm:h-5 text-amber-400" />
+              </div>
+              <div className="min-w-0">
+                <p className="text-white font-bold text-xs sm:text-sm">Secure Payments</p>
+                <p className="text-stone-400 text-[11px] sm:text-xs truncate">100% Encrypted UPI & Cards</p>
+              </div>
+            </div>
+
+            {/* 4. Safe Delivery */}
+            <div className="flex items-center gap-3 sm:px-3">
+              <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-amber-500/10 border border-amber-400/30 flex items-center justify-center shrink-0">
+                <Truck className="w-4 h-4 sm:w-5 sm:h-5 text-amber-400" />
+              </div>
+              <div className="min-w-0">
+                <p className="text-white font-bold text-xs sm:text-sm">Safe Delivery</p>
+                <p className="text-stone-400 text-[11px] sm:text-xs truncate">Insured All-India Transit</p>
+              </div>
             </div>
 
           </div>
         </div>
       </div>
+
     </section>
   );
 }
