@@ -2,7 +2,7 @@ import React from 'react';
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound, redirect } from 'next/navigation';
-import { Sparkles, Home, MapPin, Truck, ShieldCheck, CheckCircle2 } from 'lucide-react';
+import { Sparkles, Home, MapPin, Truck, ShieldCheck, CheckCircle2, ChevronRight } from 'lucide-react';
 import { getCategoryBySlug, getAllCategories, getAllProducts } from '@/lib/store';
 import { CATEGORY_SLUG_ALIASES } from '@/lib/data/categories';
 import { filterProductsByCategory } from '@/lib/categoryRules';
@@ -178,18 +178,30 @@ export default function CategoryPage({ params }: CategoryPageProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
 
-      {/* Breadcrumb Navigation for SEO */}
-      <nav className="flex items-center gap-2 text-xs text-stone-500" aria-label="Breadcrumb">
-        <Link href="/" className="hover:text-amber-800 flex items-center gap-1">
-          <Home className="w-3.5 h-3.5" />
+      {/* Breadcrumb Navigation for SEO & UX */}
+      <nav aria-label="Breadcrumb" className="inline-flex items-center flex-wrap gap-1.5 text-xs bg-gradient-to-r from-stone-50 via-white to-amber-50/40 p-1.5 sm:p-2 rounded-2xl border border-stone-200 shadow-2xs">
+        <Link
+          href="/"
+          className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-xl text-stone-600 hover:text-stone-950 bg-white hover:bg-stone-50 border border-stone-200/80 hover:border-amber-400 shadow-2xs transition-all font-semibold group cursor-pointer"
+        >
+          <Home className="w-3.5 h-3.5 text-amber-600 group-hover:scale-110 transition-transform" />
           <span>Home</span>
         </Link>
-        <span>/</span>
-        <Link href="/collections" className="hover:text-amber-800">
+        <ChevronRight className="w-3.5 h-3.5 text-amber-500/80" />
+        <Link
+          href="/shop"
+          className="px-2.5 py-1 rounded-xl text-stone-600 hover:text-stone-950 bg-white hover:bg-stone-50 border border-stone-200/80 hover:border-amber-400 shadow-2xs transition-all font-semibold cursor-pointer"
+        >
           Collections
         </Link>
-        <span>/</span>
-        <span className="text-stone-900 font-semibold">{category.name}</span>
+        <ChevronRight className="w-3.5 h-3.5 text-amber-500/80" />
+        <span
+          className="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl bg-gradient-to-r from-amber-500/15 via-amber-400/20 to-amber-500/15 border border-amber-400/50 text-amber-950 font-bold shadow-2xs"
+          aria-current="page"
+        >
+          <Sparkles className="w-3 h-3 text-amber-600 shrink-0 animate-pulse" />
+          <span>{category.name}</span>
+        </span>
       </nav>
 
       {/* Category Hero Banner */}

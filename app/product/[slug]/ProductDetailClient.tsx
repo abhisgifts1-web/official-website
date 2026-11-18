@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import {
   Heart,
+  Home,
   Share2,
   Check,
   CheckCircle2,
@@ -828,61 +829,94 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
     <div className="w-full bg-white text-stone-900 transition-colors duration-300">
       <div className="w-full max-w-[1720px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-14 py-4 sm:py-6 space-y-8 sm:space-y-12">
         {/* Top Breadcrumb Navigation & Quick Actions */}
-        <nav aria-label="Breadcrumb" className="flex items-center justify-between gap-4 text-xs text-stone-500 border-b border-stone-200 pb-3.5">
-          <ol className="flex items-center flex-wrap gap-1.5 sm:gap-2">
+        <nav
+          aria-label="Breadcrumb"
+          className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs bg-gradient-to-r from-stone-50 via-white to-amber-50/40 p-2 sm:p-2.5 rounded-2xl border border-stone-200/90 shadow-2xs backdrop-blur-sm"
+        >
+          <ol className="flex items-center flex-wrap gap-1 sm:gap-1.5 min-w-0">
+            {/* Home Pill */}
             <li>
-              <Link href="/" className="hover:text-stone-900 font-medium transition-colors">
-                Home
+              <Link
+                href="/"
+                className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-xl text-stone-600 hover:text-stone-950 bg-white hover:bg-stone-50 border border-stone-200/80 hover:border-amber-400 shadow-2xs transition-all font-semibold group cursor-pointer"
+              >
+                <Home className="w-3.5 h-3.5 text-amber-600 group-hover:scale-110 transition-transform" />
+                <span>Home</span>
               </Link>
             </li>
-            <li><ChevronRight className="w-3.5 h-3.5 text-amber-600" /></li>
+
+            <li className="text-amber-500/80">
+              <ChevronRight className="w-3.5 h-3.5" />
+            </li>
+
+            {/* Shop / Sacred Wall Art */}
             <li>
-              <Link href="/shop" className="hover:text-stone-900 font-medium transition-colors">
-                Sacred Wall Art
+              <Link
+                href="/shop"
+                className="inline-flex items-center gap-1 px-2.5 py-1 rounded-xl text-stone-600 hover:text-stone-950 bg-white hover:bg-stone-50 border border-stone-200/80 hover:border-amber-400 shadow-2xs transition-all font-semibold cursor-pointer"
+              >
+                <span>Sacred Wall Art</span>
               </Link>
             </li>
+
             {product.categorySlug && (
               <>
-                <li><ChevronRight className="w-3.5 h-3.5 text-amber-600" /></li>
+                <li className="text-amber-500/80">
+                  <ChevronRight className="w-3.5 h-3.5" />
+                </li>
                 <li>
-                  <Link href={`/category/${product.categorySlug}`} className="hover:text-stone-900 font-medium transition-colors capitalize">
-                    {product.categoryName || product.deity || 'Collection'}
+                  <Link
+                    href={`/category/${product.categorySlug}`}
+                    className="inline-flex items-center gap-1 px-2.5 py-1 rounded-xl text-stone-600 hover:text-stone-950 bg-white hover:bg-stone-50 border border-stone-200/80 hover:border-amber-400 shadow-2xs transition-all font-semibold capitalize cursor-pointer"
+                  >
+                    <span>{product.categoryName || product.deity || 'Collection'}</span>
                   </Link>
                 </li>
               </>
             )}
-            <li><ChevronRight className="w-3.5 h-3.5 text-amber-600" /></li>
-            <li className="font-semibold text-stone-900 truncate max-w-[180px] sm:max-w-xs" aria-current="page">
-              {product.title}
+
+            <li className="text-amber-500/80">
+              <ChevronRight className="w-3.5 h-3.5" />
+            </li>
+
+            {/* Active Current Product Badge */}
+            <li
+              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl bg-gradient-to-r from-amber-500/15 via-amber-400/20 to-amber-500/15 border border-amber-400/50 text-amber-950 font-bold shadow-2xs truncate max-w-[200px] sm:max-w-xs md:max-w-md lg:max-w-lg"
+              aria-current="page"
+            >
+              <Sparkles className="w-3 h-3 text-amber-600 shrink-0 animate-pulse" />
+              <span className="truncate">{product.title}</span>
             </li>
           </ol>
 
           {/* Quick Utility Actions */}
-          <div className="flex items-center gap-2 shrink-0">
+          <div className="flex items-center gap-2 shrink-0 self-end sm:self-center">
             <button
               type="button"
               onClick={() => toggleWishlist(product.slug)}
-              className={`p-2 rounded-full border transition-all cursor-pointer ${
+              className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl border transition-all cursor-pointer text-xs font-semibold ${
                 wishlisted
-                  ? 'bg-rose-50 text-rose-600 border-rose-200 shadow-xs'
-                  : 'bg-stone-100 text-stone-700 border-stone-200 hover:text-stone-900 hover:border-amber-400'
+                  ? 'bg-rose-50 text-rose-600 border-rose-300 shadow-xs'
+                  : 'bg-white text-stone-700 border-stone-200/80 hover:text-stone-900 hover:border-amber-400 shadow-2xs'
               }`}
               title={wishlisted ? 'Remove from Wishlist' : 'Add to Wishlist'}
               aria-label="Wishlist"
             >
-              <Heart className={`w-4 h-4 ${wishlisted ? 'fill-current' : ''}`} />
+              <Heart className={`w-3.5 h-3.5 ${wishlisted ? 'fill-current text-rose-600' : 'text-stone-500'}`} />
+              <span className="hidden md:inline">{wishlisted ? 'Saved' : 'Save'}</span>
             </button>
 
             <button
               type="button"
               onClick={handleShare}
-              className="p-2 rounded-full bg-stone-100 text-stone-700 border border-stone-200 hover:text-stone-900 hover:border-amber-400 transition-all cursor-pointer relative"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white text-stone-700 border border-stone-200/80 hover:text-stone-900 hover:border-amber-400 shadow-2xs transition-all cursor-pointer relative text-xs font-semibold"
               title="Share Artwork"
               aria-label="Share"
             >
-              <Share2 className="w-4 h-4" />
+              <Share2 className="w-3.5 h-3.5 text-stone-500" />
+              <span className="hidden md:inline">Share</span>
               {copiedLink && (
-                <span className="absolute -bottom-8 right-0 bg-stone-900 text-white text-[10px] font-bold px-2 py-0.5 rounded shadow-md whitespace-nowrap animate-in fade-in">
+                <span className="absolute -bottom-8 right-0 bg-stone-900 text-white text-[10px] font-bold px-2 py-0.5 rounded-md shadow-md whitespace-nowrap animate-in fade-in">
                   Link Copied!
                 </span>
               )}
