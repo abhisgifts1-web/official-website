@@ -35,13 +35,6 @@ export const EDITORIAL_CATEGORIES: EditorialCategory[] = [
     fallbackImage: '/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/primary-square.jpg',
   },
   {
-    id: '360-rotating-photo-lamps',
-    name: '360° Rotating Lamps',
-    href: '/category/360-rotating-photo-lamps',
-    image: '/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/primary-square.jpg',
-    fallbackImage: '/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/primary-square.jpg',
-  },
-  {
     id: 'god-photo-frames',
     name: 'God Photo Frames',
     href: '/category/god-photo-frames',
