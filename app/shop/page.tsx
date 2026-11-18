@@ -137,27 +137,38 @@ function ShopContent() {
     priceRange < 10000;
 
   return (
-    <div className="w-full max-w-[1760px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 py-8 sm:py-12 bg-white text-stone-900">
-      {/* Page Header Banner */}
-      <div className="bg-gradient-to-r from-stone-50 via-white to-amber-50/40 text-stone-900 rounded-3xl p-8 sm:p-12 mb-8 sm:mb-12 border border-stone-200 relative overflow-hidden shadow-sm">
-        {/* Ambient Gold Halo */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-amber-200/20 rounded-full blur-3xl pointer-events-none" />
-
-        <div className="relative z-10 max-w-3xl">
-          <span className="text-amber-800 font-bold text-xs uppercase tracking-widest flex items-center gap-1.5 mb-2">
-            <Sparkles className="w-3.5 h-3.5 text-amber-600" /> Full Sacred &amp; Modern Catalog
-          </span>
-          <h1 className="font-serif font-bold text-2xl sm:text-4xl lg:text-5xl text-stone-900">
-            All Wall Art Creations
-          </h1>
-          <p className="text-xs sm:text-sm md:text-base text-stone-600 mt-2 leading-relaxed font-sans">
-            Browse our complete collection of acrylic photo frames, warm backlit LED panels, and personal photo heirlooms.
-          </p>
+    <div className="w-full max-w-[1760px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 py-6 sm:py-8 bg-white text-stone-900">
+      {/* Sleek Compact Luxury Banner */}
+      <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-stone-950 via-stone-900 to-stone-950 text-white border border-amber-500/25 py-4 sm:py-5 px-5 sm:px-8 mb-6 shadow-sm">
+        {/* Subtle ambient gold aura */}
+        <div className="absolute -top-16 -right-16 w-60 h-60 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="relative z-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-4">
+          <div>
+            <div className="flex items-center gap-2 mb-1">
+              <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-amber-400/15 text-amber-300 border border-amber-400/30">
+                <Sparkles className="w-3 h-3 text-amber-400" /> Full Catalog
+              </span>
+            </div>
+            <h1 className="font-serif font-bold text-xl sm:text-2xl md:text-3xl text-white tracking-tight">
+              All Wall Art Creations
+            </h1>
+            <p className="text-xs sm:text-sm text-stone-300/80 mt-0.5 max-w-xl font-light">
+              Handcrafted acrylic photo frames, warm backlit LED panels &amp; sacred heirlooms.
+            </p>
+          </div>
+          <div className="flex items-center gap-2 sm:gap-3 shrink-0 self-start sm:self-center">
+            <div className="px-3.5 py-1.5 rounded-xl bg-stone-900/90 border border-amber-500/30 text-left sm:text-right">
+              <span className="block text-amber-400 font-bold text-xs sm:text-sm leading-tight">
+                {totalArtworksCount} Masterpieces
+              </span>
+              <span className="text-[10px] text-stone-400">Hyderabad Atelier</span>
+            </div>
+          </div>
         </div>
       </div>
 
       {/* Interactive Square Category Showcase Strip */}
-      <div className="mb-8 sm:mb-10 pb-6 border-b border-stone-200/80">
+      <div className="mb-6 sm:mb-8 pb-5 border-b border-stone-200/80">
         {selectedCategory && (
           <div className="flex justify-end mb-3 px-1">
             <button
@@ -261,11 +272,11 @@ function ShopContent() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-5 xl:grid-cols-6 gap-8 xl:gap-10">
+      <div className="grid grid-cols-1 lg:grid-cols-5 xl:grid-cols-6 gap-8 xl:gap-10 items-start">
         {/* DESKTOP SIDEBAR FILTERS (1 col) */}
-        <aside className="hidden lg:block space-y-6">
-          <div className="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-6">
-            <div className="flex items-center justify-between border-b border-stone-200 pb-3">
+        <aside className="hidden lg:block sticky top-24 space-y-6">
+          <div className="bg-white p-5 rounded-2xl border border-stone-200 shadow-xs space-y-5">
+            <div className="flex items-center justify-between border-b border-stone-200/80 pb-3">
               <h3 className="font-serif font-bold text-base text-stone-900 flex items-center gap-2">
                 <SlidersHorizontal className="w-4 h-4 text-amber-600" />
                 <span>Filters</span>
@@ -274,9 +285,9 @@ function ShopContent() {
                 <button
                   type="button"
                   onClick={resetFilters}
-                  className="text-xs text-stone-600 hover:text-amber-700 hover:underline flex items-center gap-1 font-semibold"
+                  className="text-xs text-stone-600 hover:text-amber-700 hover:underline flex items-center gap-1 font-semibold cursor-pointer"
                 >
-                  <RotateCcw className="w-3 h-3 text-amber-600" /> Reset All
+                  <RotateCcw className="w-3 h-3 text-amber-600" /> Reset
                 </button>
               )}
             </div>
@@ -289,17 +300,17 @@ function ShopContent() {
               <div className="relative">
                 <input
                   type="text"
-                  placeholder="e.g. Balaji, Shiva, Ganesha..."
+                  placeholder="e.g. Balaji, Shiva, Radha..."
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
-                  className="w-full pl-8 pr-3 py-2 text-xs bg-stone-50 border border-stone-300 rounded-xl outline-none focus:border-amber-500 text-stone-900 placeholder:text-stone-400"
+                  className="w-full pl-8 pr-3 py-2 text-xs bg-stone-50 border border-stone-300 rounded-xl outline-none focus:border-amber-500 text-stone-900 placeholder:text-stone-400 transition-colors"
                 />
                 <Search className="w-3.5 h-3.5 text-stone-400 absolute left-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
                 {search && (
                   <button
                     type="button"
                     onClick={() => setSearch('')}
-                    className="absolute right-2.5 top-1/2 -translate-y-1/2 text-stone-400 hover:text-stone-700"
+                    className="absolute right-2.5 top-1/2 -translate-y-1/2 text-stone-400 hover:text-stone-700 cursor-pointer"
                   >
                     <X className="w-3.5 h-3.5" />
                   </button>
@@ -307,51 +318,61 @@ function ShopContent() {
               </div>
             </div>
 
-            {/* Lighting Filter */}
-            <div className="p-3 bg-amber-50/50 rounded-xl border border-amber-200 space-y-2">
-              <label className="text-xs font-bold uppercase tracking-wider text-stone-900 block">
-                Lighting Category
+            {/* Lighting Style Selector (Luxury Pills) */}
+            <div>
+              <label className="text-xs font-bold uppercase tracking-wider text-stone-900 block mb-2">
+                Lighting Style
               </label>
-              <div className="space-y-1.5 text-xs">
+              <div className="space-y-1.5">
                 {[
-                  { id: 'all', label: `All Artwork Types (${totalArtworksCount})` },
-                  { id: 'led', label: `✨ LED Backlit (${ledArtworksCount})` },
-                  { id: 'none', label: `🖼️ Normal Crystal Acrylic (${normalArtworksCount})` },
-                ].map((item) => (
-                  <label key={item.id} className="flex items-center gap-2 cursor-pointer p-1 rounded hover:bg-stone-100 transition-colors">
-                    <input
-                      type="radio"
-                      name="lighting"
-                      checked={selectedLighting === item.id}
-                      onChange={() => setSelectedLighting(item.id)}
-                      className="text-stone-900 focus:ring-amber-500 accent-amber-500"
-                    />
-                    <span className={`font-semibold ${selectedLighting === item.id ? 'text-stone-900' : 'text-stone-600'}`}>
-                      {item.label}
-                    </span>
-                  </label>
-                ))}
+                  { id: 'all', label: 'All Artworks', count: totalArtworksCount },
+                  { id: 'led', label: '✨ LED Backlit', count: ledArtworksCount },
+                  { id: 'none', label: '🖼️ Non-Lit Acrylic', count: normalArtworksCount },
+                ].map((item) => {
+                  const isSelected = selectedLighting === item.id;
+                  return (
+                    <button
+                      key={item.id}
+                      type="button"
+                      onClick={() => setSelectedLighting(item.id)}
+                      className={`w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
+                        isSelected
+                          ? 'bg-amber-500 text-stone-950 shadow-xs'
+                          : 'bg-stone-50 text-stone-700 hover:bg-stone-100'
+                      }`}
+                    >
+                      <span>{item.label}</span>
+                      <span
+                        className={`text-[10px] font-bold px-1.5 py-0.5 rounded-md ${
+                          isSelected ? 'bg-amber-600/30 text-stone-950' : 'bg-stone-200/60 text-stone-600'
+                        }`}
+                      >
+                        {item.count}
+                      </span>
+                    </button>
+                  );
+                })}
               </div>
             </div>
 
-            {/* Categories — Grouped by Backlight vs Normal */}
+            {/* Categories */}
             <div>
               <label className="text-xs font-bold uppercase tracking-wider text-stone-900 block mb-2">
-                Categories
+                Collections
               </label>
-              <div className="space-y-2 max-h-72 overflow-y-auto pr-1 text-xs">
+              <div className="space-y-1 max-h-72 overflow-y-auto pr-1 text-xs">
                 <button
                   type="button"
                   onClick={() => setSelectedCategory('')}
-                  className={`w-full text-left px-2.5 py-1.5 rounded-lg transition-colors flex items-center justify-between ${
-                    !selectedCategory ? 'bg-[#EAB308] text-stone-950 font-bold' : 'text-stone-700 hover:bg-stone-100'
+                  className={`w-full text-left px-2.5 py-1.5 rounded-lg transition-colors flex items-center justify-between cursor-pointer ${
+                    !selectedCategory ? 'bg-amber-500 text-stone-950 font-bold shadow-2xs' : 'text-stone-700 hover:bg-stone-100'
                   }`}
                 >
-                  <span>All Categories</span>
-                  <span>{INITIAL_PRODUCTS.length}</span>
+                  <span>All Collections</span>
+                  <span className="text-[10px] opacity-80 font-semibold">{INITIAL_PRODUCTS.length}</span>
                 </button>
 
-                <div className="pt-1.5 space-y-1">
+                <div className="pt-1 space-y-1">
                   {INITIAL_CATEGORIES.map((c) => {
                     const count = INITIAL_PRODUCTS.filter(
                       (p) =>
@@ -371,9 +392,9 @@ function ShopContent() {
                         key={c.id}
                         type="button"
                         onClick={() => handleCategorySelect(c.slug)}
-                        className={`w-full text-left px-2.5 py-1.5 rounded-lg transition-colors flex items-center justify-between text-xs ${
+                        className={`w-full text-left px-2.5 py-1.5 rounded-lg transition-colors flex items-center justify-between text-xs cursor-pointer ${
                           selectedCategory === c.slug
-                            ? 'bg-[#EAB308] text-stone-950 font-bold shadow-2xs'
+                            ? 'bg-amber-500 text-stone-950 font-bold shadow-2xs'
                             : 'text-stone-700 hover:bg-stone-100'
                         }`}
                       >
@@ -392,7 +413,7 @@ function ShopContent() {
                 <label className="font-bold uppercase tracking-wider text-stone-900">
                   Max Price
                 </label>
-                <span className="font-bold text-stone-900">₹{priceRange.toLocaleString('en-IN')}</span>
+                <span className="font-bold text-amber-800">₹{priceRange.toLocaleString('en-IN')}</span>
               </div>
               <input
                 type="range"
@@ -401,7 +422,7 @@ function ShopContent() {
                 step={250}
                 value={priceRange}
                 onChange={(e) => setPriceRange(Number(e.target.value))}
-                className="w-full accent-amber-500"
+                className="w-full accent-amber-500 cursor-pointer"
               />
               <div className="flex justify-between text-[10px] text-stone-500 mt-1">
                 <span>₹1,499</span>
@@ -412,53 +433,75 @@ function ShopContent() {
         </aside>
 
         {/* PRODUCTS AREA (4 cols on lg, 5 cols on xl) */}
-        <div className="lg:col-span-4 xl:col-span-5 space-y-6">
-          {/* Mobile Filter Button */}
-          <div className="lg:hidden flex items-center justify-between pb-2">
-            <button
-              type="button"
-              onClick={() => setMobileFilterOpen(true)}
-              className="flex items-center justify-center gap-1.5 bg-stone-100 px-4 py-2 rounded-xl text-xs font-bold text-stone-900 border border-stone-300 cursor-pointer shadow-2xs"
-            >
-              <SlidersHorizontal className="w-3.5 h-3.5 text-amber-600" />
-              <span>Filters ({filteredProducts.length} items)</span>
-            </button>
+        <div className="lg:col-span-4 xl:col-span-5 space-y-4">
+          {/* Top Single-Line Controls Toolbar */}
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-stone-50/80 border border-stone-200/80 rounded-xl px-4 py-2.5 shadow-2xs">
+            {/* Left: Mobile Filter Button & Results Counter */}
+            <div className="flex items-center gap-3">
+              <button
+                type="button"
+                onClick={() => setMobileFilterOpen(true)}
+                className="lg:hidden flex items-center gap-1.5 bg-white px-3 py-1.5 rounded-lg text-xs font-bold text-stone-900 border border-stone-300 shadow-2xs cursor-pointer"
+              >
+                <SlidersHorizontal className="w-3.5 h-3.5 text-amber-600" />
+                <span>Filters</span>
+              </button>
+              <span className="text-xs text-stone-600">
+                Showing <strong className="text-stone-950 font-bold">{filteredProducts.length}</strong> of {totalArtworksCount} creations
+              </span>
+            </div>
+
+            {/* Right: Compact Sort Dropdown */}
+            <div className="flex items-center justify-between sm:justify-end gap-2">
+              <span className="text-xs text-stone-500 font-medium">Sort by:</span>
+              <select
+                value={sortBy}
+                onChange={(e) => setSortBy(e.target.value)}
+                className="bg-white border border-stone-300 text-stone-800 text-xs font-medium rounded-lg px-2.5 py-1.5 outline-none focus:border-amber-500 cursor-pointer shadow-2xs"
+              >
+                <option value="bestseller">Popular &amp; Bestselling</option>
+                <option value="price-asc">Price: Low to High</option>
+                <option value="price-desc">Price: High to Low</option>
+                <option value="newest">Newest Arrivals</option>
+                <option value="featured">Curated Feature</option>
+              </select>
+            </div>
           </div>
 
           {/* Active Filter Badges */}
           {hasActiveFilters && (
-            <div className="flex flex-wrap items-center gap-2 text-xs">
-              <span className="text-stone-500 font-medium">Active Filters:</span>
+            <div className="flex flex-wrap items-center gap-2 text-xs py-1">
+              <span className="text-stone-500 font-medium">Active:</span>
               {search && (
-                <span className="bg-amber-100 text-amber-900 px-2.5 py-1 rounded-full flex items-center gap-1">
+                <span className="bg-amber-100 text-amber-900 px-2.5 py-1 rounded-full flex items-center gap-1 font-medium">
                   &ldquo;{search}&rdquo;
-                  <button type="button" onClick={() => setSearch('')}><X className="w-3 h-3" /></button>
+                  <button type="button" onClick={() => setSearch('')} className="hover:text-black cursor-pointer"><X className="w-3 h-3" /></button>
                 </span>
               )}
               {selectedCategory && (
-                <span className="bg-amber-100 text-amber-900 px-2.5 py-1 rounded-full flex items-center gap-1">
+                <span className="bg-amber-100 text-amber-900 px-2.5 py-1 rounded-full flex items-center gap-1 font-medium">
                   Category: {selectedCategory}
-                  <button type="button" onClick={() => setSelectedCategory('')}><X className="w-3 h-3" /></button>
+                  <button type="button" onClick={() => setSelectedCategory('')} className="hover:text-black cursor-pointer"><X className="w-3 h-3" /></button>
                 </span>
               )}
               
               {selectedLighting !== 'all' && (
-                <span className="bg-amber-100 text-amber-900 px-2.5 py-1 rounded-full flex items-center gap-1">
-                  Lighting: {selectedLighting === 'led' ? 'LED Backlit' : 'Non-Lit'}
-                  <button type="button" onClick={() => setSelectedLighting('all')}><X className="w-3 h-3" /></button>
+                <span className="bg-amber-100 text-amber-900 px-2.5 py-1 rounded-full flex items-center gap-1 font-medium">
+                  {selectedLighting === 'led' ? '✨ LED Backlit' : '🖼️ Non-Lit Acrylic'}
+                  <button type="button" onClick={() => setSelectedLighting('all')} className="hover:text-black cursor-pointer"><X className="w-3 h-3" /></button>
                 </span>
               )}
               
               {priceRange < 10000 && (
-                <span className="bg-amber-100 text-amber-900 px-2.5 py-1 rounded-full flex items-center gap-1">
+                <span className="bg-amber-100 text-amber-900 px-2.5 py-1 rounded-full flex items-center gap-1 font-medium">
                   Under ₹{priceRange.toLocaleString('en-IN')}
-                  <button type="button" onClick={() => setPriceRange(10000)}><X className="w-3 h-3" /></button>
+                  <button type="button" onClick={() => setPriceRange(10000)} className="hover:text-black cursor-pointer"><X className="w-3 h-3" /></button>
                 </span>
               )}
               <button
                 type="button"
                 onClick={resetFilters}
-                className="text-amber-800 underline font-semibold text-xs ml-1"
+                className="text-amber-800 hover:text-amber-950 underline font-semibold text-xs ml-1 cursor-pointer"
               >
                 Clear All
               </button>
