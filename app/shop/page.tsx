@@ -199,53 +199,68 @@ function ShopContent() {
           {/* Square Category Items */}
           <div
             ref={categoryScrollRef}
-            className="flex items-start gap-3 sm:gap-5 md:gap-6 lg:gap-7 overflow-x-auto scroll-smooth scrollbar-none py-2 px-1 sm:px-2 justify-start md:justify-around xl:justify-center"
+            className="flex items-start gap-4 sm:gap-6 md:gap-7 lg:gap-8 overflow-x-auto scroll-smooth scrollbar-none py-3 px-2 sm:px-4 justify-start md:justify-around xl:justify-center"
             style={{ scrollbarWidth: 'none' }}
           >
-            {EDITORIAL_CATEGORIES.map((cat) => {
+            {EDITORIAL_CATEGORIES.map((cat, idx) => {
               const isSelected = selectedCategory === cat.id;
               return (
                 <button
                   key={cat.id}
                   type="button"
                   onClick={() => handleCategorySelect(isSelected ? '' : cat.id)}
-                  className={`group flex flex-col items-center shrink-0 text-center w-[90px] sm:w-[106px] lg:w-[120px] cursor-pointer select-none transition-transform duration-300 ${
+                  className={`category-wave-item group flex flex-col items-center shrink-0 text-center w-[94px] sm:w-[110px] lg:w-[124px] cursor-pointer select-none transition-all duration-300 ${
                     isSelected ? 'scale-105' : 'hover:scale-102'
                   }`}
+                  style={{ animationDelay: `${idx * 0.2}s` }}
                 >
-                  {/* Outer Luxury Golden Ring (Square Shape) */}
-                  <div
-                    className={`relative w-[78px] h-[78px] sm:w-[92px] sm:h-[92px] lg:w-[104px] lg:h-[104px] aspect-square rounded-2xl p-[2.5px] transition-all duration-300 flex items-center justify-center ${
-                      isSelected
-                        ? 'bg-gradient-to-tr from-amber-500 via-amber-300 to-amber-600 ring-2 ring-amber-500 shadow-[0_6px_20px_rgba(234,179,8,0.45)]'
-                        : 'bg-gradient-to-tr from-amber-400 via-amber-200 to-amber-500 hover:from-amber-500 hover:via-yellow-300 hover:to-amber-600 shadow-xs hover:shadow-md'
-                    }`}
-                  >
-                    {/* Inner Clipping Square */}
-                    <div className="w-full h-full rounded-[13px] overflow-hidden bg-white p-[1.5px] relative flex items-center justify-center">
-                      <img
-                        src={cat.image}
-                        alt={cat.name}
-                        loading="lazy"
-                        onError={(e) => {
-                          (e.target as HTMLImageElement).src = cat.fallbackImage;
-                        }}
-                        className="w-full h-full object-cover object-center rounded-[11px] group-hover:scale-110 transition-transform duration-500 ease-out"
-                      />
-                      {/* Active Overlay Checkmark or Accent */}
-                      {isSelected && (
-                        <div className="absolute inset-0 rounded-[11px] bg-amber-500/20 ring-1 ring-inset ring-amber-500/60 flex items-center justify-center pointer-events-none" />
-                      )}
-                      {/* Diagonal Acrylic Light Sheen on Hover */}
-                      <div className="absolute inset-0 rounded-[11px] bg-gradient-to-tr from-transparent via-white/50 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out pointer-events-none" />
-                      <div className="absolute inset-0 rounded-[11px] ring-1 ring-inset ring-black/10 pointer-events-none" />
+                  {/* Outer Golden Medallion with Shimmer & Breathing Aura */}
+                  <div className="relative flex items-center justify-center">
+                    {/* Ambient Soft Gold Halo Glow Backdrop */}
+                    <div
+                      className={`absolute -inset-1.5 rounded-3xl transition-all duration-500 pointer-events-none ${
+                        isSelected
+                          ? 'bg-gradient-to-tr from-amber-400/50 via-yellow-300/60 to-amber-500/50 blur-md opacity-100 scale-105'
+                          : 'bg-gradient-to-tr from-amber-400/25 via-yellow-300/35 to-amber-500/25 blur-sm opacity-50 group-hover:opacity-100 group-hover:scale-108'
+                      }`}
+                    />
+
+                    {/* 24K Gold Shimmering Border (Square Shape) */}
+                    <div
+                      className={`relative w-[80px] h-[80px] sm:w-[94px] sm:h-[94px] lg:w-[108px] lg:h-[108px] aspect-square rounded-2xl p-[3px] category-gold-shimmer shadow-md transition-all duration-400 ease-out flex items-center justify-center animate-category-ring ${
+                        isSelected
+                          ? 'ring-2 ring-amber-500 shadow-[0_12px_28px_rgba(234,179,8,0.55)] scale-105'
+                          : 'group-hover:shadow-[0_12px_28px_rgba(217,119,6,0.42)] group-hover:-translate-y-1.5 group-hover:scale-105'
+                      }`}
+                    >
+                      {/* Inner Clipping Square */}
+                      <div className="w-full h-full rounded-[13px] overflow-hidden bg-white p-[1.5px] relative flex items-center justify-center shadow-inner">
+                        <img
+                          src={cat.image}
+                          alt={cat.name}
+                          loading="lazy"
+                          onError={(e) => {
+                            (e.target as HTMLImageElement).src = cat.fallbackImage;
+                          }}
+                          className="w-full h-full object-cover object-center rounded-[11px] group-hover:scale-115 transition-transform duration-700 ease-out"
+                        />
+                        {/* Active Overlay Accent */}
+                        {isSelected && (
+                          <div className="absolute inset-0 rounded-[11px] bg-amber-500/20 ring-1 ring-inset ring-amber-500/60 flex items-center justify-center pointer-events-none z-10" />
+                        )}
+                        {/* Diagonal Acrylic Light Sheen on Hover */}
+                        <div className="absolute inset-0 rounded-[11px] bg-gradient-to-tr from-transparent via-white/70 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out pointer-events-none z-10" />
+                        <div className="absolute inset-0 rounded-[11px] ring-1 ring-inset ring-black/15 pointer-events-none z-10" />
+                      </div>
                     </div>
                   </div>
 
                   {/* Category Name Below Square */}
                   <span
-                    className={`mt-2 sm:mt-2.5 text-center font-bold text-xs sm:text-[13px] transition-colors leading-tight line-clamp-2 max-w-[105px] ${
-                      isSelected ? 'text-amber-800 underline underline-offset-2' : 'text-stone-800 group-hover:text-amber-800'
+                    className={`mt-2.5 sm:mt-3 text-center font-bold text-xs sm:text-[13px] transition-all leading-tight line-clamp-2 max-w-[115px] ${
+                      isSelected
+                        ? 'text-amber-800 underline underline-offset-4 decoration-amber-500 font-extrabold'
+                        : 'text-stone-800 group-hover:text-amber-800 group-hover:underline underline-offset-4 decoration-amber-400'
                     }`}
                   >
                     {cat.name}

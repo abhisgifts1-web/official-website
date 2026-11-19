@@ -112,38 +112,46 @@ export default function CategoryShowcase() {
         {/* Square Items Container */}
         <div
           ref={scrollRef}
-          className="flex items-start gap-4 sm:gap-6 md:gap-7 lg:gap-8 overflow-x-auto scroll-smooth scrollbar-none py-3 px-2 sm:px-4 justify-start md:justify-around xl:justify-center"
+          className="flex items-start gap-4 sm:gap-6 md:gap-7 lg:gap-8 overflow-x-auto scroll-smooth scrollbar-none py-4 px-2 sm:px-4 justify-start md:justify-around xl:justify-center"
           style={{ scrollbarWidth: 'none' }}
         >
           {EDITORIAL_CATEGORIES.map((cat, idx) => (
             <Link
               key={cat.id}
               href={cat.href}
-              className="category-wave-item group flex flex-col items-center shrink-0 text-center w-[94px] sm:w-[110px] lg:w-[124px] cursor-pointer select-none"
-              style={{ animationDelay: `${idx * 0.18}s` }}
+              className="category-wave-item group flex flex-col items-center shrink-0 text-center w-[96px] sm:w-[112px] lg:w-[126px] cursor-pointer select-none"
+              style={{ animationDelay: `${idx * 0.22}s` }}
             >
-              {/* Outer Luxury Golden Ring with Breathing Pulse (Square Shape) */}
-              <div className="relative w-[82px] h-[82px] sm:w-[96px] sm:h-[96px] lg:w-[110px] lg:h-[110px] aspect-square rounded-2xl p-[2.5px] sm:p-[3px] bg-gradient-to-tr from-amber-400 via-amber-200 to-amber-500 group-hover:from-amber-500 group-hover:via-yellow-300 group-hover:to-amber-600 transition-all duration-500 shadow-xs group-hover:shadow-[0_8px_24px_rgba(217,119,6,0.36)] group-hover:scale-105 flex items-center justify-center animate-category-ring">
-                {/* Inner White Well / Clipping Square */}
-                <div className="w-full h-full rounded-[13px] overflow-hidden bg-white p-[1.5px] relative flex items-center justify-center">
-                  <img
-                    src={cat.image}
-                    alt={cat.name}
-                    loading="lazy"
-                    onError={(e) => {
-                      (e.target as HTMLImageElement).src = cat.fallbackImage;
-                    }}
-                    className="w-full h-full object-cover object-center rounded-[11px] group-hover:scale-110 transition-transform duration-500 ease-out"
-                  />
-                  {/* Diagonal Acrylic Light Sheen Sweep on Hover */}
-                  <div className="absolute inset-0 rounded-[11px] bg-gradient-to-tr from-transparent via-white/50 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out pointer-events-none" />
-                  {/* Subtle Inner Ring */}
-                  <div className="absolute inset-0 rounded-[11px] ring-1 ring-inset ring-black/10 pointer-events-none" />
+              {/* Outer Golden Medallion with Shimmer & Breathing Aura */}
+              <div className="relative flex items-center justify-center">
+                {/* Ambient Soft Gold Halo Glow Backdrop */}
+                <div className="absolute -inset-1.5 rounded-3xl bg-gradient-to-tr from-amber-400/30 via-yellow-300/40 to-amber-500/30 blur-md opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500 pointer-events-none" />
+
+                {/* 24K Gold Shimmering Border (Square Shape) */}
+                <div className="relative w-[84px] h-[84px] sm:w-[98px] sm:h-[98px] lg:w-[112px] lg:h-[112px] aspect-square rounded-2xl p-[3px] category-gold-shimmer shadow-md group-hover:shadow-[0_14px_32px_rgba(217,119,6,0.45)] group-hover:-translate-y-2 group-hover:scale-108 transition-all duration-400 ease-out flex items-center justify-center animate-category-ring">
+                  {/* Inner White Well / Clipping Square */}
+                  <div className="w-full h-full rounded-[13px] overflow-hidden bg-white p-[1.5px] relative flex items-center justify-center shadow-inner">
+                    <img
+                      src={cat.image}
+                      alt={cat.name}
+                      loading="lazy"
+                      onError={(e) => {
+                        (e.target as HTMLImageElement).src = cat.fallbackImage;
+                      }}
+                      className="w-full h-full object-cover object-center rounded-[11px] group-hover:scale-115 transition-transform duration-700 ease-out"
+                    />
+
+                    {/* Diagonal Acrylic Light Sheen Sweep on Hover */}
+                    <div className="absolute inset-0 rounded-[11px] bg-gradient-to-tr from-transparent via-white/70 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out pointer-events-none z-10" />
+
+                    {/* Subtle Inner Lens Bezel Rim */}
+                    <div className="absolute inset-0 rounded-[11px] ring-1 ring-inset ring-black/15 pointer-events-none z-10" />
+                  </div>
                 </div>
               </div>
 
               {/* Category Name Below Square */}
-              <span className="mt-2.5 sm:mt-3 text-center font-bold text-xs sm:text-[13px] text-stone-800 group-hover:text-amber-800 transition-colors leading-tight line-clamp-2 max-w-[110px]">
+              <span className="mt-2.5 sm:mt-3 text-center font-bold text-xs sm:text-[13px] text-stone-800 group-hover:text-amber-800 group-hover:underline underline-offset-4 decoration-amber-500 transition-colors leading-tight line-clamp-2 max-w-[115px]">
                 {cat.name}
               </span>
             </Link>
