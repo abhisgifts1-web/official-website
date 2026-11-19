@@ -319,7 +319,7 @@ export default function AdminDashboardPage() {
                   className="bg-stone-50 rounded-2xl border border-stone-200 hover:border-[#EAB308] transition-all p-3.5 flex flex-col justify-between space-y-3 group shadow-2xs"
                 >
                   <div className="space-y-2.5">
-                    <div className="relative aspect-[16/10] w-full rounded-xl overflow-hidden bg-stone-200 border border-stone-200">
+                    <div className="relative aspect-square w-full rounded-xl overflow-hidden bg-stone-200 border border-stone-200">
                       <img
                         src={cat.image}
                         alt={cat.name}

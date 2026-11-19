@@ -17,6 +17,8 @@ import {
   Menu,
   X,
   ChevronRight,
+  ShoppingBag,
+  Users,
 } from 'lucide-react';
 import { AdminUser } from '@/types';
 
@@ -28,6 +30,8 @@ const NAV_ITEMS = [
   { label: 'Overview', href: '/admin', icon: LayoutDashboard },
   { label: 'Catalog Artworks', href: '/admin/products', icon: Package },
   { label: '8 Store Collections', href: '/admin/categories', icon: Layers },
+  { label: 'Customer Orders', href: '/admin/orders', icon: ShoppingBag },
+  { label: 'Customers', href: '/admin/customers', icon: Users },
   { label: 'Team & Staff', href: '/admin/team', icon: ShieldCheck },
   { label: 'Promotions & Coupons', href: '/admin/coupons', icon: Tag },
   { label: 'Store Settings', href: '/admin/settings', icon: Settings },

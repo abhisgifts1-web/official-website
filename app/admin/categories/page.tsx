@@ -135,7 +135,7 @@ export default function AdminCategoriesPage() {
                 key={cat.id}
                 className="bg-white rounded-2xl border border-stone-200 hover:border-amber-400 overflow-hidden shadow-xs flex flex-col justify-between group transition-all"
               >
-                <div className="relative aspect-[16/10] w-full bg-stone-100 overflow-hidden border-b border-stone-200">
+                <div className="relative aspect-square w-full bg-stone-100 overflow-hidden border-b border-stone-200">
                   <img
                     src={cat.image}
                     alt={cat.name}
