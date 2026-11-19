@@ -214,16 +214,16 @@ function ShopContent() {
                     isSelected ? 'scale-105' : 'hover:scale-102'
                   }`}
                 >
-                  {/* Outer Luxury Golden Ring (Square Shape) */}
+                  {/* Outer Luxury Golden Ring (Circle Shape) */}
                   <div
-                    className={`relative w-[78px] h-[78px] sm:w-[92px] sm:h-[92px] lg:w-[104px] lg:h-[104px] aspect-square rounded-2xl p-[2.5px] transition-all duration-300 flex items-center justify-center ${
+                    className={`relative w-[78px] h-[78px] sm:w-[92px] sm:h-[92px] lg:w-[104px] lg:h-[104px] aspect-square rounded-full p-[2.5px] transition-all duration-300 flex items-center justify-center ${
                       isSelected
                         ? 'bg-gradient-to-tr from-amber-500 via-amber-300 to-amber-600 ring-2 ring-amber-500 shadow-[0_6px_20px_rgba(234,179,8,0.45)]'
                         : 'bg-gradient-to-tr from-amber-400 via-amber-200 to-amber-500 hover:from-amber-500 hover:via-yellow-300 hover:to-amber-600 shadow-xs hover:shadow-md'
                     }`}
                   >
-                    {/* Inner Clipping Square */}
-                    <div className="w-full h-full rounded-[13px] overflow-hidden bg-white p-[1.5px] relative flex items-center justify-center">
+                    {/* Inner Clipping Circle */}
+                    <div className="w-full h-full rounded-full overflow-hidden bg-white p-[1.5px] relative flex items-center justify-center">
                       <img
                         src={cat.image}
                         alt={cat.name}
@@ -231,19 +231,19 @@ function ShopContent() {
                         onError={(e) => {
                           (e.target as HTMLImageElement).src = cat.fallbackImage;
                         }}
-                        className="w-full h-full object-cover object-center rounded-[11px] group-hover:scale-110 transition-transform duration-500 ease-out"
+                        className="w-full h-full object-cover object-center rounded-full group-hover:scale-110 transition-transform duration-500 ease-out"
                       />
                       {/* Active Overlay Checkmark or Accent */}
                       {isSelected && (
-                        <div className="absolute inset-0 rounded-[11px] bg-amber-500/20 ring-1 ring-inset ring-amber-500/60 flex items-center justify-center pointer-events-none" />
+                        <div className="absolute inset-0 rounded-full bg-amber-500/20 ring-1 ring-inset ring-amber-500/60 flex items-center justify-center pointer-events-none" />
                       )}
                       {/* Diagonal Acrylic Light Sheen on Hover */}
-                      <div className="absolute inset-0 rounded-[11px] bg-gradient-to-tr from-transparent via-white/50 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out pointer-events-none" />
-                      <div className="absolute inset-0 rounded-[11px] ring-1 ring-inset ring-black/10 pointer-events-none" />
+                      <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-transparent via-white/50 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out pointer-events-none" />
+                      <div className="absolute inset-0 rounded-full ring-1 ring-inset ring-black/10 pointer-events-none" />
                     </div>
                   </div>
 
-                  {/* Category Name Below Square */}
+                  {/* Category Name Below Circle */}
                   <span
                     className={`mt-2 sm:mt-2.5 text-center font-bold text-xs sm:text-[13px] transition-colors leading-tight line-clamp-2 max-w-[105px] ${
                       isSelected ? 'text-amber-800 underline underline-offset-2' : 'text-stone-800 group-hover:text-amber-800'
