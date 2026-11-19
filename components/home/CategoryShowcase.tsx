@@ -57,7 +57,7 @@ export const EDITORIAL_CATEGORIES: EditorialCategory[] = [
   },
   {
     id: 'couple-wedding-frames',
-    name: 'Couple & Wedding',
+    name: 'Couple & Wedding Frames',
     href: '/category/couple-wedding-frames',
     image: '/images/categories/circle-showcase/couple-wedding.jpg',
     fallbackImage: '/images/wall-decor/products/custom/couple-wedding-keepsake.jpg',
