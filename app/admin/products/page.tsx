@@ -1174,17 +1174,6 @@ export default function AdminProductsPage() {
                   </div>
 
                   <div>
-                    <label className="font-semibold text-stone-800 block mb-1">Detailed Story &amp; Description</label>
-                    <textarea
-                      rows={3}
-                      value={formData.description}
-                      onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-                      className="w-full px-3 py-2 bg-white border border-stone-300 rounded-xl outline-none focus:border-amber-500 text-xs text-stone-900 placeholder-stone-400"
-                      placeholder="Craftsmanship details, spiritual significance, and luxury acrylic finish description..."
-                    />
-                  </div>
-
-                  <div>
                     <label className="font-semibold text-stone-800 block mb-1">Search Tags (comma-separated)</label>
                     <input
                       type="text"
