@@ -1,16 +1,36 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
-import { Plus, X, ExternalLink, Layers, Sparkles, Zap, Package, ArrowRight, Edit } from 'lucide-react';
+import { Plus, X, ExternalLink, Layers, Sparkles, Zap, Package, ArrowRight, Edit, Upload, Image as ImageIcon, Loader2, Check } from 'lucide-react';
 import AdminLayout from '@/components/admin/AdminLayout';
 import { Category, Product } from '@/types';
 import { INITIAL_CATEGORIES } from '@/lib/data/categories';
+
+const ensureJpgExtension = (url: string): string => {
+  const trimmed = (url || '').trim();
+  if (
+    !trimmed ||
+    trimmed.startsWith('data:') ||
+    trimmed.startsWith('blob:') ||
+    trimmed.startsWith('http://') ||
+    trimmed.startsWith('https://')
+  ) {
+    return trimmed;
+  }
+  if (/\.(jpg|jpeg|png|webp|svg|gif|avif)$/i.test(trimmed)) {
+    return trimmed;
+  }
+  return `${trimmed}.jpg`;
+};
 
 export default function AdminCategoriesPage() {
   const [categories, setCategories] = useState<Category[]>(INITIAL_CATEGORIES);
   const [products, setProducts] = useState<Product[]>([]);
   const [modalOpen, setModalOpen] = useState(false);
+  const fileInputRef = useRef<HTMLInputElement | null>(null);
+  const [uploadingImage, setUploadingImage] = useState(false);
+  const [imagePreviewError, setImagePreviewError] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     slug: '',
@@ -18,6 +38,46 @@ export default function AdminCategoriesPage() {
     image: '/images/collections/custom-portrait-frame.jpg',
     parentType: 'custom-frames',
   });
+
+  const handleImageFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    try {
+      setUploadingImage(true);
+      setImagePreviewError(false);
+      const reader = new FileReader();
+      reader.onload = async () => {
+        const rawDataUrl = reader.result as string;
+        if (!rawDataUrl) {
+          setUploadingImage(false);
+          return;
+        }
+
+        try {
+          const res = await fetch('/api/upload-photo', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ image: rawDataUrl }),
+          });
+          const data = await res.json();
+          if (data && data.success) {
+            const finalUrl = data.cdnUrl || data.url || rawDataUrl;
+            setFormData((prev) => ({ ...prev, image: finalUrl }));
+          } else {
+            setFormData((prev) => ({ ...prev, image: rawDataUrl }));
+          }
+        } catch {
+          setFormData((prev) => ({ ...prev, image: rawDataUrl }));
+        } finally {
+          setUploadingImage(false);
+        }
+      };
+      reader.readAsDataURL(file);
+    } catch {
+      setUploadingImage(false);
+    }
+  };
 
   const fetchCategoriesAndProducts = async () => {
     try {
@@ -54,7 +114,10 @@ export default function AdminCategoriesPage() {
       const res = await fetch('/api/categories', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...formData,
+          image: ensureJpgExtension(formData.image),
+        }),
       });
       const data = await res.json();
       if (res.ok && data.success) {
@@ -254,14 +317,92 @@ export default function AdminCategoriesPage() {
                 </div>
 
                 <div>
-                  <label className="font-semibold text-stone-700 block mb-1">Banner Image Path *</label>
-                  <input
-                    type="text"
-                    required
-                    value={formData.image}
-                    onChange={(e) => setFormData({ ...formData, image: e.target.value })}
-                    className="w-full px-3 py-2 bg-stone-50 border border-stone-300 rounded-xl outline-none font-mono text-[11px] text-stone-700"
-                  />
+                  <div className="flex items-center justify-between mb-1">
+                    <label className="font-semibold text-stone-700 text-xs">Banner Image (JPG / WebP) *</label>
+                    <input
+                      ref={fileInputRef}
+                      type="file"
+                      accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp"
+                      className="hidden"
+                      onChange={handleImageFileUpload}
+                    />
+                    <button
+                      type="button"
+                      onClick={() => fileInputRef.current?.click()}
+                      disabled={uploadingImage}
+                      className="inline-flex items-center gap-1 px-2 py-0.5 text-[11px] font-semibold bg-amber-500 hover:bg-amber-600 text-stone-900 rounded-lg shadow-sm transition-colors disabled:opacity-50 cursor-pointer"
+                    >
+                      {uploadingImage ? (
+                        <>
+                          <Loader2 className="w-3 h-3 animate-spin text-stone-900" />
+                          <span>Uploading...</span>
+                        </>
+                      ) : (
+                        <>
+                          <Upload className="w-3 h-3" />
+                          <span>Upload JPG</span>
+                        </>
+                      )}
+                    </button>
+                  </div>
+
+                  <div className="flex gap-2 items-center">
+                    <div className="relative flex-1">
+                      <input
+                        type="text"
+                        required
+                        value={formData.image}
+                        onChange={(e) => {
+                          setImagePreviewError(false);
+                          setFormData({ ...formData, image: e.target.value });
+                        }}
+                        className="w-full px-3 py-2 bg-stone-50 border border-stone-300 rounded-xl outline-none font-mono text-[11px] text-stone-700 focus:border-amber-500"
+                        placeholder="/images/collections/... or upload JPG"
+                      />
+                    </div>
+
+                    <div className="w-9 h-9 rounded-lg border border-stone-200 bg-stone-100 flex-shrink-0 overflow-hidden flex items-center justify-center relative shadow-sm">
+                      {formData.image && !imagePreviewError ? (
+                        <img
+                          src={formData.image}
+                          alt="Preview"
+                          className="w-full h-full object-cover"
+                          onError={() => setImagePreviewError(true)}
+                        />
+                      ) : (
+                        <ImageIcon className="w-4 h-4 text-stone-400" />
+                      )}
+                    </div>
+                  </div>
+
+                  <div className="mt-1 flex items-center justify-between text-[11px]">
+                    {formData.image &&
+                    !/\.(jpg|jpeg|png|webp|svg|gif|avif)$/i.test(formData.image.trim()) &&
+                    !formData.image.startsWith('data:') ? (
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setFormData({
+                            ...formData,
+                            image: `${formData.image.trim()}.jpg`,
+                          });
+                        }}
+                        className="text-amber-700 hover:text-amber-900 font-medium underline flex items-center gap-1 text-[10px]"
+                      >
+                        + Append &apos;.jpg&apos; extension
+                      </button>
+                    ) : (
+                      <span className="text-stone-400 text-[10px]">
+                        Accepts .jpg, .jpeg, .webp, .png or direct path
+                      </span>
+                    )}
+
+                    {formData.image && (
+                      <span className="text-emerald-700 text-[10px] font-medium flex items-center gap-0.5">
+                        <Check className="w-3 h-3" /> Image linked
+                      </span>
+                    )}
+                  </div>
                 </div>
 
                 <div>

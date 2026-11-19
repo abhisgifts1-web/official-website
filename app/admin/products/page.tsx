@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import {
   Plus,
@@ -14,6 +14,10 @@ import {
   Ruler,
   CheckCircle2,
   Tag,
+  Upload,
+  Image as ImageIcon,
+  Loader2,
+  Check,
 } from 'lucide-react';
 import AdminLayout from '@/components/admin/AdminLayout';
 import { Product, ProductOrientation, OrientationShape } from '@/types';
@@ -57,6 +61,23 @@ const getDefault4Variants = (
   ];
 };
 
+const ensureJpgExtension = (url: string): string => {
+  const trimmed = (url || '').trim();
+  if (
+    !trimmed ||
+    trimmed.startsWith('data:') ||
+    trimmed.startsWith('blob:') ||
+    trimmed.startsWith('http://') ||
+    trimmed.startsWith('https://')
+  ) {
+    return trimmed;
+  }
+  if (/\.(jpg|jpeg|png|webp|svg|gif|avif)$/i.test(trimmed)) {
+    return trimmed;
+  }
+  return `${trimmed}.jpg`;
+};
+
 export default function AdminProductsPage() {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
@@ -65,6 +86,51 @@ export default function AdminProductsPage() {
   const [modalOpen, setModalOpen] = useState(false);
   const [editingSlug, setEditingSlug] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
+
+  // Artwork Image Upload & Format States
+  const fileInputRef = useRef<HTMLInputElement | null>(null);
+  const [uploadingImage, setUploadingImage] = useState(false);
+  const [imagePreviewError, setImagePreviewError] = useState(false);
+
+  const handleImageFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    try {
+      setUploadingImage(true);
+      setImagePreviewError(false);
+      const reader = new FileReader();
+      reader.onload = async () => {
+        const rawDataUrl = reader.result as string;
+        if (!rawDataUrl) {
+          setUploadingImage(false);
+          return;
+        }
+
+        try {
+          const res = await fetch('/api/upload-photo', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ image: rawDataUrl }),
+          });
+          const data = await res.json();
+          if (data && data.success) {
+            const finalUrl = data.cdnUrl || data.url || rawDataUrl;
+            setFormData((prev) => ({ ...prev, imageUrl: finalUrl }));
+          } else {
+            setFormData((prev) => ({ ...prev, imageUrl: rawDataUrl }));
+          }
+        } catch {
+          setFormData((prev) => ({ ...prev, imageUrl: rawDataUrl }));
+        } finally {
+          setUploadingImage(false);
+        }
+      };
+      reader.readAsDataURL(file);
+    } catch {
+      setUploadingImage(false);
+    }
+  };
 
   // Quick Add Size Option state (accessible directly from any product row in the table)
   const [quickSizeProduct, setQuickSizeProduct] = useState<Product | null>(null);
@@ -360,7 +426,7 @@ export default function AdminProductsPage() {
         shape: formData.shape,
         artStyle: formData.artStyle,
         orientation: formData.orientation,
-        images: [formData.imageUrl.trim()],
+        images: [ensureJpgExtension(formData.imageUrl)],
         tags: formData.tags.split(',').map((t) => t.trim()),
         isFeatured: formData.isFeatured,
         isBestseller: formData.isBestseller,
@@ -755,15 +821,96 @@ export default function AdminProductsPage() {
                     </div>
 
                     <div>
-                      <label className="font-semibold text-stone-800 block mb-1">Artwork Image URL *</label>
-                      <input
-                        type="text"
-                        required
-                        value={formData.imageUrl}
-                        onChange={(e) => setFormData({ ...formData, imageUrl: e.target.value })}
-                        className="w-full px-3 py-2 bg-white border border-stone-300 rounded-xl outline-none font-mono text-[11px] text-stone-900 placeholder-stone-400"
-                        placeholder="/images/products/..."
-                      />
+                      <div className="flex items-center justify-between mb-1">
+                        <label className="font-semibold text-stone-800 text-xs">
+                          Artwork Image (JPG / WebP) *
+                        </label>
+                        <input
+                          ref={fileInputRef}
+                          type="file"
+                          accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp"
+                          className="hidden"
+                          onChange={handleImageFileUpload}
+                        />
+                        <button
+                          type="button"
+                          onClick={() => fileInputRef.current?.click()}
+                          disabled={uploadingImage}
+                          className="inline-flex items-center gap-1 px-2 py-0.5 text-[11px] font-semibold bg-amber-500 hover:bg-amber-600 text-stone-900 rounded-lg shadow-sm transition-colors disabled:opacity-50 cursor-pointer"
+                        >
+                          {uploadingImage ? (
+                            <>
+                              <Loader2 className="w-3 h-3 animate-spin text-stone-900" />
+                              <span>Uploading...</span>
+                            </>
+                          ) : (
+                            <>
+                              <Upload className="w-3 h-3" />
+                              <span>Upload JPG</span>
+                            </>
+                          )}
+                        </button>
+                      </div>
+
+                      <div className="flex gap-2 items-center">
+                        <div className="relative flex-1">
+                          <input
+                            type="text"
+                            required
+                            value={formData.imageUrl}
+                            onChange={(e) => {
+                              setImagePreviewError(false);
+                              setFormData({ ...formData, imageUrl: e.target.value });
+                            }}
+                            className="w-full px-3 py-2 bg-white border border-stone-300 rounded-xl outline-none font-mono text-[11px] text-stone-900 placeholder-stone-400 focus:border-amber-500"
+                            placeholder="/images/mockups/... or https://... or upload JPG"
+                          />
+                        </div>
+
+                        {/* Image Preview Thumbnail */}
+                        <div className="w-9 h-9 rounded-lg border border-stone-200 bg-stone-100 flex-shrink-0 overflow-hidden flex items-center justify-center relative shadow-sm">
+                          {formData.imageUrl && !imagePreviewError ? (
+                            <img
+                              src={formData.imageUrl}
+                              alt="Preview"
+                              className="w-full h-full object-cover"
+                              onError={() => setImagePreviewError(true)}
+                            />
+                          ) : (
+                            <ImageIcon className="w-4 h-4 text-stone-400" />
+                          )}
+                        </div>
+                      </div>
+
+                      {/* Helper options: append .jpg or verification indicator */}
+                      <div className="mt-1 flex items-center justify-between text-[11px]">
+                        {formData.imageUrl &&
+                        !/\.(jpg|jpeg|png|webp|svg|gif|avif)$/i.test(formData.imageUrl.trim()) &&
+                        !formData.imageUrl.startsWith('data:') ? (
+                          <button
+                            type="button"
+                            onClick={() => {
+                              setFormData({
+                                ...formData,
+                                imageUrl: `${formData.imageUrl.trim()}.jpg`,
+                              });
+                            }}
+                            className="text-amber-700 hover:text-amber-900 font-medium underline flex items-center gap-1 text-[10px]"
+                          >
+                            + Append &apos;.jpg&apos; extension
+                          </button>
+                        ) : (
+                          <span className="text-stone-400 text-[10px]">
+                            Accepts .jpg, .jpeg, .webp, .png or direct path
+                          </span>
+                        )}
+
+                        {formData.imageUrl && (
+                          <span className="text-emerald-700 text-[10px] font-medium flex items-center gap-0.5">
+                            <Check className="w-3 h-3" /> Image linked
+                          </span>
+                        )}
+                      </div>
                     </div>
                   </div>
 
