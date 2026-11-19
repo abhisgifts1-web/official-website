@@ -4,9 +4,6 @@ import React, { useState, useMemo, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import {
-  Heart,
-  Home,
-  Share2,
   Check,
   CheckCircle2,
   ZoomIn,
@@ -31,14 +28,12 @@ import {
   Eye,
   Flame,
   Camera,
-  Tag,
 } from 'lucide-react';
 import AddPhotoModal from '@/components/product/AddPhotoModal';
 import CustomSizeInput from '@/components/product/CustomSizeInput';
 import { calculateCustomDimensions } from '@/lib/utils/customSize';
 import { Product } from '@/types';
 import { useCart } from '@/context/CartContext';
-import { useWishlist } from '@/context/WishlistContext';
 import { INITIAL_SETTINGS } from '@/lib/data/settings';
 import ProductCard from '@/components/product/ProductCard';
 
@@ -355,7 +350,6 @@ interface Props {
 export default function ProductDetailClient({ product, relatedProducts }: Props) {
   const router = useRouter();
   const { addToCart, closeCart } = useCart();
-  const { isInWishlist, toggleWishlist } = useWishlist();
 
   // Live product synchronization with API to reflect instant admin changes
   const [liveProduct, setLiveProduct] = useState<Product>(product);
@@ -486,7 +480,6 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [zoomCoords, setZoomCoords] = useState<{ x: number; y: number } | null>(null);
   const [isAartiGlow, setIsAartiGlow] = useState(product.hasLedBacklight);
-  const [copiedLink, setCopiedLink] = useState(false);
 
   // Pincode Checker State
   const [pincode, setPincode] = useState('');
@@ -503,8 +496,6 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
 
   // Tabs state
   const [activeTab, setActiveTab] = useState<'overview' | 'craft' | 'specs' | 'sizeguide' | 'install' | 'shipping' | 'faq'>('overview');
-
-  const wishlisted = isInWishlist(product.slug);
 
   // Preload all gallery and frame images in the background
   useEffect(() => {
@@ -809,14 +800,6 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
     }\n• Finish: ${selectedFrame}\n• Auto-Calculated Price: ₹${currentPricing.price.toLocaleString('en-IN')}\n${artworkImgRef ? `• Artwork Link: ${artworkImgRef}\n` : ''}\nPlease assist me with proofing before printing. Thank you!`
   )}`;
 
-  const handleShare = () => {
-    if (typeof navigator !== 'undefined' && navigator.clipboard) {
-      navigator.clipboard.writeText(window.location.href);
-      setCopiedLink(true);
-      setTimeout(() => setCopiedLink(false), 2000);
-    }
-  };
-
   const nextImage = () => {
     setActiveImageIndex((prev) => (prev + 1) % galleryImages.length);
   };
@@ -828,103 +811,6 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
   return (
     <div className="w-full bg-white text-stone-900 transition-colors duration-300">
       <div className="w-full max-w-[1720px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-14 py-4 sm:py-6 space-y-8 sm:space-y-12">
-        {/* Top Breadcrumb Navigation & Quick Actions */}
-        <nav
-          aria-label="Breadcrumb"
-          className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs bg-gradient-to-r from-stone-50 via-white to-amber-50/40 p-2 sm:p-2.5 rounded-2xl border border-stone-200/90 shadow-2xs backdrop-blur-sm overflow-hidden"
-        >
-          <ol className="flex items-center flex-wrap sm:flex-nowrap gap-1 sm:gap-1.5 min-w-0 overflow-hidden">
-            {/* Home Pill */}
-            <li className="shrink-0">
-              <Link
-                href="/"
-                className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-xl text-stone-600 hover:text-stone-950 bg-white hover:bg-stone-50 border border-stone-200/80 hover:border-amber-400 shadow-2xs transition-all font-semibold group cursor-pointer"
-              >
-                <Home className="w-3.5 h-3.5 text-amber-600 group-hover:scale-110 transition-transform" />
-                <span>Home</span>
-              </Link>
-            </li>
-
-            <li className="text-amber-500/80 shrink-0">
-              <ChevronRight className="w-3.5 h-3.5" />
-            </li>
-
-            {/* Shop */}
-            <li className="shrink-0">
-              <Link
-                href="/shop"
-                className="inline-flex items-center gap-1 px-2.5 py-1 rounded-xl text-stone-600 hover:text-stone-950 bg-white hover:bg-stone-50 border border-stone-200/80 hover:border-amber-400 shadow-2xs transition-all font-semibold cursor-pointer"
-              >
-                <span>Shop</span>
-              </Link>
-            </li>
-
-            {product.categorySlug && (
-              <>
-                <li className="text-amber-500/80 shrink-0">
-                  <ChevronRight className="w-3.5 h-3.5" />
-                </li>
-                <li className="shrink-0 max-w-[120px] sm:max-w-[160px] truncate">
-                  <Link
-                    href={`/category/${product.categorySlug}`}
-                    className="inline-flex items-center gap-1 px-2.5 py-1 rounded-xl text-stone-600 hover:text-stone-950 bg-white hover:bg-stone-50 border border-stone-200/80 hover:border-amber-400 shadow-2xs transition-all font-semibold capitalize cursor-pointer truncate"
-                  >
-                    <span className="truncate">{product.categoryName || product.deity || 'Collection'}</span>
-                  </Link>
-                </li>
-              </>
-            )}
-
-            <li className="text-amber-500/80 shrink-0">
-              <ChevronRight className="w-3.5 h-3.5" />
-            </li>
-
-            {/* Active Current Product Badge (Truncated to fit screen cleanly) */}
-            <li
-              className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1 rounded-xl bg-gradient-to-r from-amber-500/15 via-amber-400/20 to-amber-500/15 border border-amber-400/50 text-amber-950 font-bold shadow-2xs min-w-0 max-w-[130px] sm:max-w-[180px] md:max-w-[240px] lg:max-w-[280px] truncate"
-              aria-current="page"
-              title={product.title}
-            >
-              <Sparkles className="w-3 h-3 text-amber-600 shrink-0 animate-pulse" />
-              <span className="truncate">{product.title}</span>
-            </li>
-          </ol>
-
-          {/* Quick Utility Actions */}
-          <div className="flex items-center gap-2 shrink-0 self-end sm:self-center">
-            <button
-              type="button"
-              onClick={() => toggleWishlist(product.slug)}
-              className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl border transition-all cursor-pointer text-xs font-semibold ${
-                wishlisted
-                  ? 'bg-rose-50 text-rose-600 border-rose-300 shadow-xs'
-                  : 'bg-white text-stone-700 border-stone-200/80 hover:text-stone-900 hover:border-amber-400 shadow-2xs'
-              }`}
-              title={wishlisted ? 'Remove from Wishlist' : 'Add to Wishlist'}
-              aria-label="Wishlist"
-            >
-              <Heart className={`w-3.5 h-3.5 ${wishlisted ? 'fill-current text-rose-600' : 'text-stone-500'}`} />
-              <span className="hidden md:inline">{wishlisted ? 'Saved' : 'Save'}</span>
-            </button>
-
-            <button
-              type="button"
-              onClick={handleShare}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white text-stone-700 border border-stone-200/80 hover:text-stone-900 hover:border-amber-400 shadow-2xs transition-all cursor-pointer relative text-xs font-semibold"
-              title="Share Artwork"
-              aria-label="Share"
-            >
-              <Share2 className="w-3.5 h-3.5 text-stone-500" />
-              <span className="hidden md:inline">Share</span>
-              {copiedLink && (
-                <span className="absolute -bottom-8 right-0 bg-stone-900 text-white text-[10px] font-bold px-2 py-0.5 rounded-md shadow-md whitespace-nowrap animate-in fade-in">
-                  Link Copied!
-                </span>
-              )}
-            </button>
-          </div>
-        </nav>
-
         {/* Main 2-Column Showcase */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 xl:gap-16 items-start">
           {/* LEFT COLUMN: Main Sticky Artwork Frame & Mockups Gallery */}
@@ -937,21 +823,6 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                   : 'shadow-sm'
               }`}
             >
-              {/* Top Left Refined Promotional Badges */}
-              <div className="absolute top-4 left-4 z-20 flex flex-col items-start gap-1.5 pointer-events-none">
-                {discountPercent > 0 && (
-                  <span className="bg-amber-100 text-amber-900 text-[11px] font-bold px-3 py-1 rounded-full shadow-xs border border-amber-300 backdrop-blur-xs flex items-center gap-1.5 tracking-wide">
-                    <Sparkles className="w-3 h-3 text-amber-600" />
-                    <span>Save {discountPercent}%</span>
-                  </span>
-                )}
-                {product.isBestseller && (
-                  <span className="bg-amber-400 text-stone-950 text-[10px] font-bold px-2.5 py-0.5 rounded-full shadow-xs border border-amber-500 uppercase tracking-wider">
-                    ★ Best Seller
-                  </span>
-                )}
-              </div>
-
               {/* Top Right Floating Controls: warm Glow Mode + Fullscreen Zoom */}
               <div className="absolute top-4 right-4 z-20 flex items-center gap-2">
                 {/* Lightbox Trigger */}
@@ -1134,12 +1005,9 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
             ref={mainPurchaseRef}
             className="lg:col-span-5 xl:col-span-5 space-y-6 bg-white p-6 sm:p-8 rounded-3xl border border-stone-200 shadow-md"
           >
-            {/* Header Block: Category, Stock & Title */}
+            {/* Header Block: Stock & Title */}
             <div className="space-y-2.5">
-              <div className="flex items-center justify-between gap-2 flex-wrap">
-                <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-stone-800 bg-stone-100 px-3 py-1 rounded-full border border-stone-200">
-                  {product.deity || product.categoryName || 'Sacred Wall Decor'}
-                </span>
+              <div className="flex items-center justify-start gap-2 flex-wrap">
                 <span className="text-[11px] font-semibold text-emerald-800 flex items-center gap-1.5 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200">
                   <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
                   <span>In Stock • Ships in 24-48 Hours</span>
@@ -1149,12 +1017,6 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
               <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-[32px] font-serif font-bold text-stone-900 leading-tight tracking-tight break-words [text-wrap:balance]">
                 {product.title}
               </h1>
-
-              {product.subtitle && (
-                <p className="text-xs sm:text-sm text-stone-600 font-medium leading-relaxed max-w-xl [text-wrap:pretty]">
-                  {product.subtitle}
-                </p>
-              )}
             </div>
 
             {/* Dynamic Pricing Banner */}
@@ -1184,32 +1046,15 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                   <span>Custom Laser-Cut Size ({customSizeCalc.widthInches}&quot; × {customSizeCalc.heightInches}&quot;) • Calculated from standard sizes</span>
                 </div>
               )}
-
-              <p className="text-[11px] text-stone-600 font-medium flex items-center gap-1.5 pt-0.5">
-                <Sparkles className="w-3 h-3 text-amber-600 shrink-0" />
-                <span>Inclusive of all taxes • Handcrafted in Hyderabad Workshop</span>
-              </p>
             </div>
 
-            {/* Universal Promotional Coupon Banner */}
-            <div className="flex items-center gap-2 p-3 bg-amber-50/90 border border-amber-300 rounded-2xl text-xs text-amber-950 font-medium shadow-2xs">
-              <Tag className="w-4 h-4 text-amber-700 shrink-0" />
-              <span>
-                Special Offer: Apply coupon code{' '}
-                <strong className="font-mono bg-white px-2 py-0.5 rounded-md border border-amber-300 text-amber-900 font-extrabold shadow-2xs">
-                  ABHIS10
-                </strong>{' '}
-                at checkout for instant discount!
-              </span>
-            </div>
-
-            {/* Customization 1: Frame Style (Hidden for Glitter Photo Frames) */}
+            {/* Customization: Frame Style (Hidden for Glitter Photo Frames) */}
             {!isGlitterFrame && (
               <>
                 <div className="space-y-2.5">
                   <div className="flex items-center justify-between text-xs">
                     <span className="font-bold text-stone-900">
-                      1. Frame Style:{' '}
+                      Frame Style:{' '}
                       <strong className="text-amber-800 font-serif">
                         {selectedFrame === 'gold' ? 'Champagne Gold' : selectedFrame === 'black' ? 'Matte Black' : 'Frameless Crystal Acrylic'}
                       </strong>
@@ -1319,7 +1164,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
             <div className="space-y-2.5">
               <div className="flex items-center justify-between text-xs">
                 <span className="font-bold text-stone-900">
-                  {isGlitterFrame ? 'Select Dimensions & Size:' : '3. Dimensions:'}{' '}
+                  Dimensions &amp; Size:{' '}
                   <strong className="text-amber-800 font-serif">
                     {isCustomSize ? `${customSizeCalc.widthInches}" × ${customSizeCalc.heightInches}" (${customSizeCalc.dimensionsCm}) [Custom Size]` : (currentSizeObj ? `${currentSizeObj.label} (${currentSizeObj.dimensionsCm})` : 'Select Size')}
                   </strong>
