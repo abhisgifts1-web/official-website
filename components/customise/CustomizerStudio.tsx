@@ -1330,20 +1330,6 @@ export default function CustomizerStudio() {
               </span>
             </div>
 
-            {/* Special Instructions */}
-            <div className="space-y-1">
-              <label className="text-xs font-semibold text-stone-900 block">
-                Special Workshop Instructions (Optional)
-              </label>
-              <textarea
-                rows={2}
-                placeholder="e.g. Please optimize facial tone, enhance brightness, or provide proof before dispatch."
-                value={specialInstructions}
-                onChange={(e) => setSpecialInstructions(e.target.value)}
-                className="w-full px-3.5 py-2 text-xs bg-white border border-stone-300 rounded-xl outline-none focus:border-amber-500 text-stone-900"
-              />
-            </div>
-
             {/* =====================================================
                 PRICING SUMMARY & ORDER CARD
                 ===================================================== */}
