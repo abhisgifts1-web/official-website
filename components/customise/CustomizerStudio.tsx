@@ -29,6 +29,10 @@ import {
   Palette,
   Maximize2,
   ChevronDown,
+  RectangleVertical,
+  RectangleHorizontal,
+  Square,
+  Sparkle,
 } from 'lucide-react';
 import { useCart } from '@/context/CartContext';
 import { ProductOrientation } from '@/types';
@@ -44,8 +48,7 @@ export type FrameCategory =
   | 'led-backlit'
   | 'customized'
   | 'luxury-acrylic'
-  | 'wooden'
-  | 'round-acrylic';
+  | 'wooden';
 
 export interface FrameCategoryOption {
   id: FrameCategory;
@@ -59,10 +62,10 @@ export interface FrameCategoryOption {
 }
 
 export type FrameFinish =
+  | 'floating-standoff'
   | 'crystal-gloss'
   | 'transparent'
   | 'premium-matte'
-  | 'floating-standoff'
   | 'wooden-box';
 
 export interface FrameFinishOption {
@@ -130,7 +133,7 @@ export const FRAME_CATEGORIES: FrameCategoryOption[] = [
     id: 'led-backlit',
     name: 'LED Backlit Photo Frames',
     badge: 'Trending Gift',
-    subtitle: 'warm Halo Illumination',
+    subtitle: 'Warm Halo Illumination',
     description: 'Concealed Epistar warm golden perimeter LEDs casting a serene halo around your sacred memory or family portrait.',
     multiplier: 1.35,
     hasLedDefault: true,
@@ -181,7 +184,7 @@ export const FRAME_FINISHES: FrameFinishOption[] = [
   },
   {
     id: 'transparent',
-    name: 'Transparent Acrylic',
+    name: 'Transparent Border',
     subtitle: 'Clear Border Halo Effect',
     description: 'Optically clear border allowing your wall color to subtly frame your photograph.',
     priceAddition: 150,
@@ -195,7 +198,7 @@ export const FRAME_FINISHES: FrameFinishOption[] = [
   },
   {
     id: 'wooden-box',
-    name: 'Wooden Box Finish',
+    name: 'Wooden Box Frame',
     subtitle: 'Deep Natural Teak Wood',
     description: 'Architectural hardwood frame tray encasing the acrylic panel with 1.5-inch shadow box depth.',
     priceAddition: 400,
@@ -215,15 +218,15 @@ export const LED_OPTIONS: LedOptionConfig[] = [
     id: 'warm-white',
     name: 'Warm Ambient LED',
     subtitle: 'Golden Candlelit Sanctum',
-    temperature: 'Warm Ambient',
+    temperature: 'Warm Ambient (3000K)',
     priceAddition: 600,
     glowColor: 'rgba(255, 195, 75, 0.75)',
   },
   {
     id: 'cool-white',
-    name: 'Cool White LED (6500K)',
+    name: 'Cool White LED',
     subtitle: 'Modern Crisp Ambient Halo',
-    temperature: '6500K',
+    temperature: '6500K Crisp White',
     priceAddition: 600,
     glowColor: 'rgba(215, 235, 255, 0.8)',
   },
@@ -264,56 +267,55 @@ export const CALIBRATED_SIZES: Record<ProductOrientation, SizeConfig[]> = {
   ],
 };
 
-
 export const SAMPLE_MEMORIES = [
   {
-    id: 'wedding',
-    name: 'Wedding Caricature',
-    tag: 'Animated Couple',
-    image: '/images/custom-art/cartoon-wedding-couple.svg',
+    id: 'couple-wedding',
+    name: 'Couple & Wedding',
+    tag: 'Wedding Keepsake',
+    image: '/images/categories/circle-showcase/couple-wedding.jpg',
+    defaultText: 'Forever & Always • Manoj & Pooja',
+  },
+  {
+    id: 'acrylic-portrait',
+    name: 'Crystal Acrylic',
+    tag: 'Classic Gloss',
+    image: '/images/categories/circle-showcase/acrylic-photo-frames.jpg',
+    defaultText: 'Cherished Memories • Timeless Elegance',
+  },
+  {
+    id: 'family-baby',
+    name: 'Family & Baby',
+    tag: 'Heirloom Heritage',
+    image: '/images/categories/circle-showcase/family-baby-frames.jpg',
     defaultText: 'The Sharma Family • Consecrated 2026',
   },
   {
-    id: 'family',
-    name: 'Family Heirloom',
-    tag: 'Cartoon Family',
-    image: '/images/custom-art/cartoon-family-portrait.svg',
-    defaultText: 'The Kulkarni Residence • Est. 1998',
+    id: 'led-halo',
+    name: 'LED Backlit Halo',
+    tag: 'Night Illumination',
+    image: '/images/categories/circle-showcase/led-photo-frames.jpg',
+    defaultText: 'Under The Golden Glow • Eternal Warmth',
   },
   {
-    id: 'newborn',
-    name: 'Baby Milestone',
-    tag: 'Cute Animated',
-    image: '/images/custom-art/cartoon-baby-milestone.svg',
-    defaultText: 'Aarav • Born August 14, 2026',
-  },
-  {
-    id: 'nightglow',
-    name: 'Night-Glow Glow',
-    tag: 'Starlight Romance',
-    image: '/images/custom-art/cartoon-couple-nightglow.svg',
-    defaultText: 'Under The Stars • Eternal Glow',
-  },
-  {
-    id: 'devotional',
+    id: 'devotional-mandir',
     name: 'Sacred Mandir',
-    tag: 'Stylized Ganesha',
-    image: '/images/custom-art/cartoon-sacred-ganesha.svg',
-    defaultText: 'Om Gam Ganapataye Namaha • Shubh Labh',
+    tag: 'Divine Blessings',
+    image: '/images/categories/circle-showcase/god-photo-frames.jpg',
+    defaultText: 'Om Namo Venkateshaya • Shubh Labh',
   },
 ];
 
 export const GALLERY_PRODUCTS: GalleryProductItem[] = [
   {
     id: 'gal-wedding',
-    title: 'Personalized Wedding Caricature Acrylic Frame',
-    subtitle: 'Vows & Marriage Animated Couple Keepsake',
-    category: 'Wedding Caricature',
-    image: '/images/custom-art/cartoon-wedding-couple.svg',
+    title: 'Couple & Wedding Keepsake Acrylic Photo Frame',
+    subtitle: 'Vows & Marriage Commemorative Photo Frame',
+    category: 'Couple & Wedding',
+    image: '/images/mockups/custom-couple-wedding-vows-acrylic-keepsake-frame/primary-square.jpg',
     startingPrice: 2499,
     mrp: 4499,
-    badge: 'Most Popular for Couples',
-    description: 'Celebrate sacred vows with charming 3D animated wedding couple caricatures, golden foil surname script, and floating wall studs.',
+    badge: 'Bestseller for Couples',
+    description: 'Celebrate sacred vows with museum-grade acrylic clarity, golden foil surname script, and premium floating stainless steel wall studs.',
     preset: {
       category: 'customized',
       orientation: 'vertical',
@@ -324,14 +326,14 @@ export const GALLERY_PRODUCTS: GalleryProductItem[] = [
   },
   {
     id: 'gal-family',
-    title: 'Animated Family Portrait Heirloom Frame',
-    subtitle: 'Multi-Generation Cartoon Heritage Display',
+    title: 'Custom Panoramic Family Heirloom Acrylic Frame',
+    subtitle: 'Multi-Generation Heritage Wall Display',
     category: 'Family Wall Decor',
-    image: '/images/custom-art/cartoon-family-portrait.svg',
+    image: '/images/mockups/custom-panoramic-landscape-acrylic-family-frame/primary-square.jpg',
     startingPrice: 2299,
     mrp: 4199,
-    badge: 'Housewarming Gift',
-    description: 'Turn your family portrait into a joyful animated cartoon centerpiece with ultra-crisp archival pigments and scratch-resistant gloss shield.',
+    badge: 'Housewarming Favorite',
+    description: 'Showcase beloved family moments across an expansive landscape acrylic panel with rich archival colors and diamond-beveled edges.',
     preset: {
       category: 'luxury-acrylic',
       orientation: 'horizontal',
@@ -342,14 +344,14 @@ export const GALLERY_PRODUCTS: GalleryProductItem[] = [
   },
   {
     id: 'gal-couple',
-    title: 'Romantic Candid Couple Floating Acrylic Frame',
-    subtitle: 'Cute Illustrated Keepsake Art',
+    title: 'Romantic Couple Floating Acrylic Frame',
+    subtitle: 'Pre-Wedding & Candid Couple Portrait',
     category: 'Couple Portrait',
-    image: '/images/custom-art/cartoon-candid-couple.svg',
+    image: '/images/categories/circle-showcase/couple-wedding.jpg',
     startingPrice: 1499,
     mrp: 2999,
     badge: 'Sleek & Frameless',
-    description: 'Heartwarming animated couple illustration that appears to float 1 inch off your bedroom wall with brushed chrome hardware.',
+    description: 'High-clarity optical cast acrylic floating 1 inch off your wall with brushed chrome standoffs. Perfect for master bedrooms and personal galleries.',
     preset: {
       category: 'normal-acrylic',
       orientation: 'vertical',
@@ -360,14 +362,14 @@ export const GALLERY_PRODUCTS: GalleryProductItem[] = [
   },
   {
     id: 'gal-baby',
-    title: 'Baby Memory Milestone Cartoon Acrylic Keepsake',
-    subtitle: 'Newborn Smiles & Birth Statistics',
+    title: 'Family & Baby Memory Milestone Keepsake Frame',
+    subtitle: 'Newborn Smiles & Cherished Moments',
     category: 'Baby Keepsake',
-    image: '/images/custom-art/cartoon-baby-milestone.svg',
+    image: '/images/categories/circle-showcase/family-baby-frames.jpg',
     startingPrice: 1699,
     mrp: 3199,
-    badge: 'Newborn Milestone',
-    description: 'Preserve tiny hands, first birthdays, and baby memories in whimsical storybook cartoon illustrations on shatterproof acrylic.',
+    badge: 'Milestone Keepsake',
+    description: 'Preserve tiny smiles and memorable childhood steps on shatterproof, crystal-gloss acrylic with personalized date and name typography.',
     preset: {
       category: 'customized',
       orientation: 'square',
@@ -377,33 +379,33 @@ export const GALLERY_PRODUCTS: GalleryProductItem[] = [
     },
   },
   {
-    id: 'gal-birthday',
-    title: 'Birthday Celebration Cartoon Photo Frame',
-    subtitle: 'Festive Cake, Balloons & Party Fun',
-    category: 'Celebration Gift',
-    image: '/images/custom-art/cartoon-birthday-celebration.svg',
-    startingPrice: 1399,
-    mrp: 2699,
-    badge: 'Joyful Milestone',
-    description: 'Vibrant party cartoon artwork with personalized birthday wishes, ideal for landmark 1st, 18th, 25th, or 50th celebrations.',
+    id: 'gal-grid',
+    title: 'Studio Square Grid Multi-Photo Acrylic Frame',
+    subtitle: 'Collage of Your Favorite Moments',
+    category: 'Collage Frame',
+    image: '/images/mockups/custom-studio-square-acrylic-grid-photo-frame/primary-square.jpg',
+    startingPrice: 1899,
+    mrp: 3499,
+    badge: 'Modern Aesthetic',
+    description: 'Combine multiple snapshots into a synchronized studio square grid layout with ultra-sharp UV printing and crystal clarity.',
     preset: {
       category: 'normal-acrylic',
       orientation: 'square',
       finish: 'crystal-gloss',
       led: 'none',
-      sizeId: '10x10',
+      sizeId: '16x16',
     },
   },
   {
     id: 'gal-led',
-    title: 'LED Night Glow Backlit Animated Frame',
-    subtitle: 'Warm Golden Halo Romance',
+    title: 'LED Backlit Halo Night Glow Acrylic Frame',
+    subtitle: 'Warm Golden Ambient Perimeter Illumination',
     category: 'Illuminated Frame',
-    image: '/images/custom-art/cartoon-couple-nightglow.svg',
+    image: '/images/mockups/custom-led-backlit-acrylic-photo-frame/primary-square.jpg',
     startingPrice: 2499,
     mrp: 4799,
-    badge: 'High-Efficiency LEDs',
-    description: 'Concealed low-voltage 12V BIS certified warm backlighting turns your romantic starlight cartoon couple into a glowing bedside sanctuary.',
+    badge: 'Warm Ambient LED',
+    description: 'Concealed low-voltage 12V BIS-certified warm perimeter LEDs cast a soothing halo around your portrait, turning any room into a tranquil space.',
     preset: {
       category: 'led-backlit',
       orientation: 'vertical',
@@ -413,33 +415,33 @@ export const GALLERY_PRODUCTS: GalleryProductItem[] = [
     },
   },
   {
-    id: 'gal-anniversary',
-    title: 'Silver & Golden Jubilee Script Frame',
-    subtitle: 'Anniversary Milestones & Vows Caricature',
-    category: 'Anniversary Keepsake',
-    image: '/images/custom-art/cartoon-anniversary-golden.svg',
-    startingPrice: 2799,
-    mrp: 5199,
-    badge: 'Golden Script',
-    description: 'Commemorate 25th and 50th wedding milestones with heartwarming animated couple caricatures and real gold leaf foil script.',
+    id: 'gal-glitter',
+    title: 'Sparkling Diamond Glitter Acrylic Photo Frame',
+    subtitle: 'Subtle Shimmer & Golden Luxury Accent',
+    category: 'Glitter Photo Frame',
+    image: '/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/primary-square.jpg',
+    startingPrice: 2699,
+    mrp: 4999,
+    badge: 'Luxury Accent',
+    description: 'Infused with fine diamond shimmer dust that catches ambient light beautifully, creating an extraordinary wedding or anniversary statement.',
     preset: {
       category: 'luxury-acrylic',
-      orientation: 'horizontal',
-      finish: 'floating-standoff',
+      orientation: 'square',
+      finish: 'crystal-gloss',
       led: 'warm-white',
-      sizeId: '18x12',
+      sizeId: '12x12',
     },
   },
   {
     id: 'gal-devotional',
-    title: 'Religious & Devotional Stylized Mandir Frame',
-    subtitle: 'Sacred Deities & Pooja Sanctum Blessings',
+    title: 'Sacred Mandir 3D LED Backlit Devotional Frame',
+    subtitle: 'Divine Sanctum & Pooja Room Wall Art',
     category: 'Devotional Wall Art',
-    image: '/images/custom-art/cartoon-sacred-ganesha.svg',
+    image: '/images/mockups/tirupati-balaji-divine-led-backlit-acrylic-wall-art/primary-square.jpg',
     startingPrice: 2899,
     mrp: 5499,
     badge: 'Pooja Sanctum Decor',
-    description: 'Consecrate your pooja mandir with stylized 3D divine Lord Ganesha animated artwork and warm glowing diya lamps in backlit acrylic.',
+    description: 'Consecrate your pooja mandir with luminous 3D divine deity artwork with a warm golden backlight halo and temple brass-finish hardware.',
     preset: {
       category: 'led-backlit',
       orientation: 'vertical',
@@ -466,9 +468,9 @@ export default function CustomizerStudio() {
   const [selectedSizeId, setSelectedSizeId] = useState<string>('12x18');
   const [customWidth, setCustomWidth] = useState<number>(24);
   const [customHeight, setCustomHeight] = useState<number>(18);
-  const [finish, setFinish] = useState<FrameFinish>('crystal-gloss');
+  const [finish, setFinish] = useState<FrameFinish>('floating-standoff');
   const [led, setLed] = useState<LedOption>('warm-white');
-  const [customText, setCustomText] = useState<string>('The Sharma Family • Consecrated 2026');
+  const [customText, setCustomText] = useState<string>('Forever & Always • Manoj & Pooja');
   const [specialInstructions, setSpecialInstructions] = useState<string>('');
 
   // Interactive Live Preview Controls
@@ -476,7 +478,7 @@ export default function CustomizerStudio() {
   const [isUserUploaded, setIsUserUploaded] = useState<boolean>(false);
   const [zoomLevel, setZoomLevel] = useState<number>(1.0);
   const [rotation, setRotation] = useState<number>(0);
-  const [wallMode, setWallMode] = useState<'ivory' | 'night' | 'studio'>('ivory');
+  const [wallMode, setWallMode] = useState<'ivory' | 'night' | 'studio'>('night');
   const [fileError, setFileError] = useState<string | null>(null);
   const [uploadProgress, setUploadProgress] = useState<number | null>(null);
   const [isHovered, setIsHovered] = useState<boolean>(false);
@@ -487,9 +489,10 @@ export default function CustomizerStudio() {
 
   React.useEffect(() => {
     if (linkedTitle) {
-      setSpecialInstructions(prev => prev ? prev : 'Personalized style based on: ' + linkedTitle);
+      setSpecialInstructions((prev) => (prev ? prev : 'Personalized style based on: ' + linkedTitle));
     }
   }, [linkedTitle]);
+
   const studioSectionRef = useRef<HTMLDivElement>(null);
 
   // Available Sizes for Active Orientation
@@ -530,7 +533,7 @@ export default function CustomizerStudio() {
   const handleCategoryChange = (newCat: FrameCategory) => {
     setCategory(newCat);
     const catObj = FRAME_CATEGORIES.find((c) => c.id === newCat);
-    
+
     if (catObj?.hasLedDefault && led === 'none') {
       setLed('warm-white');
     }
@@ -597,7 +600,6 @@ export default function CustomizerStudio() {
     setLed(preset.led);
     setCustomText(presetTitle);
 
-    // Scroll to Designer Studio smoothly
     studioSectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
@@ -621,7 +623,7 @@ export default function CustomizerStudio() {
     const catMultiplier = activeCategoryObj.multiplier;
     const finishPrice = activeFinishObj.priceAddition;
 
-    // LED addition (if category is led-backlit, standard LED is already factored into multiplier)
+    // LED addition
     let ledPrice = activeLedObj.priceAddition;
     if (category === 'led-backlit' && (led === 'warm-white' || led === 'cool-white')) {
       ledPrice = 0; // factored in multiplier
@@ -713,37 +715,6 @@ export default function CustomizerStudio() {
     window.open(`https://wa.me/${cleanWa}?text=${encodeURIComponent(details)}`, '_blank');
   };
 
-  const whatsappInquiryUrl = useMemo(() => {
-    const details = [
-      `Hi Abhi's Gifts! I would like to inquire about ordering a Custom Photo Frame:`,
-      `• Category: ${activeCategoryObj.name}`,
-      `• Orientation: ${orientation.toUpperCase()}`,
-      `• Dimensions: ${displaySizeLabel}`,
-      `• Finish: ${activeFinishObj.name}`,
-      `• Lighting: ${activeLedObj.name}`,
-      customText ? `• Inscription: "${customText}"` : '',
-      specialInstructions ? `• Instructions: "${specialInstructions}"` : '',
-      `• Estimated Price: ₹${pricing.price.toLocaleString('en-IN')}`,
-      uploadedPhotoUrl ? `• Photo Link: ${uploadedPhotoUrl}` : '',
-      `Can you share a digital proof and fabrication timeline?`,
-    ]
-      .filter(Boolean)
-      .join('\n');
-
-    const cleanWa = (INITIAL_SETTINGS.whatsappNumber || '919032372782').replace(/[^0-9]/g, '');
-    return `https://wa.me/${cleanWa}?text=${encodeURIComponent(details)}`;
-  }, [
-    activeCategoryObj,
-    orientation,
-    displaySizeLabel,
-    activeFinishObj,
-    activeLedObj,
-    customText,
-    specialInstructions,
-    pricing.price,
-    uploadedPhotoUrl,
-  ]);
-
   // Add To Cart & Checkout
   const handleOrderNow = async () => {
     let finalPreview = uploadedPhotoUrl || previewImage;
@@ -803,41 +774,41 @@ export default function CustomizerStudio() {
   };
 
   return (
-    <div className="w-full bg-white text-stone-900 select-none">
+    <div className="w-full bg-[#fbfbfa] text-stone-900 select-none">
       {/* =========================================================
           1. HERO SECTION: TURN YOUR PRECIOUS MEMORIES INTO TIMELESS ART
           ========================================================= */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-stone-50 via-white to-stone-50 border-b border-stone-200 py-12 sm:py-16 lg:py-20">
-        <div className="absolute -top-32 -right-32 w-96 h-96 bg-amber-200/30 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute -bottom-32 -left-32 w-96 h-96 bg-[#EAB308]/15 rounded-full blur-3xl pointer-events-none" />
+      <section className="relative overflow-hidden bg-gradient-to-b from-[#0c0d0e] via-[#141416] to-[#1c1c20] text-white border-b border-amber-500/20 py-12 sm:py-16 lg:py-20">
+        <div className="absolute -top-32 -right-32 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute -bottom-32 -left-32 w-96 h-96 bg-amber-600/10 rounded-full blur-3xl pointer-events-none" />
 
         <div className="w-full max-w-[1720px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-14">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-14">
             {/* Left Hero Text */}
-            <div className="space-y-4 max-w-3xl text-center lg:text-left">
-              <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-bold text-stone-900 bg-white border border-amber-300 px-4 py-1.5 rounded-full shadow-xs">
-                <Sparkles className="w-3.5 h-3.5 text-amber-600 animate-pulse" />
-                <span>PERSONALISED ARTISAN WORKSHOP • HYDERABAD</span>
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping ml-0.5" />
+            <div className="space-y-5 max-w-3xl text-center lg:text-left">
+              <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-bold text-amber-300 bg-amber-500/10 border border-amber-500/30 px-4 py-1.5 rounded-full shadow-inner">
+                <Sparkles className="w-3.5 h-3.5 text-amber-400 animate-pulse" />
+                <span>HYDERABAD'S PREMIER CUSTOM PHOTO ATELIER</span>
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping ml-0.5" />
               </div>
 
-              <h1 className="font-serif font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-stone-900 tracking-tight leading-[1.12]">
+              <h1 className="font-serif font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white tracking-tight leading-[1.12]">
                 Turn Your Precious Memories{' '}
-                <span className="block mt-1 bg-gradient-to-r from-amber-700 via-amber-500 to-amber-800 bg-clip-text text-transparent italic font-serif">
-                  Into Timeless Art
+                <span className="block mt-1 bg-gradient-to-r from-amber-200 via-amber-400 to-amber-100 bg-clip-text text-transparent italic font-serif">
+                  Into Timeless Masterpieces
                 </span>
               </h1>
 
-              <p className="text-sm sm:text-base text-stone-600 leading-relaxed max-w-2xl font-sans mx-auto lg:mx-0">
-                Create personalized acrylic photo frames, LED backlit frames, and beautiful wall displays using your favorite photographs. Designed with care, crafted to last.
+              <p className="text-sm sm:text-base text-stone-300 leading-relaxed max-w-2xl font-sans mx-auto lg:mx-0">
+                Design bespoke cast acrylic photo frames, illuminated warm LED backlights, and floating wall art with your cherished photographs. Handcrafted to heirloom perfection in our Hyderabad atelier.
               </p>
 
               {/* Two CTA Buttons */}
-              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-3">
+              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
                 <button
                   type="button"
                   onClick={() => studioSectionRef.current?.scrollIntoView({ behavior: 'smooth' })}
-                  className="inline-flex items-center gap-2 bg-[#EAB308] hover:bg-[#FACC15] text-stone-950 font-bold text-xs sm:text-sm px-7 py-3.5 rounded-full shadow-md hover:shadow-lg transition-all duration-300 group uppercase tracking-wider cursor-pointer"
+                  className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 hover:from-amber-300 hover:to-amber-500 text-stone-950 font-bold text-xs sm:text-sm px-8 py-3.5 rounded-full shadow-lg shadow-amber-500/20 hover:shadow-amber-500/35 transition-all duration-300 group uppercase tracking-wider cursor-pointer"
                 >
                   <span>Start Customizing</span>
                   <ArrowRight className="w-4 h-4 text-stone-950 group-hover:translate-x-1 transition-transform" />
@@ -845,59 +816,61 @@ export default function CustomizerStudio() {
 
                 <a
                   href="#custom-gallery"
-                  className="inline-flex items-center gap-2 bg-white hover:bg-stone-50 text-stone-800 font-bold text-xs sm:text-sm px-6 py-3.5 rounded-full border border-stone-300 shadow-xs hover:border-amber-400 transition-colors uppercase tracking-wider"
+                  className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/15 text-white font-bold text-xs sm:text-sm px-6 py-3.5 rounded-full border border-white/20 backdrop-blur-md hover:border-amber-400/50 transition-colors uppercase tracking-wider"
                 >
-                  <Layers className="w-4 h-4 text-amber-600" />
-                  <span>Explore Frame Collections</span>
+                  <Layers className="w-4 h-4 text-amber-400" />
+                  <span>Explore Collections</span>
                 </a>
               </div>
 
               {/* 4 Trust Micro-Pillars */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-4 text-[11px] font-bold text-stone-700">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-3 text-[11px] font-bold text-stone-300">
                 <div className="flex items-center gap-1.5 justify-center lg:justify-start">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                  <span>Premium Acrylic</span>
+                  <CheckCircle2 className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+                  <span>Cast Optical Acrylic</span>
                 </div>
                 <div className="flex items-center gap-1.5 justify-center lg:justify-start">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                  <span>Warm Ambient LED</span>
+                  <CheckCircle2 className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+                  <span>Warm Halo Backlighting</span>
                 </div>
                 <div className="flex items-center gap-1.5 justify-center lg:justify-start">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                  <CheckCircle2 className="w-3.5 h-3.5 text-amber-400 shrink-0" />
                   <span>1:1 WhatsApp Proof</span>
                 </div>
                 <div className="flex items-center gap-1.5 justify-center lg:justify-start">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                  <span>Safe Packaging</span>
+                  <CheckCircle2 className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+                  <span>Safe Courier Delivery</span>
                 </div>
               </div>
             </div>
 
-            {/* Right Hero Visual Showcase: Balanced 2-Card Duo */}
+            {/* Right Hero Visual Showcase: 2 Luxury Real Product Mockup Cards */}
             <div className="w-full lg:w-auto shrink-0 max-w-md sm:max-w-lg grid grid-cols-2 gap-4 sm:gap-5">
-              {/* Card 1: Wedding Caricature */}
-              <div className="rounded-2xl overflow-hidden border border-amber-400/30 shadow-lg bg-stone-900 relative group aspect-[4/5] transition-all duration-300 hover:shadow-xl hover:border-amber-400/60">
+              {/* Card 1: Couple & Wedding Vows Frame */}
+              <div className="rounded-2xl overflow-hidden border border-amber-500/30 shadow-2xl bg-stone-900 relative group aspect-[4/5] transition-all duration-300 hover:shadow-amber-500/20 hover:border-amber-400/70">
                 <img
-                  src="/images/custom-art/cartoon-wedding-couple.svg"
-                  alt="Custom Wedding Caricature Acrylic Photo Frame"
+                  src="/images/categories/circle-showcase/couple-wedding.jpg"
+                  alt="Couple & Wedding Keepsake Acrylic Photo Frame"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute bottom-2.5 inset-x-2.5 bg-stone-950/85 backdrop-blur-sm p-2 sm:p-2.5 rounded-xl text-center border border-white/10">
-                  <span className="text-[11px] sm:text-xs font-bold text-amber-300 block leading-tight">Wedding Caricature</span>
-                  <span className="text-[9px] sm:text-[10px] text-stone-300 mt-0.5 block">3D Animated Keepsake</span>
+                <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-transparent to-transparent opacity-80" />
+                <div className="absolute bottom-2.5 inset-x-2.5 bg-stone-950/85 backdrop-blur-md p-2.5 rounded-xl text-center border border-white/10">
+                  <span className="text-[11px] sm:text-xs font-bold text-amber-300 block leading-tight">Couple & Wedding Frame</span>
+                  <span className="text-[9px] sm:text-[10px] text-stone-300 mt-0.5 block">Premium Heirloom Keepsake</span>
                 </div>
               </div>
 
-              {/* Card 2: LED Night-Glow */}
-              <div className="rounded-2xl overflow-hidden border border-amber-400/30 shadow-lg bg-stone-900 relative group aspect-[4/5] transition-all duration-300 hover:shadow-xl hover:border-amber-400/60">
+              {/* Card 2: LED Backlit Photo Frame */}
+              <div className="rounded-2xl overflow-hidden border border-amber-500/30 shadow-2xl bg-stone-900 relative group aspect-[4/5] transition-all duration-300 hover:shadow-amber-500/20 hover:border-amber-400/70">
                 <img
-                  src="/images/custom-art/cartoon-couple-nightglow.svg"
-                  alt="Custom LED Night Glow Animated Couple Frame"
+                  src="/images/mockups/custom-led-backlit-acrylic-photo-frame/primary-square.jpg"
+                  alt="LED Backlit Acrylic Photo Frame"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute bottom-2.5 inset-x-2.5 bg-stone-950/85 backdrop-blur-sm p-2 sm:p-2.5 rounded-xl text-center border border-white/10">
+                <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-transparent to-transparent opacity-80" />
+                <div className="absolute bottom-2.5 inset-x-2.5 bg-stone-950/85 backdrop-blur-md p-2.5 rounded-xl text-center border border-white/10">
                   <span className="text-[11px] sm:text-xs font-bold text-amber-300 block leading-tight">LED Night-Glow</span>
-                  <span className="text-[9px] sm:text-[10px] text-stone-300 mt-0.5 block">Warm Ambient Halo</span>
+                  <span className="text-[9px] sm:text-[10px] text-stone-300 mt-0.5 block">Warm Halo Backlighting</span>
                 </div>
               </div>
             </div>
@@ -915,19 +888,19 @@ export default function CustomizerStudio() {
       >
         {/* Studio Section Title */}
         <div className="text-center max-w-3xl mx-auto mb-10 space-y-2">
-          <span className="text-xs uppercase tracking-widest font-bold text-stone-900 bg-stone-100 border border-amber-300 px-4 py-1.5 rounded-full inline-flex items-center gap-1.5 shadow-xs">
+          <span className="text-xs uppercase tracking-widest font-bold text-amber-900 bg-amber-50 border border-amber-300 px-4 py-1.5 rounded-full inline-flex items-center gap-1.5 shadow-xs">
             <SlidersHorizontal className="w-3.5 h-3.5 text-amber-600" />
-            <span>Interactive Custom Photo Designer</span>
+            <span>Interactive Customizer Studio</span>
           </span>
           <h2 className="font-serif font-bold text-2xl sm:text-3xl md:text-4xl text-stone-900">
-            Design Your Custom Acrylic &amp; LED Photo Frame
+            Craft Your Custom Acrylic &amp; LED Frame
           </h2>
           <p className="text-xs sm:text-sm text-stone-600">
-            Customize every millimeter: choose category, orientation, dimensions, finish, and LED illumination with real-time 3D wall preview.
+            Choose orientation, category, dimensions, hardware finish, and ambient lighting with real-time 3D wall simulation.
           </p>
         </div>
 
-        {/* The Master 2-Column Split */}
+        {/* Master 2-Column Split */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
           {/* =====================================================
               LEFT COLUMN: 3D WALL MOCKUP & LIVE PREVIEW (7 COLS)
@@ -942,8 +915,8 @@ export default function CustomizerStudio() {
                     Wall:
                   </span>
                   {[
-                    { id: 'ivory', label: 'Warm Ivory' },
                     { id: 'night', label: 'Sanctum Night' },
+                    { id: 'ivory', label: 'Warm Ivory' },
                     { id: 'studio', label: 'Minimal Gallery' },
                   ].map((w) => (
                     <button
@@ -1001,17 +974,17 @@ export default function CustomizerStudio() {
 
               {/* THE 3D FRAME WALL STAGE */}
               <div
-                className={`relative w-full h-[400px] xs:h-[460px] sm:h-[540px] md:h-[600px] rounded-2xl overflow-hidden transition-all duration-700 flex items-center justify-center p-4 sm:p-10 ${
+                className={`relative w-full h-[400px] xs:h-[460px] sm:h-[540px] md:h-[580px] rounded-2xl overflow-hidden transition-all duration-700 flex items-center justify-center p-4 sm:p-10 ${
                   wallMode === 'night'
-                    ? 'bg-gradient-to-b from-[#12030A] via-[#1E0812] to-[#0A0105]'
+                    ? 'bg-gradient-to-b from-[#0a0a0c] via-[#141418] to-[#0c0d10]'
                     : wallMode === 'studio'
                     ? 'bg-gradient-to-b from-stone-200 via-stone-100 to-stone-200'
-                    : 'bg-gradient-to-b from-stone-100 via-amber-50/20 to-stone-100'
+                    : 'bg-gradient-to-b from-[#f8f6f0] via-[#f1eee6] to-[#eae6dc]'
                 }`}
               >
                 {/* Night overlay for realistic LED halo contrast */}
-                {wallMode === 'night' && led !== 'none' && (
-                  <div className="absolute inset-0 bg-black/40 pointer-events-none" />
+                {wallMode === 'night' && (
+                  <div className="absolute inset-0 bg-radial from-transparent to-black/60 pointer-events-none" />
                 )}
 
                 {/* Radiating 360° LED Glow Halo */}
@@ -1040,9 +1013,7 @@ export default function CustomizerStudio() {
                       ? 'w-[260px] sm:w-[320px] md:w-[360px] aspect-[3/4]'
                       : orientation === 'horizontal'
                       ? 'w-[320px] sm:w-[440px] md:w-[500px] aspect-[4/3]'
-                      : orientation === 'square'
-                      ? 'w-[260px] sm:w-[340px] md:w-[380px] aspect-square'
-                      : 'w-[260px] sm:w-[340px] md:w-[380px] aspect-square rounded-full'
+                      : 'w-[260px] sm:w-[340px] md:w-[380px] aspect-square'
                   }`}
                   style={{
                     boxShadow:
@@ -1053,9 +1024,7 @@ export default function CustomizerStudio() {
                 >
                   {/* Outer Frame Finish Container */}
                   <div
-                    className={`relative w-full h-full overflow-hidden bg-stone-950 ${
-                      'rounded-2xl'
-                    } ${
+                    className={`relative w-full h-full overflow-hidden bg-stone-950 rounded-2xl ${
                       finish === 'wooden-box'
                         ? 'border-[12px] sm:border-[16px] border-[#3D2614] shadow-2xl ring-2 ring-[#24160B]'
                         : finish === 'transparent'
@@ -1091,20 +1060,18 @@ export default function CustomizerStudio() {
                       {/* Metallic Stainless Steel Standoffs (When Standoff Finish is Selected) */}
                       {finish === 'floating-standoff' && (
                         <>
-                          <>
-                              <div className="absolute top-3 left-3 w-4 h-4 rounded-full bg-gradient-to-br from-white via-stone-200 to-stone-500 shadow-md border border-stone-400 flex items-center justify-center">
-                                <div className="w-1.5 h-1.5 rounded-full bg-stone-700" />
-                              </div>
-                              <div className="absolute top-3 right-3 w-4 h-4 rounded-full bg-gradient-to-br from-white via-stone-200 to-stone-500 shadow-md border border-stone-400 flex items-center justify-center">
-                                <div className="w-1.5 h-1.5 rounded-full bg-stone-700" />
-                              </div>
-                              <div className="absolute bottom-3 left-3 w-4 h-4 rounded-full bg-gradient-to-br from-white via-stone-200 to-stone-500 shadow-md border border-stone-400 flex items-center justify-center">
-                                <div className="w-1.5 h-1.5 rounded-full bg-stone-700" />
-                              </div>
-                              <div className="absolute bottom-3 right-3 w-4 h-4 rounded-full bg-gradient-to-br from-white via-stone-200 to-stone-500 shadow-md border border-stone-400 flex items-center justify-center">
-                                <div className="w-1.5 h-1.5 rounded-full bg-stone-700" />
-                              </div>
-                            </>
+                          <div className="absolute top-3 left-3 w-4 h-4 rounded-full bg-gradient-to-br from-white via-stone-200 to-stone-500 shadow-md border border-stone-400 flex items-center justify-center">
+                            <div className="w-1.5 h-1.5 rounded-full bg-stone-700" />
+                          </div>
+                          <div className="absolute top-3 right-3 w-4 h-4 rounded-full bg-gradient-to-br from-white via-stone-200 to-stone-500 shadow-md border border-stone-400 flex items-center justify-center">
+                            <div className="w-1.5 h-1.5 rounded-full bg-stone-700" />
+                          </div>
+                          <div className="absolute bottom-3 left-3 w-4 h-4 rounded-full bg-gradient-to-br from-white via-stone-200 to-stone-500 shadow-md border border-stone-400 flex items-center justify-center">
+                            <div className="w-1.5 h-1.5 rounded-full bg-stone-700" />
+                          </div>
+                          <div className="absolute bottom-3 right-3 w-4 h-4 rounded-full bg-gradient-to-br from-white via-stone-200 to-stone-500 shadow-md border border-stone-400 flex items-center justify-center">
+                            <div className="w-1.5 h-1.5 rounded-full bg-stone-700" />
+                          </div>
                         </>
                       )}
 
@@ -1112,20 +1079,20 @@ export default function CustomizerStudio() {
                       <div
                         className={`absolute inset-0 pointer-events-none transition-opacity duration-500 bg-gradient-to-tr from-transparent via-white/15 to-white/30 ${
                           isHovered ? 'opacity-100' : 'opacity-60'
-                        } ${''}`}
+                        }`}
                       />
                     </div>
                   </div>
                 </div>
 
                 {/* Bottom Floating Info Pill */}
-                <div className="absolute bottom-3 left-3 z-30 bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-full text-xs font-bold text-stone-900 border border-stone-200 shadow-md flex items-center gap-2 max-w-[90%] truncate">
-                  <Sparkles className="w-3.5 h-3.5 text-amber-600 shrink-0" />
+                <div className="absolute bottom-3 left-3 z-30 bg-stone-900/90 backdrop-blur-md px-3.5 py-1.5 rounded-full text-xs font-bold text-white border border-white/15 shadow-md flex items-center gap-2 max-w-[90%] truncate">
+                  <Sparkles className="w-3.5 h-3.5 text-amber-400 shrink-0" />
                   <span className="truncate">{activeCategoryObj.name}</span>
-                  <span className="text-amber-500 shrink-0">•</span>
-                  <span className="text-stone-600 font-medium shrink-0">{displaySizeLabel}</span>
+                  <span className="text-amber-400 shrink-0">•</span>
+                  <span className="text-stone-300 font-medium shrink-0">{displaySizeLabel}</span>
                   {led !== 'none' && (
-                    <span className="text-amber-700 font-semibold shrink-0">• {activeLedObj.temperature} LED</span>
+                    <span className="text-amber-300 font-semibold shrink-0">• {activeLedObj.temperature}</span>
                   )}
                 </div>
               </div>
@@ -1135,12 +1102,12 @@ export default function CustomizerStudio() {
                 <div className="flex items-center justify-between text-xs font-semibold text-stone-600">
                   <span className="flex items-center gap-1.5 font-bold text-stone-900">
                     <ImageIcon className="w-3.5 h-3.5 text-amber-600" />
-                    <span>Test With Sample Memory Photographs:</span>
+                    <span>Try with Sample Photographs:</span>
                   </span>
-                  <span className="text-[11px] text-amber-700 font-semibold">Click any photo to preview</span>
+                  <span className="text-[11px] text-amber-700 font-semibold">Click any image to preview</span>
                 </div>
 
-                <div className="flex sm:grid sm:grid-cols-5 gap-2 overflow-x-auto pb-1 sm:pb-0 no-scrollbar">
+                <div className="grid grid-cols-5 gap-2">
                   {SAMPLE_MEMORIES.map((sample) => {
                     const isSelected = previewImage === sample.image;
                     return (
@@ -1154,9 +1121,9 @@ export default function CustomizerStudio() {
                           setZoomLevel(1.0);
                           setRotation(0);
                         }}
-                        className={`p-1.5 rounded-xl border text-center transition-all flex flex-col items-center gap-1 cursor-pointer group min-w-[76px] sm:min-w-0 shrink-0 sm:shrink ${
+                        className={`p-1.5 rounded-xl border text-center transition-all flex flex-col items-center gap-1 cursor-pointer group ${
                           isSelected
-                            ? 'border-amber-400 bg-amber-50/50 ring-2 ring-amber-300 shadow-xs'
+                            ? 'border-amber-500 bg-amber-50/70 ring-2 ring-amber-400 shadow-xs'
                             : 'border-stone-200 bg-stone-50 hover:border-amber-300'
                         }`}
                       >
@@ -1193,53 +1160,54 @@ export default function CustomizerStudio() {
                   </div>
                 )}
                 <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-                <div className="flex items-center gap-3">
-                  <div className="w-11 h-11 rounded-xl bg-amber-100/80 text-amber-800 border border-amber-300 flex items-center justify-center shrink-0 shadow-xs">
-                    <Upload className="w-5 h-5 text-amber-700" />
+                  <div className="flex items-center gap-3">
+                    <div className="w-11 h-11 rounded-xl bg-amber-100 text-amber-800 border border-amber-300 flex items-center justify-center shrink-0 shadow-xs">
+                      <Upload className="w-5 h-5 text-amber-700" />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-xs sm:text-sm text-stone-900">
+                        {isUserUploaded ? 'Your Custom Photograph Active' : 'Upload Your High-Resolution Photo'}
+                      </h4>
+                      <p className="text-[11px] text-stone-500">
+                        Supports JPG, PNG, WebP up to 15MB • Precision color-calibrated
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    <h4 className="font-bold text-xs sm:text-sm text-stone-900">
-                      {isUserUploaded ? 'Your Photograph Active' : 'Upload Your High-Resolution Photo'}
-                    </h4>
-                    <p className="text-[11px] text-stone-500">
-                      Supports JPG, JPEG, PNG, WebP up to 15MB • Precision color-calibrated
-                    </p>
-                  </div>
-                </div>
 
-                <input
-                  type="file"
-                  ref={fileInputRef}
-                  onChange={handleFileUpload}
-                  accept="image/jpeg,image/png,image/webp,image/jpg"
-                  className="hidden"
-                />
+                  <input
+                    type="file"
+                    ref={fileInputRef}
+                    onChange={handleFileUpload}
+                    accept="image/jpeg,image/png,image/webp,image/jpg"
+                    className="hidden"
+                  />
 
-                <div className="flex items-center gap-2 w-full sm:w-auto">
-                  <button
-                    type="button"
-                    onClick={() => fileInputRef.current?.click()}
-                    className="flex-1 sm:flex-none bg-[#EAB308] hover:bg-[#FACC15] text-stone-950 border border-amber-500 px-5 py-2.5 rounded-xl text-xs font-bold shadow-xs transition-colors whitespace-nowrap cursor-pointer uppercase tracking-wider"
-                  >
-                    {isUserUploaded ? 'Change Photo' : 'Choose Photo File'}
-                  </button>
-
-                  {isUserUploaded && (
+                  <div className="flex items-center gap-2 w-full sm:w-auto">
                     <button
                       type="button"
-                      onClick={() => {
-                        setPreviewImage(SAMPLE_MEMORIES[0].image);
-                        setIsUserUploaded(false);
-                      }}
-                      className="p-2.5 rounded-xl bg-white hover:bg-rose-50 text-stone-600 hover:text-rose-600 border border-stone-200 transition-colors cursor-pointer"
-                      title="Reset to default photo"
+                      onClick={() => fileInputRef.current?.click()}
+                      className="flex-1 sm:flex-none bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-stone-950 font-bold px-5 py-2.5 rounded-xl text-xs shadow-xs transition-all whitespace-nowrap cursor-pointer uppercase tracking-wider"
                     >
-                      <RotateCcw className="w-4 h-4" />
+                      {isUserUploaded ? 'Change Photo' : 'Choose Photo File'}
                     </button>
-                  )}
+
+                    {isUserUploaded && (
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setPreviewImage(SAMPLE_MEMORIES[0].image);
+                          setIsUserUploaded(false);
+                          setCustomText(SAMPLE_MEMORIES[0].defaultText);
+                        }}
+                        className="p-2.5 rounded-xl bg-white hover:bg-rose-50 text-stone-600 hover:text-rose-600 border border-stone-200 transition-colors cursor-pointer"
+                        title="Reset to default photo"
+                      >
+                        <RotateCcw className="w-4 h-4" />
+                      </button>
+                    )}
+                  </div>
                 </div>
               </div>
-            </div>
 
               {fileError && (
                 <p className="text-xs text-rose-600 bg-rose-50 p-2.5 rounded-xl border border-rose-200">
@@ -1253,11 +1221,46 @@ export default function CustomizerStudio() {
               RIGHT COLUMN: COMPREHENSIVE CUSTOMIZATION CONTROLS (5 COLS)
               ===================================================== */}
           <div className="lg:col-span-5 xl:col-span-5 bg-white p-6 sm:p-7 rounded-3xl border border-stone-200 shadow-sm space-y-6">
-            {/* Step A: Select Frame Category */}
+            {/* Step 1: Frame Orientation */}
+            <div className="space-y-2">
+              <label className="text-xs font-bold uppercase tracking-wider text-stone-900 flex items-center justify-between">
+                <span>Step 1: Choose Frame Format</span>
+                <span className="text-[10px] text-amber-700 font-semibold capitalize">{orientation} Ratio</span>
+              </label>
+
+              <div className="grid grid-cols-3 gap-2">
+                {[
+                  { id: 'vertical', label: 'Portrait', sub: '3:4 Ratio', icon: RectangleVertical },
+                  { id: 'horizontal', label: 'Landscape', sub: '4:3 Ratio', icon: RectangleHorizontal },
+                  { id: 'square', label: 'Square', sub: '1:1 Ratio', icon: Square },
+                ].map((item) => {
+                  const isSelected = orientation === item.id;
+                  const IconComp = item.icon;
+                  return (
+                    <button
+                      key={item.id}
+                      type="button"
+                      onClick={() => handleOrientationChange(item.id as ProductOrientation)}
+                      className={`p-3 rounded-xl border text-center transition-all cursor-pointer flex flex-col items-center justify-center gap-1 ${
+                        isSelected
+                          ? 'border-amber-500 bg-amber-50 text-stone-900 font-bold ring-1 ring-amber-400 shadow-xs'
+                          : 'border-stone-200 text-stone-600 hover:border-amber-300 bg-white'
+                      }`}
+                    >
+                      <IconComp className={`w-5 h-5 ${isSelected ? 'text-amber-600' : 'text-stone-400'}`} />
+                      <span className="text-xs font-bold">{item.label}</span>
+                      <span className="text-[10px] text-stone-500">{item.sub}</span>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Step 2: Select Frame Category */}
             <div className="space-y-2">
               <label className="text-xs font-bold uppercase tracking-wider text-stone-900 flex items-center justify-between">
                 <span>Step 2: Select Frame Category</span>
-                <span className="text-[10px] text-amber-700 font-semibold">6 Curated Styles</span>
+                <span className="text-[10px] text-amber-700 font-semibold">5 Curated Styles</span>
               </label>
 
               <div className="grid grid-cols-2 gap-2">
@@ -1270,7 +1273,7 @@ export default function CustomizerStudio() {
                       onClick={() => handleCategoryChange(cat.id)}
                       className={`p-2.5 rounded-xl border text-left transition-all cursor-pointer flex flex-col justify-between ${
                         isSelected
-                          ? 'border-amber-500 bg-amber-50/60 ring-1 ring-amber-400 shadow-xs'
+                          ? 'border-amber-500 bg-amber-50/70 ring-1 ring-amber-400 shadow-xs'
                           : 'border-stone-200 bg-white hover:border-amber-300'
                       }`}
                     >
@@ -1289,13 +1292,11 @@ export default function CustomizerStudio() {
               </div>
             </div>
 
-
-
-            {/* Step C: Select Frame Size */}
+            {/* Step 3: Select Frame Size */}
             <div className="space-y-2">
               <div className="flex items-center justify-between">
                 <label className="text-xs font-bold uppercase tracking-wider text-stone-900">
-                  Step 3: Select Frame Dimensions
+                  Step 3: Select Dimensions
                 </label>
                 <span className="text-[11px] text-amber-700 font-semibold">{displaySizeLabel}</span>
               </div>
@@ -1324,7 +1325,7 @@ export default function CustomizerStudio() {
                         )}
                       </div>
                       <div className="text-[11px] text-amber-700 font-semibold mt-0.5">
-                        {sz.id === 'custom' ? 'Price in WhatsApp Chat' : `From ₹${itemPrice.toLocaleString('en-IN')}`}
+                        {sz.id === 'custom' ? 'Custom Inch Calculator' : `From ₹${itemPrice.toLocaleString('en-IN')}`}
                       </div>
                     </button>
                   );
@@ -1371,27 +1372,113 @@ export default function CustomizerStudio() {
                     </div>
                   </div>
                   <p className="text-[10px] text-stone-500">
-                    ✦ Factory fabrication available up to 6×4 ft (72×48 in) with pre-installed heavy-duty mounts.
+                    ✦ Atelier fabrication available up to 6×4 ft (72×48 in) with pre-installed heavy-duty mounts.
                   </p>
                 </div>
               )}
             </div>
 
-            {/* Optional Personal Inscription */}
+            {/* Step 4: Frame Edge & Mounting Finish */}
+            <div className="space-y-2">
+              <div className="flex items-center justify-between">
+                <label className="text-xs font-bold uppercase tracking-wider text-stone-900">
+                  Step 4: Select Mounting &amp; Finish
+                </label>
+                <span className="text-[11px] text-amber-700 font-semibold">{activeFinishObj.name}</span>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                {FRAME_FINISHES.map((f) => {
+                  const isSelected = finish === f.id;
+                  return (
+                    <button
+                      key={f.id}
+                      type="button"
+                      onClick={() => setFinish(f.id)}
+                      className={`p-2.5 rounded-xl border text-left transition-all cursor-pointer flex flex-col justify-between ${
+                        isSelected
+                          ? 'border-amber-500 bg-amber-50/70 ring-1 ring-amber-400 shadow-xs'
+                          : 'border-stone-200 bg-white hover:border-amber-300'
+                      }`}
+                    >
+                      <div>
+                        <div className="text-xs font-bold text-stone-900">{f.name}</div>
+                        <div className="text-[10px] text-stone-500 mt-0.5">{f.subtitle}</div>
+                      </div>
+                      <div className="text-[11px] text-amber-700 font-semibold mt-1">
+                        {f.priceAddition === 0 ? 'Standard Included' : `+₹${f.priceAddition}`}
+                      </div>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Step 5: LED Backlighting Option */}
+            <div className="space-y-2">
+              <div className="flex items-center justify-between">
+                <label className="text-xs font-bold uppercase tracking-wider text-stone-900">
+                  Step 5: Select LED Illumination
+                </label>
+                <span className="text-[11px] text-amber-700 font-semibold">{activeLedObj.temperature}</span>
+              </div>
+
+              <div className="grid grid-cols-2 gap-2">
+                {LED_OPTIONS.map((l) => {
+                  const isSelected = led === l.id;
+                  return (
+                    <button
+                      key={l.id}
+                      type="button"
+                      onClick={() => setLed(l.id)}
+                      className={`p-2.5 rounded-xl border text-left transition-all cursor-pointer flex flex-col justify-between ${
+                        isSelected
+                          ? 'border-amber-500 bg-amber-50/70 ring-1 ring-amber-400 shadow-xs'
+                          : 'border-stone-200 bg-white hover:border-amber-300'
+                      }`}
+                    >
+                      <div>
+                        <div className="text-xs font-bold text-stone-900 flex items-center gap-1.5">
+                          {l.id !== 'none' && (
+                            <span
+                              className="w-2.5 h-2.5 rounded-full inline-block shadow-xs"
+                              style={{ backgroundColor: l.glowColor }}
+                            />
+                          )}
+                          <span>{l.name}</span>
+                        </div>
+                        <div className="text-[10px] text-stone-500 mt-0.5">{l.subtitle}</div>
+                      </div>
+                      <div className="text-[11px] text-amber-700 font-semibold mt-1">
+                        {l.id === 'none'
+                          ? 'Unlit'
+                          : category === 'led-backlit'
+                          ? l.id === 'rgb'
+                            ? '+₹300'
+                            : 'Included in LED Frame'
+                          : `+₹${l.priceAddition}`}
+                      </div>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Step 6: Personal Inscription */}
             <div className="space-y-1">
               <label className="text-xs font-bold uppercase tracking-wider text-stone-900 block">
-                Step 4: Add Personal Message / Inscription (Optional)
+                Step 6: Add Inscription or Message (Optional)
               </label>
               <input
                 type="text"
-                placeholder="e.g. The Sharma Family • Est. 2026"
+                placeholder="e.g. Forever & Always • Rahul & Ananya"
                 value={customText}
                 onChange={(e) => setCustomText(e.target.value)}
                 maxLength={60}
                 className="w-full px-3.5 py-2.5 text-xs bg-white border border-stone-300 rounded-xl outline-none focus:border-amber-500 text-stone-900 font-serif"
               />
               <span className="text-[10px] text-stone-500 block">
-                ✦ Displayed in golden foil or crisp typography at the bottom of the frame.
+                ✦ Displayed in golden foil script or crisp typography at the base of the frame.
               </span>
             </div>
 
@@ -1402,7 +1489,7 @@ export default function CustomizerStudio() {
               </label>
               <textarea
                 rows={2}
-                placeholder="e.g. Please enhance facial brightness, crop closely, or remove background tint."
+                placeholder="e.g. Please optimize facial tone, enhance brightness, or provide proof before dispatch."
                 value={specialInstructions}
                 onChange={(e) => setSpecialInstructions(e.target.value)}
                 className="w-full px-3.5 py-2 text-xs bg-white border border-stone-300 rounded-xl outline-none focus:border-amber-500 text-stone-900"
@@ -1415,7 +1502,7 @@ export default function CustomizerStudio() {
             <div className="bg-stone-50 p-4 sm:p-5 rounded-2xl border border-stone-200 space-y-3">
               <div className="flex items-baseline justify-between border-b border-stone-200 pb-2.5">
                 <div>
-                  <span className="text-xs text-stone-500 block">Step 5: Live Price &amp; Configuration Review</span>
+                  <span className="text-xs text-stone-500 block">Step 7: Live Price &amp; Configuration Review</span>
                   <div className="flex items-baseline gap-2">
                     <span className="font-serif text-2xl sm:text-3xl font-bold text-stone-900">
                       ₹{pricing.price.toLocaleString('en-IN')}
@@ -1432,12 +1519,16 @@ export default function CustomizerStudio() {
 
               <div className="text-[11px] text-stone-600 space-y-1">
                 <div className="flex justify-between">
-                  <span>Size &amp; Category:</span>
+                  <span>Configuration:</span>
                   <span className="font-semibold text-stone-900">{displaySizeLabel}</span>
                 </div>
+                <div className="flex justify-between">
+                  <span>Hardware &amp; Finish:</span>
+                  <span className="font-semibold text-stone-900">{activeFinishObj.name}</span>
+                </div>
                 <div className="flex justify-between text-emerald-700 font-semibold pt-1 border-t border-stone-200">
-                  <span>Packaging:</span>
-                  <span>Multi-Layer Protective Box</span>
+                  <span>Packaging &amp; Delivery:</span>
+                  <span>Multi-Layer Reinforced Box</span>
                 </div>
               </div>
 
@@ -1446,7 +1537,7 @@ export default function CustomizerStudio() {
                 <button
                   type="button"
                   onClick={handleOrderNow}
-                  className="w-full bg-[#EAB308] hover:bg-[#FACC15] text-stone-950 border border-amber-500 py-3.5 rounded-xl font-bold text-sm shadow-md transition-all cursor-pointer flex items-center justify-center gap-2 uppercase tracking-wider"
+                  className="w-full bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 hover:from-amber-300 hover:to-amber-500 text-stone-950 font-bold py-3.5 rounded-xl text-sm shadow-md transition-all cursor-pointer flex items-center justify-center gap-2 uppercase tracking-wider"
                 >
                   <span>Order Now • ₹{pricing.price.toLocaleString('en-IN')}</span>
                   <ArrowRight className="w-4 h-4 text-stone-950" />
@@ -1477,11 +1568,11 @@ export default function CustomizerStudio() {
       </section>
 
       {/* =========================================================
-          3. PRODUCT GALLERY: 9 CURATED CUSTOM PHOTO FRAME STYLES
+          3. PRODUCT GALLERY: 8 CURATED CUSTOM PHOTO FRAME PRESETS
           ========================================================= */}
       <section id="custom-gallery" className="w-full max-w-[1720px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-14 py-12 sm:py-16 border-t border-stone-200">
         <div className="text-center max-w-3xl mx-auto mb-10 space-y-2">
-          <span className="text-xs uppercase tracking-widest font-bold text-stone-900 bg-stone-100 border border-amber-300 px-4 py-1.5 rounded-full inline-flex items-center gap-1.5 shadow-xs">
+          <span className="text-xs uppercase tracking-widest font-bold text-amber-900 bg-amber-50 border border-amber-300 px-4 py-1.5 rounded-full inline-flex items-center gap-1.5 shadow-xs">
             <Layers className="w-3.5 h-3.5 text-amber-600" />
             <span>Dedicated Photo Frame Collections</span>
           </span>
@@ -1489,24 +1580,24 @@ export default function CustomizerStudio() {
             Explore Custom Photo Frame Creations
           </h2>
           <p className="text-xs sm:text-sm text-stone-600">
-            Every style is hand-fabricated in our Dilsukhnagar workshop. Click "Customize This Style" to load any configuration directly into the designer above.
+            Every style is hand-crafted in our Hyderabad workshop. Click "Customize This Style" to load any configuration directly into the designer above.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {GALLERY_PRODUCTS.map((prod) => (
             <div
               key={prod.id}
               className="bg-white rounded-3xl overflow-hidden border border-stone-200 hover:border-amber-400 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between group"
             >
               <div>
-                <div className="relative aspect-[4/3] w-full overflow-hidden bg-stone-100">
+                <div className="relative aspect-square w-full overflow-hidden bg-stone-100">
                   <img
                     src={prod.image}
                     alt={prod.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute top-3 left-3 bg-white/90 text-stone-900 text-[10px] font-bold px-2.5 py-0.5 rounded-full shadow-sm border border-stone-200 backdrop-blur-xs">
+                  <div className="absolute top-3 left-3 bg-stone-900/80 text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full shadow-sm backdrop-blur-xs border border-white/10">
                     {prod.badge}
                   </div>
                   <div className="absolute bottom-3 right-3 bg-white/95 text-stone-900 text-xs font-bold px-2.5 py-1 rounded-full shadow-sm border border-stone-200">
@@ -1519,7 +1610,7 @@ export default function CustomizerStudio() {
                     <span>{prod.category}</span>
                     <span className="text-stone-400 line-through">₹{prod.mrp.toLocaleString('en-IN')}</span>
                   </div>
-                  <h3 className="font-serif font-bold text-base sm:text-lg text-stone-900 group-hover:text-amber-700 transition-colors leading-snug">
+                  <h3 className="font-serif font-bold text-base text-stone-900 group-hover:text-amber-700 transition-colors leading-snug">
                     {prod.title}
                   </h3>
                   <p className="text-xs text-stone-600 leading-relaxed line-clamp-2">
@@ -1546,10 +1637,10 @@ export default function CustomizerStudio() {
       {/* =========================================================
           4. HOW IT WORKS: 4 SIMPLE STEPS TO CUSTOM HEIRLOOM
           ========================================================= */}
-      <section className="w-full bg-gradient-to-b from-stone-50 via-white to-stone-50 border-y border-stone-200 py-12 sm:py-16">
+      <section className="w-full bg-stone-100/70 border-y border-stone-200 py-12 sm:py-16">
         <div className="w-full max-w-[1720px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-14">
           <div className="text-center max-w-2xl mx-auto mb-10 space-y-2">
-            <span className="text-xs uppercase tracking-widest font-bold text-stone-900 bg-white border border-amber-300 px-4 py-1.5 rounded-full inline-flex items-center gap-1.5 shadow-xs">
+            <span className="text-xs uppercase tracking-widest font-bold text-amber-900 bg-white border border-amber-300 px-4 py-1.5 rounded-full inline-flex items-center gap-1.5 shadow-xs">
               <Clock className="w-3.5 h-3.5 text-amber-600" />
               <span>Effortless Fabrication</span>
             </span>
@@ -1557,7 +1648,7 @@ export default function CustomizerStudio() {
               How It Works: 4 Simple Steps
             </h2>
             <p className="text-xs sm:text-sm text-stone-600">
-              From digital concept to factory-direct Hyderabad delivery in four seamless steps.
+              From digital concept to factory-direct door delivery in four seamless steps.
             </p>
           </div>
 
@@ -1568,14 +1659,14 @@ export default function CustomizerStudio() {
                 01
               </div>
               <h3 className="font-serif font-bold text-base text-stone-900">
-                Choose Your Frame
+                Choose Format &amp; Style
               </h3>
               <p className="text-xs text-stone-600 leading-relaxed">
-                Select your preferred frame category, dimensions, and LED backlight.
+                Select your preferred orientation (portrait, landscape, square), category, dimensions, and warm LED backlight.
               </p>
               <div className="text-[11px] font-bold text-amber-700 flex items-center gap-1 pt-1">
                 <Check className="w-3.5 h-3.5 text-emerald-600" />
-                <span>6 Categories &amp; Sizing</span>
+                <span>5 Frame Categories</span>
               </div>
             </div>
 
@@ -1588,7 +1679,7 @@ export default function CustomizerStudio() {
                 Upload Your Memory
               </h3>
               <p className="text-xs text-stone-600 leading-relaxed">
-                Upload your favorite photograph from your phone or desktop. See an instant real-time 3D simulation on realistic wall backgrounds.
+                Upload your favorite photograph from your phone or desktop. View an instant real-time 3D simulation on realistic wall backgrounds.
               </p>
               <div className="text-[11px] font-bold text-amber-700 flex items-center gap-1 pt-1">
                 <Check className="w-3.5 h-3.5 text-emerald-600" />
@@ -1619,14 +1710,14 @@ export default function CustomizerStudio() {
                 04
               </div>
               <h3 className="font-serif font-bold text-base text-stone-900">
-                Place Your Order
+                Fabricate &amp; Deliver
               </h3>
               <p className="text-xs text-stone-600 leading-relaxed">
-                Precision fabricated with premium acrylic. Packed in multi-layer reinforced packaging with safe door delivery.
+                Precision fabricated with cast acrylic and hardware. Packed in multi-layer reinforced packaging with safe door delivery.
               </p>
               <div className="text-[11px] font-bold text-amber-700 flex items-center gap-1 pt-1">
                 <Check className="w-3.5 h-3.5 text-emerald-600" />
-                <span>protective packaging</span>
+                <span>Protective Packaging</span>
               </div>
             </div>
           </div>
@@ -1637,16 +1728,16 @@ export default function CustomizerStudio() {
           5. CUSTOMER SUPPORT & ARTISAN CONCIERGE BANNER
           ========================================================= */}
       <section className="w-full max-w-[1720px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-14 py-12 sm:py-16">
-        <div className="p-8 sm:p-10 rounded-3xl bg-gradient-to-r from-amber-50 via-white to-amber-50 text-stone-900 flex flex-col lg:flex-row items-center justify-between gap-8 border-2 border-amber-300 shadow-sm">
+        <div className="p-8 sm:p-10 rounded-3xl bg-gradient-to-r from-stone-900 via-[#19191d] to-stone-900 text-white flex flex-col lg:flex-row items-center justify-between gap-8 border border-amber-500/30 shadow-xl">
           <div className="space-y-2 text-center lg:text-left max-w-2xl">
-            <span className="text-[11px] uppercase tracking-widest font-bold text-amber-900 bg-amber-100 px-3 py-1 rounded-full border border-amber-300 inline-block">
+            <span className="text-[11px] uppercase tracking-widest font-bold text-amber-300 bg-amber-500/15 px-3 py-1 rounded-full border border-amber-400/30 inline-block">
               ✦ Artisan Concierge • Hyderabad Workshop ✦
             </span>
-            <h3 className="font-serif font-bold text-2xl sm:text-3xl text-stone-900">
+            <h3 className="font-serif font-bold text-2xl sm:text-3xl text-white">
               Need Help? Chat With Our Artisans
             </h3>
-            <p className="text-xs sm:text-sm text-stone-600 leading-relaxed font-sans">
-              Have a low-resolution photo, custom temple alcove dimensions, wedding vows script, or urgent express dispatch requirement? Talk directly to our workshop artisans for instant proofing and advice.
+            <p className="text-xs sm:text-sm text-stone-300 leading-relaxed font-sans">
+              Have a low-resolution photo, custom wall dimensions, wedding vows script, or urgent express delivery requirement? Talk directly to our workshop artisans for instant proofing and advice.
             </p>
           </div>
 
@@ -1655,7 +1746,7 @@ export default function CustomizerStudio() {
               type="button"
               onClick={handleWhatsAppInquiry}
               disabled={waUploading}
-              className="bg-[#25D366] hover:bg-[#20BD5A] text-white font-bold text-xs sm:text-sm px-7 py-3.5 rounded-full shadow-md transition-all hover:scale-105 flex items-center gap-2 uppercase tracking-wider cursor-pointer disabled:opacity-60"
+              className="bg-[#25D366] hover:bg-[#20BD5A] text-white font-bold text-xs sm:text-sm px-7 py-3.5 rounded-full shadow-lg hover:shadow-[#25D366]/30 transition-all flex items-center gap-2 uppercase tracking-wider cursor-pointer disabled:opacity-60"
             >
               {waUploading ? (
                 <>
@@ -1665,16 +1756,16 @@ export default function CustomizerStudio() {
               ) : (
                 <>
                   <MessageCircle className="w-4 h-4 text-white fill-current" />
-                  <span>Need Help? Chat With Our Artisans</span>
+                  <span>Chat on WhatsApp</span>
                 </>
               )}
             </button>
 
             <a
               href="tel:917780269927"
-              className="bg-white hover:bg-stone-100 text-stone-900 border border-stone-300 font-bold text-xs sm:text-sm px-6 py-3.5 rounded-full transition-colors flex items-center gap-2 uppercase tracking-wider shadow-xs"
+              className="bg-white/10 hover:bg-white/15 text-white border border-white/20 font-bold text-xs sm:text-sm px-6 py-3.5 rounded-full transition-colors flex items-center gap-2 uppercase tracking-wider shadow-xs backdrop-blur-md"
             >
-              <PhoneCall className="w-4 h-4 text-amber-600" />
+              <PhoneCall className="w-4 h-4 text-amber-400" />
               <span>Call +91 77802 69927</span>
             </a>
           </div>
