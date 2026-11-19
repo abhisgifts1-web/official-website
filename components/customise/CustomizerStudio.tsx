@@ -774,32 +774,32 @@ export default function CustomizerStudio() {
   };
 
   return (
-    <div className="w-full bg-[#fbfbfa] text-stone-900 select-none">
+    <div className="w-full bg-white text-stone-900 select-none">
       {/* =========================================================
           1. HERO SECTION: TURN YOUR PRECIOUS MEMORIES INTO TIMELESS ART
           ========================================================= */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-[#0c0d0e] via-[#141416] to-[#1c1c20] text-white border-b border-amber-500/20 py-12 sm:py-16 lg:py-20">
-        <div className="absolute -top-32 -right-32 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute -bottom-32 -left-32 w-96 h-96 bg-amber-600/10 rounded-full blur-3xl pointer-events-none" />
+      <section className="relative overflow-hidden bg-gradient-to-b from-stone-50 via-white to-stone-50 text-stone-900 border-b border-stone-200 py-12 sm:py-16 lg:py-20">
+        <div className="absolute -top-32 -right-32 w-96 h-96 bg-amber-200/30 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute -bottom-32 -left-32 w-96 h-96 bg-[#EAB308]/15 rounded-full blur-3xl pointer-events-none" />
 
         <div className="w-full max-w-[1720px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-14">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-14">
             {/* Left Hero Text */}
             <div className="space-y-5 max-w-3xl text-center lg:text-left">
-              <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-bold text-amber-300 bg-amber-500/10 border border-amber-500/30 px-4 py-1.5 rounded-full shadow-inner">
-                <Sparkles className="w-3.5 h-3.5 text-amber-400 animate-pulse" />
-                <span>HYDERABAD'S PREMIER CUSTOM PHOTO ATELIER</span>
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping ml-0.5" />
+              <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-bold text-stone-900 bg-white border border-amber-300 px-4 py-1.5 rounded-full shadow-xs">
+                <Sparkles className="w-3.5 h-3.5 text-amber-600 animate-pulse" />
+                <span>HYDERABAD&apos;S PREMIER CUSTOM PHOTO ATELIER</span>
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping ml-0.5" />
               </div>
 
-              <h1 className="font-serif font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white tracking-tight leading-[1.12]">
+              <h1 className="font-serif font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-stone-900 tracking-tight leading-[1.12]">
                 Turn Your Precious Memories{' '}
-                <span className="block mt-1 bg-gradient-to-r from-amber-200 via-amber-400 to-amber-100 bg-clip-text text-transparent italic font-serif">
+                <span className="block mt-1 bg-gradient-to-r from-amber-700 via-amber-500 to-amber-800 bg-clip-text text-transparent italic font-serif">
                   Into Timeless Masterpieces
                 </span>
               </h1>
 
-              <p className="text-sm sm:text-base text-stone-300 leading-relaxed max-w-2xl font-sans mx-auto lg:mx-0">
+              <p className="text-sm sm:text-base text-stone-600 leading-relaxed max-w-2xl font-sans mx-auto lg:mx-0">
                 Design bespoke cast acrylic photo frames, illuminated warm LED backlights, and floating wall art with your cherished photographs. Handcrafted to heirloom perfection in our Hyderabad atelier.
               </p>
 
@@ -808,7 +808,7 @@ export default function CustomizerStudio() {
                 <button
                   type="button"
                   onClick={() => studioSectionRef.current?.scrollIntoView({ behavior: 'smooth' })}
-                  className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 hover:from-amber-300 hover:to-amber-500 text-stone-950 font-bold text-xs sm:text-sm px-8 py-3.5 rounded-full shadow-lg shadow-amber-500/20 hover:shadow-amber-500/35 transition-all duration-300 group uppercase tracking-wider cursor-pointer"
+                  className="inline-flex items-center gap-2 bg-[#EAB308] hover:bg-[#FACC15] text-stone-950 font-bold text-xs sm:text-sm px-8 py-3.5 rounded-full shadow-md hover:shadow-lg transition-all duration-300 group uppercase tracking-wider cursor-pointer"
                 >
                   <span>Start Customizing</span>
                   <ArrowRight className="w-4 h-4 text-stone-950 group-hover:translate-x-1 transition-transform" />
@@ -816,29 +816,29 @@ export default function CustomizerStudio() {
 
                 <a
                   href="#custom-gallery"
-                  className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/15 text-white font-bold text-xs sm:text-sm px-6 py-3.5 rounded-full border border-white/20 backdrop-blur-md hover:border-amber-400/50 transition-colors uppercase tracking-wider"
+                  className="inline-flex items-center gap-2 bg-white hover:bg-stone-50 text-stone-800 font-bold text-xs sm:text-sm px-6 py-3.5 rounded-full border border-stone-300 shadow-xs hover:border-amber-400 transition-colors uppercase tracking-wider"
                 >
-                  <Layers className="w-4 h-4 text-amber-400" />
+                  <Layers className="w-4 h-4 text-amber-600" />
                   <span>Explore Collections</span>
                 </a>
               </div>
 
               {/* 4 Trust Micro-Pillars */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-3 text-[11px] font-bold text-stone-300">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-3 text-[11px] font-bold text-stone-700">
                 <div className="flex items-center gap-1.5 justify-center lg:justify-start">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
                   <span>Cast Optical Acrylic</span>
                 </div>
                 <div className="flex items-center gap-1.5 justify-center lg:justify-start">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
                   <span>Warm Halo Backlighting</span>
                 </div>
                 <div className="flex items-center gap-1.5 justify-center lg:justify-start">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
                   <span>1:1 WhatsApp Proof</span>
                 </div>
                 <div className="flex items-center gap-1.5 justify-center lg:justify-start">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
                   <span>Safe Courier Delivery</span>
                 </div>
               </div>
@@ -847,7 +847,7 @@ export default function CustomizerStudio() {
             {/* Right Hero Visual Showcase: 2 Luxury Real Product Mockup Cards */}
             <div className="w-full lg:w-auto shrink-0 max-w-md sm:max-w-lg grid grid-cols-2 gap-4 sm:gap-5">
               {/* Card 1: Couple & Wedding Vows Frame */}
-              <div className="rounded-2xl overflow-hidden border border-amber-500/30 shadow-2xl bg-stone-900 relative group aspect-[4/5] transition-all duration-300 hover:shadow-amber-500/20 hover:border-amber-400/70">
+              <div className="rounded-2xl overflow-hidden border border-amber-400/30 shadow-lg bg-stone-900 relative group aspect-[4/5] transition-all duration-300 hover:shadow-xl hover:border-amber-400/60">
                 <img
                   src="/images/categories/circle-showcase/couple-wedding.jpg"
                   alt="Couple & Wedding Keepsake Acrylic Photo Frame"
@@ -861,7 +861,7 @@ export default function CustomizerStudio() {
               </div>
 
               {/* Card 2: LED Backlit Photo Frame */}
-              <div className="rounded-2xl overflow-hidden border border-amber-500/30 shadow-2xl bg-stone-900 relative group aspect-[4/5] transition-all duration-300 hover:shadow-amber-500/20 hover:border-amber-400/70">
+              <div className="rounded-2xl overflow-hidden border border-amber-400/30 shadow-lg bg-stone-900 relative group aspect-[4/5] transition-all duration-300 hover:shadow-xl hover:border-amber-400/60">
                 <img
                   src="/images/mockups/custom-led-backlit-acrylic-photo-frame/primary-square.jpg"
                   alt="LED Backlit Acrylic Photo Frame"
@@ -877,6 +877,8 @@ export default function CustomizerStudio() {
           </div>
         </div>
       </section>
+
+
 
       {/* =========================================================
           2. TWO-COLUMN INTERACTIVE DESIGNER STUDIO
@@ -1728,15 +1730,15 @@ export default function CustomizerStudio() {
           5. CUSTOMER SUPPORT & ARTISAN CONCIERGE BANNER
           ========================================================= */}
       <section className="w-full max-w-[1720px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-14 py-12 sm:py-16">
-        <div className="p-8 sm:p-10 rounded-3xl bg-gradient-to-r from-stone-900 via-[#19191d] to-stone-900 text-white flex flex-col lg:flex-row items-center justify-between gap-8 border border-amber-500/30 shadow-xl">
+        <div className="p-8 sm:p-10 rounded-3xl bg-gradient-to-r from-amber-50 via-white to-amber-50 text-stone-900 flex flex-col lg:flex-row items-center justify-between gap-8 border-2 border-amber-300 shadow-sm">
           <div className="space-y-2 text-center lg:text-left max-w-2xl">
-            <span className="text-[11px] uppercase tracking-widest font-bold text-amber-300 bg-amber-500/15 px-3 py-1 rounded-full border border-amber-400/30 inline-block">
+            <span className="text-[11px] uppercase tracking-widest font-bold text-amber-900 bg-amber-100 px-3 py-1 rounded-full border border-amber-300 inline-block">
               ✦ Artisan Concierge • Hyderabad Workshop ✦
             </span>
-            <h3 className="font-serif font-bold text-2xl sm:text-3xl text-white">
+            <h3 className="font-serif font-bold text-2xl sm:text-3xl text-stone-900">
               Need Help? Chat With Our Artisans
             </h3>
-            <p className="text-xs sm:text-sm text-stone-300 leading-relaxed font-sans">
+            <p className="text-xs sm:text-sm text-stone-600 leading-relaxed font-sans">
               Have a low-resolution photo, custom wall dimensions, wedding vows script, or urgent express delivery requirement? Talk directly to our workshop artisans for instant proofing and advice.
             </p>
           </div>
@@ -1746,7 +1748,7 @@ export default function CustomizerStudio() {
               type="button"
               onClick={handleWhatsAppInquiry}
               disabled={waUploading}
-              className="bg-[#25D366] hover:bg-[#20BD5A] text-white font-bold text-xs sm:text-sm px-7 py-3.5 rounded-full shadow-lg hover:shadow-[#25D366]/30 transition-all flex items-center gap-2 uppercase tracking-wider cursor-pointer disabled:opacity-60"
+              className="bg-[#25D366] hover:bg-[#20BD5A] text-white font-bold text-xs sm:text-sm px-7 py-3.5 rounded-full shadow-md hover:shadow-[#25D366]/30 transition-all flex items-center gap-2 uppercase tracking-wider cursor-pointer disabled:opacity-60"
             >
               {waUploading ? (
                 <>
@@ -1763,9 +1765,9 @@ export default function CustomizerStudio() {
 
             <a
               href="tel:917780269927"
-              className="bg-white/10 hover:bg-white/15 text-white border border-white/20 font-bold text-xs sm:text-sm px-6 py-3.5 rounded-full transition-colors flex items-center gap-2 uppercase tracking-wider shadow-xs backdrop-blur-md"
+              className="bg-white hover:bg-stone-50 text-stone-900 border border-stone-300 font-bold text-xs sm:text-sm px-6 py-3.5 rounded-full transition-colors flex items-center gap-2 uppercase tracking-wider shadow-xs"
             >
-              <PhoneCall className="w-4 h-4 text-amber-400" />
+              <PhoneCall className="w-4 h-4 text-amber-600" />
               <span>Call +91 77802 69927</span>
             </a>
           </div>
