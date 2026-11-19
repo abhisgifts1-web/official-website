@@ -446,46 +446,6 @@ function ShopContent() {
             </button>
           </div>
 
-          {/* Active Filter Badges */}
-          {hasActiveFilters && (
-            <div className="flex flex-wrap items-center gap-2 text-xs py-1">
-              <span className="text-stone-500 font-medium">Active:</span>
-              {search && (
-                <span className="bg-amber-100 text-amber-900 px-2.5 py-1 rounded-full flex items-center gap-1 font-medium">
-                  &ldquo;{search}&rdquo;
-                  <button type="button" onClick={() => setSearch('')} className="hover:text-black cursor-pointer"><X className="w-3 h-3" /></button>
-                </span>
-              )}
-              {selectedCategory && (
-                <span className="bg-amber-100 text-amber-900 px-2.5 py-1 rounded-full flex items-center gap-1 font-medium">
-                  Category: {selectedCategory}
-                  <button type="button" onClick={() => setSelectedCategory('')} className="hover:text-black cursor-pointer"><X className="w-3 h-3" /></button>
-                </span>
-              )}
-              
-              {selectedLighting !== 'all' && (
-                <span className="bg-amber-100 text-amber-900 px-2.5 py-1 rounded-full flex items-center gap-1 font-medium">
-                  {selectedLighting === 'led' ? '✨ LED Backlit' : '🖼️ Non-Lit Acrylic'}
-                  <button type="button" onClick={() => setSelectedLighting('all')} className="hover:text-black cursor-pointer"><X className="w-3 h-3" /></button>
-                </span>
-              )}
-              
-              {priceRange < 10000 && (
-                <span className="bg-amber-100 text-amber-900 px-2.5 py-1 rounded-full flex items-center gap-1 font-medium">
-                  Under ₹{priceRange.toLocaleString('en-IN')}
-                  <button type="button" onClick={() => setPriceRange(10000)} className="hover:text-black cursor-pointer"><X className="w-3 h-3" /></button>
-                </span>
-              )}
-              <button
-                type="button"
-                onClick={resetFilters}
-                className="text-amber-800 hover:text-amber-950 underline font-semibold text-xs ml-1 cursor-pointer"
-              >
-                Clear All
-              </button>
-            </div>
-          )}
-
           {/* Products Grid */}
           <ProductGrid products={filteredProducts} columns="3" />
         </div>
