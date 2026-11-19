@@ -9,8 +9,6 @@ import {
   Sparkles,
   ShieldCheck,
   Check,
-  ZoomIn,
-  ZoomOut,
   RotateCw,
   ArrowRight,
   Sun,
@@ -886,71 +884,6 @@ export default function CustomizerStudio() {
               ===================================================== */}
           <div className="lg:col-span-7 xl:col-span-7 space-y-5 lg:sticky lg:top-24">
             <div className="bg-white rounded-3xl border border-stone-200 p-4 sm:p-6 shadow-sm space-y-4">
-              {/* Preview Top Toolbar (Wall Mode + Zoom / Rotate) */}
-              <div className="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-stone-200 text-xs">
-                {/* Wall Environment Switcher */}
-                <div className="flex items-center gap-1 bg-stone-100 p-1 rounded-xl border border-stone-200">
-                  <span className="text-[11px] font-bold text-stone-500 px-2 uppercase tracking-wider hidden sm:inline">
-                    Wall:
-                  </span>
-                  {[
-                    { id: 'night', label: 'Sanctum Night' },
-                    { id: 'ivory', label: 'Warm Ivory' },
-                    { id: 'studio', label: 'Minimal Gallery' },
-                  ].map((w) => (
-                    <button
-                      key={w.id}
-                      type="button"
-                      onClick={() => setWallMode(w.id as any)}
-                      className={`px-2.5 py-1 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
-                        wallMode === w.id
-                          ? 'bg-white text-stone-900 shadow-xs font-bold'
-                          : 'text-stone-600 hover:text-stone-900'
-                      }`}
-                    >
-                      {w.label}
-                    </button>
-                  ))}
-                </div>
-
-                {/* Pan / Zoom / Rotate toolbar */}
-                <div className="flex items-center gap-1 bg-stone-100 p-1 rounded-xl border border-stone-200">
-                  <button
-                    type="button"
-                    onClick={() => setZoomLevel((z) => Math.max(0.8, Number((z - 0.1).toFixed(1))))}
-                    className="p-1 hover:text-stone-900 text-stone-600 cursor-pointer"
-                    title="Zoom Out"
-                  >
-                    <ZoomOut className="w-3.5 h-3.5" />
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => setZoomLevel(1.0)}
-                    className="text-[10px] font-bold text-stone-900 px-1 hover:underline cursor-pointer"
-                    title="Reset Zoom"
-                  >
-                    {Math.round(zoomLevel * 100)}%
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => setZoomLevel((z) => Math.min(2.0, Number((z + 0.1).toFixed(1))))}
-                    className="p-1 hover:text-stone-900 text-stone-600 cursor-pointer"
-                    title="Zoom In"
-                  >
-                    <ZoomIn className="w-3.5 h-3.5" />
-                  </button>
-                  <span className="w-px h-3 bg-stone-300 mx-0.5" />
-                  <button
-                    type="button"
-                    onClick={() => setRotation((r) => (r + 90) % 360)}
-                    className="p-1 hover:text-stone-900 text-stone-600 cursor-pointer"
-                    title="Rotate 90°"
-                  >
-                    <RotateCw className="w-3.5 h-3.5" />
-                  </button>
-                </div>
-              </div>
-
               {/* THE 3D FRAME WALL STAGE */}
               <div
                 className={`relative w-full h-[400px] xs:h-[460px] sm:h-[540px] md:h-[580px] rounded-2xl overflow-hidden transition-all duration-700 flex items-center justify-center p-4 sm:p-10 ${
