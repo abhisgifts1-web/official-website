@@ -29,9 +29,6 @@ import {
   Palette,
   Maximize2,
   ChevronDown,
-  RectangleVertical,
-  RectangleHorizontal,
-  Square,
   Sparkle,
 } from 'lucide-react';
 import { useCart } from '@/context/CartContext';
@@ -1223,45 +1220,10 @@ export default function CustomizerStudio() {
               RIGHT COLUMN: COMPREHENSIVE CUSTOMIZATION CONTROLS (5 COLS)
               ===================================================== */}
           <div className="lg:col-span-5 xl:col-span-5 bg-white p-6 sm:p-7 rounded-3xl border border-stone-200 shadow-sm space-y-6">
-            {/* Step 1: Frame Orientation */}
+            {/* Step 1: Select Frame Category */}
             <div className="space-y-2">
               <label className="text-xs font-bold uppercase tracking-wider text-stone-900 flex items-center justify-between">
-                <span>Step 1: Choose Frame Format</span>
-                <span className="text-[10px] text-amber-700 font-semibold capitalize">{orientation} Ratio</span>
-              </label>
-
-              <div className="grid grid-cols-3 gap-2">
-                {[
-                  { id: 'vertical', label: 'Portrait', sub: '3:4 Ratio', icon: RectangleVertical },
-                  { id: 'horizontal', label: 'Landscape', sub: '4:3 Ratio', icon: RectangleHorizontal },
-                  { id: 'square', label: 'Square', sub: '1:1 Ratio', icon: Square },
-                ].map((item) => {
-                  const isSelected = orientation === item.id;
-                  const IconComp = item.icon;
-                  return (
-                    <button
-                      key={item.id}
-                      type="button"
-                      onClick={() => handleOrientationChange(item.id as ProductOrientation)}
-                      className={`p-3 rounded-xl border text-center transition-all cursor-pointer flex flex-col items-center justify-center gap-1 ${
-                        isSelected
-                          ? 'border-amber-500 bg-amber-50 text-stone-900 font-bold ring-1 ring-amber-400 shadow-xs'
-                          : 'border-stone-200 text-stone-600 hover:border-amber-300 bg-white'
-                      }`}
-                    >
-                      <IconComp className={`w-5 h-5 ${isSelected ? 'text-amber-600' : 'text-stone-400'}`} />
-                      <span className="text-xs font-bold">{item.label}</span>
-                      <span className="text-[10px] text-stone-500">{item.sub}</span>
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-
-            {/* Step 2: Select Frame Category */}
-            <div className="space-y-2">
-              <label className="text-xs font-bold uppercase tracking-wider text-stone-900 flex items-center justify-between">
-                <span>Step 2: Select Frame Category</span>
+                <span>Step 1: Select Frame Category</span>
                 <span className="text-[10px] text-amber-700 font-semibold">5 Curated Styles</span>
               </label>
 
@@ -1294,11 +1256,11 @@ export default function CustomizerStudio() {
               </div>
             </div>
 
-            {/* Step 3: Select Frame Size */}
+            {/* Step 2: Select Frame Size */}
             <div className="space-y-2">
               <div className="flex items-center justify-between">
                 <label className="text-xs font-bold uppercase tracking-wider text-stone-900">
-                  Step 3: Select Dimensions
+                  Step 2: Select Frame Dimensions
                 </label>
                 <span className="text-[11px] text-amber-700 font-semibold">{displaySizeLabel}</span>
               </div>
@@ -1380,11 +1342,11 @@ export default function CustomizerStudio() {
               )}
             </div>
 
-            {/* Step 4: Frame Edge & Mounting Finish */}
+            {/* Step 3: Frame Edge & Mounting Finish */}
             <div className="space-y-2">
               <div className="flex items-center justify-between">
                 <label className="text-xs font-bold uppercase tracking-wider text-stone-900">
-                  Step 4: Select Mounting &amp; Finish
+                  Step 3: Select Mounting &amp; Finish
                 </label>
                 <span className="text-[11px] text-amber-700 font-semibold">{activeFinishObj.name}</span>
               </div>
@@ -1416,11 +1378,11 @@ export default function CustomizerStudio() {
               </div>
             </div>
 
-            {/* Step 5: LED Backlighting Option */}
+            {/* Step 4: LED Backlighting Option */}
             <div className="space-y-2">
               <div className="flex items-center justify-between">
                 <label className="text-xs font-bold uppercase tracking-wider text-stone-900">
-                  Step 5: Select LED Illumination
+                  Step 4: Select LED Illumination
                 </label>
                 <span className="text-[11px] text-amber-700 font-semibold">{activeLedObj.temperature}</span>
               </div>
@@ -1466,10 +1428,10 @@ export default function CustomizerStudio() {
               </div>
             </div>
 
-            {/* Step 6: Personal Inscription */}
+            {/* Step 5: Personal Inscription */}
             <div className="space-y-1">
               <label className="text-xs font-bold uppercase tracking-wider text-stone-900 block">
-                Step 6: Add Inscription or Message (Optional)
+                Step 5: Add Inscription or Message (Optional)
               </label>
               <input
                 type="text"
@@ -1504,7 +1466,7 @@ export default function CustomizerStudio() {
             <div className="bg-stone-50 p-4 sm:p-5 rounded-2xl border border-stone-200 space-y-3">
               <div className="flex items-baseline justify-between border-b border-stone-200 pb-2.5">
                 <div>
-                  <span className="text-xs text-stone-500 block">Step 7: Live Price &amp; Configuration Review</span>
+                  <span className="text-xs text-stone-500 block">Step 6: Live Price &amp; Configuration Review</span>
                   <div className="flex items-baseline gap-2">
                     <span className="font-serif text-2xl sm:text-3xl font-bold text-stone-900">
                       ₹{pricing.price.toLocaleString('en-IN')}
