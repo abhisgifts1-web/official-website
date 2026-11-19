@@ -19,6 +19,7 @@ import {
   Zap,
   ChevronRight,
   ChevronLeft,
+  ChevronDown,
   Ruler,
   ShoppingBag,
   MapPin,
@@ -493,8 +494,34 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
   const [showStickyBar, setShowStickyBar] = useState(false);
   const mainPurchaseRef = useRef<HTMLDivElement>(null);
 
-  // Tabs state
-  const [activeTab, setActiveTab] = useState<'overview' | 'craft' | 'specs' | 'sizeguide' | 'install' | 'shipping' | 'faq'>('overview');
+  // Expandable FAQ State
+  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
+
+  const faqItems = useMemo(
+    () => [
+      {
+        q: 'How does the LED lighting work and what is the power consumption?',
+        a: 'The LED backlighting uses high-efficiency warm golden Epistar SMD chips that consume only 12W to 18W of power (similar to an energy-saving bulb). It operates with a BIS-certified 12V 2A adapter plugged into any standard home outlet.',
+      },
+      {
+        q: 'Is the acrylic fragile or breakable during everyday cleaning?',
+        a: 'No. We use premium virgin cast acrylic that is shatterproof and 17x stronger than traditional glass. Simply wipe with a soft micro-fiber cloth to remove dust.',
+      },
+      {
+        q: 'Can this frame be safely installed in a pooja room where incense/diyas are lit?',
+        a: 'Yes. The direct Swiss UV cure print is moisture-proof and heat-resilient. However, keep direct fire or oil spills at a safe distance (minimum 12 inches) to prevent soot buildup.',
+      },
+      {
+        q: 'What is included in the package for installation?',
+        a: 'Everything needed is inside the wooden crate: your custom-sized acrylic frame, BIS-certified 12V power adapter with 2.5m wire, concealed French cleat bracket or stainless steel wall studs, wall plugs, screws, and a marking template.',
+      },
+      {
+        q: 'How long does shipping take and how is it packaged?',
+        a: 'All orders are handcrafted in Hyderabad and dispatched within 24 to 48 hours. We pack in reinforced 5-layer honeycomb wooden outer crates with corner guards for 100% safe transit across India.',
+      },
+    ],
+    []
+  );
 
   // Preload all gallery and frame images in the background
   useEffect(() => {
@@ -1308,219 +1335,187 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
           </div>
         </div>
 
-        {/* Comprehensive Tabs Section */}
-        <div id="product-tabs-section" className="border-t border-stone-200 pt-10 space-y-8">
-          <div className="flex border-b border-stone-200 gap-3 sm:gap-6 text-xs sm:text-sm font-semibold overflow-x-auto pb-1 scrollbar-thin">
-            {[
-              { id: 'overview', label: 'Story & Lore' },
-              { id: 'craft', label: 'Craft & Materials' },
-              { id: 'specs', label: 'Technical Specifications' },
-              { id: 'sizeguide', label: 'Size & Placement Guide' },
-              { id: 'install', label: '3-Min Installation' },
-              { id: 'shipping', label: 'Safe Packaging' },
-              { id: 'faq', label: 'Frequently Asked Questions' },
-            ].map((tab) => (
-              <button
-                key={tab.id}
-                type="button"
-                onClick={() => setActiveTab(tab.id as any)}
-                className={`pb-3.5 border-b-2 transition-colors whitespace-nowrap cursor-pointer ${
-                  activeTab === tab.id
-                    ? 'border-amber-500 text-stone-900 font-bold'
-                    : 'border-transparent text-stone-500 hover:text-stone-900'
-                }`}
-              >
-                {tab.label}
-              </button>
-            ))}
-          </div>
+        {/* Amazon/Wayfair Style: Product Details & Specifications Grid */}
+        <div id="product-details-section" className="border-t border-stone-200 pt-10 sm:pt-14 space-y-12">
+          {/* Main 2-Column Grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+            {/* Left Column (Col 7): Overview & Craft Highlights */}
+            <div className="lg:col-span-7 space-y-6">
+              <div>
+                <span className="text-[11px] font-bold uppercase tracking-wider text-amber-800">Product Overview</span>
+                <h3 className="font-serif font-bold text-xl sm:text-2xl text-stone-900 mt-1">
+                  About This Artwork
+                </h3>
+              </div>
 
-          {/* Tab Contents */}
-          <div className="py-2">
-            {/* TAB 1: OVERVIEW & STORY */}
-            {activeTab === 'overview' && (
-              <div className="space-y-6 max-w-4xl">
-                <div className="p-6 rounded-3xl bg-stone-50 border border-stone-200 space-y-4 shadow-2xs">
-                  <h4 className="font-serif font-bold text-lg sm:text-xl text-stone-900">
-                    Spiritual Significance &amp; Iconography
-                  </h4>
-                  <p className="text-xs sm:text-sm text-stone-600 leading-relaxed">
-                    {product.description}
-                  </p>
-                  <div className="p-4 rounded-2xl bg-white border border-stone-200 text-xs text-stone-900 space-y-1.5 shadow-2xs">
-                    <p className="font-bold flex items-center gap-1.5">
-                      <Sparkles className="w-3.5 h-3.5 text-amber-600" />
-                      <span>Vastu Shastra &amp; Sacred Placement Guidance</span>
+              <div className="text-stone-700 text-sm leading-relaxed space-y-3 [text-wrap:pretty]">
+                <p>{product.description}</p>
+              </div>
+
+              {/* Sacred / Placement Tip Callout */}
+              <div className="p-4 rounded-xl bg-amber-50/60 border border-amber-200/80 text-xs text-stone-800 space-y-1">
+                <p className="font-bold text-amber-950 flex items-center gap-1.5">
+                  <Sparkles className="w-3.5 h-3.5 text-amber-600 shrink-0" />
+                  <span>Vastu Shastra &amp; Sacred Placement Guidance</span>
+                </p>
+                <p className="text-stone-600 leading-relaxed">
+                  Ideal for installation facing East or North-East in pooja mandirs, living rooms, and entrance foyers to invoke auspicious blessings, serenity, and divine grace.
+                </p>
+              </div>
+
+              {/* Craftsmanship & Material Highlights */}
+              <div className="space-y-3 pt-2">
+                <h4 className="font-bold text-xs uppercase tracking-wider text-stone-900">
+                  Material &amp; Craftsmanship
+                </h4>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                  <div className="p-3.5 rounded-xl border border-stone-200 bg-stone-50/70 space-y-1">
+                    <div className="flex items-center gap-2 font-bold text-stone-900">
+                      <Sparkles className="w-4 h-4 text-amber-600 shrink-0" />
+                      <span>Virgin Cast Acrylic</span>
+                    </div>
+                    <p className="text-stone-600 text-[11px] leading-relaxed">
+                      Ultra-clear, shatterproof grade acrylic with diamond-polished edges for brilliant optical clarity.
                     </p>
-                    <p className="text-stone-600">
-                      Ideal for installation facing East or North-East in pooja mandirs, living rooms, and entrance foyers to invoke auspicious blessings, serenity, and divine grace.
+                  </div>
+
+                  <div className="p-3.5 rounded-xl border border-stone-200 bg-stone-50/70 space-y-1">
+                    <div className="flex items-center gap-2 font-bold text-stone-900">
+                      <ShieldCheck className="w-4 h-4 text-amber-600 shrink-0" />
+                      <span>Direct UV Flatbed Print</span>
+                    </div>
+                    <p className="text-stone-600 text-[11px] leading-relaxed">
+                      6-Color UV curable inks ensure vibrant, museum-grade color fastness that never fades under indoor light.
+                    </p>
+                  </div>
+
+                  <div className="p-3.5 rounded-xl border border-stone-200 bg-stone-50/70 space-y-1">
+                    <div className="flex items-center gap-2 font-bold text-stone-900">
+                      <Zap className="w-4 h-4 text-amber-600 shrink-0" />
+                      <span>Warm Ambient LED</span>
+                    </div>
+                    <p className="text-stone-600 text-[11px] leading-relaxed">
+                      Concealed warm golden SMD chips consume only 12W–18W with diffuse halo light projection.
+                    </p>
+                  </div>
+
+                  <div className="p-3.5 rounded-xl border border-stone-200 bg-stone-50/70 space-y-1">
+                    <div className="flex items-center gap-2 font-bold text-stone-900">
+                      <CheckCircle2 className="w-4 h-4 text-amber-600 shrink-0" />
+                      <span>12V Power Adapter</span>
+                    </div>
+                    <p className="text-stone-600 text-[11px] leading-relaxed">
+                      BIS-certified low-voltage power supply with 2.5m clear cord for safe, subtle wall routing.
                     </p>
                   </div>
                 </div>
               </div>
-            )}
+            </div>
 
-            {/* TAB 2: CRAFT & MATERIALS */}
-            {activeTab === 'craft' && (
-              <div className="space-y-6 max-w-4xl">
-                <div className="p-6 rounded-3xl bg-stone-50 border border-stone-200 space-y-4 shadow-2xs">
-                  <h4 className="font-serif font-bold text-lg sm:text-xl text-stone-900">
-                    Museum-Grade Acrylic &amp; LED Engineering
-                  </h4>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs sm:text-sm text-stone-600">
-                    <div className="p-4 rounded-2xl bg-white border border-stone-200 space-y-1 shadow-2xs">
-                      <h5 className="font-bold text-stone-900">1. Virgin Cast Acrylic</h5>
-                      <p>Ultra-clear, shatterproof grade cast acrylic with precision beveled edges for supreme light refraction.</p>
-                    </div>
-                    <div className="p-4 rounded-2xl bg-white border border-stone-200 space-y-1 shadow-2xs">
-                      <h5 className="font-bold text-stone-900">2. High-Definition UV Direct Printing</h5>
-                      <p>6-Color digital flatbed UV curable inks ensure vibrant, long-lasting colors against indoor lighting.</p>
-                    </div>
-                    <div className="p-4 rounded-2xl bg-white border border-stone-200 space-y-1 shadow-2xs">
-                      <h5 className="font-bold text-stone-900">3. Warm Golden Ambient LED</h5>
-                      <p>Energy-efficient warm SMD LEDs with concealed diffuse light guide layer.</p>
-                    </div>
-                    <div className="p-4 rounded-2xl bg-white border border-stone-200 space-y-1 shadow-2xs">
-                      <h5 className="font-bold text-stone-900">4. BIS-Certified 12V Power Adapter</h5>
-                      <p>Low voltage safe power supply with 2.5m transparent wire for subtle wall wiring routing.</p>
-                    </div>
-                  </div>
-                </div>
+            {/* Right Column (Col 5): Specifications & Installation Table */}
+            <div className="lg:col-span-5 space-y-6">
+              <div>
+                <span className="text-[11px] font-bold uppercase tracking-wider text-amber-800">Specifications</span>
+                <h3 className="font-serif font-bold text-xl sm:text-2xl text-stone-900 mt-1">
+                  Technical Details
+                </h3>
               </div>
-            )}
 
-            {/* TAB 3: SPECIFICATIONS */}
-            {activeTab === 'specs' && (
-              <div className="space-y-6 max-w-4xl">
-                <div className="divide-y divide-stone-200 border border-stone-200 rounded-3xl bg-white overflow-hidden text-xs sm:text-sm shadow-2xs">
-                  {product.specifications.map((spec, i) => (
-                    <div key={i} className="grid grid-cols-3 p-4 hover:bg-stone-50 transition-colors">
-                      <span className="font-bold text-stone-900 col-span-1">{spec.label}</span>
+              {/* Specifications Table */}
+              <div className="divide-y divide-stone-200 border border-stone-200 rounded-xl bg-white overflow-hidden text-xs shadow-2xs">
+                {product.specifications && product.specifications.length > 0 ? (
+                  product.specifications.map((spec, i) => (
+                    <div key={i} className={`grid grid-cols-3 p-3 transition-colors ${i % 2 === 0 ? 'bg-stone-50/50' : 'bg-white'}`}>
+                      <span className="font-semibold text-stone-900 col-span-1">{spec.label}</span>
                       <span className="text-stone-600 col-span-2">{spec.value}</span>
                     </div>
-                  ))}
+                  ))
+                ) : (
+                  <>
+                    <div className="grid grid-cols-3 p-3 bg-stone-50/50">
+                      <span className="font-semibold text-stone-900 col-span-1">Material</span>
+                      <span className="text-stone-600 col-span-2">Cast Acrylic Sheet</span>
+                    </div>
+                    <div className="grid grid-cols-3 p-3 bg-white">
+                      <span className="font-semibold text-stone-900 col-span-1">Print Process</span>
+                      <span className="text-stone-600 col-span-2">High-Definition UV Direct Print</span>
+                    </div>
+                  </>
+                )}
+                <div className="grid grid-cols-3 p-3 bg-stone-50/50">
+                  <span className="font-semibold text-stone-900 col-span-1">Country of Origin</span>
+                  <span className="text-stone-600 col-span-2">Handcrafted in Hyderabad, India</span>
                 </div>
               </div>
-            )}
 
-            {/* TAB 4: SIZE & PLACEMENT GUIDE */}
-            {activeTab === 'sizeguide' && (
-              <div className="space-y-6 max-w-4xl">
-                <div className="p-6 rounded-3xl bg-stone-50 border border-stone-200 space-y-5 shadow-2xs">
-                  <h4 className="font-serif font-bold text-lg sm:text-xl text-stone-900">
-                    Visual Size Comparison &amp; Room Scale
-                  </h4>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs text-stone-600">
-                    <div className="p-4 rounded-2xl bg-white border border-stone-200 text-center space-y-2 shadow-2xs">
-                      <div className="h-20 flex items-center justify-center">
-                        <div className="w-10 h-14 rounded border-2 border-amber-500 bg-amber-50 flex items-center justify-center text-[10px] font-bold text-stone-900">12x18</div>
-                      </div>
-                      <h5 className="font-bold text-stone-900">12 x 18 Inches</h5>
-                      <p className="text-[11px]">Compact Mandir altar or entry pillar.</p>
-                    </div>
-                    <div className="p-4 rounded-2xl bg-white border border-stone-200 text-center space-y-2 shadow-2xs">
-                      <div className="h-20 flex items-center justify-center">
-                        <div className="w-14 h-20 rounded border-2 border-amber-500 bg-amber-50 flex items-center justify-center text-[10px] font-bold text-stone-900">16x24</div>
-                      </div>
-                      <h5 className="font-bold text-stone-900">16 x 24 Inches</h5>
-                      <p className="text-[11px]">Medium wall, study, or foyer niche.</p>
-                    </div>
-                    <div className="p-4 rounded-2xl bg-white border border-stone-200 text-center space-y-2 shadow-2xs">
-                      <div className="h-20 flex items-center justify-center">
-                        <div className="w-18 h-24 rounded border-2 border-amber-500 bg-amber-50 flex items-center justify-center text-[10px] font-bold text-stone-900">24x35</div>
-                      </div>
-                      <h5 className="font-bold text-stone-900">24 x 35 Inches</h5>
-                      <p className="text-[11px]">Popular size above 3-seater sofa or bed.</p>
-                    </div>
-                    <div className="p-4 rounded-2xl bg-white border border-stone-200 text-center space-y-2 shadow-2xs">
-                      <div className="h-20 flex items-center justify-center">
-                        <div className="w-22 h-28 rounded border-2 border-amber-500 bg-amber-50 flex items-center justify-center text-[10px] font-bold text-stone-900">30x47</div>
-                      </div>
-                      <h5 className="font-bold text-stone-900">30 x 47 Inches</h5>
-                      <p className="text-[11px]">Grand statement feature wall piece.</p>
-                    </div>
+              {/* 3-Step Hassle-Free Installation */}
+              <div className="p-4 rounded-xl border border-stone-200 bg-stone-50/70 space-y-3">
+                <h4 className="font-bold text-xs uppercase tracking-wide text-stone-900 flex items-center gap-1.5">
+                  <Info className="w-3.5 h-3.5 text-amber-600" />
+                  <span>3-Minute Installation &amp; Hardware</span>
+                </h4>
+                <div className="grid grid-cols-3 gap-2 text-center text-xs">
+                  <div className="p-2 rounded-lg bg-white border border-stone-200 space-y-1">
+                    <span className="inline-block w-5 h-5 rounded-full bg-amber-100 text-amber-900 font-bold text-[10px] leading-5">1</span>
+                    <p className="font-bold text-[11px] text-stone-900">Mark &amp; Drill</p>
+                    <p className="text-[10px] text-stone-500 leading-tight">Template incl.</p>
+                  </div>
+                  <div className="p-2 rounded-lg bg-white border border-stone-200 space-y-1">
+                    <span className="inline-block w-5 h-5 rounded-full bg-amber-100 text-amber-900 font-bold text-[10px] leading-5">2</span>
+                    <p className="font-bold text-[11px] text-stone-900">Mount Bracket</p>
+                    <p className="text-[10px] text-stone-500 leading-tight">Concealed French cleat</p>
+                  </div>
+                  <div className="p-2 rounded-lg bg-white border border-stone-200 space-y-1">
+                    <span className="inline-block w-5 h-5 rounded-full bg-amber-100 text-amber-900 font-bold text-[10px] leading-5">3</span>
+                    <p className="font-bold text-[11px] text-stone-900">Plug &amp; Glow</p>
+                    <p className="text-[10px] text-stone-500 leading-tight">12V safe adapter</p>
                   </div>
                 </div>
+                <p className="text-[11px] text-stone-500 text-center">
+                  📦 Shipped in 5-layer heavy honeycomb wooden crate with transit insurance.
+                </p>
               </div>
-            )}
+            </div>
+          </div>
 
-            {/* TAB 5: 3-MIN INSTALLATION */}
-            {activeTab === 'install' && (
-              <div className="space-y-6 max-w-4xl">
-                <div className="p-6 rounded-3xl bg-stone-50 border border-stone-200 space-y-5 shadow-2xs">
-                  <h4 className="font-serif font-bold text-lg sm:text-xl text-stone-900">
-                    Hassle-Free 3-Minute Wall Mounting
-                  </h4>
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs sm:text-sm text-stone-600">
-                    <div className="p-4 rounded-2xl bg-white border border-stone-200 space-y-2 shadow-2xs">
-                      <span className="w-6 h-6 rounded-full bg-amber-400 text-stone-950 font-bold flex items-center justify-center text-xs">1</span>
-                      <h5 className="font-bold text-stone-900">Mark &amp; Drill</h5>
-                      <p>Use the provided mounting card to mark hole positions. Insert the included wall plugs.</p>
-                    </div>
-                    <div className="p-4 rounded-2xl bg-white border border-stone-200 space-y-2 shadow-2xs">
-                      <span className="w-6 h-6 rounded-full bg-amber-400 text-stone-950 font-bold flex items-center justify-center text-xs">2</span>
-                      <h5 className="font-bold text-stone-900">Fix Wall Bracket</h5>
-                      <p>Tighten the concealed French cleat or stainless steel studs using the supplied screws.</p>
-                    </div>
-                    <div className="p-4 rounded-2xl bg-white border border-stone-200 space-y-2 shadow-2xs">
-                      <span className="w-6 h-6 rounded-full bg-amber-400 text-stone-950 font-bold flex items-center justify-center text-xs">3</span>
-                      <h5 className="font-bold text-stone-900">Hang &amp; Plug In</h5>
-                      <p>Slide the frame onto the bracket and plug the 12V adapter into your nearest wall socket.</p>
-                    </div>
+          {/* Expandable FAQ Section */}
+          <div className="pt-6 border-t border-stone-200 max-w-4xl space-y-4">
+            <div>
+              <span className="text-[11px] font-bold uppercase tracking-wider text-amber-800">Got Questions?</span>
+              <h3 className="font-serif font-bold text-xl sm:text-2xl text-stone-900 mt-1">
+                Frequently Asked Questions
+              </h3>
+            </div>
+
+            <div className="divide-y divide-stone-200 border border-stone-200 rounded-xl overflow-hidden bg-white shadow-2xs">
+              {faqItems.map((item, idx) => {
+                const isOpen = openFaqIndex === idx;
+                return (
+                  <div key={idx} className="transition-colors">
+                    <button
+                      type="button"
+                      onClick={() => setOpenFaqIndex(isOpen ? null : idx)}
+                      className="w-full p-4 sm:p-4.5 flex items-center justify-between gap-4 text-left font-bold text-xs sm:text-sm text-stone-900 hover:text-amber-800 hover:bg-stone-50/50 transition-colors cursor-pointer"
+                    >
+                      <span className="flex items-center gap-2.5">
+                        <HelpCircle className="w-4 h-4 text-amber-600 shrink-0" />
+                        <span>{item.q}</span>
+                      </span>
+                      <ChevronDown
+                        className={`w-4 h-4 text-stone-400 shrink-0 transition-transform duration-200 ${
+                          isOpen ? 'rotate-180 text-amber-600' : ''
+                        }`}
+                      />
+                    </button>
+                    {isOpen && (
+                      <div className="px-4 pb-4 sm:px-4.5 text-xs text-stone-600 leading-relaxed pl-11 pr-6 animate-in fade-in duration-150">
+                        {item.a}
+                      </div>
+                    )}
                   </div>
-                </div>
-              </div>
-            )}
-
-            {/* TAB 6: SHIPPING & GUARANTEE */}
-            {activeTab === 'shipping' && (
-              <div className="space-y-6 max-w-3xl">
-                <div className="p-6 rounded-3xl bg-stone-50 border border-stone-200 space-y-4 shadow-2xs text-xs sm:text-sm text-stone-600">
-                  <h4 className="font-serif font-bold text-lg sm:text-xl text-stone-900">
-                    Multi-Layer Protective Packaging
-                  </h4>
-                  <ul className="space-y-2.5 list-disc list-inside">
-                    {product.shippingHighlights.map((item, i) => (
-                      <li key={i}>{item}</li>
-                    ))}
-                    <li>Reinforced with 5-layer honeycomb wooden outer crate and thick air-bubble foam wrap.</li>
-                    <li>All orders are carefully inspected and protected with reinforced corner guards prior to dispatch.</li>
-                  </ul>
-                </div>
-              </div>
-            )}
-
-            {/* TAB 7: FAQ */}
-            {activeTab === 'faq' && (
-              <div className="space-y-4 max-w-3xl">
-                {[
-                  {
-                    q: 'How does the LED lighting work and what is the power consumption?',
-                    a: 'The LED backlighting uses high-efficiency warm golden Epistar SMD chips that consume only 12W to 18W of power (similar to an energy-saving bulb). It operates with a BIS-certified 12V 2A adapter plugged into any standard home outlet.',
-                  },
-                  {
-                    q: 'Is the acrylic fragile or breakable during everyday cleaning?',
-                    a: 'No. We use premium acrylic that is shatterproof and 17x stronger than traditional glass. Simply wipe with a soft micro-fiber cloth to remove dust.',
-                  },
-                  {
-                    q: 'Can this frame be safely installed in a pooja room where incense/diyas are lit?',
-                    a: 'Yes. The direct Swiss UV cure print is moisture-proof and heat-resilient. However, keep direct fire or oil spills at a safe distance (minimum 12 inches) to prevent soot buildup.',
-                  },
-                  {
-                    q: 'What is included in the package for installation?',
-                    a: 'Everything needed is inside the wooden crate: your custom-sized acrylic frame, BIS-certified 12V power adapter with 2.5m wire, concealed French cleat bracket or stainless steel wall studs, wall plugs, screws, and a marking template.',
-                  },
-                ].map((item, idx) => (
-                  <div key={idx} className="p-5 rounded-2xl bg-stone-50 border border-stone-200 space-y-2 shadow-2xs">
-                    <h5 className="font-bold text-xs sm:text-sm text-stone-900 flex items-center gap-2">
-                      <HelpCircle className="w-4 h-4 text-amber-600 shrink-0" />
-                      <span>{item.q}</span>
-                    </h5>
-                    <p className="text-xs text-stone-600 leading-relaxed pl-6">{item.a}</p>
-                  </div>
-                ))}
-              </div>
-            )}
+                );
+              })}
+            </div>
           </div>
         </div>
 
