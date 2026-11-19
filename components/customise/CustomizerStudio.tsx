@@ -884,34 +884,17 @@ export default function CustomizerStudio() {
               ===================================================== */}
           <div className="lg:col-span-7 xl:col-span-7 space-y-5 lg:sticky lg:top-24">
             <div className="bg-white rounded-3xl border border-stone-200 p-4 sm:p-6 shadow-sm space-y-4">
-              {/* THE 3D FRAME WALL STAGE */}
+              {/* THE 3D FRAME STAGE (Natural Display Without Over Space) */}
               <div
-                className={`relative w-full h-[400px] xs:h-[460px] sm:h-[540px] md:h-[580px] rounded-2xl overflow-hidden transition-all duration-700 flex items-center justify-center p-4 sm:p-10 ${
-                  wallMode === 'night'
-                    ? 'bg-gradient-to-b from-[#0a0a0c] via-[#141418] to-[#0c0d10]'
-                    : wallMode === 'studio'
-                    ? 'bg-gradient-to-b from-stone-200 via-stone-100 to-stone-200'
-                    : 'bg-gradient-to-b from-[#f8f6f0] via-[#f1eee6] to-[#eae6dc]'
-                }`}
+                className="relative w-full aspect-square sm:aspect-[4/5] max-h-[560px] rounded-3xl overflow-hidden bg-gradient-to-b from-stone-100 via-stone-50 to-stone-100 border border-stone-200 transition-all duration-500 flex items-center justify-center p-3 sm:p-5 group shadow-xs"
               >
-                {/* Night overlay for realistic LED halo contrast */}
-                {wallMode === 'night' && (
-                  <div className="absolute inset-0 bg-radial from-transparent to-black/60 pointer-events-none" />
-                )}
-
                 {/* Radiating 360° LED Glow Halo */}
                 {led !== 'none' && (
                   <div
-                    className={`absolute pointer-events-none transition-all duration-700 ${
-                      orientation === 'horizontal'
-                        ? 'w-[520px] sm:w-[680px] h-[360px] sm:h-[460px] rounded-3xl'
-                        : orientation === 'square'
-                        ? 'w-[420px] sm:w-[500px] h-[420px] sm:h-[500px] rounded-3xl'
-                        : 'w-[380px] sm:w-[480px] h-[480px] sm:h-[600px] rounded-3xl'
-                    }`}
+                    className="absolute inset-2 pointer-events-none transition-all duration-700 rounded-3xl"
                     style={{
-                      background: `radial-gradient(circle, ${activeLedObj.glowColor} 0%, rgba(214, 170, 85, 0.25) 45%, transparent 70%)`,
-                      filter: 'blur(50px)',
+                      background: `radial-gradient(circle, ${activeLedObj.glowColor} 0%, rgba(214, 170, 85, 0.22) 45%, transparent 70%)`,
+                      filter: 'blur(45px)',
                     }}
                   />
                 )}
@@ -920,18 +903,18 @@ export default function CustomizerStudio() {
                 <div
                   onMouseEnter={() => setIsHovered(true)}
                   onMouseLeave={() => setIsHovered(false)}
-                  className={`relative transition-all duration-500 group cursor-pointer z-20 flex items-center justify-center select-none max-w-[88%] max-h-[85%] ${
+                  className={`relative transition-all duration-500 group cursor-pointer z-20 flex items-center justify-center select-none w-full h-full ${
                     orientation === 'vertical'
-                      ? 'w-[260px] sm:w-[320px] md:w-[360px] aspect-[3/4]'
+                      ? 'max-w-[420px] max-h-[500px] aspect-[3/4]'
                       : orientation === 'horizontal'
-                      ? 'w-[320px] sm:w-[440px] md:w-[500px] aspect-[4/3]'
-                      : 'w-[260px] sm:w-[340px] md:w-[380px] aspect-square'
+                      ? 'max-w-[520px] max-h-[440px] aspect-[4/3]'
+                      : 'max-w-[440px] max-h-[440px] aspect-square'
                   }`}
                   style={{
                     boxShadow:
                       led !== 'none'
-                        ? `0 0 60px ${activeLedObj.glowColor}, 0 25px 50px rgba(0,0,0,0.65)`
-                        : '0 25px 55px rgba(0,0,0,0.4), 0 8px 20px rgba(0,0,0,0.12)',
+                        ? `0 0 50px ${activeLedObj.glowColor}, 0 20px 45px rgba(0,0,0,0.3)`
+                        : '0 16px 36px rgba(0,0,0,0.16), 0 4px 12px rgba(0,0,0,0.06)',
                   }}
                 >
                   {/* Outer Frame Finish Container */}
@@ -998,13 +981,13 @@ export default function CustomizerStudio() {
                 </div>
 
                 {/* Bottom Floating Info Pill */}
-                <div className="absolute bottom-3 left-3 z-30 bg-stone-900/90 backdrop-blur-md px-3.5 py-1.5 rounded-full text-xs font-bold text-white border border-white/15 shadow-md flex items-center gap-2 max-w-[90%] truncate">
-                  <Sparkles className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+                <div className="absolute bottom-3 left-3 z-30 bg-white/95 backdrop-blur-md px-3 py-1.5 rounded-full text-xs font-bold text-stone-900 border border-stone-200/90 shadow-sm flex items-center gap-2 max-w-[90%] truncate">
+                  <Sparkles className="w-3.5 h-3.5 text-amber-600 shrink-0" />
                   <span className="truncate">{activeCategoryObj.name}</span>
-                  <span className="text-amber-400 shrink-0">•</span>
-                  <span className="text-stone-300 font-medium shrink-0">{displaySizeLabel}</span>
+                  <span className="text-amber-500 shrink-0">•</span>
+                  <span className="text-stone-700 font-medium shrink-0">{displaySizeLabel}</span>
                   {led !== 'none' && (
-                    <span className="text-amber-300 font-semibold shrink-0">• {activeLedObj.temperature}</span>
+                    <span className="text-amber-700 font-semibold shrink-0">• {activeLedObj.temperature}</span>
                   )}
                 </div>
               </div>
@@ -1126,6 +1109,48 @@ export default function CustomizerStudio() {
                   {fileError}
                 </p>
               )}
+
+              {/* Natural Specifications Section (as done on product pages) */}
+              <div className="bg-white rounded-2xl border border-stone-200 p-4 sm:p-5 space-y-3 shadow-2xs">
+                <div className="flex items-center justify-between border-b border-stone-100 pb-2.5">
+                  <h4 className="font-serif font-bold text-sm text-stone-900 flex items-center gap-2">
+                    <Sparkles className="w-4 h-4 text-amber-600" />
+                    <span>Product Specifications</span>
+                  </h4>
+                  <span className="text-[10px] font-bold text-amber-900 bg-amber-50 border border-amber-300 px-2.5 py-0.5 rounded-full">
+                    Museum Grade
+                  </span>
+                </div>
+
+                <div className="divide-y divide-stone-100 text-xs">
+                  <div className="grid grid-cols-3 py-2.5">
+                    <span className="font-semibold text-stone-900 col-span-1">Material</span>
+                    <span className="text-stone-600 col-span-2">Cast Optical Acrylic (Crystal Clarity, UV-Resistant)</span>
+                  </div>
+                  <div className="grid grid-cols-3 py-2.5">
+                    <span className="font-semibold text-stone-900 col-span-1">Dimensions</span>
+                    <span className="text-stone-800 font-medium col-span-2">{displaySizeLabel}</span>
+                  </div>
+                  <div className="grid grid-cols-3 py-2.5">
+                    <span className="font-semibold text-stone-900 col-span-1">Frame Finish</span>
+                    <span className="text-stone-800 font-medium col-span-2">{activeFinishObj.name}</span>
+                  </div>
+                  <div className="grid grid-cols-3 py-2.5">
+                    <span className="font-semibold text-stone-900 col-span-1">Illumination</span>
+                    <span className="text-stone-800 font-medium col-span-2">
+                      {led !== 'none' ? `${activeLedObj.name} (${activeLedObj.temperature})` : 'Unlit Museum Print'}
+                    </span>
+                  </div>
+                  <div className="grid grid-cols-3 py-2.5">
+                    <span className="font-semibold text-stone-900 col-span-1">Print Process</span>
+                    <span className="text-stone-600 col-span-2">Sub-Surface UV 2400 DPI with Diamond Beveled Edge</span>
+                  </div>
+                  <div className="grid grid-cols-3 py-2.5">
+                    <span className="font-semibold text-stone-900 col-span-1">Craftsmanship</span>
+                    <span className="text-stone-600 col-span-2">Handcrafted in Hyderabad • 1:1 WhatsApp Proof Before Dispatch</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
