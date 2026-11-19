@@ -11,7 +11,6 @@ import {
   MessageCircle,
   RotateCcw,
   Banknote,
-  ThumbsUp,
   Sparkles,
   ArrowRight,
   Info,
@@ -815,17 +814,10 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 xl:gap-16 items-start">
           {/* LEFT COLUMN: Main Sticky Artwork Frame & Mockups Gallery */}
           <div className="lg:col-span-7 xl:col-span-7 lg:sticky lg:top-24 self-start space-y-5">
-            {/* Main Display Container with Interactive 3D Frame Simulation */}
-            <div
-              className={`relative w-full aspect-square sm:aspect-[4/5] max-h-[580px] rounded-3xl overflow-hidden bg-gradient-to-b from-stone-100 via-stone-50 to-stone-100 border border-stone-200 transition-all duration-500 flex items-center justify-center p-4 sm:p-7 group ${
-                isAartiGlow
-                  ? 'shadow-[0_0_55px_rgba(245,175,65,0.4)] ring-2 ring-amber-400/50'
-                  : 'shadow-sm'
-              }`}
-            >
-              {/* Top Right Floating Controls: warm Glow Mode + Fullscreen Zoom */}
+            {/* Main Display Container */}
+            <div className="relative w-full aspect-square sm:aspect-[4/5] max-h-[600px] rounded-2xl overflow-hidden bg-stone-50 border border-stone-200 transition-all duration-300 flex items-center justify-center p-3 sm:p-6 group">
+              {/* Top Right Floating Controls: Fullscreen Zoom */}
               <div className="absolute top-4 right-4 z-20 flex items-center gap-2">
-                {/* Lightbox Trigger */}
                 <button
                   type="button"
                   onClick={() => setLightboxOpen(true)}
@@ -839,7 +831,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
 
               {/* Interactive Adaptive Frame Rendering Wrapper */}
               <div
-                className="w-full h-full flex items-center justify-center cursor-crosshair relative p-1 sm:p-2"
+                className="w-full h-full flex items-center justify-center cursor-crosshair relative"
                 onMouseMove={(e) => {
                   const rect = e.currentTarget.getBoundingClientRect();
                   const x = Math.max(0, Math.min(100, ((e.clientX - rect.left) / rect.width) * 100));
@@ -850,7 +842,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
               >
                 {/* Dynamic Frame Box calibrated to Selected Shape (Portrait, Landscape, Square, Round) */}
                 <div
-                  className={`relative transition-all duration-500 flex items-center justify-center ${
+                  className={`relative transition-all duration-300 flex items-center justify-center ${
                     selectedShape === 'portrait'
                       ? 'w-full aspect-[3/4] max-w-[450px] max-h-[520px]'
                       : selectedShape === 'landscape'
@@ -860,20 +852,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                       : 'w-full aspect-square max-w-[450px] max-h-[450px]'
                   }`}
                 >
-                  {/* Simulated Ambient warm Backglow Halo on Wall */}
-                  {isAartiGlow && (
-                    <div
-                      className={`absolute -inset-4 sm:-inset-6 pointer-events-none transition-all duration-700 ${
-                        'rounded-3xl'
-                      }`}
-                      style={{
-                        background: 'radial-gradient(circle, rgba(255, 195, 75, 0.45) 0%, rgba(214, 170, 85, 0.25) 50%, transparent 75%)',
-                        filter: 'blur(28px)',
-                      }}
-                    />
-                  )}
-
-                  <div className="relative w-full h-full overflow-hidden rounded-2xl border border-stone-200 shadow-md">
+                  <div className="relative w-full h-full overflow-hidden rounded-xl border border-stone-200 shadow-sm bg-white">
                     {/* Main Artwork Image with Smooth Zoom tracking */}
                     <img
                       src={activeImage}
@@ -891,26 +870,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                             }
                           : undefined
                       }
-                      className={`w-full h-full object-cover transition-transform duration-150 ${
-                        ''
-                      }`}
-                    />
-
-                    {/* Corner Studs for Frameless Crystal Acrylic */}
-                    {!isGlitterFrame && selectedFrame === 'without' && (
-                      <>
-                        <div className="absolute top-2.5 left-2.5 w-3 h-3 rounded-full bg-gradient-to-br from-amber-100 via-amber-300 to-amber-700 shadow-xs border border-amber-900/40 pointer-events-none" />
-                        <div className="absolute top-2.5 right-2.5 w-3 h-3 rounded-full bg-gradient-to-br from-amber-100 via-amber-300 to-amber-700 shadow-xs border border-amber-900/40 pointer-events-none" />
-                        <div className="absolute bottom-2.5 left-2.5 w-3 h-3 rounded-full bg-gradient-to-br from-amber-100 via-amber-300 to-amber-700 shadow-xs border border-amber-900/40 pointer-events-none" />
-                        <div className="absolute bottom-2.5 right-2.5 w-3 h-3 rounded-full bg-gradient-to-br from-amber-100 via-amber-300 to-amber-700 shadow-xs border border-amber-900/40 pointer-events-none" />
-                      </>
-                    )}
-
-                    {/* Frameless Acrylic Glossy Sheen Overlay */}
-                    <div
-                      className={`absolute inset-0 pointer-events-none bg-gradient-to-tr from-transparent via-white/10 to-white/25 ${
-                        ''
-                      }`}
+                      className="w-full h-full object-cover transition-transform duration-150"
                     />
                   </div>
                 </div>
@@ -958,7 +918,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                         key={i}
                         type="button"
                         onClick={() => setActiveImageIndex(i)}
-                        className={`w-16 h-16 sm:w-20 sm:h-20 shrink-0 rounded-2xl overflow-hidden border-2 bg-stone-100 cursor-pointer relative group ${
+                        className={`w-16 h-16 sm:w-20 sm:h-20 shrink-0 rounded-xl overflow-hidden border-2 bg-stone-100 cursor-pointer relative group transition-all ${
                           isSelected
                             ? 'border-stone-900 opacity-100 shadow-xs'
                             : 'border-stone-200 opacity-70 hover:opacity-100 hover:border-stone-400'
@@ -983,19 +943,19 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
               </div>
             )}
 
-            {/* Quick Craft Pillar Highlights */}
+            {/* Clean Craft Assurance */}
             <div className="grid grid-cols-3 gap-2.5 pt-1 text-center">
-              <div className="p-3 rounded-2xl bg-stone-50 border border-stone-200 text-[11px] font-semibold text-stone-900 flex items-center justify-center gap-1.5 shadow-2xs">
+              <div className="py-2.5 px-2 rounded-xl bg-stone-50 border border-stone-200/80 text-[11px] font-medium text-stone-700 flex items-center justify-center gap-1.5">
                 <Sparkles className="w-3.5 h-3.5 text-amber-600 shrink-0" />
-                <span className="truncate">Premium Acrylic</span>
+                <span className="truncate">Cast Acrylic</span>
               </div>
-              <div className="p-3 rounded-2xl bg-stone-50 border border-stone-200 text-[11px] font-semibold text-stone-900 flex items-center justify-center gap-1.5 shadow-2xs">
+              <div className="py-2.5 px-2 rounded-xl bg-stone-50 border border-stone-200/80 text-[11px] font-medium text-stone-700 flex items-center justify-center gap-1.5">
                 <ShieldCheck className="w-3.5 h-3.5 text-amber-600 shrink-0" />
-                <span className="truncate">100% Moisture Proof</span>
+                <span className="truncate">Moisture Proof</span>
               </div>
-              <div className="p-3 rounded-2xl bg-stone-50 border border-stone-200 text-[11px] font-semibold text-stone-900 flex items-center justify-center gap-1.5 shadow-2xs">
+              <div className="py-2.5 px-2 rounded-xl bg-stone-50 border border-stone-200/80 text-[11px] font-medium text-stone-700 flex items-center justify-center gap-1.5">
                 <CheckCircle2 className="w-3.5 h-3.5 text-amber-600 shrink-0" />
-                <span className="truncate">Mounting Bracket Incl.</span>
+                <span className="truncate">Mounting Included</span>
               </div>
             </div>
           </div>
@@ -1003,10 +963,10 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
           {/* RIGHT COLUMN: Variation Controls & Purchase Actions */}
           <div
             ref={mainPurchaseRef}
-            className="lg:col-span-5 xl:col-span-5 space-y-6 bg-white p-6 sm:p-8 rounded-3xl border border-stone-200 shadow-md"
+            className="lg:col-span-5 xl:col-span-5 space-y-6"
           >
-            {/* Header Block: Stock & Title */}
-            <div className="space-y-2.5">
+            {/* Header Block: Stock, Title & Clean Direct Pricing */}
+            <div className="space-y-3 pb-4 border-b border-stone-200">
               <div className="flex items-center justify-start gap-2 flex-wrap">
                 <span className="text-[11px] font-semibold text-emerald-800 flex items-center gap-1.5 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200">
                   <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
@@ -1014,28 +974,22 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                 </span>
               </div>
 
-              <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-[32px] font-serif font-bold text-stone-900 leading-tight tracking-tight break-words [text-wrap:balance]">
+              <h1 className="text-2xl sm:text-3xl lg:text-[32px] font-serif font-bold text-stone-900 leading-tight tracking-tight break-words [text-wrap:balance]">
                 {product.title}
               </h1>
-            </div>
 
-            {/* Dynamic Pricing Banner */}
-            <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-stone-50 via-amber-50/40 to-stone-50 border border-stone-200 space-y-1.5 shadow-2xs">
-              <div className="flex items-baseline justify-between gap-2 flex-wrap">
-                <div className="flex items-baseline gap-3">
-                  <span className="text-3xl sm:text-4xl font-serif font-bold text-stone-900">
-                    ₹{currentPricing.price.toLocaleString('en-IN')}
+              <div className="flex items-baseline gap-3 pt-1">
+                <span className="text-3xl sm:text-4xl font-serif font-bold text-stone-900">
+                  ₹{currentPricing.price.toLocaleString('en-IN')}
+                </span>
+                {currentPricing.mrp > currentPricing.price && (
+                  <span className="text-base sm:text-lg text-stone-400 line-through font-normal">
+                    ₹{currentPricing.mrp.toLocaleString('en-IN')}
                   </span>
-                  {currentPricing.mrp > currentPricing.price && (
-                    <span className="text-base sm:text-lg text-stone-400 line-through font-normal">
-                      ₹{currentPricing.mrp.toLocaleString('en-IN')}
-                    </span>
-                  )}
-                </div>
-
+                )}
                 {discountPercent > 0 && (
-                  <span className="text-xs font-bold text-amber-900 bg-amber-100 border border-amber-300 px-3 py-1 rounded-full shadow-2xs">
-                    Save {discountPercent}% OFF
+                  <span className="text-xs font-bold text-emerald-800 bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-full">
+                    {discountPercent}% OFF
                   </span>
                 )}
               </div>
@@ -1043,7 +997,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
               {isCustomSize && (
                 <div className="pt-0.5 flex items-center gap-1.5 text-xs text-amber-900 font-medium">
                   <Sparkles className="w-3.5 h-3.5 text-amber-600 shrink-0" />
-                  <span>Custom Laser-Cut Size ({customSizeCalc.widthInches}&quot; × {customSizeCalc.heightInches}&quot;) • Calculated from standard sizes</span>
+                  <span>Custom Laser-Cut Size ({customSizeCalc.widthInches}&quot; × {customSizeCalc.heightInches}&quot;)</span>
                 </div>
               )}
             </div>
@@ -1067,13 +1021,13 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                     <button
                       type="button"
                       onClick={() => handleSelectFrame('gold')}
-                      className={`p-2.5 rounded-2xl border-2 flex flex-col items-center text-center gap-1.5 cursor-pointer ${
+                      className={`p-2.5 rounded-xl border-2 flex flex-col items-center text-center gap-1.5 cursor-pointer transition-all ${
                         selectedFrame === 'gold'
                           ? 'border-stone-900 bg-stone-100 shadow-xs'
                           : 'border-stone-200 bg-stone-50 hover:border-stone-400'
                       }`}
                     >
-                      <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl overflow-hidden border border-stone-200 shadow-xs bg-white">
+                      <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-lg overflow-hidden border border-stone-200 shadow-xs bg-white">
                         <img
                           src="/images/frames/gold-border-ref.jpg"
                           alt="Champagne Gold Aluminium Frame Border"
@@ -1088,13 +1042,13 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                     <button
                       type="button"
                       onClick={() => handleSelectFrame('black')}
-                      className={`p-2.5 rounded-2xl border-2 flex flex-col items-center text-center gap-1.5 cursor-pointer ${
+                      className={`p-2.5 rounded-xl border-2 flex flex-col items-center text-center gap-1.5 cursor-pointer transition-all ${
                         selectedFrame === 'black'
                           ? 'border-stone-900 bg-stone-100 shadow-xs'
                           : 'border-stone-200 bg-stone-50 hover:border-stone-400'
                       }`}
                     >
-                      <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl overflow-hidden border border-stone-200 shadow-xs bg-white">
+                      <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-lg overflow-hidden border border-stone-200 shadow-xs bg-white">
                         <img
                           src="/images/frames/black-border-ref.jpg"
                           alt="Matte Black Aluminium Frame Border"
@@ -1109,13 +1063,13 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                     <button
                       type="button"
                       onClick={() => handleSelectFrame('without')}
-                      className={`p-2.5 rounded-2xl border-2 flex flex-col items-center text-center gap-1.5 cursor-pointer ${
+                      className={`p-2.5 rounded-xl border-2 flex flex-col items-center text-center gap-1.5 cursor-pointer transition-all ${
                         selectedFrame === 'without'
                           ? 'border-stone-900 bg-stone-100 shadow-xs'
                           : 'border-stone-200 bg-stone-50 hover:border-stone-400'
                       }`}
                     >
-                      <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl overflow-hidden border border-stone-200 shadow-xs bg-white">
+                      <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-lg overflow-hidden border border-stone-200 shadow-xs bg-white">
                         <img
                           src="/images/frames/acrylic-border-ref.jpg"
                           alt="Frameless Acrylic Photo Frame Border"
@@ -1258,82 +1212,75 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
             </div>
 
             {/* Quantity Selector + Action Buttons */}
-            <div className="space-y-3.5 pt-2 border-t border-stone-200">
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-bold text-stone-900 uppercase tracking-wider">Quantity:</span>
-                <div className="flex items-center border border-stone-200 rounded-2xl bg-stone-50 overflow-hidden shadow-2xs">
+            <div className="space-y-3.5 pt-4 border-t border-stone-200">
+              {/* Customise / Add Photo Button */}
+              <button
+                type="button"
+                onClick={() => setIsCustomizerOpen(true)}
+                className="w-full py-3 px-4 rounded-xl border border-stone-300 hover:border-stone-900 bg-stone-50 hover:bg-stone-100 text-stone-900 font-semibold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all cursor-pointer shadow-2xs"
+                title={`Customise photo and size for ${product.title}`}
+              >
+                <Camera className="w-4 h-4 text-amber-600" />
+                <span>Customise: Add Your Photo &amp; Custom Size</span>
+              </button>
+
+              {/* Quantity + Add to Cart & Buy Now Row */}
+              <div className="flex items-center gap-2.5 sm:gap-3">
+                {/* Quantity */}
+                <div className="flex items-center border border-stone-200 rounded-xl bg-stone-50 overflow-hidden shadow-2xs shrink-0 h-12">
                   <button
                     type="button"
                     onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                    className="px-3.5 py-1.5 text-stone-600 hover:bg-stone-200 font-bold text-sm transition-colors cursor-pointer"
+                    className="px-3.5 text-stone-600 hover:bg-stone-200 font-bold text-sm transition-colors cursor-pointer h-full"
                     aria-label="Decrease quantity"
                   >
                     -
                   </button>
-                  <span className="px-4 text-xs font-bold text-stone-900 min-w-8 text-center">{quantity}</span>
+                  <span className="px-2.5 text-xs font-bold text-stone-900 min-w-8 text-center">{quantity}</span>
                   <button
                     type="button"
                     onClick={() => setQuantity(Math.min(10, quantity + 1))}
-                    className="px-3.5 py-1.5 text-stone-600 hover:bg-stone-200 font-bold text-sm transition-colors cursor-pointer"
+                    className="px-3.5 text-stone-600 hover:bg-stone-200 font-bold text-sm transition-colors cursor-pointer h-full"
                     aria-label="Increase quantity"
                   >
                     +
                   </button>
                 </div>
-              </div>
 
-              {/* Combined Option: Customise Photo & Size */}
-              <div className="pt-2 pb-1">
+                {/* Add to Cart Button */}
                 <button
                   type="button"
-                  onClick={() => setIsCustomizerOpen(true)}
-                  className="w-full bg-stone-900 hover:bg-stone-800 text-amber-300 py-3.5 px-4 rounded-2xl font-bold text-sm sm:text-base flex items-center justify-center gap-2.5 border-2 border-amber-400 shadow-md transition-all cursor-pointer group/custom active:scale-[0.99]"
-                  title={`Customise photo and size for ${product.title}`}
+                  onClick={handleAddToCart}
+                  className="flex-1 h-12 rounded-xl bg-stone-900 hover:bg-stone-800 active:bg-stone-950 text-white font-bold text-xs sm:text-sm transition-all flex items-center justify-center gap-2 cursor-pointer shadow-xs"
                 >
-                  <Sparkles className="w-4 h-4 text-amber-400 group-hover/custom:text-white transition-colors" />
-                  <span className="font-extrabold text-sm sm:text-base">Customise: Add Photo &amp; Custom Size</span>
-                  <Camera className="w-4 h-4 text-amber-400 group-hover/custom:text-white transition-colors" />
+                  <ShoppingBag className="w-4 h-4 text-amber-400" />
+                  <span>Add to Cart</span>
+                </button>
+
+                {/* Instant Buy Now Button */}
+                <button
+                  type="button"
+                  onClick={handleBuyNow}
+                  className="flex-1 h-12 rounded-xl bg-gradient-to-r from-[#EAB308] via-[#FACC15] to-[#EAB308] hover:from-[#FACC15] hover:to-[#EAB308] text-stone-950 font-bold text-xs sm:text-sm transition-all flex items-center justify-center gap-2 cursor-pointer shadow-xs"
+                >
+                  <span>Buy Now</span>
+                  <ArrowRight className="w-4 h-4 text-stone-900" />
                 </button>
               </div>
 
-              {/* CTA Buttons */}
-              <div className="pt-1">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  {/* Instant Buy Now Button */}
-                  <button
-                    type="button"
-                    onClick={handleBuyNow}
-                    className="w-full bg-gradient-to-r from-[#EAB308] via-[#FACC15] to-[#EAB308] hover:from-[#FACC15] hover:to-[#EAB308] text-stone-950 font-bold text-sm sm:text-base py-3.5 rounded-2xl shadow-md border border-[#EAB308]/50 transition-all flex items-center justify-center gap-2 cursor-pointer hover:shadow-lg active:scale-[0.99]"
-                  >
-                    <span>Buy Now</span>
-                    <ArrowRight className="w-4 h-4 text-stone-900" />
-                  </button>
-
-                  {/* Add to Cart Button */}
-                  <button
-                    type="button"
-                    onClick={handleAddToCart}
-                    className="w-full bg-stone-100 hover:bg-stone-200 active:bg-stone-300 text-stone-900 font-bold text-sm sm:text-base py-3.5 rounded-2xl border-2 border-stone-300 shadow-xs transition-colors flex items-center justify-center gap-2 cursor-pointer"
-                  >
-                    <ShoppingBag className="w-4 h-4 text-amber-600" />
-                    <span>Add to Cart</span>
-                  </button>
-                </div>
-              </div>
-
               {/* WhatsApp Enquiry & Direct Order Button */}
-              <div className="pt-1">
+              <div className="text-center pt-0.5">
                 <a
                   href={whatsappCustomSizeUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full bg-[#25D366]/10 hover:bg-[#25D366]/20 border border-[#25D366]/30 text-[#128C7E] font-bold text-xs py-3 rounded-2xl transition-all flex items-center justify-center gap-2 cursor-pointer shadow-2xs"
+                  className="inline-flex items-center gap-1.5 text-xs text-stone-600 hover:text-emerald-700 transition-colors"
                 >
-                  <MessageCircle className="w-4 h-4 fill-current text-[#25D366]" />
+                  <MessageCircle className="w-3.5 h-3.5 text-[#25D366] fill-[#25D366]" />
                   <span>
                     {isCustomSize
                       ? `Order Custom Size via WhatsApp (₹${currentPricing.price.toLocaleString('en-IN')})`
-                      : 'Need Custom Sizing or Advice? Inquire on WhatsApp'}
+                      : 'Need custom sizing or advice? Chat on WhatsApp'}
                   </span>
                 </a>
               </div>
@@ -1343,62 +1290,22 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
               </p>
             </div>
 
-            {/* 4 Golden Circular Trust Badges */}
-            <div className="pt-3 border-t border-stone-200">
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-center">
-                <div className="p-2.5 rounded-2xl bg-stone-50 border border-stone-200 flex flex-col items-center space-y-1">
-                  <Sparkles className="w-5 h-5 text-amber-600" />
-                  <span className="text-[10px] font-bold text-stone-900 leading-tight">HD Acrylic</span>
-                  <span className="text-[9px] text-stone-500">Diamond Polished</span>
-                </div>
-
-                <div className="p-2.5 rounded-2xl bg-stone-50 border border-stone-200 flex flex-col items-center space-y-1">
-                  <ShieldCheck className="w-5 h-5 text-amber-600" />
-                  <span className="text-[10px] font-bold text-stone-900 leading-tight">Protective Box</span>
-                  <span className="text-[9px] text-stone-500">Multi-Layer Safe</span>
-                </div>
-
-                <div className="p-2.5 rounded-2xl bg-stone-50 border border-stone-200 flex flex-col items-center space-y-1">
-                  <Sparkles className="w-5 h-5 text-amber-600" />
-                  <span className="text-[10px] font-bold text-stone-900 leading-tight">1:1 Proofing</span>
-                  <span className="text-[9px] text-stone-500">WhatsApp Approval</span>
-                </div>
-
-                <div className="p-2.5 rounded-2xl bg-stone-50 border border-stone-200 flex flex-col items-center space-y-1">
-                  <ThumbsUp className="w-5 h-5 text-amber-600" />
-                  <span className="text-[10px] font-bold text-stone-900 leading-tight">Pure Sanctum</span>
-                  <span className="text-[9px] text-stone-500">Authentic Craft</span>
-                </div>
+            {/* Streamlined Trust Assurance */}
+            <div className="pt-4 border-t border-stone-200 grid grid-cols-3 gap-2 text-center text-[11px] text-stone-600 font-medium">
+              <div className="flex items-center justify-center gap-1.5">
+                <ShieldCheck className="w-4 h-4 text-amber-600 shrink-0" />
+                <span className="truncate">Safe Transit</span>
+              </div>
+              <div className="flex items-center justify-center gap-1.5">
+                <Sparkles className="w-4 h-4 text-amber-600 shrink-0" />
+                <span className="truncate">1:1 Proof Approval</span>
+              </div>
+              <div className="flex items-center justify-center gap-1.5">
+                <CheckCircle2 className="w-4 h-4 text-amber-600 shrink-0" />
+                <span className="truncate">Moisture Proof</span>
               </div>
             </div>
           </div>
-        </div>
-
-        {/* Size Customisation WhatsApp Concierge Card */}
-        <div className="rounded-3xl border border-stone-200 bg-gradient-to-r from-amber-50/40 via-stone-50 to-amber-50/40 p-6 sm:p-8 shadow-xs flex flex-col sm:flex-row items-center justify-between gap-6">
-          <div className="flex items-center gap-4">
-            <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br from-amber-200 to-amber-400 flex items-center justify-center text-stone-950 shrink-0 shadow-sm">
-              <Ruler className="w-7 h-7 sm:w-8 sm:h-8 stroke-[2]" />
-            </div>
-            <div>
-              <h3 className="text-lg sm:text-2xl font-serif font-bold text-stone-900 tracking-tight">
-                Need Custom Dimensions Up to 96 x 48 Inches?
-              </h3>
-              <p className="text-xs sm:text-sm text-stone-600 font-medium mt-1 max-w-xl leading-relaxed">
-                Our master artisans handcraft bespoke acrylic LED wall frames tailored to your home temple sanctum, master suite, or corporate lobby.
-              </p>
-            </div>
-          </div>
-
-          <a
-            href={whatsappCustomSizeUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="shrink-0 bg-[#25D366] hover:bg-[#1EBE5D] active:bg-[#1DA851] text-white py-3.5 px-7 rounded-2xl font-bold text-sm sm:text-base flex items-center justify-center gap-2.5 shadow-md hover:shadow-lg transition-all"
-          >
-            <MessageCircle className="w-5 h-5 fill-white" />
-            <span>WhatsApp Custom Size Concierge</span>
-          </a>
         </div>
 
         {/* Comprehensive Tabs Section */}
