@@ -122,10 +122,10 @@ export default function CategoryShowcase() {
               className="category-wave-item group flex flex-col items-center shrink-0 text-center w-[94px] sm:w-[110px] lg:w-[124px] cursor-pointer select-none"
               style={{ animationDelay: `${idx * 0.18}s` }}
             >
-              {/* Outer Luxury Golden Ring with Breathing Pulse (Circle Shape) */}
-              <div className="relative w-[82px] h-[82px] sm:w-[96px] sm:h-[96px] lg:w-[110px] lg:h-[110px] aspect-square rounded-full p-[2.5px] sm:p-[3px] bg-gradient-to-tr from-amber-400 via-amber-200 to-amber-500 group-hover:from-amber-500 group-hover:via-yellow-300 group-hover:to-amber-600 transition-all duration-500 shadow-xs group-hover:shadow-[0_8px_24px_rgba(217,119,6,0.36)] group-hover:scale-105 flex items-center justify-center animate-category-ring">
-                {/* Inner White Well / Clipping Circle */}
-                <div className="w-full h-full rounded-full overflow-hidden bg-white p-[1.5px] relative flex items-center justify-center">
+              {/* Outer Luxury Golden Ring with Breathing Pulse (Square Shape) */}
+              <div className="relative w-[82px] h-[82px] sm:w-[96px] sm:h-[96px] lg:w-[110px] lg:h-[110px] aspect-square rounded-2xl p-[2.5px] sm:p-[3px] bg-gradient-to-tr from-amber-400 via-amber-200 to-amber-500 group-hover:from-amber-500 group-hover:via-yellow-300 group-hover:to-amber-600 transition-all duration-500 shadow-xs group-hover:shadow-[0_8px_24px_rgba(217,119,6,0.36)] group-hover:scale-105 flex items-center justify-center animate-category-ring">
+                {/* Inner White Well / Clipping Square */}
+                <div className="w-full h-full rounded-[13px] overflow-hidden bg-white p-[1.5px] relative flex items-center justify-center">
                   <img
                     src={cat.image}
                     alt={cat.name}
@@ -133,16 +133,16 @@ export default function CategoryShowcase() {
                     onError={(e) => {
                       (e.target as HTMLImageElement).src = cat.fallbackImage;
                     }}
-                    className="w-full h-full object-cover object-center rounded-full group-hover:scale-110 transition-transform duration-500 ease-out"
+                    className="w-full h-full object-cover object-center rounded-[11px] group-hover:scale-110 transition-transform duration-500 ease-out"
                   />
                   {/* Diagonal Acrylic Light Sheen Sweep on Hover */}
-                  <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-transparent via-white/50 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out pointer-events-none" />
+                  <div className="absolute inset-0 rounded-[11px] bg-gradient-to-tr from-transparent via-white/50 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out pointer-events-none" />
                   {/* Subtle Inner Ring */}
-                  <div className="absolute inset-0 rounded-full ring-1 ring-inset ring-black/10 pointer-events-none" />
+                  <div className="absolute inset-0 rounded-[11px] ring-1 ring-inset ring-black/10 pointer-events-none" />
                 </div>
               </div>
 
-              {/* Category Name Below Circle */}
+              {/* Category Name Below Square */}
               <span className="mt-2.5 sm:mt-3 text-center font-bold text-xs sm:text-[13px] text-stone-800 group-hover:text-amber-800 transition-colors leading-tight line-clamp-2 max-w-[110px]">
                 {cat.name}
               </span>
