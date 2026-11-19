@@ -778,7 +778,7 @@ export default function CustomizerStudio() {
                 Design bespoke cast acrylic photo frames, illuminated warm LED backlights, and floating wall art with your cherished photographs. Handcrafted to heirloom perfection in our Hyderabad atelier.
               </p>
 
-              {/* Two CTA Buttons */}
+              {/* CTA Button */}
               <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
                 <button
                   type="button"
@@ -788,14 +788,6 @@ export default function CustomizerStudio() {
                   <span>Start Customizing</span>
                   <ArrowRight className="w-4 h-4 text-stone-950 group-hover:translate-x-1 transition-transform" />
                 </button>
-
-                <a
-                  href="#custom-gallery"
-                  className="inline-flex items-center gap-2 bg-white hover:bg-stone-50 text-stone-800 font-bold text-xs sm:text-sm px-6 py-3.5 rounded-full border border-stone-300 shadow-xs hover:border-amber-400 transition-colors uppercase tracking-wider"
-                >
-                  <Layers className="w-4 h-4 text-amber-600" />
-                  <span>Explore Collections</span>
-                </a>
               </div>
 
               {/* 4 Trust Micro-Pillars */}
