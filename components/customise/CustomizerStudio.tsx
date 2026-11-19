@@ -992,52 +992,6 @@ export default function CustomizerStudio() {
                 </div>
               </div>
 
-              {/* Sample Memory Presets (Quick 1-Click Test Photos) */}
-              <div className="space-y-2 pt-1">
-                <div className="flex items-center justify-between text-xs font-semibold text-stone-600">
-                  <span className="flex items-center gap-1.5 font-bold text-stone-900">
-                    <ImageIcon className="w-3.5 h-3.5 text-amber-600" />
-                    <span>Try with Sample Photographs:</span>
-                  </span>
-                  <span className="text-[11px] text-amber-700 font-semibold">Click any image to preview</span>
-                </div>
-
-                <div className="grid grid-cols-5 gap-2">
-                  {SAMPLE_MEMORIES.map((sample) => {
-                    const isSelected = previewImage === sample.image;
-                    return (
-                      <button
-                        key={sample.id}
-                        type="button"
-                        onClick={() => {
-                          setPreviewImage(sample.image);
-                          setIsUserUploaded(false);
-                          setCustomText(sample.defaultText);
-                          setZoomLevel(1.0);
-                          setRotation(0);
-                        }}
-                        className={`p-1.5 rounded-xl border text-center transition-all flex flex-col items-center gap-1 cursor-pointer group ${
-                          isSelected
-                            ? 'border-amber-500 bg-amber-50/70 ring-2 ring-amber-400 shadow-xs'
-                            : 'border-stone-200 bg-stone-50 hover:border-amber-300'
-                        }`}
-                      >
-                        <div className="w-12 h-12 rounded-lg overflow-hidden border border-stone-200 shrink-0 relative">
-                          <img
-                            src={sample.image}
-                            alt={sample.name}
-                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                          />
-                        </div>
-                        <span className="text-[10px] font-bold text-stone-800 truncate w-full block">
-                          {sample.name}
-                        </span>
-                      </button>
-                    );
-                  })}
-                </div>
-              </div>
-
               {/* Photo Upload Drop Area */}
               <div className="bg-stone-50 p-4 rounded-2xl border border-stone-200 flex flex-col gap-3">
                 {uploadProgress !== null && (
