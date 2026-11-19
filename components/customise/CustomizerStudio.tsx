@@ -43,8 +43,6 @@ import { compressImageToDataUrl } from '@/lib/utils/imageCompress';
 export type FrameCategory =
   | 'normal-acrylic'
   | 'led-backlit'
-  | 'customized'
-  | 'luxury-acrylic'
   | 'wooden';
 
 export interface FrameCategoryOption {
@@ -133,24 +131,6 @@ export const FRAME_CATEGORIES: FrameCategoryOption[] = [
     subtitle: 'Warm Halo Illumination',
     description: 'Concealed Epistar warm golden perimeter LEDs casting a serene halo around your sacred memory or family portrait.',
     multiplier: 1.35,
-    hasLedDefault: true,
-  },
-  {
-    id: 'customized',
-    name: 'Customized Photo Frames',
-    badge: 'Heirloom Inscribed',
-    subtitle: 'Golden Script & Vows',
-    description: 'Personalized with wedding dates, family surnames, temple mantras, or baby birth details in golden foil.',
-    multiplier: 1.15,
-    hasLedDefault: false,
-  },
-  {
-    id: 'luxury-acrylic',
-    name: 'Luxury Acrylic Frames',
-    badge: 'Artisan Exclusive',
-    subtitle: '5mm Double-Thick Bevel',
-    description: 'Heavy 5mm museum-grade cast acrylic with heavy brushed gold/champagne standoffs and maximum depth.',
-    multiplier: 1.25,
     hasLedDefault: true,
   },
   {
@@ -314,7 +294,7 @@ export const GALLERY_PRODUCTS: GalleryProductItem[] = [
     badge: 'Bestseller for Couples',
     description: 'Celebrate sacred vows with museum-grade acrylic clarity, golden foil surname script, and premium floating stainless steel wall studs.',
     preset: {
-      category: 'customized',
+      category: 'led-backlit',
       orientation: 'vertical',
       finish: 'floating-standoff',
       led: 'warm-white',
@@ -332,7 +312,7 @@ export const GALLERY_PRODUCTS: GalleryProductItem[] = [
     badge: 'Housewarming Favorite',
     description: 'Showcase beloved family moments across an expansive landscape acrylic panel with rich archival colors and diamond-beveled edges.',
     preset: {
-      category: 'luxury-acrylic',
+      category: 'normal-acrylic',
       orientation: 'horizontal',
       finish: 'floating-standoff',
       led: 'warm-white',
@@ -368,7 +348,7 @@ export const GALLERY_PRODUCTS: GalleryProductItem[] = [
     badge: 'Milestone Keepsake',
     description: 'Preserve tiny smiles and memorable childhood steps on shatterproof, crystal-gloss acrylic with personalized date and name typography.',
     preset: {
-      category: 'customized',
+      category: 'normal-acrylic',
       orientation: 'square',
       finish: 'crystal-gloss',
       led: 'none',
@@ -422,7 +402,7 @@ export const GALLERY_PRODUCTS: GalleryProductItem[] = [
     badge: 'Luxury Accent',
     description: 'Infused with fine diamond shimmer dust that catches ambient light beautifully, creating an extraordinary wedding or anniversary statement.',
     preset: {
-      category: 'luxury-acrylic',
+      category: 'normal-acrylic',
       orientation: 'square',
       finish: 'crystal-gloss',
       led: 'warm-white',
@@ -1224,10 +1204,10 @@ export default function CustomizerStudio() {
             <div className="space-y-2">
               <label className="text-xs font-bold uppercase tracking-wider text-stone-900 flex items-center justify-between">
                 <span>Step 1: Select Frame Category</span>
-                <span className="text-[10px] text-amber-700 font-semibold">5 Curated Styles</span>
+                <span className="text-[10px] text-amber-700 font-semibold">3 Curated Styles</span>
               </label>
 
-              <div className="grid grid-cols-2 gap-2">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
                 {FRAME_CATEGORIES.map((cat) => {
                   const isSelected = category === cat.id;
                   return (
@@ -1630,7 +1610,7 @@ export default function CustomizerStudio() {
               </p>
               <div className="text-[11px] font-bold text-amber-700 flex items-center gap-1 pt-1">
                 <Check className="w-3.5 h-3.5 text-emerald-600" />
-                <span>5 Frame Categories</span>
+                <span>3 Core Frame Styles</span>
               </div>
             </div>
 
