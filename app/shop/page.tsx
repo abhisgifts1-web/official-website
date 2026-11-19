@@ -434,38 +434,16 @@ function ShopContent() {
 
         {/* PRODUCTS AREA (4 cols on lg, 5 cols on xl) */}
         <div className="lg:col-span-4 xl:col-span-5 space-y-4">
-          {/* Top Single-Line Controls Toolbar */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-stone-50/80 border border-stone-200/80 rounded-xl px-4 py-2.5 shadow-2xs">
-            {/* Left: Mobile Filter Button & Results Counter */}
-            <div className="flex items-center gap-3">
-              <button
-                type="button"
-                onClick={() => setMobileFilterOpen(true)}
-                className="lg:hidden flex items-center gap-1.5 bg-white px-3 py-1.5 rounded-lg text-xs font-bold text-stone-900 border border-stone-300 shadow-2xs cursor-pointer"
-              >
-                <SlidersHorizontal className="w-3.5 h-3.5 text-amber-600" />
-                <span>Filters</span>
-              </button>
-              <span className="text-xs text-stone-600">
-                Showing <strong className="text-stone-950 font-bold">{filteredProducts.length}</strong> of {totalArtworksCount} creations
-              </span>
-            </div>
-
-            {/* Right: Compact Sort Dropdown */}
-            <div className="flex items-center justify-between sm:justify-end gap-2">
-              <span className="text-xs text-stone-500 font-medium">Sort by:</span>
-              <select
-                value={sortBy}
-                onChange={(e) => setSortBy(e.target.value)}
-                className="bg-white border border-stone-300 text-stone-800 text-xs font-medium rounded-lg px-2.5 py-1.5 outline-none focus:border-amber-500 cursor-pointer shadow-2xs"
-              >
-                <option value="bestseller">Popular &amp; Bestselling</option>
-                <option value="price-asc">Price: Low to High</option>
-                <option value="price-desc">Price: High to Low</option>
-                <option value="newest">Newest Arrivals</option>
-                <option value="featured">Curated Feature</option>
-              </select>
-            </div>
+          {/* Mobile Filter Button (only on screens < lg) */}
+          <div className="lg:hidden flex items-center justify-between pb-1">
+            <button
+              type="button"
+              onClick={() => setMobileFilterOpen(true)}
+              className="flex items-center gap-1.5 bg-stone-100 hover:bg-stone-200 px-3.5 py-1.5 rounded-lg text-xs font-bold text-stone-900 border border-stone-300 shadow-2xs cursor-pointer transition-colors"
+            >
+              <SlidersHorizontal className="w-3.5 h-3.5 text-amber-600" />
+              <span>Filters ({filteredProducts.length})</span>
+            </button>
           </div>
 
           {/* Active Filter Badges */}
