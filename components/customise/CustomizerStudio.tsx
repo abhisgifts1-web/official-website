@@ -873,46 +873,31 @@ export default function CustomizerStudio() {
               </div>
             </div>
 
-            {/* Right Hero Visual Showcase: 4 Staggered Luxury Frame Previews */}
-            <div className="w-full lg:w-auto shrink-0 max-w-lg grid grid-cols-2 gap-3.5">
-              <div className="space-y-3.5">
-                <div className="rounded-2xl overflow-hidden border border-stone-200 shadow-md bg-stone-100 relative group aspect-[3/4]">
-                  <img
-                    src="/images/custom-art/cartoon-wedding-couple.svg"
-                    alt="Custom Wedding Caricature Acrylic Photo Frame"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute bottom-2 inset-x-2 bg-stone-900/80 backdrop-blur-xs p-2 rounded-xl text-center">
-                    <span className="text-[10px] font-bold text-amber-300 block">Wedding Caricature</span>
-                    <span className="text-[9px] text-white/90">3D Animated Keepsake</span>
-                  </div>
-                </div>
-
-                <div className="rounded-2xl overflow-hidden border border-stone-200 shadow-md bg-stone-100 relative group aspect-square">
-                  <img
-                    src="/images/custom-art/cartoon-baby-milestone.svg"
-                    alt="Baby Milestone Animated Keepsake Photo Frame"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute bottom-2 inset-x-2 bg-stone-900/80 backdrop-blur-xs p-2 rounded-xl text-center">
-                    <span className="text-[10px] font-bold text-amber-300 block">Baby Milestones</span>
-                    <span className="text-[9px] text-white/90">Cute Animated Keepsake</span>
-                  </div>
+            {/* Right Hero Visual Showcase: Balanced 2-Card Duo */}
+            <div className="w-full lg:w-auto shrink-0 max-w-md sm:max-w-lg grid grid-cols-2 gap-4 sm:gap-5">
+              {/* Card 1: Wedding Caricature */}
+              <div className="rounded-2xl overflow-hidden border border-amber-400/30 shadow-lg bg-stone-900 relative group aspect-[4/5] transition-all duration-300 hover:shadow-xl hover:border-amber-400/60">
+                <img
+                  src="/images/custom-art/cartoon-wedding-couple.svg"
+                  alt="Custom Wedding Caricature Acrylic Photo Frame"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute bottom-2.5 inset-x-2.5 bg-stone-950/85 backdrop-blur-sm p-2 sm:p-2.5 rounded-xl text-center border border-white/10">
+                  <span className="text-[11px] sm:text-xs font-bold text-amber-300 block leading-tight">Wedding Caricature</span>
+                  <span className="text-[9px] sm:text-[10px] text-stone-300 mt-0.5 block">3D Animated Keepsake</span>
                 </div>
               </div>
 
-              <div className="space-y-3.5 pt-6">
-
-                <div className="rounded-2xl overflow-hidden border border-stone-200 shadow-md bg-stone-100 relative group aspect-[4/3]">
-                  <img
-                    src="/images/custom-art/cartoon-couple-nightglow.svg"
-                    alt="Custom LED Night Glow Animated Couple Frame"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute bottom-2 inset-x-2 bg-stone-900/80 backdrop-blur-xs p-2 rounded-xl text-center">
-                    <span className="text-[10px] font-bold text-amber-300 block">LED Night-Glow</span>
-                    <span className="text-[9px] text-white/90">LED Halo</span>
-                  </div>
+              {/* Card 2: LED Night-Glow */}
+              <div className="rounded-2xl overflow-hidden border border-amber-400/30 shadow-lg bg-stone-900 relative group aspect-[4/5] transition-all duration-300 hover:shadow-xl hover:border-amber-400/60">
+                <img
+                  src="/images/custom-art/cartoon-couple-nightglow.svg"
+                  alt="Custom LED Night Glow Animated Couple Frame"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute bottom-2.5 inset-x-2.5 bg-stone-950/85 backdrop-blur-sm p-2 sm:p-2.5 rounded-xl text-center border border-white/10">
+                  <span className="text-[11px] sm:text-xs font-bold text-amber-300 block leading-tight">LED Night-Glow</span>
+                  <span className="text-[9px] sm:text-[10px] text-stone-300 mt-0.5 block">Warm Ambient Halo</span>
                 </div>
               </div>
             </div>
