@@ -831,11 +831,11 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
         {/* Top Breadcrumb Navigation & Quick Actions */}
         <nav
           aria-label="Breadcrumb"
-          className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs bg-gradient-to-r from-stone-50 via-white to-amber-50/40 p-2 sm:p-2.5 rounded-2xl border border-stone-200/90 shadow-2xs backdrop-blur-sm"
+          className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs bg-gradient-to-r from-stone-50 via-white to-amber-50/40 p-2 sm:p-2.5 rounded-2xl border border-stone-200/90 shadow-2xs backdrop-blur-sm overflow-hidden"
         >
-          <ol className="flex items-center flex-wrap gap-1 sm:gap-1.5 min-w-0">
+          <ol className="flex items-center flex-wrap sm:flex-nowrap gap-1 sm:gap-1.5 min-w-0 overflow-hidden">
             {/* Home Pill */}
-            <li>
+            <li className="shrink-0">
               <Link
                 href="/"
                 className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-xl text-stone-600 hover:text-stone-950 bg-white hover:bg-stone-50 border border-stone-200/80 hover:border-amber-400 shadow-2xs transition-all font-semibold group cursor-pointer"
@@ -845,44 +845,45 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
               </Link>
             </li>
 
-            <li className="text-amber-500/80">
+            <li className="text-amber-500/80 shrink-0">
               <ChevronRight className="w-3.5 h-3.5" />
             </li>
 
-            {/* Shop / Sacred Wall Art */}
-            <li>
+            {/* Shop */}
+            <li className="shrink-0">
               <Link
                 href="/shop"
                 className="inline-flex items-center gap-1 px-2.5 py-1 rounded-xl text-stone-600 hover:text-stone-950 bg-white hover:bg-stone-50 border border-stone-200/80 hover:border-amber-400 shadow-2xs transition-all font-semibold cursor-pointer"
               >
-                <span>Sacred Wall Art</span>
+                <span>Shop</span>
               </Link>
             </li>
 
             {product.categorySlug && (
               <>
-                <li className="text-amber-500/80">
+                <li className="text-amber-500/80 shrink-0">
                   <ChevronRight className="w-3.5 h-3.5" />
                 </li>
-                <li>
+                <li className="shrink-0 max-w-[120px] sm:max-w-[160px] truncate">
                   <Link
                     href={`/category/${product.categorySlug}`}
-                    className="inline-flex items-center gap-1 px-2.5 py-1 rounded-xl text-stone-600 hover:text-stone-950 bg-white hover:bg-stone-50 border border-stone-200/80 hover:border-amber-400 shadow-2xs transition-all font-semibold capitalize cursor-pointer"
+                    className="inline-flex items-center gap-1 px-2.5 py-1 rounded-xl text-stone-600 hover:text-stone-950 bg-white hover:bg-stone-50 border border-stone-200/80 hover:border-amber-400 shadow-2xs transition-all font-semibold capitalize cursor-pointer truncate"
                   >
-                    <span>{product.categoryName || product.deity || 'Collection'}</span>
+                    <span className="truncate">{product.categoryName || product.deity || 'Collection'}</span>
                   </Link>
                 </li>
               </>
             )}
 
-            <li className="text-amber-500/80">
+            <li className="text-amber-500/80 shrink-0">
               <ChevronRight className="w-3.5 h-3.5" />
             </li>
 
-            {/* Active Current Product Badge */}
+            {/* Active Current Product Badge (Truncated to fit screen cleanly) */}
             <li
-              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl bg-gradient-to-r from-amber-500/15 via-amber-400/20 to-amber-500/15 border border-amber-400/50 text-amber-950 font-bold shadow-2xs truncate max-w-[200px] sm:max-w-xs md:max-w-md lg:max-w-lg"
+              className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1 rounded-xl bg-gradient-to-r from-amber-500/15 via-amber-400/20 to-amber-500/15 border border-amber-400/50 text-amber-950 font-bold shadow-2xs min-w-0 max-w-[130px] sm:max-w-[180px] md:max-w-[240px] lg:max-w-[280px] truncate"
               aria-current="page"
+              title={product.title}
             >
               <Sparkles className="w-3 h-3 text-amber-600 shrink-0 animate-pulse" />
               <span className="truncate">{product.title}</span>
@@ -1145,12 +1146,12 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                 </span>
               </div>
 
-              <h1 className="text-2xl sm:text-3xl lg:text-[32px] font-serif font-bold text-stone-900 leading-tight tracking-tight">
+              <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-[32px] font-serif font-bold text-stone-900 leading-tight tracking-tight break-words [text-wrap:balance]">
                 {product.title}
               </h1>
 
               {product.subtitle && (
-                <p className="text-xs sm:text-sm text-stone-600 font-medium leading-relaxed">
+                <p className="text-xs sm:text-sm text-stone-600 font-medium leading-relaxed max-w-xl [text-wrap:pretty]">
                   {product.subtitle}
                 </p>
               )}
