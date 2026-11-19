@@ -11,6 +11,8 @@ import {
   Truck,
   Eye,
   CheckCircle2,
+  ChevronLeft,
+  ChevronRight,
 } from 'lucide-react';
 
 export interface FeaturedArtwork {
@@ -110,7 +112,29 @@ export const FEATURED_ARTWORKS: FeaturedArtwork[] = [
 
 export default function HeroShowcase() {
   const [selectedArtworkIndex, setSelectedArtworkIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
   const activeArtwork = FEATURED_ARTWORKS[selectedArtworkIndex];
+
+  // Auto-rotate through artworks every 5 seconds (pauses on hover)
+  useEffect(() => {
+    if (isPaused) return;
+
+    const interval = setInterval(() => {
+      setSelectedArtworkIndex((prev) => (prev + 1) % FEATURED_ARTWORKS.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [isPaused, selectedArtworkIndex]);
+
+  const handlePrev = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setSelectedArtworkIndex((prev) => (prev - 1 + FEATURED_ARTWORKS.length) % FEATURED_ARTWORKS.length);
+  };
+
+  const handleNext = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setSelectedArtworkIndex((prev) => (prev + 1) % FEATURED_ARTWORKS.length);
+  };
 
   // Preload primary high-resolution imagery
   useEffect(() => {
@@ -264,10 +288,14 @@ export default function HeroShowcase() {
           <div className="lg:col-span-5 flex flex-col items-center justify-center pt-4 lg:pt-0">
             
             {/* Realistic Floating Master Frame Container */}
-            <div className="relative w-full max-w-sm sm:max-w-md lg:max-w-lg group">
+            <div
+              className="relative w-full max-w-sm sm:max-w-md lg:max-w-lg group"
+              onMouseEnter={() => setIsPaused(true)}
+              onMouseLeave={() => setIsPaused(false)}
+            >
               
-              {/* Soft Ambient Golden LED Halo (3000K Pulse Aura) */}
-              <div className="absolute -inset-2.5 sm:-inset-4 rounded-3xl bg-gradient-to-tr from-amber-500/35 via-yellow-400/25 to-amber-600/30 blur-2xl opacity-75 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+              {/* Soft Ambient Golden LED Halo (3000K Pulse Aura) with Breathing Animation */}
+              <div className="absolute -inset-2.5 sm:-inset-4 rounded-3xl bg-gradient-to-tr from-amber-500/35 via-yellow-400/25 to-amber-600/30 blur-2xl opacity-75 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none animate-led-halo" />
 
               {/* Dimensional Realistic Frame Bezel & Acrylic Panel */}
               <div className="relative rounded-2xl sm:rounded-3xl p-2.5 sm:p-3.5 bg-gradient-to-b from-[#252528] via-[#141417] to-[#0A0A0C] border border-amber-400/40 shadow-2xl transition-all duration-500 animate-divine-float motion-reduce:animate-none">
@@ -275,29 +303,63 @@ export default function HeroShowcase() {
                 {/* Outer Frame Lip / Bevel Glare */}
                 <div className="relative rounded-xl sm:rounded-2xl overflow-hidden aspect-[4/3] bg-stone-900 border border-amber-500/30 shadow-inner">
                   
-                  {/* Master Framed Artwork Image */}
-                  <img
-                    src={activeArtwork.frameMockup || activeArtwork.image}
-                    alt={activeArtwork.name}
-                    className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-102"
-                  />
+                  {/* Master Framed Artwork Images with smooth cross-fade animation */}
+                  {FEATURED_ARTWORKS.map((artwork, idx) => (
+                    <div
+                      key={artwork.id}
+                      className={`absolute inset-0 transition-all duration-700 ease-in-out ${
+                        idx === selectedArtworkIndex
+                          ? 'opacity-100 scale-100 z-10'
+                          : 'opacity-0 scale-98 pointer-events-none z-0'
+                      }`}
+                    >
+                      <img
+                        src={artwork.frameMockup || artwork.image}
+                        alt={artwork.name}
+                        className="w-full h-full object-cover object-center group-hover:scale-102 transition-transform duration-700"
+                      />
+                    </div>
+                  ))}
+
+                  {/* Crystal Acrylic Glass Light Sweep / Sheen Animation */}
+                  <div className="absolute inset-0 pointer-events-none overflow-hidden z-20">
+                    <div className="w-1/2 h-full bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-[-25deg] animate-acrylic-shine" />
+                  </div>
 
                   {/* Realistic Acrylic Specular Reflection Highlight */}
-                  <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-transparent pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-transparent pointer-events-none z-20" />
 
                   {/* Realistic Top Corner Acrylic Floating Pill */}
-                  <div className="absolute top-2.5 left-2.5 sm:top-3 sm:left-3 px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-md border border-amber-400/40 text-[10px] sm:text-[11px] font-semibold text-amber-300 flex items-center gap-1.5 shadow-sm">
+                  <div className="absolute top-2.5 left-2.5 sm:top-3 sm:left-3 px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-md border border-amber-400/40 text-[10px] sm:text-[11px] font-semibold text-amber-300 flex items-center gap-1.5 shadow-sm z-30">
                     <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-ping" />
                     <span>3D LED Acrylic Frame</span>
                   </div>
 
                   {/* Dimension Tag */}
-                  <div className="absolute top-2.5 right-2.5 sm:top-3 sm:right-3 px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-md border border-white/20 text-[10px] font-medium text-stone-200">
+                  <div className="absolute top-2.5 right-2.5 sm:top-3 sm:right-3 px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-md border border-white/20 text-[10px] font-medium text-stone-200 z-30">
                     {activeArtwork.dimensions}
                   </div>
 
+                  {/* Previous & Next interactive floating navigation buttons */}
+                  <button
+                    type="button"
+                    onClick={handlePrev}
+                    aria-label="Previous artwork"
+                    className="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/65 hover:bg-black/90 text-amber-300 border border-amber-400/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 z-30 cursor-pointer shadow-md hover:scale-110"
+                  >
+                    <ChevronLeft className="w-4 h-4" />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={handleNext}
+                    aria-label="Next artwork"
+                    className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/65 hover:bg-black/90 text-amber-300 border border-amber-400/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 z-30 cursor-pointer shadow-md hover:scale-110"
+                  >
+                    <ChevronRight className="w-4 h-4" />
+                  </button>
+
                   {/* Bottom Integrated Floating Info Card */}
-                  <div className="absolute bottom-2.5 inset-x-2.5 sm:bottom-3 sm:inset-x-3 p-3 rounded-xl bg-[#0F0F12]/85 backdrop-blur-md border border-amber-400/30 flex items-center justify-between gap-3 shadow-lg">
+                  <div className="absolute bottom-2.5 inset-x-2.5 sm:bottom-3 sm:inset-x-3 p-3 rounded-xl bg-[#0F0F12]/85 backdrop-blur-md border border-amber-400/30 flex items-center justify-between gap-3 shadow-lg z-30">
                     <div className="min-w-0">
                       <p className="text-white font-bold text-xs sm:text-sm truncate">
                         {activeArtwork.name}
@@ -321,12 +383,29 @@ export default function HeroShowcase() {
               {/* Secondary Product Thumbnails Carousel Switcher */}
               <div className="mt-4 sm:mt-5 w-full">
                 <div className="flex items-center justify-between mb-2 px-1">
-                  <span className="text-[11px] sm:text-xs font-semibold text-stone-400 tracking-wider uppercase">
-                    Featured Masterpieces
-                  </span>
+                  <div className="flex items-center gap-2">
+                    <span className="text-[11px] sm:text-xs font-semibold text-stone-400 tracking-wider uppercase">
+                      Featured Masterpieces
+                    </span>
+                    <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-[9px] font-bold uppercase tracking-wider bg-amber-500/15 text-amber-300 border border-amber-400/30">
+                      <span className="w-1 h-1 rounded-full bg-amber-400 animate-pulse" />
+                      Auto-Playing
+                    </span>
+                  </div>
                   <span className="text-[11px] text-amber-400 font-medium">
                     {selectedArtworkIndex + 1} of {FEATURED_ARTWORKS.length}
                   </span>
+                </div>
+
+                {/* Animated 5s Progress Bar */}
+                <div className="w-full h-1 bg-stone-800 rounded-full overflow-hidden mb-2.5">
+                  <div
+                    key={selectedArtworkIndex}
+                    className={`h-full bg-gradient-to-r from-amber-400 to-amber-500 rounded-full animate-hero-progress ${
+                      isPaused ? 'opacity-50' : ''
+                    }`}
+                    style={{ animationPlayState: isPaused ? 'paused' : 'running' }}
+                  />
                 </div>
 
                 <div className="grid grid-cols-6 gap-2">
@@ -338,7 +417,7 @@ export default function HeroShowcase() {
                         type="button"
                         onClick={() => setSelectedArtworkIndex(idx)}
                         aria-label={`Select ${artwork.name}`}
-                        className={`relative aspect-square rounded-lg sm:rounded-xl overflow-hidden transition-all duration-300 border ${
+                        className={`relative aspect-square rounded-lg sm:rounded-xl overflow-hidden transition-all duration-300 border cursor-pointer ${
                           isActive
                             ? 'border-amber-400 ring-2 ring-amber-400/60 scale-105 shadow-md shadow-amber-500/20'
                             : 'border-stone-700/60 opacity-60 hover:opacity-100 hover:border-amber-400/40'
