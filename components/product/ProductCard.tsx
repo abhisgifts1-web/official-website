@@ -115,7 +115,7 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
         onMouseLeave={() => setIsHovered(false)}
       >
         {/* Attractive Photoframe Matting Container with Calibrated Aspect Ratio */}
-        <div className="relative aspect-[4/3.8] w-full p-2 bg-gradient-to-b from-stone-100 via-stone-50 to-stone-100 border-b border-stone-200 overflow-hidden">
+        <div className="relative aspect-[4/3.8] w-full p-1.5 bg-gradient-to-b from-stone-100 via-stone-50 to-stone-100 border-b border-stone-200 overflow-hidden">
           {/* Inner Framed Core with Gold Accent Border */}
           <div className="relative w-full h-full rounded-xl overflow-hidden shadow-inner border border-stone-200 bg-white group/frame">
             <Link

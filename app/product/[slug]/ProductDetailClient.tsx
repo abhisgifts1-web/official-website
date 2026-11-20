@@ -935,9 +935,9 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
           {/* LEFT COLUMN: Main Sticky Artwork Frame & Mockups Gallery */}
           <div className="lg:col-span-7 xl:col-span-7 lg:sticky lg:top-24 self-start space-y-5">
             {/* Main Display Container */}
-            <div className="relative w-full aspect-square sm:aspect-[4/5] max-h-[600px] rounded-2xl overflow-hidden bg-stone-50 border border-stone-200 transition-all duration-300 flex items-center justify-center p-3 sm:p-6 group">
+            <div className="relative w-full aspect-square sm:aspect-[4/3.8] max-h-[620px] rounded-2xl overflow-hidden bg-stone-100/50 border border-stone-200 transition-all duration-300 flex items-center justify-center p-1 sm:p-2 group">
               {/* Top Floating Controls: Cool White LED Glow Toggle + Fullscreen Zoom */}
-              <div className="absolute top-4 left-4 right-4 z-20 flex items-center justify-between pointer-events-none">
+              <div className="absolute top-3 left-3 right-3 z-20 flex items-center justify-between pointer-events-none">
                 {isLedFrame ? (
                   <button
                     type="button"
@@ -977,32 +977,22 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                 }}
                 onMouseLeave={() => setZoomCoords(null)}
               >
-                {/* Dynamic Frame Box calibrated to Selected Shape (Portrait, Landscape, Square, Round) */}
-                <div
-                  className={`relative transition-all duration-300 flex items-center justify-center ${
-                    selectedShape === 'portrait'
-                      ? 'w-full aspect-[3/4] max-w-[450px] max-h-[520px]'
-                      : selectedShape === 'landscape'
-                      ? 'w-full aspect-[4/3] sm:aspect-[16/11] max-w-[560px] max-h-[460px]'
-                      : selectedShape === 'square'
-                      ? 'w-full aspect-square max-w-[480px] max-h-[480px]'
-                      : 'w-full aspect-square max-w-[450px] max-h-[450px]'
-                  }`}
-                >
+                {/* Dynamic Frame Box calibrated to fill cleanly without excess whitespace */}
+                <div className="relative w-full h-full transition-all duration-300 flex items-center justify-center">
                   {/* Cool White Halo Glow Ambient Backdrop for LED Frames */}
                   {isLedFrame && isAartiGlow && (
                     <div
-                      className="absolute -inset-3 sm:-inset-6 rounded-2xl pointer-events-none transition-all duration-500 z-0 animate-pulse"
+                      className="absolute inset-1 rounded-2xl pointer-events-none transition-all duration-500 z-0 animate-pulse"
                       style={{
-                        boxShadow: '0 0 40px 14px rgba(255, 255, 255, 0.95), 0 0 85px 28px rgba(225, 240, 255, 0.65)',
+                        boxShadow: '0 0 35px 12px rgba(255, 255, 255, 0.95), 0 0 75px 25px rgba(225, 240, 255, 0.65)',
                       }}
                     />
                   )}
 
                   <div
-                    className={`relative w-full h-full overflow-hidden rounded-xl shadow-sm bg-white z-10 transition-all ${
+                    className={`relative w-full h-full overflow-hidden rounded-xl shadow-sm bg-stone-900/5 z-10 transition-all ${
                       isLedFrame
-                        ? 'border-[4px] border-[#C88A75]'
+                        ? 'border-[3px] border-[#C88A75]'
                         : 'border border-stone-200'
                     }`}
                   >
