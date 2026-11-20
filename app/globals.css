@@ -492,6 +492,52 @@ h1, h2, h3, h4, h5, h6, .font-serif {
   animation: badgeFloat 4s ease-in-out infinite;
 }
 
+/* 11c. Luxury Hero Text Shimmer & Glow Animations */
+@keyframes heroGoldFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes heroGlowAura {
+  0%, 100% {
+    filter: drop-shadow(0 2px 14px rgba(234, 179, 8, 0.45)) drop-shadow(0 0 28px rgba(250, 204, 21, 0.25));
+  }
+  50% {
+    filter: drop-shadow(0 4px 28px rgba(250, 204, 21, 0.75)) drop-shadow(0 0 55px rgba(234, 179, 8, 0.5));
+  }
+}
+
+.animate-hero-gold-shimmer {
+  background: linear-gradient(90deg, #FDE047 0%, #FFFBEB 25%, #FACC15 50%, #EAB308 75%, #FDE047 100%);
+  background-size: 250% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: heroGoldFlow 5s ease infinite, heroGlowAura 3.5s ease-in-out infinite;
+  display: inline-block;
+}
+
+@keyframes heroBadgeShimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-hero-badge-shine {
+  background: linear-gradient(90deg, rgba(234, 179, 8, 0.15) 0%, rgba(254, 240, 138, 0.35) 50%, rgba(234, 179, 8, 0.15) 100%);
+  background-size: 200% 100%;
+  animation: heroBadgeShimmer 4s linear infinite;
+}
+
 /* 11b. Divine Sanctum Unique Showcase Animations */
 @keyframes celestialSanctumReveal {
   0% {

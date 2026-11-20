@@ -185,21 +185,21 @@ export default function HeroShowcase() {
              ───────────────────────────────────────────────────────────── */}
           <div className="lg:col-span-7 flex flex-col items-start space-y-5 sm:space-y-6">
             
-            {/* Small Premium Badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-amber-500/20 via-amber-400/10 to-amber-500/20 border border-amber-400/40 text-amber-300 text-[10px] sm:text-xs font-semibold tracking-widest uppercase shadow-sm backdrop-blur-md">
-              <Sparkles className="w-3.5 h-3.5 text-amber-400 animate-pulse shrink-0" />
+            {/* Small Premium Badge with smooth shimmer & breathing pulse */}
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-amber-500/20 via-amber-400/10 to-amber-500/20 border border-amber-400/50 text-amber-300 text-[10px] sm:text-xs font-semibold tracking-widest uppercase shadow-sm backdrop-blur-md animate-hero-badge-shine">
+              <Sparkles className="w-3.5 h-3.5 text-amber-400 animate-spin [animation-duration:8s] shrink-0" />
               <span>HYDERABAD&apos;S PREMIUM PHOTO FRAME STUDIO</span>
             </div>
 
-            {/* Main Heading */}
-            <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-bold tracking-tight text-white leading-[1.12]">
-              <span className="block text-white drop-shadow-sm">
+            {/* Main Heading with Staggered Kinetic Depth & 24K Liquid Gold Shimmer Animation */}
+            <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-[52px] xl:text-6xl font-bold tracking-tight text-white leading-[1.14]">
+              <span className="block text-white drop-shadow-sm transition-transform duration-500 hover:translate-x-1">
                 Turn Your Precious
               </span>
-              <span className="block text-stone-100 drop-shadow-sm">
+              <span className="block text-stone-100 drop-shadow-sm transition-transform duration-500 hover:translate-x-1">
                 Moments Into
               </span>
-              <span className="block pt-0.5 sm:pt-1 bg-gradient-to-r from-[#FDE047] via-[#FACC15] to-[#EAB308] bg-clip-text text-transparent font-extrabold filter drop-shadow-[0_2px_14px_rgba(234,179,8,0.35)]">
+              <span className="block pt-1 animate-hero-gold-shimmer font-extrabold tracking-tight">
                 Timeless Memories.
               </span>
             </h1>
@@ -209,10 +209,9 @@ export default function HeroShowcase() {
               Discover beautifully crafted LED photo frames, divine acrylic artwork, and personalized gifts designed to make every moment unforgettable.
             </p>
 
-            {/* Premium Featured Product Information Component */}
-            <div className="w-full max-w-lg p-3 sm:p-3.5 rounded-2xl bg-[#121216]/80 hover:bg-[#15151B]/90 border border-amber-400/30 backdrop-blur-md shadow-lg transition-all duration-300 group">
-              <div className="flex items-center justify-between gap-3 sm:gap-4">
-                
+            {/* Premium Featured Product Information Component with Synchronized Cross-fade */}
+            <div className="w-full max-w-lg p-3 sm:p-3.5 rounded-2xl bg-[#121216]/85 hover:bg-[#15151B]/95 border border-amber-400/35 backdrop-blur-md shadow-lg transition-all duration-300 group">
+              <div key={activeArtwork.id} className="flex items-center justify-between gap-3 sm:gap-4 animate-in fade-in slide-in-from-bottom-1 duration-500">
                 {/* Product Thumbnail */}
                 <div className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-xl overflow-hidden shrink-0 border border-amber-400/50 shadow-md">
                   <img
@@ -289,7 +288,7 @@ export default function HeroShowcase() {
             
             {/* Realistic Floating Master Frame Container */}
             <div
-              className="relative w-full max-w-sm sm:max-w-md lg:max-w-lg group"
+              className="relative w-full max-w-sm sm:max-w-md lg:max-w-lg xl:max-w-[540px] group"
               onMouseEnter={() => setIsPaused(true)}
               onMouseLeave={() => setIsPaused(false)}
             >
@@ -300,8 +299,8 @@ export default function HeroShowcase() {
               {/* Dimensional Realistic Frame Bezel & Acrylic Panel */}
               <div className="relative rounded-2xl sm:rounded-3xl p-2.5 sm:p-3.5 bg-gradient-to-b from-[#252528] via-[#141417] to-[#0A0A0C] border border-amber-400/40 shadow-2xl transition-all duration-500 animate-divine-float motion-reduce:animate-none">
                 
-                {/* Outer Frame Lip / Bevel Glare */}
-                <div className="relative rounded-xl sm:rounded-2xl overflow-hidden aspect-[4/3] bg-stone-900 border border-amber-500/30 shadow-inner">
+                {/* Outer Frame Lip / Bevel Glare with Proportional 3:2 Aspect Ratio */}
+                <div className="relative rounded-xl sm:rounded-2xl overflow-hidden aspect-[3/2] bg-stone-900 border border-amber-500/30 shadow-inner">
                   
                   {/* Master Framed Artwork Images with smooth cross-fade animation */}
                   {FEATURED_ARTWORKS.map((artwork, idx) => (
@@ -358,19 +357,19 @@ export default function HeroShowcase() {
                     <ChevronRight className="w-4 h-4" />
                   </button>
 
-                  {/* Bottom Integrated Floating Info Card */}
-                  <div className="absolute bottom-2.5 inset-x-2.5 sm:bottom-3 sm:inset-x-3 p-3 rounded-xl bg-[#0F0F12]/85 backdrop-blur-md border border-amber-400/30 flex items-center justify-between gap-3 shadow-lg z-30">
+                  {/* Bottom Integrated Floating Info Vignette - Translucent & Compact */}
+                  <div className="absolute bottom-0 inset-x-0 p-3 sm:p-3.5 bg-gradient-to-t from-black/95 via-black/60 to-transparent flex items-end justify-between gap-3 z-30 pt-8 rounded-b-xl sm:rounded-b-2xl">
                     <div className="min-w-0">
-                      <p className="text-white font-bold text-xs sm:text-sm truncate">
+                      <p className="text-white font-bold text-xs sm:text-sm truncate drop-shadow-sm">
                         {activeArtwork.name}
                       </p>
-                      <p className="text-amber-300/90 text-[11px] truncate">
+                      <p className="text-amber-300 text-[11px] truncate drop-shadow-xs">
                         {activeArtwork.subtitle}
                       </p>
                     </div>
                     <Link
                       href={`/product/${activeArtwork.slug}`}
-                      className="px-3 py-1.5 rounded-lg bg-amber-500 hover:bg-amber-400 text-stone-950 font-bold text-xs shrink-0 flex items-center gap-1 transition-colors"
+                      className="px-3.5 py-1.5 rounded-lg bg-amber-500 hover:bg-amber-400 active:bg-amber-600 text-stone-950 font-bold text-xs shrink-0 flex items-center gap-1.5 transition-all shadow-md hover:scale-105 cursor-pointer"
                     >
                       <Eye className="w-3.5 h-3.5" />
                       <span>View</span>
@@ -417,10 +416,10 @@ export default function HeroShowcase() {
                         type="button"
                         onClick={() => setSelectedArtworkIndex(idx)}
                         aria-label={`Select ${artwork.name}`}
-                        className={`relative aspect-square rounded-lg sm:rounded-xl overflow-hidden transition-all duration-300 border cursor-pointer ${
+                        className={`relative aspect-square rounded-lg sm:rounded-xl overflow-hidden transition-all duration-300 border cursor-pointer hover:scale-105 active:scale-95 ${
                           isActive
-                            ? 'border-amber-400 ring-2 ring-amber-400/60 scale-105 shadow-md shadow-amber-500/20'
-                            : 'border-stone-700/60 opacity-60 hover:opacity-100 hover:border-amber-400/40'
+                            ? 'border-amber-400 ring-2 ring-amber-400/70 scale-105 shadow-md shadow-amber-500/25'
+                            : 'border-stone-700/60 opacity-60 hover:opacity-100 hover:border-amber-400/50'
                         }`}
                       >
                         <img
