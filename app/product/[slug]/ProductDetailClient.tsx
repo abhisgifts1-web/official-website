@@ -388,9 +388,35 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
     return false;
   }, [product.categorySlug, product.categorySlugs, product.slug]);
 
+  // Check if product is an LED Backlit Frame (Wall frame with integrated LED backlighting)
+  const isLedFrame = useMemo(() => {
+    if (
+      product.categorySlug === '360-rotating-photo-lamps' ||
+      product.categorySlugs?.includes('360-rotating-photo-lamps') ||
+      liveProduct?.categorySlug === '360-rotating-photo-lamps' ||
+      liveProduct?.categorySlugs?.includes('360-rotating-photo-lamps') ||
+      product.slug?.includes('rotating') ||
+      product.slug?.includes('lamp')
+    ) {
+      return false;
+    }
+    return Boolean(
+      product.hasLedBacklight ||
+      liveProduct?.hasLedBacklight ||
+      product.categorySlug === 'led-acrylic-photo-frames' ||
+      liveProduct?.categorySlug === 'led-acrylic-photo-frames' ||
+      product.categorySlugs?.includes('led-acrylic-photo-frames') ||
+      liveProduct?.categorySlugs?.includes('led-acrylic-photo-frames') ||
+      product.slug?.includes('led') ||
+      product.title?.toLowerCase().includes('led') ||
+      liveProduct?.title?.toLowerCase().includes('led')
+    );
+  }, [product, liveProduct]);
+
   // Check if product is an Acrylic Frame (Non-LED crystal clear acrylic wall art)
   const isAcrylicFrame = useMemo(() => {
-    if (product.hasLedBacklight) return false;
+    if (isLedFrame) return false;
+    if (product.hasLedBacklight || liveProduct?.hasLedBacklight) return false;
     if (isGlitterFrame) return false;
     if (
       product.categorySlug === '360-rotating-photo-lamps' ||
@@ -401,20 +427,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
       return false;
     }
     return true;
-  }, [product.hasLedBacklight, isGlitterFrame, product.categorySlug, product.categorySlugs, product.slug]);
-
-  // Check if product is an LED Backlit Frame (Wall frame with integrated LED backlighting)
-  const isLedFrame = useMemo(() => {
-    if (
-      product.categorySlug === '360-rotating-photo-lamps' ||
-      product.categorySlugs?.includes('360-rotating-photo-lamps') ||
-      product.slug?.includes('rotating') ||
-      product.slug?.includes('lamp')
-    ) {
-      return false;
-    }
-    return Boolean(product.hasLedBacklight);
-  }, [product.hasLedBacklight, product.categorySlug, product.categorySlugs, product.slug]);
+  }, [isLedFrame, product.hasLedBacklight, liveProduct?.hasLedBacklight, isGlitterFrame, product.categorySlug, product.categorySlugs, product.slug]);
 
   // Available sizes calibrated for the selected shape & product variants
   const availableSizes = useMemo(() => {
@@ -1204,7 +1217,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                     <span className="text-[11px] text-stone-500">Select finish</span>
                   </div>
 
-                  <div className="grid grid-cols-3 gap-2.5">
+                  <div className={`grid gap-2.5 ${(isLedFrame || product.categorySlug === 'led-acrylic-photo-frames' || product.categorySlugs?.includes('led-acrylic-photo-frames')) ? 'grid-cols-1' : 'grid-cols-3'}`}>
                     {/* Gold Frame Card */}
                     <button
                       type="button"
@@ -1223,50 +1236,56 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                         />
                       </div>
                       <span className="text-xs font-bold text-stone-900 leading-tight">Gold Frame</span>
-                      <span className="text-[10px] text-stone-500">Champagne Gold</span>
+                      <span className="text-[10px] text-stone-500">
+                        {(isLedFrame || product.categorySlug === 'led-acrylic-photo-frames') ? 'Rose Gold Aluminium' : 'Champagne Gold'}
+                      </span>
                     </button>
 
-                    {/* Black Frame Card */}
-                    <button
-                      type="button"
-                      onClick={() => handleSelectFrame('black')}
-                      className={`p-2.5 rounded-xl border-2 flex flex-col items-center text-center gap-1.5 cursor-pointer transition-all ${
-                        selectedFrame === 'black'
-                          ? 'border-stone-900 bg-stone-100 shadow-xs'
-                          : 'border-stone-200 bg-stone-50 hover:border-stone-400'
-                      }`}
-                    >
-                      <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-lg overflow-hidden border border-stone-200 shadow-xs bg-white">
-                        <img
-                          src="/images/frames/black-border-ref.jpg"
-                          alt="Matte Black Aluminium Frame Border"
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                      <span className="text-xs font-bold text-stone-900 leading-tight">Black Frame</span>
-                      <span className="text-[10px] text-stone-500">Matte Black</span>
-                    </button>
+                    {/* Black Frame Card - Removed from LED Frames category */}
+                    {!(isLedFrame || product.categorySlug === 'led-acrylic-photo-frames' || product.categorySlugs?.includes('led-acrylic-photo-frames')) && (
+                      <button
+                        type="button"
+                        onClick={() => handleSelectFrame('black')}
+                        className={`p-2.5 rounded-xl border-2 flex flex-col items-center text-center gap-1.5 cursor-pointer transition-all ${
+                          selectedFrame === 'black'
+                            ? 'border-stone-900 bg-stone-100 shadow-xs'
+                            : 'border-stone-200 bg-stone-50 hover:border-stone-400'
+                        }`}
+                      >
+                        <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-lg overflow-hidden border border-stone-200 shadow-xs bg-white">
+                          <img
+                            src="/images/frames/black-border-ref.jpg"
+                            alt="Matte Black Aluminium Frame Border"
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                        <span className="text-xs font-bold text-stone-900 leading-tight">Black Frame</span>
+                        <span className="text-[10px] text-stone-500">Matte Black</span>
+                      </button>
+                    )}
 
-                    {/* Without Frame Card */}
-                    <button
-                      type="button"
-                      onClick={() => handleSelectFrame('without')}
-                      className={`p-2.5 rounded-xl border-2 flex flex-col items-center text-center gap-1.5 cursor-pointer transition-all ${
-                        selectedFrame === 'without'
-                          ? 'border-stone-900 bg-stone-100 shadow-xs'
-                          : 'border-stone-200 bg-stone-50 hover:border-stone-400'
-                      }`}
-                    >
-                      <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-lg overflow-hidden border border-stone-200 shadow-xs bg-white">
-                        <img
-                          src="/images/frames/acrylic-border-ref.jpg"
-                          alt="Frameless Acrylic Photo Frame Border"
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                      <span className="text-xs font-bold text-stone-900 leading-tight">No Frame</span>
-                      <span className="text-[10px] text-stone-500">{isAcrylicFrame ? '5MM Square Cut' : 'Crystal Acrylic'}</span>
-                    </button>
+                    {/* Without Frame Card - Removed from LED Frames category */}
+                    {!(isLedFrame || product.categorySlug === 'led-acrylic-photo-frames' || product.categorySlugs?.includes('led-acrylic-photo-frames')) && (
+                      <button
+                        type="button"
+                        onClick={() => handleSelectFrame('without')}
+                        className={`p-2.5 rounded-xl border-2 flex flex-col items-center text-center gap-1.5 cursor-pointer transition-all ${
+                          selectedFrame === 'without'
+                            ? 'border-stone-900 bg-stone-100 shadow-xs'
+                            : 'border-stone-200 bg-stone-50 hover:border-stone-400'
+                        }`}
+                      >
+                        <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-lg overflow-hidden border border-stone-200 shadow-xs bg-white">
+                          <img
+                            src="/images/frames/acrylic-border-ref.jpg"
+                            alt="Frameless Acrylic Photo Frame Border"
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                        <span className="text-xs font-bold text-stone-900 leading-tight">No Frame</span>
+                        <span className="text-[10px] text-stone-500">{isAcrylicFrame ? '5MM Square Cut' : 'Crystal Acrylic'}</span>
+                      </button>
+                    )}
                   </div>
                 </div>
 
