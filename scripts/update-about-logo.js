@@ -13,7 +13,7 @@ const addition = `{/* Official Brand Logo */}
           <div className="inline-flex items-center justify-center px-6 py-3 rounded-2xl bg-gradient-to-r from-[#2F0B18] via-[#481223] to-[#2F0B18] border border-[#D6AA55]/60 shadow-xl mx-auto mb-2">
             <Image
               src="/images/brand/logo.png"
-              alt="Abhi's Gifts - We Create Memorable Movements"
+              alt="Abhi's Gifts - We Create Memorable Moments"
               width={260}
               height={51}
               priority

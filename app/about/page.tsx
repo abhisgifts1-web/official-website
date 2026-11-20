@@ -212,7 +212,7 @@ export default function AboutPage() {
           <div className="inline-flex items-center justify-center px-6 py-3 rounded-2xl bg-stone-900 border border-stone-800 shadow-md mx-auto mb-2">
             <Image
               src="/images/brand/logo-gold.png"
-              alt="Abhi's Gifts - We Create Memorable Movements"
+              alt="Abhi's Gifts - We Create Memorable Moments"
               width={300}
               height={63}
               priority

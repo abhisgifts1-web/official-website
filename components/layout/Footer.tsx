@@ -101,7 +101,7 @@ export default function Footer() {
                 <Link href="/" className="inline-block">
                   <Image
                     src="/images/brand/logo-gold.png"
-                    alt="Abhi's Gifts - We Create Memorable Movements"
+                    alt="Abhi's Gifts - We Create Memorable Moments"
                     width={240}
                     height={50}
                     className="h-9 sm:h-10 md:h-11 w-auto object-contain"

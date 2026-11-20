@@ -30,7 +30,7 @@ async function run() {
   // - logo-badge.png (on luxury burgundy pill background #2A0812 with gold border)
   // - logo-dark.png (where the text is deep burgundy #511B2A for light backgrounds, keeping the bow yellow/gold)
   // Let's see: the user said "use this logo for entire website".
-  // The logo is the yellow ribbon bow + yellow text "Abhis Gifts" + "We Create Memorable Movements".
+  // The logo is the yellow ribbon bow + yellow text "Abhis Gifts" + "We Create Memorable Moments".
   
   // Let's also crop out the ribbon bow as an icon mark for favicon / avatars:
   // The bow is on the left side of the trimmed image.
