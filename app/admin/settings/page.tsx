@@ -154,13 +154,13 @@ export default function AdminSettingsPage() {
             <h4 className="font-serif font-bold text-sm text-stone-900">Storewide Delivery Policy</h4>
             <div className="bg-stone-50 border border-stone-200 p-4 rounded-2xl flex items-center justify-between">
               <div>
-                <p className="font-bold text-stone-900 text-xs">Standard Storewide Delivery Rate</p>
+                <p className="font-bold text-stone-900 text-xs">Standard Storewide Delivery</p>
                 <p className="text-[11px] text-stone-500 mt-0.5">
-                  ₹0 Delivery Fee active on all products across India. Pricing shown on artwork cards is fully inclusive.
+                  Safe multi-layer protective packaging active on all products across India.
                 </p>
               </div>
               <span className="px-3 py-1 rounded-full bg-emerald-50 border border-emerald-300 text-emerald-800 font-bold text-xs shadow-2xs">
-                Active (₹0 Fee)
+                Active
               </span>
             </div>
           </div>

@@ -120,7 +120,7 @@ export default function AdminDashboardPage() {
                   ✓ 8 Official Collections
                 </span>
                 <span className="bg-[#1C1C1C] text-stone-200 px-3 py-1 rounded-lg border border-stone-800 font-medium">
-                  ✓ ₹0 Free Delivery India-wide
+                  ✓ Pan-India Safe Transit
                 </span>
                 <span className="bg-[#1C1C1C] text-[#FACC15] px-3 py-1 rounded-lg border border-[#EAB308]/30 font-medium">
                   ✓ Auto Custom Size Pricing Live
@@ -273,10 +273,10 @@ export default function AdminDashboardPage() {
             <div>
               <p className="text-[11px] font-bold uppercase tracking-wider text-stone-500">Shipping Policy</p>
               <p className="font-serif text-2xl font-extrabold text-emerald-700 mt-1">
-                ₹0 Free Delivery
+                Pan-India Transit
               </p>
               <p className="text-[11px] text-stone-500 mt-0.5">
-                Storewide on all sizes across India
+                Multi-layer protective boxing on all sizes
               </p>
             </div>
             <div className="p-3 bg-stone-100 text-stone-700 rounded-xl border border-stone-200">

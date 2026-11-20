@@ -875,13 +875,6 @@ export default function CheckoutPage() {
               </div>
             )}
 
-            <div className="flex justify-between text-stone-600">
-              <span>Shipping Charges</span>
-              <span className="font-semibold text-emerald-700 uppercase text-[11px] tracking-wide">
-                FREE Delivery
-              </span>
-            </div>
-
             <div className="flex justify-between text-base font-serif font-bold text-stone-900 pt-3 border-t border-stone-200">
               <span>Final Total Payable</span>
               <span className="font-extrabold text-xl text-stone-900">
