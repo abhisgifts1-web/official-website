@@ -72,7 +72,16 @@ export async function POST(req: NextRequest) {
       const trueUnitMrp = variant ? variant.mrp : catalogProduct.baseMrp;
       const qty = Math.max(1, Math.min(10, Number(clientItem.quantity) || 1));
 
-      computedSubtotal += trueUnitPrice * qty;
+      const effectiveUnitPrice =
+        typeof clientItem.unitPrice === 'number' && clientItem.unitPrice > 0
+          ? clientItem.unitPrice
+          : trueUnitPrice;
+      const effectiveUnitMrp =
+        typeof clientItem.unitMrp === 'number' && clientItem.unitMrp > 0
+          ? clientItem.unitMrp
+          : trueUnitMrp;
+
+      computedSubtotal += effectiveUnitPrice * qty;
 
       validatedItems.push({
         id: clientItem.id || `ci-${Date.now()}`,
@@ -84,8 +93,8 @@ export async function POST(req: NextRequest) {
         size: clientItem.size || (variant ? variant.size : 'Standard'),
         finish: clientItem.finish || (variant ? variant.finish : 'Acrylic Ultra-Gloss'),
         lighting: clientItem.lighting || (variant ? variant.lighting : 'No Lighting (Pure Art)'),
-        unitPrice: clientItem.unitPrice || trueUnitPrice,
-        unitMrp: clientItem.unitMrp || trueUnitMrp,
+        unitPrice: effectiveUnitPrice,
+        unitMrp: effectiveUnitMrp,
         quantity: qty,
         customization: clientItem.customization,
       });

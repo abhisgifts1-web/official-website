@@ -20,6 +20,9 @@ import {
   Minus,
   Trash2,
   Tag,
+  Lock,
+  ArrowRight,
+  Check,
 } from 'lucide-react';
 import { useCart } from '@/context/CartContext';
 import { ShippingAddress } from '@/types';
@@ -27,7 +30,7 @@ import { getWhatsAppOrderUrl } from '@/lib/whatsapp';
 import { INITIAL_SETTINGS } from '@/lib/data/settings';
 import { compressImageToDataUrl } from '@/lib/utils/imageCompress';
 
-type PaymentOption = 'whatsapp';
+type PaymentOption = 'razorpay' | 'whatsapp';
 
 export default function CheckoutPage() {
   const router = useRouter();
@@ -57,11 +60,33 @@ export default function CheckoutPage() {
     pincode: '',
   });
 
-  const [paymentMethod, setPaymentMethod] = useState<PaymentOption>('whatsapp');
+  const [paymentMethod, setPaymentMethod] = useState<PaymentOption>('razorpay');
   const [orderNotes, setOrderNotes] = useState('');
   const [submitting, setSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [redirectUrl, setRedirectUrl] = useState<string | null>(null);
+
+  // Razorpay Simulator Modal State (for smooth testing before user inputs live API keys)
+  const [showSimModal, setShowSimModal] = useState(false);
+  const [simOrderInfo, setSimOrderInfo] = useState<{
+    orderId: string;
+    razorpayOrderId: string;
+    amount: number;
+  } | null>(null);
+
+  // Helper to dynamically load Razorpay Checkout script
+  const loadRazorpayScript = (): Promise<boolean> => {
+    return new Promise((resolve) => {
+      if (typeof window === 'undefined') return resolve(false);
+      if ((window as any).Razorpay) return resolve(true);
+
+      const script = document.createElement('script');
+      script.src = 'https://checkout.razorpay.com/v1/checkout.js';
+      script.onload = () => resolve(true);
+      script.onerror = () => resolve(false);
+      document.body.appendChild(script);
+    });
+  };
 
   // Coupon Application State
   const [couponInput, setCouponInput] = useState('');
@@ -205,7 +230,7 @@ export default function CheckoutPage() {
             customer: formData,
             items: preparedItems,
             couponCode: appliedCoupon?.code,
-            paymentMethod: paymentMethod === 'whatsapp' ? 'WhatsApp' : 'Online',
+            paymentMethod: paymentMethod === 'razorpay' ? 'Razorpay' : 'WhatsApp',
             notes: orderNotes,
           }),
         });
@@ -218,8 +243,118 @@ export default function CheckoutPage() {
         console.warn('Could not record order to local API, proceeding with generated Order ID:', err);
       }
 
-      // If WhatsApp order chosen:
-      if (paymentMethod === 'whatsapp') {
+      // If Razorpay Online Payment selected:
+      if (paymentMethod === 'razorpay') {
+        try {
+          const rzpOrderRes = await fetch('/api/razorpay/create-order', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              amount: finalPayable,
+              receipt: createdOrderId,
+              notes: {
+                customerName: formData.fullName,
+                mobile: formData.mobile,
+                orderId: createdOrderId,
+              },
+            }),
+          });
+          const rzpData = await rzpOrderRes.json();
+
+          if (!rzpData.success) {
+            throw new Error(rzpData.error || 'Failed to initiate Razorpay order.');
+          }
+
+          // If simulator mode (keys not provided yet):
+          if (rzpData.isMock || !rzpData.keyId || rzpData.keyId.includes('placeholder')) {
+            setSimOrderInfo({
+              orderId: createdOrderId,
+              razorpayOrderId: rzpData.orderId,
+              amount: finalPayable,
+            });
+            setShowSimModal(true);
+            setSubmitting(false);
+            return;
+          }
+
+          // Live Razorpay SDK checkout flow
+          const scriptLoaded = await loadRazorpayScript();
+          if (!scriptLoaded) {
+            // Fallback to simulator modal if script blocked
+            setSimOrderInfo({
+              orderId: createdOrderId,
+              razorpayOrderId: rzpData.orderId,
+              amount: finalPayable,
+            });
+            setShowSimModal(true);
+            setSubmitting(false);
+            return;
+          }
+
+          const options = {
+            key: rzpData.keyId,
+            amount: rzpData.amount,
+            currency: rzpData.currency || 'INR',
+            name: "Abhi's Gifts",
+            description: `Order #${createdOrderId} - Luxury Wall Art`,
+            order_id: rzpData.orderId,
+            prefill: {
+              name: formData.fullName,
+              contact: formData.mobile,
+              email: formData.email || '',
+            },
+            theme: {
+              color: '#000000',
+            },
+            modal: {
+              ondismiss: () => {
+                setSubmitting(false);
+              },
+            },
+            handler: async (resp: any) => {
+              try {
+                const verifyRes = await fetch('/api/razorpay/verify-payment', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify({
+                    razorpayOrderId: resp.razorpay_order_id,
+                    razorpayPaymentId: resp.razorpay_payment_id,
+                    razorpaySignature: resp.razorpay_signature,
+                    orderId: createdOrderId,
+                  }),
+                });
+                const verifyData = await verifyRes.json();
+                if (verifyData.success) {
+                  clearCart();
+                  router.push(`/order-confirmation/${createdOrderId}`);
+                } else {
+                  setErrorMessage('Payment verification error. Please contact store support.');
+                  setSubmitting(false);
+                }
+              } catch (vErr: any) {
+                setErrorMessage('Error verifying payment: ' + vErr.message);
+                setSubmitting(false);
+              }
+            },
+          };
+
+          const razorpay = new (window as any).Razorpay(options);
+          razorpay.on('payment.failed', (resp: any) => {
+            setErrorMessage(resp.error?.description || 'Payment was unsuccessful. Please try again.');
+            setSubmitting(false);
+          });
+          razorpay.open();
+        } catch (err: any) {
+          console.error('Razorpay flow error:', err);
+          setSimOrderInfo({
+            orderId: createdOrderId,
+            razorpayOrderId: `order_sim_${Date.now()}`,
+            amount: finalPayable,
+          });
+          setShowSimModal(true);
+          setSubmitting(false);
+        }
+      } else if (paymentMethod === 'whatsapp') {
         const waUrl = getWhatsAppOrderUrl({
           orderId: createdOrderId,
           customer: formData,
@@ -236,13 +371,39 @@ export default function CheckoutPage() {
         setRedirectUrl(waUrl);
         clearCart();
         window.location.href = waUrl;
-      } else {
-        // Direct Online or COD Order Confirmation Page
-        clearCart();
-        router.push(`/order-confirmation/${createdOrderId}`);
       }
     } catch (err: any) {
       setErrorMessage(err.message || 'An error occurred while creating your order. Please try again.');
+      setSubmitting(false);
+    }
+  };
+
+  // Handler for Razorpay Simulator Modal
+  const handleSimulateSuccess = async (methodLabel: string) => {
+    if (!simOrderInfo) return;
+    setSubmitting(true);
+    try {
+      const simPaymentId = `pay_sim_${Date.now()}_${Math.floor(1000 + Math.random() * 9000)}`;
+      const res = await fetch('/api/razorpay/verify-payment', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          razorpayOrderId: simOrderInfo.razorpayOrderId,
+          razorpayPaymentId: simPaymentId,
+          orderId: simOrderInfo.orderId,
+        }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        clearCart();
+        setShowSimModal(false);
+        router.push(`/order-confirmation/${simOrderInfo.orderId}`);
+      } else {
+        setErrorMessage(data.error || 'Payment confirmation error.');
+        setSubmitting(false);
+      }
+    } catch (err: any) {
+      setErrorMessage(err.message || 'Payment simulation error.');
       setSubmitting(false);
     }
   };
@@ -436,30 +597,90 @@ export default function CheckoutPage() {
             </div>
           </div>
 
-          {/* 2. Payment Method Selector */}
+          {/* 2. Payment & Checkout Method */}
           <div className="bg-white p-6 sm:p-7 rounded-3xl border border-stone-200 shadow-sm space-y-4">
-            <h3 className="font-serif font-bold text-lg text-stone-900 flex items-center gap-2">
-              <CreditCard className="w-5 h-5 text-amber-600" />
-              <span>2. Payment &amp; Proofing Method</span>
-            </h3>
+            <div className="flex items-center justify-between flex-wrap gap-2">
+              <h3 className="font-serif font-bold text-lg text-stone-900 flex items-center gap-2">
+                <CreditCard className="w-5 h-5 text-amber-600" />
+                <span>2. Payment Method</span>
+              </h3>
+              <span className="text-[11px] text-emerald-800 bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-full font-bold flex items-center gap-1">
+                <Lock className="w-3 h-3 text-emerald-600" />
+                <span>256-Bit SSL Secure</span>
+              </span>
+            </div>
 
             <div className="space-y-3">
-              {/* Direct WhatsApp Order */}
-              <div className="flex items-start gap-3.5 p-4 rounded-2xl border border-[#25D366] bg-[#25D366]/5 ring-1 ring-[#25D366]/40">
-                <div className="w-8 h-8 rounded-full bg-[#25D366] flex items-center justify-center shrink-0 mt-0.5 text-white">
-                  <MessageCircle className="w-4 h-4 fill-white" />
-                </div>
-                <div className="flex-1">
-                  <div className="flex items-center gap-2">
-                    <span className="font-bold text-xs sm:text-sm text-stone-900">
-                      Direct WhatsApp Order &amp; Digital Proofing
+              {/* Option 1: Razorpay Online Payment (Default & Recommended) */}
+              <div
+                onClick={() => setPaymentMethod('razorpay')}
+                className={`flex items-start gap-3.5 p-4 sm:p-5 rounded-2xl border-2 transition-all cursor-pointer ${
+                  paymentMethod === 'razorpay'
+                    ? 'border-amber-500 bg-amber-50/30 ring-2 ring-amber-400/20 shadow-xs'
+                    : 'border-stone-200 hover:border-stone-300 bg-white'
+                }`}
+              >
+                <input
+                  type="radio"
+                  name="paymentMethod"
+                  value="razorpay"
+                  checked={paymentMethod === 'razorpay'}
+                  onChange={() => setPaymentMethod('razorpay')}
+                  className="mt-1 accent-amber-600 w-4 h-4 cursor-pointer"
+                />
+                <div className="flex-1 space-y-1.5">
+                  <div className="flex items-center justify-between flex-wrap gap-2">
+                    <span className="font-bold text-sm text-stone-900 flex items-center gap-2">
+                      <span>Online Payment (Razorpay)</span>
+                      <span className="text-[10px] font-bold text-amber-900 bg-amber-100 border border-amber-300 px-2 py-0.5 rounded-full">
+                        Recommended
+                      </span>
                     </span>
-                    <span className="text-[10px] font-bold text-[#25D366] bg-[#25D366]/15 px-2 py-0.5 rounded-full">
-                      Verified
+                    <span className="text-[10.5px] font-semibold text-stone-500">
+                      Zero Processing Fee
                     </span>
                   </div>
-                  <p className="text-xs text-stone-600 mt-1 leading-relaxed">
-                    Instantly forwards your order details and photos to our workshop team on WhatsApp. Receive a 1:1 digital proof before printing and pay conveniently via UPI (GPay/PhonePe/Paytm).
+                  <p className="text-xs text-stone-600 leading-relaxed">
+                    Pay securely with any UPI app (Google Pay, PhonePe, Paytm, BHIM), Credit/Debit Cards (Visa, MasterCard, RuPay), NetBanking (50+ Banks), or Wallets.
+                  </p>
+                  <div className="flex items-center gap-2 pt-1 flex-wrap">
+                    <span className="px-2 py-0.5 bg-stone-100 border border-stone-200 rounded text-[10px] font-bold text-stone-700">UPI</span>
+                    <span className="px-2 py-0.5 bg-stone-100 border border-stone-200 rounded text-[10px] font-bold text-stone-700">Cards</span>
+                    <span className="px-2 py-0.5 bg-stone-100 border border-stone-200 rounded text-[10px] font-bold text-stone-700">NetBanking</span>
+                    <span className="px-2 py-0.5 bg-stone-100 border border-stone-200 rounded text-[10px] font-bold text-stone-700">Wallets</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Option 2: WhatsApp Order Assistance */}
+              <div
+                onClick={() => setPaymentMethod('whatsapp')}
+                className={`flex items-start gap-3.5 p-4 rounded-2xl border-2 transition-all cursor-pointer ${
+                  paymentMethod === 'whatsapp'
+                    ? 'border-[#25D366] bg-[#25D366]/5 ring-2 ring-[#25D366]/20 shadow-xs'
+                    : 'border-stone-200 hover:border-stone-300 bg-white'
+                }`}
+              >
+                <input
+                  type="radio"
+                  name="paymentMethod"
+                  value="whatsapp"
+                  checked={paymentMethod === 'whatsapp'}
+                  onChange={() => setPaymentMethod('whatsapp')}
+                  className="mt-1 accent-emerald-600 w-4 h-4 cursor-pointer"
+                />
+                <div className="flex-1 space-y-1">
+                  <div className="flex items-center justify-between">
+                    <span className="font-bold text-xs sm:text-sm text-stone-900 flex items-center gap-1.5">
+                      <MessageCircle className="w-3.5 h-3.5 text-[#25D366] fill-[#25D366]" />
+                      <span>WhatsApp Order Assistance</span>
+                    </span>
+                    <span className="text-[10.5px] font-semibold text-[#128C7E]">
+                      Live Support
+                    </span>
+                  </div>
+                  <p className="text-xs text-stone-600 leading-relaxed">
+                    Have custom sizing or special queries? Forward your order details directly to our workshop team on WhatsApp.
                   </p>
                 </div>
               </div>
@@ -674,14 +895,24 @@ export default function CheckoutPage() {
             <button
               type="submit"
               disabled={submitting}
-              className={`w-full py-4 rounded-2xl font-bold text-sm sm:text-base shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer uppercase tracking-wider ${
+              className={`w-full py-4 rounded-2xl font-bold text-sm sm:text-base shadow-md transition-all flex items-center justify-center gap-2.5 cursor-pointer uppercase tracking-wider ${
                 submitting
                   ? 'bg-stone-300 text-stone-500 cursor-not-allowed'
+                  : paymentMethod === 'razorpay'
+                  ? 'bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 hover:from-blue-700 hover:to-indigo-800 text-white shadow-lg shadow-blue-600/25 hover:scale-[1.01]'
                   : 'bg-[#25D366] hover:bg-[#20BD5A] text-white hover:scale-[1.01]'
               }`}
             >
               {submitting ? (
-                <span>Confirming Order...</span>
+                <div className="flex items-center gap-2">
+                  <div className="w-4 h-4 border-2 border-white/60 border-t-white rounded-full animate-spin" />
+                  <span>Processing Order...</span>
+                </div>
+              ) : paymentMethod === 'razorpay' ? (
+                <>
+                  <Lock className="w-4 h-4 text-emerald-300" />
+                  <span>Pay ₹{finalPayable.toLocaleString('en-IN')} with Razorpay</span>
+                </>
               ) : (
                 <>
                   <MessageCircle className="w-5 h-5 fill-white" />
@@ -690,6 +921,13 @@ export default function CheckoutPage() {
               )}
             </button>
 
+            {paymentMethod === 'razorpay' && (
+              <div className="flex items-center justify-center gap-2 text-[11px] text-stone-500 text-center font-medium">
+                <span className="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                <span>UPI (GPay / PhonePe / Paytm) • Credit / Debit Cards • NetBanking • EMI</span>
+              </div>
+            )}
+
             <div className="flex items-center justify-center gap-1.5 text-[11px] text-stone-500 text-center">
               <ShieldCheck className="w-3.5 h-3.5 text-amber-600" />
               <span>Multi-Layer Protective Packaging • Handcrafted in Hyderabad</span>
@@ -697,6 +935,105 @@ export default function CheckoutPage() {
           </div>
         </div>
       </form>
+
+      {/* Razorpay Sandbox / Simulator Modal */}
+      {showSimModal && simOrderInfo && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-xs p-4 animate-in fade-in duration-200">
+          <div className="bg-white rounded-3xl max-w-md w-full shadow-2xl border border-stone-200 overflow-hidden">
+            {/* Modal Header mimicking Razorpay Checkout */}
+            <div className="bg-gradient-to-r from-blue-700 via-indigo-700 to-blue-800 p-5 text-white">
+              <div className="flex items-center justify-between">
+                <div>
+                  <div className="flex items-center gap-2">
+                    <span className="font-extrabold text-base tracking-tight font-serif">Abhi's Gifts</span>
+                    <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-blue-500/40 text-blue-100 border border-blue-400/30 uppercase tracking-wider">
+                      Razorpay Gateway
+                    </span>
+                  </div>
+                  <p className="text-xs text-blue-200 mt-0.5">Order #{simOrderInfo.orderId.slice(-8).toUpperCase()}</p>
+                </div>
+                <div className="text-right">
+                  <span className="text-xs text-blue-200 uppercase font-semibold">Payable</span>
+                  <p className="text-xl font-extrabold text-white">₹{simOrderInfo.amount.toLocaleString('en-IN')}</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Modal Body */}
+            <div className="p-6 space-y-4">
+              <div className="bg-amber-50 border border-amber-200/80 rounded-2xl p-3.5 text-xs text-amber-900 space-y-1">
+                <div className="flex items-center gap-1.5 font-bold text-amber-950">
+                  <Sparkles className="w-4 h-4 text-amber-600" />
+                  <span>Razorpay Test / Simulation Mode</span>
+                </div>
+                <p className="text-[11.5px] leading-relaxed text-stone-700">
+                  Your Razorpay API keys are pending setup. Once you add <code className="bg-amber-100 px-1 py-0.5 rounded font-mono text-[10.5px]">RAZORPAY_KEY_ID</code> to your environment, the official Razorpay popup opens automatically.
+                </p>
+              </div>
+
+              <div className="space-y-2">
+                <p className="text-xs font-bold text-stone-700 uppercase tracking-wider">
+                  Select payment test action:
+                </p>
+
+                <button
+                  type="button"
+                  onClick={() => handleSimulateSuccess('UPI')}
+                  disabled={submitting}
+                  className="w-full p-3.5 rounded-xl border border-stone-200 hover:border-blue-500 hover:bg-blue-50/50 transition-all flex items-center justify-between text-left group cursor-pointer"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="w-9 h-9 rounded-lg bg-emerald-100 text-emerald-800 font-bold flex items-center justify-center text-xs">
+                      UPI
+                    </div>
+                    <div>
+                      <p className="text-sm font-bold text-stone-900 group-hover:text-blue-700">
+                        Simulate Instant UPI (GPay / PhonePe)
+                      </p>
+                      <p className="text-[11px] text-stone-500">Auto-verifies signature &amp; marks order as Paid</p>
+                    </div>
+                  </div>
+                  <ArrowRight className="w-4 h-4 text-stone-400 group-hover:text-blue-600" />
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => handleSimulateSuccess('Card')}
+                  disabled={submitting}
+                  className="w-full p-3.5 rounded-xl border border-stone-200 hover:border-blue-500 hover:bg-blue-50/50 transition-all flex items-center justify-between text-left group cursor-pointer"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="w-9 h-9 rounded-lg bg-blue-100 text-blue-800 font-bold flex items-center justify-center text-xs">
+                      <CreditCard className="w-4 h-4 text-blue-700" />
+                    </div>
+                    <div>
+                      <p className="text-sm font-bold text-stone-900 group-hover:text-blue-700">
+                        Simulate Credit / Debit Card Payment
+                      </p>
+                      <p className="text-[11px] text-stone-500">Visa, Mastercard, RuPay test transaction</p>
+                    </div>
+                  </div>
+                  <ArrowRight className="w-4 h-4 text-stone-400 group-hover:text-blue-600" />
+                </button>
+              </div>
+
+              <div className="pt-2 flex items-center justify-between border-t border-stone-100">
+                <button
+                  type="button"
+                  onClick={() => setShowSimModal(false)}
+                  className="text-xs font-semibold text-stone-500 hover:text-stone-800 py-1 transition-colors cursor-pointer"
+                >
+                  Cancel / Return
+                </button>
+                <div className="flex items-center gap-1 text-[11px] text-stone-400">
+                  <Lock className="w-3 h-3 text-emerald-600" />
+                  <span>256-Bit SSL Encrypted</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

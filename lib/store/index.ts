@@ -425,6 +425,29 @@ export function updateOrderStatus(
   return order;
 }
 
+export function updateOrderPayment(
+  orderId: string,
+  data: {
+    paymentStatus: 'Paid' | 'Pending' | 'Failed';
+    paymentMethod?: 'Razorpay' | 'Online' | 'WhatsApp' | 'COD';
+    razorpayPaymentId?: string;
+    razorpayOrderId?: string;
+    orderStatus?: OrderStatus;
+  }
+): Order | null {
+  const order = store.orders.find((o) => o.id === orderId);
+  if (!order) return null;
+
+  order.paymentStatus = data.paymentStatus;
+  if (data.paymentMethod) order.paymentMethod = data.paymentMethod;
+  if (data.razorpayPaymentId) order.razorpayPaymentId = data.razorpayPaymentId;
+  if (data.razorpayOrderId) order.razorpayOrderId = data.razorpayOrderId;
+  if (data.orderStatus) order.orderStatus = data.orderStatus;
+  order.updatedAt = new Date().toISOString();
+
+  return order;
+}
+
 // COUPON METHODS
 export function getAllCoupons(): Coupon[] {
   return [...store.coupons];

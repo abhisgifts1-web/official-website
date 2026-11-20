@@ -138,27 +138,58 @@ export default function ConfirmationClient({ order }: Props) {
             <ShieldCheck className="w-4 h-4 text-amber-800" />
             <span>Payment & Fulfilment</span>
           </h3>
-          <div className="flex justify-between py-1">
+          <div className="flex justify-between items-center py-1">
             <span className="text-stone-500">Payment Method</span>
-            <span className="font-semibold text-[#FFFFFF]">
-              {order.paymentMethod === 'WhatsApp' ? 'Direct WhatsApp Order' : order.paymentMethod}
+            <span className="font-semibold text-stone-900">
+              {order.paymentMethod === 'Razorpay' ? (
+                <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold bg-blue-50 text-blue-700 border border-blue-200">
+                  <span className="w-1.5 h-1.5 rounded-full bg-blue-600" />
+                  Razorpay (Online)
+                </span>
+              ) : order.paymentMethod === 'COD' ? (
+                <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold bg-stone-100 text-stone-800 border border-stone-300">
+                  Cash on Delivery (COD)
+                </span>
+              ) : order.paymentMethod === 'WhatsApp' ? (
+                <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-50 text-emerald-800 border border-emerald-200">
+                  WhatsApp Order
+                </span>
+              ) : (
+                order.paymentMethod
+              )}
             </span>
           </div>
-          <div className="flex justify-between py-1">
+
+          {order.razorpayPaymentId && (
+            <div className="flex justify-between items-center py-1">
+              <span className="text-stone-500">Razorpay Ref / TXN</span>
+              <span className="font-mono text-[11px] font-bold text-stone-700 bg-stone-100 px-2 py-0.5 rounded">
+                {order.razorpayPaymentId}
+              </span>
+            </div>
+          )}
+
+          <div className="flex justify-between items-center py-1">
             <span className="text-stone-500">Payment Status</span>
-            <span className="font-bold text-[#D1D5DB] bg-[#1E1E1E] px-2 py-0.5 rounded">
-              {order.paymentStatus}
+            <span
+              className={`font-bold text-xs px-2.5 py-0.5 rounded-full border ${
+                order.paymentStatus === 'Paid'
+                  ? 'bg-emerald-50 text-emerald-800 border-emerald-200'
+                  : 'bg-amber-50 text-amber-800 border-amber-200'
+              }`}
+            >
+              {order.paymentStatus === 'Paid' ? 'Paid (Verified)' : order.paymentStatus}
             </span>
           </div>
-          <div className="flex justify-between py-1">
+          <div className="flex justify-between items-center py-1">
             <span className="text-stone-500">Order Status</span>
-            <span className="font-bold text-amber-900 bg-amber-50 px-2 py-0.5 rounded">
+            <span className="font-bold text-xs text-amber-900 bg-amber-50 border border-amber-200 px-2.5 py-0.5 rounded-full">
               {order.orderStatus}
             </span>
           </div>
-          <div className="flex justify-between py-1 border-t pt-2">
+          <div className="flex justify-between items-center py-1 border-t pt-2">
             <span className="text-stone-500">Packaging</span>
-            <span className="font-semibold text-[#FFFFFF]">Protective Multi-Layer Boxed</span>
+            <span className="font-semibold text-stone-900">Protective Multi-Layer Boxed</span>
           </div>
         </div>
       </div>

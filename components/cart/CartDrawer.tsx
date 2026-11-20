@@ -291,7 +291,7 @@ export default function CartDrawer() {
 
                 <div className="flex items-center justify-center gap-1.5 text-[11px] text-stone-500 text-center">
                   <ShieldCheck className="w-3.5 h-3.5 text-amber-600" />
-                  <span>Direct WhatsApp Order • Protective Packaging</span>
+                  <span>Razorpay 256-Bit SSL Secure Checkout • Free Delivery</span>
                 </div>
               </div>
             </div>
