@@ -4,15 +4,15 @@ import LocalLandingPageView from '@/components/seo/LocalLandingPageView';
 import { getAllProducts } from '@/lib/store';
 
 export const metadata: Metadata = {
-  title: "Acrylic Photo Frames in Hyderabad | crystal acrylic Art — Abhi's Gifts",
+  title: "5MM Acrylic Photo Frames in Hyderabad | Direct UV Printing — Abhi's Gifts",
   description:
-    'Best acrylic photo frames in Hyderabad. Handcrafted cast acrylic with precision beveled edges, invisible floating mounts & crystal clarity. Express delivery across Hyderabad & Telangana.',
+    'Best 5MM acrylic photo frames in Hyderabad. Handcrafted crystal clear acrylic with precision square-cut edges, metal installation studs & Direct UV printing depth. Express delivery across Hyderabad & Telangana.',
   alternates: {
     canonical: 'https://abhigifts.com/acrylic-photo-frames-hyderabad',
   },
   openGraph: {
-    title: 'Acrylic Photo Frames in Hyderabad | crystal acrylic Art',
-    description: 'Looking for high-end acrylic photo frames in Hyderabad? Direct manufacturing, custom sizes, precision-polished bevels & handcrafted artisanal quality.',
+    title: "5MM Acrylic Photo Frames in Hyderabad | Direct UV Printing — Abhi's Gifts",
+    description: 'Looking for 5MM acrylic photo frames in Hyderabad? Direct manufacturing, 5MM crystal clear acrylic, precision square-cut edges & metal installation studs included.',
     url: 'https://abhigifts.com/acrylic-photo-frames-hyderabad',
   },
 };
@@ -20,17 +20,17 @@ export const metadata: Metadata = {
 export default function AcrylicPhotoFramesHyderabadPage() {
   const allProducts = getAllProducts();
   const relevantProducts = allProducts.filter(
-    (p) => p.categorySlug.includes('custom') || p.categorySlug.includes('acrylic') || p.tags.some((t) => t.includes('acrylic') || t.includes('frame'))
+    (p) => !p.hasLedBacklight && (p.categorySlug.includes('custom') || p.categorySlug.includes('acrylic') || p.tags.some((t) => t.includes('acrylic') || t.includes('frame')))
   );
 
   return (
     <LocalLandingPageView
       slug="acrylic-photo-frames-hyderabad"
       keyword="Acrylic Photo Frames in Hyderabad"
-      h1Title="Acrylic Photo Frames in Hyderabad — Premium premium Crystal Cast Frames"
-      subtitle="Discover Hyderabad's highest-rated manufacturer of museum-grade cast acrylic photo frames. Crafted with precision beveled edges, 99.2% optical crystalline clarity, and heavy-duty floating stainless steel standoffs. Perfect for modern living rooms, villas, and apartments across Hyderabad."
+      h1Title="5MM Acrylic Photo Frames in Hyderabad — Premium Crystal Clear Acrylic"
+      subtitle="Discover Hyderabad's highest-rated manufacturer of 5MM premium crystal clear acrylic photo frames. Crafted with precision square-cut edges, advanced Direct UV printing, and premium metal wall mounting studs included. Perfect for living rooms, bedrooms, offices, and modern interiors across Hyderabad."
       locationName="Hyderabad & Secunderabad"
-      metaDescription="Shop custom acrylic photo frames in Hyderabad! Direct manufacturer prices, precision-polished edges, same-day WhatsApp proofing & safe pan-Hyderabad delivery."
+      metaDescription="Shop 5MM acrylic photo frames in Hyderabad! Direct manufacturer prices, precision square-cut edges, metal installation studs included, same-day WhatsApp proofing & safe pan-Hyderabad delivery."
       introParagraphs={[
         "As Hyderabad's architectural and interior design landscape evolves with contemporary high-rises and luxury villas across Gachibowli, Jubilee Hills, Madhapur, and Banjara Hills, traditional bulky wooden and glass photo frames are being rapidly replaced by frameless acrylic photo frames. At Abhi's Gifts, we bring factory-direct precision to every home in Hyderabad.",
         "Engineered with premium imported cast acrylic (not brittle glass or flimsy extruded plastic), our frames produce an immersive 'floating' visual experience. Photorealistic 1200 DPI UV flatbed printing renders vibrant skin tones, high dynamic range landscapes, and intricate details that look backlit even without electric lighting.",

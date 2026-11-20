@@ -149,6 +149,7 @@ export function isPersonalizedGift(p: Product): boolean {
  * Strictly excludes God photo frames, rotating lamps, and glitter frames.
  */
 export function isAcrylicPhotoFrame(p: Product): boolean {
+  if (p.hasLedBacklight) return false;
   if (isGodProduct(p)) return false;
   if (isRotatingLamp(p)) return false;
   if (isGlitterFrame(p)) return false;

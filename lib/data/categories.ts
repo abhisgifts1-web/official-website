@@ -5,7 +5,7 @@ export const INITIAL_CATEGORIES: Category[] = [
     id: 'cat-acrylic-photo-frames',
     name: 'Acrylic Photo Frames',
     slug: 'acrylic-photo-frames',
-    description: 'Ultra-clear crystal shatterproof acrylic photo frames with laser diamond-beveled edges and vibrant fade-resistant depth.',
+    description: 'Premium 5MM crystal clear acrylic photo frames with advanced Direct UV printing, precision square-cut edges, and metal installation studs included.',
     image: '/images/categories/circle-showcase/acrylic-photo-frames.jpg',
     parentType: 'custom-frames',
     group: 'custom-frames',

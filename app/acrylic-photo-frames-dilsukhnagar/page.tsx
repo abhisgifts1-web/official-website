@@ -4,15 +4,15 @@ import LocalLandingPageView from '@/components/seo/LocalLandingPageView';
 import { getAllProducts } from '@/lib/store';
 
 export const metadata: Metadata = {
-  title: "Acrylic Photo Frames Dilsukhnagar | Custom Acrylic Printing — Abhi's Gifts",
+  title: "5MM Acrylic Photo Frames Dilsukhnagar | Direct UV Printing — Abhi's Gifts",
   description:
-    'Best acrylic photo frames in Dilsukhnagar. Manufactured with premium high-gloss imported cast acrylic, precision beveled edges & stainless steel floating standoffs. Order with WhatsApp proof.',
+    'Best 5MM acrylic photo frames in Dilsukhnagar. Manufactured with premium 5MM crystal clear acrylic, precision square-cut edges & metal installation studs included. Order with WhatsApp proof.',
   alternates: {
     canonical: 'https://abhigifts.com/acrylic-photo-frames-dilsukhnagar',
   },
   openGraph: {
-    title: 'Acrylic Photo Frames Dilsukhnagar | Custom Acrylic Printing',
-    description: 'Factory-direct acrylic photo frames in Dilsukhnagar, Hyderabad. High optical clarity, UV protected UV inks & floating wall standoffs.',
+    title: "5MM Acrylic Photo Frames Dilsukhnagar | Direct UV Printing — Abhi's Gifts",
+    description: 'Factory-direct 5MM acrylic photo frames in Dilsukhnagar, Hyderabad. Advanced Direct UV printing, precision square-cut edges & metal mounting studs included.',
     url: 'https://abhigifts.com/acrylic-photo-frames-dilsukhnagar',
   },
 };
@@ -20,17 +20,17 @@ export const metadata: Metadata = {
 export default function AcrylicPhotoFramesDilsukhnagarPage() {
   const allProducts = getAllProducts();
   const relevantProducts = allProducts.filter(
-    (p) => p.categorySlug.includes('custom') || p.categorySlug.includes('acrylic') || p.shape === 'portrait' || p.shape === 'square'
+    (p) => !p.hasLedBacklight && (p.categorySlug.includes('custom') || p.categorySlug.includes('acrylic') || p.shape === 'portrait' || p.shape === 'square')
   );
 
   return (
     <LocalLandingPageView
       slug="acrylic-photo-frames-dilsukhnagar"
       keyword="Acrylic Photo Frames Dilsukhnagar"
-      h1Title="Acrylic Photo Frames Dilsukhnagar — premium smooth beveled Crystal Acrylic"
-      subtitle="Upgrade from traditional glass framing to modern, frameless crystal acrylic photo frames in Dilsukhnagar. Handcrafted with imported premium virgin cast acrylic sheets, 1200 DPI archival UV printing, and elegant floating stainless steel standoffs."
+      h1Title="5MM Acrylic Photo Frames Dilsukhnagar — Premium Crystal Clear Acrylic"
+      subtitle="Upgrade to modern, frameless 5MM crystal clear acrylic photo frames in Dilsukhnagar. Handcrafted with 5MM premium acrylic, advanced Direct UV printing on acrylic surface, precision square-cut edges, and metal installation studs included."
       locationName="Dilsukhnagar, Hyderabad"
-      metaDescription="Looking for acrylic photo frames in Dilsukhnagar? Abhi's Gifts crafts cast acrylic photo frames with precision beveled edges and floating wall standoffs."
+      metaDescription="Looking for 5MM acrylic photo frames in Dilsukhnagar? Abhi's Gifts crafts 5MM crystal clear acrylic photo frames with precision square-cut edges and metal installation studs included."
       introParagraphs={[
         "Modern home interiors demand sleek, frameless aesthetics that let the artwork and memories speak for themselves. At Abhi's Gifts in Dilsukhnagar, our acrylic photo frames are engineered from imported premium high-density cast acrylic that offers 99.2% optical transparency—surpassing standard window glass while being 17 times stronger and completely shatterproof.",
         "We employ industrial-grade high-definition flatbed UV printing that cures microscopic ink droplets directly onto the acrylic substrate. The result is ultra-deep blacks, vibrant lifelike skin tones, and specular reflections that give photos an astonishing 3D depth effect. Whether for wedding vows, vacation memories, or corporate milestones, our Dilsukhnagar workshop delivers uncompromising quality.",

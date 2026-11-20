@@ -27,8 +27,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return { title: 'Artwork Not Found' };
   }
 
-  const title = `${product.title} | Abhi's Gifts`;
-  const description = `${product.shortDescription} Handcrafted in Hyderabad with cast cast acrylic & gold foil. 100% safe packaging standard.`;
+  const isAcrylic = !product.hasLedBacklight && (product.categorySlug === 'acrylic-photo-frames' || product.categorySlugs?.includes('acrylic-photo-frames'));
+  const title = isAcrylic
+    ? `${product.title} | 5MM Acrylic Frame — Abhi's Gifts`
+    : `${product.title} | Abhi's Gifts`;
+  const description = isAcrylic
+    ? `${product.title} — 5MM Premium Crystal Clear Acrylic Wall Art. Advanced Direct UV printing, precision square-cut edges, and metal installation studs included. Handcrafted in Hyderabad.`
+    : `${product.shortDescription} Handcrafted in Hyderabad with premium acrylic. Safe transit packaging guarantee.`;
   const canonicalUrl = `https://abhigifts.com/product/${params.slug}`;
 
   return {

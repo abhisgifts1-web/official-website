@@ -6,14 +6,13 @@ export const INITIAL_PRODUCTS: Product[] = [
     "slug": "tirupati-balaji-divine-led-backlit-acrylic-wall-art",
     "categorySlugs": [
       "god-photo-frames",
-      "led-acrylic-photo-frames",
-      "acrylic-photo-frames"
+      "led-acrylic-photo-frames"
     ],
     "shape": "portrait",
     "title": "Divine Tirupati Balaji 3D Acrylic LED Backlit Wall Art",
     "subtitle": "Sacred Lord Venkateswara with Shanku, Chakra & Namam in gold Detailing",
-    "shortDescription": "Magnificent Lord Venkateswara Balaji wall art with dual-layer acrylic and golden warm backlit LED aura.",
-    "description": "Immerse your home in the sacred vibrations of Tirumala with our flagship Tirupati Balaji wall art. Rendered with museum-grade UV-curable inks on premium acrylic, the divine silhouette features Lord Venkateswara adorned with Shanku, Chakra, and the sacred Tilak/Namam. The hidden back-glow LED creates a heavenly golden halo around the deity, turning any living room or pooja mandir into a sanctum of serenity.",
+    "shortDescription": "Premium LED Backlit Acrylic Wall Frame crafted with Imported Clear Virgin Cast Acrylic, Direct UV Printing, Rose Gold Aluminium Side Frame, and Cool White LED Halo Glow.",
+    "description": "Transform your interior with our Premium LED Backlit Acrylic Wall Frame, designed to combine high-definition visual art with sophisticated ambient illumination.\n\nCrafted using premium Imported Clear Virgin Cast Acrylic and advanced Direct UV Printing Technology, the artwork is printed directly onto the acrylic surface, delivering exceptional clarity, sharp details and vibrant colours.\n\nEach frame features an elegant Rose Gold Aluminium Side Frame that enhances the structure and presentation of the artwork. The integrated Cool White LED backlighting produces a refined halo glow around the frame, creating a modern and luxurious focal point in any room.\n\nEvery LED Frame includes an external power adapter and complete wall mounting hardware (wall plugs and screws) for convenient and secure installation.\n\nIdeal for living rooms, bedrooms, executive offices, reception areas and modern luxury interiors.\n\nImported Virgin Cast Acrylic. Advanced Direct UV Printing. Rose Gold Aluminium Frame. Cool White LED Backlighting. Complete Mounting Hardware Included.",
     "categorySlug": "god-photo-frames",
     "categoryName": "God Photo Frames",
     "deity": "Lord Venkateswara",
@@ -45,8 +44,8 @@ export const INITIAL_PRODUCTS: Product[] = [
         "id": "var-pt-1",
         "size": "12 x 18 inches",
         "dimensionsCm": "30 x 45 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "LED Backlit (12V Adapter)",
+        "finish": "Premium Glossy Finish",
+        "lighting": "Cool White LED Backlighting",
         "price": 2499,
         "mrp": 4999,
         "sku": "AG-BALAJI-PT-1",
@@ -57,8 +56,8 @@ export const INITIAL_PRODUCTS: Product[] = [
         "id": "var-pt-2",
         "size": "18 x 24 inches",
         "dimensionsCm": "45 x 60 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "LED Backlit (12V Adapter)",
+        "finish": "Premium Glossy Finish",
+        "lighting": "Cool White LED Backlighting",
         "price": 3499,
         "mrp": 6999,
         "sku": "AG-BALAJI-PT-2",
@@ -69,8 +68,8 @@ export const INITIAL_PRODUCTS: Product[] = [
         "id": "var-pt-3",
         "size": "24 x 36 inches",
         "dimensionsCm": "60 x 90 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "LED Backlit (12V Adapter)",
+        "finish": "Premium Glossy Finish",
+        "lighting": "Cool White LED Backlighting",
         "price": 5499,
         "mrp": 9999,
         "sku": "AG-BALAJI-PT-3",
@@ -81,8 +80,8 @@ export const INITIAL_PRODUCTS: Product[] = [
         "id": "var-pt-4",
         "size": "30 x 48 inches (Grand Wall Size)",
         "dimensionsCm": "75 x 120 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "LED Backlit (12V Adapter)",
+        "finish": "Premium Glossy Finish",
+        "lighting": "Cool White LED Backlighting",
         "price": 7999,
         "mrp": 14999,
         "sku": "AG-BALAJI-PT-4",
@@ -92,28 +91,76 @@ export const INITIAL_PRODUCTS: Product[] = [
     ],
     "specifications": [
       {
-        "label": "Art Material",
-        "value": "Imported High-Gloss Cast Acrylic with Beveled Edges"
+        "label": "Product Type",
+        "value": "Premium LED Backlit Acrylic Wall Frame"
       },
       {
-        "label": "Lighting System",
-        "value": "Warm Golden SMD LED with High Efficiency"
+        "label": "Acrylic Material",
+        "value": "Imported Clear Virgin Cast Acrylic"
       },
       {
-        "label": "Power Supply",
-        "value": "12V 2A BIS-Certified Wall Power Adapter (2.5 meter transparent wire)"
+        "label": "Printing Technology",
+        "value": "Advanced Direct UV Printing"
       },
       {
-        "label": "Print Technology",
-        "value": "6-Color Swiss UV Direct Print (Long-lasting color vibrancy)"
+        "label": "Print Quality",
+        "value": "High-Definition UV Printing"
       },
       {
-        "label": "Mounting Mechanism",
-        "value": "Concealed Floating French Cleat Wall Bracket (All hardware included)"
+        "label": "Print Method",
+        "value": "Direct Printing on Acrylic Surface"
       },
       {
-        "label": "Packaging",
-        "value": "5-Layer Honeycomb Wooden Crate with Corner Air-Cushion Foam"
+        "label": "Colour Quality",
+        "value": "Vibrant Colours & Sharp Details"
+      },
+      {
+        "label": "Finish",
+        "value": "Premium Glossy Finish"
+      },
+      {
+        "label": "Side Frame Material",
+        "value": "Premium Aluminium"
+      },
+      {
+        "label": "Side Frame Colour",
+        "value": "Rose Gold"
+      },
+      {
+        "label": "Lighting Technology",
+        "value": "Integrated LED Backlighting"
+      },
+      {
+        "label": "LED Light Colour",
+        "value": "Cool White"
+      },
+      {
+        "label": "Lighting Effect",
+        "value": "Elegant Cool White Halo Glow"
+      },
+      {
+        "label": "Lighting Placement",
+        "value": "Hidden Perimeter LED Lighting"
+      },
+      {
+        "label": "Power Connection",
+        "value": "External Power Adapter"
+      },
+      {
+        "label": "Power Adapter",
+        "value": "Included with Every Frame"
+      },
+      {
+        "label": "Mounting",
+        "value": "Wall Mounting Hardware"
+      },
+      {
+        "label": "Installation",
+        "value": "Wall Plugs and Screws Included"
+      },
+      {
+        "label": "Customization",
+        "value": "Custom Sizes Available"
       }
     ],
     "materialAndCare": [
@@ -123,10 +170,12 @@ export const INITIAL_PRODUCTS: Product[] = [
       "Shatterproof acrylic construction resists accidental bumps and moisture."
     ],
     "shippingHighlights": [
-      "Multi-layer protective packaging for safe transit.",
-      "Precision diamond-cut cast acrylic with polished bevels.",
-      "Concealed French cleat mounting bracket & hardware included.",
-      "BIS certified 12V 2A power adapter included with LED frames."
+      "Imported Clear Virgin Cast Acrylic",
+      "Advanced Direct UV Printing",
+      "Rose Gold Aluminium Side Frame",
+      "Cool White LED Halo Glow",
+      "External Power Adapter Included",
+      "Wall Plugs & Screws Included"
     ],
     "reviews": [],
     "createdAt": "2026-08-01",
@@ -338,14 +387,13 @@ export const INITIAL_PRODUCTS: Product[] = [
     "slug": "adiyogi-lord-shiva-meditation-led-wall-decor",
     "categorySlugs": [
       "god-photo-frames",
-      "led-acrylic-photo-frames",
-      "acrylic-photo-frames"
+      "led-acrylic-photo-frames"
     ],
     "shape": "landscape",
     "title": "Adiyogi Lord Shiva Meditative LED Backlit Wall Art",
     "subtitle": "The First Yogi in Deep Dhyana with Crescent Moon & Trishul Radiance",
-    "shortDescription": "Mesmerizing Lord Shiva Adiyogi silhouette with serene blue-warm dual tone ambient LED backlight.",
-    "description": "Channel tranquility, inner stillness, and cosmic balance with our Adiyogi Lord Shiva wall art. The deep obsidian and midnight blue tones accentuate Mahadev in profound dhyana. When switched on, the crescent moon and sacred Trishul radiate an ethereal calm, transforming your meditation corner or master suite into an oasis of silence.",
+    "shortDescription": "Premium LED Backlit Acrylic Wall Frame crafted with Imported Clear Virgin Cast Acrylic, Direct UV Printing, Rose Gold Aluminium Side Frame, and Cool White LED Halo Glow.",
+    "description": "Transform your interior with our Premium LED Backlit Acrylic Wall Frame, designed to combine high-definition visual art with sophisticated ambient illumination.\n\nCrafted using premium Imported Clear Virgin Cast Acrylic and advanced Direct UV Printing Technology, the artwork is printed directly onto the acrylic surface, delivering exceptional clarity, sharp details and vibrant colours.\n\nEach frame features an elegant Rose Gold Aluminium Side Frame that enhances the structure and presentation of the artwork. The integrated Cool White LED backlighting produces a refined halo glow around the frame, creating a modern and luxurious focal point in any room.\n\nEvery LED Frame includes an external power adapter and complete wall mounting hardware (wall plugs and screws) for convenient and secure installation.\n\nIdeal for living rooms, bedrooms, executive offices, reception areas and modern luxury interiors.\n\nImported Virgin Cast Acrylic. Advanced Direct UV Printing. Rose Gold Aluminium Frame. Cool White LED Backlighting. Complete Mounting Hardware Included.",
     "categorySlug": "god-photo-frames",
     "categoryName": "God Photo Frames",
     "deity": "Lord Shiva",
@@ -376,8 +424,8 @@ export const INITIAL_PRODUCTS: Product[] = [
         "id": "var-s1",
         "size": "18 x 12 inches",
         "dimensionsCm": "45 x 30 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "LED Backlit (12V Adapter)",
+        "finish": "Premium Glossy Finish",
+        "lighting": "Cool White LED Backlighting",
         "price": 3199,
         "mrp": 5999,
         "sku": "AG-SHIVA-1812-LED",
@@ -388,8 +436,8 @@ export const INITIAL_PRODUCTS: Product[] = [
         "id": "var-s2",
         "size": "24 x 16 inches",
         "dimensionsCm": "60 x 40 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "LED Backlit (12V Adapter)",
+        "finish": "Premium Glossy Finish",
+        "lighting": "Cool White LED Backlighting",
         "price": 4299,
         "mrp": 7999,
         "sku": "AG-SHIVA-2416-LED",
@@ -400,8 +448,8 @@ export const INITIAL_PRODUCTS: Product[] = [
         "id": "var-s3",
         "size": "36 x 24 inches (Grand Horizon)",
         "dimensionsCm": "90 x 60 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "LED Backlit (12V Adapter)",
+        "finish": "Premium Glossy Finish",
+        "lighting": "Cool White LED Backlighting",
         "price": 6499,
         "mrp": 11999,
         "sku": "AG-SHIVA-3624-LED",
@@ -411,24 +459,76 @@ export const INITIAL_PRODUCTS: Product[] = [
     ],
     "specifications": [
       {
-        "label": "Art Material",
-        "value": "Solid Acrylic Panel with Beveled Border"
+        "label": "Product Type",
+        "value": "Premium LED Backlit Acrylic Wall Frame"
       },
       {
-        "label": "Lighting Color",
-        "value": "Serene Moonlight Warm (3500K) with Dimmer Control"
+        "label": "Acrylic Material",
+        "value": "Imported Clear Virgin Cast Acrylic"
       },
       {
-        "label": "Cord Length",
-        "value": "3 meters with ON/OFF rocker switch"
+        "label": "Printing Technology",
+        "value": "Advanced Direct UV Printing"
       },
       {
-        "label": "Resolution",
-        "value": "2400 DPI High Definition Print"
+        "label": "Print Quality",
+        "value": "High-Definition UV Printing"
+      },
+      {
+        "label": "Print Method",
+        "value": "Direct Printing on Acrylic Surface"
+      },
+      {
+        "label": "Colour Quality",
+        "value": "Vibrant Colours & Sharp Details"
+      },
+      {
+        "label": "Finish",
+        "value": "Premium Glossy Finish"
+      },
+      {
+        "label": "Side Frame Material",
+        "value": "Premium Aluminium"
+      },
+      {
+        "label": "Side Frame Colour",
+        "value": "Rose Gold"
+      },
+      {
+        "label": "Lighting Technology",
+        "value": "Integrated LED Backlighting"
+      },
+      {
+        "label": "LED Light Colour",
+        "value": "Cool White"
+      },
+      {
+        "label": "Lighting Effect",
+        "value": "Elegant Cool White Halo Glow"
+      },
+      {
+        "label": "Lighting Placement",
+        "value": "Hidden Perimeter LED Lighting"
+      },
+      {
+        "label": "Power Connection",
+        "value": "External Power Adapter"
+      },
+      {
+        "label": "Power Adapter",
+        "value": "Included with Every Frame"
       },
       {
         "label": "Mounting",
-        "value": "Pre-fitted rear hooks with leveling guide and screws"
+        "value": "Wall Mounting Hardware"
+      },
+      {
+        "label": "Installation",
+        "value": "Wall Plugs and Screws Included"
+      },
+      {
+        "label": "Customization",
+        "value": "Custom Sizes Available"
       }
     ],
     "materialAndCare": [
@@ -437,10 +537,12 @@ export const INITIAL_PRODUCTS: Product[] = [
       "Designed for 24/7 continuous ambient lighting use."
     ],
     "shippingHighlights": [
-      "Multi-layer protective packaging for safe transit.",
-      "Precision diamond-cut cast acrylic with polished bevels.",
-      "Concealed French cleat mounting bracket & hardware included.",
-      "BIS certified 12V 2A power adapter included with LED frames."
+      "Imported Clear Virgin Cast Acrylic",
+      "Advanced Direct UV Printing",
+      "Rose Gold Aluminium Side Frame",
+      "Cool White LED Halo Glow",
+      "External Power Adapter Included",
+      "Wall Plugs & Screws Included"
     ],
     "reviews": [],
     "createdAt": "2026-08-10"
@@ -451,7 +553,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "title": "Vighnaharta Ganesha Auspicious Gold Leaf Acrylic Art",
     "subtitle": "Golden Shubh-Labh Ganesha with Textured Gold Leaf Accents",
     "shortDescription": "Auspicious Lord Ganesha with textured gold highlights on pristine crystal acrylic panel.",
-    "description": "Start every day with the blessing of Lord Ganesha, the remover of all obstacles and harbinger of prosperity. Featuring elegant calligraphy and traditional motifs overlaid on textured saffron and gold leaf gradients, this piece brings immense grace to your foyer, entrance, or office reception.",
+    "description": "Start every day with the blessing of Lord Ganesha, the remover of all obstacles and harbinger of prosperity. Featuring elegant calligraphy and traditional motifs overlaid on textured saffron and gold leaf gradients, this piece brings immense grace to your foyer, entrance, or office reception.\n\nUpgrade your walls with our Premium 5MM Crystal Clear Acrylic Frames, designed to bring elegance, clarity and a luxurious appearance to your interiors.\n\nEach frame is crafted using premium 5MM thick crystal-clear acrylic and advanced Direct UV Printing Technology. The artwork is printed directly onto the acrylic surface, delivering high-definition image quality, vibrant colours and sharp details.\n\nThe premium glossy finish enhances the overall appearance of the artwork, while precision square-cut edges provide a clean and modern look.\n\nEvery frame comes with premium metal wall mounting studs included, making wall installation convenient and giving your artwork an elegant floating-style appearance.\n\nPerfect for living rooms, bedrooms, offices, modern interiors and pooja rooms.\n\nPremium Quality. Advanced Direct UV Printing. Elegant Square-Cut Design. Easy Installation.",
     "categorySlug": "god-photo-frames",
     "categoryName": "God Photo Frames",
     "deity": "Lord Ganesha",
@@ -482,8 +584,8 @@ export const INITIAL_PRODUCTS: Product[] = [
         "id": "var-g1",
         "size": "12 x 12 inches",
         "dimensionsCm": "30 x 30 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "No Lighting (Pure Art)",
+        "finish": "Premium Glossy Finish",
+        "lighting": "Non-LED",
         "price": 1999,
         "mrp": 3999,
         "sku": "AG-GANESHA-1212",
@@ -494,8 +596,8 @@ export const INITIAL_PRODUCTS: Product[] = [
         "id": "var-g2",
         "size": "18 x 18 inches",
         "dimensionsCm": "45 x 45 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "No Lighting (Pure Art)",
+        "finish": "Premium Glossy Finish",
+        "lighting": "Non-LED",
         "price": 2999,
         "mrp": 5499,
         "sku": "AG-GANESHA-1818",
@@ -506,8 +608,8 @@ export const INITIAL_PRODUCTS: Product[] = [
         "id": "var-g3",
         "size": "24 x 24 inches",
         "dimensionsCm": "60 x 60 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "No Lighting (Pure Art)",
+        "finish": "Premium Glossy Finish",
+        "lighting": "Non-LED",
         "price": 4499,
         "mrp": 7999,
         "sku": "AG-GANESHA-2424",
@@ -517,20 +619,56 @@ export const INITIAL_PRODUCTS: Product[] = [
     ],
     "specifications": [
       {
-        "label": "Art Material",
-        "value": "Pure Crystal Acrylic with Gold Leaf Inlay"
+        "label": "Material",
+        "value": "Premium Crystal Clear Acrylic"
       },
       {
-        "label": "Vastu Direction",
-        "value": "Recommended for North or East entrance walls"
+        "label": "Thickness",
+        "value": "5MM Premium Acrylic"
       },
       {
-        "label": "Weight",
-        "value": "1.8 kg (18x18 size)"
+        "label": "Printing Technology",
+        "value": "Advanced Direct UV Printing"
       },
       {
-        "label": "Included",
-        "value": "Ready to hang with steel floating standoffs"
+        "label": "Print Quality",
+        "value": "High-Definition UV Printing"
+      },
+      {
+        "label": "Print Method",
+        "value": "Direct Printing on Acrylic Surface"
+      },
+      {
+        "label": "Colour Quality",
+        "value": "Vibrant Colours & Sharp Details"
+      },
+      {
+        "label": "Finish",
+        "value": "Premium Glossy Finish"
+      },
+      {
+        "label": "Edges",
+        "value": "Precision Square Cut Edges"
+      },
+      {
+        "label": "Mounting",
+        "value": "Premium Metal Wall Mounting Studs"
+      },
+      {
+        "label": "Installation",
+        "value": "Installation Studs Included with Every Frame"
+      },
+      {
+        "label": "Lighting",
+        "value": "Non-LED"
+      },
+      {
+        "label": "Customization",
+        "value": "Custom Sizes Available"
+      },
+      {
+        "label": "Usage",
+        "value": "Living Room, Bedroom, Office, Home Decor and Pooja Room."
       }
     ],
     "materialAndCare": [
@@ -539,9 +677,9 @@ export const INITIAL_PRODUCTS: Product[] = [
     ],
     "shippingHighlights": [
       "Multi-layer protective packaging for safe transit.",
-      "Precision diamond-cut cast acrylic with polished bevels.",
-      "Concealed French cleat mounting bracket & hardware included.",
-      "BIS certified 12V 2A power adapter included with LED frames."
+      "Premium 5MM crystal clear acrylic with precision square-cut edges.",
+      "Premium metal wall mounting studs and hardware included with every frame.",
+      "Advanced Direct UV Printing with instant UV-cured inks for vivid, lasting depth."
     ],
     "reviews": [],
     "createdAt": "2026-08-15",
@@ -556,8 +694,8 @@ export const INITIAL_PRODUCTS: Product[] = [
     "slug": "shri-hanuman-chalisa-full-inscribed-led-acrylic-frame",
     "title": "Complete Shri Hanuman Chalisa Inscribed LED Acrylic Panel",
     "subtitle": "Complete 40 Chaupais with Sacred Bajrangbali Silhouette & Warm Halo",
-    "shortDescription": "The sacred Hanuman Chalisa inscribed in sharp Devanagari script flanked by Veera Hanuman with golden backlighting.",
-    "description": "A monument of strength, devotion, and divine protection. The complete 40 verses of the Hanuman Chalisa are legibly rendered with high-precision micro-printing alongside the formidable profile of Veer Hanuman. The ambient backlight illuminates the verses, creating a protective and empowering energy in your home.",
+    "shortDescription": "Premium LED Backlit Acrylic Wall Frame crafted with Imported Clear Virgin Cast Acrylic, Direct UV Printing, Rose Gold Aluminium Side Frame, and Cool White LED Halo Glow.",
+    "description": "Transform your interior with our Premium LED Backlit Acrylic Wall Frame, designed to combine high-definition visual art with sophisticated ambient illumination.\n\nCrafted using premium Imported Clear Virgin Cast Acrylic and advanced Direct UV Printing Technology, the artwork is printed directly onto the acrylic surface, delivering exceptional clarity, sharp details and vibrant colours.\n\nEach frame features an elegant Rose Gold Aluminium Side Frame that enhances the structure and presentation of the artwork. The integrated Cool White LED backlighting produces a refined halo glow around the frame, creating a modern and luxurious focal point in any room.\n\nEvery LED Frame includes an external power adapter and complete wall mounting hardware (wall plugs and screws) for convenient and secure installation.\n\nIdeal for living rooms, bedrooms, executive offices, reception areas and modern luxury interiors.\n\nImported Virgin Cast Acrylic. Advanced Direct UV Printing. Rose Gold Aluminium Frame. Cool White LED Backlighting. Complete Mounting Hardware Included.",
     "categorySlug": "god-photo-frames",
     "categoryName": "God Photo Frames",
     "deity": "Lord Hanuman",
@@ -565,8 +703,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "orientation": "vertical",
     "categorySlugs": [
       "god-photo-frames",
-      "led-acrylic-photo-frames",
-      "acrylic-photo-frames"
+      "led-acrylic-photo-frames"
     ],
     "shape": "portrait",
     "images": [
@@ -594,8 +731,8 @@ export const INITIAL_PRODUCTS: Product[] = [
         "id": "var-h1",
         "size": "14 x 20 inches",
         "dimensionsCm": "35 x 50 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "LED Backlit (12V Adapter)",
+        "finish": "Premium Glossy Finish",
+        "lighting": "Cool White LED Backlighting",
         "price": 3299,
         "mrp": 6299,
         "sku": "AG-HANUMAN-1420-LED",
@@ -606,8 +743,8 @@ export const INITIAL_PRODUCTS: Product[] = [
         "id": "var-h2",
         "size": "18 x 26 inches",
         "dimensionsCm": "45 x 65 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "LED Backlit (12V Adapter)",
+        "finish": "Premium Glossy Finish",
+        "lighting": "Cool White LED Backlighting",
         "price": 4599,
         "mrp": 8499,
         "sku": "AG-HANUMAN-1826-LED",
@@ -618,8 +755,8 @@ export const INITIAL_PRODUCTS: Product[] = [
         "id": "var-h3",
         "size": "24 x 36 inches",
         "dimensionsCm": "60 x 90 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "LED Backlit (12V Adapter)",
+        "finish": "Premium Glossy Finish",
+        "lighting": "Cool White LED Backlighting",
         "price": 6799,
         "mrp": 12499,
         "sku": "AG-HANUMAN-2436-LED",
@@ -629,16 +766,76 @@ export const INITIAL_PRODUCTS: Product[] = [
     ],
     "specifications": [
       {
-        "label": "Script Quality",
-        "value": "High contrast Devanagari Sanskrit verses - 100% readable"
+        "label": "Product Type",
+        "value": "Premium LED Backlit Acrylic Wall Frame"
       },
       {
-        "label": "Acrylic",
-        "value": "Cast acrylic with seamless bevel edging"
+        "label": "Acrylic Material",
+        "value": "Imported Clear Virgin Cast Acrylic"
       },
       {
-        "label": "Backlighting",
-        "value": "LED perimeter edge lighting"
+        "label": "Printing Technology",
+        "value": "Advanced Direct UV Printing"
+      },
+      {
+        "label": "Print Quality",
+        "value": "High-Definition UV Printing"
+      },
+      {
+        "label": "Print Method",
+        "value": "Direct Printing on Acrylic Surface"
+      },
+      {
+        "label": "Colour Quality",
+        "value": "Vibrant Colours & Sharp Details"
+      },
+      {
+        "label": "Finish",
+        "value": "Premium Glossy Finish"
+      },
+      {
+        "label": "Side Frame Material",
+        "value": "Premium Aluminium"
+      },
+      {
+        "label": "Side Frame Colour",
+        "value": "Rose Gold"
+      },
+      {
+        "label": "Lighting Technology",
+        "value": "Integrated LED Backlighting"
+      },
+      {
+        "label": "LED Light Colour",
+        "value": "Cool White"
+      },
+      {
+        "label": "Lighting Effect",
+        "value": "Elegant Cool White Halo Glow"
+      },
+      {
+        "label": "Lighting Placement",
+        "value": "Hidden Perimeter LED Lighting"
+      },
+      {
+        "label": "Power Connection",
+        "value": "External Power Adapter"
+      },
+      {
+        "label": "Power Adapter",
+        "value": "Included with Every Frame"
+      },
+      {
+        "label": "Mounting",
+        "value": "Wall Mounting Hardware"
+      },
+      {
+        "label": "Installation",
+        "value": "Wall Plugs and Screws Included"
+      },
+      {
+        "label": "Customization",
+        "value": "Custom Sizes Available"
       }
     ],
     "materialAndCare": [
@@ -646,10 +843,12 @@ export const INITIAL_PRODUCTS: Product[] = [
       "Easy wipe clean with cotton cloth"
     ],
     "shippingHighlights": [
-      "Multi-layer protective packaging for safe transit.",
-      "Precision diamond-cut cast acrylic with polished bevels.",
-      "Concealed French cleat mounting bracket & hardware included.",
-      "BIS certified 12V 2A power adapter included with LED frames."
+      "Imported Clear Virgin Cast Acrylic",
+      "Advanced Direct UV Printing",
+      "Rose Gold Aluminium Side Frame",
+      "Cool White LED Halo Glow",
+      "External Power Adapter Included",
+      "Wall Plugs & Screws Included"
     ],
     "reviews": [],
     "createdAt": "2026-08-20"
@@ -660,7 +859,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "title": "Radha Krishna Eternal Love with Divine Flute Art",
     "subtitle": "Vrindavan Melody in Gold, Teal & Luminous Emerald Accents",
     "shortDescription": "Soulful Shri Radha Krishna portrait evoking divine romance, serenity, and unconditional love.",
-    "description": "Celebrate the eternal harmony of Radha and Krishna with this lyrical work of art. The gentle posture, peacock feather crown (Mor Pankh), and golden flute are rendered with delicate artistic finesse on a luminous, glass-like acrylic sheet. Perfect for master bedrooms and intimate family living areas.",
+    "description": "Celebrate the eternal harmony of Radha and Krishna with this lyrical work of art. The gentle posture, peacock feather crown (Mor Pankh), and golden flute are rendered with delicate artistic finesse on a luminous, glass-like acrylic sheet. Perfect for master bedrooms and intimate family living areas.\n\nUpgrade your walls with our Premium 5MM Crystal Clear Acrylic Frames, designed to bring elegance, clarity and a luxurious appearance to your interiors.\n\nEach frame is crafted using premium 5MM thick crystal-clear acrylic and advanced Direct UV Printing Technology. The artwork is printed directly onto the acrylic surface, delivering high-definition image quality, vibrant colours and sharp details.\n\nThe premium glossy finish enhances the overall appearance of the artwork, while precision square-cut edges provide a clean and modern look.\n\nEvery frame comes with premium metal wall mounting studs included, making wall installation convenient and giving your artwork an elegant floating-style appearance.\n\nPerfect for living rooms, bedrooms, offices, modern interiors and pooja rooms.\n\nPremium Quality. Advanced Direct UV Printing. Elegant Square-Cut Design. Easy Installation.",
     "categorySlug": "god-photo-frames",
     "categoryName": "God Photo Frames",
     "deity": "Radha Krishna",
@@ -691,8 +890,8 @@ export const INITIAL_PRODUCTS: Product[] = [
         "id": "var-rk1",
         "size": "12 x 18 inches",
         "dimensionsCm": "30 x 45 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "LED Backlit (12V Adapter)",
+        "finish": "Premium Glossy Finish",
+        "lighting": "Non-LED",
         "price": 2799,
         "mrp": 5299,
         "sku": "AG-RK-1218-STD",
@@ -703,8 +902,8 @@ export const INITIAL_PRODUCTS: Product[] = [
         "id": "var-rk2",
         "size": "18 x 24 inches",
         "dimensionsCm": "45 x 60 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "LED Backlit (12V Adapter)",
+        "finish": "Premium Glossy Finish",
+        "lighting": "Non-LED",
         "price": 3899,
         "mrp": 6999,
         "sku": "AG-RK-1824-STD",
@@ -715,8 +914,8 @@ export const INITIAL_PRODUCTS: Product[] = [
         "id": "var-rk3",
         "size": "24 x 36 inches",
         "dimensionsCm": "60 x 90 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "LED Backlit (12V Adapter)",
+        "finish": "Premium Glossy Finish",
+        "lighting": "Non-LED",
         "price": 5899,
         "mrp": 10499,
         "sku": "AG-RK-2436-STD",
@@ -726,12 +925,56 @@ export const INITIAL_PRODUCTS: Product[] = [
     ],
     "specifications": [
       {
-        "label": "Finish",
-        "value": "Premium Gloss Finish with Anti-Glare Layer"
+        "label": "Material",
+        "value": "Premium Crystal Clear Acrylic"
       },
       {
-        "label": "Backlighting",
-        "value": "Dual-warm halo with remote controller"
+        "label": "Thickness",
+        "value": "5MM Premium Acrylic"
+      },
+      {
+        "label": "Printing Technology",
+        "value": "Advanced Direct UV Printing"
+      },
+      {
+        "label": "Print Quality",
+        "value": "High-Definition UV Printing"
+      },
+      {
+        "label": "Print Method",
+        "value": "Direct Printing on Acrylic Surface"
+      },
+      {
+        "label": "Colour Quality",
+        "value": "Vibrant Colours & Sharp Details"
+      },
+      {
+        "label": "Finish",
+        "value": "Premium Glossy Finish"
+      },
+      {
+        "label": "Edges",
+        "value": "Precision Square Cut Edges"
+      },
+      {
+        "label": "Mounting",
+        "value": "Premium Metal Wall Mounting Studs"
+      },
+      {
+        "label": "Installation",
+        "value": "Installation Studs Included with Every Frame"
+      },
+      {
+        "label": "Lighting",
+        "value": "Non-LED"
+      },
+      {
+        "label": "Customization",
+        "value": "Custom Sizes Available"
+      },
+      {
+        "label": "Usage",
+        "value": "Living Room, Bedroom, Office, Home Decor and Pooja Room."
       }
     ],
     "materialAndCare": [
@@ -739,9 +982,9 @@ export const INITIAL_PRODUCTS: Product[] = [
     ],
     "shippingHighlights": [
       "Multi-layer protective packaging for safe transit.",
-      "Precision diamond-cut cast acrylic with polished bevels.",
-      "Concealed French cleat mounting bracket & hardware included.",
-      "BIS certified 12V 2A power adapter included with LED frames."
+      "Premium 5MM crystal clear acrylic with precision square-cut edges.",
+      "Premium metal wall mounting studs and hardware included with every frame.",
+      "Advanced Direct UV Printing with instant UV-cured inks for vivid, lasting depth."
     ],
     "reviews": [],
     "createdAt": "2026-09-01",
@@ -758,14 +1001,13 @@ export const INITIAL_PRODUCTS: Product[] = [
     "categorySlugs": [
       "god-photo-frames",
       "led-acrylic-photo-frames",
-      "couple-wedding-frames",
-      "acrylic-photo-frames"
+      "couple-wedding-frames"
     ],
     "shape": "square",
     "title": "Radha Krishna Divine Bansuri & Kamadhenu 3D LED Wall Art",
     "subtitle": "Sacred Flute Melody with Golden Halo & Divine Kamadhenu Blessing",
-    "shortDescription": "Mesmerizing Shri Radha Krishna portrait with golden bansuri, holy Kamadhenu calf, and LED backlight.",
-    "description": "Awaken celestial harmony and eternal devotion in your home with this masterwork 3D LED wall art. Featuring Lord Krishna playing his enchanting flute with beloved Radha Rani amidst golden blossoms and a sacred Kamadhenu calf, this premium acrylic piece comes alive with an ambient Warm halo that bathes your space in serenity and peace.",
+    "shortDescription": "Premium LED Backlit Acrylic Wall Frame crafted with Imported Clear Virgin Cast Acrylic, Direct UV Printing, Rose Gold Aluminium Side Frame, and Cool White LED Halo Glow.",
+    "description": "Transform your interior with our Premium LED Backlit Acrylic Wall Frame, designed to combine high-definition visual art with sophisticated ambient illumination.\n\nCrafted using premium Imported Clear Virgin Cast Acrylic and advanced Direct UV Printing Technology, the artwork is printed directly onto the acrylic surface, delivering exceptional clarity, sharp details and vibrant colours.\n\nEach frame features an elegant Rose Gold Aluminium Side Frame that enhances the structure and presentation of the artwork. The integrated Cool White LED backlighting produces a refined halo glow around the frame, creating a modern and luxurious focal point in any room.\n\nEvery LED Frame includes an external power adapter and complete wall mounting hardware (wall plugs and screws) for convenient and secure installation.\n\nIdeal for living rooms, bedrooms, executive offices, reception areas and modern luxury interiors.\n\nImported Virgin Cast Acrylic. Advanced Direct UV Printing. Rose Gold Aluminium Frame. Cool White LED Backlighting. Complete Mounting Hardware Included.",
     "categorySlug": "god-photo-frames",
     "categoryName": "God Photo Frames",
     "deity": "Radha Krishna",
@@ -800,8 +1042,8 @@ export const INITIAL_PRODUCTS: Product[] = [
         "id": "var-rkled1",
         "size": "12 x 12 inches",
         "dimensionsCm": "30 x 30 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "LED Backlit (12V Adapter)",
+        "finish": "Premium Glossy Finish",
+        "lighting": "Cool White LED Backlighting",
         "price": 2499,
         "mrp": 4999,
         "sku": "AG-RK-1212-LED",
@@ -812,8 +1054,8 @@ export const INITIAL_PRODUCTS: Product[] = [
         "id": "var-rkled2",
         "size": "18 x 18 inches",
         "dimensionsCm": "45 x 45 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "LED Backlit (12V Adapter)",
+        "finish": "Premium Glossy Finish",
+        "lighting": "Cool White LED Backlighting",
         "price": 3499,
         "mrp": 6999,
         "sku": "AG-RK-1818-LED",
@@ -824,8 +1066,8 @@ export const INITIAL_PRODUCTS: Product[] = [
         "id": "var-rkled3",
         "size": "24 x 24 inches",
         "dimensionsCm": "60 x 60 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "LED Backlit (12V Adapter)",
+        "finish": "Premium Glossy Finish",
+        "lighting": "Cool White LED Backlighting",
         "price": 4999,
         "mrp": 9499,
         "sku": "AG-RK-2424-LED",
@@ -836,8 +1078,8 @@ export const INITIAL_PRODUCTS: Product[] = [
         "id": "var-rkled4",
         "size": "30 x 30 inches (Grand Sanctum Size)",
         "dimensionsCm": "75 x 75 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "LED Backlit (12V Adapter)",
+        "finish": "Premium Glossy Finish",
+        "lighting": "Cool White LED Backlighting",
         "price": 7499,
         "mrp": 13999,
         "sku": "AG-RK-3030-LED",
@@ -847,28 +1089,76 @@ export const INITIAL_PRODUCTS: Product[] = [
     ],
     "specifications": [
       {
-        "label": "Art Material",
-        "value": "Imported High-Gloss Cast Acrylic with Beveled Edges"
+        "label": "Product Type",
+        "value": "Premium LED Backlit Acrylic Wall Frame"
       },
       {
-        "label": "Lighting System",
-        "value": "Warm Golden SMD LED with High Efficiency"
+        "label": "Acrylic Material",
+        "value": "Imported Clear Virgin Cast Acrylic"
       },
       {
-        "label": "Power Supply",
-        "value": "12V 2A BIS-Certified Wall Power Adapter (2.5 meter transparent wire)"
+        "label": "Printing Technology",
+        "value": "Advanced Direct UV Printing"
       },
       {
-        "label": "Print Technology",
-        "value": "6-Color Swiss UV Direct Print (Long-lasting color vibrancy)"
+        "label": "Print Quality",
+        "value": "High-Definition UV Printing"
       },
       {
-        "label": "Mounting Mechanism",
-        "value": "Concealed Floating French Cleat Wall Bracket (All hardware included)"
+        "label": "Print Method",
+        "value": "Direct Printing on Acrylic Surface"
       },
       {
-        "label": "Packaging",
-        "value": "5-Layer Honeycomb Wooden Crate with Corner Air-Cushion Foam"
+        "label": "Colour Quality",
+        "value": "Vibrant Colours & Sharp Details"
+      },
+      {
+        "label": "Finish",
+        "value": "Premium Glossy Finish"
+      },
+      {
+        "label": "Side Frame Material",
+        "value": "Premium Aluminium"
+      },
+      {
+        "label": "Side Frame Colour",
+        "value": "Rose Gold"
+      },
+      {
+        "label": "Lighting Technology",
+        "value": "Integrated LED Backlighting"
+      },
+      {
+        "label": "LED Light Colour",
+        "value": "Cool White"
+      },
+      {
+        "label": "Lighting Effect",
+        "value": "Elegant Cool White Halo Glow"
+      },
+      {
+        "label": "Lighting Placement",
+        "value": "Hidden Perimeter LED Lighting"
+      },
+      {
+        "label": "Power Connection",
+        "value": "External Power Adapter"
+      },
+      {
+        "label": "Power Adapter",
+        "value": "Included with Every Frame"
+      },
+      {
+        "label": "Mounting",
+        "value": "Wall Mounting Hardware"
+      },
+      {
+        "label": "Installation",
+        "value": "Wall Plugs and Screws Included"
+      },
+      {
+        "label": "Customization",
+        "value": "Custom Sizes Available"
       }
     ],
     "materialAndCare": [
@@ -878,10 +1168,12 @@ export const INITIAL_PRODUCTS: Product[] = [
       "Shatterproof acrylic construction resists accidental bumps and moisture."
     ],
     "shippingHighlights": [
-      "Multi-layer protective packaging for safe transit.",
-      "Precision diamond-cut cast acrylic with polished bevels.",
-      "Concealed French cleat mounting bracket & hardware included.",
-      "BIS certified 12V 2A power adapter included with LED frames."
+      "Imported Clear Virgin Cast Acrylic",
+      "Advanced Direct UV Printing",
+      "Rose Gold Aluminium Side Frame",
+      "Cool White LED Halo Glow",
+      "External Power Adapter Included",
+      "Wall Plugs & Screws Included"
     ],
     "reviews": [],
     "createdAt": "2026-10-25"
@@ -891,14 +1183,13 @@ export const INITIAL_PRODUCTS: Product[] = [
     "slug": "ayodhya-ram-janmabhoomi-mandir-3d-led-wall-decor",
     "categorySlugs": [
       "god-photo-frames",
-      "led-acrylic-photo-frames",
-      "acrylic-photo-frames"
+      "led-acrylic-photo-frames"
     ],
     "shape": "landscape",
     "title": "Ayodhya Ram Mandir Architectural 3D LED Wall Art",
     "subtitle": "Nagara Style Grand Temple Architecture with Shriram Divya Tej",
-    "shortDescription": "Magnificent architectural rendering of Ayodhya Shri Ram Temple with illuminated spires and golden dawn sky.",
-    "description": "Commemorate the historic Ayodhya Shri Ram Janmabhoomi Mandir with our architectural wall masterpiece. The intricate Nagara-style stone carvings, towering Shikhara, and saffron flag fluttering high are backlit with warm amber LEDs, giving the illusion of an eternal evening aarti at the holy sanctum.",
+    "shortDescription": "Premium LED Backlit Acrylic Wall Frame crafted with Imported Clear Virgin Cast Acrylic, Direct UV Printing, Rose Gold Aluminium Side Frame, and Cool White LED Halo Glow.",
+    "description": "Transform your interior with our Premium LED Backlit Acrylic Wall Frame, designed to combine high-definition visual art with sophisticated ambient illumination.\n\nCrafted using premium Imported Clear Virgin Cast Acrylic and advanced Direct UV Printing Technology, the artwork is printed directly onto the acrylic surface, delivering exceptional clarity, sharp details and vibrant colours.\n\nEach frame features an elegant Rose Gold Aluminium Side Frame that enhances the structure and presentation of the artwork. The integrated Cool White LED backlighting produces a refined halo glow around the frame, creating a modern and luxurious focal point in any room.\n\nEvery LED Frame includes an external power adapter and complete wall mounting hardware (wall plugs and screws) for convenient and secure installation.\n\nIdeal for living rooms, bedrooms, executive offices, reception areas and modern luxury interiors.\n\nImported Virgin Cast Acrylic. Advanced Direct UV Printing. Rose Gold Aluminium Frame. Cool White LED Backlighting. Complete Mounting Hardware Included.",
     "categorySlug": "god-photo-frames",
     "categoryName": "God Photo Frames",
     "deity": "Lord Rama",
@@ -928,8 +1219,8 @@ export const INITIAL_PRODUCTS: Product[] = [
         "id": "var-rm1",
         "size": "20 x 14 inches",
         "dimensionsCm": "50 x 35 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "LED Backlit (12V Adapter)",
+        "finish": "Premium Glossy Finish",
+        "lighting": "Cool White LED Backlighting",
         "price": 3499,
         "mrp": 6999,
         "sku": "AG-RAM-2014-LED",
@@ -940,8 +1231,8 @@ export const INITIAL_PRODUCTS: Product[] = [
         "id": "var-rm2",
         "size": "30 x 20 inches",
         "dimensionsCm": "75 x 50 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "LED Backlit (12V Adapter)",
+        "finish": "Premium Glossy Finish",
+        "lighting": "Cool White LED Backlighting",
         "price": 5299,
         "mrp": 9999,
         "sku": "AG-RAM-3020-LED",
@@ -952,8 +1243,8 @@ export const INITIAL_PRODUCTS: Product[] = [
         "id": "var-rm3",
         "size": "42 x 28 inches (Grand Panorama)",
         "dimensionsCm": "105 x 70 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "LED Backlit (12V Adapter)",
+        "finish": "Premium Glossy Finish",
+        "lighting": "Cool White LED Backlighting",
         "price": 7999,
         "mrp": 14999,
         "sku": "AG-RAM-4228-LED",
@@ -963,22 +1254,88 @@ export const INITIAL_PRODUCTS: Product[] = [
     ],
     "specifications": [
       {
-        "label": "Architecture",
-        "value": "Nagara temple layout rendered with 3D elevation depth"
+        "label": "Product Type",
+        "value": "Premium LED Backlit Acrylic Wall Frame"
       },
       {
-        "label": "Backlighting",
-        "value": "Warm amber glow illuminating the entire temple structure"
+        "label": "Acrylic Material",
+        "value": "Imported Clear Virgin Cast Acrylic"
+      },
+      {
+        "label": "Printing Technology",
+        "value": "Advanced Direct UV Printing"
+      },
+      {
+        "label": "Print Quality",
+        "value": "High-Definition UV Printing"
+      },
+      {
+        "label": "Print Method",
+        "value": "Direct Printing on Acrylic Surface"
+      },
+      {
+        "label": "Colour Quality",
+        "value": "Vibrant Colours & Sharp Details"
+      },
+      {
+        "label": "Finish",
+        "value": "Premium Glossy Finish"
+      },
+      {
+        "label": "Side Frame Material",
+        "value": "Premium Aluminium"
+      },
+      {
+        "label": "Side Frame Colour",
+        "value": "Rose Gold"
+      },
+      {
+        "label": "Lighting Technology",
+        "value": "Integrated LED Backlighting"
+      },
+      {
+        "label": "LED Light Colour",
+        "value": "Cool White"
+      },
+      {
+        "label": "Lighting Effect",
+        "value": "Elegant Cool White Halo Glow"
+      },
+      {
+        "label": "Lighting Placement",
+        "value": "Hidden Perimeter LED Lighting"
+      },
+      {
+        "label": "Power Connection",
+        "value": "External Power Adapter"
+      },
+      {
+        "label": "Power Adapter",
+        "value": "Included with Every Frame"
+      },
+      {
+        "label": "Mounting",
+        "value": "Wall Mounting Hardware"
+      },
+      {
+        "label": "Installation",
+        "value": "Wall Plugs and Screws Included"
+      },
+      {
+        "label": "Customization",
+        "value": "Custom Sizes Available"
       }
     ],
     "materialAndCare": [
       "Safe acrylic sheet with rounded polished corners"
     ],
     "shippingHighlights": [
-      "Multi-layer protective packaging for safe transit.",
-      "Precision diamond-cut cast acrylic with polished bevels.",
-      "Concealed French cleat mounting bracket & hardware included.",
-      "BIS certified 12V 2A power adapter included with LED frames."
+      "Imported Clear Virgin Cast Acrylic",
+      "Advanced Direct UV Printing",
+      "Rose Gold Aluminium Side Frame",
+      "Cool White LED Halo Glow",
+      "External Power Adapter Included",
+      "Wall Plugs & Screws Included"
     ],
     "reviews": [],
     "createdAt": "2026-09-10"
@@ -989,7 +1346,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "title": "Goddess Mahalakshmi Ashta Lakshmi Prosperity Wall Panel",
     "subtitle": "Golden Lotus Throne with Showering Gold Coins & Auspicious Elephants",
     "shortDescription": "Goddess Lakshmi radiating divine blessings of wealth, health, and prosperity in pure gold leaf accents.",
-    "description": "Invite timeless prosperity and grace into your abode with this Goddess Lakshmi wall panel. Surrounded by the eight forms (Ashta Lakshmi) and auspicious Gajraj (elephants) performing abhishekam, this artwork radiates golden warmth. Specially crafted for Diwali, Dhanteras, housewarmings, and everyday devotion.",
+    "description": "Invite timeless prosperity and grace into your abode with this Goddess Lakshmi wall panel. Surrounded by the eight forms (Ashta Lakshmi) and auspicious Gajraj (elephants) performing abhishekam, this artwork radiates golden warmth. Specially crafted for Diwali, Dhanteras, housewarmings, and everyday devotion.\n\nUpgrade your walls with our Premium 5MM Crystal Clear Acrylic Frames, designed to bring elegance, clarity and a luxurious appearance to your interiors.\n\nEach frame is crafted using premium 5MM thick crystal-clear acrylic and advanced Direct UV Printing Technology. The artwork is printed directly onto the acrylic surface, delivering high-definition image quality, vibrant colours and sharp details.\n\nThe premium glossy finish enhances the overall appearance of the artwork, while precision square-cut edges provide a clean and modern look.\n\nEvery frame comes with premium metal wall mounting studs included, making wall installation convenient and giving your artwork an elegant floating-style appearance.\n\nPerfect for living rooms, bedrooms, offices, modern interiors and pooja rooms.\n\nPremium Quality. Advanced Direct UV Printing. Elegant Square-Cut Design. Easy Installation.",
     "categorySlug": "god-photo-frames",
     "categoryName": "God Photo Frames",
     "deity": "Goddess Lakshmi",
@@ -1020,8 +1377,8 @@ export const INITIAL_PRODUCTS: Product[] = [
         "id": "var-l1",
         "size": "14 x 14 inches",
         "dimensionsCm": "35 x 35 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "No Lighting (Pure Art)",
+        "finish": "Premium Glossy Finish",
+        "lighting": "Non-LED",
         "price": 2299,
         "mrp": 4499,
         "sku": "AG-LAKSHMI-1414",
@@ -1032,8 +1389,8 @@ export const INITIAL_PRODUCTS: Product[] = [
         "id": "var-l2",
         "size": "20 x 20 inches",
         "dimensionsCm": "50 x 50 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "No Lighting (Pure Art)",
+        "finish": "Premium Glossy Finish",
+        "lighting": "Non-LED",
         "price": 3499,
         "mrp": 6499,
         "sku": "AG-LAKSHMI-2020",
@@ -1043,12 +1400,56 @@ export const INITIAL_PRODUCTS: Product[] = [
     ],
     "specifications": [
       {
-        "label": "Surface",
-        "value": "Premium High-Definition Glaze Acrylic with Gold Foil Accents"
+        "label": "Material",
+        "value": "Premium Crystal Clear Acrylic"
       },
       {
-        "label": "Vastu",
-        "value": "Ideal for North / North-East wall in pooja room or living hall"
+        "label": "Thickness",
+        "value": "5MM Premium Acrylic"
+      },
+      {
+        "label": "Printing Technology",
+        "value": "Advanced Direct UV Printing"
+      },
+      {
+        "label": "Print Quality",
+        "value": "High-Definition UV Printing"
+      },
+      {
+        "label": "Print Method",
+        "value": "Direct Printing on Acrylic Surface"
+      },
+      {
+        "label": "Colour Quality",
+        "value": "Vibrant Colours & Sharp Details"
+      },
+      {
+        "label": "Finish",
+        "value": "Premium Glossy Finish"
+      },
+      {
+        "label": "Edges",
+        "value": "Precision Square Cut Edges"
+      },
+      {
+        "label": "Mounting",
+        "value": "Premium Metal Wall Mounting Studs"
+      },
+      {
+        "label": "Installation",
+        "value": "Installation Studs Included with Every Frame"
+      },
+      {
+        "label": "Lighting",
+        "value": "Non-LED"
+      },
+      {
+        "label": "Customization",
+        "value": "Custom Sizes Available"
+      },
+      {
+        "label": "Usage",
+        "value": "Living Room, Bedroom, Office, Home Decor and Pooja Room."
       }
     ],
     "materialAndCare": [
@@ -1056,9 +1457,9 @@ export const INITIAL_PRODUCTS: Product[] = [
     ],
     "shippingHighlights": [
       "Multi-layer protective packaging for safe transit.",
-      "Precision diamond-cut cast acrylic with polished bevels.",
-      "Concealed French cleat mounting bracket & hardware included.",
-      "BIS certified 12V 2A power adapter included with LED frames."
+      "Premium 5MM crystal clear acrylic with precision square-cut edges.",
+      "Premium metal wall mounting studs and hardware included with every frame.",
+      "Advanced Direct UV Printing with instant UV-cured inks for vivid, lasting depth."
     ],
     "reviews": [],
     "createdAt": "2026-08-25",
@@ -1079,7 +1480,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "title": "Golden Ginkgo Leaves Modern Botanical Triptych Set of 3",
     "subtitle": "Symbol of Longevity & Elegance in Gold Foil on Matte Cream Background",
     "shortDescription": "Trio of three matching acrylic vertical panels featuring organic ginkgo foliage with gold leaf shimmer.",
-    "description": "An architectural ensemble designed to fill wide walls with organic balance. The Ginkgo biloba leaf has long stood for resilience, peace, and longevity. This 3-piece coordinated triptych brings nature-inspired luxury to your dining room, hallway, or conference room.",
+    "description": "An architectural ensemble designed to fill wide walls with organic balance. The Ginkgo biloba leaf has long stood for resilience, peace, and longevity. This 3-piece coordinated triptych brings nature-inspired luxury to your dining room, hallway, or conference room.\n\nUpgrade your walls with our Premium 5MM Crystal Clear Acrylic Frames, designed to bring elegance, clarity and a luxurious appearance to your interiors.\n\nEach frame is crafted using premium 5MM thick crystal-clear acrylic and advanced Direct UV Printing Technology. The artwork is printed directly onto the acrylic surface, delivering high-definition image quality, vibrant colours and sharp details.\n\nThe premium glossy finish enhances the overall appearance of the artwork, while precision square-cut edges provide a clean and modern look.\n\nEvery frame comes with premium metal wall mounting studs included, making wall installation convenient and giving your artwork an elegant floating-style appearance.\n\nPerfect for living rooms, bedrooms, offices, modern interiors and pooja rooms.\n\nPremium Quality. Advanced Direct UV Printing. Elegant Square-Cut Design. Easy Installation.",
     "categorySlug": "acrylic-photo-frames",
     "categoryName": "Acrylic Photo Frames",
     "artStyle": "Sets of Two or Three",
@@ -1109,8 +1510,8 @@ export const INITIAL_PRODUCTS: Product[] = [
         "id": "var-gk1",
         "size": "12 x 24 inches each (3 panels = 36x24 total)",
         "dimensionsCm": "30 x 60 cm (x3)",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "No Lighting (Pure Art)",
+        "finish": "Premium Glossy Finish",
+        "lighting": "Non-LED",
         "price": 4499,
         "mrp": 8999,
         "sku": "AG-GINKGO-SET3-SM",
@@ -1121,8 +1522,8 @@ export const INITIAL_PRODUCTS: Product[] = [
         "id": "var-gk2",
         "size": "16 x 32 inches each (3 panels = 48x32 total)",
         "dimensionsCm": "40 x 80 cm (x3)",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "No Lighting (Pure Art)",
+        "finish": "Premium Glossy Finish",
+        "lighting": "Non-LED",
         "price": 6499,
         "mrp": 11999,
         "sku": "AG-GINKGO-SET3-LG",
@@ -1132,12 +1533,56 @@ export const INITIAL_PRODUCTS: Product[] = [
     ],
     "specifications": [
       {
-        "label": "Set Contents",
-        "value": "3 Matching Acrylic Panels with Spacing Alignment Template"
+        "label": "Material",
+        "value": "Premium Crystal Clear Acrylic"
+      },
+      {
+        "label": "Thickness",
+        "value": "5MM Premium Acrylic"
+      },
+      {
+        "label": "Printing Technology",
+        "value": "Advanced Direct UV Printing"
+      },
+      {
+        "label": "Print Quality",
+        "value": "High-Definition UV Printing"
+      },
+      {
+        "label": "Print Method",
+        "value": "Direct Printing on Acrylic Surface"
+      },
+      {
+        "label": "Colour Quality",
+        "value": "Vibrant Colours & Sharp Details"
+      },
+      {
+        "label": "Finish",
+        "value": "Premium Glossy Finish"
+      },
+      {
+        "label": "Edges",
+        "value": "Precision Square Cut Edges"
       },
       {
         "label": "Mounting",
-        "value": "Concealed mounting clips included for all 3 panels"
+        "value": "Premium Metal Wall Mounting Studs"
+      },
+      {
+        "label": "Installation",
+        "value": "Installation Studs Included with Every Frame"
+      },
+      {
+        "label": "Lighting",
+        "value": "Non-LED"
+      },
+      {
+        "label": "Customization",
+        "value": "Custom Sizes Available"
+      },
+      {
+        "label": "Usage",
+        "value": "Living Room, Bedroom, Office, Home Decor and Pooja Room."
       }
     ],
     "materialAndCare": [
@@ -1145,9 +1590,9 @@ export const INITIAL_PRODUCTS: Product[] = [
     ],
     "shippingHighlights": [
       "Multi-layer protective packaging for safe transit.",
-      "Precision diamond-cut cast acrylic with polished bevels.",
-      "Concealed French cleat mounting bracket & hardware included.",
-      "BIS certified 12V 2A power adapter included with LED frames."
+      "Premium 5MM crystal clear acrylic with precision square-cut edges.",
+      "Premium metal wall mounting studs and hardware included with every frame.",
+      "Advanced Direct UV Printing with instant UV-cured inks for vivid, lasting depth."
     ],
     "reviews": [],
     "createdAt": "2026-09-08"
@@ -1158,7 +1603,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "title": "Custom Personalised High-Definition Acrylic Photo Frame",
     "subtitle": "Upload Your Photo • Museum Acrylic Glass Depth • Custom Sizes & Inscriptions",
     "shortDescription": "Turn your wedding, family, or travel memories into crystal-clear frameless acrylic wall art.",
-    "description": "Transform your special moments into heirloom wall art. Upload your favorite high-resolution photo and let our artisans print it directly onto precision-polished premium acrylic. The frameless design creates a clean, modern floating aesthetic where your memories look vibrant and lifelike from every angle.",
+    "description": "Transform your special moments into heirloom wall art. Upload your favorite high-resolution photo and let our artisans print it directly onto precision-polished premium acrylic. The frameless design creates a clean, modern floating aesthetic where your memories look vibrant and lifelike from every angle.\n\nUpgrade your walls with our Premium 5MM Crystal Clear Acrylic Frames, designed to bring elegance, clarity and a luxurious appearance to your interiors.\n\nEach frame is crafted using premium 5MM thick crystal-clear acrylic and advanced Direct UV Printing Technology. The artwork is printed directly onto the acrylic surface, delivering high-definition image quality, vibrant colours and sharp details.\n\nThe premium glossy finish enhances the overall appearance of the artwork, while precision square-cut edges provide a clean and modern look.\n\nEvery frame comes with premium metal wall mounting studs included, making wall installation convenient and giving your artwork an elegant floating-style appearance.\n\nPerfect for living rooms, bedrooms, offices, modern interiors and pooja rooms.\n\nPremium Quality. Advanced Direct UV Printing. Elegant Square-Cut Design. Easy Installation.",
     "categorySlug": "family-baby-frames",
     "categoryName": "Family & Baby Frames",
     "categorySlugs": [
@@ -1193,8 +1638,8 @@ export const INITIAL_PRODUCTS: Product[] = [
         "id": "var-cp1",
         "size": "8 x 12 inches",
         "dimensionsCm": "20 x 30 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "No Lighting (Pure Art)",
+        "finish": "Premium Glossy Finish",
+        "lighting": "Non-LED",
         "price": 1499,
         "mrp": 2999,
         "sku": "AG-CUSTOM-812",
@@ -1205,8 +1650,8 @@ export const INITIAL_PRODUCTS: Product[] = [
         "id": "var-cp2",
         "size": "12 x 18 inches",
         "dimensionsCm": "30 x 45 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "No Lighting (Pure Art)",
+        "finish": "Premium Glossy Finish",
+        "lighting": "Non-LED",
         "price": 2199,
         "mrp": 4199,
         "sku": "AG-CUSTOM-1218",
@@ -1217,8 +1662,8 @@ export const INITIAL_PRODUCTS: Product[] = [
         "id": "var-cp3",
         "size": "16 x 24 inches",
         "dimensionsCm": "40 x 60 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "No Lighting (Pure Art)",
+        "finish": "Premium Glossy Finish",
+        "lighting": "Non-LED",
         "price": 3299,
         "mrp": 5999,
         "sku": "AG-CUSTOM-1624",
@@ -1229,8 +1674,8 @@ export const INITIAL_PRODUCTS: Product[] = [
         "id": "var-cp4",
         "size": "20 x 30 inches",
         "dimensionsCm": "50 x 75 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "No Lighting (Pure Art)",
+        "finish": "Premium Glossy Finish",
+        "lighting": "Non-LED",
         "price": 4499,
         "mrp": 7999,
         "sku": "AG-CUSTOM-2030",
@@ -1240,16 +1685,56 @@ export const INITIAL_PRODUCTS: Product[] = [
     ],
     "specifications": [
       {
-        "label": "Photo Enhancement",
-        "value": "Complimentary professional photo color correction & sharpness check"
+        "label": "Material",
+        "value": "Premium Crystal Clear Acrylic"
       },
       {
-        "label": "Acrylic Thickness",
-        "value": "3mm / 5mm High Clarity Cast Acrylic"
+        "label": "Thickness",
+        "value": "5MM Premium Acrylic"
       },
       {
-        "label": "Hanging Mount",
-        "value": "Floating standoff wall studs or concealed rear hook bracket"
+        "label": "Printing Technology",
+        "value": "Advanced Direct UV Printing"
+      },
+      {
+        "label": "Print Quality",
+        "value": "High-Definition UV Printing"
+      },
+      {
+        "label": "Print Method",
+        "value": "Direct Printing on Acrylic Surface"
+      },
+      {
+        "label": "Colour Quality",
+        "value": "Vibrant Colours & Sharp Details"
+      },
+      {
+        "label": "Finish",
+        "value": "Premium Glossy Finish"
+      },
+      {
+        "label": "Edges",
+        "value": "Precision Square Cut Edges"
+      },
+      {
+        "label": "Mounting",
+        "value": "Premium Metal Wall Mounting Studs"
+      },
+      {
+        "label": "Installation",
+        "value": "Installation Studs Included with Every Frame"
+      },
+      {
+        "label": "Lighting",
+        "value": "Non-LED"
+      },
+      {
+        "label": "Customization",
+        "value": "Custom Sizes Available"
+      },
+      {
+        "label": "Usage",
+        "value": "Living Room, Bedroom, Office, Home Decor and Pooja Room."
       }
     ],
     "materialAndCare": [
@@ -1258,9 +1743,9 @@ export const INITIAL_PRODUCTS: Product[] = [
     ],
     "shippingHighlights": [
       "Multi-layer protective packaging for safe transit.",
-      "Precision diamond-cut cast acrylic with polished bevels.",
-      "Concealed French cleat mounting bracket & hardware included.",
-      "BIS certified 12V 2A power adapter included with LED frames."
+      "Premium 5MM crystal clear acrylic with precision square-cut edges.",
+      "Premium metal wall mounting studs and hardware included with every frame.",
+      "Advanced Direct UV Printing with instant UV-cured inks for vivid, lasting depth."
     ],
     "reviews": [],
     "createdAt": "2026-08-05"
@@ -1270,14 +1755,13 @@ export const INITIAL_PRODUCTS: Product[] = [
     "slug": "custom-led-backlit-acrylic-photo-frame",
     "title": "Custom LED Backlit Night-Glow Acrylic Photo Frame",
     "subtitle": "Upload Your Photo • Soft Ambient Golden Glow • Touch Dimmer Included",
-    "shortDescription": "Turn your cherished memory into a lighted nocturnal work of art with our warm perimeter LED glow frame.",
-    "description": "A magical gift for anniversaries, birthdays, and milestones. Your uploaded photo is printed on optical grade acrylic and illuminated from behind with precision LED diodes. At night, it casts a soothing, romantic ambient light that illuminates your memories with warmth and clarity.",
+    "shortDescription": "Premium LED Backlit Acrylic Wall Frame crafted with Imported Clear Virgin Cast Acrylic, Direct UV Printing, Rose Gold Aluminium Side Frame, and Cool White LED Halo Glow.",
+    "description": "Transform your interior with our Premium LED Backlit Acrylic Wall Frame, designed to combine high-definition visual art with sophisticated ambient illumination.\n\nCrafted using premium Imported Clear Virgin Cast Acrylic and advanced Direct UV Printing Technology, the artwork is printed directly onto the acrylic surface, delivering exceptional clarity, sharp details and vibrant colours.\n\nEach frame features an elegant Rose Gold Aluminium Side Frame that enhances the structure and presentation of the artwork. The integrated Cool White LED backlighting produces a refined halo glow around the frame, creating a modern and luxurious focal point in any room.\n\nEvery LED Frame includes an external power adapter and complete wall mounting hardware (wall plugs and screws) for convenient and secure installation.\n\nIdeal for living rooms, bedrooms, executive offices, reception areas and modern luxury interiors.\n\nImported Virgin Cast Acrylic. Advanced Direct UV Printing. Rose Gold Aluminium Frame. Cool White LED Backlighting. Complete Mounting Hardware Included.",
     "categorySlug": "led-acrylic-photo-frames",
     "categoryName": "LED Acrylic Photo Frames",
     "categorySlugs": [
       "led-acrylic-photo-frames",
-      "personalized-gifts",
-      "acrylic-photo-frames"
+      "personalized-gifts"
     ],
     "artStyle": "Custom Photo Frames",
     "orientation": "vertical",
@@ -1306,8 +1790,8 @@ export const INITIAL_PRODUCTS: Product[] = [
         "id": "var-cled1",
         "size": "10 x 14 inches",
         "dimensionsCm": "25 x 35 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "LED Backlit (12V Adapter)",
+        "finish": "Premium Glossy Finish",
+        "lighting": "Cool White LED Backlighting",
         "price": 2499,
         "mrp": 4999,
         "sku": "AG-CLED-1014",
@@ -1318,8 +1802,8 @@ export const INITIAL_PRODUCTS: Product[] = [
         "id": "var-cled2",
         "size": "14 x 20 inches",
         "dimensionsCm": "35 x 50 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "LED Backlit (12V Adapter)",
+        "finish": "Premium Glossy Finish",
+        "lighting": "Cool White LED Backlighting",
         "price": 3499,
         "mrp": 6499,
         "sku": "AG-CLED-1420",
@@ -1330,8 +1814,8 @@ export const INITIAL_PRODUCTS: Product[] = [
         "id": "var-cled3",
         "size": "18 x 26 inches",
         "dimensionsCm": "45 x 65 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "LED Backlit (12V Adapter)",
+        "finish": "Premium Glossy Finish",
+        "lighting": "Cool White LED Backlighting",
         "price": 4999,
         "mrp": 8999,
         "sku": "AG-CLED-1826",
@@ -1341,12 +1825,76 @@ export const INITIAL_PRODUCTS: Product[] = [
     ],
     "specifications": [
       {
-        "label": "Lighting Technology",
-        "value": "Edge-lit diffused LED warm array"
+        "label": "Product Type",
+        "value": "Premium LED Backlit Acrylic Wall Frame"
       },
       {
-        "label": "Power",
-        "value": "12V safe low-voltage adapter included"
+        "label": "Acrylic Material",
+        "value": "Imported Clear Virgin Cast Acrylic"
+      },
+      {
+        "label": "Printing Technology",
+        "value": "Advanced Direct UV Printing"
+      },
+      {
+        "label": "Print Quality",
+        "value": "High-Definition UV Printing"
+      },
+      {
+        "label": "Print Method",
+        "value": "Direct Printing on Acrylic Surface"
+      },
+      {
+        "label": "Colour Quality",
+        "value": "Vibrant Colours & Sharp Details"
+      },
+      {
+        "label": "Finish",
+        "value": "Premium Glossy Finish"
+      },
+      {
+        "label": "Side Frame Material",
+        "value": "Premium Aluminium"
+      },
+      {
+        "label": "Side Frame Colour",
+        "value": "Rose Gold"
+      },
+      {
+        "label": "Lighting Technology",
+        "value": "Integrated LED Backlighting"
+      },
+      {
+        "label": "LED Light Colour",
+        "value": "Cool White"
+      },
+      {
+        "label": "Lighting Effect",
+        "value": "Elegant Cool White Halo Glow"
+      },
+      {
+        "label": "Lighting Placement",
+        "value": "Hidden Perimeter LED Lighting"
+      },
+      {
+        "label": "Power Connection",
+        "value": "External Power Adapter"
+      },
+      {
+        "label": "Power Adapter",
+        "value": "Included with Every Frame"
+      },
+      {
+        "label": "Mounting",
+        "value": "Wall Mounting Hardware"
+      },
+      {
+        "label": "Installation",
+        "value": "Wall Plugs and Screws Included"
+      },
+      {
+        "label": "Customization",
+        "value": "Custom Sizes Available"
       }
     ],
     "materialAndCare": [
@@ -1354,10 +1902,12 @@ export const INITIAL_PRODUCTS: Product[] = [
       "Keep cord dry"
     ],
     "shippingHighlights": [
-      "Multi-layer protective packaging for safe transit.",
-      "Precision diamond-cut cast acrylic with polished bevels.",
-      "Concealed French cleat mounting bracket & hardware included.",
-      "BIS certified 12V 2A power adapter included with LED frames."
+      "Imported Clear Virgin Cast Acrylic",
+      "Advanced Direct UV Printing",
+      "Rose Gold Aluminium Side Frame",
+      "Cool White LED Halo Glow",
+      "External Power Adapter Included",
+      "Wall Plugs & Screws Included"
     ],
     "reviews": [],
     "createdAt": "2026-09-15"
@@ -1368,7 +1918,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "title": "Personalized Family Heirloom Acrylic Wall Frame with Gold Foil Script",
     "subtitle": "Custom Family Name Inscribed • gold foil Accent • 5mm Crystal Glass",
     "shortDescription": "Cherished family heirlooms printed with high-gloss depth and custom gold foil surname inscriptions.",
-    "description": "Celebrate family heritage with our mastercrafted heirloom acrylic frame. Personalize with your family name or wedding vow in shining gold foil script across the bottom of the crystal acrylic.",
+    "description": "Celebrate family heritage with our mastercrafted heirloom acrylic frame. Personalize with your family name or wedding vow in shining gold foil script across the bottom of the crystal acrylic.\n\nUpgrade your walls with our Premium 5MM Crystal Clear Acrylic Frames, designed to bring elegance, clarity and a luxurious appearance to your interiors.\n\nEach frame is crafted using premium 5MM thick crystal-clear acrylic and advanced Direct UV Printing Technology. The artwork is printed directly onto the acrylic surface, delivering high-definition image quality, vibrant colours and sharp details.\n\nThe premium glossy finish enhances the overall appearance of the artwork, while precision square-cut edges provide a clean and modern look.\n\nEvery frame comes with premium metal wall mounting studs included, making wall installation convenient and giving your artwork an elegant floating-style appearance.\n\nPerfect for living rooms, bedrooms, offices, modern interiors and pooja rooms.\n\nPremium Quality. Advanced Direct UV Printing. Elegant Square-Cut Design. Easy Installation.",
     "categorySlug": "family-baby-frames",
     "categoryName": "Family & Baby Frames",
     "categorySlugs": [
@@ -1403,8 +1953,8 @@ export const INITIAL_PRODUCTS: Product[] = [
         "id": "var-fh1",
         "size": "20 x 14 inches",
         "dimensionsCm": "50 x 35 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "No Lighting (Pure Art)",
+        "finish": "Premium Glossy Finish",
+        "lighting": "Non-LED",
         "price": 2299,
         "mrp": 4599,
         "sku": "AG-FAM-2014",
@@ -1415,8 +1965,8 @@ export const INITIAL_PRODUCTS: Product[] = [
         "id": "var-fh2",
         "size": "30 x 20 inches",
         "dimensionsCm": "75 x 50 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "No Lighting (Pure Art)",
+        "finish": "Premium Glossy Finish",
+        "lighting": "Non-LED",
         "price": 3899,
         "mrp": 7299,
         "sku": "AG-FAM-3020",
@@ -1427,8 +1977,8 @@ export const INITIAL_PRODUCTS: Product[] = [
         "id": "var-fh3",
         "size": "40 x 26 inches",
         "dimensionsCm": "100 x 65 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "No Lighting (Pure Art)",
+        "finish": "Premium Glossy Finish",
+        "lighting": "Non-LED",
         "price": 5999,
         "mrp": 10999,
         "sku": "AG-FAM-4026",
@@ -1438,16 +1988,56 @@ export const INITIAL_PRODUCTS: Product[] = [
     ],
     "specifications": [
       {
-        "label": "Personalization",
-        "value": "Custom Gold Foil Name & Established Year Script"
+        "label": "Material",
+        "value": "Premium Crystal Clear Acrylic"
       },
       {
-        "label": "Clarity Rating",
-        "value": "99.2% Museum Optical Transparency"
+        "label": "Thickness",
+        "value": "5MM Premium Acrylic"
       },
       {
-        "label": "Mounting Style",
-        "value": "Brushed gold standoff corner studs included"
+        "label": "Printing Technology",
+        "value": "Advanced Direct UV Printing"
+      },
+      {
+        "label": "Print Quality",
+        "value": "High-Definition UV Printing"
+      },
+      {
+        "label": "Print Method",
+        "value": "Direct Printing on Acrylic Surface"
+      },
+      {
+        "label": "Colour Quality",
+        "value": "Vibrant Colours & Sharp Details"
+      },
+      {
+        "label": "Finish",
+        "value": "Premium Glossy Finish"
+      },
+      {
+        "label": "Edges",
+        "value": "Precision Square Cut Edges"
+      },
+      {
+        "label": "Mounting",
+        "value": "Premium Metal Wall Mounting Studs"
+      },
+      {
+        "label": "Installation",
+        "value": "Installation Studs Included with Every Frame"
+      },
+      {
+        "label": "Lighting",
+        "value": "Non-LED"
+      },
+      {
+        "label": "Customization",
+        "value": "Custom Sizes Available"
+      },
+      {
+        "label": "Usage",
+        "value": "Living Room, Bedroom, Office, Home Decor and Pooja Room."
       }
     ],
     "materialAndCare": [
@@ -1456,9 +2046,9 @@ export const INITIAL_PRODUCTS: Product[] = [
     ],
     "shippingHighlights": [
       "Multi-layer protective packaging for safe transit.",
-      "Precision diamond-cut cast acrylic with polished bevels.",
-      "Concealed French cleat mounting bracket & hardware included.",
-      "BIS certified 12V 2A power adapter included with LED frames."
+      "Premium 5MM crystal clear acrylic with precision square-cut edges.",
+      "Premium metal wall mounting studs and hardware included with every frame.",
+      "Advanced Direct UV Printing with instant UV-cured inks for vivid, lasting depth."
     ],
     "reviews": [],
     "createdAt": "2026-09-05"
@@ -1469,7 +2059,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "title": "Symmetrical Set of 3 (Triptych) Gallery Acrylic Photo Wall Frames",
     "subtitle": "Coordinated Storyline • Matching Standoff Hardware • Full Wall Statement",
     "shortDescription": "Create an eye-catching story wall with 3 matching vertical frameless acrylic panels.",
-    "description": "Turn your living room or staircase into a modern art gallery. This coordinated trio of acrylic panels lets you tell a complete visual story—from wedding day progressions to timeless family generations.",
+    "description": "Turn your living room or staircase into a modern art gallery. This coordinated trio of acrylic panels lets you tell a complete visual story—from wedding day progressions to timeless family generations.\n\nUpgrade your walls with our Premium 5MM Crystal Clear Acrylic Frames, designed to bring elegance, clarity and a luxurious appearance to your interiors.\n\nEach frame is crafted using premium 5MM thick crystal-clear acrylic and advanced Direct UV Printing Technology. The artwork is printed directly onto the acrylic surface, delivering high-definition image quality, vibrant colours and sharp details.\n\nThe premium glossy finish enhances the overall appearance of the artwork, while precision square-cut edges provide a clean and modern look.\n\nEvery frame comes with premium metal wall mounting studs included, making wall installation convenient and giving your artwork an elegant floating-style appearance.\n\nPerfect for living rooms, bedrooms, offices, modern interiors and pooja rooms.\n\nPremium Quality. Advanced Direct UV Printing. Elegant Square-Cut Design. Easy Installation.",
     "categorySlug": "family-baby-frames",
     "categoryName": "Family & Baby Frames",
     "categorySlugs": [
@@ -1504,8 +2094,8 @@ export const INITIAL_PRODUCTS: Product[] = [
         "id": "var-gs1",
         "size": "Set of 3 (12 x 18 in each)",
         "dimensionsCm": "3 Panels of 30 x 45 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "No Lighting (Pure Art)",
+        "finish": "Premium Glossy Finish",
+        "lighting": "Non-LED",
         "price": 3999,
         "mrp": 7999,
         "sku": "AG-TRIP-1218",
@@ -1516,8 +2106,8 @@ export const INITIAL_PRODUCTS: Product[] = [
         "id": "var-gs2",
         "size": "Set of 3 (16 x 24 in each)",
         "dimensionsCm": "3 Panels of 40 x 60 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "No Lighting (Pure Art)",
+        "finish": "Premium Glossy Finish",
+        "lighting": "Non-LED",
         "price": 5999,
         "mrp": 11499,
         "sku": "AG-TRIP-1624",
@@ -1528,8 +2118,8 @@ export const INITIAL_PRODUCTS: Product[] = [
         "id": "var-gs3",
         "size": "Set of 3 (20 x 30 in each)",
         "dimensionsCm": "3 Panels of 50 x 75 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "No Lighting (Pure Art)",
+        "finish": "Premium Glossy Finish",
+        "lighting": "Non-LED",
         "price": 8499,
         "mrp": 15999,
         "sku": "AG-TRIP-2030",
@@ -1539,16 +2129,56 @@ export const INITIAL_PRODUCTS: Product[] = [
     ],
     "specifications": [
       {
-        "label": "Set Contents",
-        "value": "3 Identical Proportion Vertical Acrylic Panels"
+        "label": "Material",
+        "value": "Premium Crystal Clear Acrylic"
       },
       {
-        "label": "Alignment Guide",
-        "value": "Full-scale spacing template included for foolproof hanging"
+        "label": "Thickness",
+        "value": "5MM Premium Acrylic"
       },
       {
-        "label": "Standoffs Included",
-        "value": "12 Stainless Steel Floating Standoff Pins"
+        "label": "Printing Technology",
+        "value": "Advanced Direct UV Printing"
+      },
+      {
+        "label": "Print Quality",
+        "value": "High-Definition UV Printing"
+      },
+      {
+        "label": "Print Method",
+        "value": "Direct Printing on Acrylic Surface"
+      },
+      {
+        "label": "Colour Quality",
+        "value": "Vibrant Colours & Sharp Details"
+      },
+      {
+        "label": "Finish",
+        "value": "Premium Glossy Finish"
+      },
+      {
+        "label": "Edges",
+        "value": "Precision Square Cut Edges"
+      },
+      {
+        "label": "Mounting",
+        "value": "Premium Metal Wall Mounting Studs"
+      },
+      {
+        "label": "Installation",
+        "value": "Installation Studs Included with Every Frame"
+      },
+      {
+        "label": "Lighting",
+        "value": "Non-LED"
+      },
+      {
+        "label": "Customization",
+        "value": "Custom Sizes Available"
+      },
+      {
+        "label": "Usage",
+        "value": "Living Room, Bedroom, Office, Home Decor and Pooja Room."
       }
     ],
     "materialAndCare": [
@@ -1557,9 +2187,9 @@ export const INITIAL_PRODUCTS: Product[] = [
     ],
     "shippingHighlights": [
       "Multi-layer protective packaging for safe transit.",
-      "Precision diamond-cut cast acrylic with polished bevels.",
-      "Concealed French cleat mounting bracket & hardware included.",
-      "BIS certified 12V 2A power adapter included with LED frames."
+      "Premium 5MM crystal clear acrylic with precision square-cut edges.",
+      "Premium metal wall mounting studs and hardware included with every frame.",
+      "Advanced Direct UV Printing with instant UV-cured inks for vivid, lasting depth."
     ],
     "reviews": [],
     "createdAt": "2026-09-20"
@@ -1570,7 +2200,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "title": "Lord Ayyappa Swamiye Saranam 3D Divine Acrylic Art",
     "subtitle": "Sabarimala Golden 18 Holy Steps (Pathinettam Padi) Motif & Divine Blessing",
     "shortDescription": "Sacred Lord Ayyappa wall art featuring the 18 holy steps and gold foil embellishments.",
-    "description": "Evoke the pure devotion and protective shield of Swami Ayyappan in your household. Rendered in deep jewel tones and shimmering gold accents, depicting Lord Ayyappa seated in chin-mudra yogic poise surrounded by divine light. Highly revered during Mandala-Makaravilakku season and throughout the year.",
+    "description": "Evoke the pure devotion and protective shield of Swami Ayyappan in your household. Rendered in deep jewel tones and shimmering gold accents, depicting Lord Ayyappa seated in chin-mudra yogic poise surrounded by divine light. Highly revered during Mandala-Makaravilakku season and throughout the year.\n\nUpgrade your walls with our Premium 5MM Crystal Clear Acrylic Frames, designed to bring elegance, clarity and a luxurious appearance to your interiors.\n\nEach frame is crafted using premium 5MM thick crystal-clear acrylic and advanced Direct UV Printing Technology. The artwork is printed directly onto the acrylic surface, delivering high-definition image quality, vibrant colours and sharp details.\n\nThe premium glossy finish enhances the overall appearance of the artwork, while precision square-cut edges provide a clean and modern look.\n\nEvery frame comes with premium metal wall mounting studs included, making wall installation convenient and giving your artwork an elegant floating-style appearance.\n\nPerfect for living rooms, bedrooms, offices, modern interiors and pooja rooms.\n\nPremium Quality. Advanced Direct UV Printing. Elegant Square-Cut Design. Easy Installation.",
     "categorySlug": "god-photo-frames",
     "categoryName": "God Photo Frames",
     "deity": "Lord Ayyappa",
@@ -1600,8 +2230,8 @@ export const INITIAL_PRODUCTS: Product[] = [
         "id": "var-ay1",
         "size": "12 x 18 inches",
         "dimensionsCm": "30 x 45 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "No Lighting (Pure Art)",
+        "finish": "Premium Glossy Finish",
+        "lighting": "Non-LED",
         "price": 2499,
         "mrp": 4899,
         "sku": "AG-AYYAPPA-1218",
@@ -1612,8 +2242,8 @@ export const INITIAL_PRODUCTS: Product[] = [
         "id": "var-ay2",
         "size": "16 x 24 inches",
         "dimensionsCm": "40 x 60 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "No Lighting (Pure Art)",
+        "finish": "Premium Glossy Finish",
+        "lighting": "Non-LED",
         "price": 3499,
         "mrp": 6499,
         "sku": "AG-AYYAPPA-1624",
@@ -1623,8 +2253,56 @@ export const INITIAL_PRODUCTS: Product[] = [
     ],
     "specifications": [
       {
-        "label": "Surface",
-        "value": "Cast Acrylic with Diamond Edge Polish"
+        "label": "Material",
+        "value": "Premium Crystal Clear Acrylic"
+      },
+      {
+        "label": "Thickness",
+        "value": "5MM Premium Acrylic"
+      },
+      {
+        "label": "Printing Technology",
+        "value": "Advanced Direct UV Printing"
+      },
+      {
+        "label": "Print Quality",
+        "value": "High-Definition UV Printing"
+      },
+      {
+        "label": "Print Method",
+        "value": "Direct Printing on Acrylic Surface"
+      },
+      {
+        "label": "Colour Quality",
+        "value": "Vibrant Colours & Sharp Details"
+      },
+      {
+        "label": "Finish",
+        "value": "Premium Glossy Finish"
+      },
+      {
+        "label": "Edges",
+        "value": "Precision Square Cut Edges"
+      },
+      {
+        "label": "Mounting",
+        "value": "Premium Metal Wall Mounting Studs"
+      },
+      {
+        "label": "Installation",
+        "value": "Installation Studs Included with Every Frame"
+      },
+      {
+        "label": "Lighting",
+        "value": "Non-LED"
+      },
+      {
+        "label": "Customization",
+        "value": "Custom Sizes Available"
+      },
+      {
+        "label": "Usage",
+        "value": "Living Room, Bedroom, Office, Home Decor and Pooja Room."
       }
     ],
     "materialAndCare": [
@@ -1632,9 +2310,9 @@ export const INITIAL_PRODUCTS: Product[] = [
     ],
     "shippingHighlights": [
       "Multi-layer protective packaging for safe transit.",
-      "Precision diamond-cut cast acrylic with polished bevels.",
-      "Concealed French cleat mounting bracket & hardware included.",
-      "BIS certified 12V 2A power adapter included with LED frames."
+      "Premium 5MM crystal clear acrylic with precision square-cut edges.",
+      "Premium metal wall mounting studs and hardware included with every frame.",
+      "Advanced Direct UV Printing with instant UV-cured inks for vivid, lasting depth."
     ],
     "reviews": [],
     "createdAt": "2026-09-18",
@@ -1650,7 +2328,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "title": "Lord Murugan (Kartikeya) with Sacred Golden Vel & Mayil Art",
     "subtitle": "The Commander of Divine Forces in Lustrous Gold & Royal Crimson",
     "shortDescription": "Magnificent Lord Murugan standing with the divine spear (Vel) and royal peacock in radiant acrylic depth.",
-    "description": "Imbue your living environment with spiritual strength, victory, and supreme wisdom. Lord Murugan, with the sacred Vel (spear) that pierces ignorance and bestows courage, is captured with royal splendour. Accompanied by the majestic Mayil (peacock), this sacred wall decor is a cherished masterpiece for every Tamil & South Indian home.",
+    "description": "Imbue your living environment with spiritual strength, victory, and supreme wisdom. Lord Murugan, with the sacred Vel (spear) that pierces ignorance and bestows courage, is captured with royal splendour. Accompanied by the majestic Mayil (peacock), this sacred wall decor is a cherished masterpiece for every Tamil & South Indian home.\n\nUpgrade your walls with our Premium 5MM Crystal Clear Acrylic Frames, designed to bring elegance, clarity and a luxurious appearance to your interiors.\n\nEach frame is crafted using premium 5MM thick crystal-clear acrylic and advanced Direct UV Printing Technology. The artwork is printed directly onto the acrylic surface, delivering high-definition image quality, vibrant colours and sharp details.\n\nThe premium glossy finish enhances the overall appearance of the artwork, while precision square-cut edges provide a clean and modern look.\n\nEvery frame comes with premium metal wall mounting studs included, making wall installation convenient and giving your artwork an elegant floating-style appearance.\n\nPerfect for living rooms, bedrooms, offices, modern interiors and pooja rooms.\n\nPremium Quality. Advanced Direct UV Printing. Elegant Square-Cut Design. Easy Installation.",
     "categorySlug": "god-photo-frames",
     "categoryName": "God Photo Frames",
     "deity": "Lord Kartikeya",
@@ -1681,8 +2359,8 @@ export const INITIAL_PRODUCTS: Product[] = [
         "id": "var-mk1",
         "size": "12 x 18 inches",
         "dimensionsCm": "30 x 45 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "No Lighting (Pure Art)",
+        "finish": "Premium Glossy Finish",
+        "lighting": "Non-LED",
         "price": 2399,
         "mrp": 4699,
         "sku": "AG-MURUGAN-1218",
@@ -1693,8 +2371,8 @@ export const INITIAL_PRODUCTS: Product[] = [
         "id": "var-mk2",
         "size": "18 x 24 inches",
         "dimensionsCm": "45 x 60 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "No Lighting (Pure Art)",
+        "finish": "Premium Glossy Finish",
+        "lighting": "Non-LED",
         "price": 3499,
         "mrp": 6499,
         "sku": "AG-MURUGAN-1824",
@@ -1704,8 +2382,56 @@ export const INITIAL_PRODUCTS: Product[] = [
     ],
     "specifications": [
       {
-        "label": "Print Base",
-        "value": "High gloss acrylic with UV sealant layer"
+        "label": "Material",
+        "value": "Premium Crystal Clear Acrylic"
+      },
+      {
+        "label": "Thickness",
+        "value": "5MM Premium Acrylic"
+      },
+      {
+        "label": "Printing Technology",
+        "value": "Advanced Direct UV Printing"
+      },
+      {
+        "label": "Print Quality",
+        "value": "High-Definition UV Printing"
+      },
+      {
+        "label": "Print Method",
+        "value": "Direct Printing on Acrylic Surface"
+      },
+      {
+        "label": "Colour Quality",
+        "value": "Vibrant Colours & Sharp Details"
+      },
+      {
+        "label": "Finish",
+        "value": "Premium Glossy Finish"
+      },
+      {
+        "label": "Edges",
+        "value": "Precision Square Cut Edges"
+      },
+      {
+        "label": "Mounting",
+        "value": "Premium Metal Wall Mounting Studs"
+      },
+      {
+        "label": "Installation",
+        "value": "Installation Studs Included with Every Frame"
+      },
+      {
+        "label": "Lighting",
+        "value": "Non-LED"
+      },
+      {
+        "label": "Customization",
+        "value": "Custom Sizes Available"
+      },
+      {
+        "label": "Usage",
+        "value": "Living Room, Bedroom, Office, Home Decor and Pooja Room."
       }
     ],
     "materialAndCare": [
@@ -1713,9 +2439,9 @@ export const INITIAL_PRODUCTS: Product[] = [
     ],
     "shippingHighlights": [
       "Multi-layer protective packaging for safe transit.",
-      "Precision diamond-cut cast acrylic with polished bevels.",
-      "Concealed French cleat mounting bracket & hardware included.",
-      "BIS certified 12V 2A power adapter included with LED frames."
+      "Premium 5MM crystal clear acrylic with precision square-cut edges.",
+      "Premium metal wall mounting studs and hardware included with every frame.",
+      "Advanced Direct UV Printing with instant UV-cured inks for vivid, lasting depth."
     ],
     "reviews": [],
     "createdAt": "2026-09-02",
@@ -1731,7 +2457,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "title": "Maryada Purushottam Shri Ram with Kodanda Bow Acrylic Wall Art",
     "subtitle": "Supreme Lord Rama with Divine Kodanda Bow in Lustrous gold Frame",
     "shortDescription": "Magnificent portrayal of Lord Rama with the sacred Kodanda bow on premium acrylic.",
-    "description": "Bring the righteous radiance and divine protection of Maryada Purushottam Shri Ram into your home. Rendered on Premium shatterproof premium acrylic with precision-polished edges, depicting Lord Rama in royal golden attire with the sacred Kodanda bow, radiating courage, peace, and dharma.",
+    "description": "Bring the righteous radiance and divine protection of Maryada Purushottam Shri Ram into your home. Rendered on Premium shatterproof premium acrylic with precision-polished edges, depicting Lord Rama in royal golden attire with the sacred Kodanda bow, radiating courage, peace, and dharma.\n\nUpgrade your walls with our Premium 5MM Crystal Clear Acrylic Frames, designed to bring elegance, clarity and a luxurious appearance to your interiors.\n\nEach frame is crafted using premium 5MM thick crystal-clear acrylic and advanced Direct UV Printing Technology. The artwork is printed directly onto the acrylic surface, delivering high-definition image quality, vibrant colours and sharp details.\n\nThe premium glossy finish enhances the overall appearance of the artwork, while precision square-cut edges provide a clean and modern look.\n\nEvery frame comes with premium metal wall mounting studs included, making wall installation convenient and giving your artwork an elegant floating-style appearance.\n\nPerfect for living rooms, bedrooms, offices, modern interiors and pooja rooms.\n\nPremium Quality. Advanced Direct UV Printing. Elegant Square-Cut Design. Easy Installation.",
     "categorySlug": "god-photo-frames",
     "categoryName": "God Photo Frames",
     "deity": "Lord Rama",
@@ -1762,8 +2488,8 @@ export const INITIAL_PRODUCTS: Product[] = [
         "id": "var-mr1",
         "size": "12 x 18 inches",
         "dimensionsCm": "30 x 45 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "No Lighting (Pure Art)",
+        "finish": "Premium Glossy Finish",
+        "lighting": "Non-LED",
         "price": 2699,
         "mrp": 5299,
         "sku": "AG-RAMA-1218",
@@ -1774,8 +2500,8 @@ export const INITIAL_PRODUCTS: Product[] = [
         "id": "var-mr2",
         "size": "18 x 24 inches",
         "dimensionsCm": "45 x 60 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "No Lighting (Pure Art)",
+        "finish": "Premium Glossy Finish",
+        "lighting": "Non-LED",
         "price": 3699,
         "mrp": 6999,
         "sku": "AG-RAMA-1824",
@@ -1786,8 +2512,8 @@ export const INITIAL_PRODUCTS: Product[] = [
         "id": "var-mr3",
         "size": "24 x 36 inches",
         "dimensionsCm": "60 x 90 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "No Lighting (Pure Art)",
+        "finish": "Premium Glossy Finish",
+        "lighting": "Non-LED",
         "price": 5499,
         "mrp": 9999,
         "sku": "AG-RAMA-2436",
@@ -1797,12 +2523,56 @@ export const INITIAL_PRODUCTS: Product[] = [
     ],
     "specifications": [
       {
-        "label": "Art Material",
-        "value": "Premium Shatterproof Acrylic"
+        "label": "Material",
+        "value": "Premium Crystal Clear Acrylic"
       },
       {
-        "label": "Framing",
-        "value": "gold Embellished Acrylic Finish"
+        "label": "Thickness",
+        "value": "5MM Premium Acrylic"
+      },
+      {
+        "label": "Printing Technology",
+        "value": "Advanced Direct UV Printing"
+      },
+      {
+        "label": "Print Quality",
+        "value": "High-Definition UV Printing"
+      },
+      {
+        "label": "Print Method",
+        "value": "Direct Printing on Acrylic Surface"
+      },
+      {
+        "label": "Colour Quality",
+        "value": "Vibrant Colours & Sharp Details"
+      },
+      {
+        "label": "Finish",
+        "value": "Premium Glossy Finish"
+      },
+      {
+        "label": "Edges",
+        "value": "Precision Square Cut Edges"
+      },
+      {
+        "label": "Mounting",
+        "value": "Premium Metal Wall Mounting Studs"
+      },
+      {
+        "label": "Installation",
+        "value": "Installation Studs Included with Every Frame"
+      },
+      {
+        "label": "Lighting",
+        "value": "Non-LED"
+      },
+      {
+        "label": "Customization",
+        "value": "Custom Sizes Available"
+      },
+      {
+        "label": "Usage",
+        "value": "Living Room, Bedroom, Office, Home Decor and Pooja Room."
       }
     ],
     "materialAndCare": [
@@ -1810,9 +2580,9 @@ export const INITIAL_PRODUCTS: Product[] = [
     ],
     "shippingHighlights": [
       "Multi-layer protective packaging for safe transit.",
-      "Precision diamond-cut cast acrylic with polished bevels.",
-      "Concealed French cleat mounting bracket & hardware included.",
-      "BIS certified 12V 2A power adapter included with LED frames."
+      "Premium 5MM crystal clear acrylic with precision square-cut edges.",
+      "Premium metal wall mounting studs and hardware included with every frame.",
+      "Advanced Direct UV Printing with instant UV-cured inks for vivid, lasting depth."
     ],
     "reviews": [],
     "createdAt": "2026-09-25",
@@ -1828,7 +2598,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "title": "Majestic Golden Deer in Sacred Forest Acrylic Wall Art",
     "subtitle": "Auspicious Vastu Deer with gold Foliage on High-Gloss Acrylic",
     "shortDescription": "Symbol of grace, gentleness, and longevity rendered in shimmering gold tones on crystal acrylic.",
-    "description": "Elevate your living space with this serene Golden Deer artwork. Representing prosperity and harmony in Indian vastu, the graceful golden stag is depicted amidst ethereal mist and luminous forest flora. High-resolution UV cure print on Cast Acrylic gives it mirror-like depth.",
+    "description": "Elevate your living space with this serene Golden Deer artwork. Representing prosperity and harmony in Indian vastu, the graceful golden stag is depicted amidst ethereal mist and luminous forest flora. High-resolution UV cure print on Cast Acrylic gives it mirror-like depth.\n\nUpgrade your walls with our Premium 5MM Crystal Clear Acrylic Frames, designed to bring elegance, clarity and a luxurious appearance to your interiors.\n\nEach frame is crafted using premium 5MM thick crystal-clear acrylic and advanced Direct UV Printing Technology. The artwork is printed directly onto the acrylic surface, delivering high-definition image quality, vibrant colours and sharp details.\n\nThe premium glossy finish enhances the overall appearance of the artwork, while precision square-cut edges provide a clean and modern look.\n\nEvery frame comes with premium metal wall mounting studs included, making wall installation convenient and giving your artwork an elegant floating-style appearance.\n\nPerfect for living rooms, bedrooms, offices, modern interiors and pooja rooms.\n\nPremium Quality. Advanced Direct UV Printing. Elegant Square-Cut Design. Easy Installation.",
     "categorySlug": "acrylic-photo-frames",
     "categoryName": "Acrylic Photo Frames",
     "categorySlugs": [
@@ -1862,8 +2632,8 @@ export const INITIAL_PRODUCTS: Product[] = [
         "id": "var-gdf1",
         "size": "24 x 18 inches",
         "dimensionsCm": "60 x 45 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "No Lighting (Pure Art)",
+        "finish": "Premium Glossy Finish",
+        "lighting": "Non-LED",
         "price": 2499,
         "mrp": 4999,
         "sku": "AG-DEER-2418",
@@ -1874,8 +2644,8 @@ export const INITIAL_PRODUCTS: Product[] = [
         "id": "var-gdf2",
         "size": "36 x 24 inches",
         "dimensionsCm": "90 x 60 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "No Lighting (Pure Art)",
+        "finish": "Premium Glossy Finish",
+        "lighting": "Non-LED",
         "price": 3999,
         "mrp": 7999,
         "sku": "AG-DEER-3624",
@@ -1886,15 +2656,55 @@ export const INITIAL_PRODUCTS: Product[] = [
     "specifications": [
       {
         "label": "Material",
-        "value": "Premium Imported Museum Grade Cast Acrylic"
+        "value": "Premium Crystal Clear Acrylic"
       },
       {
-        "label": "Print Type",
-        "value": "6-Color Swiss UV Direct Print"
+        "label": "Thickness",
+        "value": "5MM Premium Acrylic"
+      },
+      {
+        "label": "Printing Technology",
+        "value": "Advanced Direct UV Printing"
+      },
+      {
+        "label": "Print Quality",
+        "value": "High-Definition UV Printing"
+      },
+      {
+        "label": "Print Method",
+        "value": "Direct Printing on Acrylic Surface"
+      },
+      {
+        "label": "Colour Quality",
+        "value": "Vibrant Colours & Sharp Details"
+      },
+      {
+        "label": "Finish",
+        "value": "Premium Glossy Finish"
+      },
+      {
+        "label": "Edges",
+        "value": "Precision Square Cut Edges"
       },
       {
         "label": "Mounting",
-        "value": "Concealed Heavy-Duty French Cleat"
+        "value": "Premium Metal Wall Mounting Studs"
+      },
+      {
+        "label": "Installation",
+        "value": "Installation Studs Included with Every Frame"
+      },
+      {
+        "label": "Lighting",
+        "value": "Non-LED"
+      },
+      {
+        "label": "Customization",
+        "value": "Custom Sizes Available"
+      },
+      {
+        "label": "Usage",
+        "value": "Living Room, Bedroom, Office, Home Decor and Pooja Room."
       }
     ],
     "materialAndCare": [
@@ -1903,9 +2713,9 @@ export const INITIAL_PRODUCTS: Product[] = [
     ],
     "shippingHighlights": [
       "Multi-layer protective packaging for safe transit.",
-      "Precision diamond-cut cast acrylic with polished bevels.",
-      "Concealed French cleat mounting bracket & hardware included.",
-      "BIS certified 12V 2A power adapter included with LED frames."
+      "Premium 5MM crystal clear acrylic with precision square-cut edges.",
+      "Premium metal wall mounting studs and hardware included with every frame.",
+      "Advanced Direct UV Printing with instant UV-cured inks for vivid, lasting depth."
     ],
     "reviews": [],
     "createdAt": "2026-09-15"
@@ -1913,14 +2723,14 @@ export const INITIAL_PRODUCTS: Product[] = [
   {
     "id": "prod-royal-peacock-avian-acrylic",
     "slug": "royal-peacock-avian-paradise-led-backlit-acrylic",
-    "title": "Royal Peacock & Avian Paradise Gold Acrylic Wall Panel",
+    "title": "Royal Peacock & Avian Paradise LED Backlit Acrylic Wall Art",
     "subtitle": "Vibrant Sacred Peacock Plumage with gold Embellishments",
-    "shortDescription": "Majestic national bird with iridescent blues, emerald greens, and shimmering gold feathers.",
-    "description": "Celebrate Indian regal artistry with our Royal Peacock crystal acrylic panel. Associated with Goddess Saraswati and Lord Kartikeya, the peacock radiates spiritual grace and elegance with shimmering gold foil details.",
-    "categorySlug": "acrylic-photo-frames",
-    "categoryName": "Acrylic Photo Frames",
+    "shortDescription": "Premium LED Backlit Acrylic Wall Frame crafted with Imported Clear Virgin Cast Acrylic, Direct UV Printing, Rose Gold Aluminium Side Frame, and Cool White LED Halo Glow.",
+    "description": "Transform your interior with our Premium LED Backlit Acrylic Wall Frame, designed to combine high-definition visual art with sophisticated ambient illumination.\n\nCrafted using premium Imported Clear Virgin Cast Acrylic and advanced Direct UV Printing Technology, the artwork is printed directly onto the acrylic surface, delivering exceptional clarity, sharp details and vibrant colours.\n\nEach frame features an elegant Rose Gold Aluminium Side Frame that enhances the structure and presentation of the artwork. The integrated Cool White LED backlighting produces a refined halo glow around the frame, creating a modern and luxurious focal point in any room.\n\nEvery LED Frame includes an external power adapter and complete wall mounting hardware (wall plugs and screws) for convenient and secure installation.\n\nIdeal for living rooms, bedrooms, executive offices, reception areas and modern luxury interiors.\n\nImported Virgin Cast Acrylic. Advanced Direct UV Printing. Rose Gold Aluminium Frame. Cool White LED Backlighting. Complete Mounting Hardware Included.",
+    "categorySlug": "led-acrylic-photo-frames",
+    "categoryName": "LED Acrylic Photo Frames",
     "categorySlugs": [
-      "acrylic-photo-frames"
+      "led-acrylic-photo-frames"
     ],
     "artStyle": "Premium Acrylic",
     "orientation": "vertical",
@@ -1939,7 +2749,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "isFeatured": true,
     "isBestseller": false,
     "isNewArrival": true,
-    "hasLedBacklight": false,
+    "hasLedBacklight": true,
     "basePrice": 3299,
     "baseMrp": 6299,
     "discountPercentage": 48,
@@ -1950,8 +2760,8 @@ export const INITIAL_PRODUCTS: Product[] = [
         "id": "var-rp1",
         "size": "12 x 18 inches",
         "dimensionsCm": "30 x 45 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "LED Backlit (12V Adapter)",
+        "finish": "Premium Glossy Finish",
+        "lighting": "Cool White LED Backlighting",
         "price": 3299,
         "mrp": 6299,
         "sku": "AG-PEACOCK-1218-LED",
@@ -1962,8 +2772,8 @@ export const INITIAL_PRODUCTS: Product[] = [
         "id": "var-rp2",
         "size": "18 x 24 inches",
         "dimensionsCm": "45 x 60 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "LED Backlit (12V Adapter)",
+        "finish": "Premium Glossy Finish",
+        "lighting": "Cool White LED Backlighting",
         "price": 4499,
         "mrp": 8499,
         "sku": "AG-PEACOCK-1824-LED",
@@ -1973,22 +2783,88 @@ export const INITIAL_PRODUCTS: Product[] = [
     ],
     "specifications": [
       {
-        "label": "Lighting",
-        "value": "Warm Golden LED with BIS Power Adapter"
+        "label": "Product Type",
+        "value": "Premium LED Backlit Acrylic Wall Frame"
       },
       {
-        "label": "Base",
-        "value": "Premium Shatterproof Acrylic"
+        "label": "Acrylic Material",
+        "value": "Imported Clear Virgin Cast Acrylic"
+      },
+      {
+        "label": "Printing Technology",
+        "value": "Advanced Direct UV Printing"
+      },
+      {
+        "label": "Print Quality",
+        "value": "High-Definition UV Printing"
+      },
+      {
+        "label": "Print Method",
+        "value": "Direct Printing on Acrylic Surface"
+      },
+      {
+        "label": "Colour Quality",
+        "value": "Vibrant Colours & Sharp Details"
+      },
+      {
+        "label": "Finish",
+        "value": "Premium Glossy Finish"
+      },
+      {
+        "label": "Side Frame Material",
+        "value": "Premium Aluminium"
+      },
+      {
+        "label": "Side Frame Colour",
+        "value": "Rose Gold"
+      },
+      {
+        "label": "Lighting Technology",
+        "value": "Integrated LED Backlighting"
+      },
+      {
+        "label": "LED Light Colour",
+        "value": "Cool White"
+      },
+      {
+        "label": "Lighting Effect",
+        "value": "Elegant Cool White Halo Glow"
+      },
+      {
+        "label": "Lighting Placement",
+        "value": "Hidden Perimeter LED Lighting"
+      },
+      {
+        "label": "Power Connection",
+        "value": "External Power Adapter"
+      },
+      {
+        "label": "Power Adapter",
+        "value": "Included with Every Frame"
+      },
+      {
+        "label": "Mounting",
+        "value": "Wall Mounting Hardware"
+      },
+      {
+        "label": "Installation",
+        "value": "Wall Plugs and Screws Included"
+      },
+      {
+        "label": "Customization",
+        "value": "Custom Sizes Available"
       }
     ],
     "materialAndCare": [
       "Microfiber wipe only"
     ],
     "shippingHighlights": [
-      "Multi-layer protective packaging for safe transit.",
-      "Precision diamond-cut cast acrylic with polished bevels.",
-      "Concealed French cleat mounting bracket & hardware included.",
-      "BIS certified 12V 2A power adapter included with LED frames."
+      "Imported Clear Virgin Cast Acrylic",
+      "Advanced Direct UV Printing",
+      "Rose Gold Aluminium Side Frame",
+      "Cool White LED Halo Glow",
+      "External Power Adapter Included",
+      "Wall Plugs & Screws Included"
     ],
     "reviews": [],
     "createdAt": "2026-09-20"
@@ -1999,7 +2875,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "title": "Golden Himalayan Sunrise Mountain Landscape Acrylic Art",
     "subtitle": "Panoramic Mountain Peaks in Warm Morning Sunlight with 3D Depth",
     "shortDescription": "Spectacular mountain vista capturing golden sunrise rays across snow-capped peaks on acrylic.",
-    "description": "Immerse your space in the supreme tranquility of the Himalayas. Rendered with subtle gold leaf highlights across mountain crests, this horizontal statement artwork brings immense visual depth and vastness to living room walls.",
+    "description": "Immerse your space in the supreme tranquility of the Himalayas. Rendered with subtle gold leaf highlights across mountain crests, this horizontal statement artwork brings immense visual depth and vastness to living room walls.\n\nUpgrade your walls with our Premium 5MM Crystal Clear Acrylic Frames, designed to bring elegance, clarity and a luxurious appearance to your interiors.\n\nEach frame is crafted using premium 5MM thick crystal-clear acrylic and advanced Direct UV Printing Technology. The artwork is printed directly onto the acrylic surface, delivering high-definition image quality, vibrant colours and sharp details.\n\nThe premium glossy finish enhances the overall appearance of the artwork, while precision square-cut edges provide a clean and modern look.\n\nEvery frame comes with premium metal wall mounting studs included, making wall installation convenient and giving your artwork an elegant floating-style appearance.\n\nPerfect for living rooms, bedrooms, offices, modern interiors and pooja rooms.\n\nPremium Quality. Advanced Direct UV Printing. Elegant Square-Cut Design. Easy Installation.",
     "categorySlug": "acrylic-photo-frames",
     "categoryName": "Acrylic Photo Frames",
     "categorySlugs": [
@@ -2033,11 +2909,11 @@ export const INITIAL_PRODUCTS: Product[] = [
         "id": "var-hms1",
         "size": "24 x 16 inches",
         "dimensionsCm": "60 x 40 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "LED Backlit (12V Adapter)",
+        "finish": "Premium Glossy Finish",
+        "lighting": "Non-LED",
         "price": 3499,
         "mrp": 6999,
-        "sku": "AG-HIMALAYA-2416-LED",
+        "sku": "AG-HIMALAYA-2416",
         "inStock": true,
         "stockCount": 22
       },
@@ -2045,23 +2921,67 @@ export const INITIAL_PRODUCTS: Product[] = [
         "id": "var-hms2",
         "size": "36 x 24 inches (Statement)",
         "dimensionsCm": "90 x 60 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "LED Backlit (12V Adapter)",
+        "finish": "Premium Glossy Finish",
+        "lighting": "Non-LED",
         "price": 5299,
         "mrp": 9999,
-        "sku": "AG-HIMALAYA-3624-LED",
+        "sku": "AG-HIMALAYA-3624",
         "inStock": true,
         "stockCount": 15
       }
     ],
     "specifications": [
       {
-        "label": "Dimensions",
-        "value": "Panoramic Horizontal Ratio"
+        "label": "Material",
+        "value": "Premium Crystal Clear Acrylic"
+      },
+      {
+        "label": "Thickness",
+        "value": "5MM Premium Acrylic"
+      },
+      {
+        "label": "Printing Technology",
+        "value": "Advanced Direct UV Printing"
+      },
+      {
+        "label": "Print Quality",
+        "value": "High-Definition UV Printing"
+      },
+      {
+        "label": "Print Method",
+        "value": "Direct Printing on Acrylic Surface"
+      },
+      {
+        "label": "Colour Quality",
+        "value": "Vibrant Colours & Sharp Details"
+      },
+      {
+        "label": "Finish",
+        "value": "Premium Glossy Finish"
+      },
+      {
+        "label": "Edges",
+        "value": "Precision Square Cut Edges"
+      },
+      {
+        "label": "Mounting",
+        "value": "Premium Metal Wall Mounting Studs"
+      },
+      {
+        "label": "Installation",
+        "value": "Installation Studs Included with Every Frame"
       },
       {
         "label": "Lighting",
-        "value": "Warm Soft Amber LED Backlit"
+        "value": "Non-LED"
+      },
+      {
+        "label": "Customization",
+        "value": "Custom Sizes Available"
+      },
+      {
+        "label": "Usage",
+        "value": "Living Room, Bedroom, Office, Home Decor and Pooja Room."
       }
     ],
     "materialAndCare": [
@@ -2069,9 +2989,9 @@ export const INITIAL_PRODUCTS: Product[] = [
     ],
     "shippingHighlights": [
       "Multi-layer protective packaging for safe transit.",
-      "Precision diamond-cut cast acrylic with polished bevels.",
-      "Concealed French cleat mounting bracket & hardware included.",
-      "BIS certified 12V 2A power adapter included with LED frames."
+      "Premium 5MM crystal clear acrylic with precision square-cut edges.",
+      "Premium metal wall mounting studs and hardware included with every frame.",
+      "Advanced Direct UV Printing with instant UV-cured inks for vivid, lasting depth."
     ],
     "reviews": [],
     "createdAt": "2026-09-10"
@@ -2081,14 +3001,13 @@ export const INITIAL_PRODUCTS: Product[] = [
     "slug": "sacred-om-swastik-divine-acrylic-diptych-set-of-2",
     "title": "Sacred OM & Swastik Divine Acrylic Diptych Set of 2",
     "subtitle": "Coordinated Duo Pair in gold Leaf with Warm Amber Backlights",
-    "shortDescription": "Pair of 2 complementary sacred panels featuring auspicious Omkara and Swastik symbols.",
-    "description": "Bless your entrance or pooja mandir walls with this coordinated Diptych Set of 2 Frames. One panel features the primordial Omkara with cosmic vibrations; the companion panel features the auspicious Swastika surrounded by floral geometry.",
+    "shortDescription": "Premium LED Backlit Acrylic Wall Frame crafted with Imported Clear Virgin Cast Acrylic, Direct UV Printing, Rose Gold Aluminium Side Frame, and Cool White LED Halo Glow.",
+    "description": "Transform your interior with our Premium LED Backlit Acrylic Wall Frame, designed to combine high-definition visual art with sophisticated ambient illumination.\n\nCrafted using premium Imported Clear Virgin Cast Acrylic and advanced Direct UV Printing Technology, the artwork is printed directly onto the acrylic surface, delivering exceptional clarity, sharp details and vibrant colours.\n\nEach frame features an elegant Rose Gold Aluminium Side Frame that enhances the structure and presentation of the artwork. The integrated Cool White LED backlighting produces a refined halo glow around the frame, creating a modern and luxurious focal point in any room.\n\nEvery LED Frame includes an external power adapter and complete wall mounting hardware (wall plugs and screws) for convenient and secure installation.\n\nIdeal for living rooms, bedrooms, executive offices, reception areas and modern luxury interiors.\n\nImported Virgin Cast Acrylic. Advanced Direct UV Printing. Rose Gold Aluminium Frame. Cool White LED Backlighting. Complete Mounting Hardware Included.",
     "categorySlug": "god-photo-frames",
     "categoryName": "God Photo Frames",
     "categorySlugs": [
       "god-photo-frames",
-      "led-acrylic-photo-frames",
-      "acrylic-photo-frames"
+      "led-acrylic-photo-frames"
     ],
     "artStyle": "Devotional Acrylic",
     "orientation": "vertical",
@@ -2119,8 +3038,8 @@ export const INITIAL_PRODUCTS: Product[] = [
         "id": "var-omsw1",
         "size": "12 x 18 inches (Pair of 2)",
         "dimensionsCm": "30 x 45 cm each",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "LED Backlit (12V Adapter)",
+        "finish": "Premium Glossy Finish",
+        "lighting": "Cool White LED Backlighting",
         "price": 3899,
         "mrp": 7499,
         "sku": "AG-OMSW-1218-PAIR",
@@ -2130,22 +3049,88 @@ export const INITIAL_PRODUCTS: Product[] = [
     ],
     "specifications": [
       {
-        "label": "Set Contents",
-        "value": "2 Individual Matching Panels with Linked Power Splitter"
+        "label": "Product Type",
+        "value": "Premium LED Backlit Acrylic Wall Frame"
       },
       {
-        "label": "Material",
-        "value": "Cast Acrylic with Gold Foil Accents"
+        "label": "Acrylic Material",
+        "value": "Imported Clear Virgin Cast Acrylic"
+      },
+      {
+        "label": "Printing Technology",
+        "value": "Advanced Direct UV Printing"
+      },
+      {
+        "label": "Print Quality",
+        "value": "High-Definition UV Printing"
+      },
+      {
+        "label": "Print Method",
+        "value": "Direct Printing on Acrylic Surface"
+      },
+      {
+        "label": "Colour Quality",
+        "value": "Vibrant Colours & Sharp Details"
+      },
+      {
+        "label": "Finish",
+        "value": "Premium Glossy Finish"
+      },
+      {
+        "label": "Side Frame Material",
+        "value": "Premium Aluminium"
+      },
+      {
+        "label": "Side Frame Colour",
+        "value": "Rose Gold"
+      },
+      {
+        "label": "Lighting Technology",
+        "value": "Integrated LED Backlighting"
+      },
+      {
+        "label": "LED Light Colour",
+        "value": "Cool White"
+      },
+      {
+        "label": "Lighting Effect",
+        "value": "Elegant Cool White Halo Glow"
+      },
+      {
+        "label": "Lighting Placement",
+        "value": "Hidden Perimeter LED Lighting"
+      },
+      {
+        "label": "Power Connection",
+        "value": "External Power Adapter"
+      },
+      {
+        "label": "Power Adapter",
+        "value": "Included with Every Frame"
+      },
+      {
+        "label": "Mounting",
+        "value": "Wall Mounting Hardware"
+      },
+      {
+        "label": "Installation",
+        "value": "Wall Plugs and Screws Included"
+      },
+      {
+        "label": "Customization",
+        "value": "Custom Sizes Available"
       }
     ],
     "materialAndCare": [
       "Microfiber wipe only"
     ],
     "shippingHighlights": [
-      "Multi-layer protective packaging for safe transit.",
-      "Precision diamond-cut cast acrylic with polished bevels.",
-      "Concealed French cleat mounting bracket & hardware included.",
-      "BIS certified 12V 2A power adapter included with LED frames."
+      "Imported Clear Virgin Cast Acrylic",
+      "Advanced Direct UV Printing",
+      "Rose Gold Aluminium Side Frame",
+      "Cool White LED Halo Glow",
+      "External Power Adapter Included",
+      "Wall Plugs & Screws Included"
     ],
     "reviews": [],
     "createdAt": "2026-09-08"
@@ -2156,7 +3141,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "title": "Personalized Golden Family Crest & Photo Acrylic Heirloom",
     "subtitle": "Custom Gold Inscribed Family Name & Anniversary Date",
     "shortDescription": "Generational family photo wall centerpiece with custom gold lettering and crystal acrylic clarity.",
-    "description": "Commemorate your family lineage, silver jubilee, or parents 50th wedding anniversary with a statement heirloom piece. Features high-definition acrylic photo printing surrounded by custom gold foil inscriptions on shatterproof crystal acrylic.",
+    "description": "Commemorate your family lineage, silver jubilee, or parents 50th wedding anniversary with a statement heirloom piece. Features high-definition acrylic photo printing surrounded by custom gold foil inscriptions on shatterproof crystal acrylic.\n\nUpgrade your walls with our Premium 5MM Crystal Clear Acrylic Frames, designed to bring elegance, clarity and a luxurious appearance to your interiors.\n\nEach frame is crafted using premium 5MM thick crystal-clear acrylic and advanced Direct UV Printing Technology. The artwork is printed directly onto the acrylic surface, delivering high-definition image quality, vibrant colours and sharp details.\n\nThe premium glossy finish enhances the overall appearance of the artwork, while precision square-cut edges provide a clean and modern look.\n\nEvery frame comes with premium metal wall mounting studs included, making wall installation convenient and giving your artwork an elegant floating-style appearance.\n\nPerfect for living rooms, bedrooms, offices, modern interiors and pooja rooms.\n\nPremium Quality. Advanced Direct UV Printing. Elegant Square-Cut Design. Easy Installation.",
     "categorySlug": "family-baby-frames",
     "categoryName": "Family & Baby Frames",
     "categorySlugs": [
@@ -2191,8 +3176,8 @@ export const INITIAL_PRODUCTS: Product[] = [
         "id": "var-pfh1",
         "size": "24 x 16 inches",
         "dimensionsCm": "60 x 40 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "LED Backlit (12V Adapter)",
+        "finish": "Premium Glossy Finish",
+        "lighting": "Non-LED",
         "price": 3599,
         "mrp": 6999,
         "sku": "AG-FAM-HEIR-2416",
@@ -2203,8 +3188,8 @@ export const INITIAL_PRODUCTS: Product[] = [
         "id": "var-pfh2",
         "size": "36 x 24 inches (Grand Heirloom)",
         "dimensionsCm": "90 x 60 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "LED Backlit (12V Adapter)",
+        "finish": "Premium Glossy Finish",
+        "lighting": "Non-LED",
         "price": 5499,
         "mrp": 10499,
         "sku": "AG-FAM-HEIR-3624",
@@ -2214,12 +3199,56 @@ export const INITIAL_PRODUCTS: Product[] = [
     ],
     "specifications": [
       {
-        "label": "Customization",
-        "value": "Custom Family Name & Gold Inscription Included"
+        "label": "Material",
+        "value": "Premium Crystal Clear Acrylic"
+      },
+      {
+        "label": "Thickness",
+        "value": "5MM Premium Acrylic"
+      },
+      {
+        "label": "Printing Technology",
+        "value": "Advanced Direct UV Printing"
+      },
+      {
+        "label": "Print Quality",
+        "value": "High-Definition UV Printing"
+      },
+      {
+        "label": "Print Method",
+        "value": "Direct Printing on Acrylic Surface"
+      },
+      {
+        "label": "Colour Quality",
+        "value": "Vibrant Colours & Sharp Details"
+      },
+      {
+        "label": "Finish",
+        "value": "Premium Glossy Finish"
+      },
+      {
+        "label": "Edges",
+        "value": "Precision Square Cut Edges"
+      },
+      {
+        "label": "Mounting",
+        "value": "Premium Metal Wall Mounting Studs"
+      },
+      {
+        "label": "Installation",
+        "value": "Installation Studs Included with Every Frame"
       },
       {
         "label": "Lighting",
-        "value": "High-Lumen Ambient SMD LED with 12V 2A Adapter"
+        "value": "Non-LED"
+      },
+      {
+        "label": "Customization",
+        "value": "Custom Sizes Available"
+      },
+      {
+        "label": "Usage",
+        "value": "Living Room, Bedroom, Office, Home Decor and Pooja Room."
       }
     ],
     "materialAndCare": [
@@ -2227,9 +3256,9 @@ export const INITIAL_PRODUCTS: Product[] = [
     ],
     "shippingHighlights": [
       "Multi-layer protective packaging for safe transit.",
-      "Precision diamond-cut cast acrylic with polished bevels.",
-      "Concealed French cleat mounting bracket & hardware included.",
-      "BIS certified 12V 2A power adapter included with LED frames."
+      "Premium 5MM crystal clear acrylic with precision square-cut edges.",
+      "Premium metal wall mounting studs and hardware included with every frame.",
+      "Advanced Direct UV Printing with instant UV-cured inks for vivid, lasting depth."
     ],
     "reviews": [],
     "createdAt": "2026-09-05"
@@ -2244,7 +3273,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "title": "7 Running Horses Vastu gold Acrylic Wall Art",
     "subtitle": "Auspicious Surya Ashva Rising Sun Composition for Career Growth & Positive Energy",
     "shortDescription": "Magnificent 7 Running Horses rendered in gold foil details on crystal acrylic.",
-    "description": "In Vedic Vastu Shastra, the 7 Running White Horses gallop toward victory, unstoppable progress, and financial vitality. Rendered with Swiss UV inks over precision-polished Cast Acrylic with gold liquid highlights, this landscape masterpiece energizes living rooms and executive suites.",
+    "description": "In Vedic Vastu Shastra, the 7 Running White Horses gallop toward victory, unstoppable progress, and financial vitality. Rendered with Swiss UV inks over precision-polished Cast Acrylic with gold liquid highlights, this landscape masterpiece energizes living rooms and executive suites.\n\nUpgrade your walls with our Premium 5MM Crystal Clear Acrylic Frames, designed to bring elegance, clarity and a luxurious appearance to your interiors.\n\nEach frame is crafted using premium 5MM thick crystal-clear acrylic and advanced Direct UV Printing Technology. The artwork is printed directly onto the acrylic surface, delivering high-definition image quality, vibrant colours and sharp details.\n\nThe premium glossy finish enhances the overall appearance of the artwork, while precision square-cut edges provide a clean and modern look.\n\nEvery frame comes with premium metal wall mounting studs included, making wall installation convenient and giving your artwork an elegant floating-style appearance.\n\nPerfect for living rooms, bedrooms, offices, modern interiors and pooja rooms.\n\nPremium Quality. Advanced Direct UV Printing. Elegant Square-Cut Design. Easy Installation.",
     "categorySlug": "acrylic-photo-frames",
     "categoryName": "Acrylic Photo Frames",
     "artStyle": "Vastu Gold Acrylic",
@@ -2274,11 +3303,11 @@ export const INITIAL_PRODUCTS: Product[] = [
         "id": "var-horse1",
         "size": "24 x 16 inches",
         "dimensionsCm": "60 x 40 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "LED Backlit (12V Adapter)",
+        "finish": "Premium Glossy Finish",
+        "lighting": "Non-LED",
         "price": 3499,
         "mrp": 6999,
-        "sku": "AG-HORSE-2416-LED",
+        "sku": "AG-HORSE-2416",
         "inStock": true,
         "stockCount": 30
       },
@@ -2286,11 +3315,11 @@ export const INITIAL_PRODUCTS: Product[] = [
         "id": "var-horse2",
         "size": "36 x 24 inches",
         "dimensionsCm": "90 x 60 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "LED Backlit (12V Adapter)",
+        "finish": "Premium Glossy Finish",
+        "lighting": "Non-LED",
         "price": 5299,
         "mrp": 9999,
-        "sku": "AG-HORSE-3624-LED",
+        "sku": "AG-HORSE-3624",
         "inStock": true,
         "stockCount": 40
       },
@@ -2298,23 +3327,67 @@ export const INITIAL_PRODUCTS: Product[] = [
         "id": "var-horse3",
         "size": "48 x 30 inches (Grand Sofa Size)",
         "dimensionsCm": "120 x 75 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "LED Backlit (12V Adapter)",
+        "finish": "Premium Glossy Finish",
+        "lighting": "Non-LED",
         "price": 7999,
         "mrp": 14999,
-        "sku": "AG-HORSE-4830-LED",
+        "sku": "AG-HORSE-4830",
         "inStock": true,
         "stockCount": 15
       }
     ],
     "specifications": [
       {
-        "label": "Art Material",
-        "value": "Premium Cast Optical Acrylic with smooth beveled Edge"
+        "label": "Material",
+        "value": "Premium Crystal Clear Acrylic"
       },
       {
-        "label": "Vastu Direction",
-        "value": "Recommended for South or East Walls for Victory & Energy"
+        "label": "Thickness",
+        "value": "5MM Premium Acrylic"
+      },
+      {
+        "label": "Printing Technology",
+        "value": "Advanced Direct UV Printing"
+      },
+      {
+        "label": "Print Quality",
+        "value": "High-Definition UV Printing"
+      },
+      {
+        "label": "Print Method",
+        "value": "Direct Printing on Acrylic Surface"
+      },
+      {
+        "label": "Colour Quality",
+        "value": "Vibrant Colours & Sharp Details"
+      },
+      {
+        "label": "Finish",
+        "value": "Premium Glossy Finish"
+      },
+      {
+        "label": "Edges",
+        "value": "Precision Square Cut Edges"
+      },
+      {
+        "label": "Mounting",
+        "value": "Premium Metal Wall Mounting Studs"
+      },
+      {
+        "label": "Installation",
+        "value": "Installation Studs Included with Every Frame"
+      },
+      {
+        "label": "Lighting",
+        "value": "Non-LED"
+      },
+      {
+        "label": "Customization",
+        "value": "Custom Sizes Available"
+      },
+      {
+        "label": "Usage",
+        "value": "Living Room, Bedroom, Office, Home Decor and Pooja Room."
       }
     ],
     "materialAndCare": [
@@ -2323,9 +3396,9 @@ export const INITIAL_PRODUCTS: Product[] = [
     ],
     "shippingHighlights": [
       "Multi-layer protective packaging for safe transit.",
-      "Precision diamond-cut cast acrylic with polished bevels.",
-      "Concealed French cleat mounting bracket & hardware included.",
-      "BIS certified 12V 2A power adapter included with LED frames."
+      "Premium 5MM crystal clear acrylic with precision square-cut edges.",
+      "Premium metal wall mounting studs and hardware included with every frame.",
+      "Advanced Direct UV Printing with instant UV-cured inks for vivid, lasting depth."
     ],
     "reviews": [],
     "createdAt": "2026-09-10"
@@ -2340,7 +3413,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "title": "Sacred Golden Bodhi Tree & Ginkgo Leaves Acrylic Art",
     "subtitle": "Enlightenment Tree with Shimmering Gold Foil Leaves & Deep Emerald Backing",
     "shortDescription": "Symbol of spiritual awakening and enduring peace in liquid gold and high-gloss acrylic.",
-    "description": "A timeless homage to the sacred Peepal/Bodhi tree under which seekers find stillness. Featuring branching golden foil leaves that capture ambient room lighting, layered on shatterproof crystal acrylic.",
+    "description": "A timeless homage to the sacred Peepal/Bodhi tree under which seekers find stillness. Featuring branching golden foil leaves that capture ambient room lighting, layered on shatterproof crystal acrylic.\n\nUpgrade your walls with our Premium 5MM Crystal Clear Acrylic Frames, designed to bring elegance, clarity and a luxurious appearance to your interiors.\n\nEach frame is crafted using premium 5MM thick crystal-clear acrylic and advanced Direct UV Printing Technology. The artwork is printed directly onto the acrylic surface, delivering high-definition image quality, vibrant colours and sharp details.\n\nThe premium glossy finish enhances the overall appearance of the artwork, while precision square-cut edges provide a clean and modern look.\n\nEvery frame comes with premium metal wall mounting studs included, making wall installation convenient and giving your artwork an elegant floating-style appearance.\n\nPerfect for living rooms, bedrooms, offices, modern interiors and pooja rooms.\n\nPremium Quality. Advanced Direct UV Printing. Elegant Square-Cut Design. Easy Installation.",
     "categorySlug": "acrylic-photo-frames",
     "categoryName": "Acrylic Photo Frames",
     "artStyle": "Botanical Gold Acrylic",
@@ -2370,8 +3443,8 @@ export const INITIAL_PRODUCTS: Product[] = [
         "id": "var-tree1",
         "size": "24 x 16 inches",
         "dimensionsCm": "60 x 40 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "LED Backlit (12V Adapter)",
+        "finish": "Premium Glossy Finish",
+        "lighting": "Non-LED",
         "price": 3299,
         "mrp": 6499,
         "sku": "AG-TREE-2416",
@@ -2382,8 +3455,8 @@ export const INITIAL_PRODUCTS: Product[] = [
         "id": "var-tree2",
         "size": "36 x 24 inches",
         "dimensionsCm": "90 x 60 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "LED Backlit (12V Adapter)",
+        "finish": "Premium Glossy Finish",
+        "lighting": "Non-LED",
         "price": 4999,
         "mrp": 9499,
         "sku": "AG-TREE-3624",
@@ -2393,12 +3466,56 @@ export const INITIAL_PRODUCTS: Product[] = [
     ],
     "specifications": [
       {
-        "label": "Art Material",
-        "value": "Cast Acrylic"
+        "label": "Material",
+        "value": "Premium Crystal Clear Acrylic"
+      },
+      {
+        "label": "Thickness",
+        "value": "5MM Premium Acrylic"
+      },
+      {
+        "label": "Printing Technology",
+        "value": "Advanced Direct UV Printing"
+      },
+      {
+        "label": "Print Quality",
+        "value": "High-Definition UV Printing"
+      },
+      {
+        "label": "Print Method",
+        "value": "Direct Printing on Acrylic Surface"
+      },
+      {
+        "label": "Colour Quality",
+        "value": "Vibrant Colours & Sharp Details"
       },
       {
         "label": "Finish",
-        "value": "smooth beveled Liquid Gold Texture"
+        "value": "Premium Glossy Finish"
+      },
+      {
+        "label": "Edges",
+        "value": "Precision Square Cut Edges"
+      },
+      {
+        "label": "Mounting",
+        "value": "Premium Metal Wall Mounting Studs"
+      },
+      {
+        "label": "Installation",
+        "value": "Installation Studs Included with Every Frame"
+      },
+      {
+        "label": "Lighting",
+        "value": "Non-LED"
+      },
+      {
+        "label": "Customization",
+        "value": "Custom Sizes Available"
+      },
+      {
+        "label": "Usage",
+        "value": "Living Room, Bedroom, Office, Home Decor and Pooja Room."
       }
     ],
     "materialAndCare": [
@@ -2406,9 +3523,9 @@ export const INITIAL_PRODUCTS: Product[] = [
     ],
     "shippingHighlights": [
       "Multi-layer protective packaging for safe transit.",
-      "Precision diamond-cut cast acrylic with polished bevels.",
-      "Concealed French cleat mounting bracket & hardware included.",
-      "BIS certified 12V 2A power adapter included with LED frames."
+      "Premium 5MM crystal clear acrylic with precision square-cut edges.",
+      "Premium metal wall mounting studs and hardware included with every frame.",
+      "Advanced Direct UV Printing with instant UV-cured inks for vivid, lasting depth."
     ],
     "reviews": [],
     "createdAt": "2026-10-01"
@@ -2423,7 +3540,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "title": "Auspicious Nine Golden Koi Fish Feng Shui Acrylic Art",
     "subtitle": "Symbol of Everlasting Flow of Wealth, Abundance & Harmonic Energy",
     "shortDescription": "Nine graceful koi fish circulating in circular harmony with metallic gold ripple accents.",
-    "description": "In traditional Asian wisdom and modern vastu decor, nine koi fish (eight golden-red, one protector black) generate ceaseless prosperity, flowing opportunities, and calm vitality. precision-polished round corners with back-illumination.",
+    "description": "In traditional Asian wisdom and modern vastu decor, nine koi fish (eight golden-red, one protector black) generate ceaseless prosperity, flowing opportunities, and calm vitality. precision-polished round corners with back-illumination.\n\nUpgrade your walls with our Premium 5MM Crystal Clear Acrylic Frames, designed to bring elegance, clarity and a luxurious appearance to your interiors.\n\nEach frame is crafted using premium 5MM thick crystal-clear acrylic and advanced Direct UV Printing Technology. The artwork is printed directly onto the acrylic surface, delivering high-definition image quality, vibrant colours and sharp details.\n\nThe premium glossy finish enhances the overall appearance of the artwork, while precision square-cut edges provide a clean and modern look.\n\nEvery frame comes with premium metal wall mounting studs included, making wall installation convenient and giving your artwork an elegant floating-style appearance.\n\nPerfect for living rooms, bedrooms, offices, modern interiors and pooja rooms.\n\nPremium Quality. Advanced Direct UV Printing. Elegant Square-Cut Design. Easy Installation.",
     "categorySlug": "acrylic-photo-frames",
     "categoryName": "Acrylic Photo Frames",
     "artStyle": "Feng Shui Fluid Acrylic",
@@ -2453,8 +3570,8 @@ export const INITIAL_PRODUCTS: Product[] = [
         "id": "var-koi1",
         "size": "18 x 18 inches",
         "dimensionsCm": "45 x 45 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "LED Backlit (12V Adapter)",
+        "finish": "Premium Glossy Finish",
+        "lighting": "Non-LED",
         "price": 2999,
         "mrp": 5999,
         "sku": "AG-KOI-1818",
@@ -2465,8 +3582,8 @@ export const INITIAL_PRODUCTS: Product[] = [
         "id": "var-koi2",
         "size": "24 x 24 inches",
         "dimensionsCm": "60 x 60 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "LED Backlit (12V Adapter)",
+        "finish": "Premium Glossy Finish",
+        "lighting": "Non-LED",
         "price": 4399,
         "mrp": 8499,
         "sku": "AG-KOI-2424",
@@ -2477,7 +3594,55 @@ export const INITIAL_PRODUCTS: Product[] = [
     "specifications": [
       {
         "label": "Material",
-        "value": "Cast Acrylic with Subsurface Gold Infusion"
+        "value": "Premium Crystal Clear Acrylic"
+      },
+      {
+        "label": "Thickness",
+        "value": "5MM Premium Acrylic"
+      },
+      {
+        "label": "Printing Technology",
+        "value": "Advanced Direct UV Printing"
+      },
+      {
+        "label": "Print Quality",
+        "value": "High-Definition UV Printing"
+      },
+      {
+        "label": "Print Method",
+        "value": "Direct Printing on Acrylic Surface"
+      },
+      {
+        "label": "Colour Quality",
+        "value": "Vibrant Colours & Sharp Details"
+      },
+      {
+        "label": "Finish",
+        "value": "Premium Glossy Finish"
+      },
+      {
+        "label": "Edges",
+        "value": "Precision Square Cut Edges"
+      },
+      {
+        "label": "Mounting",
+        "value": "Premium Metal Wall Mounting Studs"
+      },
+      {
+        "label": "Installation",
+        "value": "Installation Studs Included with Every Frame"
+      },
+      {
+        "label": "Lighting",
+        "value": "Non-LED"
+      },
+      {
+        "label": "Customization",
+        "value": "Custom Sizes Available"
+      },
+      {
+        "label": "Usage",
+        "value": "Living Room, Bedroom, Office, Home Decor and Pooja Room."
       }
     ],
     "materialAndCare": [
@@ -2485,9 +3650,9 @@ export const INITIAL_PRODUCTS: Product[] = [
     ],
     "shippingHighlights": [
       "Multi-layer protective packaging for safe transit.",
-      "Precision diamond-cut cast acrylic with polished bevels.",
-      "Concealed French cleat mounting bracket & hardware included.",
-      "BIS certified 12V 2A power adapter included with LED frames."
+      "Premium 5MM crystal clear acrylic with precision square-cut edges.",
+      "Premium metal wall mounting studs and hardware included with every frame.",
+      "Advanced Direct UV Printing with instant UV-cured inks for vivid, lasting depth."
     ],
     "reviews": [],
     "createdAt": "2026-10-05"
@@ -2503,7 +3668,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "title": "Emerald Liquid Gold Vein Abstract Luxury Acrylic Panel",
     "subtitle": "Deep Malachite Green with Metallic Gold Geode Ribbons & High-Gloss Depth",
     "shortDescription": "Contemporary luxury statement panel designed for double-height living spaces and modern villas.",
-    "description": "An architectural statement piece combining jewel-toned emerald greens with cascading Gold liquid gold ribbons. Frameless floating design with precision concealed brackets.",
+    "description": "An architectural statement piece combining jewel-toned emerald greens with cascading Gold liquid gold ribbons. Frameless floating design with precision concealed brackets.\n\nUpgrade your walls with our Premium 5MM Crystal Clear Acrylic Frames, designed to bring elegance, clarity and a luxurious appearance to your interiors.\n\nEach frame is crafted using premium 5MM thick crystal-clear acrylic and advanced Direct UV Printing Technology. The artwork is printed directly onto the acrylic surface, delivering high-definition image quality, vibrant colours and sharp details.\n\nThe premium glossy finish enhances the overall appearance of the artwork, while precision square-cut edges provide a clean and modern look.\n\nEvery frame comes with premium metal wall mounting studs included, making wall installation convenient and giving your artwork an elegant floating-style appearance.\n\nPerfect for living rooms, bedrooms, offices, modern interiors and pooja rooms.\n\nPremium Quality. Advanced Direct UV Printing. Elegant Square-Cut Design. Easy Installation.",
     "categorySlug": "acrylic-photo-frames",
     "categoryName": "Acrylic Photo Frames",
     "artStyle": "Luxury Geode Acrylic",
@@ -2533,8 +3698,8 @@ export const INITIAL_PRODUCTS: Product[] = [
         "id": "var-em1",
         "size": "36 x 24 inches",
         "dimensionsCm": "90 x 60 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "No Lighting (Pure Art)",
+        "finish": "Premium Glossy Finish",
+        "lighting": "Non-LED",
         "price": 3899,
         "mrp": 7999,
         "sku": "AG-EM-3624",
@@ -2545,8 +3710,8 @@ export const INITIAL_PRODUCTS: Product[] = [
         "id": "var-em2",
         "size": "48 x 30 inches",
         "dimensionsCm": "120 x 75 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "No Lighting (Pure Art)",
+        "finish": "Premium Glossy Finish",
+        "lighting": "Non-LED",
         "price": 5999,
         "mrp": 11999,
         "sku": "AG-EM-4830",
@@ -2556,8 +3721,56 @@ export const INITIAL_PRODUCTS: Product[] = [
     ],
     "specifications": [
       {
+        "label": "Material",
+        "value": "Premium Crystal Clear Acrylic"
+      },
+      {
+        "label": "Thickness",
+        "value": "5MM Premium Acrylic"
+      },
+      {
+        "label": "Printing Technology",
+        "value": "Advanced Direct UV Printing"
+      },
+      {
+        "label": "Print Quality",
+        "value": "High-Definition UV Printing"
+      },
+      {
+        "label": "Print Method",
+        "value": "Direct Printing on Acrylic Surface"
+      },
+      {
+        "label": "Colour Quality",
+        "value": "Vibrant Colours & Sharp Details"
+      },
+      {
         "label": "Finish",
-        "value": "Museum Polish Acrylic with Concealed French Cleat"
+        "value": "Premium Glossy Finish"
+      },
+      {
+        "label": "Edges",
+        "value": "Precision Square Cut Edges"
+      },
+      {
+        "label": "Mounting",
+        "value": "Premium Metal Wall Mounting Studs"
+      },
+      {
+        "label": "Installation",
+        "value": "Installation Studs Included with Every Frame"
+      },
+      {
+        "label": "Lighting",
+        "value": "Non-LED"
+      },
+      {
+        "label": "Customization",
+        "value": "Custom Sizes Available"
+      },
+      {
+        "label": "Usage",
+        "value": "Living Room, Bedroom, Office, Home Decor and Pooja Room."
       }
     ],
     "materialAndCare": [
@@ -2565,9 +3778,9 @@ export const INITIAL_PRODUCTS: Product[] = [
     ],
     "shippingHighlights": [
       "Multi-layer protective packaging for safe transit.",
-      "Precision diamond-cut cast acrylic with polished bevels.",
-      "Concealed French cleat mounting bracket & hardware included.",
-      "BIS certified 12V 2A power adapter included with LED frames."
+      "Premium 5MM crystal clear acrylic with precision square-cut edges.",
+      "Premium metal wall mounting studs and hardware included with every frame.",
+      "Advanced Direct UV Printing with instant UV-cured inks for vivid, lasting depth."
     ],
     "reviews": [],
     "createdAt": "2026-09-12"
@@ -2584,7 +3797,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "title": "Customized Wedding Vows & Couple Acrylic Keepsake Frame",
     "subtitle": "High-Gloss Acrylic with Gold Foil Names, Wedding Date & Warm Halo Lighting",
     "shortDescription": "Immortalize your most cherished vows and bridal portraits on precision-polished acrylic.",
-    "description": "Turn your sacred marriage ceremonies and romantic milestones into museum-quality heirlooms. We print your high-res photography with Swiss UV inks directly on Cast Acrylic with personalized gold script names and wedding dates.",
+    "description": "Turn your sacred marriage ceremonies and romantic milestones into museum-quality heirlooms. We print your high-res photography with Swiss UV inks directly on Cast Acrylic with personalized gold script names and wedding dates.\n\nUpgrade your walls with our Premium 5MM Crystal Clear Acrylic Frames, designed to bring elegance, clarity and a luxurious appearance to your interiors.\n\nEach frame is crafted using premium 5MM thick crystal-clear acrylic and advanced Direct UV Printing Technology. The artwork is printed directly onto the acrylic surface, delivering high-definition image quality, vibrant colours and sharp details.\n\nThe premium glossy finish enhances the overall appearance of the artwork, while precision square-cut edges provide a clean and modern look.\n\nEvery frame comes with premium metal wall mounting studs included, making wall installation convenient and giving your artwork an elegant floating-style appearance.\n\nPerfect for living rooms, bedrooms, offices, modern interiors and pooja rooms.\n\nPremium Quality. Advanced Direct UV Printing. Elegant Square-Cut Design. Easy Installation.",
     "categorySlug": "couple-wedding-frames",
     "categoryName": "Couple & Wedding Frames",
     "artStyle": "Custom Wedding Acrylic",
@@ -2614,8 +3827,8 @@ export const INITIAL_PRODUCTS: Product[] = [
         "id": "var-wed1",
         "size": "12 x 18 inches",
         "dimensionsCm": "30 x 45 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "LED Backlit (12V Adapter)",
+        "finish": "Premium Glossy Finish",
+        "lighting": "Non-LED",
         "price": 2499,
         "mrp": 4999,
         "sku": "AG-WED-1218",
@@ -2626,8 +3839,8 @@ export const INITIAL_PRODUCTS: Product[] = [
         "id": "var-wed2",
         "size": "18 x 24 inches",
         "dimensionsCm": "45 x 60 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "LED Backlit (12V Adapter)",
+        "finish": "Premium Glossy Finish",
+        "lighting": "Non-LED",
         "price": 3699,
         "mrp": 6999,
         "sku": "AG-WED-1824",
@@ -2637,12 +3850,56 @@ export const INITIAL_PRODUCTS: Product[] = [
     ],
     "specifications": [
       {
-        "label": "Customization",
-        "value": "WhatsApp Proof Approval Before Print"
+        "label": "Material",
+        "value": "Premium Crystal Clear Acrylic"
+      },
+      {
+        "label": "Thickness",
+        "value": "5MM Premium Acrylic"
+      },
+      {
+        "label": "Printing Technology",
+        "value": "Advanced Direct UV Printing"
+      },
+      {
+        "label": "Print Quality",
+        "value": "High-Definition UV Printing"
+      },
+      {
+        "label": "Print Method",
+        "value": "Direct Printing on Acrylic Surface"
+      },
+      {
+        "label": "Colour Quality",
+        "value": "Vibrant Colours & Sharp Details"
+      },
+      {
+        "label": "Finish",
+        "value": "Premium Glossy Finish"
+      },
+      {
+        "label": "Edges",
+        "value": "Precision Square Cut Edges"
+      },
+      {
+        "label": "Mounting",
+        "value": "Premium Metal Wall Mounting Studs"
+      },
+      {
+        "label": "Installation",
+        "value": "Installation Studs Included with Every Frame"
       },
       {
         "label": "Lighting",
-        "value": "High-Lumen Ambient SMD LED with 12V 2A Adapter"
+        "value": "Non-LED"
+      },
+      {
+        "label": "Customization",
+        "value": "Custom Sizes Available"
+      },
+      {
+        "label": "Usage",
+        "value": "Living Room, Bedroom, Office, Home Decor and Pooja Room."
       }
     ],
     "materialAndCare": [
@@ -2650,9 +3907,9 @@ export const INITIAL_PRODUCTS: Product[] = [
     ],
     "shippingHighlights": [
       "Multi-layer protective packaging for safe transit.",
-      "Precision diamond-cut cast acrylic with polished bevels.",
-      "Concealed French cleat mounting bracket & hardware included.",
-      "BIS certified 12V 2A power adapter included with LED frames."
+      "Premium 5MM crystal clear acrylic with precision square-cut edges.",
+      "Premium metal wall mounting studs and hardware included with every frame.",
+      "Advanced Direct UV Printing with instant UV-cured inks for vivid, lasting depth."
     ],
     "reviews": [],
     "createdAt": "2026-09-22"
@@ -2661,14 +3918,13 @@ export const INITIAL_PRODUCTS: Product[] = [
     "id": "prod-modern-illuminated-horizon",
     "slug": "modern-illuminated-celestial-horizon-acrylic-art",
     "categorySlugs": [
-      "led-acrylic-photo-frames",
-      "acrylic-photo-frames"
+      "led-acrylic-photo-frames"
     ],
     "shape": "landscape",
     "title": "Modern Illuminated Celestial Horizon Acrylic Art",
     "subtitle": "Golden Constellations & Minimalist Architectural Lines with Ambient Backlight",
-    "shortDescription": "Contemporary illuminated horizon lines creating sophisticated luxury ambience.",
-    "description": "Designed for modern minimalists and contemporary luxury homes. Fine metallic gold contours layered across deep noir acrylic with hidden perimeter Warm halo backlights.",
+    "shortDescription": "Premium LED Backlit Acrylic Wall Frame crafted with Imported Clear Virgin Cast Acrylic, Direct UV Printing, Rose Gold Aluminium Side Frame, and Cool White LED Halo Glow.",
+    "description": "Transform your interior with our Premium LED Backlit Acrylic Wall Frame, designed to combine high-definition visual art with sophisticated ambient illumination.\n\nCrafted using premium Imported Clear Virgin Cast Acrylic and advanced Direct UV Printing Technology, the artwork is printed directly onto the acrylic surface, delivering exceptional clarity, sharp details and vibrant colours.\n\nEach frame features an elegant Rose Gold Aluminium Side Frame that enhances the structure and presentation of the artwork. The integrated Cool White LED backlighting produces a refined halo glow around the frame, creating a modern and luxurious focal point in any room.\n\nEvery LED Frame includes an external power adapter and complete wall mounting hardware (wall plugs and screws) for convenient and secure installation.\n\nIdeal for living rooms, bedrooms, executive offices, reception areas and modern luxury interiors.\n\nImported Virgin Cast Acrylic. Advanced Direct UV Printing. Rose Gold Aluminium Frame. Cool White LED Backlighting. Complete Mounting Hardware Included.",
     "categorySlug": "led-acrylic-photo-frames",
     "categoryName": "LED Acrylic Photo Frames",
     "artStyle": "Contemporary Illuminated",
@@ -2697,8 +3953,8 @@ export const INITIAL_PRODUCTS: Product[] = [
         "id": "var-hor1",
         "size": "24 x 16 inches",
         "dimensionsCm": "60 x 40 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "LED Backlit (12V Adapter)",
+        "finish": "Premium Glossy Finish",
+        "lighting": "Cool White LED Backlighting",
         "price": 3599,
         "mrp": 6999,
         "sku": "AG-HOR-2416",
@@ -2709,8 +3965,8 @@ export const INITIAL_PRODUCTS: Product[] = [
         "id": "var-hor2",
         "size": "36 x 24 inches",
         "dimensionsCm": "90 x 60 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "LED Backlit (12V Adapter)",
+        "finish": "Premium Glossy Finish",
+        "lighting": "Cool White LED Backlighting",
         "price": 5199,
         "mrp": 9899,
         "sku": "AG-HOR-3624",
@@ -2720,18 +3976,88 @@ export const INITIAL_PRODUCTS: Product[] = [
     ],
     "specifications": [
       {
-        "label": "Lighting",
-        "value": "High-Lumen Ambient SMD LED with 12V 2A Adapter"
+        "label": "Product Type",
+        "value": "Premium LED Backlit Acrylic Wall Frame"
+      },
+      {
+        "label": "Acrylic Material",
+        "value": "Imported Clear Virgin Cast Acrylic"
+      },
+      {
+        "label": "Printing Technology",
+        "value": "Advanced Direct UV Printing"
+      },
+      {
+        "label": "Print Quality",
+        "value": "High-Definition UV Printing"
+      },
+      {
+        "label": "Print Method",
+        "value": "Direct Printing on Acrylic Surface"
+      },
+      {
+        "label": "Colour Quality",
+        "value": "Vibrant Colours & Sharp Details"
+      },
+      {
+        "label": "Finish",
+        "value": "Premium Glossy Finish"
+      },
+      {
+        "label": "Side Frame Material",
+        "value": "Premium Aluminium"
+      },
+      {
+        "label": "Side Frame Colour",
+        "value": "Rose Gold"
+      },
+      {
+        "label": "Lighting Technology",
+        "value": "Integrated LED Backlighting"
+      },
+      {
+        "label": "LED Light Colour",
+        "value": "Cool White"
+      },
+      {
+        "label": "Lighting Effect",
+        "value": "Elegant Cool White Halo Glow"
+      },
+      {
+        "label": "Lighting Placement",
+        "value": "Hidden Perimeter LED Lighting"
+      },
+      {
+        "label": "Power Connection",
+        "value": "External Power Adapter"
+      },
+      {
+        "label": "Power Adapter",
+        "value": "Included with Every Frame"
+      },
+      {
+        "label": "Mounting",
+        "value": "Wall Mounting Hardware"
+      },
+      {
+        "label": "Installation",
+        "value": "Wall Plugs and Screws Included"
+      },
+      {
+        "label": "Customization",
+        "value": "Custom Sizes Available"
       }
     ],
     "materialAndCare": [
       "Microfiber wipe only"
     ],
     "shippingHighlights": [
-      "Multi-layer protective packaging for safe transit.",
-      "Precision diamond-cut cast acrylic with polished bevels.",
-      "Concealed French cleat mounting bracket & hardware included.",
-      "BIS certified 12V 2A power adapter included with LED frames."
+      "Imported Clear Virgin Cast Acrylic",
+      "Advanced Direct UV Printing",
+      "Rose Gold Aluminium Side Frame",
+      "Cool White LED Halo Glow",
+      "External Power Adapter Included",
+      "Wall Plugs & Screws Included"
     ],
     "reviews": [],
     "createdAt": "2026-10-12"
@@ -2741,14 +4067,13 @@ export const INITIAL_PRODUCTS: Product[] = [
     "slug": "lord-ganesha-vighnaharta-divine-led-backlit-acrylic-art",
     "categorySlugs": [
       "god-photo-frames",
-      "led-acrylic-photo-frames",
-      "acrylic-photo-frames"
+      "led-acrylic-photo-frames"
     ],
     "shape": "square",
     "title": "Lord Ganesha Vighnaharta Divine LED Backlit Acrylic Art",
     "subtitle": "Auspicious Remover of Obstacles with Sanctum Warm Golden Backlight",
-    "shortDescription": "Lord Ganesha illuminated with Warm halo backlight and gold foil detailing on crystal acrylic.",
-    "description": "Invite divine auspiciousness and prosperity into your entrance, pooja mandir, or living space with this handcrafted Lord Ganesha LED Backlit artwork. Embedded with energy-efficient LED halo channels that emanate a tranquil golden radiance, casting sacred warmth across the room.",
+    "shortDescription": "Premium LED Backlit Acrylic Wall Frame crafted with Imported Clear Virgin Cast Acrylic, Direct UV Printing, Rose Gold Aluminium Side Frame, and Cool White LED Halo Glow.",
+    "description": "Transform your interior with our Premium LED Backlit Acrylic Wall Frame, designed to combine high-definition visual art with sophisticated ambient illumination.\n\nCrafted using premium Imported Clear Virgin Cast Acrylic and advanced Direct UV Printing Technology, the artwork is printed directly onto the acrylic surface, delivering exceptional clarity, sharp details and vibrant colours.\n\nEach frame features an elegant Rose Gold Aluminium Side Frame that enhances the structure and presentation of the artwork. The integrated Cool White LED backlighting produces a refined halo glow around the frame, creating a modern and luxurious focal point in any room.\n\nEvery LED Frame includes an external power adapter and complete wall mounting hardware (wall plugs and screws) for convenient and secure installation.\n\nIdeal for living rooms, bedrooms, executive offices, reception areas and modern luxury interiors.\n\nImported Virgin Cast Acrylic. Advanced Direct UV Printing. Rose Gold Aluminium Frame. Cool White LED Backlighting. Complete Mounting Hardware Included.",
     "categorySlug": "god-photo-frames",
     "categoryName": "God Photo Frames",
     "deity": "Lord Ganesha",
@@ -2779,8 +4104,8 @@ export const INITIAL_PRODUCTS: Product[] = [
         "id": "var-gan-led1",
         "size": "18 x 18 inches",
         "dimensionsCm": "45 x 45 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "LED Backlit (12V Adapter)",
+        "finish": "Premium Glossy Finish",
+        "lighting": "Cool White LED Backlighting",
         "price": 3299,
         "mrp": 6499,
         "sku": "AG-GAN-LED-1818",
@@ -2791,8 +4116,8 @@ export const INITIAL_PRODUCTS: Product[] = [
         "id": "var-gan-led2",
         "size": "24 x 24 inches",
         "dimensionsCm": "60 x 60 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "LED Backlit (12V Adapter)",
+        "finish": "Premium Glossy Finish",
+        "lighting": "Cool White LED Backlighting",
         "price": 4799,
         "mrp": 8999,
         "sku": "AG-GAN-LED-2424",
@@ -2802,22 +4127,88 @@ export const INITIAL_PRODUCTS: Product[] = [
     ],
     "specifications": [
       {
-        "label": "Lighting",
-        "value": "High-Lumen Ambient SMD LED with 12V 2A Adapter"
+        "label": "Product Type",
+        "value": "Premium LED Backlit Acrylic Wall Frame"
       },
       {
-        "label": "Material",
-        "value": "Premium Cast Optical Acrylic with gold Embellishments"
+        "label": "Acrylic Material",
+        "value": "Imported Clear Virgin Cast Acrylic"
+      },
+      {
+        "label": "Printing Technology",
+        "value": "Advanced Direct UV Printing"
+      },
+      {
+        "label": "Print Quality",
+        "value": "High-Definition UV Printing"
+      },
+      {
+        "label": "Print Method",
+        "value": "Direct Printing on Acrylic Surface"
+      },
+      {
+        "label": "Colour Quality",
+        "value": "Vibrant Colours & Sharp Details"
+      },
+      {
+        "label": "Finish",
+        "value": "Premium Glossy Finish"
+      },
+      {
+        "label": "Side Frame Material",
+        "value": "Premium Aluminium"
+      },
+      {
+        "label": "Side Frame Colour",
+        "value": "Rose Gold"
+      },
+      {
+        "label": "Lighting Technology",
+        "value": "Integrated LED Backlighting"
+      },
+      {
+        "label": "LED Light Colour",
+        "value": "Cool White"
+      },
+      {
+        "label": "Lighting Effect",
+        "value": "Elegant Cool White Halo Glow"
+      },
+      {
+        "label": "Lighting Placement",
+        "value": "Hidden Perimeter LED Lighting"
+      },
+      {
+        "label": "Power Connection",
+        "value": "External Power Adapter"
+      },
+      {
+        "label": "Power Adapter",
+        "value": "Included with Every Frame"
+      },
+      {
+        "label": "Mounting",
+        "value": "Wall Mounting Hardware"
+      },
+      {
+        "label": "Installation",
+        "value": "Wall Plugs and Screws Included"
+      },
+      {
+        "label": "Customization",
+        "value": "Custom Sizes Available"
       }
     ],
     "materialAndCare": [
       "Microfiber wipe only. Use included adapter."
     ],
     "shippingHighlights": [
-      "Multi-layer protective packaging for safe transit.",
-      "Precision diamond-cut cast acrylic with polished bevels.",
-      "Concealed French cleat mounting bracket & hardware included.",
-      "BIS certified 12V 2A power adapter included with LED frames."
+      "Imported Clear Virgin Cast Acrylic",
+      "Advanced Direct UV Printing",
+      "Rose Gold Aluminium Side Frame",
+      "Cool White LED Halo Glow",
+      "External Power Adapter Included",
+      "Wall Plugs & Screws Included"
     ],
     "reviews": [],
     "createdAt": "2026-10-18"
@@ -2827,14 +4218,13 @@ export const INITIAL_PRODUCTS: Product[] = [
     "slug": "goddess-mahalakshmi-prosperity-divine-led-backlit-acrylic-art",
     "categorySlugs": [
       "god-photo-frames",
-      "led-acrylic-photo-frames",
-      "acrylic-photo-frames"
+      "led-acrylic-photo-frames"
     ],
     "shape": "square",
     "title": "Goddess Mahalakshmi Prosperity Divine LED Backlit Acrylic Art",
     "subtitle": "Ashta Lakshmi with Golden Lotus & Radiant Warm Backlight Aura",
-    "shortDescription": "Goddess Lakshmi radiating eternal wealth, abundance, and auspicious grace with golden backlighting.",
-    "description": "Consecrate your sanctum with the divine presence of Goddess Mahalakshmi. Rendered with high-definition Swiss UV technology on cast acrylic with pure gold leaf accents. Switched on, the backlighting creates an ethereal halo, filling your sanctum with serene warmth and prosperity vibrations.",
+    "shortDescription": "Premium LED Backlit Acrylic Wall Frame crafted with Imported Clear Virgin Cast Acrylic, Direct UV Printing, Rose Gold Aluminium Side Frame, and Cool White LED Halo Glow.",
+    "description": "Transform your interior with our Premium LED Backlit Acrylic Wall Frame, designed to combine high-definition visual art with sophisticated ambient illumination.\n\nCrafted using premium Imported Clear Virgin Cast Acrylic and advanced Direct UV Printing Technology, the artwork is printed directly onto the acrylic surface, delivering exceptional clarity, sharp details and vibrant colours.\n\nEach frame features an elegant Rose Gold Aluminium Side Frame that enhances the structure and presentation of the artwork. The integrated Cool White LED backlighting produces a refined halo glow around the frame, creating a modern and luxurious focal point in any room.\n\nEvery LED Frame includes an external power adapter and complete wall mounting hardware (wall plugs and screws) for convenient and secure installation.\n\nIdeal for living rooms, bedrooms, executive offices, reception areas and modern luxury interiors.\n\nImported Virgin Cast Acrylic. Advanced Direct UV Printing. Rose Gold Aluminium Frame. Cool White LED Backlighting. Complete Mounting Hardware Included.",
     "categorySlug": "god-photo-frames",
     "categoryName": "God Photo Frames",
     "deity": "Goddess Lakshmi",
@@ -2865,8 +4255,8 @@ export const INITIAL_PRODUCTS: Product[] = [
         "id": "var-lak-led1",
         "size": "18 x 18 inches",
         "dimensionsCm": "45 x 45 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "LED Backlit (12V Adapter)",
+        "finish": "Premium Glossy Finish",
+        "lighting": "Cool White LED Backlighting",
         "price": 3399,
         "mrp": 6699,
         "sku": "AG-LAK-LED-1818",
@@ -2877,8 +4267,8 @@ export const INITIAL_PRODUCTS: Product[] = [
         "id": "var-lak-led2",
         "size": "24 x 24 inches",
         "dimensionsCm": "60 x 60 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "LED Backlit (12V Adapter)",
+        "finish": "Premium Glossy Finish",
+        "lighting": "Cool White LED Backlighting",
         "price": 4899,
         "mrp": 9299,
         "sku": "AG-LAK-LED-2424",
@@ -2888,22 +4278,88 @@ export const INITIAL_PRODUCTS: Product[] = [
     ],
     "specifications": [
       {
-        "label": "Lighting",
-        "value": "High-Lumen Ambient SMD LED with 12V 2A Adapter"
+        "label": "Product Type",
+        "value": "Premium LED Backlit Acrylic Wall Frame"
       },
       {
-        "label": "Material",
-        "value": "Premium Cast Optical Acrylic with gold Embellishments"
+        "label": "Acrylic Material",
+        "value": "Imported Clear Virgin Cast Acrylic"
+      },
+      {
+        "label": "Printing Technology",
+        "value": "Advanced Direct UV Printing"
+      },
+      {
+        "label": "Print Quality",
+        "value": "High-Definition UV Printing"
+      },
+      {
+        "label": "Print Method",
+        "value": "Direct Printing on Acrylic Surface"
+      },
+      {
+        "label": "Colour Quality",
+        "value": "Vibrant Colours & Sharp Details"
+      },
+      {
+        "label": "Finish",
+        "value": "Premium Glossy Finish"
+      },
+      {
+        "label": "Side Frame Material",
+        "value": "Premium Aluminium"
+      },
+      {
+        "label": "Side Frame Colour",
+        "value": "Rose Gold"
+      },
+      {
+        "label": "Lighting Technology",
+        "value": "Integrated LED Backlighting"
+      },
+      {
+        "label": "LED Light Colour",
+        "value": "Cool White"
+      },
+      {
+        "label": "Lighting Effect",
+        "value": "Elegant Cool White Halo Glow"
+      },
+      {
+        "label": "Lighting Placement",
+        "value": "Hidden Perimeter LED Lighting"
+      },
+      {
+        "label": "Power Connection",
+        "value": "External Power Adapter"
+      },
+      {
+        "label": "Power Adapter",
+        "value": "Included with Every Frame"
+      },
+      {
+        "label": "Mounting",
+        "value": "Wall Mounting Hardware"
+      },
+      {
+        "label": "Installation",
+        "value": "Wall Plugs and Screws Included"
+      },
+      {
+        "label": "Customization",
+        "value": "Custom Sizes Available"
       }
     ],
     "materialAndCare": [
       "Microfiber wipe only. Use included adapter."
     ],
     "shippingHighlights": [
-      "Multi-layer protective packaging for safe transit.",
-      "Precision diamond-cut cast acrylic with polished bevels.",
-      "Concealed French cleat mounting bracket & hardware included.",
-      "BIS certified 12V 2A power adapter included with LED frames."
+      "Imported Clear Virgin Cast Acrylic",
+      "Advanced Direct UV Printing",
+      "Rose Gold Aluminium Side Frame",
+      "Cool White LED Halo Glow",
+      "External Power Adapter Included",
+      "Wall Plugs & Screws Included"
     ],
     "reviews": [],
     "createdAt": "2026-10-18"
@@ -2919,7 +4375,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "title": "Lord Venkateswara Balaji gold Acrylic Wall Art",
     "subtitle": "Sacred Tirupati Balaji with Shanku, Chakra & Namam in gold Accents",
     "shortDescription": "Divine Lord Venkateswara Balaji on Premium shatterproof crystal acrylic with precision beveled edges.",
-    "description": "Invoke timeless blessings, spiritual abundance, and peace with our classic Lord Venkateswara Balaji pure acrylic heirloom. Masterfully printed with museum-grade UV-cured inks on ultra-clear Cast Acrylic and embellished with gold foil details. Finished with hand-buffed beveled edges and pre-installed stainless steel wall mounts.",
+    "description": "Invoke timeless blessings, spiritual abundance, and peace with our classic Lord Venkateswara Balaji pure acrylic heirloom. Masterfully printed with museum-grade UV-cured inks on ultra-clear Cast Acrylic and embellished with gold foil details. Finished with hand-buffed beveled edges and pre-installed stainless steel wall mounts.\n\nUpgrade your walls with our Premium 5MM Crystal Clear Acrylic Frames, designed to bring elegance, clarity and a luxurious appearance to your interiors.\n\nEach frame is crafted using premium 5MM thick crystal-clear acrylic and advanced Direct UV Printing Technology. The artwork is printed directly onto the acrylic surface, delivering high-definition image quality, vibrant colours and sharp details.\n\nThe premium glossy finish enhances the overall appearance of the artwork, while precision square-cut edges provide a clean and modern look.\n\nEvery frame comes with premium metal wall mounting studs included, making wall installation convenient and giving your artwork an elegant floating-style appearance.\n\nPerfect for living rooms, bedrooms, offices, modern interiors and pooja rooms.\n\nPremium Quality. Advanced Direct UV Printing. Elegant Square-Cut Design. Easy Installation.",
     "categorySlug": "god-photo-frames",
     "categoryName": "God Photo Frames",
     "deity": "Lord Venkateswara",
@@ -2955,8 +4411,8 @@ export const INITIAL_PRODUCTS: Product[] = [
         "id": "var-bal-norm1",
         "size": "12 x 18 inches",
         "dimensionsCm": "30 x 45 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "No Lighting (Pure Art)",
+        "finish": "Premium Glossy Finish",
+        "lighting": "Non-LED",
         "price": 2199,
         "mrp": 4299,
         "sku": "AG-BAL-1218-STD",
@@ -2967,8 +4423,8 @@ export const INITIAL_PRODUCTS: Product[] = [
         "id": "var-bal-norm2",
         "size": "18 x 24 inches",
         "dimensionsCm": "45 x 60 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "No Lighting (Pure Art)",
+        "finish": "Premium Glossy Finish",
+        "lighting": "Non-LED",
         "price": 3299,
         "mrp": 5999,
         "sku": "AG-BAL-1824-STD",
@@ -2979,8 +4435,8 @@ export const INITIAL_PRODUCTS: Product[] = [
         "id": "var-bal-norm3",
         "size": "24 x 36 inches",
         "dimensionsCm": "60 x 90 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "No Lighting (Pure Art)",
+        "finish": "Premium Glossy Finish",
+        "lighting": "Non-LED",
         "price": 4999,
         "mrp": 9499,
         "sku": "AG-BAL-2436-STD",
@@ -2991,15 +4447,55 @@ export const INITIAL_PRODUCTS: Product[] = [
     "specifications": [
       {
         "label": "Material",
-        "value": "Premium Cast Optical Acrylic with gold Leaf Embellishment"
+        "value": "Premium Crystal Clear Acrylic"
       },
       {
-        "label": "Print Technology",
-        "value": "Swiss 9-Color UV Pigment Printing (Fade Resistant 50+ Years)"
+        "label": "Thickness",
+        "value": "5MM Premium Acrylic"
+      },
+      {
+        "label": "Printing Technology",
+        "value": "Advanced Direct UV Printing"
+      },
+      {
+        "label": "Print Quality",
+        "value": "High-Definition UV Printing"
+      },
+      {
+        "label": "Print Method",
+        "value": "Direct Printing on Acrylic Surface"
+      },
+      {
+        "label": "Colour Quality",
+        "value": "Vibrant Colours & Sharp Details"
+      },
+      {
+        "label": "Finish",
+        "value": "Premium Glossy Finish"
+      },
+      {
+        "label": "Edges",
+        "value": "Precision Square Cut Edges"
       },
       {
         "label": "Mounting",
-        "value": "Pre-installed Concealed Stainless Steel Wall Cleat"
+        "value": "Premium Metal Wall Mounting Studs"
+      },
+      {
+        "label": "Installation",
+        "value": "Installation Studs Included with Every Frame"
+      },
+      {
+        "label": "Lighting",
+        "value": "Non-LED"
+      },
+      {
+        "label": "Customization",
+        "value": "Custom Sizes Available"
+      },
+      {
+        "label": "Usage",
+        "value": "Living Room, Bedroom, Office, Home Decor and Pooja Room."
       }
     ],
     "materialAndCare": [
@@ -3008,9 +4504,9 @@ export const INITIAL_PRODUCTS: Product[] = [
     ],
     "shippingHighlights": [
       "Multi-layer protective packaging for safe transit.",
-      "Precision diamond-cut cast acrylic with polished bevels.",
-      "Concealed French cleat mounting bracket & hardware included.",
-      "BIS certified 12V 2A power adapter included with LED frames."
+      "Premium 5MM crystal clear acrylic with precision square-cut edges.",
+      "Premium metal wall mounting studs and hardware included with every frame.",
+      "Advanced Direct UV Printing with instant UV-cured inks for vivid, lasting depth."
     ],
     "reviews": [],
     "createdAt": "2026-08-05"
@@ -3026,7 +4522,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "title": "Lord Shiva Mahadev Dhyana Mudra Acrylic Wall Art",
     "subtitle": "Adiyogi in Deep Meditative Trance with Crescent Moon & Sacred Damru",
     "shortDescription": "Serene Mahadev in Dhyana posture on Premium high-gloss shatterproof crystal acrylic.",
-    "description": "Channel profound silence, spiritual grounding, and cosmic peace into your sanctum with this Lord Shiva acrylic artwork. Layered with high-definition pigments and gold foil contours, Mahadev in profound samadhi creates an aura of tranquility for your yoga room, study, or living area.",
+    "description": "Channel profound silence, spiritual grounding, and cosmic peace into your sanctum with this Lord Shiva acrylic artwork. Layered with high-definition pigments and gold foil contours, Mahadev in profound samadhi creates an aura of tranquility for your yoga room, study, or living area.\n\nUpgrade your walls with our Premium 5MM Crystal Clear Acrylic Frames, designed to bring elegance, clarity and a luxurious appearance to your interiors.\n\nEach frame is crafted using premium 5MM thick crystal-clear acrylic and advanced Direct UV Printing Technology. The artwork is printed directly onto the acrylic surface, delivering high-definition image quality, vibrant colours and sharp details.\n\nThe premium glossy finish enhances the overall appearance of the artwork, while precision square-cut edges provide a clean and modern look.\n\nEvery frame comes with premium metal wall mounting studs included, making wall installation convenient and giving your artwork an elegant floating-style appearance.\n\nPerfect for living rooms, bedrooms, offices, modern interiors and pooja rooms.\n\nPremium Quality. Advanced Direct UV Printing. Elegant Square-Cut Design. Easy Installation.",
     "categorySlug": "god-photo-frames",
     "categoryName": "God Photo Frames",
     "deity": "Lord Shiva",
@@ -3057,8 +4553,8 @@ export const INITIAL_PRODUCTS: Product[] = [
         "id": "var-shv-norm1",
         "size": "12 x 18 inches",
         "dimensionsCm": "30 x 45 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "No Lighting (Pure Art)",
+        "finish": "Premium Glossy Finish",
+        "lighting": "Non-LED",
         "price": 2199,
         "mrp": 4299,
         "sku": "AG-SHV-1218-STD",
@@ -3069,8 +4565,8 @@ export const INITIAL_PRODUCTS: Product[] = [
         "id": "var-shv-norm2",
         "size": "18 x 24 inches",
         "dimensionsCm": "45 x 60 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "No Lighting (Pure Art)",
+        "finish": "Premium Glossy Finish",
+        "lighting": "Non-LED",
         "price": 3299,
         "mrp": 5999,
         "sku": "AG-SHV-1824-STD",
@@ -3081,11 +4577,55 @@ export const INITIAL_PRODUCTS: Product[] = [
     "specifications": [
       {
         "label": "Material",
-        "value": "Premium Cast Optical Acrylic with gold Leaf Embellishment"
+        "value": "Premium Crystal Clear Acrylic"
+      },
+      {
+        "label": "Thickness",
+        "value": "5MM Premium Acrylic"
+      },
+      {
+        "label": "Printing Technology",
+        "value": "Advanced Direct UV Printing"
+      },
+      {
+        "label": "Print Quality",
+        "value": "High-Definition UV Printing"
+      },
+      {
+        "label": "Print Method",
+        "value": "Direct Printing on Acrylic Surface"
+      },
+      {
+        "label": "Colour Quality",
+        "value": "Vibrant Colours & Sharp Details"
+      },
+      {
+        "label": "Finish",
+        "value": "Premium Glossy Finish"
+      },
+      {
+        "label": "Edges",
+        "value": "Precision Square Cut Edges"
       },
       {
         "label": "Mounting",
-        "value": "Concealed Heavy-Duty Acrylic Float Hangers"
+        "value": "Premium Metal Wall Mounting Studs"
+      },
+      {
+        "label": "Installation",
+        "value": "Installation Studs Included with Every Frame"
+      },
+      {
+        "label": "Lighting",
+        "value": "Non-LED"
+      },
+      {
+        "label": "Customization",
+        "value": "Custom Sizes Available"
+      },
+      {
+        "label": "Usage",
+        "value": "Living Room, Bedroom, Office, Home Decor and Pooja Room."
       }
     ],
     "materialAndCare": [
@@ -3093,9 +4633,9 @@ export const INITIAL_PRODUCTS: Product[] = [
     ],
     "shippingHighlights": [
       "Multi-layer protective packaging for safe transit.",
-      "Precision diamond-cut cast acrylic with polished bevels.",
-      "Concealed French cleat mounting bracket & hardware included.",
-      "BIS certified 12V 2A power adapter included with LED frames."
+      "Premium 5MM crystal clear acrylic with precision square-cut edges.",
+      "Premium metal wall mounting studs and hardware included with every frame.",
+      "Advanced Direct UV Printing with instant UV-cured inks for vivid, lasting depth."
     ],
     "reviews": [],
     "createdAt": "2026-08-12"
@@ -3111,7 +4651,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "title": "Sankat Mochan Lord Hanuman gold Acrylic Wall Art",
     "subtitle": "Divine Protector with Gada & Sanjeevani Mountain in Radiant Gold Embellishment",
     "shortDescription": "Majestic Lord Hanuman wall artwork in ultra-clear acrylic with gold leaf highlights.",
-    "description": "Fill your home with unmatched courage, devotion, and supreme protection with this handcrafted Lord Hanuman acrylic wall decor. Depicting the mighty Bajrangbali carrying the Sanjeevani mountain with his golden mace (Gada), rendered on shatterproof Premium optical acrylic.",
+    "description": "Fill your home with unmatched courage, devotion, and supreme protection with this handcrafted Lord Hanuman acrylic wall decor. Depicting the mighty Bajrangbali carrying the Sanjeevani mountain with his golden mace (Gada), rendered on shatterproof Premium optical acrylic.\n\nUpgrade your walls with our Premium 5MM Crystal Clear Acrylic Frames, designed to bring elegance, clarity and a luxurious appearance to your interiors.\n\nEach frame is crafted using premium 5MM thick crystal-clear acrylic and advanced Direct UV Printing Technology. The artwork is printed directly onto the acrylic surface, delivering high-definition image quality, vibrant colours and sharp details.\n\nThe premium glossy finish enhances the overall appearance of the artwork, while precision square-cut edges provide a clean and modern look.\n\nEvery frame comes with premium metal wall mounting studs included, making wall installation convenient and giving your artwork an elegant floating-style appearance.\n\nPerfect for living rooms, bedrooms, offices, modern interiors and pooja rooms.\n\nPremium Quality. Advanced Direct UV Printing. Elegant Square-Cut Design. Easy Installation.",
     "categorySlug": "god-photo-frames",
     "categoryName": "God Photo Frames",
     "deity": "Lord Hanuman",
@@ -3147,8 +4687,8 @@ export const INITIAL_PRODUCTS: Product[] = [
         "id": "var-han-norm1",
         "size": "12 x 18 inches",
         "dimensionsCm": "30 x 45 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "No Lighting (Pure Art)",
+        "finish": "Premium Glossy Finish",
+        "lighting": "Non-LED",
         "price": 2199,
         "mrp": 4299,
         "sku": "AG-HAN-1218-STD",
@@ -3159,8 +4699,8 @@ export const INITIAL_PRODUCTS: Product[] = [
         "id": "var-han-norm2",
         "size": "18 x 24 inches",
         "dimensionsCm": "45 x 60 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "No Lighting (Pure Art)",
+        "finish": "Premium Glossy Finish",
+        "lighting": "Non-LED",
         "price": 3299,
         "mrp": 5999,
         "sku": "AG-HAN-1824-STD",
@@ -3171,7 +4711,55 @@ export const INITIAL_PRODUCTS: Product[] = [
     "specifications": [
       {
         "label": "Material",
-        "value": "Premium Cast Optical Acrylic"
+        "value": "Premium Crystal Clear Acrylic"
+      },
+      {
+        "label": "Thickness",
+        "value": "5MM Premium Acrylic"
+      },
+      {
+        "label": "Printing Technology",
+        "value": "Advanced Direct UV Printing"
+      },
+      {
+        "label": "Print Quality",
+        "value": "High-Definition UV Printing"
+      },
+      {
+        "label": "Print Method",
+        "value": "Direct Printing on Acrylic Surface"
+      },
+      {
+        "label": "Colour Quality",
+        "value": "Vibrant Colours & Sharp Details"
+      },
+      {
+        "label": "Finish",
+        "value": "Premium Glossy Finish"
+      },
+      {
+        "label": "Edges",
+        "value": "Precision Square Cut Edges"
+      },
+      {
+        "label": "Mounting",
+        "value": "Premium Metal Wall Mounting Studs"
+      },
+      {
+        "label": "Installation",
+        "value": "Installation Studs Included with Every Frame"
+      },
+      {
+        "label": "Lighting",
+        "value": "Non-LED"
+      },
+      {
+        "label": "Customization",
+        "value": "Custom Sizes Available"
+      },
+      {
+        "label": "Usage",
+        "value": "Living Room, Bedroom, Office, Home Decor and Pooja Room."
       }
     ],
     "materialAndCare": [
@@ -3179,9 +4767,9 @@ export const INITIAL_PRODUCTS: Product[] = [
     ],
     "shippingHighlights": [
       "Multi-layer protective packaging for safe transit.",
-      "Precision diamond-cut cast acrylic with polished bevels.",
-      "Concealed French cleat mounting bracket & hardware included.",
-      "BIS certified 12V 2A power adapter included with LED frames."
+      "Premium 5MM crystal clear acrylic with precision square-cut edges.",
+      "Premium metal wall mounting studs and hardware included with every frame.",
+      "Advanced Direct UV Printing with instant UV-cured inks for vivid, lasting depth."
     ],
     "reviews": [],
     "createdAt": "2026-08-15"
@@ -3197,7 +4785,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "title": "Luxury Beveled & Floating Border Crystal Acrylic Masterpiece Frame",
     "subtitle": "Signature Quad-Layer Beveled Finish with gold Perimeter Inlay",
     "shortDescription": "Museum-standard frameless floating acrylic design engineered for prestige family & sacred photography.",
-    "description": "Elevate your interiors with our flagship premium framing profile. Featuring optical-grade Cast Acrylic with precision-cut 45-degree chamfered edges, an integrated floating wall-offset suspension system, and subtle gold-embossed accent liners that transform any photograph or artwork into a gallery centerpiece.",
+    "description": "Elevate your interiors with our flagship premium framing profile. Featuring optical-grade Cast Acrylic with precision-cut 45-degree chamfered edges, an integrated floating wall-offset suspension system, and subtle gold-embossed accent liners that transform any photograph or artwork into a gallery centerpiece.\n\nUpgrade your walls with our Premium 5MM Crystal Clear Acrylic Frames, designed to bring elegance, clarity and a luxurious appearance to your interiors.\n\nEach frame is crafted using premium 5MM thick crystal-clear acrylic and advanced Direct UV Printing Technology. The artwork is printed directly onto the acrylic surface, delivering high-definition image quality, vibrant colours and sharp details.\n\nThe premium glossy finish enhances the overall appearance of the artwork, while precision square-cut edges provide a clean and modern look.\n\nEvery frame comes with premium metal wall mounting studs included, making wall installation convenient and giving your artwork an elegant floating-style appearance.\n\nPerfect for living rooms, bedrooms, offices, modern interiors and pooja rooms.\n\nPremium Quality. Advanced Direct UV Printing. Elegant Square-Cut Design. Easy Installation.",
     "categorySlug": "personalized-gifts",
     "categoryName": "Personalized Gifts",
     "artStyle": "Museum Gallery Framing",
@@ -3226,8 +4814,8 @@ export const INITIAL_PRODUCTS: Product[] = [
         "id": "var-prem-frame1",
         "size": "14 x 20 inches",
         "dimensionsCm": "35 x 50 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "No Lighting (Pure Art)",
+        "finish": "Premium Glossy Finish",
+        "lighting": "Non-LED",
         "price": 2699,
         "mrp": 5299,
         "sku": "AG-PREM-1420",
@@ -3238,8 +4826,8 @@ export const INITIAL_PRODUCTS: Product[] = [
         "id": "var-prem-frame2",
         "size": "20 x 28 inches",
         "dimensionsCm": "50 x 70 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "No Lighting (Pure Art)",
+        "finish": "Premium Glossy Finish",
+        "lighting": "Non-LED",
         "price": 3999,
         "mrp": 7699,
         "sku": "AG-PREM-2028",
@@ -3249,12 +4837,56 @@ export const INITIAL_PRODUCTS: Product[] = [
     ],
     "specifications": [
       {
+        "label": "Material",
+        "value": "Premium Crystal Clear Acrylic"
+      },
+      {
+        "label": "Thickness",
+        "value": "5MM Premium Acrylic"
+      },
+      {
+        "label": "Printing Technology",
+        "value": "Advanced Direct UV Printing"
+      },
+      {
+        "label": "Print Quality",
+        "value": "High-Definition UV Printing"
+      },
+      {
+        "label": "Print Method",
+        "value": "Direct Printing on Acrylic Surface"
+      },
+      {
+        "label": "Colour Quality",
+        "value": "Vibrant Colours & Sharp Details"
+      },
+      {
         "label": "Finish",
-        "value": "Diamond Chamfered Cast Acrylic with Gold Perimeter Inlay"
+        "value": "Premium Glossy Finish"
+      },
+      {
+        "label": "Edges",
+        "value": "Precision Square Cut Edges"
       },
       {
         "label": "Mounting",
-        "value": "Engineered Floating Standoff System"
+        "value": "Premium Metal Wall Mounting Studs"
+      },
+      {
+        "label": "Installation",
+        "value": "Installation Studs Included with Every Frame"
+      },
+      {
+        "label": "Lighting",
+        "value": "Non-LED"
+      },
+      {
+        "label": "Customization",
+        "value": "Custom Sizes Available"
+      },
+      {
+        "label": "Usage",
+        "value": "Living Room, Bedroom, Office, Home Decor and Pooja Room."
       }
     ],
     "materialAndCare": [
@@ -3262,9 +4894,9 @@ export const INITIAL_PRODUCTS: Product[] = [
     ],
     "shippingHighlights": [
       "Multi-layer protective packaging for safe transit.",
-      "Precision diamond-cut cast acrylic with polished bevels.",
-      "Concealed French cleat mounting bracket & hardware included.",
-      "BIS certified 12V 2A power adapter included with LED frames."
+      "Premium 5MM crystal clear acrylic with precision square-cut edges.",
+      "Premium metal wall mounting studs and hardware included with every frame.",
+      "Advanced Direct UV Printing with instant UV-cured inks for vivid, lasting depth."
     ],
     "reviews": [],
     "createdAt": "2026-10-01"
@@ -3280,7 +4912,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "title": "Signature gold Embellished Crystal Acrylic Wall Art",
     "subtitle": "Flagship Luxury Panel Combining Fluid Gold Textures & Optical Cast Acrylic",
     "shortDescription": "Prestige contemporary wall art panel handcrafted with liquid gold foil veins.",
-    "description": "The pinnacle of modern Indian luxury wall decor. Our master artisans hand-apply genuine Gold metallic leaf pigments between twin sheets of optical-clarity acrylic, creating mesmerizing depth, light reflection, and timeless grandeur for executive suites and high-end living spaces.",
+    "description": "The pinnacle of modern Indian luxury wall decor. Our master artisans hand-apply genuine Gold metallic leaf pigments between twin sheets of optical-clarity acrylic, creating mesmerizing depth, light reflection, and timeless grandeur for executive suites and high-end living spaces.\n\nUpgrade your walls with our Premium 5MM Crystal Clear Acrylic Frames, designed to bring elegance, clarity and a luxurious appearance to your interiors.\n\nEach frame is crafted using premium 5MM thick crystal-clear acrylic and advanced Direct UV Printing Technology. The artwork is printed directly onto the acrylic surface, delivering high-definition image quality, vibrant colours and sharp details.\n\nThe premium glossy finish enhances the overall appearance of the artwork, while precision square-cut edges provide a clean and modern look.\n\nEvery frame comes with premium metal wall mounting studs included, making wall installation convenient and giving your artwork an elegant floating-style appearance.\n\nPerfect for living rooms, bedrooms, offices, modern interiors and pooja rooms.\n\nPremium Quality. Advanced Direct UV Printing. Elegant Square-Cut Design. Easy Installation.",
     "categorySlug": "personalized-gifts",
     "categoryName": "Personalized Gifts",
     "artStyle": "High-End Luxury Acrylic",
@@ -3314,8 +4946,8 @@ export const INITIAL_PRODUCTS: Product[] = [
         "id": "var-sig-prem1",
         "size": "24 x 16 inches",
         "dimensionsCm": "60 x 40 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "No Lighting (Pure Art)",
+        "finish": "Premium Glossy Finish",
+        "lighting": "Non-LED",
         "price": 3999,
         "mrp": 7999,
         "sku": "AG-SIG-2416",
@@ -3326,8 +4958,8 @@ export const INITIAL_PRODUCTS: Product[] = [
         "id": "var-sig-prem2",
         "size": "36 x 24 inches (Statement)",
         "dimensionsCm": "90 x 60 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "No Lighting (Pure Art)",
+        "finish": "Premium Glossy Finish",
+        "lighting": "Non-LED",
         "price": 5999,
         "mrp": 11999,
         "sku": "AG-SIG-3624",
@@ -3337,8 +4969,56 @@ export const INITIAL_PRODUCTS: Product[] = [
     ],
     "specifications": [
       {
-        "label": "Craft",
-        "value": "Hand-Layered gold Metallic Veining on Premium Acrylic"
+        "label": "Material",
+        "value": "Premium Crystal Clear Acrylic"
+      },
+      {
+        "label": "Thickness",
+        "value": "5MM Premium Acrylic"
+      },
+      {
+        "label": "Printing Technology",
+        "value": "Advanced Direct UV Printing"
+      },
+      {
+        "label": "Print Quality",
+        "value": "High-Definition UV Printing"
+      },
+      {
+        "label": "Print Method",
+        "value": "Direct Printing on Acrylic Surface"
+      },
+      {
+        "label": "Colour Quality",
+        "value": "Vibrant Colours & Sharp Details"
+      },
+      {
+        "label": "Finish",
+        "value": "Premium Glossy Finish"
+      },
+      {
+        "label": "Edges",
+        "value": "Precision Square Cut Edges"
+      },
+      {
+        "label": "Mounting",
+        "value": "Premium Metal Wall Mounting Studs"
+      },
+      {
+        "label": "Installation",
+        "value": "Installation Studs Included with Every Frame"
+      },
+      {
+        "label": "Lighting",
+        "value": "Non-LED"
+      },
+      {
+        "label": "Customization",
+        "value": "Custom Sizes Available"
+      },
+      {
+        "label": "Usage",
+        "value": "Living Room, Bedroom, Office, Home Decor and Pooja Room."
       }
     ],
     "materialAndCare": [
@@ -3346,9 +5026,9 @@ export const INITIAL_PRODUCTS: Product[] = [
     ],
     "shippingHighlights": [
       "Multi-layer protective packaging for safe transit.",
-      "Precision diamond-cut cast acrylic with polished bevels.",
-      "Concealed French cleat mounting bracket & hardware included.",
-      "BIS certified 12V 2A power adapter included with LED frames."
+      "Premium 5MM crystal clear acrylic with precision square-cut edges.",
+      "Premium metal wall mounting studs and hardware included with every frame.",
+      "Advanced Direct UV Printing with instant UV-cured inks for vivid, lasting depth."
     ],
     "reviews": [],
     "createdAt": "2026-10-05"

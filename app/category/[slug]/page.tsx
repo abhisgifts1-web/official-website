@@ -31,9 +31,9 @@ export async function generateStaticParams() {
 // Targeted SEO title and description overrides for high-priority local keywords
 const LOCAL_SEO_CATEGORY_OVERRIDES: Record<string, { title: string; description: string; h1?: string }> = {
   'acrylic-photo-frames': {
-    title: "Acrylic Photo Frames in Hyderabad | Crystal Clear Custom Prints — Abhi's Gifts",
-    description: 'Order high-definition crystal acrylic photo frames in Hyderabad and Dilsukhnagar. Diamond-edge beveled acrylic prints with vibrant, fade-resistant color depth.',
-    h1: 'Acrylic Photo Frames in Hyderabad',
+    title: "5MM Acrylic Photo Frames in Hyderabad | Direct UV Printing & Metal Studs — Abhi's Gifts",
+    description: 'Order premium 5MM crystal clear acrylic photo frames in Hyderabad and Dilsukhnagar. High-definition direct UV printing on acrylic surface, precision square-cut edges, and metal installation studs included.',
+    h1: '5MM Premium Acrylic Photo Frames in Hyderabad',
   },
   'led-acrylic-photo-frames': {
     title: "LED Acrylic Photo Frames Hyderabad | Warm Illuminated Wall Decor — Abhi's Gifts",
@@ -72,9 +72,9 @@ const LOCAL_SEO_CATEGORY_OVERRIDES: Record<string, { title: string; description:
   },
   
   'premium-acrylic-wall-art': {
-    title: "Acrylic Photo Frames in Hyderabad | crystal acrylic Art — Abhi's Gifts",
-    description: 'Explore high-definition acrylic photo frames in Hyderabad. Diamond-edge polished cast acrylic wall art, family portraits & devotional keepsakes handcrafted in Dilsukhnagar.',
-    h1: 'Premium Acrylic Photo Frames in Hyderabad',
+    title: "5MM Acrylic Wall Art in Hyderabad | Direct UV Printing — Abhi's Gifts",
+    description: 'Explore high-definition 5MM crystal clear acrylic wall art in Hyderabad. Advanced direct UV printing, precision square-cut edges & metal installation studs included, handcrafted in Dilsukhnagar.',
+    h1: 'Premium 5MM Acrylic Wall Art in Hyderabad',
   },
   'custom-led-photo-frames': {
     title: "LED Photo Frames in Hyderabad | warm Backlit Custom Frames — Abhi's Gifts",

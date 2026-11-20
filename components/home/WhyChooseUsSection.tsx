@@ -14,24 +14,24 @@ export default function WhyChooseUsSection() {
     },
     {
       icon: ShieldCheck,
-      title: 'Museum-Grade Cast Acrylic',
-      tag: '100% Shatterproof',
+      title: 'Premium Virgin Cast Acrylic',
+      tag: 'Square-Cut Edges',
       description:
-        'Premium crystal cast acrylic with diamond-beveled edges for stunning depth, optical clarity, and lifelong durability.',
+        'Imported clear virgin cast acrylic and 5MM premium crystal acrylic featuring precision square-cut edges for maximum optical clarity.',
     },
     {
       icon: Sun,
-      title: 'Safe LED Backlighting',
-      tag: 'Warm 12V Halo',
+      title: 'Cool White LED Backlighting',
+      tag: 'Cool White Halo Glow',
       description:
-        'Certified low-voltage 12V ambient LEDs that produce a soothing golden halo while remaining cool to the touch.',
+        'Hidden perimeter LED illumination producing an elegant Cool White halo glow with external power adapter included.',
     },
     {
       icon: MessageCircle,
       title: 'WhatsApp Proof Preview',
       tag: 'Approval Before Craft',
       description:
-        'Review a 1:1 digital proof of your custom frame directly on WhatsApp for your approval before laser cutting.',
+        'Review a 1:1 digital proof of your custom frame directly on WhatsApp for your approval before production.',
     },
   ];
 

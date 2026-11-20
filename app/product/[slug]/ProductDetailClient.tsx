@@ -28,6 +28,8 @@ import {
   Eye,
   Flame,
   Camera,
+  Power,
+  Wrench,
 } from 'lucide-react';
 import AddPhotoModal from '@/components/product/AddPhotoModal';
 import CustomSizeInput from '@/components/product/CustomSizeInput';
@@ -100,8 +102,8 @@ export const SHAPE_SIZES: Record<ShapeOptionType, SizeOption[]> = {
       allowedThickness: ['3mm', '5mm'],
       mountingHardware: {
         framed: 'For Frames Wall Plugs and Screws are Provided',
-        without3mm: 'With two way tape Adhesive hook',
-        without5mm: 'With two way tape Adhesive hook',
+        without3mm: 'Wall Mounting Studs and Hardware Provided',
+        without5mm: 'Premium Metal Wall Mounting Studs Included with Screws',
       },
       prices: {
         without_3mm: { price: 1299, mrp: 2499 },
@@ -118,8 +120,8 @@ export const SHAPE_SIZES: Record<ShapeOptionType, SizeOption[]> = {
       allowedThickness: ['3mm', '5mm'],
       mountingHardware: {
         framed: 'For Frames Wall Plugs and Screws are Provided',
-        without3mm: 'With two way tape Adhesive hook',
-        without5mm: 'With two way tape Adhesive hook',
+        without3mm: 'Wall Mounting Studs and Hardware Provided',
+        without5mm: 'Premium Metal Wall Mounting Studs Included with Screws',
       },
       prices: {
         without_3mm: { price: 2299, mrp: 4399 },
@@ -137,7 +139,7 @@ export const SHAPE_SIZES: Record<ShapeOptionType, SizeOption[]> = {
       mountingHardware: {
         framed: 'For Frames Wall Plugs and Screws are Provided',
         without3mm: '',
-        without5mm: 'With two way tape Adhesive hook',
+        without5mm: 'Premium Metal Wall Mounting Studs Included with Screws',
       },
       prices: {
         without_5mm: { price: 4899, mrp: 8999 },
@@ -154,7 +156,7 @@ export const SHAPE_SIZES: Record<ShapeOptionType, SizeOption[]> = {
       mountingHardware: {
         framed: 'For Frames Wall Plugs and Screws are Provided',
         without3mm: '',
-        without5mm: '4 or 6 S.S Studds with screws',
+        without5mm: 'Premium Metal Wall Mounting Studs Included with Screws',
       },
       prices: {
         without_5mm: { price: 8899, mrp: 15999 },
@@ -172,8 +174,8 @@ export const SHAPE_SIZES: Record<ShapeOptionType, SizeOption[]> = {
       allowedThickness: ['3mm', '5mm'],
       mountingHardware: {
         framed: 'For Frames Wall Plugs and Screws are Provided',
-        without3mm: 'With two way tape Adhesive hook',
-        without5mm: 'With two way tape Adhesive hook',
+        without3mm: 'Wall Mounting Studs and Hardware Provided',
+        without5mm: 'Premium Metal Wall Mounting Studs Included with Screws',
       },
       prices: {
         without_3mm: { price: 1299, mrp: 2499 },
@@ -190,8 +192,8 @@ export const SHAPE_SIZES: Record<ShapeOptionType, SizeOption[]> = {
       allowedThickness: ['3mm', '5mm'],
       mountingHardware: {
         framed: 'For Frames Wall Plugs and Screws are Provided',
-        without3mm: 'With two way tape Adhesive hook',
-        without5mm: 'With two way tape Adhesive hook',
+        without3mm: 'Wall Mounting Studs and Hardware Provided',
+        without5mm: 'Premium Metal Wall Mounting Studs Included with Screws',
       },
       prices: {
         without_3mm: { price: 2299, mrp: 4399 },
@@ -209,7 +211,7 @@ export const SHAPE_SIZES: Record<ShapeOptionType, SizeOption[]> = {
       mountingHardware: {
         framed: 'For Frames Wall Plugs and Screws are Provided',
         without3mm: '',
-        without5mm: 'With two way tape Adhesive hook',
+        without5mm: 'Premium Metal Wall Mounting Studs Included with Screws',
       },
       prices: {
         without_5mm: { price: 4899, mrp: 8999 },
@@ -226,7 +228,7 @@ export const SHAPE_SIZES: Record<ShapeOptionType, SizeOption[]> = {
       mountingHardware: {
         framed: 'For Frames Wall Plugs and Screws are Provided',
         without3mm: '',
-        without5mm: '4 or 6 S.S Studds with screws',
+        without5mm: 'Premium Metal Wall Mounting Studs Included with Screws',
       },
       prices: {
         without_5mm: { price: 8899, mrp: 15999 },
@@ -243,7 +245,7 @@ export const SHAPE_SIZES: Record<ShapeOptionType, SizeOption[]> = {
       mountingHardware: {
         framed: 'For Frames Wall Plugs and Screws are Provided',
         without3mm: '',
-        without5mm: '4 or 6 S.S Studds with screws',
+        without5mm: 'Premium Metal Wall Mounting Studs Included with Screws',
       },
       prices: {
         without_5mm: { price: 11499, mrp: 21999 },
@@ -261,8 +263,8 @@ export const SHAPE_SIZES: Record<ShapeOptionType, SizeOption[]> = {
       allowedThickness: ['3mm', '5mm'],
       mountingHardware: {
         framed: 'For Frames Wall Plugs and Screws are Provided',
-        without3mm: 'With two way tape Adhesive hook',
-        without5mm: 'With two way tape Adhesive hook',
+        without3mm: 'Wall Mounting Studs and Hardware Provided',
+        without5mm: 'Premium Metal Wall Mounting Studs Included with Screws',
       },
       prices: {
         without_3mm: { price: 1199, mrp: 2299 },
@@ -279,8 +281,8 @@ export const SHAPE_SIZES: Record<ShapeOptionType, SizeOption[]> = {
       allowedThickness: ['3mm', '5mm'],
       mountingHardware: {
         framed: 'For Frames Wall Plugs and Screws are Provided',
-        without3mm: 'With two way tape Adhesive hook',
-        without5mm: 'With two way tape Adhesive hook',
+        without3mm: 'Wall Mounting Studs and Hardware Provided',
+        without5mm: 'Premium Metal Wall Mounting Studs Included with Screws',
       },
       prices: {
         without_3mm: { price: 1999, mrp: 3799 },
@@ -298,7 +300,7 @@ export const SHAPE_SIZES: Record<ShapeOptionType, SizeOption[]> = {
       mountingHardware: {
         framed: 'For Frames Wall Plugs and Screws are Provided',
         without3mm: '',
-        without5mm: 'With two way tape Adhesive hook',
+        without5mm: 'Premium Metal Wall Mounting Studs Included with Screws',
       },
       prices: {
         without_5mm: { price: 3699, mrp: 6999 },
@@ -315,7 +317,7 @@ export const SHAPE_SIZES: Record<ShapeOptionType, SizeOption[]> = {
       mountingHardware: {
         framed: 'For Frames Wall Plugs and Screws are Provided',
         without3mm: '',
-        without5mm: '4 or 6 S.S Studds with screws',
+        without5mm: 'Premium Metal Wall Mounting Studs Included with Screws',
       },
       prices: {
         without_5mm: { price: 5899, mrp: 10999 },
@@ -386,6 +388,34 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
     return false;
   }, [product.categorySlug, product.categorySlugs, product.slug]);
 
+  // Check if product is an Acrylic Frame (Non-LED crystal clear acrylic wall art)
+  const isAcrylicFrame = useMemo(() => {
+    if (product.hasLedBacklight) return false;
+    if (isGlitterFrame) return false;
+    if (
+      product.categorySlug === '360-rotating-photo-lamps' ||
+      product.categorySlugs?.includes('360-rotating-photo-lamps') ||
+      product.slug?.includes('rotating') ||
+      product.slug?.includes('lamp')
+    ) {
+      return false;
+    }
+    return true;
+  }, [product.hasLedBacklight, isGlitterFrame, product.categorySlug, product.categorySlugs, product.slug]);
+
+  // Check if product is an LED Backlit Frame (Wall frame with integrated LED backlighting)
+  const isLedFrame = useMemo(() => {
+    if (
+      product.categorySlug === '360-rotating-photo-lamps' ||
+      product.categorySlugs?.includes('360-rotating-photo-lamps') ||
+      product.slug?.includes('rotating') ||
+      product.slug?.includes('lamp')
+    ) {
+      return false;
+    }
+    return Boolean(product.hasLedBacklight);
+  }, [product.hasLedBacklight, product.categorySlug, product.categorySlugs, product.slug]);
+
   // Available sizes calibrated for the selected shape & product variants
   const availableSizes = useMemo(() => {
     const defaultList = SHAPE_SIZES[selectedShape] || SHAPE_SIZES.portrait;
@@ -410,7 +440,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
             label: cleanLabel,
             dimensionsCm: v.dimensionsCm || '',
             allowedFrames: ['gold', 'black', 'without'] as FrameType[],
-            allowedThickness: ['3mm', '5mm'] as ThicknessType[],
+            allowedThickness: ['5mm'] as ThicknessType[],
             mountingHardware: {
               framed: '',
               without3mm: 'Tabletop acrylic block or floating standoffs included',
@@ -428,13 +458,17 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
 
       return defaultList.map((sizeObj, idx) => {
         const v = sourceVariants[idx];
-        if (!v || !v.price) return sizeObj;
+        if (!v || !v.price) return {
+          ...sizeObj,
+          allowedThickness: isAcrylicFrame ? (['5mm'] as ThicknessType[]) : sizeObj.allowedThickness,
+        };
         const vPrice = Number(v.price);
         const vMrp = Number(v.mrp) || Math.round(vPrice * 1.8);
         return {
           ...sizeObj,
           label: v.size.replace(' (Grand Wall Size)', '').replace(' (Grand Sanctum)', ''),
           dimensionsCm: v.dimensionsCm || sizeObj.dimensionsCm,
+          allowedThickness: isAcrylicFrame ? (['5mm'] as ThicknessType[]) : sizeObj.allowedThickness,
           prices: {
             ...sizeObj.prices,
             gold: { price: vPrice, mrp: vMrp },
@@ -446,8 +480,15 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
       });
     }
 
+    if (isAcrylicFrame) {
+      return defaultList.map((s) => ({
+        ...s,
+        allowedThickness: ['5mm'] as ThicknessType[],
+      }));
+    }
+
     return defaultList;
-  }, [selectedShape, liveProduct.orientationVariants, liveProduct.variants, isGlitterFrame]);
+  }, [selectedShape, liveProduct.orientationVariants, liveProduct.variants, isGlitterFrame, isAcrylicFrame]);
 
   // Selected frame & size state
   const [selectedFrame, setSelectedFrame] = useState<FrameType>(() => {
@@ -462,7 +503,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
     const initList = SHAPE_SIZES[initialShape] || SHAPE_SIZES.portrait;
     return initList[0]?.id || '12x18';
   });
-  const [selectedThickness, setSelectedThickness] = useState<ThicknessType>('3mm');
+  const [selectedThickness, setSelectedThickness] = useState<ThicknessType>('5mm');
   const [quantity, setQuantity] = useState(1);
   const [isCustomizerOpen, setIsCustomizerOpen] = useState(false);
   const [isCustomSize, setIsCustomSize] = useState(false);
@@ -501,6 +542,16 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
     sizing: false,
     craftInstall: false,
     shippingFaq: false,
+    // LED 10-section layout keys
+    ledMaterial: true,
+    ledUvPrint: false,
+    ledBorder: false,
+    ledLighting: false,
+    ledSpecs: false,
+    ledPower: false,
+    ledInstall: false,
+    ledCare: false,
+    ledFaq: false,
   });
 
   const toggleSection = (key: string) => {
@@ -562,16 +613,17 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
 
   // Auto-adjust thickness when frame/size changes
   const availableThicknesses: ThicknessType[] = useMemo(() => {
+    if (isAcrylicFrame) return ['5mm'];
     if (selectedFrame !== 'without' || !currentSizeObj) return [];
     return currentSizeObj.allowedThickness;
-  }, [selectedFrame, currentSizeObj]);
+  }, [isAcrylicFrame, selectedFrame, currentSizeObj]);
 
   // Dynamic calculation for entered custom dimensions
   const customSizeCalc = useMemo(() => {
     return calculateCustomDimensions(customWidth, customHeight, {
       hasLed: product.hasLedBacklight && isAartiGlow,
       frameType: selectedFrame,
-      thickness: selectedThickness,
+      thickness: isAcrylicFrame ? '5mm' : selectedThickness,
       variants: availableSizes.length > 0 ? availableSizes : (liveProduct.variants || product.variants),
       basePrice: liveProduct.basePrice || product.basePrice,
       baseMrp: liveProduct.baseMrp || product.baseMrp,
@@ -582,6 +634,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
     product.hasLedBacklight,
     isAartiGlow,
     selectedFrame,
+    isAcrylicFrame,
     selectedThickness,
     availableSizes,
     liveProduct.variants,
@@ -617,6 +670,10 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
     }
 
     if (selectedFrame === 'without') {
+      if (isAcrylicFrame) {
+        const p = currentSizeObj.prices.without_5mm || currentSizeObj.prices.gold;
+        return p ? { price: p.price, mrp: p.mrp, isRange: false } : { price: liveProduct.basePrice, mrp: liveProduct.baseMrp, isRange: false };
+      }
       if (selectedThickness === '3mm' && currentSizeObj.prices.without_3mm) {
         return { price: currentSizeObj.prices.without_3mm.price, mrp: currentSizeObj.prices.without_3mm.mrp, isRange: false };
       }
@@ -632,20 +689,22 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
     }
 
     return { price: liveProduct.basePrice, mrp: liveProduct.baseMrp, isRange: false };
-  }, [isCustomSize, customSizeCalc, currentSizeObj, selectedFrame, selectedThickness, product.basePrice, product.baseMrp]);
+  }, [isCustomSize, customSizeCalc, currentSizeObj, isAcrylicFrame, selectedFrame, selectedThickness, liveProduct.basePrice, liveProduct.baseMrp, product.basePrice, product.baseMrp]);
 
   // Hardware helper text
   const mountingNote = useMemo(() => {
+    if (isAcrylicFrame) {
+      return 'Premium Metal Wall Mounting Studs Included with Every Frame';
+    }
     if (!currentSizeObj) return '';
     if (selectedFrame === 'gold' || selectedFrame === 'black') {
       return currentSizeObj.mountingHardware.framed;
     }
     if (selectedFrame === 'without') {
-      if (selectedThickness === '3mm') return currentSizeObj.mountingHardware.without3mm;
-      return currentSizeObj.mountingHardware.without5mm;
+      return currentSizeObj.mountingHardware.without5mm || 'Premium Metal Wall Mounting Studs Included with Screws';
     }
     return '';
-  }, [currentSizeObj, selectedFrame, selectedThickness]);
+  }, [isAcrylicFrame, currentSizeObj, selectedFrame]);
 
   const discountPercent = useMemo(() => {
     if (currentPricing.mrp > currentPricing.price) {
@@ -675,14 +734,12 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
         const fallback = availableSizes.find((s) => s.allowedFrames.includes(frame));
         if (fallback) {
           setSelectedSizeId(fallback.id);
-          if (frame === 'without' && fallback.allowedThickness.length > 0) {
-            setSelectedThickness(fallback.allowedThickness[0]);
+          if (frame === 'without') {
+            setSelectedThickness(isAcrylicFrame ? '5mm' : (fallback.allowedThickness[0] || '5mm'));
           }
         }
       } else if (frame === 'without' && sizeObj) {
-        if (!sizeObj.allowedThickness.includes(selectedThickness)) {
-          setSelectedThickness(sizeObj.allowedThickness[0] || '3mm');
-        }
+        setSelectedThickness(isAcrylicFrame ? '5mm' : (sizeObj.allowedThickness[0] || '5mm'));
       }
     }
   };
@@ -693,9 +750,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
     const sizeObj = availableSizes.find((s) => s.id === sizeId);
     if (sizeObj) {
       if (selectedFrame === 'without') {
-        if (!sizeObj.allowedThickness.includes(selectedThickness)) {
-          setSelectedThickness(sizeObj.allowedThickness[0] || '5mm');
-        }
+        setSelectedThickness(isAcrylicFrame ? '5mm' : (sizeObj.allowedThickness[0] || '5mm'));
       } else {
         if (!sizeObj.allowedFrames.includes(selectedFrame)) {
           setSelectedFrame(sizeObj.allowedFrames[0] || 'gold');
@@ -733,7 +788,13 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
 
   // Add to cart
   const handleAddToCart = () => {
-    const frameLabel = isGlitterFrame ? 'Glitter Acrylic Block' : (selectedFrame === 'gold' ? 'Gold Frame' : selectedFrame === 'black' ? 'Black Frame' : `Without Frame (${selectedThickness})`);
+    const frameLabel = isLedFrame
+      ? 'Rose Gold Aluminium Side Frame (Wall Plugs & Screws Included)'
+      : isGlitterFrame
+      ? 'Glitter Acrylic Block'
+      : isAcrylicFrame
+      ? (selectedFrame === 'gold' ? 'Champagne Gold Frame' : selectedFrame === 'black' ? 'Matte Black Frame' : 'Frameless 5MM Acrylic (Metal Studs Included)')
+      : (selectedFrame === 'gold' ? 'Gold Frame' : selectedFrame === 'black' ? 'Black Frame' : `Without Frame (${selectedThickness})`);
     const sizeLabel = isCustomSize ? customSizeCalc.label : (currentSizeObj ? currentSizeObj.label : '12x18');
 
     addToCart(
@@ -742,17 +803,23 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
         slug: product.slug,
         title: product.title,
         image: activeImage,
-        variantId: `${product.slug}-${selectedShape}-${isGlitterFrame ? 'glitter' : selectedFrame}-${sizeLabel}-${selectedThickness}`,
+        variantId: `${product.slug}-${selectedShape}-${isLedFrame ? 'rosegold' : isGlitterFrame ? 'glitter' : selectedFrame}-${sizeLabel}${isLedFrame ? '' : isAcrylicFrame ? '-5mm' : `-${selectedThickness}`}`,
         size: `${sizeLabel} (${selectedShape.toUpperCase()})`,
         finish: frameLabel,
-        lighting: product.hasLedBacklight ? (isAartiGlow ? 'LED Backlit (12V Adapter)' : 'Daylight Acrylic (LED Off)') : (isGlitterFrame ? 'Liquid Shimmer Floating Glitter' : 'Pure Acrylic Wall Art'),
+        lighting: isLedFrame
+          ? (isAartiGlow ? 'Cool White LED Backlighting (Adapter Included)' : 'Cool White LED (Off)')
+          : product.hasLedBacklight
+          ? (isAartiGlow ? 'Cool White LED Backlighting' : 'LED Off')
+          : isGlitterFrame
+          ? 'Liquid Shimmer Floating Glitter'
+          : 'Non-LED (Direct UV Printed 5MM Acrylic)',
         shape: selectedShape,
         unitPrice: currentPricing.price,
         unitMrp: currentPricing.mrp,
         quantity,
         customization: {
           previewUrl: activeImage,
-          frameType: isGlitterFrame ? 'without' : selectedFrame,
+          frameType: isLedFrame ? 'gold' : isGlitterFrame ? 'without' : selectedFrame,
           orientation: selectedShape === 'portrait' ? 'vertical' : selectedShape === 'landscape' ? 'horizontal' : 'square',
           aspectRatio: SHAPE_CONFIGS[selectedShape].ratioLabel,
           specialInstructions: isCustomSize ? `Custom Dimension Order: ${customSizeCalc.widthInches}x${customSizeCalc.heightInches} inches (${customSizeCalc.dimensionsCm}) | Shape: ${selectedShape.toUpperCase()} | Finish: ${frameLabel}` : `Shape: ${selectedShape.toUpperCase()} | Finish: ${frameLabel} | Size: ${sizeLabel}`,
@@ -764,7 +831,13 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
 
   // Instant Buy Now
   const handleBuyNow = () => {
-    const frameLabel = isGlitterFrame ? 'Glitter Acrylic Block' : (selectedFrame === 'gold' ? 'Gold Frame' : selectedFrame === 'black' ? 'Black Frame' : `Without Frame (${selectedThickness})`);
+    const frameLabel = isLedFrame
+      ? 'Rose Gold Aluminium Side Frame (Wall Plugs & Screws Included)'
+      : isGlitterFrame
+      ? 'Glitter Acrylic Block'
+      : isAcrylicFrame
+      ? (selectedFrame === 'gold' ? 'Champagne Gold Frame' : selectedFrame === 'black' ? 'Matte Black Frame' : 'Frameless 5MM Acrylic (Metal Studs Included)')
+      : (selectedFrame === 'gold' ? 'Gold Frame' : selectedFrame === 'black' ? 'Black Frame' : `Without Frame (${selectedThickness})`);
     const sizeLabel = isCustomSize ? customSizeCalc.label : (currentSizeObj ? currentSizeObj.label : '12x18');
 
     addToCart(
@@ -773,17 +846,23 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
         slug: product.slug,
         title: product.title,
         image: activeImage,
-        variantId: `${product.slug}-${selectedShape}-${isGlitterFrame ? 'glitter' : selectedFrame}-${sizeLabel}-${selectedThickness}`,
+        variantId: `${product.slug}-${selectedShape}-${isLedFrame ? 'rosegold' : isGlitterFrame ? 'glitter' : selectedFrame}-${sizeLabel}${isLedFrame ? '' : isAcrylicFrame ? '-5mm' : `-${selectedThickness}`}`,
         size: `${sizeLabel} (${selectedShape.toUpperCase()})`,
         finish: frameLabel,
-        lighting: product.hasLedBacklight ? (isAartiGlow ? 'LED Backlit (12V Adapter)' : 'Daylight Acrylic (LED Off)') : (isGlitterFrame ? 'Liquid Shimmer Floating Glitter' : 'Pure Acrylic Wall Art'),
+        lighting: isLedFrame
+          ? (isAartiGlow ? 'Cool White LED Backlighting (Adapter Included)' : 'Cool White LED (Off)')
+          : product.hasLedBacklight
+          ? (isAartiGlow ? 'Cool White LED Backlighting' : 'LED Off')
+          : isGlitterFrame
+          ? 'Liquid Shimmer Floating Glitter'
+          : 'Non-LED (Direct UV Printed 5MM Acrylic)',
         shape: selectedShape,
         unitPrice: currentPricing.price,
         unitMrp: currentPricing.mrp,
         quantity,
         customization: {
           previewUrl: activeImage,
-          frameType: isGlitterFrame ? 'without' : selectedFrame,
+          frameType: isLedFrame ? 'gold' : isGlitterFrame ? 'without' : selectedFrame,
           orientation: selectedShape === 'portrait' ? 'vertical' : selectedShape === 'landscape' ? 'horizontal' : 'square',
           aspectRatio: SHAPE_CONFIGS[selectedShape].ratioLabel,
           specialInstructions: isCustomSize ? `Custom Dimension Order: ${customSizeCalc.widthInches}x${customSizeCalc.heightInches} inches (${customSizeCalc.dimensionsCm}) | Shape: ${selectedShape.toUpperCase()} | Finish: ${frameLabel}` : `Shape: ${selectedShape.toUpperCase()} | Finish: ${frameLabel} | Size: ${sizeLabel}`,
@@ -827,12 +906,29 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
           <div className="lg:col-span-7 xl:col-span-7 lg:sticky lg:top-24 self-start space-y-5">
             {/* Main Display Container */}
             <div className="relative w-full aspect-square sm:aspect-[4/5] max-h-[600px] rounded-2xl overflow-hidden bg-stone-50 border border-stone-200 transition-all duration-300 flex items-center justify-center p-3 sm:p-6 group">
-              {/* Top Right Floating Controls: Fullscreen Zoom */}
-              <div className="absolute top-4 right-4 z-20 flex items-center gap-2">
+              {/* Top Floating Controls: Cool White LED Glow Toggle + Fullscreen Zoom */}
+              <div className="absolute top-4 left-4 right-4 z-20 flex items-center justify-between pointer-events-none">
+                {isLedFrame ? (
+                  <button
+                    type="button"
+                    onClick={() => setIsAartiGlow(!isAartiGlow)}
+                    className={`pointer-events-auto flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold transition-all shadow-md border cursor-pointer ${
+                      isAartiGlow
+                        ? 'bg-stone-900 text-white border-cyan-400 shadow-[0_0_20px_rgba(255,255,255,0.7)]'
+                        : 'bg-white/95 text-stone-700 border-stone-200 hover:bg-white'
+                    }`}
+                  >
+                    <Sun className={`w-3.5 h-3.5 ${isAartiGlow ? 'text-cyan-300 animate-spin' : 'text-stone-400'}`} />
+                    <span>Cool White LED Glow: {isAartiGlow ? 'ON' : 'OFF'}</span>
+                  </button>
+                ) : (
+                  <div />
+                )}
+
                 <button
                   type="button"
                   onClick={() => setLightboxOpen(true)}
-                  className="p-2 rounded-full bg-white/90 hover:bg-white text-stone-800 shadow-sm border border-stone-200 transition-all hover:scale-105 cursor-pointer"
+                  className="pointer-events-auto p-2 rounded-full bg-white/90 hover:bg-white text-stone-800 shadow-sm border border-stone-200 transition-all hover:scale-105 cursor-pointer ml-auto"
                   aria-label="Fullscreen view"
                   title="Full Screen View"
                 >
@@ -863,7 +959,23 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                       : 'w-full aspect-square max-w-[450px] max-h-[450px]'
                   }`}
                 >
-                  <div className="relative w-full h-full overflow-hidden rounded-xl border border-stone-200 shadow-sm bg-white">
+                  {/* Cool White Halo Glow Ambient Backdrop for LED Frames */}
+                  {isLedFrame && isAartiGlow && (
+                    <div
+                      className="absolute -inset-3 sm:-inset-6 rounded-2xl pointer-events-none transition-all duration-500 z-0 animate-pulse"
+                      style={{
+                        boxShadow: '0 0 40px 14px rgba(255, 255, 255, 0.95), 0 0 85px 28px rgba(225, 240, 255, 0.65)',
+                      }}
+                    />
+                  )}
+
+                  <div
+                    className={`relative w-full h-full overflow-hidden rounded-xl shadow-sm bg-white z-10 transition-all ${
+                      isLedFrame
+                        ? 'border-[4px] border-[#C88A75]'
+                        : 'border border-stone-200'
+                    }`}
+                  >
                     {/* Main Artwork Image with Smooth Zoom tracking */}
                     <img
                       src={activeImage}
@@ -958,15 +1070,15 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
             <div className="grid grid-cols-3 gap-2.5 pt-1 text-center">
               <div className="py-2.5 px-2 rounded-xl bg-stone-50 border border-stone-200/80 text-[11px] font-medium text-stone-700 flex items-center justify-center gap-1.5">
                 <Sparkles className="w-3.5 h-3.5 text-amber-600 shrink-0" />
-                <span className="truncate">Cast Acrylic</span>
+                <span className="truncate">{isAcrylicFrame ? '5MM Acrylic' : 'Cast Acrylic'}</span>
               </div>
               <div className="py-2.5 px-2 rounded-xl bg-stone-50 border border-stone-200/80 text-[11px] font-medium text-stone-700 flex items-center justify-center gap-1.5">
                 <ShieldCheck className="w-3.5 h-3.5 text-amber-600 shrink-0" />
-                <span className="truncate">Moisture Proof</span>
+                <span className="truncate">{isAcrylicFrame ? 'Direct UV Print' : 'Moisture Proof'}</span>
               </div>
               <div className="py-2.5 px-2 rounded-xl bg-stone-50 border border-stone-200/80 text-[11px] font-medium text-stone-700 flex items-center justify-center gap-1.5">
                 <CheckCircle2 className="w-3.5 h-3.5 text-amber-600 shrink-0" />
-                <span className="truncate">Mounting Included</span>
+                <span className="truncate">{isAcrylicFrame ? 'Studs Included' : 'Mounting Included'}</span>
               </div>
             </div>
           </div>
@@ -983,6 +1095,12 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                   <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
                   <span>In Stock • Ships in 24-48 Hours</span>
                 </span>
+                {isAcrylicFrame && (
+                  <span className="text-[11px] font-semibold text-amber-800 flex items-center gap-1 bg-amber-50 px-2.5 py-0.5 rounded-full border border-amber-200">
+                    <Sparkles className="w-3 h-3 text-amber-600" />
+                    <span>5MM Crystal Acrylic</span>
+                  </span>
+                )}
               </div>
 
               <h1 className="text-2xl sm:text-3xl lg:text-[32px] font-serif font-bold text-stone-900 leading-tight tracking-tight break-words [text-wrap:balance]">
@@ -1013,6 +1131,43 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
               )}
             </div>
 
+            {/* Prominent Key Highlights for Acrylic Frames (Requirement 8) */}
+            {isAcrylicFrame && (
+              <div className="p-3.5 sm:p-4 rounded-2xl bg-gradient-to-br from-amber-50/70 via-stone-50 to-amber-50/40 border border-amber-200/80 shadow-2xs space-y-2.5">
+                <div className="flex items-center justify-between">
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-amber-900 flex items-center gap-1.5">
+                    <Sparkles className="w-3.5 h-3.5 text-amber-600 shrink-0" />
+                    <span>Acrylic Specifications &amp; Highlights</span>
+                  </span>
+                  <span className="text-[10px] font-bold text-amber-800 bg-amber-100/90 border border-amber-300 px-2 py-0.5 rounded-full">
+                    Non-LED Product
+                  </span>
+                </div>
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 text-xs">
+                  <div className="flex items-center gap-1.5 p-2 rounded-xl bg-white border border-stone-200/80 shadow-2xs">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-amber-600 shrink-0" />
+                    <span className="font-semibold text-stone-900 text-[11px]">5MM Premium Acrylic</span>
+                  </div>
+                  <div className="flex items-center gap-1.5 p-2 rounded-xl bg-white border border-stone-200/80 shadow-2xs">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-amber-600 shrink-0" />
+                    <span className="font-semibold text-stone-900 text-[11px]">Direct UV Printing</span>
+                  </div>
+                  <div className="flex items-center gap-1.5 p-2 rounded-xl bg-white border border-stone-200/80 shadow-2xs">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-amber-600 shrink-0" />
+                    <span className="font-semibold text-stone-900 text-[11px]">Premium Glossy Finish</span>
+                  </div>
+                  <div className="flex items-center gap-1.5 p-2 rounded-xl bg-white border border-stone-200/80 shadow-2xs">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-amber-600 shrink-0" />
+                    <span className="font-semibold text-stone-900 text-[11px]">Precision Square Edges</span>
+                  </div>
+                  <div className="flex items-center gap-1.5 p-2 rounded-xl bg-white border border-stone-200/80 shadow-2xs col-span-2 sm:col-span-1">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                    <span className="font-semibold text-stone-900 text-[11px]">Metal Studs Included</span>
+                  </div>
+                </div>
+              </div>
+            )}
+
             {/* Customization: Frame Style (Hidden for Glitter Photo Frames) */}
             {!isGlitterFrame && (
               <>
@@ -1021,7 +1176,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                     <span className="font-bold text-stone-900">
                       Frame Style:{' '}
                       <strong className="text-amber-800 font-serif">
-                        {selectedFrame === 'gold' ? 'Champagne Gold' : selectedFrame === 'black' ? 'Matte Black' : 'Frameless Crystal Acrylic'}
+                        {selectedFrame === 'gold' ? 'Champagne Gold' : selectedFrame === 'black' ? 'Matte Black' : isAcrylicFrame ? 'Frameless 5MM Acrylic' : 'Frameless Crystal Acrylic'}
                       </strong>
                     </span>
                     <span className="text-[11px] text-stone-500">Select finish</span>
@@ -1088,39 +1243,57 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                         />
                       </div>
                       <span className="text-xs font-bold text-stone-900 leading-tight">No Frame</span>
-                      <span className="text-[10px] text-stone-500">Crystal Acrylic</span>
+                      <span className="text-[10px] text-stone-500">{isAcrylicFrame ? '5MM Square Cut' : 'Crystal Acrylic'}</span>
                     </button>
                   </div>
                 </div>
 
-                {/* Thickness Selector (When Without Frame is selected) */}
-                {selectedFrame === 'without' && availableThicknesses.length > 0 && (
-                  <div className="space-y-2 bg-stone-50 p-3.5 rounded-2xl border border-stone-200">
+                {/* Thickness Specification */}
+                {isAcrylicFrame ? (
+                  <div className="space-y-1.5 bg-amber-50/60 p-3.5 rounded-2xl border border-amber-200/80 shadow-2xs">
                     <div className="flex items-center justify-between text-xs">
-                      <span className="font-bold text-stone-900">
-                        Acrylic Thickness: <strong className="text-amber-800">{selectedThickness}</strong>
+                      <span className="font-bold text-stone-900 flex items-center gap-1.5">
+                        <Sparkles className="w-3.5 h-3.5 text-amber-600" />
+                        <span>Acrylic Thickness:</span>
+                        <strong className="text-amber-900 font-serif">5MM Premium Acrylic</strong>
                       </span>
-                      <span className="text-[11px] text-stone-500">
-                        {selectedThickness === '3mm' ? 'With 2-way tape adhesive hook' : 'Heavy cast acrylic with S.S studs'}
+                      <span className="text-[10px] font-bold text-emerald-800 bg-emerald-100/80 border border-emerald-300 px-2 py-0.5 rounded-md">
+                        Metal Studs Included
                       </span>
                     </div>
-                    <div className="flex gap-2">
-                      {availableThicknesses.map((th) => (
-                        <button
-                          key={th}
-                          type="button"
-                          onClick={() => setSelectedThickness(th)}
-                          className={`flex-1 py-2 px-3 rounded-xl text-xs font-bold border transition-all cursor-pointer ${
-                            selectedThickness === th
-                              ? 'border-amber-500 bg-white text-stone-900 shadow-xs'
-                              : 'border-stone-200 bg-white/70 text-stone-600 hover:border-amber-300'
-                          }`}
-                        >
-                          {th} {th === '3mm' ? '(Standard)' : '(Heavy Cast)'}
-                        </button>
-                      ))}
-                    </div>
+                    <p className="text-[11px] text-stone-600 leading-relaxed">
+                      Every frame is crafted in 5MM thickness with precision square-cut edges and premium metal wall mounting studs included with hardware.
+                    </p>
                   </div>
+                ) : (
+                  selectedFrame === 'without' && availableThicknesses.length > 0 && (
+                    <div className="space-y-2 bg-stone-50 p-3.5 rounded-2xl border border-stone-200">
+                      <div className="flex items-center justify-between text-xs">
+                        <span className="font-bold text-stone-900">
+                          Acrylic Thickness: <strong className="text-amber-800">{selectedThickness}</strong>
+                        </span>
+                        <span className="text-[11px] text-stone-500">
+                          Heavy cast acrylic with S.S studs
+                        </span>
+                      </div>
+                      <div className="flex gap-2">
+                        {availableThicknesses.map((th) => (
+                          <button
+                            key={th}
+                            type="button"
+                            onClick={() => setSelectedThickness(th)}
+                            className={`flex-1 py-2 px-3 rounded-xl text-xs font-bold border transition-all cursor-pointer ${
+                              selectedThickness === th
+                                ? 'border-amber-500 bg-white text-stone-900 shadow-xs'
+                                : 'border-stone-200 bg-white/70 text-stone-600 hover:border-amber-300'
+                            }`}
+                          >
+                            {th}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  )
                 )}
               </>
             )}
@@ -1319,12 +1492,104 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
           </div>
         </div>
 
+        {/* Dedicated Direct UV Printing Technology Section (Requirements 2, 3, 4, 8) */}
+        {isAcrylicFrame && (
+          <div className="border-t border-stone-200 pt-10 max-w-4xl mx-auto space-y-6">
+            <div className="border border-amber-200/90 rounded-3xl p-6 sm:p-8 bg-gradient-to-br from-amber-50/50 via-white to-amber-50/30 shadow-xs space-y-6">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-amber-200/70 pb-4">
+                <div>
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-amber-800 bg-amber-100/70 border border-amber-300/80 px-2.5 py-0.5 rounded-full inline-block mb-1">
+                    Direct UV Technology
+                  </span>
+                  <h3 className="text-xl sm:text-2xl font-serif font-bold text-stone-900">
+                    Advanced Direct UV Printing Technology
+                  </h3>
+                </div>
+                <span className="text-xs font-semibold text-emerald-800 bg-emerald-50 border border-emerald-200 px-3 py-1 rounded-full self-start sm:self-auto">
+                  5MM Crystal Acrylic • Non-LED
+                </span>
+              </div>
+
+              <div className="space-y-3 text-xs sm:text-sm text-stone-700 leading-relaxed">
+                <p>
+                  Our Acrylic Frames are produced using advanced <strong>Direct UV Printing Technology</strong>, where high-quality UV-curable inks are printed directly onto the acrylic surface.
+                </p>
+                <p>
+                  Unlike traditional paper prints or separately pasted photo sheets, the artwork is printed directly onto the acrylic, creating a clean, premium and seamless appearance. Combined with premium 5MM thick crystal-clear acrylic, this printing process gives your wall art a sophisticated and elegant appearance.
+                </p>
+              </div>
+
+              {/* Key Benefits Grid */}
+              <div className="space-y-3">
+                <h4 className="text-xs font-bold uppercase tracking-wider text-amber-900 flex items-center gap-1.5">
+                  <Sparkles className="w-3.5 h-3.5 text-amber-600" />
+                  <span>Key Benefits:</span>
+                </h4>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                  {[
+                    'Direct printing onto the acrylic surface.',
+                    'High-definition image reproduction with sharp details.',
+                    'Vibrant colours and rich visual depth.',
+                    'Excellent colour reproduction.',
+                    'Smooth and premium print finish.',
+                    'UV-curable inks cured instantly using UV light.',
+                    'No separate paper print or photo sheet required.',
+                  ].map((benefit, bIdx) => (
+                    <div key={bIdx} className="flex items-start gap-2.5 p-2.5 rounded-xl bg-white/90 border border-amber-100 shadow-2xs">
+                      <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                      <span className="text-xs font-medium text-stone-800">{benefit}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Precision Edge & Mounting Studs Highlights (Requirements 3 & 4) */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                <div className="p-4 rounded-2xl bg-white border border-stone-200/80 space-y-1.5 shadow-2xs">
+                  <h4 className="font-serif font-bold text-sm text-stone-900 flex items-center gap-2">
+                    <Sparkles className="w-4 h-4 text-amber-600 shrink-0" />
+                    <span>Precision Square Cut Edges</span>
+                  </h4>
+                  <p className="text-xs text-stone-600 leading-relaxed">
+                    Every Acrylic Frame features clean, precision square-cut edges, maintaining a sharp and minimal geometric appearance that complements modern interiors.
+                  </p>
+                </div>
+
+                <div className="p-4 rounded-2xl bg-white border border-stone-200/80 space-y-1.5 shadow-2xs">
+                  <h4 className="font-serif font-bold text-sm text-stone-900 flex items-center gap-2">
+                    <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" />
+                    <span>Installation Studs Included</span>
+                  </h4>
+                  <ul className="text-xs text-stone-600 space-y-1 leading-relaxed">
+                    <li className="flex items-center gap-1.5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" />
+                      <span>Premium Metal Mounting Studs Included.</span>
+                    </li>
+                    <li className="flex items-center gap-1.5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" />
+                      <span>Wall Mounting Hardware Provided with Every Frame.</span>
+                    </li>
+                    <li className="flex items-center gap-1.5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" />
+                      <span>No need to purchase mounting studs separately.</span>
+                    </li>
+                    <li className="flex items-center gap-1.5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" />
+                      <span>Easy, elegant floating-style wall installation.</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
         {/* Sleek Accordion Sections */}
         <div id="product-details-accordion" className="border-t border-stone-200 pt-10 max-w-4xl mx-auto space-y-4">
           <div className="text-center sm:text-left mb-6">
             <span className="text-[11px] font-bold uppercase tracking-wider text-amber-800">Everything You Need to Know</span>
             <h3 className="font-serif font-bold text-2xl sm:text-3xl text-stone-900 mt-1">
-              Product Details &amp; Specifications
+              {isAcrylicFrame ? 'Acrylic Specifications & Product Details' : 'Product Details & Specifications'}
             </h3>
           </div>
 
@@ -1342,9 +1607,11 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                 </div>
                 <div>
                   <span className="font-bold text-sm sm:text-base text-stone-900 block">
-                    Story, Meaning &amp; Sacred Placement
+                    {isAcrylicFrame ? 'Acrylic Product Description & Story' : 'Story, Meaning & Sacred Placement'}
                   </span>
-                  <span className="text-[11px] text-stone-500 hidden sm:block">Iconography, spiritual significance, and Vastu orientation</span>
+                  <span className="text-[11px] text-stone-500 hidden sm:block">
+                    {isAcrylicFrame ? 'Premium 5MM crystal clear acrylic, UV direct print & modern wall styling' : 'Iconography, spiritual significance, and Vastu orientation'}
+                  </span>
                 </div>
               </div>
               <ChevronDown
@@ -1356,23 +1623,58 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
 
             {openSections.overview && (
               <div className="px-5 pb-6 pt-1 border-t border-stone-100 space-y-4 animate-in fade-in duration-200">
-                <p className="text-xs sm:text-sm text-stone-600 leading-relaxed [text-wrap:pretty]">
-                  {product.description}
-                </p>
+                <div className="text-xs sm:text-sm text-stone-600 leading-relaxed [text-wrap:pretty] space-y-3">
+                  {isAcrylicFrame ? (
+                    <>
+                      <div className="p-4 rounded-xl bg-amber-50/50 border border-amber-200/70 space-y-2">
+                        <h4 className="font-serif font-bold text-sm sm:text-base text-stone-900">
+                          Premium 5MM Crystal Clear Acrylic Wall Art
+                        </h4>
+                        <p className="text-stone-700 leading-relaxed text-xs sm:text-sm">
+                          Upgrade your walls with our Premium 5MM Crystal Clear Acrylic Frames, designed to bring elegance, clarity and a luxurious appearance to your interiors.
+                        </p>
+                        <p className="text-stone-700 leading-relaxed text-xs sm:text-sm">
+                          Each frame is crafted using premium 5MM thick crystal-clear acrylic and advanced Direct UV Printing Technology. The artwork is printed directly onto the acrylic surface, delivering high-definition image quality, vibrant colours and sharp details.
+                        </p>
+                        <p className="text-stone-700 leading-relaxed text-xs sm:text-sm">
+                          The premium glossy finish enhances the overall appearance of the artwork, while precision square-cut edges provide a clean and modern look.
+                        </p>
+                        <p className="text-stone-700 leading-relaxed text-xs sm:text-sm">
+                          Every frame comes with premium metal wall mounting studs included, making wall installation convenient and giving your artwork an elegant floating-style appearance.
+                        </p>
+                        <p className="text-stone-700 leading-relaxed text-xs sm:text-sm font-medium">
+                          Perfect for living rooms, bedrooms, offices, modern interiors and pooja rooms.
+                        </p>
+                        <div className="pt-1 text-[11px] font-bold text-amber-900">
+                          Premium Quality. Advanced Direct UV Printing. Elegant Square-Cut Design. Easy Installation.
+                        </div>
+                      </div>
+
+                      {product.description && !product.description.includes('Premium 5MM Crystal Clear Acrylic Wall Art') && (
+                        <p className="text-stone-600 text-xs sm:text-sm leading-relaxed pt-1">
+                          {product.description}
+                        </p>
+                      )}
+                    </>
+                  ) : (
+                    <p>{product.description}</p>
+                  )}
+                </div>
+
                 <div className="p-4 rounded-xl bg-amber-50/50 border border-amber-200/60 text-xs text-stone-800 space-y-1">
                   <p className="font-bold flex items-center gap-1.5 text-amber-950">
                     <Sparkles className="w-3.5 h-3.5 text-amber-600 shrink-0" />
-                    <span>Vastu Shastra &amp; Sacred Placement Guidance</span>
+                    <span>Placement &amp; Interior Styling Guidance</span>
                   </p>
                   <p className="text-stone-600 text-[11px] sm:text-xs leading-relaxed">
-                    Ideal for installation facing East or North-East in pooja mandirs, living rooms, and entrance foyers to invoke auspicious blessings, serenity, and divine grace.
+                    Ideal for installation in living rooms, bedrooms, modern offices, gallery corridors, and pooja rooms to elevate your space with timeless elegance.
                   </p>
                 </div>
               </div>
             )}
           </div>
 
-          {/* 2. Technical Specifications */}
+          {/* 2. Technical Specifications (Requirement 1 & 6) */}
           <div className="border border-stone-200 rounded-2xl overflow-hidden bg-white shadow-2xs transition-all">
             <button
               type="button"
@@ -1386,9 +1688,11 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                 </div>
                 <div>
                   <span className="font-bold text-sm sm:text-base text-stone-900 block">
-                    Technical Specifications
+                    Product Specifications
                   </span>
-                  <span className="text-[11px] text-stone-500 hidden sm:block">Materials, power, inks, acrylic thickness, and finish</span>
+                  <span className="text-[11px] text-stone-500 hidden sm:block">
+                    {isAcrylicFrame ? '5MM acrylic, direct UV printing, square-cut edges & metal studs' : 'Materials, power, inks, acrylic thickness, and finish'}
+                  </span>
                 </div>
               </div>
               <ChevronDown
@@ -1401,12 +1705,35 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
             {openSections.specs && (
               <div className="px-5 pb-6 pt-3 border-t border-stone-100 animate-in fade-in duration-200">
                 <div className="divide-y divide-stone-100 border border-stone-200/80 rounded-xl overflow-hidden text-xs sm:text-sm bg-stone-50/40">
-                  {product.specifications.map((spec, i) => (
-                    <div key={i} className="grid grid-cols-3 p-3.5 hover:bg-white transition-colors">
-                      <span className="font-semibold text-stone-900 col-span-1">{spec.label}</span>
-                      <span className="text-stone-600 col-span-2">{spec.value}</span>
-                    </div>
-                  ))}
+                  {isAcrylicFrame ? (
+                    [
+                      { label: 'Material', value: 'Premium Crystal Clear Acrylic' },
+                      { label: 'Thickness', value: '5MM Premium Acrylic' },
+                      { label: 'Printing Technology', value: 'Advanced Direct UV Printing' },
+                      { label: 'Print Quality', value: 'High-Definition UV Printing' },
+                      { label: 'Print Method', value: 'Direct Printing on Acrylic Surface' },
+                      { label: 'Colour Quality', value: 'Vibrant Colours & Sharp Details' },
+                      { label: 'Finish', value: 'Premium Glossy Finish' },
+                      { label: 'Edges', value: 'Precision Square Cut Edges' },
+                      { label: 'Mounting', value: 'Premium Metal Wall Mounting Studs' },
+                      { label: 'Installation', value: 'Installation Studs Included with Every Frame' },
+                      { label: 'Lighting', value: 'Non-LED' },
+                      { label: 'Customization', value: 'Custom Sizes Available' },
+                      { label: 'Usage', value: 'Living Room, Bedroom, Office, Home Decor and Pooja Room.' },
+                    ].map((spec, i) => (
+                      <div key={i} className="grid grid-cols-3 p-3.5 hover:bg-white transition-colors">
+                        <span className="font-semibold text-stone-900 col-span-1">{spec.label}</span>
+                        <span className="text-stone-700 col-span-2 font-medium">{spec.value}</span>
+                      </div>
+                    ))
+                  ) : (
+                    product.specifications.map((spec, i) => (
+                      <div key={i} className="grid grid-cols-3 p-3.5 hover:bg-white transition-colors">
+                        <span className="font-semibold text-stone-900 col-span-1">{spec.label}</span>
+                        <span className="text-stone-600 col-span-2">{spec.value}</span>
+                      </div>
+                    ))
+                  )}
                 </div>
               </div>
             )}
@@ -1490,7 +1817,9 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                   <span className="font-bold text-sm sm:text-base text-stone-900 block">
                     Craft, Materials &amp; 3-Minute Installation
                   </span>
-                  <span className="text-[11px] text-stone-500 hidden sm:block">Museum-grade acrylic engineering and simple wall mounting steps</span>
+                  <span className="text-[11px] text-stone-500 hidden sm:block">
+                    {isAcrylicFrame ? '5MM acrylic engineering & metal wall studs installation' : 'Museum-grade acrylic engineering and simple wall mounting steps'}
+                  </span>
                 </div>
               </div>
               <ChevronDown
@@ -1504,22 +1833,45 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
               <div className="px-5 pb-6 pt-3 border-t border-stone-100 space-y-5 animate-in fade-in duration-200">
                 {/* 4 Materials */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm text-stone-600">
-                  <div className="p-3.5 rounded-xl bg-stone-50 border border-stone-200 space-y-1">
-                    <h5 className="font-bold text-stone-900">Virgin Cast Acrylic</h5>
-                    <p className="text-xs">Ultra-clear, shatterproof grade with precision beveled edges for supreme light refraction.</p>
-                  </div>
-                  <div className="p-3.5 rounded-xl bg-stone-50 border border-stone-200 space-y-1">
-                    <h5 className="font-bold text-stone-900">HD UV Direct Printing</h5>
-                    <p className="text-xs">6-Color digital flatbed UV curable inks ensure vibrant, lifetime fade-resistant colors.</p>
-                  </div>
-                  <div className="p-3.5 rounded-xl bg-stone-50 border border-stone-200 space-y-1">
-                    <h5 className="font-bold text-stone-900">Warm Golden LED</h5>
-                    <p className="text-xs">Concealed diffuse light guide layer with energy-efficient warm Epistar SMD chips.</p>
-                  </div>
-                  <div className="p-3.5 rounded-xl bg-stone-50 border border-stone-200 space-y-1">
-                    <h5 className="font-bold text-stone-900">BIS Power Adapter</h5>
-                    <p className="text-xs">Low voltage 12V 2A safe power supply with 2.5m transparent wire for clean wall routing.</p>
-                  </div>
+                  {isAcrylicFrame ? (
+                    <>
+                      <div className="p-3.5 rounded-xl bg-stone-50 border border-stone-200 space-y-1">
+                        <h5 className="font-bold text-stone-900">5MM Premium Acrylic</h5>
+                        <p className="text-xs">Crafted exclusively with 5MM thick crystal-clear acrylic for rich visual depth, structural rigidity, and elegance.</p>
+                      </div>
+                      <div className="p-3.5 rounded-xl bg-stone-50 border border-stone-200 space-y-1">
+                        <h5 className="font-bold text-stone-900">Advanced Direct UV Printing</h5>
+                        <p className="text-xs">UV-curable inks printed directly onto the acrylic surface with instant UV curing for sharp details and vibrant colors.</p>
+                      </div>
+                      <div className="p-3.5 rounded-xl bg-stone-50 border border-stone-200 space-y-1">
+                        <h5 className="font-bold text-stone-900">Precision Square Cut Edges</h5>
+                        <p className="text-xs">Clean, precision square-cut edges maintaining a sharp, minimal geometric design that complements modern decor.</p>
+                      </div>
+                      <div className="p-3.5 rounded-xl bg-stone-50 border border-stone-200 space-y-1">
+                        <h5 className="font-bold text-stone-900">Metal Installation Studs</h5>
+                        <p className="text-xs">Premium metal wall mounting studs and hardware included with every frame for an elegant floating appearance.</p>
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      <div className="p-3.5 rounded-xl bg-stone-50 border border-stone-200 space-y-1">
+                        <h5 className="font-bold text-stone-900">Virgin Cast Acrylic</h5>
+                        <p className="text-xs">Ultra-clear, shatterproof grade with precision beveled edges for supreme light refraction.</p>
+                      </div>
+                      <div className="p-3.5 rounded-xl bg-stone-50 border border-stone-200 space-y-1">
+                        <h5 className="font-bold text-stone-900">HD UV Direct Printing</h5>
+                        <p className="text-xs">6-Color digital flatbed UV curable inks ensure vibrant, lifetime fade-resistant colors.</p>
+                      </div>
+                      <div className="p-3.5 rounded-xl bg-stone-50 border border-stone-200 space-y-1">
+                        <h5 className="font-bold text-stone-900">Warm Golden LED</h5>
+                        <p className="text-xs">Concealed diffuse light guide layer with energy-efficient warm Epistar SMD chips.</p>
+                      </div>
+                      <div className="p-3.5 rounded-xl bg-stone-50 border border-stone-200 space-y-1">
+                        <h5 className="font-bold text-stone-900">BIS Power Adapter</h5>
+                        <p className="text-xs">Low voltage 12V 2A safe power supply with 2.5m transparent wire for clean wall routing.</p>
+                      </div>
+                    </>
+                  )}
                 </div>
 
                 {/* 3 Steps */}
@@ -1531,17 +1883,17 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                     <div className="p-3 rounded-xl bg-amber-50/40 border border-amber-200/60 space-y-1">
                       <span className="w-5 h-5 rounded-full bg-amber-400 text-stone-950 font-bold inline-flex items-center justify-center text-[10px] mb-1">1</span>
                       <h6 className="font-bold text-stone-900">Mark &amp; Drill</h6>
-                      <p className="text-[11px]">Use included template to mark hole positions.</p>
+                      <p className="text-[11px]">{isAcrylicFrame ? 'Align frame to wall and mark drill hole positions.' : 'Use included template to mark hole positions.'}</p>
                     </div>
                     <div className="p-3 rounded-xl bg-amber-50/40 border border-amber-200/60 space-y-1">
                       <span className="w-5 h-5 rounded-full bg-amber-400 text-stone-950 font-bold inline-flex items-center justify-center text-[10px] mb-1">2</span>
-                      <h6 className="font-bold text-stone-900">Fix Bracket</h6>
-                      <p className="text-[11px]">Tighten concealed bracket with supplied screws.</p>
+                      <h6 className="font-bold text-stone-900">{isAcrylicFrame ? 'Mount Stud Barrels' : 'Fix Bracket'}</h6>
+                      <p className="text-[11px]">{isAcrylicFrame ? 'Fasten the metal mounting stud barrels firmly with screws.' : 'Tighten concealed bracket with supplied screws.'}</p>
                     </div>
                     <div className="p-3 rounded-xl bg-amber-50/40 border border-amber-200/60 space-y-1">
                       <span className="w-5 h-5 rounded-full bg-amber-400 text-stone-950 font-bold inline-flex items-center justify-center text-[10px] mb-1">3</span>
-                      <h6 className="font-bold text-stone-900">Hang &amp; Enjoy</h6>
-                      <p className="text-[11px]">Slide frame onto bracket and plug into wall socket.</p>
+                      <h6 className="font-bold text-stone-900">{isAcrylicFrame ? 'Fasten & Float' : 'Hang & Enjoy'}</h6>
+                      <p className="text-[11px]">{isAcrylicFrame ? 'Position 5MM acrylic frame on studs and hand-tighten screw caps.' : 'Slide frame onto bracket and plug into wall socket.'}</p>
                     </div>
                   </div>
                 </div>
@@ -1589,24 +1941,56 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
 
                 {/* FAQ List */}
                 <div className="space-y-2.5 pt-1">
-                  {[
-                    {
-                      q: 'How does the LED lighting work and what is the power consumption?',
-                      a: 'The warm LED backlighting consumes only 12W to 18W (similar to a night lamp). It plugs directly into any standard 220V home outlet with the included 12V 2A adapter.',
-                    },
-                    {
-                      q: 'Is the acrylic fragile or breakable during cleaning?',
-                      a: 'No. We use premium acrylic that is shatterproof and 17x stronger than traditional glass. Simply wipe with a dry or slightly damp micro-fiber cloth.',
-                    },
-                    {
-                      q: 'Can this frame be safely placed in a pooja mandir near diyas?',
-                      a: 'Yes. The UV cured print is heat and moisture resilient. Keep open flames/oil lamps at a safe distance (minimum 12 inches) to avoid soot deposits.',
-                    },
-                    {
-                      q: 'What is included in the box?',
-                      a: 'Your custom acrylic frame, BIS-certified 12V adapter with 2.5m transparent wire, concealed French cleat or stainless steel mounting studs, screws, wall plugs, and marking template.',
-                    },
-                  ].map((item, idx) => (
+                  {(isAcrylicFrame
+                    ? [
+                        {
+                          q: 'How is the artwork printed on the acrylic?',
+                          a: 'Our Acrylic Frames are produced using advanced Direct UV Printing Technology, where high-quality UV-curable inks are printed directly onto the acrylic surface. Unlike traditional paper prints or separately pasted photo sheets, direct printing creates a clean, premium, and seamless appearance with vibrant colours and sharp details.',
+                        },
+                        {
+                          q: 'What thickness are these Acrylic Frames made in?',
+                          a: 'All our Acrylic Frames are made using 5MM thickness only. We do not use 3MM or 4MM, ensuring rich visual depth, optimum structural rigidity, and a luxurious appearance.',
+                        },
+                        {
+                          q: 'What type of edges do these Acrylic Frames feature?',
+                          a: 'Every Acrylic Frame features clean, precision square-cut edges, maintaining a sharp and minimal geometric appearance that complements modern interiors.',
+                        },
+                        {
+                          q: 'Are installation studs included with every frame?',
+                          a: 'Yes! Every Acrylic Frame comes with premium metal wall mounting studs and hardware included in the box. There is no need to purchase mounting studs separately—giving your artwork an easy and elegant floating-style wall appearance.',
+                        },
+                        {
+                          q: 'Is this an illuminated or LED frame?',
+                          a: 'No. This is a 100% Non-LED product. It requires no wiring, no power supply, and no backlighting, offering a clean, architectural wall gallery aesthetic.',
+                        },
+                        {
+                          q: 'What is included in the box?',
+                          a: 'Your 5MM Crystal Clear Acrylic Wall Art, premium metal wall mounting studs, screws, wall plugs, and protective corner guards in 5-layer transit-safe packaging.',
+                        },
+                        {
+                          q: 'How do I clean and maintain my Acrylic Frame?',
+                          a: 'Simply wipe the acrylic surface gently with a soft dry or slightly damp microfiber cloth. Do not use harsh chemical cleaners or abrasive scrubbers.',
+                        },
+                      ]
+                    : [
+                        {
+                          q: 'How does the LED lighting work and what is the power consumption?',
+                          a: 'The warm LED backlighting consumes only 12W to 18W (similar to a night lamp). It plugs directly into any standard 220V home outlet with the included 12V 2A adapter.',
+                        },
+                        {
+                          q: 'Is the acrylic fragile or breakable during cleaning?',
+                          a: 'No. We use premium acrylic that is shatterproof and 17x stronger than traditional glass. Simply wipe with a dry or slightly damp micro-fiber cloth.',
+                        },
+                        {
+                          q: 'Can this frame be safely placed in a pooja mandir near diyas?',
+                          a: 'Yes. The UV cured print is heat and moisture resilient. Keep open flames/oil lamps at a safe distance (minimum 12 inches) to avoid soot deposits.',
+                        },
+                        {
+                          q: 'What is included in the box?',
+                          a: 'Your custom acrylic frame, BIS-certified 12V adapter with 2.5m transparent wire, concealed French cleat or stainless steel mounting studs, screws, wall plugs, and marking template.',
+                        },
+                      ]
+                  ).map((item, idx) => (
                     <div key={idx} className="p-3.5 rounded-xl bg-stone-50/80 border border-stone-200/70 space-y-1">
                       <h6 className="font-semibold text-xs text-stone-900 flex items-center gap-1.5">
                         <HelpCircle className="w-3.5 h-3.5 text-amber-600 shrink-0" />
