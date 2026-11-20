@@ -58,7 +58,7 @@ export default function CustomSizeInput({
           <div className="flex items-center border border-stone-300 focus-within:border-amber-500 rounded-xl bg-stone-50 overflow-hidden">
             <button
               type="button"
-              onClick={() => onChangeWidth(Math.max(6, width - 1))}
+              onClick={() => onChangeWidth(Math.max(12, width - 1))}
               className="px-2.5 py-1.5 text-stone-700 hover:text-stone-950 hover:bg-stone-200 font-bold text-sm transition-colors cursor-pointer"
               aria-label="Decrease width"
             >
@@ -66,15 +66,15 @@ export default function CustomSizeInput({
             </button>
             <input
               type="number"
-              min={6}
-              max={120}
+              min={12}
+              max={60}
               value={width}
-              onChange={(e) => onChangeWidth(Math.max(6, Math.min(120, Number(e.target.value) || 6)))}
+              onChange={(e) => onChangeWidth(Math.max(12, Math.min(60, Number(e.target.value) || 12)))}
               className="w-full bg-transparent text-center font-bold text-sm text-stone-900 outline-none py-1.5"
             />
             <button
               type="button"
-              onClick={() => onChangeWidth(Math.min(120, width + 1))}
+              onClick={() => onChangeWidth(Math.min(60, width + 1))}
               className="px-2.5 py-1.5 text-stone-700 hover:text-stone-950 hover:bg-stone-200 font-bold text-sm transition-colors cursor-pointer"
               aria-label="Increase width"
             >
@@ -91,7 +91,7 @@ export default function CustomSizeInput({
           <div className="flex items-center border border-stone-300 focus-within:border-amber-500 rounded-xl bg-stone-50 overflow-hidden">
             <button
               type="button"
-              onClick={() => onChangeHeight(Math.max(6, height - 1))}
+              onClick={() => onChangeHeight(Math.max(12, height - 1))}
               className="px-2.5 py-1.5 text-stone-700 hover:text-stone-950 hover:bg-stone-200 font-bold text-sm transition-colors cursor-pointer"
               aria-label="Decrease height"
             >
@@ -99,15 +99,15 @@ export default function CustomSizeInput({
             </button>
             <input
               type="number"
-              min={6}
-              max={120}
+              min={12}
+              max={60}
               value={height}
-              onChange={(e) => onChangeHeight(Math.max(6, Math.min(120, Number(e.target.value) || 6)))}
+              onChange={(e) => onChangeHeight(Math.max(12, Math.min(60, Number(e.target.value) || 12)))}
               className="w-full bg-transparent text-center font-bold text-sm text-stone-900 outline-none py-1.5"
             />
             <button
               type="button"
-              onClick={() => onChangeHeight(Math.min(120, height + 1))}
+              onClick={() => onChangeHeight(Math.min(60, height + 1))}
               className="px-2.5 py-1.5 text-stone-700 hover:text-stone-950 hover:bg-stone-200 font-bold text-sm transition-colors cursor-pointer"
               aria-label="Increase height"
             >
@@ -199,7 +199,7 @@ export default function CustomSizeInput({
       {!compact && (
         <p className="text-[11px] text-stone-700 font-medium leading-relaxed flex items-center gap-1.5">
           <Info className="w-3.5 h-3.5 text-amber-600 shrink-0" />
-          <span>Every custom frame is cut to your exact millimeter dimensions at our Hyderabad atelier.</span>
+          <span>Custom dimensions available strictly from 12 to 60 inches (1 to 5 feet) for structural rigidity and safe courier transit.</span>
         </p>
       )}
     </div>

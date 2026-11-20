@@ -92,6 +92,17 @@ export const SHAPE_CONFIGS: Record<ShapeOptionType, {
   },
 };
 
+export function getSqFtFromLabel(label: string): string {
+  const match = label.match(/(\d+(?:\.\d+)?)\s*(?:x|×|\*)\s*(\d+(?:\.\d+)?)/i);
+  if (match) {
+    const w = parseFloat(match[1]);
+    const h = parseFloat(match[2]);
+    const sqFt = (w * h) / 144;
+    return `${Number.isInteger(sqFt) ? sqFt.toFixed(0) : sqFt.toFixed(1)} sq ft`;
+  }
+  return '';
+}
+
 export const SHAPE_SIZES: Record<ShapeOptionType, SizeOption[]> = {
   portrait: [
     {
@@ -505,6 +516,12 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
 
   // Selected frame & size state
   const [selectedFrame, setSelectedFrame] = useState<FrameType>(() => {
+    if (isLedFrame || product.categorySlug === 'led-acrylic-photo-frames' || product.categorySlugs?.includes('led-acrylic-photo-frames')) {
+      return 'gold';
+    }
+    if (isAcrylicFrame || product.categorySlug === 'acrylic-photo-frames' || product.categorySlugs?.includes('acrylic-photo-frames')) {
+      return 'without';
+    }
     return (product.categorySlug === 'glitter-photo-frames' || product.categorySlugs?.includes('glitter-photo-frames') || product.slug?.includes('glitter'))
       ? 'without'
       : 'gold';
@@ -1204,7 +1221,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                   <span className="px-2 py-0.5 rounded-md bg-white border border-stone-200">✓ Power Adapter Included</span>
                 </div>
               </div>
-            ) : !isGlitterFrame ? (
+            ) : (!isGlitterFrame && !isAcrylicFrame) ? (
               <>
                 <div className="space-y-2.5">
                   <div className="flex items-center justify-between text-xs">
@@ -1345,7 +1362,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                 <span className="font-bold text-stone-900">
                   Dimensions &amp; Size:{' '}
                   <strong className="text-amber-800 font-serif">
-                    {isCustomSize ? `${customSizeCalc.widthInches}" × ${customSizeCalc.heightInches}" (${customSizeCalc.dimensionsCm}) [Custom Size]` : (currentSizeObj ? `${currentSizeObj.label} (${currentSizeObj.dimensionsCm})` : 'Select Size')}
+                    {isCustomSize ? `${customSizeCalc.widthInches}" × ${customSizeCalc.heightInches}" (${customSizeCalc.sqFeet} sq ft) [Custom Size]` : (currentSizeObj ? `${currentSizeObj.label} (${getSqFtFromLabel(currentSizeObj.label)})` : 'Select Size')}
                   </strong>
                 </span>
                 {selectedSizeId && (
@@ -1381,9 +1398,9 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                       }`}
                     >
                       <span className="font-bold">{cleanDisplayLabel}</span>
-                      {s.dimensionsCm && (
-                        <span className="text-[9px] text-stone-500 leading-none mt-0.5">{s.dimensionsCm.split(' ')[0]}cm</span>
-                      )}
+                      {getSqFtFromLabel(s.label) ? (
+                        <span className="text-[9px] text-stone-500 leading-none mt-0.5">{getSqFtFromLabel(s.label)}</span>
+                      ) : null}
                     </button>
                   );
                 })}

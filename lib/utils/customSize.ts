@@ -141,10 +141,10 @@ export function calculateCustomDimensions(
   heightInches: number,
   options: CustomSizeOptions = {}
 ): CustomSizeCalculation {
-  const w = Math.max(6, Math.min(120, Number(widthInches) || 12));
-  const h = Math.max(6, Math.min(120, Number(heightInches) || 18));
+  const w = Math.max(12, Math.min(60, Number(widthInches) || 12));
+  const h = Math.max(12, Math.min(60, Number(heightInches) || 18));
 
-  const sqInches = Math.max(36, w * h);
+  const sqInches = Math.max(144, w * h);
   const sqFeet = Number((sqInches / 144).toFixed(2));
   const cmWidth = Math.round(w * 2.54);
   const cmHeight = Math.round(h * 2.54);

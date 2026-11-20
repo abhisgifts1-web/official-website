@@ -1200,10 +1200,10 @@ export default function CustomizerStudio() {
                       <label className="text-[10px] text-stone-600 block mb-1">Width (inches)</label>
                       <input
                         type="number"
-                        min={6}
-                        max={72}
+                        min={12}
+                        max={60}
                         value={customWidth}
-                        onChange={(e) => setCustomWidth(Math.max(6, Number(e.target.value)))}
+                        onChange={(e) => setCustomWidth(Math.max(12, Math.min(60, Number(e.target.value) || 12)))}
                         className="w-full px-3 py-1.5 text-xs bg-white border border-stone-300 rounded-lg text-stone-900 outline-none font-bold focus:border-amber-500"
                       />
                     </div>
@@ -1211,16 +1211,16 @@ export default function CustomizerStudio() {
                       <label className="text-[10px] text-stone-600 block mb-1">Height (inches)</label>
                       <input
                         type="number"
-                        min={6}
-                        max={72}
+                        min={12}
+                        max={60}
                         value={customHeight}
-                        onChange={(e) => setCustomHeight(Math.max(6, Number(e.target.value)))}
+                        onChange={(e) => setCustomHeight(Math.max(12, Math.min(60, Number(e.target.value) || 12)))}
                         className="w-full px-3 py-1.5 text-xs bg-white border border-stone-300 rounded-lg text-stone-900 outline-none font-bold focus:border-amber-500"
                       />
                     </div>
                   </div>
                   <p className="text-[10px] text-stone-500">
-                    ✦ Atelier fabrication available up to 6×4 ft (72×48 in) with pre-installed heavy-duty mounts.
+                    ✦ Custom size available strictly from 12 to 60 inches (1 to 5 feet) with pre-installed heavy-duty mounts.
                   </p>
                 </div>
               )}
