@@ -10,6 +10,7 @@ import {
   Send,
   CheckCircle2,
   Sparkles,
+  ExternalLink,
 } from 'lucide-react';
 import { INITIAL_SETTINGS } from '@/lib/data/settings';
 import ContactSupportSection from '@/components/support/ContactSupportSection';
@@ -81,9 +82,19 @@ export default function ContactPage() {
           <div className="space-y-4 text-xs text-stone-700 pt-2">
             <div className="flex items-start gap-3">
               <MapPin className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
-              <div>
-                <strong className="text-stone-900 block">Dilsukhnagar Workshop Address:</strong>
-                <span>{INITIAL_SETTINGS.businessAddress}</span>
+              <div className="space-y-1.5">
+                <strong className="text-stone-900 block font-bold">Dilsukhnagar Workshop &amp; Store Address:</strong>
+                <span className="block leading-relaxed">{INITIAL_SETTINGS.businessAddress}</span>
+                <a
+                  href="https://maps.app.goo.gl/fmGv35KsGabFna9E6?g_st=ac"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-amber-100 hover:bg-amber-200 text-stone-950 font-bold text-xs transition-colors border border-amber-300 shadow-2xs mt-1"
+                >
+                  <MapPin className="w-3.5 h-3.5 text-amber-800" />
+                  <span>Get Directions on Google Maps</span>
+                  <ExternalLink className="w-3.5 h-3.5 text-amber-800" />
+                </a>
               </div>
             </div>
 
@@ -215,6 +226,41 @@ export default function ContactPage() {
               <span>{submitting ? 'Submitting...' : 'Send Message'}</span>
             </button>
           </form>
+        </div>
+      </div>
+
+      {/* Google Maps Location Section */}
+      <div className="rounded-2xl sm:rounded-3xl border border-stone-200 overflow-hidden bg-stone-50 shadow-sm p-4 sm:p-8 space-y-4">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div>
+            <span className="text-xs font-bold uppercase tracking-wider text-amber-700">STORE LOCATION &amp; WORKSHOP</span>
+            <h3 className="font-serif font-bold text-xl sm:text-2xl text-stone-900 mt-0.5">
+              Visit Abhi&apos;s Gifts in Dilsukhnagar, Hyderabad
+            </h3>
+            <p className="text-xs sm:text-sm text-stone-600 mt-1">
+              H.No: 16-11-419, SBI Officers Colony, Moosarambagh, Dilsukhnagar, Hyderabad, Telangana – 500036
+            </p>
+          </div>
+          <a
+            href="https://maps.app.goo.gl/fmGv35KsGabFna9E6?g_st=ac"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-[#EAB308] hover:bg-[#FACC15] text-stone-950 font-bold text-xs uppercase tracking-wider transition-colors border border-amber-500 shrink-0 shadow-xs"
+          >
+            <MapPin className="w-4 h-4" />
+            <span>Open in Google Maps</span>
+            <ExternalLink className="w-3.5 h-3.5" />
+          </a>
+        </div>
+
+        <div className="w-full h-[320px] sm:h-[400px] rounded-xl overflow-hidden border border-stone-200 shadow-inner bg-stone-100">
+          <iframe
+            title="Abhis Gifts Google Maps Location"
+            src="https://maps.google.com/maps?q=Abhis+Gifts,+H.No:+16-11-419+SBI+Officers+Colony,+Moosarambagh,+Dilsukhnagar,+Hyderabad,+Telangana+500036&t=&z=16&ie=UTF8&iwloc=&output=embed"
+            className="w-full h-full border-0"
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          />
         </div>
       </div>
     </div>

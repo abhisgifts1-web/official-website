@@ -30,7 +30,14 @@ export default function ContactCtaSection() {
             <div className="pt-2 grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-stone-700">
               <div className="flex items-center gap-2">
                 <MapPin className="w-4 h-4 text-amber-700 shrink-0" />
-                <span>Dilsukhnagar, Hyderabad – 500036</span>
+                <a
+                  href="https://maps.app.goo.gl/fmGv35KsGabFna9E6?g_st=ac"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-amber-800 underline underline-offset-2 transition-colors"
+                >
+                  Moosarambagh, Dilsukhnagar, Hyderabad – 500036
+                </a>
               </div>
               <div className="flex items-center gap-2">
                 <Clock className="w-4 h-4 text-amber-700 shrink-0" />

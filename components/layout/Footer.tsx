@@ -115,7 +115,25 @@ export default function Footer() {
               <div className="space-y-2 text-xs text-stone-300 sm:pt-1">
                 <div className="flex items-start gap-2.5">
                   <MapPin className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
-                  <span className="leading-snug">{INITIAL_SETTINGS.businessAddress}</span>
+                  <div>
+                    <a
+                      href={INITIAL_SETTINGS.googleMapsUrl || 'https://maps.app.goo.gl/fmGv35KsGabFna9E6?g_st=ac'}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="leading-snug hover:text-amber-300 transition-colors block"
+                    >
+                      {INITIAL_SETTINGS.businessAddress}
+                    </a>
+                    <a
+                      href={INITIAL_SETTINGS.googleMapsUrl || 'https://maps.app.goo.gl/fmGv35KsGabFna9E6?g_st=ac'}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 text-[11px] text-amber-400 hover:text-amber-300 font-medium underline underline-offset-2 mt-1"
+                    >
+                      <span>View on Google Maps</span>
+                      <ArrowUpRight className="w-3 h-3" />
+                    </a>
+                  </div>
                 </div>
                 <div className="flex items-center gap-2.5">
                   <Phone className="w-4 h-4 text-amber-400 shrink-0" />

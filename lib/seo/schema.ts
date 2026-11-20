@@ -10,14 +10,15 @@ export const BUSINESS_INFO = {
   whatsapp: '+917780269927',
   email: 'support@abhigifts.com',
   priceRange: '₹₹',
+  hasMap: 'https://maps.app.goo.gl/fmGv35KsGabFna9E6?g_st=ac',
   paymentAccepted: 'Cash, UPI, Credit Card, Debit Card, Net Banking',
   currenciesAccepted: 'INR',
   address: {
     '@type': 'PostalAddress',
-    streetAddress: 'Main Road, Near Dilsukhnagar Metro Station, Dilsukhnagar',
+    streetAddress: 'H.No: 16-11-419, SBI Officers Colony, Moosarambagh, Dilsukhnagar',
     addressLocality: 'Hyderabad',
     addressRegion: 'Telangana',
-    postalCode: '500060',
+    postalCode: '500036',
     addressCountry: 'IN',
   },
   geo: {

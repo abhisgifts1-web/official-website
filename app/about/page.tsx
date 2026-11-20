@@ -29,6 +29,7 @@ import {
   Mail,
   Layers,
   Building2,
+  ExternalLink,
 } from 'lucide-react';
 import { InstagramIcon, YouTubeIcon } from '@/components/icons/SocialIcons';
 
@@ -627,11 +628,20 @@ export default function AboutPage() {
               <MapPin className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
               <div>
                 <span className="text-[11px] font-mono text-amber-800 uppercase block font-bold">
-                  Location
+                  Store &amp; Workshop Location
                 </span>
                 <p className="text-stone-700 mt-0.5">
-                  Dilsukhnagar, Hyderabad, Telangana – 500036.
+                  H.No: 16-11-419, SBI Officers Colony, Moosarambagh, Dilsukhnagar, Hyderabad, Telangana – 500036.
                 </p>
+                <a
+                  href="https://maps.app.goo.gl/fmGv35KsGabFna9E6?g_st=ac"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 text-[11px] font-semibold text-amber-700 hover:text-amber-800 underline mt-1.5"
+                >
+                  <span>View on Google Maps</span>
+                  <ExternalLink className="w-3 h-3" />
+                </a>
               </div>
             </div>
 

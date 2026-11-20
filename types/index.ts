@@ -216,6 +216,7 @@ export interface SiteSettings {
   codAvailable: boolean;
   codFee: number;
   businessAddress: string;
+  googleMapsUrl?: string;
   gstNumber?: string;
   instagramUrl?: string;
   youtubeUrl?: string;

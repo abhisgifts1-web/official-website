@@ -315,7 +315,7 @@ export default function LocalLandingPageView({
 
           <div className="pt-2 flex items-center gap-3">
             <a
-              href="https://maps.google.com/?q=Dilsukhnagar+Hyderabad+Telangana"
+              href="https://maps.app.goo.gl/fmGv35KsGabFna9E6?g_st=ac"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-[#EAB308] text-stone-950 px-5 py-2.5 rounded-full text-xs font-bold hover:bg-[#FACC15] transition-colors border border-amber-500 uppercase tracking-wider cursor-pointer"
