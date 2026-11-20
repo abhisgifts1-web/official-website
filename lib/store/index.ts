@@ -16,10 +16,18 @@ import { filterProductsByCategory } from '../categoryRules';
 import { INITIAL_ORDERS } from '../data/mockOrders';
 import { INITIAL_COUPONS } from '../data/coupons';
 import { INITIAL_SETTINGS } from '../data/settings';
+import { connectToDatabase } from '@/lib/db/mongodb';
+import { ProductModel } from '@/lib/db/models/Product';
+import { OrderModel } from '@/lib/db/models/Order';
+import { CategoryModel } from '@/lib/db/models/Category';
 
 const PERSISTENCE_FILE = path.join(process.cwd(), 'lib', 'data', 'persistedProducts.json');
+const PERSISTENCE_ORDERS_FILE = path.join(process.cwd(), 'lib', 'data', 'persistedOrders.json');
+const PERSISTENCE_SETTINGS_FILE = path.join(process.cwd(), 'lib', 'data', 'persistedSettings.json');
+const PERSISTENCE_CATEGORIES_FILE = path.join(process.cwd(), 'lib', 'data', 'persistedCategories.json');
 const PERSISTENCE_COUPONS_FILE = path.join(process.cwd(), 'lib', 'data', 'persistedCoupons.json');
 const PERSISTENCE_DELETED_COUPONS_FILE = path.join(process.cwd(), 'lib', 'data', 'deletedCoupons.json');
+const PERSISTENCE_ENQUIRIES_FILE = path.join(process.cwd(), 'lib', 'data', 'persistedEnquiries.json');
 
 function loadDeletedCouponCodes(): string[] {
   try {
@@ -54,20 +62,141 @@ function loadPersistedProducts(): Product[] {
       const raw = fs.readFileSync(PERSISTENCE_FILE, 'utf8');
       const parsed = JSON.parse(raw);
       if (Array.isArray(parsed) && parsed.length > 0) {
-        return parsed;
+        return parsed.map((o: any) => ({ ...o, id: o.orderId || o.id }));
       }
     }
   } catch (err) {
     console.warn('Error reading persistedProducts.json:', err);
   }
-  return JSON.parse(JSON.stringify(INITIAL_PRODUCTS));
+  const initial = JSON.parse(JSON.stringify(INITIAL_PRODUCTS));
+  savePersistedProducts(initial);
+  return initial;
 }
 
 function savePersistedProducts(products: Product[]) {
   try {
+    const dir = path.dirname(PERSISTENCE_FILE);
+    if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
     fs.writeFileSync(PERSISTENCE_FILE, JSON.stringify(products, null, 2), 'utf8');
   } catch (err) {
     console.warn('Error saving persistedProducts.json:', err);
+  }
+}
+
+function loadPersistedOrders(): Order[] {
+  try {
+    if (fs.existsSync(PERSISTENCE_ORDERS_FILE)) {
+      const raw = fs.readFileSync(PERSISTENCE_ORDERS_FILE, 'utf8');
+      const parsed = JSON.parse(raw);
+      if (Array.isArray(parsed) && parsed.length > 0) {
+        return parsed;
+      }
+    }
+  } catch (err) {
+    console.warn('Error reading persistedOrders.json:', err);
+  }
+  const initial = JSON.parse(JSON.stringify(INITIAL_ORDERS)) as Order[];
+  savePersistedOrders(initial);
+  return initial;
+}
+
+function savePersistedOrders(orders: Order[]) {
+  try {
+    const dir = path.dirname(PERSISTENCE_ORDERS_FILE);
+    if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
+    fs.writeFileSync(PERSISTENCE_ORDERS_FILE, JSON.stringify(orders, null, 2), 'utf8');
+  } catch (err) {
+    console.warn('Error saving persistedOrders.json:', err);
+  }
+}
+
+function loadPersistedSettings(): SiteSettings {
+  try {
+    if (fs.existsSync(PERSISTENCE_SETTINGS_FILE)) {
+      const raw = fs.readFileSync(PERSISTENCE_SETTINGS_FILE, 'utf8');
+      const parsed = JSON.parse(raw);
+      if (parsed && typeof parsed === 'object') {
+        return { ...INITIAL_SETTINGS, ...parsed };
+      }
+    }
+  } catch (err) {
+    console.warn('Error reading persistedSettings.json:', err);
+  }
+  const initial = JSON.parse(JSON.stringify(INITIAL_SETTINGS)) as SiteSettings;
+  savePersistedSettings(initial);
+  return initial;
+}
+
+function savePersistedSettings(settings: SiteSettings) {
+  try {
+    const dir = path.dirname(PERSISTENCE_SETTINGS_FILE);
+    if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
+    fs.writeFileSync(PERSISTENCE_SETTINGS_FILE, JSON.stringify(settings, null, 2), 'utf8');
+  } catch (err) {
+    console.warn('Error saving persistedSettings.json:', err);
+  }
+}
+
+function loadPersistedCategories(): Category[] {
+  try {
+    if (fs.existsSync(PERSISTENCE_CATEGORIES_FILE)) {
+      const raw = fs.readFileSync(PERSISTENCE_CATEGORIES_FILE, 'utf8');
+      const parsed = JSON.parse(raw);
+      if (Array.isArray(parsed) && parsed.length > 0) {
+        return parsed;
+      }
+    }
+  } catch (err) {
+    console.warn('Error reading persistedCategories.json:', err);
+  }
+  const initial = JSON.parse(JSON.stringify(INITIAL_CATEGORIES)) as Category[];
+  savePersistedCategories(initial);
+  return initial;
+}
+
+function savePersistedCategories(categories: Category[]) {
+  try {
+    const dir = path.dirname(PERSISTENCE_CATEGORIES_FILE);
+    if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
+    fs.writeFileSync(PERSISTENCE_CATEGORIES_FILE, JSON.stringify(categories, null, 2), 'utf8');
+  } catch (err) {
+    console.warn('Error saving persistedCategories.json:', err);
+  }
+}
+
+function loadPersistedEnquiries(): ContactEnquiry[] {
+  try {
+    if (fs.existsSync(PERSISTENCE_ENQUIRIES_FILE)) {
+      const raw = fs.readFileSync(PERSISTENCE_ENQUIRIES_FILE, 'utf8');
+      const parsed = JSON.parse(raw);
+      if (Array.isArray(parsed) && parsed.length > 0) {
+        return parsed;
+      }
+    }
+  } catch (err) {
+    console.warn('Error reading persistedEnquiries.json:', err);
+  }
+  return [
+    {
+      id: 'enq-1',
+      name: 'Karthik Raja',
+      email: 'karthik.r@example.com',
+      phone: '9841122334',
+      subject: 'Custom Mandir Wall Art Measurement',
+      message: 'Can you create an Adiyogi LED frame in 5x3 feet customized size for our meditation hall?',
+      status: 'new',
+      createdAt: '2026-10-25T15:30:00.000Z',
+    },
+  ];
+}
+
+function savePersistedEnquiries(enquiries: ContactEnquiry[]) {
+  try {
+    const dir = path.dirname(PERSISTENCE_ENQUIRIES_FILE);
+    if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
+    fs.writeFileSync(PERSISTENCE_ENQUIRIES_FILE, JSON.stringify(enquiries, null, 2), 'utf8');
+  } catch (err) {
+    console.warn('Error saving persistedEnquiries.json:', err);
   }
 }
 
@@ -117,31 +246,101 @@ declare global {
 
 if (!global.__abhiGiftsStore) {
   global.__abhiGiftsStore = {
-    products: JSON.parse(JSON.stringify(INITIAL_PRODUCTS)),
-    categories: JSON.parse(JSON.stringify(INITIAL_CATEGORIES)),
-    orders: JSON.parse(JSON.stringify(INITIAL_ORDERS)),
+    products: loadPersistedProducts(),
+    categories: loadPersistedCategories(),
+    orders: loadPersistedOrders(),
     coupons: loadPersistedCoupons(),
-    settings: JSON.parse(JSON.stringify(INITIAL_SETTINGS)),
-    enquiries: [
-      {
-        id: 'enq-1',
-        name: 'Karthik Raja',
-        email: 'karthik.r@example.com',
-        phone: '9841122334',
-        subject: 'Custom Mandir Wall Art Measurement',
-        message: 'Can you create an Adiyogi LED frame in 5x3 feet customized size for our meditation hall?',
-        status: 'new',
-        createdAt: '2026-10-25T15:30:00.000Z',
-      },
-    ],
+    settings: loadPersistedSettings(),
+    enquiries: loadPersistedEnquiries(),
   };
-} else {
-  // Always keep products and categories synchronized with current initial catalog data
-  global.__abhiGiftsStore.products = JSON.parse(JSON.stringify(INITIAL_PRODUCTS));
-  global.__abhiGiftsStore.categories = JSON.parse(JSON.stringify(INITIAL_CATEGORIES));
 }
 
 const store = global.__abhiGiftsStore;
+
+// MongoDB Live Sync Helpers
+export async function syncProductToDatabase(product: Product) {
+  try {
+    const conn = await connectToDatabase();
+    if (conn) {
+      await ProductModel.findOneAndUpdate({ slug: product.slug }, product, { upsert: true, new: true });
+    }
+  } catch (err) {
+    console.warn('MongoDB sync product error:', err);
+  }
+}
+
+export async function deleteProductFromDatabase(idOrSlug: string) {
+  try {
+    const conn = await connectToDatabase();
+    if (conn) {
+      await ProductModel.findOneAndDelete({ $or: [{ slug: idOrSlug }, { id: idOrSlug }] });
+    }
+  } catch (err) {
+    console.warn('MongoDB delete product error:', err);
+  }
+}
+
+export async function syncOrderToDatabase(order: Order) {
+  try {
+    const conn = await connectToDatabase();
+    if (conn) {
+      await OrderModel.findOneAndUpdate(
+        { $or: [{ orderId: order.id }, { id: order.id }] },
+        { ...order, orderId: order.id },
+        { upsert: true, new: true }
+      );
+    }
+  } catch (err) {
+    console.warn('MongoDB sync order error:', err);
+  }
+}
+
+// Background sync on first module load
+let isDbSynced = false;
+async function initDbSync() {
+  if (isDbSynced) return;
+  isDbSynced = true;
+  try {
+    const conn = await connectToDatabase();
+    if (!conn) return;
+
+    // Load products from MongoDB if available
+    const dbProducts = await ProductModel.find({}).lean();
+    if (dbProducts && dbProducts.length > 0) {
+      const formatted: Product[] = dbProducts.map((doc: any) => {
+        const { _id, __v, ...p } = doc;
+        return { ...p, id: p.id || String(_id) };
+      });
+      store.products = formatted;
+      savePersistedProducts(formatted);
+    } else if (store.products.length > 0) {
+      for (const p of store.products) {
+        await ProductModel.findOneAndUpdate({ slug: p.slug }, p, { upsert: true });
+      }
+    }
+
+    // Load orders from MongoDB if available
+    const dbOrders = await OrderModel.find({}).sort({ createdAt: -1 }).lean();
+    if (dbOrders && dbOrders.length > 0) {
+      const formattedOrders: Order[] = dbOrders.map((doc: any) => {
+        const { _id, __v, ...o } = doc;
+        return { ...o, id: o.orderId || o.id || String(_id) };
+      });
+      store.orders = formattedOrders;
+      savePersistedOrders(formattedOrders);
+    } else if (store.orders.length > 0) {
+      for (const o of store.orders) {
+        await OrderModel.findOneAndUpdate({ orderId: o.id }, { ...o, orderId: o.id }, { upsert: true });
+      }
+    }
+  } catch (err) {
+    console.warn('Database background initialization:', err);
+  }
+}
+
+if (typeof window === 'undefined') {
+  initDbSync().catch(() => {});
+}
 
 // PRODUCT METHODS
 export interface ProductFilterOptions {
@@ -287,6 +486,7 @@ export function createProduct(productData: Omit<Product, 'id' | 'createdAt'>): P
   };
   store.products.unshift(newProduct);
   savePersistedProducts(store.products);
+  syncProductToDatabase(newProduct).catch(() => {});
   return newProduct;
 }
 
@@ -295,14 +495,19 @@ export function updateProduct(id: string, updates: Partial<Product>): Product | 
   if (index === -1) return null;
   store.products[index] = { ...store.products[index], ...updates };
   savePersistedProducts(store.products);
+  syncProductToDatabase(store.products[index]).catch(() => {});
   return store.products[index];
 }
 
 export function deleteProduct(id: string): boolean {
+  const target = store.products.find((p) => p.id === id || p.slug === id);
   const initialLen = store.products.length;
   store.products = store.products.filter((p) => p.id !== id && p.slug !== id);
   if (store.products.length < initialLen) {
     savePersistedProducts(store.products);
+    if (target) {
+      deleteProductFromDatabase(target.slug || target.id).catch(() => {});
+    }
     return true;
   }
   return false;
@@ -349,6 +554,7 @@ export function createCategory(cat: Omit<Category, 'id'>): Category {
     itemCount: 0,
   };
   store.categories.push(newCat);
+  savePersistedCategories(store.categories);
   return newCat;
 }
 
@@ -390,6 +596,8 @@ export function createOrder(data: Omit<Order, 'id' | 'createdAt' | 'updatedAt'>)
   };
 
   store.orders.unshift(newOrder);
+  savePersistedOrders(store.orders);
+  syncOrderToDatabase(newOrder).catch(() => {});
 
   // Decrement variant stock counts safely
   newOrder.items.forEach((item) => {
@@ -404,6 +612,7 @@ export function createOrder(data: Omit<Order, 'id' | 'createdAt' | 'updatedAt'>)
       }
     }
   });
+  savePersistedProducts(store.products);
 
   return newOrder;
 }
@@ -422,6 +631,8 @@ export function updateOrderStatus(
   if (courierPartner) order.courierPartner = courierPartner;
   order.updatedAt = new Date().toISOString();
 
+  savePersistedOrders(store.orders);
+  syncOrderToDatabase(order).catch(() => {});
   return order;
 }
 
@@ -445,6 +656,8 @@ export function updateOrderPayment(
   if (data.orderStatus) order.orderStatus = data.orderStatus;
   order.updatedAt = new Date().toISOString();
 
+  savePersistedOrders(store.orders);
+  syncOrderToDatabase(order).catch(() => {});
   return order;
 }
 
@@ -661,6 +874,7 @@ export function getSiteSettings(): SiteSettings {
 
 export function updateSiteSettings(updates: Partial<SiteSettings>): SiteSettings {
   store.settings = { ...store.settings, ...updates };
+  savePersistedSettings(store.settings);
   return { ...store.settings };
 }
 
@@ -677,6 +891,7 @@ export function createEnquiry(data: Omit<ContactEnquiry, 'id' | 'status' | 'crea
     createdAt: new Date().toISOString(),
   };
   store.enquiries.unshift(newEnq);
+  savePersistedEnquiries(store.enquiries);
   return newEnq;
 }
 

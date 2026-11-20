@@ -416,13 +416,38 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
       liveProduct?.hasLedBacklight ||
       product.categorySlug === 'led-acrylic-photo-frames' ||
       liveProduct?.categorySlug === 'led-acrylic-photo-frames' ||
+      product.categorySlug === 'modern-illuminated-art' ||
+      liveProduct?.categorySlug === 'modern-illuminated-art' ||
       product.categorySlugs?.includes('led-acrylic-photo-frames') ||
+      product.categorySlugs?.includes('modern-illuminated-art') ||
       liveProduct?.categorySlugs?.includes('led-acrylic-photo-frames') ||
+      liveProduct?.categorySlugs?.includes('modern-illuminated-art') ||
       product.slug?.includes('led') ||
+      product.slug?.includes('illuminated') ||
       product.title?.toLowerCase().includes('led') ||
-      liveProduct?.title?.toLowerCase().includes('led')
+      product.title?.toLowerCase().includes('illuminated') ||
+      liveProduct?.title?.toLowerCase().includes('led') ||
+      liveProduct?.title?.toLowerCase().includes('illuminated') ||
+      product.tags?.some((t) => t.toLowerCase().includes('led') || t.toLowerCase().includes('illuminated'))
     );
   }, [product, liveProduct]);
+
+  // Check if product is a Triptych or Multi-Frame Set (Sets of 2 or 3 frames)
+  const isMultiSet = useMemo(() => {
+    const slug = product.slug?.toLowerCase() || '';
+    const title = product.title?.toLowerCase() || '';
+    const cat = product.categorySlug?.toLowerCase() || '';
+    const tags = product.tags?.map((t) => t.toLowerCase()) || [];
+    return (
+      cat === 'sets-of-two-three-frames' ||
+      cat.includes('triptych') ||
+      slug.includes('triptych') ||
+      slug.includes('set-of') ||
+      title.includes('set of') ||
+      title.includes('triptych') ||
+      tags.some((t) => t.includes('set of') || t.includes('triptych'))
+    );
+  }, [product]);
 
   // Check if product is an Acrylic Frame (Non-LED crystal clear acrylic wall art)
   const isAcrylicFrame = useMemo(() => {
@@ -989,13 +1014,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                     />
                   )}
 
-                  <div
-                    className={`relative w-full h-full overflow-hidden rounded-xl shadow-sm bg-stone-900/5 z-10 transition-all ${
-                      isLedFrame
-                        ? 'border-[3px] border-[#C88A75]'
-                        : 'border border-stone-200'
-                    }`}
-                  >
+                  <div className="relative w-full h-full overflow-hidden rounded-xl shadow-xs bg-stone-50 z-10 transition-all flex items-center justify-center">
                     {/* Main Artwork Image with Smooth Zoom tracking */}
                     <img
                       src={activeImage}
@@ -1211,7 +1230,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                   <span className="px-2 py-0.5 rounded-md bg-white border border-stone-200">✓ Power Adapter Included</span>
                 </div>
               </div>
-            ) : (!isGlitterFrame && !isAcrylicFrame) ? (
+            ) : (!isGlitterFrame && !isAcrylicFrame && !isMultiSet) ? (
               <>
                 <div className="space-y-2.5">
                   <div className="flex items-center justify-between text-xs">

@@ -119,10 +119,12 @@ export default function CustomSizeInput({
 
       {/* Quick Dimension Presets */}
       <div className="space-y-1">
-        <span className="text-[10px] font-semibold text-stone-500 block">Quick Presets:</span>
+        <span className="text-[10px] font-semibold text-stone-500 block">Quick Presets (12 to 60 inches):</span>
         <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar pt-0.5">
           {PRESET_CUSTOM_SIZES.map((preset) => {
             const isMatch = width === preset.w && height === preset.h;
+            const sqFt = (preset.w * preset.h) / 144;
+            const sqFtStr = Number.isInteger(sqFt) ? `${sqFt} sq ft` : `${sqFt.toFixed(1)} sq ft`;
             return (
               <button
                 key={preset.label}
@@ -131,33 +133,34 @@ export default function CustomSizeInput({
                   onChangeWidth(preset.w);
                   onChangeHeight(preset.h);
                 }}
-                className={`px-2.5 py-1 rounded-lg text-[11px] font-semibold transition-all shrink-0 cursor-pointer ${
+                className={`px-2.5 py-1 rounded-lg text-[11px] font-semibold transition-all shrink-0 cursor-pointer flex flex-col items-center ${
                   isMatch
                     ? 'bg-[#EAB308] text-stone-950 font-bold shadow-xs'
                     : 'bg-stone-100 hover:bg-stone-200 text-stone-800 border border-stone-200'
                 }`}
               >
-                {preset.label}
+                <span>{preset.label}</span>
+                <span className="text-[9.5px] opacity-80 leading-none mt-0.5">{sqFtStr}</span>
               </button>
             );
           })}
         </div>
       </div>
 
-      {/* Live Measurement & Conversion Bar */}
+      {/* Live Measurement & Conversion Bar in Square Feet */}
       <div className="bg-stone-50 border border-stone-200 rounded-xl p-2.5 flex flex-wrap items-center justify-between gap-2 text-xs">
         <div className="flex items-center gap-2">
           <span className="text-amber-800 font-bold font-serif">
             {calc.widthInches}&quot; × {calc.heightInches}&quot; in
           </span>
           <span className="text-stone-400">•</span>
-          <span className="text-stone-600 font-mono">
-            {calc.cmWidth} × {calc.cmHeight} cm
+          <span className="text-emerald-700 font-bold bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200 text-[11px]">
+            {calc.sqFeet} sq ft
           </span>
         </div>
         <div className="flex items-center gap-1 text-[11px] text-stone-600">
-          <span>Area:</span>
-          <strong className="text-stone-900">{calc.sqFeet} sq ft</strong>
+          <span>Total Area:</span>
+          <strong className="text-stone-900 font-bold">{calc.sqFeet} sq ft</strong>
           <span className="text-stone-400">({calc.sqInches} sq in)</span>
         </div>
       </div>
