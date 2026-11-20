@@ -100,7 +100,7 @@ export default function Footer() {
               <div className="space-y-3">
                 <Link href="/" className="inline-block">
                   <Image
-                    src="/images/brand/logo-gold.png"
+                    src="/images/brand/logo-gold-v2.png"
                     alt="Abhi's Gifts - We Create Memorable Moments"
                     width={240}
                     height={50}

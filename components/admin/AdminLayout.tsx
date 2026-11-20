@@ -104,7 +104,7 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
           <div className="flex items-center justify-between">
             <Link href="/admin" className="flex items-center group">
               <Image
-                src="/images/brand/logo-gold.png"
+                src="/images/brand/logo-gold-v2.png"
                 alt="Abhi's Gifts Admin Portal"
                 width={160}
                 height={32}
@@ -265,7 +265,7 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
           <div className="relative w-4/5 max-w-xs bg-[#101010] text-stone-200 border-r border-stone-800 h-full shadow-2xl flex flex-col z-10 p-4 space-y-4">
             <div className="flex items-center justify-between border-b border-stone-800 pb-3">
               <Image
-                src="/images/brand/logo-gold.png"
+                src="/images/brand/logo-gold-v2.png"
                 alt="Abhi's Gifts Admin"
                 width={140}
                 height={28}

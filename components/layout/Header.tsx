@@ -233,7 +233,7 @@ export default function Header() {
 
               <Link href="/" className="flex items-center group shrink-0" aria-label="Abhi's Gifts Home">
                 <Image
-                  src="/images/brand/logo-gold.png"
+                  src="/images/brand/logo-gold-v2.png"
                   alt="Abhi's Gifts - We Create Memorable Moments"
                   width={240}
                   height={50}
@@ -583,7 +583,7 @@ export default function Header() {
             <div className="p-4 border-b border-[#2D2D2D] flex items-center justify-between bg-[#121212]">
               <Link href="/" onClick={() => setMobileMenuOpen(false)} className="flex items-center">
                 <Image
-                  src="/images/brand/logo-gold.png"
+                  src="/images/brand/logo-gold-v2.png"
                   alt="Abhi's Gifts - We Create Memorable Moments"
                   width={210}
                   height={44}
