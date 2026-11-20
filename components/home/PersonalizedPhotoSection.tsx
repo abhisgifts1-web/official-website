@@ -133,21 +133,21 @@ const CUSTOM_FRAMES: CustomFrameOption[] = [
     shape: 'Vertical Portrait',
     shapeType: 'portrait',
     dimensionsLabel: 'Standard 24" × 36" (Custom up to 4×6 ft)',
-    description: 'Museum-grade premium cast acrylic with precision beveled 45° beveled edges and brushed floating stainless steel standoffs.',
-    highlights: ['premium Optical Cast Acrylic', 'precision beveled Beveled Edges', 'Invisible Floating Standoffs', 'Shatterproof & Moisture-Proof'],
+    description: 'Museum-grade premium 5MM crystal clear acrylic with precision square-cut edges and premium metal wall mounting studs included.',
+    highlights: ['5MM Premium Cast Acrylic', 'Precision Square-Cut Edges', 'Direct UV Printing', 'Metal Studs Included'],
   },
   {
     id: 'night-glow',
-    name: 'LED LED Halo Frame',
+    name: 'LED Halo Frame',
     badge: 'Trending Gift',
     price: 'From ₹2,499',
     defaultArtworkId: 'ganesha',
     hasLed: true,
     shape: 'Illuminated Frame',
     shapeType: 'square',
-    dimensionsLabel: 'Square 24" × 24" (Warm White Glow)',
-    description: 'Concealed Epistar LED LEDs cast a serene golden halo around your sacred artwork or cherished memory.',
-    highlights: ['LED Warm Golden Backlight', 'long-lasting Rated Epistar LEDs', 'Certified 12V BIS Low Voltage', 'Inline ON/OFF Switch'],
+    dimensionsLabel: 'Square 24" × 24" (Cool White Glow)',
+    description: 'Hidden perimeter LEDs cast an elegant Cool White halo glow around your sacred artwork or cherished memory.',
+    highlights: ['Cool White LED Halo Glow', 'Rose Gold Aluminium Frame', 'Direct UV Printing', 'External Power Adapter Included'],
   },
   {
     id: 'gold-crest',
@@ -256,7 +256,7 @@ export default function PersonalizedPhotoSection() {
             </h2>
 
             <p className="text-xs sm:text-sm text-[#D1D5DB] leading-relaxed max-w-2xl font-sans">
-              Experience your sacred wall art or personal milestones at breathtaking scale. Choose from our iconic devotional masterpieces or upload your family portrait. Engineered with precision beveled beveled cast acrylic, pre-installed floating mounts, and optional LED LED illumination.
+              Experience your sacred wall art or personal milestones at breathtaking scale. Choose from our iconic devotional masterpieces or upload your family portrait. Engineered with imported virgin cast acrylic, precision square-cut edges, and optional Cool White LED halo illumination.
             </p>
           </div>
 

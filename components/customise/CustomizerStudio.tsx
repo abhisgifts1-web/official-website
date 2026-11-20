@@ -308,7 +308,7 @@ export const GALLERY_PRODUCTS: GalleryProductItem[] = [
     startingPrice: 2299,
     mrp: 4199,
     badge: 'Housewarming Favorite',
-    description: 'Showcase beloved family moments across an expansive landscape acrylic panel with rich archival colors and diamond-beveled edges.',
+    description: 'Showcase beloved family moments across an expansive landscape acrylic panel with rich archival colors, precision square-cut edges and metal mounting studs.',
     preset: {
       category: 'normal-acrylic',
       orientation: 'horizontal',

@@ -241,10 +241,10 @@ export default function LedBacklitShowcase() {
                   <div className="w-6 h-6 rounded-lg bg-amber-500/10 flex items-center justify-center text-amber-400 group-hover:bg-amber-500/20 transition-colors">
                     <Flame className="w-3.5 h-3.5" />
                   </div>
-                  <span className="text-amber-300 font-bold text-xs sm:text-sm">warm Glow</span>
+                  <span className="text-amber-300 font-bold text-xs sm:text-sm">Cool White Halo</span>
                 </div>
                 <span className="text-[11px] text-stone-400 mt-1 block leading-snug">
-                  Eye-friendly golden halo for pooja room tranquility.
+                  Eye-friendly Cool White halo glow for modern ambient tranquility.
                 </span>
               </div>
 

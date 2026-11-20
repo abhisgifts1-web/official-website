@@ -4,15 +4,15 @@ import LocalLandingPageView from '@/components/seo/LocalLandingPageView';
 import { getAllProducts } from '@/lib/store';
 
 export const metadata: Metadata = {
-  title: "LED Photo Frames in Hyderabad | warm Backlit Acrylic Frames — Abhi's Gifts",
+  title: "LED Photo Frames in Hyderabad | Cool White LED Halo Frames — Abhi's Gifts",
   description:
-    'Best LED photo frames in Hyderabad. Radiant warm night-glow illuminated acrylic frames for bedrooms, pooja rooms & living rooms. Low-voltage 12V adapter with BIS safety certification.',
+    'Best LED photo frames in Hyderabad. Imported clear virgin cast acrylic, advanced direct UV printing, Rose Gold aluminium side frame, and elegant Cool White halo glow with external power adapter included.',
   alternates: {
     canonical: 'https://abhigifts.com/led-photo-frames-hyderabad',
   },
   openGraph: {
-    title: 'LED Photo Frames in Hyderabad | warm Backlit Acrylic Frames',
-    description: 'Custom illuminated LED photo frames and sacred backlit wall art in Hyderabad. Handcrafted in Dilsukhnagar with warm golden glow.',
+    title: 'LED Photo Frames in Hyderabad | Cool White LED Halo Acrylic Frames',
+    description: 'Custom illuminated LED photo frames and sacred backlit wall art in Hyderabad. Handcrafted in Dilsukhnagar with Cool White halo glow and Rose Gold aluminium border.',
     url: 'https://abhigifts.com/led-photo-frames-hyderabad',
   },
 };
@@ -27,26 +27,26 @@ export default function LedPhotoFramesHyderabadPage() {
     <LocalLandingPageView
       slug="led-photo-frames-hyderabad"
       keyword="LED Photo Frames in Hyderabad"
-      h1Title="LED Photo Frames in Hyderabad — warm Ambient Backlit Art"
-      subtitle="Transform your family portraits, wedding vows, and sacred pooja mandir deities into breathtaking illuminated nocturnal art. Abhi's Gifts manufactures premium LED photo frames in Hyderabad with concealed light-guides, high-efficiency Epistar LEDs, and safe 12V BIS certified power adapters."
+      h1Title="LED Photo Frames in Hyderabad — Cool White Ambient Halo Art"
+      subtitle="Transform your family portraits, wedding vows, and sacred pooja mandir deities into breathtaking illuminated nocturnal art. Abhi's Gifts manufactures premium LED photo frames in Hyderabad with Imported Clear Virgin Cast Acrylic, Direct UV Printing, Rose Gold Aluminium Side Frames, and external power adapters included."
       locationName="Hyderabad & Telangana"
-      metaDescription="Looking for LED photo frames in Hyderabad? Discover warm backlit acrylic frames, custom photo night-glow frames, and devotional LED wall art from Abhi's Gifts."
+      metaDescription="Looking for LED photo frames in Hyderabad? Discover Cool White halo backlit acrylic frames, custom photo night-glow frames, and devotional LED wall art from Abhi's Gifts."
       introParagraphs={[
-        "Ambient lighting plays a vital role in creating tranquility and warmth in modern Indian homes. At Abhi's Gifts in Hyderabad, our custom LED photo frames combine optical cast acrylic with concealed high-density Epistar warm-white LED strips. During the day, the frame appears as a crisp, diamond-beveled luxury portrait; at night, flicking the switch transforms it into a serene, glowing golden sanctuary.",
-        "Whether you want an illuminated bedside night-glow frame with your wedding photograph, a radiant Tirupati Balaji or Shiva Adiyogi for your pooja mandir, or a dramatic living room centerpiece, our LED acrylic frames in Hyderabad feature energy-efficient 12V low-voltage operation with zero heat generation and zero eye glare.",
+        "Ambient lighting plays a vital role in creating tranquility and elegance in modern Indian homes. At Abhi's Gifts in Hyderabad, our custom LED photo frames combine imported clear virgin cast acrylic with integrated Cool White LED backlighting and a premium Rose Gold aluminium side frame. During the day, the frame appears as a crisp, luxurious wall art piece; at night, switching it on transforms it into a serene, illuminated focal point with an elegant halo glow.",
+        "Whether you want an illuminated bedside frame with your wedding photograph, a radiant Tirupati Balaji or Shiva Adiyogi for your pooja mandir, or a dramatic living room centerpiece, our LED acrylic frames in Hyderabad feature hidden perimeter illumination with external power adapters and wall plugs and screws included.",
       ]}
       whyChoosePoints={[
         {
-          title: 'Concealed warm Glow',
-          desc: 'Carefully engineered internal light-guide acrylic layers distribute illumination evenly without hotspots, shadows, or blinding glare.',
+          title: 'Cool White Halo Glow',
+          desc: 'Carefully engineered hidden perimeter LEDs cast an elegant Cool White halo glow around the artwork with beautiful ambient depth.',
         },
         {
-          title: 'high-efficiency Rated LEDs',
-          desc: 'Equipped with commercial-grade Epistar SMD LEDs engineered for over 12+ years of continuous evening use with zero lumen degradation.',
+          title: 'Direct UV Printing',
+          desc: 'Artwork printed directly onto imported virgin cast acrylic surface using UV-curable inks for lifelong vibrant colours and sharp details.',
         },
         {
-          title: 'Safe 12V BIS Low Voltage',
-          desc: 'Powered by a certified low-voltage 12V adapter with an inline switch and 2-meter braided power cord, safe around children and pooja diyas.',
+          title: 'External Power Adapter Included',
+          desc: 'Every frame comes with an external power adapter and complete wall plugs and screws for convenient, safe installation.',
         },
       ]}
       products={relevantProducts}
@@ -60,17 +60,17 @@ export default function LedPhotoFramesHyderabadPage() {
         {
           question: 'Do your LED photo frames produce heat or glare in bedrooms?',
           answer:
-            'No. Our 12V low-voltage LED drivers run cool to the touch even after 10 hours of continuous operation. The warm golden temperature is soft and soothing—ideal as a bedside night light.',
+            'No. Our LED backlighting runs cool to the touch. The Cool White halo temperature is elegant and gentle—ideal as ambient wall illumination.',
         },
         {
           question: 'Can I order a custom photo with LED backlighting in Hyderabad?',
           answer:
-            'Yes! You can upload any high-resolution photo on our customizer or WhatsApp us. We will prepare a 1:1 backlit digital proof showing the exact LED illumination effect before building it.',
+            'Yes! You can upload any high-resolution photo on our customizer or WhatsApp us. We will prepare a 1:1 digital proof showing the exact Cool White LED illumination effect before building it.',
         },
         {
           question: 'What is included in the LED photo frame package?',
           answer:
-            'Each LED frame comes fully assembled with the acrylic artwork, integrated warm Epistar LED strip, 12V BIS-certified power adapter, inline on/off toggle switch, wall mounting bracket, and rawl plugs.',
+            'Each LED frame comes fully assembled with the imported virgin cast acrylic artwork, Rose Gold aluminium side frame, integrated Cool White LED backlighting, external power adapter, wall plugs and screws.',
         },
         {
           question: 'Do you deliver LED photo frames across Hyderabad with damage protection?',

@@ -11,11 +11,11 @@ export interface FaqItem {
 export const HOMEPAGE_FAQS: FaqItem[] = [
   {
     q: 'What material is used in Abhi Gifts art pieces?',
-    a: 'We use premium imported cast acrylic with precision CNC beveled edges. Unlike ordinary glass that poses breakage hazards, our acrylic is shatterproof, UV-resistant, and reproduces vibrant colors with immense optical depth.',
+    a: 'We use premium imported clear virgin cast acrylic and 5MM crystal clear acrylic with precision square-cut edges and advanced direct UV printing. Unlike ordinary glass that poses breakage hazards, our acrylic is shatterproof, UV-curable ink printed, and reproduces vibrant colors with immense optical depth.',
   },
   {
     q: 'How does the LED backlighting work? What is included?',
-    a: 'Our LED backlit art arrives fully assembled with energy-efficient warm golden SMD LED diodes pre-fitted behind the acrylic panel. Every piece includes a 12V 2A BIS-certified wall adapter with a 2.5-meter discreet transparent power cable and an inline ON/OFF switch.',
+    a: 'Our LED backlit frames feature integrated Cool White LED illumination casting an elegant Cool White halo glow. Every LED frame includes an external power adapter and complete wall plugs and screws for easy, safe mounting.',
   },
   {
     q: 'How safe is shipping? What if it gets damaged in transit?',

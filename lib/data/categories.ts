@@ -18,7 +18,7 @@ export const INITIAL_CATEGORIES: Category[] = [
     id: 'cat-led-acrylic-photo-frames',
     name: 'LED Acrylic Photo Frames',
     slug: 'led-acrylic-photo-frames',
-    description: 'Ambient LED backlit acrylic photo frames and illuminated sacred wall decor with 12V BIS certified power adapter.',
+    description: 'Premium LED Backlit Acrylic Wall Frames crafted with Imported Clear Virgin Cast Acrylic, Direct UV Printing, Rose Gold Aluminium Side Frame, and Cool White LED Halo Glow. External power adapter and wall mounting hardware included.',
     image: '/images/categories/circle-showcase/led-photo-frames.jpg',
     parentType: 'wall-art-styles',
     group: 'led-backlight',

@@ -50,7 +50,7 @@ const ARTWORKS: DivineArtwork[] = [
     subtitle: 'Vighnaharta • Siddhi Vinayaka',
     editorialTitle: 'Lord Ganesha Vighnaharta Divine LED Wall Art',
     description:
-      'Consecrated with auspicious vibrations, featuring Lord Ganesha adorned in sacred sindoor red, turmeric gold, and deep saffron pigments. Finished with precision-cut acrylic clarity and a soothing warm golden halo.',
+      'Consecrated with auspicious vibrations, featuring Lord Ganesha adorned in sacred sindoor red, turmeric gold, and deep saffron pigments. Finished with precision-cut acrylic clarity and an elegant Cool White halo glow.',
     heroImage: '/images/atelier/hero-ganesha-legacy.jpg',
     hasLed: true,
     basePrice: 3299,
@@ -126,12 +126,12 @@ const LAYERS_DATA: LayerItem[] = [
     id: 'acrylic',
     number: '01',
     numBadge: 1,
-    title: 'crystal Diamond Cast Acrylic Shield',
+    title: 'Imported Clear Virgin Cast Acrylic Shield',
     subtitle: 'Transparent front panel & optical protection',
-    oneLiner: 'Zero-glass hazard with CNC 45° precision-polished beveled edges.',
+    oneLiner: 'Zero-glass hazard with clean precision square-cut edges.',
     description:
-      'Engineered from crystal virgin optical-grade cast acrylic with 99.2% crystalline optical purity. precision-cut CNC 45-degree beveled edges capture ambient room light like a gemstone while shielding sacred pigments from moisture and dust.',
-    material: 'crystal Virgin Optical-Grade Cast Acrylic',
+      'Engineered from imported virgin optical-grade cast acrylic with 99.2% optical purity. Clean precision square-cut edges deliver stunning optical clarity while shielding artwork from moisture and dust.',
+    material: 'Imported Virgin Optical-Grade Cast Acrylic',
     image: '/images/atelier/layer-1-acrylic-shield.jpg',
     hotspot: { top: '16%', left: '18%' },
     explodedOffset: { x: -60, y: -30, z: 80 },
@@ -1092,7 +1092,7 @@ export default function SacredArtAtelier() {
                   {/* Top-Right precision-cut Indicator Pill */}
                   <div className="absolute top-3.5 right-3.5 sm:top-5 sm:right-5 bg-stone-900/80 backdrop-blur-md px-3 py-1 rounded-full border border-stone-700 text-[10px] font-mono text-white flex items-center gap-1.5 opacity-90 group-hover:opacity-100 transition-opacity">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#FACC15] animate-pulse" />
-                    <span>Precision-Beveled Cast Acrylic</span>
+                    <span>Precision Square-Cut Cast Acrylic</span>
                   </div>
                 </div>
               </div>

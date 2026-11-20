@@ -104,11 +104,11 @@ export function isFamilyBabyFrame(p: Product): boolean {
 
 /**
  * Checks whether a product belongs to "LED Photo Frames".
- * Specifically non-devotional illuminated frames (God frames belong to God Photo Frames).
+ * Strictly illuminated LED frames with integrated Cool White backlighting.
  */
 export function isLedPhotoFrame(p: Product): boolean {
-  if (isGodProduct(p)) return false;
   if (isRotatingLamp(p)) return false;
+  if (isGlitterFrame(p)) return false;
   return (
     p.hasLedBacklight === true ||
     p.categorySlug === 'led-acrylic-photo-frames' ||

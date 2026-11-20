@@ -37,9 +37,9 @@ const CRAFT_PILLARS: CraftPillar[] = [
     id: 'acrylic',
     number: '01',
     title: 'Museum-Grade Cast Acrylic',
-    tagline: 'Zero Fragile Glass Hazards • Precision CNC Beveling',
+    tagline: 'Zero Fragile Glass Hazards • Precision Square-Cut Edges',
     description:
-      'Engineered with high-density imported virgin cast acrylic. Crystalline 99.2% optical transparency reveals sacred pigment depth without distorting reflection, while precision CNC beveled edges offer shatterproof clarity and enduring beauty.',
+      'Engineered with high-density imported virgin cast acrylic and 5MM crystal acrylic. Crystalline 99.2% optical transparency reveals sacred pigment depth without distorting reflection, while precision square-cut edges offer shatterproof clarity and enduring beauty.',
     icon: Gem,
     specs: [
       { label: 'Optical Purity', value: '99.2% Clarity' },

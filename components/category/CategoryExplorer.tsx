@@ -301,7 +301,7 @@ export default function CategoryExplorer({ initialCategories }: CategoryExplorer
                     ✨ LED Backlit Wall Art Collections ({backlightCount})
                   </h2>
                   <p className="text-xs sm:text-sm text-stone-600 mt-0.5">
-                    Illuminated sacred temple frames with warm golden halo glow, concealed wiring, and 12V BIS power adapters.
+                    Illuminated frames with elegant Cool White halo glow, Rose Gold aluminium borders, and external power adapters included.
                   </p>
                 </div>
                 <Link

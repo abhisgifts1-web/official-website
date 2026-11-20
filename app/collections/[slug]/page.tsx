@@ -48,7 +48,7 @@ export default function CollectionSlugPage({ params }: Props) {
     filtered = allProducts.filter((p) => p.deity || p.categorySlug.includes('lord') || p.categorySlug.includes('goddess') || p.categorySlug.includes('radha'));
   } else if (slug === 'led-backlit-series') {
     title = 'Illuminated LED Backlit Series';
-    description = '3D acrylic artworks enhanced with warm warm golden halo backlights and discreet power adapters.';
+    description = '3D acrylic artworks enhanced with elegant Cool White halo backlights, Rose Gold aluminium borders, and external power adapters included.';
     filtered = allProducts.filter((p) => p.hasLedBacklight);
   } else {
     filtered = allProducts.filter((p) => p.tags.some((t) => t.toLowerCase().includes(slug.replace(/-/g, ' '))));

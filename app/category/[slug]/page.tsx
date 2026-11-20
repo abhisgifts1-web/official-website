@@ -77,8 +77,8 @@ const LOCAL_SEO_CATEGORY_OVERRIDES: Record<string, { title: string; description:
     h1: 'Premium 5MM Acrylic Wall Art in Hyderabad',
   },
   'custom-led-photo-frames': {
-    title: "LED Photo Frames in Hyderabad | warm Backlit Custom Frames — Abhi's Gifts",
-    description: 'Discover custom LED photo frames in Hyderabad and Dilsukhnagar. Ambient warm night-glow illumination for wedding photos, family portraits & anniversary gifts with 12V adapter.',
+    title: "LED Photo Frames in Hyderabad | Cool White LED Halo Frames — Abhi's Gifts",
+    description: 'Discover premium LED photo frames in Hyderabad and Dilsukhnagar. Imported clear virgin cast acrylic, direct UV printing, Rose Gold aluminium side frame, and elegant Cool White halo glow with external power adapter included.',
     h1: 'Custom LED Photo Frames in Hyderabad',
   },
   'personalized-family-photo-frames': {
@@ -97,8 +97,8 @@ const LOCAL_SEO_CATEGORY_OVERRIDES: Record<string, { title: string; description:
     h1: 'Personalized Gifts & Wedding Keepsakes in Hyderabad',
   },
   'led-backlit-wall-art': {
-    title: "LED Acrylic Frames Hyderabad | warm Illuminated Wall Art — Abhi's Gifts",
-    description: 'Shop luxury LED acrylic frames in Hyderabad. Sacred Tirupati Balaji, Ganesha, Shiva, Radha Krishna & modern illuminated art with high-efficiency Epistar LEDs. Fast delivery across Hyderabad.',
+    title: "LED Acrylic Frames Hyderabad | Cool White Halo Illuminated Wall Art — Abhi's Gifts",
+    description: 'Shop luxury LED acrylic frames in Hyderabad. Imported Clear Virgin Cast Acrylic, Direct UV Printing, Rose Gold Aluminium Side Frame, and Cool White LED Halo Glow. External power adapter included.',
     h1: 'LED Acrylic Frames & Backlit Art in Hyderabad',
   },
   
@@ -217,9 +217,9 @@ export default function CategoryPage({ params }: CategoryPageProps) {
           <div className="flex flex-wrap items-center gap-2">
             <span className="text-xs uppercase tracking-widest font-bold text-amber-400 bg-amber-950/80 border border-amber-500/40 px-3 py-1 rounded-full inline-flex items-center gap-1.5">
               <Sparkles className="w-3.5 h-3.5" />
-              {category.lightingType === 'backlight' || category.group === 'led-backlight'
-                ? '✨ LED Backlit Series (12V Adapter)'
-                : '🖼️ Normal Pure Crystal Acrylic Series (Non-Lit gold Gold)'}
+              {category.lightingType === 'backlight' || category.group === 'led-backlight' || category.slug.includes('led')
+                ? '✨ LED Backlit Series (Cool White Halo Glow)'
+                : '🖼️ 5MM Crystal Clear Acrylic Series (Non-LED)'}
             </span>
             <span className="text-[11px] font-semibold text-emerald-400 bg-emerald-950/60 border border-emerald-500/30 px-2.5 py-0.5 rounded-full inline-flex items-center gap-1">
               <MapPin className="w-3 h-3" />
@@ -233,6 +233,29 @@ export default function CategoryPage({ params }: CategoryPageProps) {
           <p className="text-xs sm:text-sm text-stone-300 leading-relaxed font-normal">
             {seoOverride?.description || category.description}
           </p>
+
+          {/* Key Feature Highlights for LED Category */}
+          {(category.lightingType === 'backlight' || category.group === 'led-backlight' || category.slug.includes('led')) && (
+            <div className="pt-2 flex flex-wrap gap-2 text-[11px]">
+              <span className="px-2.5 py-1 rounded-lg bg-stone-900/90 border border-stone-700 text-stone-200">✓ Imported Virgin Cast Acrylic</span>
+              <span className="px-2.5 py-1 rounded-lg bg-stone-900/90 border border-stone-700 text-stone-200">✓ Direct UV Printing</span>
+              <span className="px-2.5 py-1 rounded-lg bg-stone-900/90 border border-stone-700 text-stone-200">✓ Rose Gold Aluminium Side Frame</span>
+              <span className="px-2.5 py-1 rounded-lg bg-stone-900/90 border border-stone-700 text-stone-200">✓ Cool White LED Halo Glow</span>
+              <span className="px-2.5 py-1 rounded-lg bg-stone-900/90 border border-stone-700 text-stone-200">✓ External Power Adapter Included</span>
+              <span className="px-2.5 py-1 rounded-lg bg-stone-900/90 border border-stone-700 text-stone-200">✓ Wall Plugs &amp; Screws Included</span>
+            </div>
+          )}
+
+          {/* Key Feature Highlights for Acrylic Category */}
+          {category.slug === 'acrylic-photo-frames' && (
+            <div className="pt-2 flex flex-wrap gap-2 text-[11px]">
+              <span className="px-2.5 py-1 rounded-lg bg-stone-900/90 border border-stone-700 text-stone-200">✓ 5MM Premium Crystal Acrylic</span>
+              <span className="px-2.5 py-1 rounded-lg bg-stone-900/90 border border-stone-700 text-stone-200">✓ Advanced Direct UV Printing</span>
+              <span className="px-2.5 py-1 rounded-lg bg-stone-900/90 border border-stone-700 text-stone-200">✓ Precision Square Cut Edges</span>
+              <span className="px-2.5 py-1 rounded-lg bg-stone-900/90 border border-stone-700 text-stone-200">✓ Metal Wall Mounting Studs Included</span>
+              <span className="px-2.5 py-1 rounded-lg bg-stone-900/90 border border-stone-700 text-stone-200">✓ Non-LED Product</span>
+            </div>
+          )}
         </div>
       </div>
 
