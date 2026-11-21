@@ -684,6 +684,9 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
   const [showStickyBar, setShowStickyBar] = useState(false);
   const mainPurchaseRef = useRef<HTMLDivElement>(null);
 
+  // Product Details Interactive Tab State
+  const [activeDetailsTab, setActiveDetailsTab] = useState<'overview' | 'specs' | 'sizing' | 'craft' | 'shipping'>('overview');
+
   // Accordion Sections State
   const [openSections, setOpenSections] = useState<Record<string, boolean>>({
     overview: true,
@@ -2335,339 +2338,338 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
             </div>
           </div>
         ) : (
-          /* Sleek Accordion Sections for Acrylic & General Products */
-          <div id="product-details-accordion" className="border-t border-stone-200 pt-10 max-w-4xl mx-auto space-y-4">
-            <div className="text-center sm:text-left mb-6">
-              <span className="text-[11px] font-bold uppercase tracking-wider text-amber-800">Everything You Need to Know</span>
-              <h3 className="font-serif font-bold text-2xl sm:text-3xl text-stone-900 mt-1">
+          <div id="product-details-showcase" className="border-t border-stone-200 pt-10 sm:pt-14 max-w-5xl mx-auto space-y-6">
+            {/* Modern Interactive Tabbed Showcase for Product Details & Specifications */}
+            {/* Header */}
+            <div className="text-center max-w-2xl mx-auto space-y-1.5">
+              <span className="text-[10.5px] font-extrabold uppercase tracking-widest text-amber-800 bg-amber-50 border border-amber-200/80 px-3 py-1 rounded-full inline-block">
+                Everything You Need to Know
+              </span>
+              <h3 className="font-serif font-bold text-2xl sm:text-3xl text-stone-900 tracking-tight">
                 {isAcrylicFrame ? 'Acrylic Specifications & Product Details' : 'Product Details & Specifications'}
               </h3>
+              <p className="text-xs sm:text-sm text-stone-500">
+                Explore craftsmanship, material engineering, dimensions, wall mounting, and FAQs.
+              </p>
             </div>
 
-            {/* 1. Description & Story */}
-            <div className="border border-stone-200 rounded-2xl overflow-hidden bg-white shadow-2xs transition-all">
-              <button
-                type="button"
-                onClick={() => toggleSection('overview')}
-                className="w-full p-4 sm:p-5 flex items-center justify-between text-left hover:bg-stone-50 transition-colors cursor-pointer"
-                aria-expanded={openSections.overview}
-              >
-                <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-xl bg-amber-50 border border-amber-200/80 flex items-center justify-center text-amber-700 shrink-0">
-                    <Sparkles className="w-4 h-4" />
-                  </div>
-                  <div>
-                    <span className="font-bold text-sm sm:text-base text-stone-900 block">
-                      {isAcrylicFrame ? 'Acrylic Product Description & Story' : 'Story, Meaning & Sacred Placement'}
-                    </span>
-                    <span className="text-[11px] text-stone-500 hidden sm:block">
-                      {isAcrylicFrame ? 'Premium 5MM crystal clear acrylic, UV direct print & modern wall styling' : 'Iconography, spiritual significance, and Vastu orientation'}
-                    </span>
-                  </div>
-                </div>
-                <ChevronDown
-                  className={`w-5 h-5 text-stone-500 transition-transform duration-200 shrink-0 ${
-                    openSections.overview ? 'rotate-180 text-stone-900' : ''
-                  }`}
-                />
-              </button>
+            {/* Interactive Segmented Tabs Navigation */}
+            <div className="flex items-center justify-start sm:justify-center gap-1.5 sm:gap-2 overflow-x-auto pb-2 pt-2 scrollbar-none px-1">
+              {[
+                { id: 'overview', label: isAcrylicFrame ? 'Story & Overview' : 'Story & Meaning', icon: Sparkles, subtitle: 'Iconography & Vastu' },
+                { id: 'specs', label: 'Specifications', icon: Layers, subtitle: 'Materials & Finish' },
+                { id: 'sizing', label: 'Size & Room Guide', icon: Ruler, subtitle: 'Wall Dimensions' },
+                { id: 'craft', label: 'Craft & Installation', icon: Zap, subtitle: '3-Minute Mounting' },
+                { id: 'shipping', label: 'Shipping & FAQs', icon: HelpCircle, subtitle: 'Packaging & Answers' },
+              ].map((tab) => {
+                const IconComponent = tab.icon;
+                const isActive = activeDetailsTab === tab.id;
+                return (
+                  <button
+                    key={tab.id}
+                    type="button"
+                    onClick={() => setActiveDetailsTab(tab.id as any)}
+                    className={`group px-3.5 sm:px-4 py-2.5 rounded-2xl text-left transition-all cursor-pointer shrink-0 flex items-center gap-2.5 border ${
+                      isActive
+                        ? 'bg-amber-50/80 border-amber-400/80 text-stone-950 shadow-xs ring-2 ring-amber-400/20'
+                        : 'bg-white border-stone-200/80 text-stone-600 hover:text-stone-900 hover:bg-stone-50 hover:border-stone-300'
+                    }`}
+                  >
+                    <div
+                      className={`w-7 h-7 rounded-xl flex items-center justify-center shrink-0 transition-colors ${
+                        isActive
+                          ? 'bg-amber-500 text-stone-950'
+                          : 'bg-stone-100 text-stone-500 group-hover:text-stone-700'
+                      }`}
+                    >
+                      <IconComponent className="w-3.5 h-3.5" />
+                    </div>
+                    <div>
+                      <span className={`text-xs block font-bold leading-tight ${isActive ? 'text-stone-950' : 'text-stone-700'}`}>
+                        {tab.label}
+                      </span>
+                      <span className="text-[10px] text-stone-400 hidden md:block leading-none mt-0.5">
+                        {tab.subtitle}
+                      </span>
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
 
-              {openSections.overview && (
-                <div className="px-5 pb-6 pt-1 border-t border-stone-100 space-y-4 animate-in fade-in duration-200">
-                  <div className="text-xs sm:text-sm text-stone-600 leading-relaxed [text-wrap:pretty] space-y-3">
+            {/* Active Tab Content Card */}
+            <div className="bg-white rounded-3xl border border-stone-200 p-5 sm:p-8 shadow-sm transition-all duration-300 min-h-[320px]">
+              {/* Tab 1: Story, Meaning & Placement */}
+              {activeDetailsTab === 'overview' && (
+                <div className="space-y-6 animate-in fade-in duration-200">
+                  <div className="flex items-center gap-2.5 pb-3 border-b border-stone-100">
+                    <div className="w-8 h-8 rounded-xl bg-amber-50 border border-amber-200 flex items-center justify-center text-amber-700">
+                      <Sparkles className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <h4 className="font-serif font-bold text-lg text-stone-900">
+                        {isAcrylicFrame ? 'Acrylic Product Description & Story' : 'Story, Sacred Meaning & Placement'}
+                      </h4>
+                      <p className="text-xs text-stone-500">
+                        {isAcrylicFrame ? 'Premium 5MM crystal clear acrylic, UV direct print & modern wall styling' : 'Iconography, spiritual significance, and Vastu orientation'}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="space-y-4 text-xs sm:text-sm text-stone-600 leading-relaxed">
                     {isAcrylicFrame ? (
                       <>
-                        <div className="p-4 rounded-xl bg-amber-50/50 border border-amber-200/70 space-y-2">
-                          <h4 className="font-serif font-bold text-sm sm:text-base text-stone-900">
+                        <div className="p-4 sm:p-5 rounded-2xl bg-amber-50/40 border border-amber-200/70 space-y-2.5">
+                          <h5 className="font-serif font-bold text-base text-stone-900">
                             Premium 5MM Crystal Clear Acrylic Wall Art
-                          </h4>
-                          <p className="text-stone-700 leading-relaxed text-xs sm:text-sm">
-                            Upgrade your walls with our Premium 5MM Crystal Clear Acrylic Frames, designed to bring elegance, clarity and a luxurious appearance to your interiors.
+                          </h5>
+                          <p className="text-stone-700 leading-relaxed">
+                            Upgrade your walls with our Premium 5MM Crystal Clear Acrylic Frames, designed to bring elegance, clarity, and a luxurious gallery appearance to your interiors.
                           </p>
-                          <p className="text-stone-700 leading-relaxed text-xs sm:text-sm">
-                            Each frame is crafted using premium 5MM thick crystal-clear acrylic and advanced Direct UV Printing Technology. The artwork is printed directly onto the acrylic surface, delivering high-definition image quality, vibrant colours and sharp details.
+                          <p className="text-stone-700 leading-relaxed">
+                            Each frame is crafted using 5MM thick crystal-clear acrylic and advanced Direct UV Printing Technology. The artwork is printed directly onto the acrylic surface, delivering high-definition image quality, vibrant colours, and sharp details.
                           </p>
-                          <p className="text-stone-700 leading-relaxed text-xs sm:text-sm">
-                            The premium glossy finish enhances the overall appearance of the artwork, while precision square-cut edges provide a clean and modern look.
+                          <p className="text-stone-700 leading-relaxed">
+                            The premium glossy finish enhances the depth of the artwork, while precision square-cut edges provide a clean, modern aesthetic.
                           </p>
-                          <p className="text-stone-700 leading-relaxed text-xs sm:text-sm">
-                            Every frame comes with premium metal wall mounting studs included, making wall installation convenient and giving your artwork an elegant floating-style appearance.
+                          <p className="text-stone-700 leading-relaxed">
+                            Every frame comes with premium metal wall mounting studs included, making wall installation convenient and giving your artwork an elegant floating appearance.
                           </p>
-                          <p className="text-stone-700 leading-relaxed text-xs sm:text-sm font-medium">
-                            Perfect for living rooms, bedrooms, offices, modern interiors and pooja rooms.
-                          </p>
-                          <div className="pt-1 text-[11px] font-bold text-amber-900">
-                            Premium Quality. Advanced Direct UV Printing. Elegant Square-Cut Design. Easy Installation.
+                          <div className="pt-2 text-xs font-bold text-amber-900 flex items-center gap-1.5">
+                            <CheckCircle2 className="w-4 h-4 text-amber-700 shrink-0" />
+                            <span>Premium Quality • Advanced Direct UV Printing • Precision Square-Cut Edges • Metal Studs Included</span>
                           </div>
                         </div>
 
                         {product.description && !product.description.includes('Premium 5MM Crystal Clear Acrylic Wall Art') && (
-                          <p className="text-stone-600 text-xs sm:text-sm leading-relaxed pt-1">
+                          <p className="text-stone-600 leading-relaxed pt-1">
                             {product.description}
                           </p>
                         )}
                       </>
                     ) : (
-                      <p>{product.description}</p>
+                      <p className="leading-relaxed">{product.description}</p>
                     )}
                   </div>
 
-                  <div className="p-4 rounded-xl bg-amber-50/50 border border-amber-200/60 text-xs text-stone-800 space-y-1">
-                    <p className="font-bold flex items-center gap-1.5 text-amber-950">
-                      <Sparkles className="w-3.5 h-3.5 text-amber-600 shrink-0" />
-                      <span>Placement &amp; Interior Styling Guidance</span>
-                    </p>
-                    <p className="text-stone-600 text-[11px] sm:text-xs leading-relaxed">
-                      Ideal for installation in living rooms, bedrooms, modern offices, gallery corridors, and pooja rooms to elevate your space with timeless elegance.
-                    </p>
+                  {/* Placement & Styling Guidance */}
+                  <div className="p-4 rounded-2xl bg-stone-50 border border-stone-200 flex items-start gap-3 text-xs">
+                    <Sparkles className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
+                    <div className="space-y-1">
+                      <p className="font-bold text-stone-900">Placement &amp; Interior Styling Guidance</p>
+                      <p className="text-stone-600 leading-relaxed text-[11px] sm:text-xs">
+                        Ideal for installation in living rooms, bedrooms, modern offices, gallery corridors, and pooja rooms to elevate your space with timeless elegance.
+                      </p>
+                    </div>
                   </div>
                 </div>
               )}
-            </div>
 
-            {/* 2. Technical Specifications (Requirement 1 & 6) */}
-            <div className="border border-stone-200 rounded-2xl overflow-hidden bg-white shadow-2xs transition-all">
-              <button
-                type="button"
-                onClick={() => toggleSection('specs')}
-                className="w-full p-4 sm:p-5 flex items-center justify-between text-left hover:bg-stone-50 transition-colors cursor-pointer"
-                aria-expanded={openSections.specs}
-              >
-                <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-xl bg-amber-50 border border-amber-200/80 flex items-center justify-center text-amber-700 shrink-0">
-                    <Layers className="w-4 h-4" />
+              {/* Tab 2: Product Specifications */}
+              {activeDetailsTab === 'specs' && (
+                <div className="space-y-6 animate-in fade-in duration-200">
+                  <div className="flex items-center gap-2.5 pb-3 border-b border-stone-100">
+                    <div className="w-8 h-8 rounded-xl bg-amber-50 border border-amber-200 flex items-center justify-center text-amber-700">
+                      <Layers className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <h4 className="font-serif font-bold text-lg text-stone-900">
+                        Product Specifications &amp; Engineering
+                      </h4>
+                      <p className="text-xs text-stone-500">
+                        {isAcrylicFrame ? '5MM crystal clear acrylic, UV direct print, square cut edges & metal studs' : 'Materials, power, inks, and finish'}
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    <span className="font-bold text-sm sm:text-base text-stone-900 block">
-                      Product Specifications
-                    </span>
-                    <span className="text-[11px] text-stone-500 hidden sm:block">
-                      {isAcrylicFrame ? '5MM acrylic, direct UV printing, square-cut edges & metal studs' : 'Materials, power, inks, and finish'}
-                    </span>
+
+                  <div className="divide-y divide-stone-100 border border-stone-200 rounded-2xl overflow-hidden text-xs sm:text-sm bg-stone-50/30">
+                    {(isAcrylicFrame
+                      ? [
+                          { label: 'Material', value: 'Premium Crystal Clear Acrylic' },
+                          { label: 'Thickness', value: '5MM Premium Acrylic (Rigid & Deep)' },
+                          { label: 'Printing Technology', value: 'Advanced Direct UV Printing' },
+                          { label: 'Print Quality', value: 'High-Definition UV Printing' },
+                          { label: 'Print Method', value: 'Direct Printing on Acrylic Surface (No Paper / Peeling)' },
+                          { label: 'Colour Quality', value: 'Vibrant Colours & Razor-Sharp Details' },
+                          { label: 'Finish', value: 'Diamond Polished Glossy Finish' },
+                          { label: 'Edges', value: 'Precision Square Cut Minimal Edges' },
+                          { label: 'Mounting Hardware', value: 'Premium Metal Wall Mounting Studs Included' },
+                          { label: 'Installation', value: 'Mounting Studs, Plugs & Screws Included with Every Frame' },
+                          { label: 'Lighting', value: 'Pure Non-LED Art' },
+                          { label: 'Customization', value: 'Custom Sizes 12 to 60 inches Available' },
+                          { label: 'Recommended Placement', value: 'Living Room, Bedroom, Office, Home Decor and Pooja Room' },
+                        ]
+                      : product.specifications || []
+                    ).map((spec, i) => (
+                      <div key={i} className="grid grid-cols-3 p-3.5 hover:bg-white transition-colors">
+                        <span className="font-bold text-stone-900 col-span-1">{spec.label}</span>
+                        <span className="text-stone-700 col-span-2 font-medium">{spec.value}</span>
+                      </div>
+                    ))}
                   </div>
                 </div>
-                <ChevronDown
-                  className={`w-5 h-5 text-stone-500 transition-transform duration-200 shrink-0 ${
-                    openSections.specs ? 'rotate-180 text-stone-900' : ''
-                  }`}
-                />
-              </button>
+              )}
 
-              {openSections.specs && (
-                <div className="px-5 pb-6 pt-3 border-t border-stone-100 animate-in fade-in duration-200">
-                  <div className="divide-y divide-stone-100 border border-stone-200/80 rounded-xl overflow-hidden text-xs sm:text-sm bg-stone-50/40">
-                    {isAcrylicFrame ? (
-                      [
-                        { label: 'Material', value: 'Premium Crystal Clear Acrylic' },
-                        { label: 'Thickness', value: '5MM Premium Acrylic' },
-                        { label: 'Printing Technology', value: 'Advanced Direct UV Printing' },
-                        { label: 'Print Quality', value: 'High-Definition UV Printing' },
-                        { label: 'Print Method', value: 'Direct Printing on Acrylic Surface' },
-                        { label: 'Colour Quality', value: 'Vibrant Colours & Sharp Details' },
-                        { label: 'Finish', value: 'Premium Glossy Finish' },
-                        { label: 'Edges', value: 'Precision Square Cut Edges' },
-                        { label: 'Mounting', value: 'Premium Metal Wall Mounting Studs' },
-                        { label: 'Installation', value: 'Installation Studs Included with Every Frame' },
-                        { label: 'Lighting', value: 'Non-LED' },
-                        { label: 'Customization', value: 'Custom Sizes Available' },
-                        { label: 'Usage', value: 'Living Room, Bedroom, Office, Home Decor and Pooja Room.' },
-                      ].map((spec, i) => (
-                        <div key={i} className="grid grid-cols-3 p-3.5 hover:bg-white transition-colors">
-                          <span className="font-semibold text-stone-900 col-span-1">{spec.label}</span>
-                          <span className="text-stone-700 col-span-2 font-medium">{spec.value}</span>
+              {/* Tab 3: Size & Room Scale Guide */}
+              {activeDetailsTab === 'sizing' && (
+                <div className="space-y-6 animate-in fade-in duration-200">
+                  <div className="flex items-center gap-2.5 pb-3 border-b border-stone-100">
+                    <div className="w-8 h-8 rounded-xl bg-amber-50 border border-amber-200 flex items-center justify-center text-amber-700">
+                      <Ruler className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <h4 className="font-serif font-bold text-lg text-stone-900">
+                        Size &amp; Room Scale Guide
+                      </h4>
+                      <p className="text-xs text-stone-500">
+                        Recommended dimensions for different wall niches, foyer entrances, and living spaces.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-3.5">
+                    {[
+                      { size: '12 × 18 In', sqft: '1.5 sq ft', placement: 'Pooja Mandir or Entry Foyer', w: 'w-10', h: 'h-14' },
+                      { size: '16 × 24 In', sqft: '2.6 sq ft', placement: 'Corridor & Dining Wall', w: 'w-12', h: 'h-18' },
+                      { size: '24 × 35 In', sqft: '5.8 sq ft', placement: 'Above 3-Seater Sofa / Bed', w: 'w-16', h: 'h-22' },
+                      { size: '30 × 47 In', sqft: '9.8 sq ft', placement: 'Grand Living Room Centerpiece', w: 'w-20', h: 'h-26' },
+                    ].map((item, idx) => (
+                      <div key={idx} className="p-4 rounded-2xl bg-stone-50 border border-stone-200 text-center space-y-2 flex flex-col items-center justify-between">
+                        <div className="h-28 flex items-center justify-center">
+                          <div className={`${item.w} ${item.h} rounded-lg border-2 border-amber-500 bg-amber-50 shadow-xs flex flex-col items-center justify-center text-[10px] font-extrabold text-stone-900`}>
+                            <span>{item.size.replace(' In', '')}</span>
+                            <span className="text-[8px] font-normal text-stone-500">{item.sqft}</span>
+                          </div>
                         </div>
-                      ))
-                    ) : (
-                      product.specifications.map((spec, i) => (
-                        <div key={i} className="grid grid-cols-3 p-3.5 hover:bg-white transition-colors">
-                          <span className="font-semibold text-stone-900 col-span-1">{spec.label}</span>
-                          <span className="text-stone-600 col-span-2">{spec.value}</span>
+                        <div>
+                          <h5 className="font-bold text-stone-900 text-xs sm:text-sm">{item.size}</h5>
+                          <p className="text-[11px] text-stone-500 mt-0.5 leading-snug">{item.placement}</p>
                         </div>
-                      ))
-                    )}
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="p-3.5 bg-amber-50/50 border border-amber-200/60 rounded-xl text-xs text-stone-700 flex items-center gap-2">
+                    <Info className="w-4 h-4 text-amber-700 shrink-0" />
+                    <span>Need a custom wall size? You can enter any custom dimensions from 12 to 60 inches directly in the size selector above.</span>
                   </div>
                 </div>
               )}
-            </div>
 
-            {/* 3. Dimensions & Room Placement Guide */}
-            <div className="border border-stone-200 rounded-2xl overflow-hidden bg-white shadow-2xs transition-all">
-              <button
-                type="button"
-                onClick={() => toggleSection('sizing')}
-                className="w-full p-4 sm:p-5 flex items-center justify-between text-left hover:bg-stone-50 transition-colors cursor-pointer"
-                aria-expanded={openSections.sizing}
-              >
-                <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-xl bg-amber-50 border border-amber-200/80 flex items-center justify-center text-amber-700 shrink-0">
-                    <Ruler className="w-4 h-4" />
-                  </div>
-                  <div>
-                    <span className="font-bold text-sm sm:text-base text-stone-900 block">
-                      Size &amp; Room Scale Guide
-                    </span>
-                    <span className="text-[11px] text-stone-500 hidden sm:block">Recommended dimensions for different wall niches and room spaces</span>
-                  </div>
-                </div>
-                <ChevronDown
-                  className={`w-5 h-5 text-stone-500 transition-transform duration-200 shrink-0 ${
-                    openSections.sizing ? 'rotate-180 text-stone-900' : ''
-                  }`}
-                />
-              </button>
-
-              {openSections.sizing && (
-                <div className="px-5 pb-6 pt-3 border-t border-stone-100 animate-in fade-in duration-200">
-                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs text-stone-600">
-                    <div className="p-3.5 rounded-xl bg-stone-50 border border-stone-200 text-center space-y-1.5">
-                      <div className="h-16 flex items-center justify-center">
-                        <div className="w-8 h-12 rounded border-2 border-amber-500 bg-amber-50 flex items-center justify-center text-[9px] font-bold text-stone-900">12x18</div>
-                      </div>
-                      <h5 className="font-bold text-stone-900 text-xs">12 × 18 In</h5>
-                      <p className="text-[10px] text-stone-500">Pooja Mandir or Entry</p>
+              {/* Tab 4: Craft, Materials & 3-Minute Installation */}
+              {activeDetailsTab === 'craft' && (
+                <div className="space-y-6 animate-in fade-in duration-200">
+                  <div className="flex items-center gap-2.5 pb-3 border-b border-stone-100">
+                    <div className="w-8 h-8 rounded-xl bg-amber-50 border border-amber-200 flex items-center justify-center text-amber-700">
+                      <Zap className="w-4 h-4" />
                     </div>
-                    <div className="p-3.5 rounded-xl bg-stone-50 border border-stone-200 text-center space-y-1.5">
-                      <div className="h-16 flex items-center justify-center">
-                        <div className="w-11 h-16 rounded border-2 border-amber-500 bg-amber-50 flex items-center justify-center text-[9px] font-bold text-stone-900">16x24</div>
-                      </div>
-                      <h5 className="font-bold text-stone-900 text-xs">16 × 24 In</h5>
-                      <p className="text-[10px] text-stone-500">Medium Wall &amp; Foyer</p>
-                    </div>
-                    <div className="p-3.5 rounded-xl bg-stone-50 border border-stone-200 text-center space-y-1.5">
-                      <div className="h-16 flex items-center justify-center">
-                        <div className="w-14 h-20 rounded border-2 border-amber-500 bg-amber-50 flex items-center justify-center text-[9px] font-bold text-stone-900">24x35</div>
-                      </div>
-                      <h5 className="font-bold text-stone-900 text-xs">24 × 35 In</h5>
-                      <p className="text-[10px] text-stone-500">Above Sofa or Bed</p>
-                    </div>
-                    <div className="p-3.5 rounded-xl bg-stone-50 border border-stone-200 text-center space-y-1.5">
-                      <div className="h-16 flex items-center justify-center">
-                        <div className="w-18 h-22 rounded border-2 border-amber-500 bg-amber-50 flex items-center justify-center text-[9px] font-bold text-stone-900">30x47</div>
-                      </div>
-                      <h5 className="font-bold text-stone-900 text-xs">30 × 47 In</h5>
-                      <p className="text-[10px] text-stone-500">Grand Living Statement</p>
+                    <div>
+                      <h4 className="font-serif font-bold text-lg text-stone-900">
+                        Craft, Materials &amp; 3-Minute Installation
+                      </h4>
+                      <p className="text-xs text-stone-500">
+                        {isAcrylicFrame ? '5MM acrylic engineering & metal wall studs installation' : 'High quality craft and easy wall mounting'}
+                      </p>
                     </div>
                   </div>
-                </div>
-              )}
-            </div>
 
-            {/* 4. Craft, Materials & 3-Min Installation */}
-            <div className="border border-stone-200 rounded-2xl overflow-hidden bg-white shadow-2xs transition-all">
-              <button
-                type="button"
-                onClick={() => toggleSection('craftInstall')}
-                className="w-full p-4 sm:p-5 flex items-center justify-between text-left hover:bg-stone-50 transition-colors cursor-pointer"
-                aria-expanded={openSections.craftInstall}
-              >
-                <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-xl bg-amber-50 border border-amber-200/80 flex items-center justify-center text-amber-700 shrink-0">
-                    <Zap className="w-4 h-4" />
-                  </div>
-                  <div>
-                    <span className="font-bold text-sm sm:text-base text-stone-900 block">
-                      Craft, Materials &amp; 3-Minute Installation
-                    </span>
-                    <span className="text-[11px] text-stone-500 hidden sm:block">
-                      {isAcrylicFrame ? '5MM acrylic engineering & metal wall studs installation' : 'High quality craft and easy wall mounting'}
-                    </span>
-                  </div>
-                </div>
-                <ChevronDown
-                  className={`w-5 h-5 text-stone-500 transition-transform duration-200 shrink-0 ${
-                    openSections.craftInstall ? 'rotate-180 text-stone-900' : ''
-                  }`}
-                />
-              </button>
-
-              {openSections.craftInstall && (
-                <div className="px-5 pb-6 pt-3 border-t border-stone-100 space-y-5 animate-in fade-in duration-200">
-                  {/* 4 Materials */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm text-stone-600">
-                    <div className="p-3.5 rounded-xl bg-stone-50 border border-stone-200 space-y-1">
+                  {/* 4 Material Engineering Cards */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm">
+                    <div className="p-4 rounded-2xl bg-stone-50 border border-stone-200 space-y-1">
                       <h5 className="font-bold text-stone-900">5MM Premium Acrylic</h5>
-                      <p className="text-xs">Crafted exclusively with 5MM thick crystal-clear acrylic for rich visual depth, structural rigidity, and elegance.</p>
+                      <p className="text-xs text-stone-600 leading-relaxed">
+                        Crafted exclusively with 5MM thick crystal-clear acrylic for rich visual depth, structural rigidity, and a luxurious gallery look.
+                      </p>
                     </div>
-                    <div className="p-3.5 rounded-xl bg-stone-50 border border-stone-200 space-y-1">
+                    <div className="p-4 rounded-2xl bg-stone-50 border border-stone-200 space-y-1">
                       <h5 className="font-bold text-stone-900">Advanced Direct UV Printing</h5>
-                      <p className="text-xs">UV-curable inks printed directly onto the acrylic surface with instant UV curing for sharp details and vibrant colors.</p>
+                      <p className="text-xs text-stone-600 leading-relaxed">
+                        High-definition UV-curable inks printed directly onto the acrylic surface with instant curing for sharp details and vivid colours.
+                      </p>
                     </div>
-                    <div className="p-3.5 rounded-xl bg-stone-50 border border-stone-200 space-y-1">
+                    <div className="p-4 rounded-2xl bg-stone-50 border border-stone-200 space-y-1">
                       <h5 className="font-bold text-stone-900">Precision Square Cut Edges</h5>
-                      <p className="text-xs">Clean, precision square-cut edges maintaining a sharp, minimal geometric design that complements modern decor.</p>
+                      <p className="text-xs text-stone-600 leading-relaxed">
+                        Clean, precision square-cut edges maintaining a sharp, minimal geometric design that complements modern decor.
+                      </p>
                     </div>
-                    <div className="p-3.5 rounded-xl bg-stone-50 border border-stone-200 space-y-1">
-                      <h5 className="font-bold text-stone-900">Metal Installation Studs</h5>
-                      <p className="text-xs">Premium metal wall mounting studs and hardware included with every frame for an elegant floating appearance.</p>
+                    <div className="p-4 rounded-2xl bg-stone-50 border border-stone-200 space-y-1">
+                      <h5 className="font-bold text-stone-900">Metal Installation Studs Included</h5>
+                      <p className="text-xs text-stone-600 leading-relaxed">
+                        Premium metal wall mounting studs and hardware included with every frame for an elegant floating appearance.
+                      </p>
                     </div>
                   </div>
 
-                  {/* 3 Steps */}
+                  {/* 3 Steps Mounting Guide */}
                   <div className="pt-2">
                     <h5 className="font-bold text-xs uppercase tracking-wider text-stone-500 mb-3">
-                      Easy 3-Minute Wall Mounting
+                      Easy 3-Minute Wall Mounting Guide
                     </h5>
-                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs text-stone-600">
-                      <div className="p-3 rounded-xl bg-amber-50/40 border border-amber-200/60 space-y-1">
-                        <span className="w-5 h-5 rounded-full bg-amber-400 text-stone-950 font-bold inline-flex items-center justify-center text-[10px] mb-1">1</span>
-                        <h6 className="font-bold text-stone-900">Mark &amp; Drill</h6>
-                        <p className="text-[11px]">Align frame to wall and mark drill hole positions accurately.</p>
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+                      <div className="p-4 rounded-2xl bg-amber-50/40 border border-amber-200/60 space-y-1.5">
+                        <span className="w-6 h-6 rounded-full bg-amber-400 text-stone-950 font-bold inline-flex items-center justify-center text-xs">1</span>
+                        <h6 className="font-bold text-stone-900 text-sm">Mark &amp; Drill</h6>
+                        <p className="text-stone-600 text-[11px] leading-relaxed">
+                          Align frame to your desired wall height and mark the drill hole positions accurately.
+                        </p>
                       </div>
-                      <div className="p-3 rounded-xl bg-amber-50/40 border border-amber-200/60 space-y-1">
-                        <span className="w-5 h-5 rounded-full bg-amber-400 text-stone-950 font-bold inline-flex items-center justify-center text-[10px] mb-1">2</span>
-                        <h6 className="font-bold text-stone-900">Mount Stud Barrels</h6>
-                        <p className="text-[11px]">Fasten the metal mounting stud barrels firmly to the wall with included screws.</p>
+                      <div className="p-4 rounded-2xl bg-amber-50/40 border border-amber-200/60 space-y-1.5">
+                        <span className="w-6 h-6 rounded-full bg-amber-400 text-stone-950 font-bold inline-flex items-center justify-center text-xs">2</span>
+                        <h6 className="font-bold text-stone-900 text-sm">Mount Stud Barrels</h6>
+                        <p className="text-stone-600 text-[11px] leading-relaxed">
+                          Fasten the metal mounting stud barrels firmly to the wall with included wall plugs and screws.
+                        </p>
                       </div>
-                      <div className="p-3 rounded-xl bg-amber-50/40 border border-amber-200/60 space-y-1">
-                        <span className="w-5 h-5 rounded-full bg-amber-400 text-stone-950 font-bold inline-flex items-center justify-center text-[10px] mb-1">3</span>
-                        <h6 className="font-bold text-stone-900">Fasten &amp; Float</h6>
-                        <p className="text-[11px]">Position acrylic frame onto studs and hand-tighten the screw caps for an elegant floating look.</p>
+                      <div className="p-4 rounded-2xl bg-amber-50/40 border border-amber-200/60 space-y-1.5">
+                        <span className="w-6 h-6 rounded-full bg-amber-400 text-stone-950 font-bold inline-flex items-center justify-center text-xs">3</span>
+                        <h6 className="font-bold text-stone-900 text-sm">Fasten &amp; Float</h6>
+                        <p className="text-stone-600 text-[11px] leading-relaxed">
+                          Position acrylic frame onto studs and hand-tighten the screw caps for an elegant floating look.
+                        </p>
                       </div>
                     </div>
                   </div>
                 </div>
               )}
-            </div>
 
-            {/* 5. Packaging & Frequently Asked Questions */}
-            <div className="border border-stone-200 rounded-2xl overflow-hidden bg-white shadow-2xs transition-all">
-              <button
-                type="button"
-                onClick={() => toggleSection('shippingFaq')}
-                className="w-full p-4 sm:p-5 flex items-center justify-between text-left hover:bg-stone-50 transition-colors cursor-pointer"
-                aria-expanded={openSections.shippingFaq}
-              >
-                <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-xl bg-amber-50 border border-amber-200/80 flex items-center justify-center text-amber-700 shrink-0">
-                    <HelpCircle className="w-4 h-4" />
+              {/* Tab 5: Shipping, Packaging & FAQs */}
+              {activeDetailsTab === 'shipping' && (
+                <div className="space-y-6 animate-in fade-in duration-200">
+                  <div className="flex items-center gap-2.5 pb-3 border-b border-stone-100">
+                    <div className="w-8 h-8 rounded-xl bg-amber-50 border border-amber-200 flex items-center justify-center text-amber-700">
+                      <HelpCircle className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <h4 className="font-serif font-bold text-lg text-stone-900">
+                        Shipping, Safe Packaging &amp; FAQs
+                      </h4>
+                      <p className="text-xs text-stone-500">
+                        Zero damage transit guarantee, safe transit packaging, and answers to common questions.
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    <span className="font-bold text-sm sm:text-base text-stone-900 block">
-                      Shipping, Packaging &amp; FAQs
-                    </span>
-                    <span className="text-[11px] text-stone-500 hidden sm:block">Transit guarantee, safe packaging, and care instructions</span>
-                  </div>
-                </div>
-                <ChevronDown
-                  className={`w-5 h-5 text-stone-500 transition-transform duration-200 shrink-0 ${
-                    openSections.shippingFaq ? 'rotate-180 text-stone-900' : ''
-                  }`}
-                />
-              </button>
 
-              {openSections.shippingFaq && (
-                <div className="px-5 pb-6 pt-3 border-t border-stone-100 space-y-4 animate-in fade-in duration-200">
-                  {/* Shipping highlights */}
-                  <div className="p-4 rounded-xl bg-stone-50 border border-stone-200 text-xs text-stone-600 space-y-1.5">
-                    <h5 className="font-bold text-stone-900 text-xs">5-Layer Safe Transit Packaging</h5>
-                    <ul className="list-disc list-inside space-y-1 text-[11px] text-stone-600">
-                      <li>Reinforced with 5-layer honeycomb wooden crate and thick shockproof bubble wrap.</li>
-                      <li>Protected with reinforced corner guards prior to courier dispatch.</li>
-                      <li>Free Pan-India replacement guarantee if damaged during shipping.</li>
+                  {/* 5-Layer Safe Transit Packaging */}
+                  <div className="p-4 sm:p-5 rounded-2xl bg-stone-50 border border-stone-200 space-y-2">
+                    <h5 className="font-bold text-stone-900 text-sm">5-Layer Safe Transit Packaging</h5>
+                    <ul className="space-y-1.5 text-xs text-stone-600">
+                      <li className="flex items-center gap-2">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                        <span>Reinforced with 5-layer honeycomb protective wooden crate and thick shockproof bubble wrap.</span>
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                        <span>Protected with heavy-duty corner guards prior to courier dispatch.</span>
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                        <span><strong>100% Free Pan-India Replacement Guarantee</strong> in the rare event of transit damage.</span>
+                      </li>
                     </ul>
                   </div>
 
-                  {/* FAQ List */}
+                  {/* FAQ Items */}
                   <div className="space-y-2.5 pt-1">
                     {[
                       {
@@ -2699,12 +2701,12 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                         a: 'Simply wipe the acrylic surface gently with a soft dry or slightly damp microfiber cloth. Do not use harsh chemical cleaners or abrasive scrubbers.',
                       },
                     ].map((item, idx) => (
-                      <div key={idx} className="p-3.5 rounded-xl bg-stone-50/80 border border-stone-200/70 space-y-1">
-                        <h6 className="font-semibold text-xs text-stone-900 flex items-center gap-1.5">
+                      <div key={idx} className="p-3.5 sm:p-4 rounded-xl bg-stone-50 border border-stone-200/80 space-y-1">
+                        <h6 className="font-semibold text-xs sm:text-sm text-stone-900 flex items-center gap-2">
                           <HelpCircle className="w-3.5 h-3.5 text-amber-600 shrink-0" />
                           <span>{item.q}</span>
                         </h6>
-                        <p className="text-[11px] text-stone-600 leading-relaxed pl-5">{item.a}</p>
+                        <p className="text-[11px] sm:text-xs text-stone-600 leading-relaxed pl-5">{item.a}</p>
                       </div>
                     ))}
                   </div>
