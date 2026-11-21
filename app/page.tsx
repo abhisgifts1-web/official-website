@@ -3,7 +3,6 @@
 import React from 'react';
 import HeroShowcase from '@/components/home/HeroShowcase';
 import CategoryShowcase from '@/components/home/CategoryShowcase';
-import BestsellersShowcase from '@/components/home/BestsellersShowcase';
 import WhyChooseUsSection from '@/components/home/WhyChooseUsSection';
 import CustomizationProcessSection from '@/components/home/CustomizationProcessSection';
 import ContactCtaSection from '@/components/home/ContactCtaSection';
@@ -14,11 +13,8 @@ export default function HomePage() {
       {/* 1. Hero Showcase Section */}
       <HeroShowcase />
 
-      {/* 2. Shop by Category (Classically placed after Hero) */}
+      {/* 2. Shop by Category (8 Curated Collections) */}
       <CategoryShowcase />
-
-      {/* 3. Best-Selling Products Section */}
-      <BestsellersShowcase />
 
       {/* 3. Why Choose Us Section */}
       <WhyChooseUsSection />
