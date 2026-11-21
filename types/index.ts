@@ -10,6 +10,14 @@ export interface OrientationVariantsMap {
 export type ArtworkFinish = 'Acrylic Ultra-Gloss' | 'Floating Framed Canvas' | 'Matte Fine Wood' | 'Brushed Gold Aluminum' | 'Premium Glossy Finish';
 export type LightingType = 'LED Backlit (12V Adapter)' | 'Warm LED Backlit (12V Adapter)' | 'RGB Multi-Color Remote' | 'No Lighting (Pure Art)' | 'Non-LED' | 'Cool White LED Backlighting';
 
+export interface ProductModel {
+  id: string; // e.g. "M-1", "M-18"
+  name: string; // e.g. "M-1", "M-18"
+  image: string;
+  isPopular?: boolean;
+  mockups?: string[];
+}
+
 export interface ProductVariant {
   _id?: string;
   id: string;
@@ -60,6 +68,7 @@ export interface Product {
   orientation: ProductOrientation;
   shape?: 'portrait' | 'landscape' | 'square' | 'round' | 'set-of-2' | 'set-of-3';
   images: string[]; // Primary, secondary, wall mockups, angle views
+  models?: ProductModel[]; // Model designs (M-1 to M-25 / M-30)
   tags: string[];
   couponCode?: string; // Specific coupon code assigned to this product
   isFeatured?: boolean;
@@ -102,6 +111,7 @@ export interface CartCustomization {
   previewUrl: string;
   customText?: string;
   frameType?: string;
+  selectedModel?: string;
   orientation?: ProductOrientation;
   aspectRatio?: string;
   specialInstructions?: string;
@@ -114,6 +124,7 @@ export interface CartItem {
   title: string;
   image: string;
   variantId: string;
+  selectedModel?: string;
   size: string;
   finish: string;
   lighting: string;

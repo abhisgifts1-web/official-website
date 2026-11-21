@@ -34,6 +34,7 @@ import {
 } from 'lucide-react';
 import AddPhotoModal from '@/components/product/AddPhotoModal';
 import CustomSizeInput from '@/components/product/CustomSizeInput';
+import { getProductModels } from '@/lib/data/productModels';
 import { calculateCustomDimensions } from '@/lib/utils/customSize';
 import { Product } from '@/types';
 import { useCart } from '@/context/CartContext';
@@ -589,14 +590,35 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
   const [customWidth, setCustomWidth] = useState<number>(24);
   const [customHeight, setCustomHeight] = useState<number>(36);
 
-  // Gallery state - prioritizes liveProduct images updated via Admin Dashboard
+  // Models state (M-1 to M-25 with popular highlights like M-18 🔥)
+  const availableModels = useMemo(() => {
+    return getProductModels(liveProduct || product);
+  }, [liveProduct, product]);
+
+  const [selectedModelId, setSelectedModelId] = useState<string>(() => {
+    return availableModels.find((m) => m.id === 'M-18')?.id || availableModels[0]?.id || 'M-18';
+  });
+
+  const currentModel = useMemo(() => {
+    return availableModels.find((m) => m.id === selectedModelId) || availableModels[0];
+  }, [availableModels, selectedModelId]);
+
+  const handleSelectModel = (modelId: string) => {
+    setSelectedModelId(modelId);
+    setActiveImageIndex(0);
+  };
+
+  // Gallery state - prioritizes current model mockups, then liveProduct images
   const galleryImages = useMemo(() => {
+    if (currentModel && Array.isArray(currentModel.mockups) && currentModel.mockups.length > 0) {
+      return Array.from(new Set(currentModel.mockups.filter(Boolean)));
+    }
     const list =
       liveProduct?.images && liveProduct.images.length > 0
         ? liveProduct.images
         : product.images || [];
     return Array.from(new Set(list.filter(Boolean)));
-  }, [liveProduct?.images, product.images]);
+  }, [currentModel, liveProduct?.images, product.images]);
 
   const thumbnailContainerRef = useRef<HTMLDivElement>(null);
   const [activeImageIndex, setActiveImageIndex] = useState<number>(0);
@@ -941,10 +963,12 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
           ? 'Liquid Shimmer Floating Glitter'
           : 'Non-LED (Direct UV Printed 5MM Acrylic)',
         shape: selectedShape,
+        selectedModel: currentModel?.name || 'M-18',
         unitPrice: currentPricing.price,
         unitMrp: currentPricing.mrp,
         quantity,
         customization: {
+          selectedModel: currentModel?.name || 'M-18',
           previewUrl: activeImage,
           frameType: isLedFrame ? 'gold' : isGlitterFrame ? 'without' : selectedFrame,
           orientation: selectedShape === 'portrait' ? 'vertical' : selectedShape === 'landscape' ? 'horizontal' : 'square',
@@ -984,10 +1008,12 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
           ? 'Liquid Shimmer Floating Glitter'
           : 'Non-LED (Direct UV Printed 5MM Acrylic)',
         shape: selectedShape,
+        selectedModel: currentModel?.name || 'M-18',
         unitPrice: currentPricing.price,
         unitMrp: currentPricing.mrp,
         quantity,
         customization: {
+          selectedModel: currentModel?.name || 'M-18',
           previewUrl: activeImage,
           frameType: isLedFrame ? 'gold' : isGlitterFrame ? 'without' : selectedFrame,
           orientation: selectedShape === 'portrait' ? 'vertical' : selectedShape === 'landscape' ? 'horizontal' : 'square',
@@ -1024,7 +1050,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
           {/* LEFT COLUMN: Main Sticky Artwork Frame & Mockups Gallery */}
           <div className="lg:col-span-7 xl:col-span-7 lg:sticky lg:top-24 self-start space-y-5">
             {/* Main Display Container */}
-            <div className="relative w-full aspect-square sm:aspect-[4/3.8] max-h-[620px] rounded-2xl overflow-hidden bg-stone-100/50 border border-stone-200 transition-all duration-300 flex items-center justify-center p-1 sm:p-2 group">
+            <div className="relative w-full min-h-[420px] sm:min-h-[560px] max-h-[720px] aspect-[4/4.5] sm:aspect-[4/4.2] rounded-2xl overflow-hidden bg-stone-100/50 border border-stone-200 transition-all duration-300 flex items-center justify-center p-1 sm:p-2 group">
               {/* Top Floating Controls: Cool White LED Glow Toggle + Fullscreen Zoom */}
               <div className="absolute top-3 left-3 right-3 z-20 flex items-center justify-between pointer-events-none">
                 {isLedFrame ? (
@@ -1198,10 +1224,10 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                           key={i}
                           type="button"
                           onClick={() => setActiveImageIndex(i)}
-                          className={`w-16 h-16 sm:w-20 sm:h-20 shrink-0 rounded-xl overflow-hidden border-2 bg-stone-50 cursor-pointer relative group transition-all flex flex-col ${
+                          className={`w-20 h-24 sm:w-24 sm:h-28 shrink-0 rounded-xl overflow-hidden border-2 bg-stone-50 cursor-pointer relative group transition-all flex flex-col ${
                             isSelected
-                              ? 'border-amber-500 ring-2 ring-amber-400/40 shadow-xs scale-[1.02]'
-                              : 'border-stone-200 opacity-75 hover:opacity-100 hover:border-amber-300'
+                              ? 'border-amber-500 ring-2 ring-amber-400/40 shadow-xs scale-[1.03]'
+                              : 'border-stone-200 opacity-80 hover:opacity-100 hover:border-amber-300'
                           }`}
                           title={label}
                           aria-label={label}
@@ -1304,6 +1330,44 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                   <span>Custom Laser-Cut Size ({customSizeCalc.widthInches}&quot; × {customSizeCalc.heightInches}&quot;)</span>
                 </div>
               )}
+            </div>
+
+            {/* Models Selector (M-1 to M-25 with Trending Highlights matching customer reference) */}
+            <div className="space-y-2.5 pt-1">
+              <div className="flex items-center justify-between text-xs font-bold text-stone-900">
+                <span className="flex items-center gap-1.5">
+                  <span>Models:</span>
+                  <strong className="text-stone-950 font-extrabold text-sm font-sans flex items-center gap-1">
+                    {currentModel?.name || 'M-18'}
+                    {currentModel?.isPopular && <span className="text-amber-500">🔥</span>}
+                  </strong>
+                </span>
+                <span className="text-[11px] text-stone-500 font-normal">
+                  Tap to preview design
+                </span>
+              </div>
+
+              <div className="flex flex-wrap gap-1.5 sm:gap-2">
+                {availableModels.map((m) => {
+                  const isSelected = selectedModelId === m.id;
+                  return (
+                    <button
+                      key={m.id}
+                      type="button"
+                      onClick={() => handleSelectModel(m.id)}
+                      className={`px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-lg text-xs font-bold transition-all cursor-pointer flex items-center gap-1 ${
+                        isSelected
+                          ? 'bg-[#262626] text-white shadow-xs scale-105 ring-2 ring-stone-900/40'
+                          : 'border border-stone-300 text-stone-800 bg-white hover:border-stone-500 hover:bg-stone-50'
+                      }`}
+                      title={`Model ${m.name}${m.isPopular ? ' (Trending / Bestseller)' : ''}`}
+                    >
+                      <span>{m.name}</span>
+                      {m.isPopular && <span className="text-xs">🔥</span>}
+                    </button>
+                  );
+                })}
+              </div>
             </div>
 
             {/* Prominent Key Highlights for Acrylic Frames (Requirement 8) */}
@@ -2691,7 +2755,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                 {product.title}
               </h4>
               <p className="text-[11px] text-stone-500 truncate">
-                {selectedShape.toUpperCase()} • {currentSizeObj?.label || '12x18'}&quot; • {isGlitterFrame ? 'Glitter Acrylic Block' : (selectedFrame === 'gold' ? 'Gold Frame' : selectedFrame === 'black' ? 'Black Frame' : 'Frameless Acrylic')}
+                Model: {currentModel?.name || 'M-18'} • {formatSizeDisplay(currentSizeObj?.label || '12x18')} • {isGlitterFrame ? 'Glitter Acrylic Block' : (selectedFrame === 'gold' ? 'Gold Frame' : selectedFrame === 'black' ? 'Black Frame' : 'Frameless Acrylic')}
               </p>
             </div>
           </div>

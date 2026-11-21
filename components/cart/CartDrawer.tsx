@@ -147,6 +147,14 @@ export default function CartDrawer() {
 
                         {/* Variant attributes */}
                         <div className="text-[11px] text-stone-600 mt-0.5 space-y-0.5">
+                          {item.selectedModel && (
+                            <p className="flex items-center gap-1.5 font-bold text-stone-900">
+                              <span>Model:</span>
+                              <span className="bg-[#262626] text-white text-[10px] font-mono px-2 py-0.5 rounded shadow-2xs">
+                                {item.selectedModel}
+                              </span>
+                            </p>
+                          )}
                           {item.shape && (
                             <p>Shape: <span className="font-semibold text-stone-900 capitalize bg-amber-50 px-1.5 py-0.5 rounded border border-amber-200/60 inline-block">{item.shape}</span></p>
                           )}

@@ -41,6 +41,13 @@ const ProductSchema = new Schema(
     artStyle: { type: String, required: true },
     orientation: { type: String, enum: ['vertical', 'horizontal', 'square', 'round'], required: true },
     images: [{ type: String }],
+    models: [{
+      id: { type: String },
+      name: { type: String },
+      image: { type: String },
+      isPopular: { type: Boolean, default: false },
+      mockups: [{ type: String }],
+    }],
     tags: [{ type: String }],
     couponCode: { type: String },
     isFeatured: { type: Boolean, default: false },

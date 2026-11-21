@@ -716,6 +716,11 @@ export default function CheckoutPage() {
                 <div className="flex-1 min-w-0">
                   <p className="font-bold text-stone-900 truncate">{it.title}</p>
                   <p className="text-[11px] text-stone-500">
+                    {it.selectedModel ? (
+                      <span className="font-bold text-stone-900 bg-stone-100 px-1.5 py-0.5 rounded border border-stone-200 mr-1.5">
+                        {it.selectedModel}
+                      </span>
+                    ) : null}
                     {it.size} {it.lighting ? `• ${it.lighting}` : ''}
                   </p>
                   <div className="flex items-center gap-2 mt-1.5">
