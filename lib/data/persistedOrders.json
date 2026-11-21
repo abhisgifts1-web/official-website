@@ -1,5 +1,48 @@
 [
   {
+    "orderId": "AG-2026-93627",
+    "couponCode": "ABHIS10",
+    "createdAt": "2026-11-21T17:14:45.017Z",
+    "customer": {
+      "fullName": "lokeish",
+      "mobile": "9618896404",
+      "email": "lokeish@gmail.com",
+      "streetAddress": "9-56,lbnagar",
+      "apartment": "",
+      "landmark": "near metrao station",
+      "city": "hanuman junction",
+      "state": "andhra pradesh",
+      "pincode": "521111",
+      "_id": "6b01d18593eebc195d9da62b"
+    },
+    "discountAmount": 250,
+    "items": [
+      {
+        "id": "item-1795281203496-7pgl8",
+        "productId": "6ae89187382113ccb9a542ca",
+        "slug": "motorized-360-rotating-led-cylinder-photo-lamp",
+        "title": "Motorized 360° Rotating Cylindrical LED Photo Lamp",
+        "image": "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/primary-square.jpg",
+        "variantId": "var-rot-1",
+        "size": "5 x 8 inches Cylinder",
+        "finish": "Acrylic Ultra-Gloss",
+        "lighting": "Warm LED Backlit (12V Adapter)",
+        "unitPrice": 2499,
+        "unitMrp": 4999,
+        "quantity": 1,
+        "_id": "6b01d18593eebc195d9da62c"
+      }
+    ],
+    "orderStatus": "Pending",
+    "paymentMethod": "Razorpay",
+    "paymentStatus": "Pending",
+    "shippingFee": 0,
+    "subtotal": 2499,
+    "totalAmount": 2249,
+    "updatedAt": "2026-11-21T17:14:45.017Z",
+    "id": "AG-2026-93627"
+  },
+  {
     "orderId": "AG-2026-78402",
     "customer": {
       "fullName": "Pooja Kulkarni",

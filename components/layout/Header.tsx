@@ -9,7 +9,6 @@ import {
   X,
   Sparkles,
   Flame,
-  Search,
   Heart,
   ShoppingBag,
   ChevronDown,
@@ -34,10 +33,7 @@ export default function Header() {
 
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [megaMenuOpen, setMegaMenuOpen] = useState(false);
-  const [searchOpen, setSearchOpen] = useState(false);
-  const [searchQuery, setSearchQuery] = useState('');
   const [scrolled, setScrolled] = useState(false);
-  const searchInputRef = useRef<HTMLInputElement>(null);
 
   // Active Tab & Select Animation State
   const [activeTab, setActiveTab] = useState<string>('home');
@@ -129,7 +125,6 @@ export default function Header() {
       if (e.key === 'Escape') {
         setMobileMenuOpen(false);
         setMegaMenuOpen(false);
-        setSearchOpen(false);
       }
     };
     window.addEventListener('keydown', handleKeyDown);
@@ -146,21 +141,6 @@ export default function Header() {
       document.body.style.overflow = '';
     };
   }, [mobileMenuOpen]);
-
-  useEffect(() => {
-    if (searchOpen && searchInputRef.current) {
-      searchInputRef.current.focus();
-    }
-  }, [searchOpen]);
-
-  const handleSearchSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (searchQuery.trim()) {
-      router.push(`/shop?search=${encodeURIComponent(searchQuery.trim())}`);
-      setSearchOpen(false);
-      setSearchQuery('');
-    }
-  };
 
   // Hide storefront header on admin dashboard & portal routes
   if (pathname?.startsWith('/admin')) {
@@ -484,85 +464,40 @@ export default function Header() {
                 <YouTubeIcon className="w-4 h-4 sm:w-4.5 sm:h-4.5 fill-current shrink-0" />
               </a>
 
-              {/* Search Toggle */}
-              <button
-                type="button"
-                onClick={() => setSearchOpen((prev) => !prev)}
-                className="w-9 h-9 min-[360px]:w-10 min-[360px]:h-10 sm:w-11 sm:h-11 p-1.5 min-[360px]:p-2 text-[#FFFFFF] hover:text-[#EAB308] hover:bg-[#1E1E1E] rounded-xl transition-colors flex items-center justify-center cursor-pointer"
-                aria-label="Search artworks"
-                title="Search"
-              >
-                <Search className="w-4 h-4 sm:w-5 sm:h-5" />
-              </button>
-
-              {/* Wishlist with Badge */}
+              {/* Attractive Luxury Wishlist Button */}
               <Link
                 href="/wishlist"
-                className="w-9 h-9 min-[360px]:w-10 min-[360px]:h-10 sm:w-11 sm:h-11 p-1.5 min-[360px]:p-2 text-[#FFFFFF] hover:text-[#EAB308] hover:bg-[#1E1E1E] rounded-xl transition-colors relative flex items-center justify-center cursor-pointer"
+                className="group relative flex items-center justify-center w-9 h-9 min-[360px]:w-10 min-[360px]:h-10 sm:w-11 sm:h-11 rounded-2xl bg-gradient-to-b from-[#222222] to-[#121212] hover:from-[#2A2A2A] hover:to-[#181818] border border-[#333333] hover:border-rose-400/60 text-[#FFFFFF] hover:text-rose-400 shadow-md shadow-black/40 transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer"
                 aria-label="Wishlist"
-                title="Wishlist"
+                title="View Saved Wishlist"
               >
-                <Heart className="w-4 h-4 sm:w-5 sm:h-5" />
+                <Heart className="w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-300 group-hover:scale-110 group-hover:fill-rose-500/20" />
                 {wishlistCount > 0 && (
-                  <span className="absolute -top-1 -right-1 bg-[#EAB308] text-[#000000] text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center border border-[#EAB308]/50 shadow-xs">
+                  <span className="absolute -top-1.5 -right-1.5 bg-gradient-to-r from-rose-500 to-pink-600 text-white text-[10px] font-extrabold min-w-[20px] h-[20px] px-1 rounded-full flex items-center justify-center ring-2 ring-[#0D0D0D] shadow-[0_2px_8px_rgba(244,63,94,0.5)] animate-in zoom-in-75">
                     {wishlistCount}
                   </span>
                 )}
               </Link>
 
-              {/* Shopping Cart with Badge */}
+              {/* Attractive Luxury Cart / Atelier Bag Capsule */}
               <button
                 type="button"
                 onClick={openCart}
-                className="w-9 h-9 min-[360px]:w-10 min-[360px]:h-10 sm:w-11 sm:h-11 p-1.5 min-[360px]:p-2 text-[#FFFFFF] hover:text-[#EAB308] hover:bg-[#1E1E1E] rounded-xl transition-colors relative flex items-center justify-center cursor-pointer"
+                className="group relative flex items-center justify-center gap-2 h-9 min-[360px]:h-10 px-3 sm:h-11 sm:px-4 rounded-2xl bg-gradient-to-r from-[#EAB308] via-[#FACC15] to-[#CA8A04] hover:from-[#FACC15] hover:to-[#EAB308] text-stone-950 font-extrabold shadow-[0_2px_14px_rgba(234,179,8,0.35)] hover:shadow-[0_4px_22px_rgba(234,179,8,0.55)] hover:scale-[1.04] active:scale-95 transition-all duration-300 cursor-pointer"
                 aria-label="Shopping Cart"
-                title="Cart"
+                title="View Shopping Bag"
               >
-                <ShoppingBag className="w-4 h-4 sm:w-5 sm:h-5" />
-                {cartCount > 0 && (
-                  <span className="absolute -top-1 -right-1 bg-[#121212] text-[#FACC15] text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center border border-[#EAB308]/60 shadow-xs">
-                    {cartCount}
-                  </span>
-                )}
+                <ShoppingBag className="w-4 h-4 sm:w-[18px] sm:h-[18px] text-stone-950 shrink-0 transition-transform duration-300 group-hover:scale-110" />
+                <span className="hidden sm:inline-block text-xs font-serif font-black tracking-wider uppercase text-stone-950">
+                  Cart
+                </span>
+                <span className="bg-stone-950 text-[#FACC15] font-mono text-[10.5px] font-black min-w-[20px] h-[20px] px-1.5 rounded-full flex items-center justify-center shadow-xs border border-stone-800">
+                  {cartCount}
+                </span>
               </button>
             </div>
           </div>
         </div>
-
-        {/* Search Bar Flyout */}
-        {searchOpen && (
-          <div className="w-full bg-[#141414] border-t border-b border-[#2D2D2D] py-3 px-4 sm:px-8 shadow-md animate-in slide-in-from-top-2 duration-150">
-            <div className="w-full max-w-3xl mx-auto">
-              <form onSubmit={handleSearchSubmit} className="relative flex items-center">
-                <Search className="w-4 h-4 text-[#D1D5DB] absolute left-3.5" />
-                <input
-                  ref={searchInputRef}
-                  type="text"
-                  placeholder="Search Balaji, Shiva, Ram Mandir, Radha Krishna, 7 Horses, Bodhi Tree, LED frames..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-10 pr-24 py-2.5 bg-[#121212] border border-[#2D2D2D] rounded-2xl text-xs sm:text-sm outline-none focus:border-[#EAB308] focus:bg-[#141414] transition-all font-medium text-[#FFFFFF]"
-                />
-                <div className="absolute right-2 flex items-center gap-1">
-                  <button
-                    type="submit"
-                    className="bg-gradient-to-r from-[#181818] to-[#0A0A0A] hover:from-[#222222] hover:to-[#181818] text-[#FFFFFF] text-xs font-semibold px-3.5 py-1.5 rounded-xl border border-[#EAB308]/50 transition-colors cursor-pointer"
-                  >
-                    Search
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => setSearchOpen(false)}
-                    className="p-1.5 text-[#D1D5DB] hover:text-[#FFFFFF] rounded-lg cursor-pointer"
-                    aria-label="Close search"
-                  >
-                    <X className="w-4 h-4" />
-                  </button>
-                </div>
-              </form>
-            </div>
-          </div>
-        )}
       </header>
 
       {/* Mobile Slide-Over Menu */}
@@ -598,20 +533,6 @@ export default function Header() {
               >
                 <X className="w-5 h-5" />
               </button>
-            </div>
-
-            {/* Mobile Search Form */}
-            <div className="p-3 bg-[#121212]/70 border-b border-[#2D2D2D]">
-              <form onSubmit={handleSearchSubmit} className="relative flex items-center">
-                <Search className="w-4 h-4 text-[#D1D5DB] absolute left-3" />
-                <input
-                  type="text"
-                  placeholder="Search artworks..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-9 pr-3 py-2 text-xs bg-[#141414] border border-[#2D2D2D] rounded-xl outline-none focus:border-[#EAB308] font-medium text-[#FFFFFF]"
-                />
-              </form>
             </div>
 
             {/* Direct Social & Ordering Quick Actions */}
