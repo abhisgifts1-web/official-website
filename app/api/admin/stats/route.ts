@@ -43,6 +43,48 @@ export async function GET() {
           ).length;
           const deliveredOrders = formattedOrders.filter((o) => o.orderStatus === 'Delivered').length;
 
+          // Compute customer metrics
+          const customerMap = new Map<string, any>();
+          formattedOrders.forEach((o) => {
+            const rawPhone = (o.customer?.mobile || '').trim();
+            const phone = rawPhone.replace(/[^0-9]/g, '') || (o.customer?.email || '').trim().toLowerCase();
+            if (!phone) return;
+
+            if (!customerMap.has(phone)) {
+              customerMap.set(phone, {
+                fullName: o.customer.fullName || 'Valued Client',
+                mobile: o.customer.mobile || '',
+                email: o.customer.email || '',
+                city: o.customer.city || '',
+                state: o.customer.state || '',
+                totalOrders: 1,
+                totalSpent: Number(o.totalAmount) || 0,
+                lastOrderDate: o.createdAt || new Date().toISOString(),
+                lastOrderId: o.id,
+                lastOrderStatus: o.orderStatus || 'Confirmed',
+              });
+            } else {
+              const existing = customerMap.get(phone);
+              existing.totalOrders += 1;
+              existing.totalSpent += Number(o.totalAmount) || 0;
+              const oDate = o.createdAt || new Date().toISOString();
+              if (new Date(oDate) > new Date(existing.lastOrderDate)) {
+                existing.lastOrderDate = oDate;
+                existing.lastOrderId = o.id;
+                existing.lastOrderStatus = o.orderStatus || existing.lastOrderStatus;
+                if (o.customer.fullName) existing.fullName = o.customer.fullName;
+                if (o.customer.city) existing.city = o.customer.city;
+                if (o.customer.state) existing.state = o.customer.state;
+              }
+            }
+          });
+
+          const totalCustomers = customerMap.size;
+          const repeatCustomers = Array.from(customerMap.values()).filter((c) => c.totalOrders > 1).length;
+          const recentCustomers = Array.from(customerMap.values())
+            .sort((a, b) => new Date(b.lastOrderDate).getTime() - new Date(a.lastOrderDate).getTime())
+            .slice(0, 5);
+
           let lowStockCount = 0;
           (dbProducts || []).forEach((p: any) => {
             const variants = p.variants || [];
@@ -56,6 +98,9 @@ export async function GET() {
               totalOrders,
               pendingOrders,
               deliveredOrders,
+              totalCustomers,
+              repeatCustomers,
+              recentCustomers,
               lowStockCount,
               totalProducts: dbProducts?.length || 0,
               recentOrders: formattedOrders.slice(0, 5),

@@ -910,6 +910,47 @@ export function getDashboardStats() {
   ).length;
   const deliveredOrders = orders.filter((o) => o.orderStatus === 'Delivered').length;
 
+  // Aggregate Customers
+  const customerMap = new Map<string, any>();
+  orders.forEach((o) => {
+    const rawPhone = (o.customer?.mobile || '').trim();
+    const phone = rawPhone.replace(/[^0-9]/g, '') || (o.customer?.email || '').trim().toLowerCase();
+    if (!phone) return;
+
+    if (!customerMap.has(phone)) {
+      customerMap.set(phone, {
+        fullName: o.customer.fullName,
+        mobile: o.customer.mobile,
+        email: o.customer.email,
+        city: o.customer.city,
+        state: o.customer.state,
+        totalOrders: 1,
+        totalSpent: Number(o.totalAmount) || 0,
+        lastOrderDate: o.createdAt,
+        lastOrderId: o.id,
+        lastOrderStatus: o.orderStatus,
+      });
+    } else {
+      const existing = customerMap.get(phone);
+      existing.totalOrders += 1;
+      existing.totalSpent += Number(o.totalAmount) || 0;
+      if (new Date(o.createdAt) > new Date(existing.lastOrderDate)) {
+        existing.lastOrderDate = o.createdAt;
+        existing.lastOrderId = o.id;
+        existing.lastOrderStatus = o.orderStatus;
+        existing.fullName = o.customer.fullName;
+        existing.city = o.customer.city;
+        existing.state = o.customer.state;
+      }
+    }
+  });
+
+  const totalCustomers = customerMap.size;
+  const repeatCustomers = Array.from(customerMap.values()).filter((c) => c.totalOrders > 1).length;
+  const recentCustomers = Array.from(customerMap.values())
+    .sort((a, b) => new Date(b.lastOrderDate).getTime() - new Date(a.lastOrderDate).getTime())
+    .slice(0, 5);
+
   // Low stock products count
   let lowStockCount = 0;
   store.products.forEach((p) => {
@@ -922,6 +963,9 @@ export function getDashboardStats() {
     totalOrders,
     pendingOrders,
     deliveredOrders,
+    totalCustomers,
+    repeatCustomers,
+    recentCustomers,
     lowStockCount,
     totalProducts: store.products.length,
     recentOrders: orders.slice(0, 5),

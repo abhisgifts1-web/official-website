@@ -20,10 +20,24 @@ import {
   IndianRupee,
   Clock,
   Sliders,
+  MessageCircle,
 } from 'lucide-react';
 import AdminLayout from '@/components/admin/AdminLayout';
 import { Product } from '@/types';
 import { INITIAL_CATEGORIES } from '@/lib/data/categories';
+
+interface RecentCustomer {
+  fullName: string;
+  mobile: string;
+  email?: string;
+  city?: string;
+  state?: string;
+  totalOrders: number;
+  totalSpent: number;
+  lastOrderDate: string;
+  lastOrderId: string;
+  lastOrderStatus: string;
+}
 
 interface AdminStats {
   totalRevenue: number;
@@ -32,6 +46,9 @@ interface AdminStats {
   deliveredOrders: number;
   lowStockCount: number;
   totalProducts: number;
+  totalCustomers?: number;
+  repeatCustomers?: number;
+  recentCustomers?: RecentCustomer[];
 }
 
 export default function AdminDashboardPage() {
@@ -148,6 +165,13 @@ export default function AdminDashboardPage() {
                 <span>Orders &amp; Inquiries</span>
               </Link>
               <Link
+                href="/admin/customers"
+                className="inline-flex items-center justify-center gap-2 bg-[#1C1C1C] hover:bg-stone-800 text-stone-200 hover:text-white border border-stone-700 font-semibold text-xs px-5 py-2.5 rounded-xl transition-all"
+              >
+                <Users className="w-4 h-4 text-[#EAB308]" />
+                <span>Ordered Clients</span>
+              </Link>
+              <Link
                 href="/admin/categories"
                 className="inline-flex items-center justify-center gap-2 bg-[#1C1C1C] hover:bg-stone-800 text-stone-200 hover:text-white border border-stone-700 font-semibold text-xs px-5 py-2.5 rounded-xl transition-all"
               >
@@ -233,8 +257,8 @@ export default function AdminDashboardPage() {
           </div>
         </div>
 
-        {/* 3. STUDIO ORDERS & REVENUE SUMMARY */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-5">
+        {/* 3. STUDIO ORDERS, REVENUE & CLIENTS SUMMARY */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5">
           <div className="bg-white p-5 rounded-2xl border border-stone-200 shadow-xs flex items-center justify-between">
             <div>
               <p className="text-[11px] font-bold uppercase tracking-wider text-stone-500">Total Orders</p>
@@ -271,18 +295,146 @@ export default function AdminDashboardPage() {
 
           <div className="bg-white p-5 rounded-2xl border border-stone-200 shadow-xs flex items-center justify-between">
             <div>
+              <p className="text-[11px] font-bold uppercase tracking-wider text-stone-500">Ordered Customers</p>
+              <p className="font-serif text-2xl font-extrabold text-stone-900 mt-1">
+                {stats?.totalCustomers ?? 0}
+              </p>
+              <p className="text-[11px] text-amber-800 font-semibold mt-0.5">
+                {stats?.repeatCustomers ?? 0} Repeat Buyers
+              </p>
+            </div>
+            <Link
+              href="/admin/customers"
+              className="p-3 bg-amber-50 hover:bg-amber-100 text-amber-800 rounded-xl border border-amber-200 transition-colors"
+              title="View Ordered Customers Directory"
+            >
+              <Users className="w-5 h-5" />
+            </Link>
+          </div>
+
+          <div className="bg-white p-5 rounded-2xl border border-stone-200 shadow-xs flex items-center justify-between">
+            <div>
               <p className="text-[11px] font-bold uppercase tracking-wider text-stone-500">Shipping Policy</p>
               <p className="font-serif text-2xl font-extrabold text-emerald-700 mt-1">
                 Pan-India Transit
               </p>
               <p className="text-[11px] text-stone-500 mt-0.5">
-                Multi-layer protective boxing on all sizes
+                Multi-layer protective boxing
               </p>
             </div>
             <div className="p-3 bg-stone-100 text-stone-700 rounded-xl border border-stone-200">
               <ShieldCheck className="w-5 h-5 text-emerald-600" />
             </div>
           </div>
+        </div>
+
+        {/* 4. RECENT CUSTOMERS WHO ORDERED (Direct Studio Connect) */}
+        <div className="bg-white rounded-3xl border border-stone-200 p-5 sm:p-7 space-y-5 shadow-xs">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div>
+              <div className="flex items-center gap-2">
+                <div className="w-7 h-7 rounded-lg bg-amber-50 border border-amber-200 flex items-center justify-center">
+                  <Users className="w-4 h-4 text-[#CA8A04]" />
+                </div>
+                <h2 className="font-serif font-bold text-lg text-stone-900">
+                  Recent Customers Who Ordered
+                </h2>
+              </div>
+              <p className="text-xs text-stone-500 mt-0.5">
+                Verified buyers from the storefront with quick WhatsApp messaging and live order history.
+              </p>
+            </div>
+            <Link
+              href="/admin/customers"
+              className="text-xs font-bold text-stone-900 hover:text-[#CA8A04] flex items-center gap-1 self-start sm:self-auto bg-stone-100 hover:bg-stone-200 px-3.5 py-1.5 rounded-lg transition-colors"
+            >
+              <span>View All {stats?.totalCustomers ?? 0} Clients</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
+
+          {(!stats?.recentCustomers || stats.recentCustomers.length === 0) ? (
+            <div className="text-center py-8 text-xs text-stone-500 bg-stone-50 rounded-2xl border border-stone-100">
+              No recent orders found yet. New customers who checkout will appear here automatically.
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3.5">
+              {stats.recentCustomers.map((cust, idx) => {
+                const cleanPhone = cust.mobile.replace(/[^0-9]/g, '');
+                const waPhone = cleanPhone.length === 10 ? `91${cleanPhone}` : cleanPhone;
+                const waUrl = `https://wa.me/${waPhone}?text=${encodeURIComponent(
+                  `Hello ${cust.fullName}! Thank you for choosing Abhi's Gifts. Let us know if you need assistance with your order #${cust.lastOrderId}.`
+                )}`;
+
+                return (
+                  <div
+                    key={idx}
+                    className="p-4 rounded-2xl bg-stone-50 border border-stone-200/90 hover:border-[#EAB308] hover:shadow-xs transition-all space-y-3"
+                  >
+                    <div className="flex items-start justify-between gap-3">
+                      <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 rounded-xl bg-amber-100 border border-amber-200 text-amber-900 font-bold font-serif text-sm flex items-center justify-center shrink-0">
+                          {cust.fullName
+                            .split(' ')
+                            .map((n) => n[0])
+                            .slice(0, 2)
+                            .join('')
+                            .toUpperCase()}
+                        </div>
+                        <div>
+                          <h4 className="font-bold text-xs sm:text-sm text-stone-900 leading-snug">
+                            {cust.fullName}
+                          </h4>
+                          <p className="text-[11px] text-stone-500">
+                            {cust.city ? `${cust.city}${cust.state ? `, ${cust.state}` : ''}` : 'Hyderabad'}
+                          </p>
+                        </div>
+                      </div>
+                      <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-50 text-amber-800 border border-amber-200 shrink-0">
+                        {cust.totalOrders} {cust.totalOrders > 1 ? 'Orders' : 'Order'}
+                      </span>
+                    </div>
+
+                    <div className="grid grid-cols-2 gap-2 text-[11px] pt-1 border-t border-stone-200/60">
+                      <div>
+                        <span className="text-stone-400 block text-[10px] uppercase font-bold">Lifetime Spent</span>
+                        <span className="font-serif font-bold text-stone-900">
+                          ₹{cust.totalSpent.toLocaleString('en-IN')}
+                        </span>
+                      </div>
+                      <div>
+                        <span className="text-stone-400 block text-[10px] uppercase font-bold">Latest Order</span>
+                        <span className="font-mono text-stone-600 truncate block">
+                          #{cust.lastOrderId}
+                        </span>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center justify-between gap-2 pt-1 border-t border-stone-200/60">
+                      <a
+                        href={waUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-300 text-[11px] font-bold transition-colors shadow-2xs"
+                        title="Chat with Customer on WhatsApp"
+                      >
+                        <MessageCircle className="w-3.5 h-3.5 text-emerald-700" />
+                        <span>WhatsApp</span>
+                      </a>
+
+                      <Link
+                        href={`/admin/orders?search=${cust.mobile}`}
+                        className="inline-flex items-center gap-1 text-[11px] font-bold text-stone-700 hover:text-stone-950 transition-colors"
+                      >
+                        <span>View Orders</span>
+                        <ArrowRight className="w-3 h-3 text-[#CA8A04]" />
+                      </Link>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          )}
         </div>
 
         {/* 4. OFFICIAL CATEGORIES OF CURRENT WEBSITE (Interactive Manager) */}
@@ -409,7 +561,7 @@ export default function AdminDashboardPage() {
         </div>
 
         {/* 6. QUICK OPERATIONS TOOLBAR */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3.5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-3.5">
           <Link
             href="/admin/products"
             className="bg-white hover:bg-stone-50 p-4 rounded-2xl border border-stone-200 hover:border-[#EAB308] transition-all flex items-center justify-between group shadow-xs"
@@ -441,6 +593,24 @@ export default function AdminDashboardPage() {
                   Orders &amp; Tracking
                 </h4>
                 <p className="text-[10px] text-stone-600 font-medium">Dispatches &amp; proofing</p>
+              </div>
+            </div>
+            <ArrowRight className="w-3.5 h-3.5 text-stone-400 group-hover:text-[#CA8A04] transition-colors" />
+          </Link>
+
+          <Link
+            href="/admin/customers"
+            className="bg-white hover:bg-stone-50 p-4 rounded-2xl border border-stone-200 hover:border-[#EAB308] transition-all flex items-center justify-between group shadow-xs"
+          >
+            <div className="flex items-center gap-3">
+              <div className="w-9 h-9 rounded-xl bg-amber-50 border border-amber-200 text-amber-800 flex items-center justify-center">
+                <Users className="w-4 h-4 text-[#CA8A04]" />
+              </div>
+              <div>
+                <h4 className="font-bold text-xs text-stone-900 group-hover:text-[#CA8A04] transition-colors">
+                  Customer Directory
+                </h4>
+                <p className="text-[10px] text-stone-600 font-medium">Profiles, WhatsApp &amp; history</p>
               </div>
             </div>
             <ArrowRight className="w-3.5 h-3.5 text-stone-400 group-hover:text-[#CA8A04] transition-colors" />
