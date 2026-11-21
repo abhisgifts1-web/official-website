@@ -3,6 +3,7 @@ import { getOrderById, updateOrderStatus } from '@/lib/store';
 import { getAuthenticatedAdmin } from '@/lib/auth';
 import { connectToDatabase } from '@/lib/db/mongodb';
 import { OrderModel } from '@/lib/db/models/Order';
+import { Order } from '@/types';
 
 export const dynamic = 'force-dynamic';
 
@@ -11,7 +12,27 @@ export async function GET(
   { params }: { params: { id: string } }
 ) {
   try {
-    const order = getOrderById(params.id);
+    // 1. Check MongoDB Atlas first
+    let order: Order | null = null;
+    try {
+      const conn = await connectToDatabase();
+      if (conn) {
+        const doc = await OrderModel.findOne({
+          $or: [{ orderId: params.id }, { id: params.id }],
+        }).lean();
+        if (doc) {
+          const { _id, __v, ...rest } = doc as any;
+          order = { ...rest, id: rest.orderId || rest.id || String(_id) } as Order;
+        }
+      }
+    } catch (dbErr) {
+      console.warn('MongoDB single order fetch error:', dbErr);
+    }
+
+    if (!order) {
+      order = getOrderById(params.id);
+    }
+
     if (!order) {
       return NextResponse.json({ success: false, error: 'Order not found' }, { status: 404 });
     }
@@ -32,27 +53,43 @@ export async function PUT(
     }
 
     const body = await req.json();
-    const { orderStatus, trackingNumber, courierPartner } = body;
+    const { orderStatus, trackingNumber, courierPartner, paymentStatus } = body;
 
+    // 1. Update in-memory store
     const updated = updateOrderStatus(params.id, orderStatus, trackingNumber, courierPartner);
-    if (!updated) {
-      return NextResponse.json({ success: false, error: 'Order not found' }, { status: 404 });
-    }
 
-    // Persist to MongoDB Atlas if connected
+    // 2. Persist directly to MongoDB Atlas
+    let dbUpdated = null;
     try {
       const conn = await connectToDatabase();
       if (conn) {
-        await OrderModel.findOneAndUpdate(
+        const updateFields: any = {};
+        if (orderStatus) updateFields.orderStatus = orderStatus;
+        if (trackingNumber !== undefined) updateFields.trackingNumber = trackingNumber;
+        if (courierPartner !== undefined) updateFields.courierPartner = courierPartner;
+        if (paymentStatus) updateFields.paymentStatus = paymentStatus;
+
+        const doc = await OrderModel.findOneAndUpdate(
           { $or: [{ id: params.id }, { orderId: params.id }] },
-          { orderStatus, trackingNumber, courierPartner }
-        );
+          { $set: updateFields },
+          { new: true }
+        ).lean();
+
+        if (doc) {
+          const { _id, __v, ...rest } = doc as any;
+          dbUpdated = { ...rest, id: rest.orderId || rest.id || String(_id) } as Order;
+        }
       }
     } catch (dbErr) {
-      console.warn('MongoDB order update error (in-memory updated):', dbErr);
+      console.warn('MongoDB order update error:', dbErr);
     }
 
-    return NextResponse.json({ success: true, order: updated });
+    const finalOrder = dbUpdated || updated;
+    if (!finalOrder) {
+      return NextResponse.json({ success: false, error: 'Order not found' }, { status: 404 });
+    }
+
+    return NextResponse.json({ success: true, order: finalOrder });
   } catch (err: any) {
     return NextResponse.json({ success: false, error: err.message }, { status: 500 });
   }

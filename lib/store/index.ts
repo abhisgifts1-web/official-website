@@ -262,7 +262,8 @@ export async function syncProductToDatabase(product: Product) {
   try {
     const conn = await connectToDatabase();
     if (conn) {
-      await ProductModel.findOneAndUpdate({ slug: product.slug }, product, { upsert: true, new: true });
+      const { _id, ...cleanProduct } = product as any;
+      await ProductModel.findOneAndUpdate({ slug: product.slug }, cleanProduct, { upsert: true, new: true });
     }
   } catch (err) {
     console.warn('MongoDB sync product error:', err);
@@ -284,9 +285,10 @@ export async function syncOrderToDatabase(order: Order) {
   try {
     const conn = await connectToDatabase();
     if (conn) {
+      const { _id, ...cleanOrder } = order as any;
       await OrderModel.findOneAndUpdate(
         { $or: [{ orderId: order.id }, { id: order.id }] },
-        { ...order, orderId: order.id },
+        { ...cleanOrder, orderId: order.id },
         { upsert: true, new: true }
       );
     }

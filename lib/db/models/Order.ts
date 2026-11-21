@@ -18,14 +18,7 @@ const CartItemSchema = new Schema({
   unitPrice: Number,
   unitMrp: Number,
   quantity: Number,
-  customization: {
-    previewUrl: String,
-    customText: String,
-    frameType: String,
-    orientation: String,
-    aspectRatio: String,
-    specialInstructions: String,
-  },
+  customization: { type: Schema.Types.Mixed },
 });
 
 const ShippingAddressSchema = new Schema({

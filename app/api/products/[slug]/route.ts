@@ -1,8 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { revalidatePath } from 'next/cache';
 import { getProductBySlug, updateProduct, deleteProduct } from '@/lib/store';
 import { getAuthenticatedAdmin } from '@/lib/auth';
 import { connectToDatabase } from '@/lib/db/mongodb';
 import { ProductModel } from '@/lib/db/models/Product';
+import { Product } from '@/types';
 
 export const dynamic = 'force-dynamic';
 
@@ -11,10 +13,30 @@ export async function GET(
   { params }: { params: { slug: string } }
 ) {
   try {
-    const product = getProductBySlug(params.slug);
+    // 1. Try fetching directly from MongoDB Atlas for real-time live data
+    let product: Product | null = null;
+    try {
+      const conn = await connectToDatabase();
+      if (conn) {
+        const doc = await ProductModel.findOne({ slug: params.slug }).lean();
+        if (doc) {
+          const { _id, __v, ...rest } = doc as any;
+          product = { ...rest, id: rest.id || String(_id) } as Product;
+        }
+      }
+    } catch (dbErr) {
+      console.warn('MongoDB single product fetch error:', dbErr);
+    }
+
+    // 2. Fallback to in-memory/persisted store if MongoDB is offline or item not in DB
+    if (!product) {
+      product = getProductBySlug(params.slug);
+    }
+
     if (!product) {
       return NextResponse.json({ success: false, error: 'Product not found' }, { status: 404 });
     }
+
     return NextResponse.json({ success: true, product });
   } catch (err: any) {
     return NextResponse.json({ success: false, error: err.message }, { status: 500 });
@@ -32,24 +54,47 @@ export async function PUT(
     }
 
     const currentProduct = getProductBySlug(params.slug);
-    if (!currentProduct) {
-      return NextResponse.json({ success: false, error: 'Product not found' }, { status: 404 });
+    const updates = await req.json();
+
+    // 1. Update in-memory / JSON store
+    let updated: Product | null = null;
+    if (currentProduct) {
+      updated = updateProduct(currentProduct.id, updates);
     }
 
-    const updates = await req.json();
-    const updated = updateProduct(currentProduct.id, updates);
-
-    // Persist to MongoDB Atlas if connected
+    // 2. Persist directly to MongoDB Atlas
     try {
       const conn = await connectToDatabase();
       if (conn) {
-        await ProductModel.findOneAndUpdate({ slug: params.slug }, updates, { new: true, upsert: true });
+        const { _id, ...cleanUpdates } = updates as any;
+        const dbDoc = await ProductModel.findOneAndUpdate(
+          { slug: params.slug },
+          cleanUpdates,
+          { new: true, upsert: true }
+        ).lean();
+
+        if (dbDoc && !updated) {
+          const { _id: docId, __v, ...rest } = dbDoc as any;
+          updated = { ...rest, id: rest.id || String(docId) } as Product;
+        }
       }
     } catch (dbErr) {
-      console.warn('MongoDB update error (in-memory updated):', dbErr);
+      console.warn('MongoDB update error:', dbErr);
     }
 
-    return NextResponse.json({ success: true, product: updated });
+    // 3. Instantly invalidate Next.js caches across all storefront routes
+    try {
+      revalidatePath(`/product/${params.slug}`);
+      revalidatePath('/shop');
+      revalidatePath('/');
+      if (updates.categorySlug || currentProduct?.categorySlug) {
+        revalidatePath(`/category/${updates.categorySlug || currentProduct?.categorySlug}`);
+      }
+    } catch (revalErr) {
+      console.warn('Cache revalidation notice:', revalErr);
+    }
+
+    return NextResponse.json({ success: true, product: updated || updates });
   } catch (err: any) {
     return NextResponse.json({ success: false, error: err.message }, { status: 500 });
   }
@@ -66,23 +111,33 @@ export async function DELETE(
     }
 
     const currentProduct = getProductBySlug(params.slug);
-    if (!currentProduct) {
-      return NextResponse.json({ success: false, error: 'Product not found' }, { status: 404 });
+    if (currentProduct) {
+      deleteProduct(currentProduct.id);
     }
 
-    deleteProduct(currentProduct.id);
-
-    // Persist deletion to MongoDB Atlas if connected
+    // Persist deletion to MongoDB Atlas
     try {
       const conn = await connectToDatabase();
       if (conn) {
         await ProductModel.findOneAndDelete({ slug: params.slug });
       }
     } catch (dbErr) {
-      console.warn('MongoDB delete error (in-memory deleted):', dbErr);
+      console.warn('MongoDB delete error:', dbErr);
     }
 
-    return NextResponse.json({ success: true, message: 'Product deleted' });
+    // Invalidate Next.js cache
+    try {
+      revalidatePath(`/product/${params.slug}`);
+      revalidatePath('/shop');
+      revalidatePath('/');
+      if (currentProduct?.categorySlug) {
+        revalidatePath(`/category/${currentProduct.categorySlug}`);
+      }
+    } catch (revalErr) {
+      console.warn('Cache revalidation notice:', revalErr);
+    }
+
+    return NextResponse.json({ success: true, message: 'Product deleted successfully' });
   } catch (err: any) {
     return NextResponse.json({ success: false, error: err.message }, { status: 500 });
   }

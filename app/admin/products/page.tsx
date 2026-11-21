@@ -909,8 +909,11 @@ export default function AdminProductsPage() {
         if (res.ok && data.success) {
           setModalOpen(false);
           setEditingSlug(null);
-          fetchProducts();
+          await fetchProducts();
           setFormData(initialForm);
+          alert('✓ Product updated and synchronized to live website!');
+        } else {
+          alert('Error updating product: ' + (data?.error || 'Failed to update'));
         }
       } else {
         const res = await fetch('/api/products', {
@@ -927,8 +930,11 @@ export default function AdminProductsPage() {
         const data = await res.json();
         if (res.ok && data.success) {
           setModalOpen(false);
-          fetchProducts();
+          await fetchProducts();
           setFormData(initialForm);
+          alert('✓ New product created and published to live website!');
+        } else {
+          alert('Error creating product: ' + (data?.error || 'Failed to create'));
         }
       }
     } catch {

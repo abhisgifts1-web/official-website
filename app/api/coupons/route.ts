@@ -8,7 +8,25 @@ export const dynamic = 'force-dynamic';
 
 export async function GET() {
   try {
-    const coupons = getAllCoupons();
+    let coupons = [];
+    try {
+      const conn = await connectToDatabase();
+      if (conn) {
+        const docs = await CouponModel.find({}).lean();
+        if (docs && docs.length > 0) {
+          coupons = docs.map((doc: any) => {
+            const { _id, __v, ...c } = doc;
+            return { ...c, id: c.id || String(_id) };
+          });
+        }
+      }
+    } catch (dbErr) {
+      console.warn('MongoDB coupons fetch error:', dbErr);
+    }
+
+    if (!coupons || coupons.length === 0) {
+      coupons = getAllCoupons();
+    }
     return NextResponse.json({ success: true, coupons });
   } catch (err: any) {
     return NextResponse.json({ success: false, error: err.message }, { status: 500 });

@@ -1,7 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getAllOrders, createOrder, validateCoupon, recordCouponUsage, getAllProducts } from '@/lib/store';
 import { getAuthenticatedAdmin } from '@/lib/auth';
-import { INITIAL_SETTINGS } from '@/lib/data/settings';
+import { connectToDatabase } from '@/lib/db/mongodb';
+import { OrderModel } from '@/lib/db/models/Order';
+import { Order } from '@/types';
+
+export const dynamic = 'force-dynamic';
 
 export async function GET(req: NextRequest) {
   try {
@@ -10,10 +14,44 @@ export async function GET(req: NextRequest) {
     const status = searchParams.get('status') || undefined;
     const search = searchParams.get('search') || undefined;
 
+    // 1. Fetch live orders from MongoDB Atlas
+    let allOrders: Order[] = [];
+    try {
+      const conn = await connectToDatabase();
+      if (conn) {
+        const dbOrders = await OrderModel.find({}).sort({ createdAt: -1 }).lean();
+        if (dbOrders && dbOrders.length > 0) {
+          allOrders = dbOrders.map((doc: any) => {
+            const { _id, __v, ...o } = doc;
+            return { ...o, id: o.orderId || o.id || String(_id) } as Order;
+          });
+        }
+      }
+    } catch (dbErr) {
+      console.warn('MongoDB orders fetch notice, falling back to cache:', dbErr);
+    }
+
+    if (!allOrders || allOrders.length === 0) {
+      allOrders = getAllOrders();
+    }
+
     // Admin can view all orders
     if (admin) {
-      const orders = getAllOrders(status, search);
-      return NextResponse.json({ success: true, count: orders.length, orders });
+      let filtered = [...allOrders];
+      if (status && status !== 'All') {
+        filtered = filtered.filter((o) => o.orderStatus === status);
+      }
+      if (search && search.trim()) {
+        const q = search.trim().toLowerCase();
+        filtered = filtered.filter(
+          (o) =>
+            o.id?.toLowerCase().includes(q) ||
+            o.customer?.fullName?.toLowerCase().includes(q) ||
+            o.customer?.mobile?.includes(q) ||
+            o.customer?.email?.toLowerCase().includes(q)
+        );
+      }
+      return NextResponse.json({ success: true, count: filtered.length, orders: filtered });
     }
 
     // Customer can view their own orders if email or mobile param is passed
@@ -24,11 +62,10 @@ export async function GET(req: NextRequest) {
       return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
     }
 
-    const allOrders = getAllOrders();
     const customerOrders = allOrders.filter(
       (o) =>
-        (customerPhone && o.customer.mobile === customerPhone) ||
-        (customerEmail && o.customer.email.toLowerCase() === customerEmail.toLowerCase())
+        (customerPhone && o.customer?.mobile === customerPhone) ||
+        (customerEmail && o.customer?.email?.toLowerCase() === customerEmail.toLowerCase())
     );
 
     return NextResponse.json({ success: true, count: customerOrders.length, orders: customerOrders });
@@ -59,17 +96,10 @@ export async function POST(req: NextRequest) {
     const validatedItems = [];
 
     for (const clientItem of items) {
-      const catalogProduct = catalog.find((p) => p.id === clientItem.productId);
-      if (!catalogProduct) {
-        return NextResponse.json(
-          { success: false, error: `Product "${clientItem.title}" is no longer available.` },
-          { status: 400 }
-        );
-      }
-
-      const variant = catalogProduct.variants.find((v) => v.id === clientItem.variantId);
-      const trueUnitPrice = variant ? variant.price : catalogProduct.basePrice;
-      const trueUnitMrp = variant ? variant.mrp : catalogProduct.baseMrp;
+      const catalogProduct = catalog.find((p) => p.id === clientItem.productId || p.slug === clientItem.slug);
+      const variant = catalogProduct?.variants?.find((v) => v.id === clientItem.variantId);
+      const trueUnitPrice = variant ? variant.price : (catalogProduct?.basePrice || 1299);
+      const trueUnitMrp = variant ? variant.mrp : (catalogProduct?.baseMrp || 2499);
       const qty = Math.max(1, Math.min(10, Number(clientItem.quantity) || 1));
 
       const effectiveUnitPrice =
@@ -85,10 +115,10 @@ export async function POST(req: NextRequest) {
 
       validatedItems.push({
         id: clientItem.id || `ci-${Date.now()}`,
-        productId: catalogProduct.id,
-        slug: catalogProduct.slug,
-        title: clientItem.title || catalogProduct.title,
-        image: clientItem.image || catalogProduct.images[0],
+        productId: catalogProduct?.id || clientItem.productId,
+        slug: catalogProduct?.slug || clientItem.slug,
+        title: clientItem.title || catalogProduct?.title || 'Custom Acrylic Frame',
+        image: clientItem.image || catalogProduct?.images?.[0] || '/images/placeholder.jpg',
         variantId: clientItem.variantId || (variant ? variant.id : 'default'),
         size: clientItem.size || (variant ? variant.size : 'Standard'),
         finish: clientItem.finish || (variant ? variant.finish : 'Acrylic Ultra-Gloss'),
@@ -117,11 +147,9 @@ export async function POST(req: NextRequest) {
       }
     }
 
-    // SERVER-SIDE SHIPPING CHARGE: Zero delivery charges for every product across entire website
+    // Free delivery everywhere
     const shippingFee = 0;
-
     const totalAmount = Math.max(0, computedSubtotal - discountAmount);
-
     const isPaid = paymentMethod === 'Razorpay' && Boolean(razorpayPaymentId);
 
     const createdOrder = createOrder({
@@ -149,7 +177,22 @@ export async function POST(req: NextRequest) {
       notes: notes ? notes.trim() : undefined,
     });
 
-    // ATOMIC COUPON USAGE TRACKING
+    // Directly commit to MongoDB Atlas
+    try {
+      const conn = await connectToDatabase();
+      if (conn) {
+        const { _id, ...cleanOrder } = createdOrder as any;
+        await OrderModel.findOneAndUpdate(
+          { orderId: createdOrder.id },
+          { ...cleanOrder, orderId: createdOrder.id },
+          { upsert: true, new: true }
+        );
+      }
+    } catch (dbErr) {
+      console.warn('MongoDB direct order save warning:', dbErr);
+    }
+
+    // Atomic coupon usage tracking
     if (validatedCouponCode && discountAmount > 0) {
       recordCouponUsage(validatedCouponCode, {
         customer: (customer.mobile || customer.email || 'customer').trim(),

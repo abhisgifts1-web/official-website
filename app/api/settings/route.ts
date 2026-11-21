@@ -1,6 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { revalidatePath } from 'next/cache';
 import { getSiteSettings, updateSiteSettings } from '@/lib/store';
 import { getAuthenticatedAdmin } from '@/lib/auth';
+
+export const dynamic = 'force-dynamic';
 
 export async function GET() {
   try {
@@ -20,6 +23,13 @@ export async function PUT(req: NextRequest) {
 
     const body = await req.json();
     const updated = updateSiteSettings(body);
+
+    try {
+      revalidatePath('/', 'layout');
+      revalidatePath('/');
+      revalidatePath('/shop');
+    } catch (revalErr) {}
+
     return NextResponse.json({ success: true, settings: updated });
   } catch (err: any) {
     return NextResponse.json({ success: false, error: err.message }, { status: 500 });

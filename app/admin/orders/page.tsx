@@ -75,7 +75,10 @@ export default function AdminOrdersPage() {
       const data = await res.json();
       if (res.ok && data.success) {
         setSelectedOrder(data.order);
-        fetchOrders();
+        await fetchOrders();
+        alert(`✓ Order ${selectedOrder.id} status updated to "${updatingStatus}"!`);
+      } else {
+        alert('Failed to update order: ' + (data?.error || 'Server error'));
       }
     } catch {
       // ignore
