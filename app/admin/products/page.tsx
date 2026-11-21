@@ -25,6 +25,11 @@ import {
   Layers,
   Flame,
   Camera,
+  LayoutGrid,
+  List,
+  Package,
+  ChevronDown,
+  ChevronUp,
 } from 'lucide-react';
 import AdminLayout from '@/components/admin/AdminLayout';
 import { Product, ProductOrientation, OrientationShape, ProductModel } from '@/types';
@@ -94,6 +99,9 @@ export default function AdminProductsPage() {
   const [modalOpen, setModalOpen] = useState(false);
   const [editingSlug, setEditingSlug] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
+  const [viewMode, setViewMode] = useState<'table' | 'grid'>('table');
+  const [filterTab, setFilterTab] = useState<'all' | 'led' | 'acrylic' | 'trending' | 'low-stock'>('all');
+  const [expandedSizesSlug, setExpandedSizesSlug] = useState<string | null>(null);
 
   // Artwork Image Upload & Format States (Support up to 30 images per product)
   const MAX_PRODUCT_IMAGES = 30;
@@ -957,17 +965,38 @@ export default function AdminProductsPage() {
     }
   };
 
+  // KPI Metrics
+  const totalCatalogStock = products.reduce((acc, p) => {
+    const vars = p.variants && p.variants.length > 0 ? p.variants : getDefault4Variants(p.basePrice, p.baseMrp);
+    return acc + vars.reduce((sum, v) => sum + (v.stockCount || 0), 0);
+  }, 0);
+
+  const totalModelsCount = products.reduce((acc, p) => acc + (p.models?.length || 25), 0);
+  const totalLedProducts = products.filter((p) => p.hasLedBacklight).length;
+
   const filteredProducts = products.filter((p) => {
+    const q = search.toLowerCase().trim();
     const matchesSearch =
-      p.title.toLowerCase().includes(search.toLowerCase()) ||
-      p.slug.toLowerCase().includes(search.toLowerCase()) ||
-      p.categoryName.toLowerCase().includes(search.toLowerCase());
+      !q ||
+      p.title.toLowerCase().includes(q) ||
+      p.slug.toLowerCase().includes(q) ||
+      p.categoryName.toLowerCase().includes(q) ||
+      Boolean(p.deity && p.deity.toLowerCase().includes(q));
 
     const matchesCat = selectedCat
       ? p.categorySlug === selectedCat || p.categorySlugs?.includes(selectedCat)
       : true;
 
-    return matchesSearch && matchesCat;
+    let matchesTab = true;
+    if (filterTab === 'led') matchesTab = Boolean(p.hasLedBacklight);
+    else if (filterTab === 'acrylic') matchesTab = !p.hasLedBacklight;
+    else if (filterTab === 'trending') matchesTab = Boolean(p.isBestseller || p.isFeatured || p.models?.some((m) => m.isPopular));
+    else if (filterTab === 'low-stock') {
+      const vars = p.variants && p.variants.length > 0 ? p.variants : getDefault4Variants(p.basePrice, p.baseMrp);
+      matchesTab = vars.some((v) => (v.stockCount || 0) <= 5);
+    }
+
+    return matchesSearch && matchesCat && matchesTab;
   });
 
   return (
@@ -982,11 +1011,11 @@ export default function AdminProductsPage() {
                 Catalog Operations
               </span>
             </div>
-            <h1 className="font-serif font-bold text-2xl sm:text-3xl text-stone-900">
-              Artwork Catalog &amp; Inventory Management
+            <h1 className="font-serif font-bold text-2xl sm:text-3xl text-stone-900 tracking-tight">
+              Artwork Catalog &amp; Products
             </h1>
             <p className="text-xs text-stone-500 mt-1">
-              Manage luxury acrylic artworks, sizes, pricing, and live inventory status across all collections.
+              Manage luxury acrylic artworks, model variations (M-1 to M-25), sizes, live pricing, and inventory.
             </p>
           </div>
 
@@ -996,58 +1025,165 @@ export default function AdminProductsPage() {
               setFormData(initialForm);
               setModalOpen(true);
             }}
-            className="inline-flex items-center gap-2 bg-[#EAB308] hover:bg-[#FACC15] text-black px-5 py-2.5 rounded-xl font-extrabold text-xs transition-all shadow-sm hover:scale-[1.02] self-start sm:self-auto cursor-pointer"
+            className="inline-flex items-center gap-2 bg-[#EAB308] hover:bg-[#FACC15] text-stone-950 px-5 py-2.5 rounded-xl font-extrabold text-xs transition-all shadow-sm hover:scale-[1.02] self-start sm:self-auto cursor-pointer"
           >
-            <Plus className="w-4 h-4" />
-            <span>Add New Masterpiece</span>
+            <Plus className="w-4 h-4 text-stone-950" />
+            <span>+ Add New Artwork</span>
           </button>
         </div>
 
-        {/* Toolbar & Filters (Orientation Filter Removed) */}
-        <div className="bg-white p-4 rounded-2xl border border-stone-200 shadow-xs flex flex-col md:flex-row items-center justify-between gap-3 text-xs">
-          <div className="relative w-full md:w-80">
-            <Search className="w-4 h-4 text-stone-400 absolute left-3 top-1/2 -translate-y-1/2" />
-            <input
-              type="text"
-              placeholder="Search by title, slug, or deity..."
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-              className="w-full pl-9 pr-3 py-2 bg-stone-50 border border-stone-200 rounded-xl outline-none focus:border-amber-500 text-xs text-stone-900 placeholder-stone-400"
-            />
+        {/* 4-Column KPI Metrics Strip */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+          <div className="bg-white border border-stone-200 p-3.5 rounded-2xl shadow-2xs flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-amber-50 border border-amber-200 flex items-center justify-center shrink-0">
+              <Package className="w-5 h-5 text-amber-600" />
+            </div>
+            <div>
+              <p className="text-[10px] font-semibold text-stone-400 uppercase tracking-wider">Total Artworks</p>
+              <p className="text-lg font-extrabold text-stone-900 font-serif leading-none mt-0.5">{products.length} Products</p>
+            </div>
           </div>
 
-          <div className="flex flex-wrap items-center gap-2 w-full md:w-auto">
-            <select
-              value={selectedCat}
-              onChange={(e) => setSelectedCat(e.target.value)}
-              className="px-3 py-2 bg-stone-50 border border-stone-200 rounded-xl outline-none text-xs text-stone-900"
-            >
-              <option value="">All Categories ({INITIAL_CATEGORIES.length})</option>
-              {INITIAL_CATEGORIES.map((c) => (
-                <option key={c.id} value={c.slug}>
-                  {c.name}
-                </option>
-              ))}
-            </select>
+          <div className="bg-white border border-stone-200 p-3.5 rounded-2xl shadow-2xs flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-amber-50 border border-amber-200 flex items-center justify-center shrink-0">
+              <Flame className="w-5 h-5 text-amber-500" />
+            </div>
+            <div>
+              <p className="text-[10px] font-semibold text-stone-400 uppercase tracking-wider">Design Models</p>
+              <p className="text-lg font-extrabold text-stone-900 font-serif leading-none mt-0.5">{totalModelsCount} Variations</p>
+            </div>
+          </div>
+
+          <div className="bg-white border border-stone-200 p-3.5 rounded-2xl shadow-2xs flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-amber-50 border border-amber-200 flex items-center justify-center shrink-0">
+              <Sparkles className="w-5 h-5 text-amber-600" />
+            </div>
+            <div>
+              <p className="text-[10px] font-semibold text-stone-400 uppercase tracking-wider">Ambient LED</p>
+              <p className="text-lg font-extrabold text-stone-900 font-serif leading-none mt-0.5">{totalLedProducts} Illuminated</p>
+            </div>
+          </div>
+
+          <div className="bg-white border border-stone-200 p-3.5 rounded-2xl shadow-2xs flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-emerald-50 border border-emerald-200 flex items-center justify-center shrink-0">
+              <CheckCircle2 className="w-5 h-5 text-emerald-600" />
+            </div>
+            <div>
+              <p className="text-[10px] font-semibold text-stone-400 uppercase tracking-wider">Inventory Stock</p>
+              <p className="text-lg font-extrabold text-stone-900 font-serif leading-none mt-0.5">{totalCatalogStock.toLocaleString()} In Stock</p>
+            </div>
           </div>
         </div>
 
-        {/* Products Table (Orientation Column Removed) */}
-        <div className="bg-white rounded-2xl border border-stone-200 shadow-xs overflow-hidden">
-          {loading ? (
-            <div className="p-12 text-center text-xs text-stone-500">Loading catalog...</div>
-          ) : filteredProducts.length === 0 ? (
-            <div className="p-12 text-center text-xs text-stone-500">No artworks match your criteria.</div>
-          ) : (
+        {/* Smart Toolbar: Search, Filters, Tabs & View Switcher */}
+        <div className="bg-white p-3.5 sm:p-4 rounded-2xl border border-stone-200 shadow-xs space-y-3">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+            {/* Search */}
+            <div className="relative flex-1 max-w-md">
+              <Search className="w-4 h-4 text-stone-400 absolute left-3 top-1/2 -translate-y-1/2" />
+              <input
+                type="text"
+                placeholder="Search artworks, deities, sizes, slugs..."
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                className="w-full pl-9 pr-3 py-2 bg-stone-50 border border-stone-200 rounded-xl outline-none focus:border-amber-500 text-xs text-stone-900 placeholder-stone-400"
+              />
+            </div>
+
+            {/* Category Dropdown & View Mode Switcher */}
+            <div className="flex items-center gap-2">
+              <select
+                value={selectedCat}
+                onChange={(e) => setSelectedCat(e.target.value)}
+                className="px-3 py-2 bg-stone-50 border border-stone-200 rounded-xl outline-none text-xs text-stone-900 font-medium"
+              >
+                <option value="">All Categories ({INITIAL_CATEGORIES.length})</option>
+                {INITIAL_CATEGORIES.map((c) => (
+                  <option key={c.id} value={c.slug}>
+                    {c.name}
+                  </option>
+                ))}
+              </select>
+
+              {/* View Switcher: Table vs Grid */}
+              <div className="flex items-center bg-stone-100 p-0.5 rounded-xl border border-stone-200 shrink-0">
+                <button
+                  type="button"
+                  onClick={() => setViewMode('table')}
+                  className={`px-2.5 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1.5 transition-all cursor-pointer ${
+                    viewMode === 'table'
+                      ? 'bg-white text-stone-900 shadow-xs'
+                      : 'text-stone-500 hover:text-stone-900'
+                  }`}
+                  title="Compact Table View"
+                >
+                  <List className="w-3.5 h-3.5" />
+                  <span className="hidden sm:inline">Table</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setViewMode('grid')}
+                  className={`px-2.5 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1.5 transition-all cursor-pointer ${
+                    viewMode === 'grid'
+                      ? 'bg-white text-stone-900 shadow-xs'
+                      : 'text-stone-500 hover:text-stone-900'
+                  }`}
+                  title="Visual Cards Grid View"
+                >
+                  <LayoutGrid className="w-3.5 h-3.5" />
+                  <span className="hidden sm:inline">Grid</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* Quick Filter Tabs */}
+          <div className="flex items-center gap-1.5 overflow-x-auto pb-1 text-[11px] font-semibold border-t border-stone-100 pt-2.5">
+            {[
+              { id: 'all', label: `All Artworks (${products.length})` },
+              { id: 'led', label: `✨ Ambient LED (${totalLedProducts})` },
+              { id: 'acrylic', label: `Pure Acrylic (${products.length - totalLedProducts})` },
+              { id: 'trending', label: `🔥 Trending / Bestsellers` },
+              { id: 'low-stock', label: `⚠️ Low Stock` },
+            ].map((tab) => (
+              <button
+                key={tab.id}
+                type="button"
+                onClick={() => setFilterTab(tab.id as any)}
+                className={`px-3 py-1 rounded-lg transition-colors cursor-pointer whitespace-nowrap shrink-0 ${
+                  filterTab === tab.id
+                    ? 'bg-amber-100 text-amber-900 font-bold border border-amber-300'
+                    : 'bg-stone-50 text-stone-600 hover:bg-stone-100 border border-stone-200'
+                }`}
+              >
+                {tab.label}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Content View: Table or Grid */}
+        {loading ? (
+          <div className="bg-white rounded-2xl border border-stone-200 p-12 text-center text-xs text-stone-500">
+            <Loader2 className="w-6 h-6 animate-spin text-amber-500 mx-auto mb-2" />
+            <p>Loading artworks catalog...</p>
+          </div>
+        ) : filteredProducts.length === 0 ? (
+          <div className="bg-white rounded-2xl border border-stone-200 p-12 text-center text-xs text-stone-500">
+            <p className="font-bold text-stone-700 text-sm">No artworks found</p>
+            <p className="text-stone-400 mt-1">Try adjusting your search query or category filters.</p>
+          </div>
+        ) : viewMode === 'table' ? (
+          /* 1. Sleek Modern Table View */
+          <div className="bg-white rounded-2xl border border-stone-200 shadow-xs overflow-hidden">
             <div className="overflow-x-auto">
               <table className="w-full text-left text-xs text-stone-700">
-                <thead className="bg-stone-100 border-b border-stone-200 text-stone-700 font-bold uppercase tracking-wider text-[10px]">
+                <thead className="bg-stone-50 border-b border-stone-200 text-stone-600 font-bold uppercase tracking-wider text-[10px]">
                   <tr>
-                    <th className="py-3 px-4">Artwork</th>
-                    <th className="py-3 px-4">Configured Sizes &amp; Pricing</th>
-                    <th className="py-3 px-4">Category</th>
-                    <th className="py-3 px-4">Lighting</th>
-                    <th className="py-3 px-4 text-center">Total Stock</th>
+                    <th className="py-3 px-4 w-[360px]">Product Artwork</th>
+                    <th className="py-3 px-4">Category &amp; Style</th>
+                    <th className="py-3 px-4 w-[280px]">Pricing &amp; Sizes</th>
+                    <th className="py-3 px-4 text-center">Stock</th>
                     <th className="py-3 px-4 text-right">Actions</th>
                   </tr>
                 </thead>
@@ -1059,97 +1195,140 @@ export default function AdminProductsPage() {
                         : getDefault4Variants(prod.basePrice, prod.baseMrp);
 
                     const totalStock = primaryVariants.reduce((acc, v) => acc + (v.stockCount || 0), 0);
+                    const isExpanded = expandedSizesSlug === prod.slug;
+                    const minPrice = primaryVariants.length > 0
+                      ? Math.min(...primaryVariants.map((v) => v.price))
+                      : prod.basePrice;
+                    const maxPrice = primaryVariants.length > 0
+                      ? Math.max(...primaryVariants.map((v) => v.price))
+                      : prod.basePrice;
 
                     return (
-                      <tr key={prod.id} className="hover:bg-stone-50 transition-colors">
-                        {/* Artwork column */}
+                      <tr key={prod.id} className="hover:bg-amber-50/20 transition-colors">
+                        {/* Artwork Thumbnail & Details */}
                         <td className="py-3 px-4">
                           <div className="flex items-center gap-3">
-                            <div className="relative shrink-0">
+                            <div className="relative shrink-0 w-14 h-14 rounded-xl overflow-hidden border border-stone-200 bg-stone-100 shadow-2xs group/thumb">
                               <img
                                 src={prod.images[0]}
                                 alt={prod.title}
-                                className="w-12 h-12 object-cover rounded-xl border border-stone-200 shadow-2xs"
+                                onError={(e) => {
+                                  (e.target as HTMLImageElement).src = '/images/placeholder.jpg';
+                                }}
+                                className="w-full h-full object-cover group-hover/thumb:scale-105 transition-transform duration-200"
                               />
                               {prod.images.length > 1 && (
                                 <span
-                                  className="absolute -bottom-1 -right-1 bg-stone-900 text-white text-[9px] font-bold px-1.5 py-0.2 rounded-full shadow-xs border border-white"
-                                  title={`${prod.images.length} gallery images`}
+                                  className="absolute bottom-1 right-1 bg-black/75 backdrop-blur-xs text-white text-[9px] font-bold px-1.5 py-0.2 rounded-full"
+                                  title={`${prod.images.length} photos in carousel`}
                                 >
                                   {prod.images.length}
                                 </span>
                               )}
                             </div>
-                            <div className="min-w-0">
-                              <p className="font-bold text-stone-900 truncate max-w-xs">{prod.title}</p>
-                              <div className="flex items-center gap-1.5 text-[11px] text-stone-500 font-mono truncate">
-                                <span className="text-amber-800 font-bold bg-amber-50 px-1.5 py-0.2 rounded border border-amber-200">
-                                  {prod.models?.length || 25} Models (M-18 🔥)
+
+                            <div className="min-w-0 flex-1">
+                              <p className="font-extrabold text-stone-900 text-xs truncate max-w-xs" title={prod.title}>
+                                {prod.title}
+                              </p>
+                              <div className="flex flex-wrap items-center gap-1.5 text-[11px] text-stone-500 mt-1">
+                                <span className="text-amber-800 font-bold bg-amber-50 border border-amber-200 px-1.5 py-0.2 rounded text-[10px] flex items-center gap-0.5">
+                                  <span>{prod.models?.length || 25} Models</span>
+                                  <span className="text-amber-500">🔥</span>
                                 </span>
-                                <span>•</span>
-                                <span>{prod.slug}</span>
-                                <span className="text-stone-300">•</span>
-                                <span className="text-amber-800 font-sans font-semibold text-[10px]">
-                                  {prod.images.length} {prod.images.length === 1 ? 'view' : 'views'}
+                                <span className="font-mono text-[10px] text-stone-400 truncate max-w-[140px]" title={prod.slug}>
+                                  {prod.slug}
                                 </span>
                               </div>
                             </div>
                           </div>
                         </td>
 
-                        {/* All Sizes & Prices Pills column with Quick Add Size button */}
+                        {/* Category & Style */}
                         <td className="py-3 px-4">
-                          <div className="flex flex-col gap-1.5 max-w-md">
-                            <div className="flex flex-wrap gap-1.5">
-                              {primaryVariants.map((v, i) => (
-                                <div
-                                  key={i}
-                                  className="px-2 py-1 bg-stone-50 border border-stone-200 rounded-lg text-[10.5px] flex items-center gap-1.5"
-                                >
-                                  <span className="text-stone-700 font-medium truncate max-w-[120px]" title={v.size}>
-                                    {v.size.replace(' inches', '"').replace(' (Grand Wall Size)', ' Grand').replace(' (Grand Sanctum)', '')}
-                                  </span>
-                                  <span className="font-bold font-serif text-amber-800 shrink-0">
-                                    ₹{v.price.toLocaleString('en-IN')}
-                                  </span>
-                                </div>
-                              ))}
-                            </div>
-                            <div>
-                              <button
-                                type="button"
-                                onClick={() => handleOpenQuickAddSize(prod)}
-                                className="inline-flex items-center gap-1 text-[10.5px] font-bold text-amber-900 bg-amber-50 hover:bg-amber-100 border border-amber-300 px-2 py-0.5 rounded-md transition-colors cursor-pointer shadow-2xs"
-                                title="Quickly add a new size option to this product"
-                              >
-                                <Plus className="w-3 h-3 text-amber-700" />
-                                <span>+ Add Size Option</span>
-                              </button>
-                            </div>
+                          <div className="space-y-1">
+                            <span className="font-semibold text-stone-800 text-xs block truncate max-w-[150px]">
+                              {prod.categoryName}
+                            </span>
+                            {prod.hasLedBacklight ? (
+                              <span className="inline-flex items-center gap-1 bg-amber-50 text-amber-800 border border-amber-300 font-bold px-2 py-0.5 rounded text-[10px] shadow-2xs">
+                                <Sparkles className="w-3 h-3 text-amber-600" />
+                                <span>Ambient LED</span>
+                              </span>
+                            ) : (
+                              <span className="inline-block bg-stone-100 text-stone-600 border border-stone-200 px-2 py-0.5 rounded text-[10px]">
+                                Pure Acrylic
+                              </span>
+                            )}
                           </div>
                         </td>
 
-                        {/* Category */}
-                        <td className="py-3 px-4 text-stone-700 font-medium">
-                          <span className="text-xs">{prod.categoryName}</span>
-                        </td>
-
-                        {/* Lighting Type */}
+                        {/* Pricing & Configured Sizes (Compact Dropdown Pill) */}
                         <td className="py-3 px-4">
-                          {prod.hasLedBacklight ? (
-                            <span className="bg-amber-50 text-amber-800 border border-amber-300 font-bold px-2 py-0.5 rounded text-[10px] whitespace-nowrap shadow-2xs">
-                              ✨ Ambient LED
-                            </span>
-                          ) : (
-                            <span className="bg-stone-100 text-stone-600 border border-stone-200 px-2 py-0.5 rounded text-[10px] whitespace-nowrap">
-                              Pure Acrylic
-                            </span>
-                          )}
+                          <div className="space-y-1.5">
+                            <div className="flex items-baseline gap-2">
+                              <span className="font-serif font-extrabold text-stone-950 text-sm">
+                                ₹{minPrice.toLocaleString('en-IN')}
+                              </span>
+                              {maxPrice > minPrice && (
+                                <span className="text-stone-400 text-[11px] font-sans">
+                                  – ₹{maxPrice.toLocaleString('en-IN')}
+                                </span>
+                              )}
+                            </div>
+
+                            {/* Collapsible Sizes Dropdown Pill */}
+                            <div className="flex items-center gap-1.5">
+                              <button
+                                type="button"
+                                onClick={() => setExpandedSizesSlug(isExpanded ? null : prod.slug)}
+                                className="px-2 py-0.5 bg-stone-50 hover:bg-stone-100 border border-stone-200 text-stone-700 font-bold text-[10.5px] rounded-md transition-colors cursor-pointer flex items-center gap-1"
+                                title="Click to view/hide all configured sizes"
+                              >
+                                <span>{primaryVariants.length} Sizes</span>
+                                {isExpanded ? <ChevronUp className="w-3 h-3 text-stone-500" /> : <ChevronDown className="w-3 h-3 text-stone-500" />}
+                              </button>
+
+                              <button
+                                type="button"
+                                onClick={() => handleOpenQuickAddSize(prod)}
+                                className="px-1.5 py-0.5 bg-amber-50 hover:bg-amber-100 text-amber-900 border border-amber-300 text-[10.5px] font-bold rounded-md transition-colors cursor-pointer flex items-center gap-0.5"
+                                title="Add another size to this product"
+                              >
+                                <Plus className="w-3 h-3 text-amber-700" />
+                                <span>Size</span>
+                              </button>
+                            </div>
+
+                            {/* Expanded Size Pills */}
+                            {isExpanded && (
+                              <div className="p-2 bg-stone-50 border border-stone-200 rounded-xl space-y-1 mt-1 text-[10.5px]">
+                                {primaryVariants.map((v, i) => (
+                                  <div key={i} className="flex items-center justify-between gap-2 border-b border-stone-100 last:border-0 pb-0.5">
+                                    <span className="font-medium text-stone-700 truncate max-w-[130px]" title={v.size}>
+                                      {v.size.replace(' inches', '"').replace(' (Grand Wall Size)', ' Grand').replace(' (Grand Sanctum)', '')}
+                                    </span>
+                                    <span className="font-bold font-serif text-amber-800">
+                                      ₹{v.price.toLocaleString('en-IN')}
+                                    </span>
+                                  </div>
+                                ))}
+                              </div>
+                            )}
+                          </div>
                         </td>
 
-                        {/* Stock */}
+                        {/* Stock Status */}
                         <td className="py-3 px-4 text-center">
-                          <span className="inline-flex items-center px-2 py-0.5 rounded-full bg-emerald-50 border border-emerald-300 text-emerald-800 text-[11px] font-bold shadow-2xs">
+                          <span
+                            className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold border shadow-2xs ${
+                              totalStock > 10
+                                ? 'bg-emerald-50 text-emerald-800 border-emerald-300'
+                                : totalStock > 0
+                                ? 'bg-amber-50 text-amber-800 border-amber-300'
+                                : 'bg-rose-50 text-rose-800 border-rose-300'
+                            }`}
+                          >
                             {totalStock} in stock
                           </span>
                         </td>
@@ -1159,30 +1338,23 @@ export default function AdminProductsPage() {
                           <div className="flex items-center justify-end gap-1.5">
                             <button
                               type="button"
-                              onClick={() => handleOpenQuickAddSize(prod)}
-                              className="px-2 py-1 text-xs font-bold bg-amber-50 hover:bg-amber-100 text-amber-900 border border-amber-300 rounded-lg flex items-center gap-1 transition-colors cursor-pointer shadow-2xs"
-                              title="Add Size Option"
+                              onClick={() => handleEditProduct(prod)}
+                              className="px-3 py-1.5 text-xs font-bold bg-[#EAB308] hover:bg-[#FACC15] text-stone-950 rounded-lg flex items-center gap-1.5 transition-colors cursor-pointer shadow-2xs"
+                              title="Edit Artwork, Models & Pricing"
                             >
-                              <Plus className="w-3.5 h-3.5 text-amber-700" />
-                              <span>+ Size</span>
+                              <Edit2 className="w-3.5 h-3.5 text-stone-950" />
+                              <span>Edit</span>
                             </button>
+
                             <Link
                               href={`/product/${prod.slug}`}
                               target="_blank"
                               className="p-1.5 text-stone-400 hover:text-stone-900 hover:bg-stone-100 rounded-lg transition-colors"
-                              title="View on Storefront"
+                              title="View Live on Storefront"
                             >
                               <ExternalLink className="w-4 h-4" />
                             </Link>
-                            <button
-                              type="button"
-                              onClick={() => handleEditProduct(prod)}
-                              className="px-2.5 py-1 text-xs font-semibold bg-[#EAB308] hover:bg-[#FACC15] text-black rounded-lg flex items-center gap-1 transition-colors cursor-pointer shadow-2xs"
-                              title="Edit Artwork & Sizes"
-                            >
-                              <Edit2 className="w-3.5 h-3.5" />
-                              <span>Edit</span>
-                            </button>
+
                             <button
                               type="button"
                               onClick={() => handleDeleteProduct(prod.slug)}
@@ -1199,8 +1371,131 @@ export default function AdminProductsPage() {
                 </tbody>
               </table>
             </div>
-          )}
-        </div>
+          </div>
+        ) : (
+          /* 2. Visual Cards Grid View */
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            {filteredProducts.map((prod) => {
+              const primaryVariants =
+                prod.variants && prod.variants.length > 0
+                  ? prod.variants
+                  : getDefault4Variants(prod.basePrice, prod.baseMrp);
+              const totalStock = primaryVariants.reduce((acc, v) => acc + (v.stockCount || 0), 0);
+              const minPrice = primaryVariants.length > 0
+                ? Math.min(...primaryVariants.map((v) => v.price))
+                : prod.basePrice;
+
+              return (
+                <div
+                  key={prod.id}
+                  className="bg-white border border-stone-200 rounded-2xl overflow-hidden shadow-xs hover:shadow-md transition-shadow flex flex-col group"
+                >
+                  {/* Card Thumbnail */}
+                  <div className="relative aspect-[4/5] bg-stone-100 overflow-hidden">
+                    <img
+                      src={prod.images[0]}
+                      alt={prod.title}
+                      onError={(e) => {
+                        (e.target as HTMLImageElement).src = '/images/placeholder.jpg';
+                      }}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+
+                    {/* Lighting Badge */}
+                    <div className="absolute top-2 left-2">
+                      {prod.hasLedBacklight ? (
+                        <span className="bg-amber-500 text-stone-950 font-extrabold text-[10px] px-2 py-0.5 rounded-full shadow-xs flex items-center gap-1">
+                          <Sparkles className="w-3 h-3" />
+                          <span>LED Glow</span>
+                        </span>
+                      ) : (
+                        <span className="bg-white/90 backdrop-blur-xs text-stone-700 font-bold text-[10px] px-2 py-0.5 rounded-full shadow-xs">
+                          Pure Acrylic
+                        </span>
+                      )}
+                    </div>
+
+                    {/* Models Count Badge */}
+                    <div className="absolute top-2 right-2">
+                      <span className="bg-black/75 backdrop-blur-xs text-amber-400 font-extrabold text-[10px] px-2 py-0.5 rounded-full shadow-xs flex items-center gap-0.5">
+                        <span>{prod.models?.length || 25} Models</span>
+                        <span>🔥</span>
+                      </span>
+                    </div>
+
+                    {/* Photos Count */}
+                    {prod.images.length > 1 && (
+                      <div className="absolute bottom-2 right-2">
+                        <span className="bg-black/70 backdrop-blur-xs text-white font-bold text-[9px] px-1.5 py-0.2 rounded-full">
+                          {prod.images.length} Photos
+                        </span>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Card Body */}
+                  <div className="p-3.5 flex-1 flex flex-col justify-between space-y-2">
+                    <div>
+                      <p className="text-[10.5px] font-semibold text-stone-400 uppercase tracking-wider">{prod.categoryName}</p>
+                      <h4 className="font-extrabold text-stone-900 text-sm leading-snug line-clamp-2 mt-0.5" title={prod.title}>
+                        {prod.title}
+                      </h4>
+                    </div>
+
+                    <div className="pt-2 border-t border-stone-100 space-y-2">
+                      <div className="flex items-center justify-between">
+                        <div>
+                          <p className="text-[10px] text-stone-400">Starting from</p>
+                          <p className="font-serif font-extrabold text-stone-950 text-base">
+                            ₹{minPrice.toLocaleString('en-IN')}
+                          </p>
+                        </div>
+                        <span
+                          className={`text-[10px] font-bold px-2 py-0.5 rounded-full border ${
+                            totalStock > 10
+                              ? 'bg-emerald-50 text-emerald-800 border-emerald-300'
+                              : 'bg-amber-50 text-amber-800 border-amber-300'
+                          }`}
+                        >
+                          {totalStock} in stock
+                        </span>
+                      </div>
+
+                      <div className="flex items-center gap-1.5 pt-1">
+                        <button
+                          type="button"
+                          onClick={() => handleEditProduct(prod)}
+                          className="flex-1 py-1.5 px-2 bg-[#EAB308] hover:bg-[#FACC15] text-stone-950 font-bold text-xs rounded-xl flex items-center justify-center gap-1 transition-colors cursor-pointer shadow-2xs"
+                        >
+                          <Edit2 className="w-3 h-3 text-stone-950" />
+                          <span>Edit Artwork</span>
+                        </button>
+
+                        <button
+                          type="button"
+                          onClick={() => handleOpenQuickAddSize(prod)}
+                          className="p-1.5 bg-stone-100 hover:bg-stone-200 text-stone-700 rounded-xl transition-colors cursor-pointer"
+                          title="Add Size"
+                        >
+                          <Plus className="w-3.5 h-3.5" />
+                        </button>
+
+                        <Link
+                          href={`/product/${prod.slug}`}
+                          target="_blank"
+                          className="p-1.5 bg-stone-100 hover:bg-stone-200 text-stone-700 rounded-xl transition-colors"
+                          title="Preview"
+                        >
+                          <ExternalLink className="w-3.5 h-3.5" />
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        )}
 
         {/* Modal: Add / Edit Product (Light Theme with White Background) */}
         {modalOpen && (
