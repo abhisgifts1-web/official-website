@@ -783,7 +783,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "title": "Customized Wedding Vows & Couple Acrylic Keepsake Frame",
     "subtitle": "High-Gloss Acrylic with Gold Foil Names, Wedding Date & Warm Halo Lighting",
     "shortDescription": "Immortalize your most cherished vows and bridal portraits on diamond-polished acrylic.",
-    "description": "Turn your sacred marriage ceremonies and romantic milestones into museum-quality heirlooms. We print your high-res photography with Swiss UV inks directly on 4mm cast acrylic with personalized gold script names and wedding dates.",
+    "description": "Turn your sacred marriage ceremonies and romantic milestones into museum-quality heirlooms. We print your high-res photography with Swiss UV inks directly on 5mm cast acrylic with personalized gold script names and wedding dates.",
     "categorySlug": "couple-wedding-photos",
     "categoryName": "Couple and Wedding Photos",
     "artStyle": "Custom Wedding Acrylic",
@@ -1153,7 +1153,7 @@ export const INITIAL_PRODUCTS: Product[] = [
       },
       {
         "label": "Material",
-        "value": "4mm Cast Optical Acrylic with 24K Gold Embellishments",
+        "value": "5mm Cast Optical Acrylic with 24K Gold Embellishments",
         "_id": "6ae89187382113ccb9a5429d"
       }
     ],
@@ -1400,8 +1400,8 @@ export const INITIAL_PRODUCTS: Product[] = [
     "slug": "lord-venkateswara-balaji-24k-gold-acrylic-wall-art",
     "title": "Lord Venkateswara Balaji 24K Gold Acrylic Wall Art",
     "subtitle": "Sacred Tirupati Balaji with Shanku, Chakra & Namam in 24K Gold Accents",
-    "shortDescription": "Divine Lord Venkateswara Balaji on 4mm shatterproof crystal acrylic with diamond-polished beveled edges.",
-    "description": "Invoke timeless blessings, spiritual abundance, and peace with our classic Lord Venkateswara Balaji pure acrylic heirloom. Masterfully printed with museum-grade UV-cured inks on ultra-clear 4mm cast acrylic and embellished with 24K gold foil details. Finished with hand-buffed beveled edges and pre-installed stainless steel wall mounts.",
+    "shortDescription": "Divine Lord Venkateswara Balaji on 5mm shatterproof crystal acrylic with diamond-polished beveled edges.",
+    "description": "Invoke timeless blessings, spiritual abundance, and peace with our classic Lord Venkateswara Balaji pure acrylic heirloom. Masterfully printed with museum-grade UV-cured inks on ultra-clear 5mm cast acrylic and embellished with 24K gold foil details. Finished with hand-buffed beveled edges and pre-installed stainless steel wall mounts.",
     "categorySlug": "lord-venkateswara-balaji",
     "categoryName": "Lord Balaji / Venkateswara",
     "deity": "Lord Venkateswara",
@@ -1471,7 +1471,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "specifications": [
       {
         "label": "Material",
-        "value": "4mm Cast Optical Acrylic with 24K Gold Leaf Embellishment",
+        "value": "5mm Cast Optical Acrylic with 24K Gold Leaf Embellishment",
         "_id": "6ae89187382113ccb9a542a7"
       },
       {
@@ -2180,7 +2180,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "specifications": [
       {
         "label": "Art Material",
-        "value": "4mm Pure Crystal Glass Acrylic with Gold Leaf Inlay",
+        "value": "5mm Pure Crystal Glass Acrylic with Gold Leaf Inlay",
         "_id": "6ae89187382113ccb9a541eb"
       },
       {
@@ -4370,7 +4370,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "title": "Round Diamond-Beveled Crystal Acrylic Photo Frame",
     "subtitle": "Circular Medallion Frame with Frameless Diamond-Cut Edges",
     "shortDescription": "Contemporary circular acrylic frame with precision diamond-beveled edges for portraits.",
-    "description": "Break away from traditional rectangular framing with our signature Round Acrylic Photo Frame. Crafted in 4mm high-refractive cast acrylic with precision diamond-buffed borders, creating an organic medallion focal point on your wall.",
+    "description": "Break away from traditional rectangular framing with our signature Round Acrylic Photo Frame. Crafted in 5mm high-refractive cast acrylic with precision diamond-buffed borders, creating an organic medallion focal point on your wall.",
     "categorySlug": "round-photo-frames",
     "categoryName": "Round Photo Frames",
     "artStyle": "Personalised Frame",
@@ -4734,7 +4734,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "specifications": [
       {
         "label": "Material",
-        "value": "4mm Cast Acrylic with Subsurface Gold Infusion",
+        "value": "5mm Cast Acrylic with Subsurface Gold Infusion",
         "_id": "6ae89187382113ccb9a5428b"
       }
     ],
@@ -5284,7 +5284,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "title": "Enchanted Liquid Gold Shimmer Glitter Acrylic Photo Frame",
     "subtitle": "Floating Metallic Gold Flakes & Shimmer Dust Inside Crystal Cast Acrylic",
     "shortDescription": "Luminous sparkle and metallic glitter effects adding celebration radiance to special portraits.",
-    "description": "Infuse your favorite memories with mesmerizing shimmer. Our Enchanted Liquid Gold Glitter Photo Frame suspends fine metallic gold dust and sparkling foil flakes inside dual-sealed, optical-grade 4mm cast acrylic. Every glance catches the light with a gentle, cascading shimmer that turns wedding portraits, couple anniversaries, and festive celebrations into glowing, radiant works of art.",
+    "description": "Infuse your favorite memories with mesmerizing shimmer. Our Enchanted Liquid Gold Glitter Photo Frame suspends fine metallic gold dust and sparkling foil flakes inside dual-sealed, optical-grade 5mm cast acrylic. Every glance catches the light with a gentle, cascading shimmer that turns wedding portraits, couple anniversaries, and festive celebrations into glowing, radiant works of art.",
     "categorySlug": "glitter-photo-frames",
     "categoryName": "Glitter Photo Frames",
     "artStyle": "Glitter Shimmer Acrylic",
@@ -5373,7 +5373,7 @@ export const INITIAL_PRODUCTS: Product[] = [
       },
       {
         "label": "Panel Quality",
-        "value": "4mm Optically Clear Crystal Cast Acrylic with CNC Beveled Edges",
+        "value": "5mm Optically Clear Crystal Cast Acrylic with CNC Beveled Edges",
         "_id": "6ae89187382113ccb9a542c2"
       },
       {
@@ -6094,7 +6094,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "specifications": [
       {
         "label": "Surface",
-        "value": "4mm High-Definition Glaze Acrylic with Gold Foil Accents",
+        "value": "5mm High-Definition Glaze Acrylic with Gold Foil Accents",
         "_id": "6ae89187382113ccb9a54210"
       },
       {
@@ -7358,7 +7358,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "specifications": [
       {
         "label": "Art Material",
-        "value": "4mm Imported High-Gloss Cast Acrylic with Beveled Edges",
+        "value": "5mm Imported High-Gloss Cast Acrylic with Beveled Edges",
         "_id": "6ae89187382113ccb9a54201"
       },
       {
@@ -7939,7 +7939,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "title": "Sankat Mochan Lord Hanuman 24K Gold Acrylic Wall Art",
     "subtitle": "Divine Protector with Gada & Sanjeevani Mountain in Radiant Gold Embellishment",
     "shortDescription": "Majestic Lord Hanuman wall artwork in ultra-clear acrylic with gold leaf highlights.",
-    "description": "Fill your home with unmatched courage, devotion, and supreme protection with this handcrafted Lord Hanuman acrylic wall decor. Depicting the mighty Bajrangbali carrying the Sanjeevani mountain with his golden mace (Gada), rendered on shatterproof 4mm optical acrylic.",
+    "description": "Fill your home with unmatched courage, devotion, and supreme protection with this handcrafted Lord Hanuman acrylic wall decor. Depicting the mighty Bajrangbali carrying the Sanjeevani mountain with his golden mace (Gada), rendered on shatterproof 5mm optical acrylic.",
     "categorySlug": "lord-hanuman",
     "categoryName": "Lord Hanuman",
     "deity": "Lord Hanuman",
@@ -7996,7 +7996,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "specifications": [
       {
         "label": "Material",
-        "value": "4mm Cast Optical Acrylic",
+        "value": "5mm Cast Optical Acrylic",
         "_id": "6ae89187382113ccb9a542b2"
       }
     ],
@@ -8810,7 +8810,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "specifications": [
       {
         "label": "Surface",
-        "value": "4mm Cast Acrylic with Diamond Edge Polish",
+        "value": "5mm Cast Acrylic with Diamond Edge Polish",
         "_id": "6ae89187382113ccb9a5424b"
       }
     ],
@@ -10011,8 +10011,8 @@ export const INITIAL_PRODUCTS: Product[] = [
     "slug": "seven-running-horses-vastu-gold-acrylic-wall-art",
     "title": "7 Running Horses Vastu 24K Gold Acrylic Wall Art",
     "subtitle": "Auspicious Surya Ashva Rising Sun Composition for Career Growth & Positive Energy",
-    "shortDescription": "Magnificent 7 Running Horses rendered in 24K gold foil details on 4mm crystal acrylic.",
-    "description": "In Vedic Vastu Shastra, the 7 Running White Horses gallop toward victory, unstoppable progress, and financial vitality. Rendered with Swiss UV inks over diamond-polished 4mm cast acrylic with gold liquid highlights, this landscape masterpiece energizes living rooms and executive suites.",
+    "shortDescription": "Magnificent 7 Running Horses rendered in 24K gold foil details on 5mm crystal acrylic.",
+    "description": "In Vedic Vastu Shastra, the 7 Running White Horses gallop toward victory, unstoppable progress, and financial vitality. Rendered with Swiss UV inks over diamond-polished 5mm cast acrylic with gold liquid highlights, this landscape masterpiece energizes living rooms and executive suites.",
     "categorySlug": "horses-and-wildlife",
     "categoryName": "Horses and Wildlife",
     "artStyle": "Vastu Gold Acrylic",
@@ -10081,7 +10081,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "specifications": [
       {
         "label": "Art Material",
-        "value": "4mm Cast Optical Acrylic with Diamond Beveled Edge",
+        "value": "5mm Cast Optical Acrylic with Diamond Beveled Edge",
         "_id": "6ae89187382113ccb9a54281"
       },
       {
@@ -10407,7 +10407,7 @@ export const INITIAL_PRODUCTS: Product[] = [
       },
       {
         "label": "Acrylic Grade",
-        "value": "4mm Optical Cast Glass Acrylic",
+        "value": "5mm Optical Cast Glass Acrylic",
         "_id": "6ae89187382113ccb9a5422a"
       },
       {
@@ -11000,7 +11000,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "slug": "lord-shiva-mahadev-dhyana-mudra-acrylic-wall-art",
     "title": "Lord Shiva Mahadev Dhyana Mudra Acrylic Wall Art",
     "subtitle": "Adiyogi in Deep Meditative Trance with Crescent Moon & Sacred Damru",
-    "shortDescription": "Serene Mahadev in Dhyana posture on 4mm high-gloss shatterproof crystal acrylic.",
+    "shortDescription": "Serene Mahadev in Dhyana posture on 5mm high-gloss shatterproof crystal acrylic.",
     "description": "Channel profound silence, spiritual grounding, and cosmic peace into your sanctum with this Lord Shiva acrylic artwork. Layered with high-definition pigments and 24K gold foil contours, Mahadev in profound samadhi creates an aura of tranquility for your yoga room, study, or living area.",
     "categorySlug": "lord-shiva-shiv-parivar",
     "categoryName": "Lord Shiva",
@@ -11058,7 +11058,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "specifications": [
       {
         "label": "Material",
-        "value": "4mm Cast Optical Acrylic with 24K Gold Leaf Embellishment",
+        "value": "5mm Cast Optical Acrylic with 24K Gold Leaf Embellishment",
         "_id": "6ae89187382113ccb9a542ad"
       },
       {
@@ -11311,7 +11311,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "title": "Luxury Beveled & Floating Border Crystal Acrylic Masterpiece Frame",
     "subtitle": "Signature Quad-Layer Beveled Finish with 24K Gold Perimeter Inlay",
     "shortDescription": "Museum-standard frameless floating acrylic design engineered for prestige family & sacred photography.",
-    "description": "Elevate your interiors with our flagship premium framing profile. Featuring optical-grade 4mm cast acrylic with diamond-cut 45-degree chamfered edges, an integrated floating wall-offset suspension system, and subtle gold-embossed accent liners that transform any photograph or artwork into a gallery centerpiece.",
+    "description": "Elevate your interiors with our flagship premium framing profile. Featuring optical-grade 5mm cast acrylic with diamond-cut 45-degree chamfered edges, an integrated floating wall-offset suspension system, and subtle gold-embossed accent liners that transform any photograph or artwork into a gallery centerpiece.",
     "categorySlug": "premium-frame-styles",
     "categoryName": "Gold, Black & Premium Frame Styles",
     "artStyle": "Museum Gallery Framing",
@@ -11667,7 +11667,7 @@ export const INITIAL_PRODUCTS: Product[] = [
       },
       {
         "label": "Material",
-        "value": "4mm Cast Acrylic with Gold Foil Accents",
+        "value": "5mm Cast Acrylic with Gold Foil Accents",
         "_id": "6ae89187382113ccb9a5426e"
       }
     ],
@@ -11970,7 +11970,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "specifications": [
       {
         "label": "Art Material",
-        "value": "4mm Cast Acrylic",
+        "value": "5mm Cast Acrylic",
         "_id": "6ae89187382113ccb9a54286"
       },
       {
@@ -12284,7 +12284,7 @@ export const INITIAL_PRODUCTS: Product[] = [
       },
       {
         "label": "Material",
-        "value": "4mm Cast Optical Acrylic with 24K Gold Embellishments",
+        "value": "5mm Cast Optical Acrylic with 24K Gold Embellishments",
         "_id": "6ae89187382113ccb9a542a2"
       }
     ],
@@ -12531,8 +12531,8 @@ export const INITIAL_PRODUCTS: Product[] = [
     "slug": "maryada-purushottam-shri-ram-kodanda-acrylic-wall-art",
     "title": "Maryada Purushottam Shri Ram with Kodanda Bow Acrylic Wall Art",
     "subtitle": "Supreme Lord Rama with Divine Kodanda Bow in Lustrous 24K Gold Frame",
-    "shortDescription": "Magnificent portrayal of Lord Rama with the sacred Kodanda bow on 4mm crystal cast acrylic.",
-    "description": "Bring the righteous radiance and divine protection of Maryada Purushottam Shri Ram into your home. Rendered on 4mm shatterproof crystal cast acrylic with diamond-polished edges, depicting Lord Rama in royal golden attire with the sacred Kodanda bow, radiating courage, peace, and dharma.",
+    "shortDescription": "Magnificent portrayal of Lord Rama with the sacred Kodanda bow on 5mm crystal cast acrylic.",
+    "description": "Bring the righteous radiance and divine protection of Maryada Purushottam Shri Ram into your home. Rendered on 5mm shatterproof crystal cast acrylic with diamond-polished edges, depicting Lord Rama in royal golden attire with the sacred Kodanda bow, radiating courage, peace, and dharma.",
     "categorySlug": "lord-rama",
     "categoryName": "Lord Rama",
     "deity": "Lord Rama",
@@ -12602,7 +12602,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "specifications": [
       {
         "label": "Art Material",
-        "value": "4mm Shatterproof Museum Crystal Acrylic",
+        "value": "5mm Shatterproof Museum Crystal Acrylic",
         "_id": "6ae89187382113ccb9a54254"
       },
       {
@@ -12915,7 +12915,7 @@ export const INITIAL_PRODUCTS: Product[] = [
       },
       {
         "label": "Base",
-        "value": "4mm Shatterproof Cast Acrylic",
+        "value": "5mm Shatterproof Cast Acrylic",
         "_id": "6ae89187382113ccb9a54260"
       }
     ],
@@ -13162,7 +13162,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "title": "Custom Panoramic Landscape Acrylic Family Wall Frame",
     "subtitle": "High-Definition Wide Format Acrylic Print for Family Gatherings & Holidays",
     "shortDescription": "Wide horizontal acrylic print tailored for panoramic group photos, vacation sunsets, and wedding stages.",
-    "description": "Transform your wide horizon photos and large family portraits into crystal clear frameless acrylic wall art. Shatterproof 4mm optical cast acrylic brings out rich true-to-life colors and depth without reflections of traditional glass.",
+    "description": "Transform your wide horizon photos and large family portraits into crystal clear frameless acrylic wall art. Shatterproof 5mm optical cast acrylic brings out rich true-to-life colors and depth without reflections of traditional glass.",
     "categorySlug": "landscape-photo-frames",
     "categoryName": "Landscape Photo Frames",
     "artStyle": "Personalised Frame",
@@ -13222,7 +13222,7 @@ export const INITIAL_PRODUCTS: Product[] = [
       },
       {
         "label": "Base",
-        "value": "4mm Cast Acrylic with Beveled Edges",
+        "value": "5mm Cast Acrylic with Beveled Edges",
         "_id": "6ae89187382113ccb9a54273"
       }
     ],
@@ -13795,7 +13795,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "title": "Majestic Golden Deer in Sacred Forest Acrylic Wall Art",
     "subtitle": "Auspicious Vastu Deer with 24K Gold Foliage on High-Gloss Acrylic",
     "shortDescription": "Symbol of grace, gentleness, and longevity rendered in shimmering gold tones on crystal acrylic.",
-    "description": "Elevate your living space with this serene Golden Deer artwork. Representing prosperity and harmony in Indian vastu, the graceful golden stag is depicted amidst ethereal mist and luminous forest flora. High-resolution UV cure print on 4mm cast acrylic gives it mirror-like depth.",
+    "description": "Elevate your living space with this serene Golden Deer artwork. Representing prosperity and harmony in Indian vastu, the graceful golden stag is depicted amidst ethereal mist and luminous forest flora. High-resolution UV cure print on 5mm cast acrylic gives it mirror-like depth.",
     "categorySlug": "deer-and-bird-artwork",
     "categoryName": "Deer and Bird Artwork",
     "artStyle": "Modern Abstract Acrylic",
@@ -13851,7 +13851,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "specifications": [
       {
         "label": "Material",
-        "value": "4mm Imported Museum Grade Cast Acrylic",
+        "value": "5mm Imported Museum Grade Cast Acrylic",
         "_id": "6ae89187382113ccb9a54259"
       },
       {

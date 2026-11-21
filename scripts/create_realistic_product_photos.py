@@ -339,7 +339,7 @@ def create_gold_glitter_frame():
     shadow = shadow.filter(ImageFilter.GaussianBlur(22))
     base = Image.alpha_composite(base, shadow)
 
-    # Acrylic 4mm Cast Glass Border & Bevel
+    # Acrylic 5mm Cast Glass Border & Bevel
     frame_layer = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     f_draw = ImageDraw.Draw(frame_layer)
     # Crystal clear beveled edge ring

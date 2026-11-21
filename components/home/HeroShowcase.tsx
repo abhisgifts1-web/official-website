@@ -458,7 +458,7 @@ export default function HeroShowcase() {
               </div>
               <div className="min-w-0">
                 <p className="text-white font-bold text-xs sm:text-sm">Premium Quality</p>
-                <p className="text-stone-400 text-[11px] sm:text-xs truncate">4mm Ultra-Gloss Acrylic</p>
+                <p className="text-stone-400 text-[11px] sm:text-xs truncate">5mm Ultra-Gloss Acrylic</p>
               </div>
             </div>
 
