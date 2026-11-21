@@ -42,7 +42,7 @@
         "sku": "AG-ADIYOG-1",
         "inStock": true,
         "stockCount": 38,
-        "_id": "6b0063f7c0f25c21d30779b5"
+        "_id": "6b019a3a42d4f63ee1bcc551"
       },
       {
         "id": "var-s2",
@@ -55,7 +55,7 @@
         "sku": "AG-ADIYOG-2",
         "inStock": true,
         "stockCount": 50,
-        "_id": "6b0063f7c0f25c21d30779b6"
+        "_id": "6b019a3a42d4f63ee1bcc552"
       },
       {
         "id": "var-s3",
@@ -68,19 +68,19 @@
         "sku": "AG-ADIYOG-3",
         "inStock": true,
         "stockCount": 22,
-        "_id": "6b0063f7c0f25c21d30779b7"
+        "_id": "6b019a3a42d4f63ee1bcc553"
       }
     ],
     "specifications": [
       {
         "label": "Art Material",
         "value": "Premium Acrylic with CNC Beveled Edges",
-        "_id": "6b0063f7c0f25c21d30779b8"
+        "_id": "6b019a3a42d4f63ee1bcc576"
       },
       {
         "label": "Lighting Technology",
         "value": "Epistar Ambient Glow LED Perimeter (12V Safe)",
-        "_id": "6b0063f7c0f25c21d30779b9"
+        "_id": "6b019a3a42d4f63ee1bcc577"
       }
     ],
     "materialAndCare": [
@@ -93,7 +93,7 @@
     ],
     "reviews": [],
     "createdAt": "2026-08-10T00:00:00.000Z",
-    "updatedAt": "2026-11-20T15:15:03.294Z",
+    "updatedAt": "2026-11-21T13:18:49.980Z",
     "orientationVariants": {
       "portrait": [
         {
@@ -107,7 +107,7 @@
           "sku": "AG-ADIYOG-1",
           "inStock": true,
           "stockCount": 38,
-          "_id": "6b0063f7c0f25c21d30779c0"
+          "_id": "6b019a3a42d4f63ee1bcc573"
         },
         {
           "id": "var-s2",
@@ -120,7 +120,7 @@
           "sku": "AG-ADIYOG-2",
           "inStock": true,
           "stockCount": 50,
-          "_id": "6b0063f7c0f25c21d30779c1"
+          "_id": "6b019a3a42d4f63ee1bcc574"
         },
         {
           "id": "var-s3",
@@ -133,7 +133,7 @@
           "sku": "AG-ADIYOG-3",
           "inStock": true,
           "stockCount": 22,
-          "_id": "6b0063f7c0f25c21d30779c2"
+          "_id": "6b019a3a42d4f63ee1bcc575"
         }
       ],
       "landscape": [
@@ -148,7 +148,7 @@
           "sku": "AG-ADIYOG-1",
           "inStock": true,
           "stockCount": 38,
-          "_id": "6b0063f7c0f25c21d30779bd"
+          "_id": "6b019a3a42d4f63ee1bcc570"
         },
         {
           "id": "var-s2",
@@ -161,7 +161,7 @@
           "sku": "AG-ADIYOG-2",
           "inStock": true,
           "stockCount": 50,
-          "_id": "6b0063f7c0f25c21d30779be"
+          "_id": "6b019a3a42d4f63ee1bcc571"
         },
         {
           "id": "var-s3",
@@ -174,7 +174,7 @@
           "sku": "AG-ADIYOG-3",
           "inStock": true,
           "stockCount": 22,
-          "_id": "6b0063f7c0f25c21d30779bf"
+          "_id": "6b019a3a42d4f63ee1bcc572"
         }
       ],
       "square": [
@@ -189,7 +189,7 @@
           "sku": "AG-ADIYOG-1",
           "inStock": true,
           "stockCount": 38,
-          "_id": "6b0063f7c0f25c21d30779ba"
+          "_id": "6b019a3a42d4f63ee1bcc56d"
         },
         {
           "id": "var-s2",
@@ -202,7 +202,7 @@
           "sku": "AG-ADIYOG-2",
           "inStock": true,
           "stockCount": 50,
-          "_id": "6b0063f7c0f25c21d30779bb"
+          "_id": "6b019a3a42d4f63ee1bcc56e"
         },
         {
           "id": "var-s3",
@@ -215,10 +215,262 @@
           "sku": "AG-ADIYOG-3",
           "inStock": true,
           "stockCount": 22,
-          "_id": "6b0063f7c0f25c21d30779bc"
+          "_id": "6b019a3a42d4f63ee1bcc56f"
         }
       ]
     },
+    "models": [
+      {
+        "id": "M-18",
+        "name": "M-18",
+        "image": "https://tmpfiles.org/dl/whAObEjiF6iK/custom-1795267085215-da379ab1.jpg",
+        "isPopular": true,
+        "mockups": [
+          "https://tmpfiles.org/dl/whAObEjiF6iK/custom-1795267085215-da379ab1.jpg"
+        ],
+        "_id": "6b019a3a42d4f63ee1bcc554"
+      },
+      {
+        "id": "M-10",
+        "name": "M-10",
+        "image": "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg"
+        ],
+        "_id": "6b019a3a42d4f63ee1bcc555"
+      },
+      {
+        "id": "M-1",
+        "name": "M-1",
+        "image": "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg"
+        ],
+        "_id": "6b019a3a42d4f63ee1bcc556"
+      },
+      {
+        "id": "M-2",
+        "name": "M-2",
+        "image": "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg"
+        ],
+        "_id": "6b019a3a42d4f63ee1bcc557"
+      },
+      {
+        "id": "M-3",
+        "name": "M-3",
+        "image": "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg"
+        ],
+        "_id": "6b019a3a42d4f63ee1bcc558"
+      },
+      {
+        "id": "M-4",
+        "name": "M-4",
+        "image": "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg"
+        ],
+        "_id": "6b019a3a42d4f63ee1bcc559"
+      },
+      {
+        "id": "M-5",
+        "name": "M-5",
+        "image": "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg"
+        ],
+        "_id": "6b019a3a42d4f63ee1bcc55a"
+      },
+      {
+        "id": "M-6",
+        "name": "M-6",
+        "image": "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg"
+        ],
+        "_id": "6b019a3a42d4f63ee1bcc55b"
+      },
+      {
+        "id": "M-7",
+        "name": "M-7",
+        "image": "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg"
+        ],
+        "_id": "6b019a3a42d4f63ee1bcc55c"
+      },
+      {
+        "id": "M-8",
+        "name": "M-8",
+        "image": "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg"
+        ],
+        "_id": "6b019a3a42d4f63ee1bcc55d"
+      },
+      {
+        "id": "M-9",
+        "name": "M-9",
+        "image": "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg"
+        ],
+        "_id": "6b019a3a42d4f63ee1bcc55e"
+      },
+      {
+        "id": "M-11",
+        "name": "M-11",
+        "image": "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg"
+        ],
+        "_id": "6b019a3a42d4f63ee1bcc55f"
+      },
+      {
+        "id": "M-12",
+        "name": "M-12",
+        "image": "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg"
+        ],
+        "_id": "6b019a3a42d4f63ee1bcc560"
+      },
+      {
+        "id": "M-13",
+        "name": "M-13",
+        "image": "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg"
+        ],
+        "_id": "6b019a3a42d4f63ee1bcc561"
+      },
+      {
+        "id": "M-14",
+        "name": "M-14",
+        "image": "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg"
+        ],
+        "_id": "6b019a3a42d4f63ee1bcc562"
+      },
+      {
+        "id": "M-15",
+        "name": "M-15",
+        "image": "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg"
+        ],
+        "_id": "6b019a3a42d4f63ee1bcc563"
+      },
+      {
+        "id": "M-16",
+        "name": "M-16",
+        "image": "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg"
+        ],
+        "_id": "6b019a3a42d4f63ee1bcc564"
+      },
+      {
+        "id": "M-17",
+        "name": "M-17",
+        "image": "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg"
+        ],
+        "_id": "6b019a3a42d4f63ee1bcc565"
+      },
+      {
+        "id": "M-19",
+        "name": "M-19",
+        "image": "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg"
+        ],
+        "_id": "6b019a3a42d4f63ee1bcc566"
+      },
+      {
+        "id": "M-20",
+        "name": "M-20",
+        "image": "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg"
+        ],
+        "_id": "6b019a3a42d4f63ee1bcc567"
+      },
+      {
+        "id": "M-21",
+        "name": "M-21",
+        "image": "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg"
+        ],
+        "_id": "6b019a3a42d4f63ee1bcc568"
+      },
+      {
+        "id": "M-22",
+        "name": "M-22",
+        "image": "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg"
+        ],
+        "_id": "6b019a3a42d4f63ee1bcc569"
+      },
+      {
+        "id": "M-23",
+        "name": "M-23",
+        "image": "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg"
+        ],
+        "_id": "6b019a3a42d4f63ee1bcc56a"
+      },
+      {
+        "id": "M-24",
+        "name": "M-24",
+        "image": "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg"
+        ],
+        "_id": "6b019a3a42d4f63ee1bcc56b"
+      },
+      {
+        "id": "M-25",
+        "name": "M-25",
+        "image": "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg"
+        ],
+        "_id": "6b019a3a42d4f63ee1bcc56c"
+      }
+    ],
     "id": "6ae89187382113ccb9a541de"
   },
   {

@@ -4,6 +4,7 @@ import path from 'path';
 import { randomUUID } from 'crypto';
 import { connectToDatabase } from '@/lib/db/mongodb';
 import CustomPhoto from '@/lib/db/models/CustomPhoto';
+import { uploadToCloudinary } from '@/lib/cloudinary';
 
 // Global memory cache for instant serving across serverless warm instances
 declare global {
@@ -18,6 +19,7 @@ export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
     const image = body?.image;
+    const folder = body?.folder || 'abhi-gifts/uploads';
 
     if (!image || typeof image !== 'string') {
       return NextResponse.json({ error: 'No image provided' }, { status: 400 });
@@ -47,10 +49,21 @@ export async function POST(req: NextRequest) {
     const ext = mimeType.split('/')[1]?.replace('jpeg', 'jpg').replace('svg+xml', 'svg') || 'jpg';
     const filename = `custom-${Date.now()}-${randomUUID().slice(0, 8)}.${ext}`;
 
-    // 1. Save to in-memory global cache for instant local retrieval
+    // 1. Primary: Upload to Cloudinary (Permanent High-Speed CDN Storage)
+    let cloudinaryUrl: string | null = null;
+    try {
+      const uploadRes = await uploadToCloudinary(image, folder);
+      if (uploadRes?.secure_url) {
+        cloudinaryUrl = uploadRes.secure_url;
+      }
+    } catch (cloudErr) {
+      console.warn('Cloudinary upload warning:', cloudErr);
+    }
+
+    // 2. Save to in-memory global cache for instant local retrieval fallback
     global.photoMemoryCache?.set(filename, { data: buffer, mimeType });
 
-    // 2. Try saving to local disk (succeeds on local/VPS, ignored if read-only on Vercel)
+    // 3. Try saving to local disk (succeeds on local/VPS, ignored if read-only on Vercel)
     try {
       const uploadDir = path.join(process.cwd(), 'public', 'uploads', 'custom-photos');
       await mkdir(uploadDir, { recursive: true });
@@ -59,47 +72,51 @@ export async function POST(req: NextRequest) {
       // Ignored on read-only serverless environments
     }
 
-    // 3. Backup upload to public CDN (tmpfiles) for guaranteed universal public access
-    let cdnUrl: string | null = null;
-    try {
-      const form = new FormData();
-      form.append('file', new Blob([buffer], { type: mimeType }), filename);
-      const tmpRes = await fetch('https://tmpfiles.org/api/v1/upload', {
-        method: 'POST',
-        body: form,
-      });
-      if (tmpRes.ok) {
-        const tmpJson = await tmpRes.json();
-        if (tmpJson?.data?.url) {
-          // Convert https://tmpfiles.org/123/file.jpg -> https://tmpfiles.org/dl/123/file.jpg for direct view
-          cdnUrl = tmpJson.data.url.replace('tmpfiles.org/', 'tmpfiles.org/dl/');
+    // 4. Fallback backup upload to public CDN (tmpfiles) if Cloudinary wasn't available
+    let cdnUrl: string | null = cloudinaryUrl;
+    if (!cdnUrl) {
+      try {
+        const form = new FormData();
+        form.append('file', new Blob([buffer], { type: mimeType }), filename);
+        const tmpRes = await fetch('https://tmpfiles.org/api/v1/upload', {
+          method: 'POST',
+          body: form,
+        });
+        if (tmpRes.ok) {
+          const tmpJson = await tmpRes.json();
+          if (tmpJson?.data?.url) {
+            cdnUrl = tmpJson.data.url.replace('tmpfiles.org/', 'tmpfiles.org/dl/');
+          }
         }
+      } catch (cdnErr) {
+        console.warn('CDN backup upload notice:', cdnErr);
       }
-    } catch (cdnErr) {
-      console.warn('CDN backup upload notice:', cdnErr);
     }
 
-    // 4. Save to MongoDB Atlas for permanent storage
+    // 5. Save metadata to MongoDB Atlas (store URL reference rather than bulky base64 if Cloudinary succeeded)
     try {
       await connectToDatabase();
       await CustomPhoto.create({
         filename,
         mimeType,
-        data: base64Data,
+        // Only keep base64 in MongoDB as a fallback if Cloudinary failed, to avoid exceeding 512MB MongoDB limit
+        data: cloudinaryUrl ? undefined : base64Data,
         size: buffer.length,
-        cdnUrl: cdnUrl || undefined,
+        cdnUrl: cloudinaryUrl || cdnUrl || undefined,
       });
     } catch (dbErr) {
       console.warn('MongoDB Atlas photo save notice:', dbErr);
     }
 
-    // Primary internal route on our domain
+    // Primary URL to return: Cloudinary CDN URL, or fallback to internal route
     const internalUrl = `/api/uploads/${filename}`;
+    const finalUrl = cloudinaryUrl || cdnUrl || internalUrl;
 
     return NextResponse.json({
       success: true,
-      url: internalUrl,
-      cdnUrl,
+      url: finalUrl,
+      cdnUrl: finalUrl,
+      cloudinaryUrl,
       filename,
     });
   } catch (err: any) {
