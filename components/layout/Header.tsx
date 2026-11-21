@@ -76,8 +76,6 @@ export default function Header() {
     if (!pathname) return;
     if (pathname === '/') {
       setActiveTab('home');
-    } else if (pathname === '/customise') {
-      setActiveTab('customized');
     } else if (pathname === '/about') {
       setActiveTab('about');
     } else if (pathname === '/contact') {
@@ -168,12 +166,6 @@ export default function Header() {
       label: 'Shop',
       href: '/shop',
       icon: <ShoppingBag className="w-3.5 h-3.5 text-[#FEE815] shrink-0" />,
-    },
-    {
-      id: 'customized',
-      label: 'Customized',
-      href: '/customise',
-      icon: <Sparkles className="w-3.5 h-3.5 text-[#FEE815] shrink-0" />,
     },
     {
       id: 'about',
@@ -615,15 +607,6 @@ export default function Header() {
                   }`}
                 >
                   Shop
-                </Link>
-                <Link
-                  href="/customise"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className={`block px-3 py-2 font-semibold rounded-xl text-xs sm:text-sm transition-colors ${
-                    pathname === '/customise' ? 'bg-[#1E1E1E] text-[#FEE815]' : 'text-[#FFFFFF] hover:bg-[#1E1E1E]'
-                  }`}
-                >
-                  Customized
                 </Link>
                 <Link
                   href="/about"
