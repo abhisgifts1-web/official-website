@@ -24,6 +24,7 @@ import {
   Eye,
   Layers,
   Flame,
+  Camera,
 } from 'lucide-react';
 import AdminLayout from '@/components/admin/AdminLayout';
 import { Product, ProductOrientation, OrientationShape, ProductModel } from '@/types';
@@ -337,6 +338,149 @@ export default function AdminProductsPage() {
   const [newModelName, setNewModelName] = useState('');
   const [newModelImage, setNewModelImage] = useState('');
   const [newModelPopular, setNewModelPopular] = useState(false);
+  const [uploadingModelIdx, setUploadingModelIdx] = useState<number | null>(null);
+  const bulkModelFileInputRef = useRef<HTMLInputElement | null>(null);
+
+  // Upload an individual image specifically for one model
+  const handleSingleModelImageUpload = async (index: number, file: File) => {
+    if (!file) return;
+    try {
+      setUploadingModelIdx(index);
+      const rawDataUrl = await new Promise<string>((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result as string);
+        reader.onerror = reject;
+        reader.readAsDataURL(file);
+      });
+
+      let finalUrl = rawDataUrl;
+      try {
+        const res = await fetch('/api/upload-photo', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ image: rawDataUrl }),
+        });
+        const data = await res.json();
+        if (data && data.success && (data.cdnUrl || data.url)) {
+          finalUrl = data.cdnUrl || data.url;
+        }
+      } catch {
+        // fallback to data url
+      }
+
+      setFormData((prev) => {
+        const updated = [...(prev.models || [])];
+        if (updated[index]) {
+          updated[index] = {
+            ...updated[index],
+            image: finalUrl,
+            mockups: [finalUrl, ...(updated[index].mockups || []).slice(1)],
+          };
+        }
+        return { ...prev, models: updated };
+      });
+    } catch (err: any) {
+      alert('Failed to upload image for model: ' + (err.message || 'Error'));
+    } finally {
+      setUploadingModelIdx(null);
+    }
+  };
+
+  // Bulk upload multiple images and assign each file to a different model in order
+  const handleBulkModelImagesUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const fileList = e.target.files;
+    if (!fileList || fileList.length === 0) return;
+
+    const files = Array.from(fileList);
+    try {
+      setUploadingImage(true);
+      setUploadProgressText(`Uploading ${files.length} model image(s)...`);
+
+      const uploadedUrls: string[] = [];
+      for (let i = 0; i < files.length; i++) {
+        const file = files[i];
+        setUploadProgressText(`Uploading image ${i + 1} of ${files.length} for models...`);
+        const rawDataUrl = await new Promise<string>((resolve, reject) => {
+          const reader = new FileReader();
+          reader.onload = () => resolve(reader.result as string);
+          reader.onerror = reject;
+          reader.readAsDataURL(file);
+        });
+
+        let finalUrl = rawDataUrl;
+        try {
+          const res = await fetch('/api/upload-photo', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ image: rawDataUrl }),
+          });
+          const data = await res.json();
+          if (data && data.success && (data.cdnUrl || data.url)) {
+            finalUrl = data.cdnUrl || data.url;
+          }
+        } catch {
+          // fallback
+        }
+        uploadedUrls.push(finalUrl);
+      }
+
+      setFormData((prev) => {
+        let existingModels = [...(prev.models || [])];
+        if (existingModels.length === 0) {
+          existingModels = STANDARD_MODEL_ORDER.map((item) => ({
+            id: item.id,
+            name: item.name,
+            image: prev.imageUrl || '/images/placeholder.jpg',
+            isPopular: item.isPopular || false,
+          }));
+        }
+
+        const updatedModels = existingModels.map((m, idx) => {
+          if (idx < uploadedUrls.length) {
+            return {
+              ...m,
+              image: uploadedUrls[idx],
+              mockups: [uploadedUrls[idx]],
+            };
+          }
+          return m;
+        });
+
+        for (let j = existingModels.length; j < uploadedUrls.length; j++) {
+          const name = `M-${j + 1}`;
+          updatedModels.push({
+            id: name,
+            name,
+            image: uploadedUrls[j],
+            mockups: [uploadedUrls[j]],
+            isPopular: j === 0 || j === 9 || j === 17,
+          });
+        }
+
+        return {
+          ...prev,
+          models: updatedModels,
+        };
+      });
+      alert(`Successfully assigned ${uploadedUrls.length} different image(s) to models!`);
+    } catch (err: any) {
+      alert('Error during bulk model upload: ' + (err.message || 'Error'));
+    } finally {
+      setUploadingImage(false);
+      setUploadProgressText('');
+      if (bulkModelFileInputRef.current) bulkModelFileInputRef.current.value = '';
+    }
+  };
+
+  const handleUpdateModelField = (index: number, field: keyof ProductModel, value: any) => {
+    setFormData((prev) => {
+      const list = [...(prev.models || [])];
+      if (list[index]) {
+        list[index] = { ...list[index], [field]: value };
+      }
+      return { ...prev, models: list };
+    });
+  };
 
   const handleAddModel = () => {
     const name = newModelName.trim().toUpperCase();
@@ -1367,29 +1511,48 @@ export default function AdminProductsPage() {
                         </span>
                       </h4>
                       <p className="text-[11px] text-stone-500 mt-0.5">
-                        Each model represents a distinct artwork design that customers can select directly on the product page.
+                        Add a distinct image for every model design. Customers switch between designs on the product page.
                       </p>
                     </div>
 
-                    {/* Quick Helpers */}
-                    <div className="flex items-center gap-2">
+                    {/* Quick Action Helpers */}
+                    <div className="flex flex-wrap items-center gap-2">
+                      {/* Bulk upload different images for models */}
+                      <label
+                        htmlFor="bulk-models-input"
+                        className="px-2.5 py-1.5 rounded-lg bg-[#262626] hover:bg-black text-white text-[11px] font-bold transition-colors cursor-pointer flex items-center gap-1.5 shadow-xs"
+                        title="Select multiple images from computer to automatically assign each image to M-1, M-2, M-3..."
+                      >
+                        <Upload className="w-3.5 h-3.5 text-amber-400" />
+                        <span>+ Bulk Upload Images for Models</span>
+                        <input
+                          type="file"
+                          id="bulk-models-input"
+                          multiple
+                          accept="image/*"
+                          ref={bulkModelFileInputRef}
+                          className="hidden"
+                          onChange={handleBulkModelImagesUpload}
+                        />
+                      </label>
+
                       <button
                         type="button"
                         onClick={handleAutoGenerate25Models}
-                        className="px-2.5 py-1 rounded-lg bg-amber-50 hover:bg-amber-100 border border-amber-300 text-amber-900 text-[11px] font-bold transition-colors cursor-pointer flex items-center gap-1"
-                        title="Populate 25 models with M-18 🔥, M-10 🔥, M-1 🔥 trending"
+                        className="px-2.5 py-1.5 rounded-lg bg-amber-50 hover:bg-amber-100 border border-amber-300 text-amber-900 text-[11px] font-bold transition-colors cursor-pointer flex items-center gap-1"
+                        title="Reset or auto-populate standard 25 models"
                       >
-                        <Sparkles className="w-3 h-3 text-amber-600" />
-                        <span>+ Auto-Generate 25 Standard Models</span>
+                        <Sparkles className="w-3.5 h-3.5 text-amber-600" />
+                        <span>Sync 25 Models</span>
                       </button>
 
                       {formData.models && formData.models.length > 0 && (
                         <button
                           type="button"
                           onClick={() => setFormData((prev) => ({ ...prev, models: [] }))}
-                          className="px-2 py-1 rounded-lg text-stone-500 hover:text-red-600 hover:bg-red-50 text-[11px] transition-colors cursor-pointer"
+                          className="px-2 py-1.5 rounded-lg text-stone-500 hover:text-red-600 hover:bg-red-50 text-[11px] transition-colors cursor-pointer"
                         >
-                          Clear Models
+                          Clear
                         </button>
                       )}
                     </div>
@@ -1398,8 +1561,8 @@ export default function AdminProductsPage() {
                   {/* Add Single Model Bar */}
                   <div className="p-3 bg-stone-50 border border-stone-200 rounded-xl space-y-2">
                     <div className="text-[11px] font-bold text-stone-700 flex items-center justify-between">
-                      <span>Add New Model:</span>
-                      <span className="text-stone-400 font-normal">Supports custom names (e.g. M-26, Special, Gold)</span>
+                      <span>Add Individual Model:</span>
+                      <span className="text-stone-400 font-normal">Enter ID and image URL or upload directly</span>
                     </div>
                     <div className="flex flex-wrap sm:flex-nowrap items-center gap-2">
                       <input
@@ -1411,7 +1574,7 @@ export default function AdminProductsPage() {
                       />
                       <input
                         type="text"
-                        placeholder="Model Artwork / Mockup URL (e.g. /images/...)"
+                        placeholder="Model Artwork URL / Path..."
                         value={newModelImage}
                         onChange={(e) => setNewModelImage(e.target.value)}
                         className="flex-1 bg-white border border-stone-300 focus:border-amber-500 rounded-lg px-2.5 py-1.5 text-xs text-stone-900 outline-none"
@@ -1436,9 +1599,9 @@ export default function AdminProductsPage() {
                     </div>
                   </div>
 
-                  {/* Models Cards Grid */}
+                  {/* Models Cards Grid with Individual Image Upload & URL editing */}
                   {formData.models && formData.models.length > 0 ? (
-                    <div className="grid grid-cols-2 min-[480px]:grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-2.5 max-h-[380px] overflow-y-auto pr-1">
+                    <div className="grid grid-cols-2 min-[480px]:grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-2.5 max-h-[460px] overflow-y-auto pr-1">
                       {formData.models.map((model, idx) => (
                         <div
                           key={model.id || idx}
@@ -1448,8 +1611,8 @@ export default function AdminProductsPage() {
                               : 'border-stone-200 bg-white hover:border-stone-400'
                           }`}
                         >
-                          {/* Thumbnail preview */}
-                          <div className="w-full aspect-[4/5] rounded-lg overflow-hidden bg-stone-100 border border-stone-200 mb-1.5 relative">
+                          {/* Thumbnail preview with 1-click Upload / Replace Image */}
+                          <div className="w-full aspect-[4/5] rounded-lg overflow-hidden bg-stone-100 border border-stone-200 mb-1.5 relative group/img">
                             <img
                               src={model.image}
                               alt={model.name}
@@ -1458,26 +1621,56 @@ export default function AdminProductsPage() {
                               }}
                               className="w-full h-full object-cover"
                             />
-                            {/* Delete button overlay */}
-                            <button
-                              type="button"
-                              onClick={() => handleRemoveModel(idx)}
-                              className="absolute top-1 right-1 p-1 rounded-md bg-red-600/90 text-white opacity-0 group-hover:opacity-100 hover:bg-red-700 transition-opacity cursor-pointer shadow-xs"
-                              title={`Delete Model ${model.name}`}
-                            >
-                              <Trash2 className="w-3 h-3" />
-                            </button>
+
+                            {/* Loading state while uploading image for this specific model */}
+                            {uploadingModelIdx === idx && (
+                              <div className="absolute inset-0 bg-black/70 flex flex-col items-center justify-center text-white z-20">
+                                <Loader2 className="w-5 h-5 animate-spin text-amber-400 mb-1" />
+                                <span className="text-[9px] font-bold">Uploading...</span>
+                              </div>
+                            )}
+
+                            {/* Hover overlay with Upload & Delete buttons */}
+                            <div className="absolute inset-0 bg-black/50 opacity-0 group-hover/img:opacity-100 transition-opacity flex items-center justify-center gap-1.5 z-10 p-1">
+                              <label
+                                htmlFor={`model-overlay-upload-${idx}`}
+                                className="p-1.5 rounded-lg bg-amber-500 hover:bg-amber-600 text-stone-950 font-bold cursor-pointer transition-colors shadow-xs"
+                                title="Upload new image from computer for this model"
+                              >
+                                <Upload className="w-3.5 h-3.5" />
+                                <input
+                                  type="file"
+                                  id={`model-overlay-upload-${idx}`}
+                                  accept="image/*"
+                                  className="hidden"
+                                  onChange={(e) => e.target.files?.[0] && handleSingleModelImageUpload(idx, e.target.files[0])}
+                                />
+                              </label>
+
+                              <button
+                                type="button"
+                                onClick={() => handleRemoveModel(idx)}
+                                className="p-1.5 rounded-lg bg-red-600 hover:bg-red-700 text-white cursor-pointer transition-colors shadow-xs"
+                                title={`Delete Model ${model.name}`}
+                              >
+                                <Trash2 className="w-3.5 h-3.5" />
+                              </button>
+                            </div>
                           </div>
 
                           {/* Model info & actions */}
                           <div className="w-full flex items-center justify-between text-xs">
-                            <span className="font-extrabold text-stone-900 font-sans truncate">
-                              {model.name}
-                            </span>
+                            <input
+                              type="text"
+                              value={model.name}
+                              onChange={(e) => handleUpdateModelField(idx, 'name', e.target.value.toUpperCase())}
+                              className="font-extrabold text-stone-900 text-xs w-16 bg-transparent hover:bg-stone-100 focus:bg-white border-b border-transparent focus:border-amber-500 outline-none"
+                              title="Edit model code"
+                            />
                             <button
                               type="button"
                               onClick={() => handleToggleModelPopular(idx)}
-                              className={`p-0.5 rounded text-[10px] font-bold transition-colors cursor-pointer ${
+                              className={`p-0.5 rounded text-[11px] font-bold transition-colors cursor-pointer ${
                                 model.isPopular
                                   ? 'text-amber-600 hover:text-amber-800'
                                   : 'text-stone-300 hover:text-amber-500'
@@ -1487,6 +1680,35 @@ export default function AdminProductsPage() {
                               🔥
                             </button>
                           </div>
+
+                          {/* Editable Image URL / Path box */}
+                          <div className="w-full mt-1">
+                            <input
+                              type="text"
+                              value={model.image}
+                              onChange={(e) => handleUpdateModelField(idx, 'image', e.target.value)}
+                              placeholder="Image URL / Path..."
+                              className="w-full text-[9px] px-1.5 py-0.5 border border-stone-200 rounded font-mono truncate bg-stone-50 hover:bg-white focus:bg-white focus:border-amber-500 outline-none"
+                              title={model.image}
+                            />
+                          </div>
+
+                          {/* 1-Click Upload Button for this Model */}
+                          <label
+                            htmlFor={`model-btn-upload-${idx}`}
+                            className="w-full mt-1 py-1 px-1.5 rounded-md bg-stone-100 hover:bg-amber-50 hover:border-amber-300 border border-stone-200 text-stone-700 hover:text-amber-900 text-[9.5px] font-bold flex items-center justify-center gap-1 cursor-pointer transition-all"
+                            title="Upload image from computer for this model"
+                          >
+                            <Camera className="w-3 h-3 text-amber-600" />
+                            <span>Upload Image</span>
+                            <input
+                              type="file"
+                              id={`model-btn-upload-${idx}`}
+                              accept="image/*"
+                              className="hidden"
+                              onChange={(e) => e.target.files?.[0] && handleSingleModelImageUpload(idx, e.target.files[0])}
+                            />
+                          </label>
 
                           {/* Order controls */}
                           <div className="flex items-center justify-between w-full mt-1 pt-1 border-t border-stone-100 text-[10px] text-stone-500">
