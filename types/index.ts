@@ -8,9 +8,10 @@ export interface OrientationVariantsMap {
   round: ProductVariant[];
 }
 export type ArtworkFinish = 'Acrylic Ultra-Gloss' | 'Floating Framed Canvas' | 'Matte Fine Wood' | 'Brushed Gold Aluminum' | 'Premium Glossy Finish';
-export type LightingType = 'LED Backlit (12V Adapter)' | 'RGB Multi-Color Remote' | 'No Lighting (Pure Art)' | 'Non-LED' | 'Cool White LED Backlighting';
+export type LightingType = 'LED Backlit (12V Adapter)' | 'Warm LED Backlit (12V Adapter)' | 'RGB Multi-Color Remote' | 'No Lighting (Pure Art)' | 'Non-LED' | 'Cool White LED Backlighting';
 
 export interface ProductVariant {
+  _id?: string;
   id: string;
   size: string; // e.g. "12x18 inches", "18x24 inches", "24x36 inches", "30x48 inches"
   dimensionsCm: string; // e.g. "30 x 45 cm"
@@ -24,6 +25,7 @@ export interface ProductVariant {
 }
 
 export interface ProductSpecification {
+  _id?: string;
   label: string;
   value: string;
 }
@@ -42,7 +44,9 @@ export interface ProductReview {
 }
 
 export interface Product {
+  _id?: string;
   id: string;
+  updatedAt?: string;
   slug: string;
   title: string;
   subtitle?: string;

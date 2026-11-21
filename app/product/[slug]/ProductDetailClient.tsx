@@ -93,7 +93,17 @@ export const SHAPE_CONFIGS: Record<ShapeOptionType, {
   },
 };
 
+export function formatSizeDisplay(label: string): string {
+  if (!label) return '';
+  const match = label.match(/(\d+(?:\.\d+)?)\s*(?:x|×|\*)\s*(\d+(?:\.\d+)?)/i);
+  if (match) {
+    return `${match[1]}" × ${match[2]}"`;
+  }
+  return label;
+}
+
 export function getSqFtFromLabel(label: string): string {
+  if (!label) return '';
   const match = label.match(/(\d+(?:\.\d+)?)\s*(?:x|×|\*)\s*(\d+(?:\.\d+)?)/i);
   if (match) {
     const w = parseFloat(match[1]);
@@ -588,7 +598,22 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
     return Array.from(new Set(list.filter(Boolean)));
   }, [liveProduct?.images, product.images]);
 
+  const thumbnailContainerRef = useRef<HTMLDivElement>(null);
   const [activeImageIndex, setActiveImageIndex] = useState<number>(0);
+
+  const scrollThumbnails = (direction: 'left' | 'right') => {
+    if (thumbnailContainerRef.current) {
+      const offset = direction === 'left' ? -240 : 240;
+      thumbnailContainerRef.current.scrollBy({ left: offset, behavior: 'smooth' });
+    }
+  };
+
+  useEffect(() => {
+    if (thumbnailContainerRef.current && thumbnailContainerRef.current.children[activeImageIndex]) {
+      const activeEl = thumbnailContainerRef.current.children[activeImageIndex] as HTMLElement;
+      activeEl.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+    }
+  }, [activeImageIndex]);
   const activeImage = galleryImages[activeImageIndex] || galleryImages[0] || product.images?.[0] || '';
 
   const [lightboxOpen, setLightboxOpen] = useState(false);
@@ -1149,42 +1174,69 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                   </div>
                 </div>
 
-                <div className="flex items-center gap-2 sm:gap-2.5 overflow-x-auto pb-2 pt-0.5 scrollbar-thin">
-                  {galleryImages.map((img, i) => {
-                    const label = getImagePerspectiveLabel(img, i);
-                    const isSelected = activeImageIndex === i;
-                    return (
-                      <button
-                        key={i}
-                        type="button"
-                        onClick={() => setActiveImageIndex(i)}
-                        className={`w-16 h-16 sm:w-20 sm:h-20 shrink-0 rounded-xl overflow-hidden border-2 bg-stone-50 cursor-pointer relative group transition-all flex flex-col ${
-                          isSelected
-                            ? 'border-amber-500 ring-2 ring-amber-400/40 shadow-xs scale-[1.02]'
-                            : 'border-stone-200 opacity-75 hover:opacity-100 hover:border-amber-300'
-                        }`}
-                        title={label}
-                        aria-label={label}
-                      >
-                        <img
-                          src={img}
-                          alt={label}
-                          onError={(e) => {
-                            if (product.images?.[0]) {
-                              (e.target as HTMLImageElement).src = product.images[0];
-                            }
-                          }}
-                          className="w-full h-full object-cover"
-                        />
-                        {/* Number badge */}
-                        <span className={`absolute bottom-0.5 right-0.5 text-[8.5px] font-bold px-1 py-0.2 rounded ${
-                          isSelected ? 'bg-amber-500 text-stone-950' : 'bg-black/60 text-white'
-                        }`}>
-                          {i + 1}
-                        </span>
-                      </button>
-                    );
-                  })}
+                <div className="relative group/thumbs">
+                  {galleryImages.length > 4 && (
+                    <button
+                      type="button"
+                      onClick={() => scrollThumbnails('left')}
+                      className="absolute -left-2 sm:-left-3 top-1/2 -translate-y-1/2 z-10 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white/95 border border-stone-300 text-stone-800 shadow-md hover:bg-stone-50 flex items-center justify-center transition-all cursor-pointer opacity-80 group-hover/thumbs:opacity-100 hover:scale-110"
+                      aria-label="Scroll thumbnails left"
+                      title="Scroll thumbnails left"
+                    >
+                      <ChevronLeft className="w-4 h-4" />
+                    </button>
+                  )}
+                  <div
+                    ref={thumbnailContainerRef}
+                    className="flex items-center gap-2 sm:gap-2.5 overflow-x-auto pb-2 pt-0.5 scrollbar-thin scroll-smooth px-1"
+                  >
+                    {galleryImages.map((img, i) => {
+                      const label = getImagePerspectiveLabel(img, i);
+                      const isSelected = activeImageIndex === i;
+                      return (
+                        <button
+                          key={i}
+                          type="button"
+                          onClick={() => setActiveImageIndex(i)}
+                          className={`w-16 h-16 sm:w-20 sm:h-20 shrink-0 rounded-xl overflow-hidden border-2 bg-stone-50 cursor-pointer relative group transition-all flex flex-col ${
+                            isSelected
+                              ? 'border-amber-500 ring-2 ring-amber-400/40 shadow-xs scale-[1.02]'
+                              : 'border-stone-200 opacity-75 hover:opacity-100 hover:border-amber-300'
+                          }`}
+                          title={label}
+                          aria-label={label}
+                        >
+                          <img
+                            src={img}
+                            alt={label}
+                            onError={(e) => {
+                              if (product.images?.[0]) {
+                                (e.target as HTMLImageElement).src = product.images[0];
+                              }
+                            }}
+                            className="w-full h-full object-cover"
+                          />
+                          {/* Number badge */}
+                          <span className={`absolute bottom-0.5 right-0.5 text-[8.5px] font-bold px-1 py-0.2 rounded ${
+                            isSelected ? 'bg-amber-500 text-stone-950' : 'bg-black/60 text-white'
+                          }`}>
+                            {i + 1}
+                          </span>
+                        </button>
+                      );
+                    })}
+                  </div>
+                  {galleryImages.length > 4 && (
+                    <button
+                      type="button"
+                      onClick={() => scrollThumbnails('right')}
+                      className="absolute -right-2 sm:-right-3 top-1/2 -translate-y-1/2 z-10 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white/95 border border-stone-300 text-stone-800 shadow-md hover:bg-stone-50 flex items-center justify-center transition-all cursor-pointer opacity-80 group-hover/thumbs:opacity-100 hover:scale-110"
+                      aria-label="Scroll thumbnails right"
+                      title="Scroll thumbnails right"
+                    >
+                      <ChevronRight className="w-4 h-4" />
+                    </button>
+                  )}
                 </div>
               </div>
             )}
@@ -1291,163 +1343,24 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
               </div>
             )}
 
-            {/* Customization: Frame Style */}
-            {isLedFrame ? (
-              /* Dedicated Rose Gold Aluminium Border Card for LED Frames */
-              <div className="p-4 rounded-2xl bg-gradient-to-r from-rose-50/80 via-amber-50/40 to-stone-50 border border-rose-200/90 shadow-2xs space-y-2">
+            {/* Acrylic Material Note */}
+            {isAcrylicFrame && (
+              <div className="space-y-1.5 bg-amber-50/60 p-3.5 rounded-2xl border border-amber-200/80 shadow-2xs">
                 <div className="flex items-center justify-between text-xs">
-                  <span className="font-bold text-stone-900 flex items-center gap-2">
-                    <span className="w-3.5 h-3.5 rounded-full bg-gradient-to-br from-rose-300 via-rose-400 to-amber-300 border border-rose-300 inline-block shadow-2xs" />
-                    <span>Side Frame:</span>
-                    <strong className="text-stone-900 font-serif">Rose Gold Aluminium</strong>
+                  <span className="font-bold text-stone-900 flex items-center gap-1.5">
+                    <Sparkles className="w-3.5 h-3.5 text-amber-600" />
+                    <span>Acrylic Material:</span>
+                    <strong className="text-amber-900 font-serif">5MM Premium Virgin Acrylic</strong>
                   </span>
-                  <span className="text-[10px] font-bold text-rose-900 bg-rose-100 border border-rose-300 px-2.5 py-0.5 rounded-md">
-                    Premium Aluminium
+                  <span className="text-[10px] font-bold text-emerald-800 bg-emerald-100/80 border border-emerald-300 px-2 py-0.5 rounded-md">
+                    Metal Studs Included
                   </span>
                 </div>
                 <p className="text-[11px] text-stone-600 leading-relaxed">
-                  Every LED Frame features a premium aluminium side frame in an elegant Rose Gold finish. Refined border design enhances structure and complements modern interiors.
+                  Every frame is crafted in 5MM thickness with precision square-cut edges and premium metal wall mounting studs included with hardware.
                 </p>
-                <div className="pt-1 flex flex-wrap items-center gap-2 text-[10px] font-semibold text-stone-700">
-                  <span className="px-2 py-0.5 rounded-md bg-white border border-stone-200">✓ Rose Gold Aluminium</span>
-                  <span className="px-2 py-0.5 rounded-md bg-white border border-stone-200">✓ Wall Plugs &amp; Screws Included</span>
-                  <span className="px-2 py-0.5 rounded-md bg-white border border-stone-200">✓ Power Adapter Included</span>
-                </div>
               </div>
-            ) : (!isGlitterFrame && !isAcrylicFrame && !isMultiSet) ? (
-              <>
-                <div className="space-y-2.5">
-                  <div className="flex items-center justify-between text-xs">
-                    <span className="font-bold text-stone-900">
-                      Frame Style:{' '}
-                      <strong className="text-amber-800 font-serif">
-                        {selectedFrame === 'gold' ? 'Champagne Gold' : selectedFrame === 'black' ? 'Matte Black' : isAcrylicFrame ? 'Frameless 5MM Acrylic' : 'Frameless Crystal Acrylic'}
-                      </strong>
-                    </span>
-                    <span className="text-[11px] text-stone-500">Select finish</span>
-                  </div>
-
-                  <div className={`grid gap-2.5 ${(isLedFrame || product.categorySlug === 'led-acrylic-photo-frames' || product.categorySlugs?.includes('led-acrylic-photo-frames')) ? 'grid-cols-1' : 'grid-cols-3'}`}>
-                    {/* Gold Frame Card */}
-                    <button
-                      type="button"
-                      onClick={() => handleSelectFrame('gold')}
-                      className={`p-2.5 rounded-xl border-2 flex flex-col items-center text-center gap-1.5 cursor-pointer transition-all ${
-                        selectedFrame === 'gold'
-                          ? 'border-stone-900 bg-stone-100 shadow-xs'
-                          : 'border-stone-200 bg-stone-50 hover:border-stone-400'
-                      }`}
-                    >
-                      <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-lg overflow-hidden border border-stone-200 shadow-xs bg-white">
-                        <img
-                          src="/images/frames/gold-border-ref.jpg"
-                          alt="Champagne Gold Aluminium Frame Border"
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                      <span className="text-xs font-bold text-stone-900 leading-tight">Gold Frame</span>
-                      <span className="text-[10px] text-stone-500">
-                        {(isLedFrame || product.categorySlug === 'led-acrylic-photo-frames') ? 'Rose Gold Aluminium' : 'Champagne Gold'}
-                      </span>
-                    </button>
-
-                    {/* Black Frame Card - Removed from LED Frames category */}
-                    {!(isLedFrame || product.categorySlug === 'led-acrylic-photo-frames' || product.categorySlugs?.includes('led-acrylic-photo-frames')) && (
-                      <button
-                        type="button"
-                        onClick={() => handleSelectFrame('black')}
-                        className={`p-2.5 rounded-xl border-2 flex flex-col items-center text-center gap-1.5 cursor-pointer transition-all ${
-                          selectedFrame === 'black'
-                            ? 'border-stone-900 bg-stone-100 shadow-xs'
-                            : 'border-stone-200 bg-stone-50 hover:border-stone-400'
-                        }`}
-                      >
-                        <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-lg overflow-hidden border border-stone-200 shadow-xs bg-white">
-                          <img
-                            src="/images/frames/black-border-ref.jpg"
-                            alt="Matte Black Aluminium Frame Border"
-                            className="w-full h-full object-cover"
-                          />
-                        </div>
-                        <span className="text-xs font-bold text-stone-900 leading-tight">Black Frame</span>
-                        <span className="text-[10px] text-stone-500">Matte Black</span>
-                      </button>
-                    )}
-
-                    {/* Without Frame Card - Removed from LED Frames category */}
-                    {!(isLedFrame || product.categorySlug === 'led-acrylic-photo-frames' || product.categorySlugs?.includes('led-acrylic-photo-frames')) && (
-                      <button
-                        type="button"
-                        onClick={() => handleSelectFrame('without')}
-                        className={`p-2.5 rounded-xl border-2 flex flex-col items-center text-center gap-1.5 cursor-pointer transition-all ${
-                          selectedFrame === 'without'
-                            ? 'border-stone-900 bg-stone-100 shadow-xs'
-                            : 'border-stone-200 bg-stone-50 hover:border-stone-400'
-                        }`}
-                      >
-                        <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-lg overflow-hidden border border-stone-200 shadow-xs bg-white">
-                          <img
-                            src="/images/frames/acrylic-border-ref.jpg"
-                            alt="Frameless Acrylic Photo Frame Border"
-                            className="w-full h-full object-cover"
-                          />
-                        </div>
-                        <span className="text-xs font-bold text-stone-900 leading-tight">No Frame</span>
-                        <span className="text-[10px] text-stone-500">{isAcrylicFrame ? '5MM Square Cut' : 'Crystal Acrylic'}</span>
-                      </button>
-                    )}
-                  </div>
-                </div>
-
-                {/* Thickness Specification (Strictly hidden for LED frames) */}
-                {isAcrylicFrame ? (
-                  <div className="space-y-1.5 bg-amber-50/60 p-3.5 rounded-2xl border border-amber-200/80 shadow-2xs">
-                    <div className="flex items-center justify-between text-xs">
-                      <span className="font-bold text-stone-900 flex items-center gap-1.5">
-                        <Sparkles className="w-3.5 h-3.5 text-amber-600" />
-                        <span>Acrylic Thickness:</span>
-                        <strong className="text-amber-900 font-serif">5MM Premium Acrylic</strong>
-                      </span>
-                      <span className="text-[10px] font-bold text-emerald-800 bg-emerald-100/80 border border-emerald-300 px-2 py-0.5 rounded-md">
-                        Metal Studs Included
-                      </span>
-                    </div>
-                    <p className="text-[11px] text-stone-600 leading-relaxed">
-                      Every frame is crafted in 5MM thickness with precision square-cut edges and premium metal wall mounting studs included with hardware.
-                    </p>
-                  </div>
-                ) : (
-                  selectedFrame === 'without' && availableThicknesses.length > 0 && (
-                    <div className="space-y-2 bg-stone-50 p-3.5 rounded-2xl border border-stone-200">
-                      <div className="flex items-center justify-between text-xs">
-                        <span className="font-bold text-stone-900">
-                          Acrylic Thickness: <strong className="text-amber-800">{selectedThickness}</strong>
-                        </span>
-                        <span className="text-[11px] text-stone-500">
-                          Heavy cast acrylic with S.S studs
-                        </span>
-                      </div>
-                      <div className="flex gap-2">
-                        {availableThicknesses.map((th) => (
-                          <button
-                            key={th}
-                            type="button"
-                            onClick={() => setSelectedThickness(th)}
-                            className={`flex-1 py-2 px-3 rounded-xl text-xs font-bold border transition-all cursor-pointer ${
-                              selectedThickness === th
-                                ? 'border-amber-500 bg-white text-stone-900 shadow-xs'
-                                : 'border-stone-200 bg-white/70 text-stone-600 hover:border-amber-300'
-                            }`}
-                          >
-                            {th}
-                          </button>
-                        ))}
-                      </div>
-                    </div>
-                  )
-                )}
-              </>
-            ) : null}
+            )}
 
             {/* Dimensions & Size Selector */}
             <div className="space-y-2.5">
@@ -1455,7 +1368,9 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                 <span className="font-bold text-stone-900">
                   Dimensions &amp; Size:{' '}
                   <strong className="text-amber-800 font-serif">
-                    {isCustomSize ? `${customSizeCalc.widthInches}" × ${customSizeCalc.heightInches}" (${customSizeCalc.sqFeet} sq ft) [Custom Size]` : (currentSizeObj ? `${currentSizeObj.label} (${getSqFtFromLabel(currentSizeObj.label)})` : 'Select Size')}
+                    {isCustomSize
+                      ? `${customSizeCalc.widthInches}" × ${customSizeCalc.heightInches}" (${customSizeCalc.sqFeet} sq ft) [Custom Size]`
+                      : (currentSizeObj ? `${formatSizeDisplay(currentSizeObj.label)} (${getSqFtFromLabel(currentSizeObj.label)})` : 'Select Size')}
                   </strong>
                 </span>
                 {selectedSizeId && (
@@ -1469,30 +1384,27 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                 )}
               </div>
 
-              {/* Size Pills Grid */}
+              {/* Size Pills Grid with Square Feet */}
               <div className={`grid ${isGlitterFrame ? 'grid-cols-3 sm:grid-cols-4' : 'grid-cols-4 sm:grid-cols-5'} gap-2`}>
                 {availableSizes.map((s) => {
                   const isSelected = !isCustomSize && selectedSizeId === s.id;
-                  const isSupported = isGlitterFrame || s.allowedFrames.includes(selectedFrame);
-                  const cleanDisplayLabel = s.label.includes('"') || s.label.includes('in') ? s.label : `${s.label}"`;
+                  const cleanDisplayLabel = formatSizeDisplay(s.label);
+                  const sqFtText = getSqFtFromLabel(s.label);
 
                   return (
                     <button
                       key={s.id}
                       type="button"
-                      disabled={!isSupported}
                       onClick={() => { setIsCustomSize(false); handleSelectSize(s.id); }}
-                      className={`py-2 px-1 sm:py-2.5 sm:px-1.5 min-h-[46px] rounded-xl sm:rounded-2xl text-xs transition-all flex flex-col items-center justify-center cursor-pointer ${
+                      className={`py-2 px-1 sm:py-2.5 sm:px-1.5 min-h-[50px] rounded-xl sm:rounded-2xl text-xs transition-all flex flex-col items-center justify-center cursor-pointer ${
                         isSelected
-                          ? 'border-2 border-amber-500 text-stone-950 font-bold bg-amber-50 shadow-xs'
-                          : isSupported
-                          ? 'border border-stone-200 text-stone-700 bg-stone-50 hover:border-amber-400 font-medium'
-                          : 'border border-stone-200 text-stone-300 bg-stone-100 cursor-not-allowed line-through'
+                          ? 'border-2 border-amber-500 text-stone-950 font-bold bg-amber-50 shadow-xs ring-1 ring-amber-400'
+                          : 'border border-stone-200 text-stone-700 bg-stone-50 hover:border-amber-400 font-medium'
                       }`}
                     >
-                      <span className="font-bold">{cleanDisplayLabel}</span>
-                      {getSqFtFromLabel(s.label) ? (
-                        <span className="text-[9px] text-stone-500 leading-none mt-0.5">{getSqFtFromLabel(s.label)}</span>
+                      <span className="font-bold text-xs sm:text-[13px]">{cleanDisplayLabel}</span>
+                      {sqFtText ? (
+                        <span className="text-[10px] text-amber-800 font-semibold leading-none mt-1">{sqFtText}</span>
                       ) : null}
                     </button>
                   );
@@ -1505,17 +1417,17 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                     setIsCustomSize(true);
                     setSelectedSizeId(null);
                   }}
-                  className={`py-2 px-1 sm:py-2.5 sm:px-1.5 min-h-[46px] rounded-xl sm:rounded-2xl text-xs transition-all flex flex-col items-center justify-center cursor-pointer ${
+                  className={`py-2 px-1 sm:py-2.5 sm:px-1.5 min-h-[50px] rounded-xl sm:rounded-2xl text-xs transition-all flex flex-col items-center justify-center cursor-pointer ${
                     isCustomSize
                       ? 'border-2 border-amber-500 text-stone-950 font-bold bg-amber-50 shadow-xs ring-1 ring-amber-400'
                       : 'border border-amber-400 text-amber-900 bg-amber-50/70 hover:bg-amber-100 font-medium'
                   }`}
-                  title="Enter custom width & height dimensions"
+                  title="Enter custom width & height dimensions (12 to 60 inches)"
                 >
                   <span className="font-bold flex items-center gap-1 text-[11px] sm:text-xs">
                     <Ruler className="w-3 h-3 text-amber-700" /> Custom
                   </span>
-                  <span className="text-[9px] text-emerald-700 leading-none mt-0.5 font-semibold">Quote</span>
+                  <span className="text-[9.5px] text-emerald-700 leading-none mt-1 font-semibold">Quote</span>
                 </button>
               </div>
 
@@ -1531,20 +1443,20 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                   />
                 </div>
               )}
-
-              {/* Hardware Note */}
-              {isGlitterFrame ? (
-                <div className="p-3 rounded-xl bg-stone-50 border border-stone-200 text-[11px] text-stone-600 flex items-center gap-2">
-                  <Sparkles className="w-4 h-4 text-amber-600 shrink-0" />
-                  <span>Display Setup: <strong className="text-stone-900">Dual-layer sealed acrylic block with floating shimmer flakes &amp; desktop stand</strong></span>
-                </div>
-              ) : mountingNote ? (
-                <div className="p-3 rounded-xl bg-stone-50 border border-stone-200 text-[11px] text-stone-600 flex items-center gap-2">
-                  <Info className="w-4 h-4 text-amber-600 shrink-0" />
-                  <span>Mounting hardware provided: <strong className="text-stone-900">{mountingNote}</strong></span>
-                </div>
-              ) : null}
             </div>
+
+            {/* Hardware Note */}
+            {isGlitterFrame ? (
+              <div className="p-3 rounded-xl bg-stone-50 border border-stone-200 text-[11px] text-stone-600 flex items-center gap-2">
+                <Sparkles className="w-4 h-4 text-amber-600 shrink-0" />
+                <span>Display Setup: <strong className="text-stone-900">Dual-layer sealed acrylic block with floating shimmer flakes &amp; desktop stand</strong></span>
+              </div>
+            ) : mountingNote ? (
+              <div className="p-3 rounded-xl bg-stone-50 border border-stone-200 text-[11px] text-stone-600 flex items-center gap-2">
+                <Info className="w-4 h-4 text-amber-600 shrink-0" />
+                <span>Mounting hardware provided: <strong className="text-stone-900">{mountingNote}</strong></span>
+              </div>
+            ) : null}
 
             {/* Quantity Selector + Action Buttons */}
             <div className="space-y-3.5 pt-4 border-t border-stone-200">

@@ -1,7 +1,7 @@
 import mongoose, { Schema, Document } from 'mongoose';
 import { Product } from '@/types';
 
-export interface ProductDocument extends Omit<Product, 'id'>, Document {}
+export interface ProductDocument extends Omit<Product, 'id' | '_id'>, Document {}
 
 const VariantSchema = new Schema({
   id: { type: String, required: true },

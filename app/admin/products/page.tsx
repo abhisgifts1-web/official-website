@@ -22,6 +22,7 @@ import {
   ArrowLeft,
   ArrowRight,
   Eye,
+  Layers,
 } from 'lucide-react';
 import AdminLayout from '@/components/admin/AdminLayout';
 import { Product, ProductOrientation, OrientationShape } from '@/types';
@@ -91,83 +92,114 @@ export default function AdminProductsPage() {
   const [editingSlug, setEditingSlug] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
 
-  // Artwork Image Upload & Format States
+  // Artwork Image Upload & Format States (Support up to 30 images per product)
+  const MAX_PRODUCT_IMAGES = 30;
   const fileInputRef = useRef<HTMLInputElement | null>(null);
   const [uploadingImage, setUploadingImage] = useState(false);
+  const [uploadProgressText, setUploadProgressText] = useState('');
   const [imagePreviewError, setImagePreviewError] = useState(false);
   const [newImageUrl, setNewImageUrl] = useState('');
 
   const handleImageFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (!file) return;
+    const fileList = e.target.files;
+    if (!fileList || fileList.length === 0) return;
+
+    const files = Array.from(fileList);
+    const currentList = Array.isArray(formData.images) && formData.images.length > 0
+      ? formData.images
+      : [formData.imageUrl].filter(Boolean);
+
+    const availableSlots = MAX_PRODUCT_IMAGES - currentList.length;
+    if (availableSlots <= 0) {
+      alert(`Maximum ${MAX_PRODUCT_IMAGES} images limit reached. Please delete some existing images before adding more.`);
+      return;
+    }
+
+    const filesToUpload = files.slice(0, availableSlots);
+    if (files.length > availableSlots) {
+      alert(`Only the first ${availableSlots} files will be uploaded to stay within the maximum ${MAX_PRODUCT_IMAGES} images limit.`);
+    }
 
     try {
       setUploadingImage(true);
-      setImagePreviewError(false);
-      const reader = new FileReader();
-      reader.onload = async () => {
-        const rawDataUrl = reader.result as string;
-        if (!rawDataUrl) {
-          setUploadingImage(false);
-          return;
-        }
+      const uploadedUrls: string[] = [];
 
-        try {
-          const res = await fetch('/api/upload-photo', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ image: rawDataUrl }),
-          });
-          const data = await res.json();
-          const finalUrl = data && data.success && (data.cdnUrl || data.url) ? (data.cdnUrl || data.url) : rawDataUrl;
+      for (let i = 0; i < filesToUpload.length; i++) {
+        const file = filesToUpload[i];
+        setUploadProgressText(`Uploading ${i + 1} of ${filesToUpload.length}...`);
 
-          setFormData((prev) => {
-            const currentList = Array.isArray(prev.images) && prev.images.length > 0
-              ? prev.images
-              : [prev.imageUrl].filter(Boolean);
-            const updated = [...currentList, finalUrl];
-            return {
-              ...prev,
-              images: updated,
-              imageUrl: updated[0] || finalUrl,
-            };
-          });
-        } catch {
-          setFormData((prev) => {
-            const currentList = Array.isArray(prev.images) && prev.images.length > 0
-              ? prev.images
-              : [prev.imageUrl].filter(Boolean);
-            const updated = [...currentList, rawDataUrl];
-            return {
-              ...prev,
-              images: updated,
-              imageUrl: updated[0] || rawDataUrl,
-            };
-          });
-        } finally {
-          setUploadingImage(false);
+        const rawDataUrl = await new Promise<string>((resolve, reject) => {
+          const reader = new FileReader();
+          reader.onload = () => resolve(reader.result as string);
+          reader.onerror = reject;
+          reader.readAsDataURL(file);
+        });
+
+        if (rawDataUrl) {
+          try {
+            const res = await fetch('/api/upload-photo', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ image: rawDataUrl }),
+            });
+            const data = await res.json();
+            const finalUrl = data && data.success && (data.cdnUrl || data.url) ? (data.cdnUrl || data.url) : rawDataUrl;
+            uploadedUrls.push(finalUrl);
+          } catch {
+            uploadedUrls.push(rawDataUrl);
+          }
         }
-      };
-      reader.readAsDataURL(file);
-    } catch {
+      }
+
+      if (uploadedUrls.length > 0) {
+        setFormData((prev) => {
+          const prevList = Array.isArray(prev.images) && prev.images.length > 0
+            ? prev.images
+            : [prev.imageUrl].filter(Boolean);
+          const combined = Array.from(new Set([...prevList, ...uploadedUrls])).slice(0, MAX_PRODUCT_IMAGES);
+          return {
+            ...prev,
+            images: combined,
+            imageUrl: combined[0] || prev.imageUrl,
+          };
+        });
+      }
+    } catch (err: any) {
+      alert('Failed to upload image(s): ' + (err.message || 'Unknown error'));
+    } finally {
       setUploadingImage(false);
+      setUploadProgressText('');
+      if (fileInputRef.current) fileInputRef.current.value = '';
     }
   };
 
   const handleAddImage = (urlToAdd?: string) => {
     const raw = (urlToAdd || newImageUrl).trim();
     if (!raw) return;
-    const clean = ensureJpgExtension(raw);
+
+    // Supports pasting single or multiple URLs (comma, newline, or space separated)
+    const urls = raw
+      .split(/[\n,\s]+/)
+      .map((u) => u.trim())
+      .filter(Boolean)
+      .map(ensureJpgExtension);
+
+    if (urls.length === 0) return;
+
     setFormData((prev) => {
       const currentList = Array.isArray(prev.images) && prev.images.length > 0
         ? prev.images
         : [prev.imageUrl].filter(Boolean);
-      if (currentList.includes(clean)) return prev;
-      const updated = [...currentList, clean];
+
+      const combined = Array.from(new Set([...currentList, ...urls])).slice(0, MAX_PRODUCT_IMAGES);
+      if (combined.length >= MAX_PRODUCT_IMAGES && currentList.length + urls.length > MAX_PRODUCT_IMAGES) {
+        alert(`Images capped at maximum allowed ${MAX_PRODUCT_IMAGES} images.`);
+      }
+
       return {
         ...prev,
-        images: updated,
-        imageUrl: updated[0] || clean,
+        images: combined,
+        imageUrl: combined[0] || prev.imageUrl || '',
       };
     });
     setNewImageUrl('');
@@ -187,6 +219,40 @@ export default function AdminProductsPage() {
         ...prev,
         images: updated,
         imageUrl: updated[0] || '',
+      };
+    });
+  };
+
+  const handleClearExtraImages = () => {
+    if (!confirm('Keep only the primary cover image and remove all other secondary images?')) return;
+    setFormData((prev) => {
+      const first = (prev.images && prev.images[0]) || prev.imageUrl;
+      return {
+        ...prev,
+        images: [first],
+        imageUrl: first,
+      };
+    });
+  };
+
+  const handleAddCraftAndSpecs = () => {
+    const craftViews = [
+      '/images/promo-aluminium-frames-clean.png',
+      '/images/print-size-options-clean.jpg',
+      '/images/trust-badges-clean.png',
+      '/images/frames/gold-border-ref.jpg',
+      '/images/frames/black-border-ref.jpg',
+      '/images/frames/acrylic-border-ref.jpg',
+    ];
+    setFormData((prev) => {
+      const currentList = Array.isArray(prev.images) && prev.images.length > 0
+        ? prev.images
+        : [prev.imageUrl].filter(Boolean);
+      const combined = Array.from(new Set([...currentList, ...craftViews])).slice(0, MAX_PRODUCT_IMAGES);
+      return {
+        ...prev,
+        images: combined,
+        imageUrl: combined[0] || prev.imageUrl,
       };
     });
   };
@@ -246,7 +312,7 @@ export default function AdminProductsPage() {
       const currentList = Array.isArray(prev.images) && prev.images.length > 0
         ? prev.images
         : [prev.imageUrl].filter(Boolean);
-      const combined = Array.from(new Set([...currentList, ...generated]));
+      const combined = Array.from(new Set([...currentList, ...generated])).slice(0, MAX_PRODUCT_IMAGES);
       return {
         ...prev,
         images: combined,
@@ -979,18 +1045,29 @@ export default function AdminProductsPage() {
                           </div>
                           <div>
                             <label className="font-bold text-stone-900 text-sm block">
-                              Product Images &amp; Mockup Gallery ({formData.images.length})
+                              Product Images &amp; Mockup Gallery ({formData.images.length} / {MAX_PRODUCT_IMAGES})
                             </label>
                             <p className="text-[11px] text-stone-500">
-                              Add, reorder, or update e-commerce image angles (Primary, Living Room Wall, Interior, Detail, etc.)
+                              Support up to 30 images per product. Upload multiple files at once, reorder, or delete anytime.
                             </p>
                           </div>
                         </div>
 
                         <div className="flex items-center gap-2">
+                          {formData.images.length > 1 && (
+                            <button
+                              type="button"
+                              onClick={handleClearExtraImages}
+                              className="text-[11px] font-bold text-stone-600 hover:text-rose-700 bg-white hover:bg-rose-50 border border-stone-200 px-2.5 py-1.5 rounded-xl transition-colors cursor-pointer"
+                              title="Keep only the cover image"
+                            >
+                              Clear Extra
+                            </button>
+                          )}
                           <input
                             ref={fileInputRef}
                             type="file"
+                            multiple
                             accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp"
                             className="hidden"
                             onChange={handleImageFileUpload}
@@ -998,18 +1075,18 @@ export default function AdminProductsPage() {
                           <button
                             type="button"
                             onClick={() => fileInputRef.current?.click()}
-                            disabled={uploadingImage}
+                            disabled={uploadingImage || formData.images.length >= MAX_PRODUCT_IMAGES}
                             className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold bg-stone-900 hover:bg-stone-800 text-white rounded-xl shadow-xs transition-colors disabled:opacity-50 cursor-pointer"
                           >
                             {uploadingImage ? (
                               <>
                                 <Loader2 className="w-3.5 h-3.5 animate-spin text-amber-400" />
-                                <span>Uploading...</span>
+                                <span>{uploadProgressText || 'Uploading...'}</span>
                               </>
                             ) : (
                               <>
                                 <Upload className="w-3.5 h-3.5" />
-                                <span>+ Upload Image File</span>
+                                <span>+ Upload Images (Multi-Select)</span>
                               </>
                             )}
                           </button>
@@ -1141,17 +1218,27 @@ export default function AdminProductsPage() {
                         </div>
 
                         <div className="mt-2 flex items-center justify-between flex-wrap gap-2 text-[11px]">
-                          <button
-                            type="button"
-                            onClick={handleAutoAddStandardMockups}
-                            className="text-amber-800 hover:text-amber-950 font-bold inline-flex items-center gap-1.5 transition-colors cursor-pointer"
-                          >
-                            <Sparkles className="w-3.5 h-3.5 text-amber-600" />
-                            <span>Auto-Load Standard Mockups for this Product (Living Room, Foyer, Detail, Artistic)</span>
-                          </button>
+                          <div className="flex items-center gap-3 flex-wrap">
+                            <button
+                              type="button"
+                              onClick={handleAutoAddStandardMockups}
+                              className="text-amber-800 hover:text-amber-950 font-bold inline-flex items-center gap-1.5 transition-colors cursor-pointer"
+                            >
+                              <Sparkles className="w-3.5 h-3.5 text-amber-600" />
+                              <span>Auto-Load Standard Mockups (Living Room, Foyer, Detail, Artistic)</span>
+                            </button>
+                            <button
+                              type="button"
+                              onClick={handleAddCraftAndSpecs}
+                              className="text-stone-700 hover:text-stone-950 font-bold inline-flex items-center gap-1.5 transition-colors cursor-pointer"
+                            >
+                              <Layers className="w-3.5 h-3.5 text-stone-600" />
+                              <span>+ Add Size &amp; Frame Specs</span>
+                            </button>
+                          </div>
 
                           <span className="text-stone-400 text-[10px]">
-                            Accepts .jpg, .jpeg, .png, .webp or direct path
+                            Max 30 images • Accepts .jpg, .jpeg, .png, .webp or URLs
                           </span>
                         </div>
                       </div>
