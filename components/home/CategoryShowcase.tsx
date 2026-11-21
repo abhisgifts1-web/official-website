@@ -14,6 +14,13 @@ export interface EditorialCategory {
 
 export const EDITORIAL_CATEGORIES: EditorialCategory[] = [
   {
+    id: 'all',
+    name: 'All Categories',
+    href: '/shop',
+    image: '/images/categories/circle-showcase/all-categories.jpg',
+    fallbackImage: '/images/categories/circle-showcase/acrylic-photo-frames.jpg',
+  },
+  {
     id: 'acrylic-photo-frames',
     name: 'Acrylic Photo Frames',
     href: '/category/acrylic-photo-frames',

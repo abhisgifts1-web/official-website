@@ -54,13 +54,17 @@ function ShopContent() {
   const normalArtworksCount = liveProducts.filter((p) => !p.hasLedBacklight).length;
 
   const handleCategorySelect = (categorySlug: string) => {
-    setSelectedCategory(categorySlug);
+    if (categorySlug === 'all' || categorySlug === selectedCategory) {
+      setSelectedCategory('');
+    } else {
+      setSelectedCategory(categorySlug);
+    }
     setSelectedLighting('all');
   };
 
   useEffect(() => {
     if (initialSearch) setSearch(initialSearch);
-    if (initialCategory) setSelectedCategory(initialCategory);
+    if (initialCategory) setSelectedCategory(initialCategory === 'all' ? '' : initialCategory);
     
   }, [initialSearch, initialCategory, initialShape]);
 
@@ -79,7 +83,7 @@ function ShopContent() {
       );
     }
 
-    if (selectedCategory) {
+    if (selectedCategory && selectedCategory !== 'all') {
       list = filterProductsByCategory(list, selectedCategory);
     }
 
@@ -129,7 +133,7 @@ function ShopContent() {
 
   const hasActiveFilters =
     Boolean(search) ||
-    Boolean(selectedCategory) ||
+    (Boolean(selectedCategory) && selectedCategory !== 'all') ||
     
     
     selectedLighting !== 'all' ||
@@ -168,7 +172,7 @@ function ShopContent() {
 
       {/* Interactive Square Category Showcase Strip */}
       <div className="mb-6 sm:mb-8 pb-5 border-b border-stone-200/80">
-        {selectedCategory && (
+        {selectedCategory && selectedCategory !== 'all' && (
           <div className="flex justify-end mb-3 px-1">
             <button
               type="button"
@@ -203,12 +207,15 @@ function ShopContent() {
             style={{ scrollbarWidth: 'none' }}
           >
             {EDITORIAL_CATEGORIES.map((cat, idx) => {
-              const isSelected = selectedCategory === cat.id;
+              const isSelected =
+                cat.id === 'all'
+                  ? !selectedCategory || selectedCategory === 'all'
+                  : selectedCategory === cat.id;
               return (
                 <button
                   key={cat.id}
                   type="button"
-                  onClick={() => handleCategorySelect(isSelected ? '' : cat.id)}
+                  onClick={() => handleCategorySelect(cat.id === 'all' ? '' : isSelected ? '' : cat.id)}
                   className={`category-wave-item group flex flex-col items-center shrink-0 text-center w-[94px] sm:w-[110px] lg:w-[124px] cursor-pointer select-none transition-all duration-300 ${
                     isSelected ? 'scale-105' : 'hover:scale-102'
                   }`}
@@ -288,7 +295,7 @@ function ShopContent() {
 
       {/* FULL-WIDTH PRODUCTS CATALOG */}
       <div className="w-full space-y-5">
-        {selectedCategory && (
+        {selectedCategory && selectedCategory !== 'all' && (
           <div className="flex items-center justify-between bg-amber-50/60 border border-amber-200/80 px-4 py-2.5 rounded-xl">
             <span className="text-xs font-semibold text-stone-700">
               Filtering by:{' '}
