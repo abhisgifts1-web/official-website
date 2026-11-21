@@ -225,6 +225,7 @@ export interface SiteSettings {
   supportPhone: string;
   supportEmail: string;
   whatsappNumber: string;
+  workingHours?: string;
   announcementText: string;
   freeShippingThreshold: number;
   defaultShippingFee: number;

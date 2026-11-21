@@ -278,7 +278,7 @@ export default function CategoryPage({ params }: CategoryPageProps) {
             Upload Your Photo
           </Link>
           <a
-            href="https://wa.me/917780269927?text=Hi%20Abhi%27s%20Gifts,%20I%20want%20to%20order%20a%20photo%20frame%20in%20Hyderabad"
+            href="https://wa.me/919032372782?text=Hi%20Abhi%27s%20Gifts,%20I%20want%20to%20order%20a%20photo%20frame%20in%20Hyderabad"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-[#25D366] text-white px-4 py-2 rounded-full font-bold text-xs hover:bg-[#20BD5A] transition-colors shadow-xs"

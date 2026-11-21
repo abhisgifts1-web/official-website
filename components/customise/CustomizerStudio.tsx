@@ -686,7 +686,7 @@ export default function CustomizerStudio() {
       .filter(Boolean)
       .join('\n');
 
-    const cleanWa = (INITIAL_SETTINGS.whatsappNumber || '917780269927').replace(/[^0-9]/g, '');
+    const cleanWa = (INITIAL_SETTINGS.whatsappNumber || '919032372782').replace(/[^0-9]/g, '');
     window.open(`https://wa.me/${cleanWa}?text=${encodeURIComponent(details)}`, '_blank');
   };
 
@@ -1596,11 +1596,11 @@ export default function CustomizerStudio() {
             </button>
 
             <a
-              href="tel:917780269927"
+              href="tel:919032372782"
               className="bg-white hover:bg-stone-50 text-stone-900 border border-stone-300 font-bold text-xs sm:text-sm px-6 py-3.5 rounded-full transition-colors flex items-center gap-2 uppercase tracking-wider shadow-xs"
             >
               <PhoneCall className="w-4 h-4 text-amber-600" />
-              <span>Call +91 77802 69927</span>
+              <span>Call +91 90323 72782</span>
             </a>
           </div>
         </div>

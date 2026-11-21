@@ -114,7 +114,7 @@ export default function LocalLandingPageView({
 
           <div className="flex flex-wrap items-center gap-4 pt-3">
             <a
-              href={`https://wa.me/917780269927?text=${whatsappMessage}`}
+              href={`https://wa.me/919032372782?text=${whatsappMessage}`}
               target="_blank"
               rel="noopener noreferrer"
               className="bg-[#FEE815] hover:bg-[#FFF04B] text-black font-bold text-xs sm:text-sm px-6 py-3.5 rounded-full shadow-md flex items-center gap-2 transition-all hover:scale-105 cursor-pointer uppercase tracking-wider"
@@ -302,11 +302,11 @@ export default function LocalLandingPageView({
             </p>
             <p className="flex items-center gap-2">
               <Clock className="w-4 h-4 text-amber-600 shrink-0" />
-              <span><strong>Hours:</strong> Mon - Sat: 10:00 AM – 9:00 PM | Sun: 11:00 AM – 8:00 PM</span>
+              <span><strong>Hours:</strong> Mon – Sun: 10:00 AM – 8:00 PM</span>
             </p>
             <p className="flex items-center gap-2">
               <Phone className="w-4 h-4 text-amber-600 shrink-0" />
-              <span><strong>Direct Support:</strong> +91 77802 69927 (Calls &amp; WhatsApp)</span>
+              <span><strong>Direct Support:</strong> +91 90323 72782 (Calls &amp; WhatsApp)</span>
             </p>
           </div>
 
@@ -320,7 +320,7 @@ export default function LocalLandingPageView({
               Get Google Maps Directions
             </a>
             <a
-              href="tel:+917780269927"
+              href="tel:+919032372782"
               className="border border-stone-300 text-stone-800 px-5 py-2.5 rounded-full text-xs font-bold hover:bg-stone-50 transition-colors uppercase tracking-wider cursor-pointer"
             >
               Call Us Now

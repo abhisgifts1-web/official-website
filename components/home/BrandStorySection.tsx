@@ -369,7 +369,7 @@ export default function BrandStorySection() {
               </Link>
 
               <a
-                href="https://wa.me/919491767676?text=Namaste%20Abhi%20Gifts%2C%20I%20would%20like%20to%20consult%20with%20your%20master%20artisans%20regarding%20sacred%20wall%20art%20craftsmanship."
+                href="https://wa.me/919032372782?text=Namaste%20Abhi%20Gifts%2C%20I%20would%20like%20to%20consult%20with%20your%20master%20artisans%20regarding%20sacred%20wall%20art%20craftsmanship."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white hover:bg-stone-50 text-stone-900 font-bold text-xs sm:text-[13.5px] px-6 py-3.5 rounded-full border border-stone-300 shadow-xs uppercase tracking-wider transition-all hover:scale-[1.02] cursor-pointer"

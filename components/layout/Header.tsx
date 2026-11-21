@@ -430,7 +430,7 @@ export default function Header() {
             <div className="flex items-center gap-1 sm:gap-2 shrink-0">
               {/* WhatsApp Quick Chat */}
               <a
-                href="https://wa.me/917780269927?text=Hi%20Abhi%27s%20Gifts%2C%20I%20would%20like%20to%20inquire%20about%20ordering%20a%20personalized%20photo%20frame"
+                href="https://wa.me/919032372782?text=Hi%20Abhi%27s%20Gifts%2C%20I%20would%20like%20to%20inquire%20about%20ordering%20a%20personalized%20photo%20frame"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-8 h-8 min-[360px]:w-9 min-[360px]:h-9 sm:w-10 sm:h-10 p-1.5 text-stone-950 bg-[#FEE815] hover:bg-[#FFF04B] border border-[#FEE815] rounded-full transition-all shadow-2xs hover:scale-110 active:scale-95 flex items-center justify-center cursor-pointer"
@@ -538,7 +538,7 @@ export default function Header() {
             {/* Direct Social & Ordering Quick Actions */}
             <div className="px-3 pt-2.5 space-y-2">
               <a
-                href="https://wa.me/917780269927?text=Hi%20Abhi%27s%20Gifts%2C%20I%20have%20an%20enquiry%20regarding%20custom%20photo%20frames"
+                href="https://wa.me/919032372782?text=Hi%20Abhi%27s%20Gifts%2C%20I%20have%20an%20enquiry%20regarding%20custom%20photo%20frames"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-between p-2.5 bg-[#FEE815] hover:bg-[#FFF04B] text-stone-950 border border-[#FEE815] rounded-xl font-bold text-xs shadow-2xs transition-colors"

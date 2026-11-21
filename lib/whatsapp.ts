@@ -2,7 +2,7 @@ import { CartItem, ShippingAddress } from '@/types';
 import { INITIAL_SETTINGS } from '@/lib/data/settings';
 
 export function getWhatsAppNumber(): string {
-  const raw = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || INITIAL_SETTINGS.whatsappNumber || '917780269927';
+  const raw = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || INITIAL_SETTINGS.whatsappNumber || '919032372782';
   return raw.replace(/[^0-9]/g, '');
 }
 

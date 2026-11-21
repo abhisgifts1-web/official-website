@@ -6,8 +6,8 @@ export const BUSINESS_INFO = {
   url: 'https://abhigifts.com',
   logo: 'https://abhigifts.com/favicon.ico',
   image: 'https://abhigifts.com/images/mockups/tirupati-balaji-divine-led-backlit-acrylic-wall-art/primary-square.jpg',
-  telephone: '+91-7780269927',
-  whatsapp: '+917780269927',
+  telephone: '+91-9032372782',
+  whatsapp: '+919032372782',
   email: 'support@abhigifts.com',
   priceRange: '₹₹',
   hasMap: 'https://maps.app.goo.gl/fmGv35KsGabFna9E6?g_st=ac',
@@ -29,14 +29,8 @@ export const BUSINESS_INFO = {
   openingHoursSpecification: [
     {
       '@type': 'OpeningHoursSpecification',
-      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
       opens: '10:00',
-      closes: '21:00',
-    },
-    {
-      '@type': 'OpeningHoursSpecification',
-      dayOfWeek: ['Sunday'],
-      opens: '11:00',
       closes: '20:00',
     },
   ],

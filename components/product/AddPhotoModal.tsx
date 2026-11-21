@@ -101,7 +101,7 @@ export default function AddPhotoModal({
     ? Math.round(((activeMrp - activePrice) / activeMrp) * 100)
     : 0;
 
-  const cleanWaNumber = (INITIAL_SETTINGS.whatsappNumber || '917780269927').replace(/[^0-9]/g, '');
+  const cleanWaNumber = (INITIAL_SETTINGS.whatsappNumber || '919032372782').replace(/[^0-9]/g, '');
 
   // Early return AFTER all hooks
   if (!isOpen) return null;

@@ -33,7 +33,7 @@ export default function CustomizationProcessSection() {
     },
   ];
 
-  const cleanWaNumber = (INITIAL_SETTINGS.whatsappNumber || '917780269927').replace(/[^0-9]/g, '');
+  const cleanWaNumber = (INITIAL_SETTINGS.whatsappNumber || '919032372782').replace(/[^0-9]/g, '');
   const waUrl = `https://wa.me/${cleanWaNumber}?text=${encodeURIComponent(
     "Hello Abhi's Gifts, I would like to customize a photo frame with my photo. Please assist me with sizes and proofing."
   )}`;

@@ -44,7 +44,7 @@ const SUPPORT_FAQS = [
 export default function ContactSupportSection() {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
-  const cleanNumber = (INITIAL_SETTINGS.whatsappNumber || '917780269927').replace(/[^0-9]/g, '');
+  const cleanNumber = (INITIAL_SETTINGS.whatsappNumber || '919032372782').replace(/[^0-9]/g, '');
   const waUrl = `https://wa.me/${cleanNumber}?text=${encodeURIComponent(
     "Hello Abhi's Gifts, I need assistance regarding your custom acrylic photo frames and orders."
   )}`;
@@ -132,7 +132,7 @@ export default function ContactSupportSection() {
           </div>
           <div className="mt-5 pt-4 border-t border-stone-100">
             <span className="text-[11px] font-semibold text-stone-500 flex items-center gap-1">
-              <Clock className="w-3 h-3 text-amber-600" /> Mon–Sat 9:30 AM–8:30 PM
+              <Clock className="w-3 h-3 text-amber-600" /> Mon–Sun: 10:00 AM – 8:00 PM
             </span>
           </div>
         </div>

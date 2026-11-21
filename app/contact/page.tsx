@@ -122,7 +122,7 @@ export default function ContactPage() {
               <Clock className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
               <div>
                 <strong className="text-stone-900 block">Store Hours:</strong>
-                <span>Monday – Saturday: 9:30 AM – 7:00 PM IST</span>
+                <span>Monday – Sunday: 10:00 AM – 8:00 PM IST</span>
               </div>
             </div>
           </div>
