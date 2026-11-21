@@ -231,21 +231,18 @@ export default function AdminCategoriesPage() {
                   </div>
 
                   <div className="pt-3 border-t border-stone-100 flex items-center justify-between text-xs">
-                    <Link
-                      href={`/admin/products?cat=${cat.slug}`}
-                      className="text-amber-800 hover:text-amber-900 font-bold flex items-center gap-1 transition-colors"
-                    >
-                      <Edit className="w-3 h-3" />
-                      <span>Edit Artworks</span>
-                    </Link>
+                    <span className="text-stone-500 font-medium flex items-center gap-1.5">
+                      <span className="w-2 h-2 rounded-full bg-emerald-500 inline-block" />
+                      Live in Store
+                    </span>
                     <a
                       href={`/category/${cat.slug}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-stone-700 hover:text-stone-950 font-semibold flex items-center gap-1 transition-colors"
+                      className="text-stone-950 bg-[#FEE815] hover:bg-[#FFF04B] font-bold px-3 py-1.5 rounded-lg flex items-center gap-1.5 transition-all shadow-xs"
                     >
-                      <span>Storefront</span>
-                      <ExternalLink className="w-3 h-3 text-amber-700" />
+                      <span>View in Storefront</span>
+                      <ExternalLink className="w-3 h-3 text-stone-900" />
                     </a>
                   </div>
                 </div>

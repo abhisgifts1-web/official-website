@@ -28,7 +28,6 @@ interface AdminLayoutProps {
 
 const NAV_ITEMS = [
   { label: 'Overview', href: '/admin', icon: LayoutDashboard },
-  { label: 'Catalog Artworks', href: '/admin/products', icon: Package },
   { label: '8 Store Collections', href: '/admin/categories', icon: Layers },
   { label: 'Customer Orders', href: '/admin/orders', icon: ShoppingBag },
   { label: 'Customers', href: '/admin/customers', icon: Users },

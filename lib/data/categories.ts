@@ -16,7 +16,7 @@ export const INITIAL_CATEGORIES: Category[] = [
   },
   {
     id: 'cat-led-acrylic-photo-frames',
-    name: 'LED Acrylic Photo Frames',
+    name: 'LED Photo Frames',
     slug: 'led-acrylic-photo-frames',
     description: 'Premium LED Backlit Acrylic Wall Frames crafted with Imported Clear Virgin Cast Acrylic, Direct UV Printing, Rose Gold Aluminium Side Frame, and Cool White LED Halo Glow. External power adapter and wall mounting hardware included.',
     image: '/images/categories/circle-showcase/led-photo-frames.jpg',
@@ -42,7 +42,7 @@ export const INITIAL_CATEGORIES: Category[] = [
   },
   {
     id: 'cat-360-rotating-photo-lamps',
-    name: '360° Rotating Photo Lamps',
+    name: '360° Rotating Lamps',
     slug: '360-rotating-photo-lamps',
     description: 'Motorized 360-degree rotating cylinder LED photo lamps with whisper-silent rotation showcasing multiple cherished memories.',
     image: '/images/categories/circle-showcase/360-rotating-photo-lamps.jpg',
