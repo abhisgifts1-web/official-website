@@ -23,9 +23,11 @@ import {
   ArrowRight,
   Eye,
   Layers,
+  Flame,
 } from 'lucide-react';
 import AdminLayout from '@/components/admin/AdminLayout';
-import { Product, ProductOrientation, OrientationShape } from '@/types';
+import { Product, ProductOrientation, OrientationShape, ProductModel } from '@/types';
+import { getProductModels, STANDARD_MODEL_ORDER } from '@/lib/data/productModels';
 import { INITIAL_CATEGORIES } from '@/lib/data/categories';
 
 const POPULAR_FRAME_SIZES = [
@@ -331,6 +333,93 @@ export default function AdminProductsPage() {
   const [quickSizeSaving, setQuickSizeSaving] = useState(false);
   const [quickSizeSuccess, setQuickSizeSuccess] = useState('');
 
+  // Models State & Management (M-1 to M-25 / M-30)
+  const [newModelName, setNewModelName] = useState('');
+  const [newModelImage, setNewModelImage] = useState('');
+  const [newModelPopular, setNewModelPopular] = useState(false);
+
+  const handleAddModel = () => {
+    const name = newModelName.trim().toUpperCase();
+    if (!name) {
+      alert('Please enter a model name (e.g. M-26).');
+      return;
+    }
+    const img = (newModelImage.trim() || formData.imageUrl || '/images/placeholder.jpg');
+    const newM: ProductModel = {
+      id: name,
+      name,
+      image: img,
+      isPopular: newModelPopular,
+    };
+    setFormData((prev) => ({
+      ...prev,
+      models: [...(prev.models || []), newM],
+    }));
+    setNewModelName('');
+    setNewModelImage('');
+    setNewModelPopular(false);
+  };
+
+  const handleRemoveModel = (index: number) => {
+    setFormData((prev) => ({
+      ...prev,
+      models: (prev.models || []).filter((_, i) => i !== index),
+    }));
+  };
+
+  const handleToggleModelPopular = (index: number) => {
+    setFormData((prev) => {
+      const updated = [...(prev.models || [])];
+      if (updated[index]) {
+        updated[index] = { ...updated[index], isPopular: !updated[index].isPopular };
+      }
+      return { ...prev, models: updated };
+    });
+  };
+
+  const handleMoveModel = (index: number, direction: 'left' | 'right') => {
+    setFormData((prev) => {
+      const list = [...(prev.models || [])];
+      const target = direction === 'left' ? index - 1 : index + 1;
+      if (target < 0 || target >= list.length) return prev;
+      const tmp = list[index];
+      list[index] = list[target];
+      list[target] = tmp;
+      return { ...prev, models: list };
+    });
+  };
+
+  const handleAutoGenerate25Models = () => {
+    const dummyProduct = {
+      id: formData.slug || 'prod-custom',
+      slug: formData.slug || 'custom-art',
+      title: formData.title || 'Custom Art',
+      categorySlug: formData.categorySlug,
+      categoryName: formData.categoryName,
+      images: Array.isArray(formData.images) && formData.images.length > 0 ? formData.images : [formData.imageUrl],
+      basePrice: formData.basePrice,
+      baseMrp: formData.baseMrp,
+      hasLedBacklight: formData.hasLedBacklight,
+      tags: [],
+      variants: [],
+      specifications: [],
+      materialAndCare: [],
+      shortDescription: '',
+      description: '',
+      orientation: formData.orientation,
+      discountPercentage: 0,
+      rating: 5,
+      reviewCount: 20,
+      artStyle: formData.artStyle,
+    } as unknown as Product;
+
+    const generated = getProductModels(dummyProduct);
+    setFormData((prev) => ({
+      ...prev,
+      models: generated,
+    }));
+  };
+
   // Form state
   const initialForm = {
     title: '',
@@ -352,6 +441,7 @@ export default function AdminProductsPage() {
     images: ['/images/collections/custom-portrait-frame.jpg'] as string[],
     tags: 'Acrylic Photo Frame, Hyderabad, Wall Decor',
     variants: getDefault4Variants(2499, 4999),
+    models: [] as ProductModel[],
   };
 
   const [formData, setFormData] = useState(initialForm);
@@ -422,6 +512,7 @@ export default function AdminProductsPage() {
       images: Array.isArray(prod.images) && prod.images.length > 0 ? prod.images.filter(Boolean) : [prod.images?.[0] || '/images/collections/custom-portrait-frame.jpg'],
       tags: (prod.tags || []).join(', '),
       variants: existingVariants,
+      models: prod.models && prod.models.length > 0 ? prod.models : getProductModels(prod),
     });
 
     setModalOpen(true);
@@ -636,6 +727,9 @@ export default function AdminProductsPage() {
         baseMrp: primaryBaseMrp,
         discountPercentage: Math.round(((primaryBaseMrp - primaryBasePrice) / primaryBaseMrp) * 100),
         variants: formattedVariants,
+        models: Array.isArray(formData.models) && formData.models.length > 0
+          ? formData.models
+          : getProductModels({ slug: formData.slug, title: formData.title, images: cleanedImages } as Product),
         orientationVariants: {
           portrait: formattedVariants,
           landscape: formattedVariants,
@@ -839,6 +933,10 @@ export default function AdminProductsPage() {
                             <div className="min-w-0">
                               <p className="font-bold text-stone-900 truncate max-w-xs">{prod.title}</p>
                               <div className="flex items-center gap-1.5 text-[11px] text-stone-500 font-mono truncate">
+                                <span className="text-amber-800 font-bold bg-amber-50 px-1.5 py-0.2 rounded border border-amber-200">
+                                  {prod.models?.length || 25} Models (M-18 🔥)
+                                </span>
+                                <span>•</span>
                                 <span>{prod.slug}</span>
                                 <span className="text-stone-300">•</span>
                                 <span className="text-amber-800 font-sans font-semibold text-[10px]">
@@ -1257,7 +1355,180 @@ export default function AdminProductsPage() {
                   </div>
                 </div>
 
-                {/* 2. Sizes & Dynamic Pricing Engine */}
+                {/* 2. Models & Design Variations Manager (M-1 to M-25 / M-30) */}
+                <div className="space-y-4 pt-5 border-t border-stone-200">
+                  <div className="flex flex-wrap items-center justify-between gap-2">
+                    <div>
+                      <h4 className="font-bold text-stone-900 text-sm flex items-center gap-1.5">
+                        <Flame className="w-4 h-4 text-amber-500" />
+                        <span>Design Models &amp; Variations (M-1 to M-25 / M-30)</span>
+                        <span className="text-[10px] text-stone-700 font-semibold bg-stone-100 border border-stone-300 px-2 py-0.5 rounded-full font-mono">
+                          {formData.models?.length || 0} Models Active
+                        </span>
+                      </h4>
+                      <p className="text-[11px] text-stone-500 mt-0.5">
+                        Each model represents a distinct artwork design that customers can select directly on the product page.
+                      </p>
+                    </div>
+
+                    {/* Quick Helpers */}
+                    <div className="flex items-center gap-2">
+                      <button
+                        type="button"
+                        onClick={handleAutoGenerate25Models}
+                        className="px-2.5 py-1 rounded-lg bg-amber-50 hover:bg-amber-100 border border-amber-300 text-amber-900 text-[11px] font-bold transition-colors cursor-pointer flex items-center gap-1"
+                        title="Populate 25 models with M-18 🔥, M-10 🔥, M-1 🔥 trending"
+                      >
+                        <Sparkles className="w-3 h-3 text-amber-600" />
+                        <span>+ Auto-Generate 25 Standard Models</span>
+                      </button>
+
+                      {formData.models && formData.models.length > 0 && (
+                        <button
+                          type="button"
+                          onClick={() => setFormData((prev) => ({ ...prev, models: [] }))}
+                          className="px-2 py-1 rounded-lg text-stone-500 hover:text-red-600 hover:bg-red-50 text-[11px] transition-colors cursor-pointer"
+                        >
+                          Clear Models
+                        </button>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Add Single Model Bar */}
+                  <div className="p-3 bg-stone-50 border border-stone-200 rounded-xl space-y-2">
+                    <div className="text-[11px] font-bold text-stone-700 flex items-center justify-between">
+                      <span>Add New Model:</span>
+                      <span className="text-stone-400 font-normal">Supports custom names (e.g. M-26, Special, Gold)</span>
+                    </div>
+                    <div className="flex flex-wrap sm:flex-nowrap items-center gap-2">
+                      <input
+                        type="text"
+                        placeholder="Model ID (e.g. M-26)"
+                        value={newModelName}
+                        onChange={(e) => setNewModelName(e.target.value)}
+                        className="w-28 sm:w-32 bg-white border border-stone-300 focus:border-amber-500 rounded-lg px-2.5 py-1.5 text-xs font-bold text-stone-900 outline-none"
+                      />
+                      <input
+                        type="text"
+                        placeholder="Model Artwork / Mockup URL (e.g. /images/...)"
+                        value={newModelImage}
+                        onChange={(e) => setNewModelImage(e.target.value)}
+                        className="flex-1 bg-white border border-stone-300 focus:border-amber-500 rounded-lg px-2.5 py-1.5 text-xs text-stone-900 outline-none"
+                      />
+                      <label className="flex items-center gap-1.5 px-2.5 py-1.5 bg-white border border-stone-300 rounded-lg text-xs font-semibold text-stone-700 cursor-pointer shrink-0">
+                        <input
+                          type="checkbox"
+                          checked={newModelPopular}
+                          onChange={(e) => setNewModelPopular(e.target.checked)}
+                          className="rounded text-amber-500 focus:ring-amber-400"
+                        />
+                        <span>Trending 🔥</span>
+                      </label>
+                      <button
+                        type="button"
+                        onClick={handleAddModel}
+                        className="px-3.5 py-1.5 rounded-lg bg-[#262626] hover:bg-black text-white font-bold text-xs shrink-0 cursor-pointer flex items-center gap-1"
+                      >
+                        <Plus className="w-3.5 h-3.5" />
+                        <span>Add Model</span>
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Models Cards Grid */}
+                  {formData.models && formData.models.length > 0 ? (
+                    <div className="grid grid-cols-2 min-[480px]:grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-2.5 max-h-[380px] overflow-y-auto pr-1">
+                      {formData.models.map((model, idx) => (
+                        <div
+                          key={model.id || idx}
+                          className={`p-2 rounded-xl border relative group flex flex-col items-center text-center transition-all ${
+                            model.isPopular
+                              ? 'border-amber-400 bg-amber-50/50 shadow-xs ring-1 ring-amber-300'
+                              : 'border-stone-200 bg-white hover:border-stone-400'
+                          }`}
+                        >
+                          {/* Thumbnail preview */}
+                          <div className="w-full aspect-[4/5] rounded-lg overflow-hidden bg-stone-100 border border-stone-200 mb-1.5 relative">
+                            <img
+                              src={model.image}
+                              alt={model.name}
+                              onError={(e) => {
+                                (e.target as HTMLImageElement).src = '/images/placeholder.jpg';
+                              }}
+                              className="w-full h-full object-cover"
+                            />
+                            {/* Delete button overlay */}
+                            <button
+                              type="button"
+                              onClick={() => handleRemoveModel(idx)}
+                              className="absolute top-1 right-1 p-1 rounded-md bg-red-600/90 text-white opacity-0 group-hover:opacity-100 hover:bg-red-700 transition-opacity cursor-pointer shadow-xs"
+                              title={`Delete Model ${model.name}`}
+                            >
+                              <Trash2 className="w-3 h-3" />
+                            </button>
+                          </div>
+
+                          {/* Model info & actions */}
+                          <div className="w-full flex items-center justify-between text-xs">
+                            <span className="font-extrabold text-stone-900 font-sans truncate">
+                              {model.name}
+                            </span>
+                            <button
+                              type="button"
+                              onClick={() => handleToggleModelPopular(idx)}
+                              className={`p-0.5 rounded text-[10px] font-bold transition-colors cursor-pointer ${
+                                model.isPopular
+                                  ? 'text-amber-600 hover:text-amber-800'
+                                  : 'text-stone-300 hover:text-amber-500'
+                              }`}
+                              title={model.isPopular ? 'Trending / Hot active (Click to toggle)' : 'Mark as Trending'}
+                            >
+                              🔥
+                            </button>
+                          </div>
+
+                          {/* Order controls */}
+                          <div className="flex items-center justify-between w-full mt-1 pt-1 border-t border-stone-100 text-[10px] text-stone-500">
+                            <button
+                              type="button"
+                              disabled={idx === 0}
+                              onClick={() => handleMoveModel(idx, 'left')}
+                              className="px-1 text-stone-500 hover:text-stone-900 disabled:opacity-30 cursor-pointer"
+                              title="Move model earlier"
+                            >
+                              ←
+                            </button>
+                            <span className="font-mono text-[9px] text-stone-400">#{idx + 1}</span>
+                            <button
+                              type="button"
+                              disabled={idx === formData.models.length - 1}
+                              onClick={() => handleMoveModel(idx, 'right')}
+                              className="px-1 text-stone-500 hover:text-stone-900 disabled:opacity-30 cursor-pointer"
+                              title="Move model later"
+                            >
+                              →
+                            </button>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <div className="p-4 rounded-xl border border-dashed border-stone-300 text-center text-stone-500 text-xs">
+                      <p>No custom models configured. Click below to automatically generate 25 standard models:</p>
+                      <button
+                        type="button"
+                        onClick={handleAutoGenerate25Models}
+                        className="mt-2 px-3 py-1.5 rounded-lg bg-amber-500 hover:bg-amber-600 text-stone-950 font-bold inline-flex items-center gap-1.5 transition-colors cursor-pointer"
+                      >
+                        <Sparkles className="w-3.5 h-3.5" />
+                        <span>+ Generate 25 Models for this Artwork</span>
+                      </button>
+                    </div>
+                  )}
+                </div>
+
+                {/* 3. Sizes & Dynamic Pricing Engine */}
                 <div className="space-y-4 pt-5 border-t border-stone-200">
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                     <div>

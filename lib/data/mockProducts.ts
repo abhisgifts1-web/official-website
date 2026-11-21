@@ -14,19 +14,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "artStyle": "LED Backlit Acrylic",
     "orientation": "horizontal",
     "images": [
-      "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg",
-      "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/mockup-living-room.jpg",
-      "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/mockup-interior.jpg",
-      "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/mockup-foyer.jpg",
-      "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/mockup-detail.jpg",
-      "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/mockup-artistic.jpg",
-      "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/mockup-suite.jpg",
-      "/images/promo-aluminium-frames-clean.png",
-      "/images/print-size-options-clean.jpg",
-      "/images/trust-badges-clean.png",
-      "/images/frames/gold-border-ref.jpg",
-      "/images/frames/black-border-ref.jpg",
-      "/images/frames/acrylic-border-ref.jpg"
+      "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg"
     ],
     "tags": [
       "Shiva",
@@ -234,7 +222,234 @@ export const INITIAL_PRODUCTS: Product[] = [
         }
       ]
     },
-    "id": "6ae89187382113ccb9a541de"
+    "id": "6ae89187382113ccb9a541de",
+    "models": [
+      {
+        "id": "M-18",
+        "name": "M-18",
+        "image": "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-10",
+        "name": "M-10",
+        "image": "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-1",
+        "name": "M-1",
+        "image": "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-2",
+        "name": "M-2",
+        "image": "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-3",
+        "name": "M-3",
+        "image": "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-4",
+        "name": "M-4",
+        "image": "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-5",
+        "name": "M-5",
+        "image": "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-6",
+        "name": "M-6",
+        "image": "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-7",
+        "name": "M-7",
+        "image": "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-8",
+        "name": "M-8",
+        "image": "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-9",
+        "name": "M-9",
+        "image": "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-11",
+        "name": "M-11",
+        "image": "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-12",
+        "name": "M-12",
+        "image": "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-13",
+        "name": "M-13",
+        "image": "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-14",
+        "name": "M-14",
+        "image": "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-15",
+        "name": "M-15",
+        "image": "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-16",
+        "name": "M-16",
+        "image": "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-17",
+        "name": "M-17",
+        "image": "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-19",
+        "name": "M-19",
+        "image": "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-20",
+        "name": "M-20",
+        "image": "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-21",
+        "name": "M-21",
+        "image": "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-22",
+        "name": "M-22",
+        "image": "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-23",
+        "name": "M-23",
+        "image": "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-24",
+        "name": "M-24",
+        "image": "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-25",
+        "name": "M-25",
+        "image": "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg"
+        ]
+      }
+    ]
   },
   {
     "slug": "triptych-set-of-three-gallery-acrylic-photo-frames",
@@ -247,23 +462,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "artStyle": "Custom Photo Frames",
     "orientation": "vertical",
     "images": [
-      "/images/mockups/triptych-set-of-three-gallery-acrylic-photo-frames/primary-square.jpg",
-      "/images/mockups/triptych-set-of-three-gallery-acrylic-photo-frames/mockup-living-room.jpg",
-      "/images/mockups/triptych-set-of-three-gallery-acrylic-photo-frames/mockup-interior.jpg",
-      "/images/mockups/triptych-set-of-three-gallery-acrylic-photo-frames/mockup-foyer.jpg",
-      "/images/mockups/triptych-set-of-three-gallery-acrylic-photo-frames/mockup-detail.jpg",
-      "/images/mockups/triptych-set-of-three-gallery-acrylic-photo-frames/mockup-artistic.jpg",
-      "/images/atelier/ganesha-complete-framed.jpg",
-      "/images/atelier/hero-ganesha-frame.jpg",
-      "/images/atelier/hero-ram-legacy.jpg",
-      "/images/atelier/hero-ram-portrait.jpg",
-      "/images/atelier/layers-exploded-diagram.jpg",
-      "/images/promo-aluminium-frames-clean.png",
-      "/images/print-size-options-clean.jpg",
-      "/images/trust-badges-clean.png",
-      "/images/frames/gold-border-ref.jpg",
-      "/images/frames/black-border-ref.jpg",
-      "/images/frames/acrylic-border-ref.jpg"
+      "/images/mockups/triptych-set-of-three-gallery-acrylic-photo-frames/primary-square.jpg"
     ],
     "tags": [
       "Set of 3",
@@ -350,7 +549,234 @@ export const INITIAL_PRODUCTS: Product[] = [
     "reviews": [],
     "createdAt": "2026-09-20T00:00:00.000Z",
     "updatedAt": "2026-11-02T13:35:03.403Z",
-    "id": "6ae89187382113ccb9a54241"
+    "id": "6ae89187382113ccb9a54241",
+    "models": [
+      {
+        "id": "M-18",
+        "name": "M-18",
+        "image": "/images/mockups/triptych-set-of-three-gallery-acrylic-photo-frames/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/triptych-set-of-three-gallery-acrylic-photo-frames/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-10",
+        "name": "M-10",
+        "image": "/images/mockups/triptych-set-of-three-gallery-acrylic-photo-frames/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/triptych-set-of-three-gallery-acrylic-photo-frames/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-1",
+        "name": "M-1",
+        "image": "/images/mockups/triptych-set-of-three-gallery-acrylic-photo-frames/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/triptych-set-of-three-gallery-acrylic-photo-frames/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-2",
+        "name": "M-2",
+        "image": "/images/mockups/triptych-set-of-three-gallery-acrylic-photo-frames/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/triptych-set-of-three-gallery-acrylic-photo-frames/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-3",
+        "name": "M-3",
+        "image": "/images/mockups/triptych-set-of-three-gallery-acrylic-photo-frames/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/triptych-set-of-three-gallery-acrylic-photo-frames/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-4",
+        "name": "M-4",
+        "image": "/images/mockups/triptych-set-of-three-gallery-acrylic-photo-frames/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/triptych-set-of-three-gallery-acrylic-photo-frames/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-5",
+        "name": "M-5",
+        "image": "/images/mockups/triptych-set-of-three-gallery-acrylic-photo-frames/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/triptych-set-of-three-gallery-acrylic-photo-frames/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-6",
+        "name": "M-6",
+        "image": "/images/mockups/triptych-set-of-three-gallery-acrylic-photo-frames/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/triptych-set-of-three-gallery-acrylic-photo-frames/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-7",
+        "name": "M-7",
+        "image": "/images/mockups/triptych-set-of-three-gallery-acrylic-photo-frames/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/triptych-set-of-three-gallery-acrylic-photo-frames/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-8",
+        "name": "M-8",
+        "image": "/images/mockups/triptych-set-of-three-gallery-acrylic-photo-frames/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/triptych-set-of-three-gallery-acrylic-photo-frames/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-9",
+        "name": "M-9",
+        "image": "/images/mockups/triptych-set-of-three-gallery-acrylic-photo-frames/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/triptych-set-of-three-gallery-acrylic-photo-frames/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-11",
+        "name": "M-11",
+        "image": "/images/mockups/triptych-set-of-three-gallery-acrylic-photo-frames/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/triptych-set-of-three-gallery-acrylic-photo-frames/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-12",
+        "name": "M-12",
+        "image": "/images/mockups/triptych-set-of-three-gallery-acrylic-photo-frames/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/triptych-set-of-three-gallery-acrylic-photo-frames/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-13",
+        "name": "M-13",
+        "image": "/images/mockups/triptych-set-of-three-gallery-acrylic-photo-frames/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/triptych-set-of-three-gallery-acrylic-photo-frames/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-14",
+        "name": "M-14",
+        "image": "/images/mockups/triptych-set-of-three-gallery-acrylic-photo-frames/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/triptych-set-of-three-gallery-acrylic-photo-frames/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-15",
+        "name": "M-15",
+        "image": "/images/mockups/triptych-set-of-three-gallery-acrylic-photo-frames/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/triptych-set-of-three-gallery-acrylic-photo-frames/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-16",
+        "name": "M-16",
+        "image": "/images/mockups/triptych-set-of-three-gallery-acrylic-photo-frames/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/triptych-set-of-three-gallery-acrylic-photo-frames/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-17",
+        "name": "M-17",
+        "image": "/images/mockups/triptych-set-of-three-gallery-acrylic-photo-frames/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/triptych-set-of-three-gallery-acrylic-photo-frames/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-19",
+        "name": "M-19",
+        "image": "/images/mockups/triptych-set-of-three-gallery-acrylic-photo-frames/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/triptych-set-of-three-gallery-acrylic-photo-frames/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-20",
+        "name": "M-20",
+        "image": "/images/mockups/triptych-set-of-three-gallery-acrylic-photo-frames/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/triptych-set-of-three-gallery-acrylic-photo-frames/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-21",
+        "name": "M-21",
+        "image": "/images/mockups/triptych-set-of-three-gallery-acrylic-photo-frames/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/triptych-set-of-three-gallery-acrylic-photo-frames/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-22",
+        "name": "M-22",
+        "image": "/images/mockups/triptych-set-of-three-gallery-acrylic-photo-frames/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/triptych-set-of-three-gallery-acrylic-photo-frames/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-23",
+        "name": "M-23",
+        "image": "/images/mockups/triptych-set-of-three-gallery-acrylic-photo-frames/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/triptych-set-of-three-gallery-acrylic-photo-frames/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-24",
+        "name": "M-24",
+        "image": "/images/mockups/triptych-set-of-three-gallery-acrylic-photo-frames/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/triptych-set-of-three-gallery-acrylic-photo-frames/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-25",
+        "name": "M-25",
+        "image": "/images/mockups/triptych-set-of-three-gallery-acrylic-photo-frames/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/triptych-set-of-three-gallery-acrylic-photo-frames/primary-square.jpg"
+        ]
+      }
+    ]
   },
   {
     "slug": "custom-couple-wedding-vows-acrylic-keepsake-frame",
@@ -363,23 +789,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "artStyle": "Custom Wedding Acrylic",
     "orientation": "vertical",
     "images": [
-      "/images/mockups/custom-couple-wedding-vows-acrylic-keepsake-frame/primary-square.jpg",
-      "/images/mockups/custom-couple-wedding-vows-acrylic-keepsake-frame/mockup-living-room.jpg",
-      "/images/mockups/custom-couple-wedding-vows-acrylic-keepsake-frame/mockup-interior.jpg",
-      "/images/mockups/custom-couple-wedding-vows-acrylic-keepsake-frame/mockup-foyer.jpg",
-      "/images/mockups/custom-couple-wedding-vows-acrylic-keepsake-frame/mockup-detail.jpg",
-      "/images/mockups/custom-couple-wedding-vows-acrylic-keepsake-frame/mockup-artistic.jpg",
-      "/images/atelier/ganesha-complete-framed.jpg",
-      "/images/atelier/hero-ganesha-frame.jpg",
-      "/images/atelier/hero-ram-legacy.jpg",
-      "/images/atelier/hero-ram-portrait.jpg",
-      "/images/atelier/layers-exploded-diagram.jpg",
-      "/images/promo-aluminium-frames-clean.png",
-      "/images/print-size-options-clean.jpg",
-      "/images/trust-badges-clean.png",
-      "/images/frames/gold-border-ref.jpg",
-      "/images/frames/black-border-ref.jpg",
-      "/images/frames/acrylic-border-ref.jpg"
+      "/images/mockups/custom-couple-wedding-vows-acrylic-keepsake-frame/primary-square.jpg"
     ],
     "tags": [
       "Wedding Frame",
@@ -447,7 +857,234 @@ export const INITIAL_PRODUCTS: Product[] = [
     "reviews": [],
     "createdAt": "2026-09-22T00:00:00.000Z",
     "updatedAt": "2026-11-02T13:35:03.408Z",
-    "id": "6ae89187382113ccb9a54290"
+    "id": "6ae89187382113ccb9a54290",
+    "models": [
+      {
+        "id": "M-18",
+        "name": "M-18",
+        "image": "/images/mockups/custom-couple-wedding-vows-acrylic-keepsake-frame/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/custom-couple-wedding-vows-acrylic-keepsake-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-10",
+        "name": "M-10",
+        "image": "/images/mockups/custom-couple-wedding-vows-acrylic-keepsake-frame/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/custom-couple-wedding-vows-acrylic-keepsake-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-1",
+        "name": "M-1",
+        "image": "/images/mockups/custom-couple-wedding-vows-acrylic-keepsake-frame/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/custom-couple-wedding-vows-acrylic-keepsake-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-2",
+        "name": "M-2",
+        "image": "/images/mockups/custom-couple-wedding-vows-acrylic-keepsake-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-couple-wedding-vows-acrylic-keepsake-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-3",
+        "name": "M-3",
+        "image": "/images/mockups/custom-couple-wedding-vows-acrylic-keepsake-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-couple-wedding-vows-acrylic-keepsake-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-4",
+        "name": "M-4",
+        "image": "/images/mockups/custom-couple-wedding-vows-acrylic-keepsake-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-couple-wedding-vows-acrylic-keepsake-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-5",
+        "name": "M-5",
+        "image": "/images/mockups/custom-couple-wedding-vows-acrylic-keepsake-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-couple-wedding-vows-acrylic-keepsake-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-6",
+        "name": "M-6",
+        "image": "/images/mockups/custom-couple-wedding-vows-acrylic-keepsake-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-couple-wedding-vows-acrylic-keepsake-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-7",
+        "name": "M-7",
+        "image": "/images/mockups/custom-couple-wedding-vows-acrylic-keepsake-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-couple-wedding-vows-acrylic-keepsake-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-8",
+        "name": "M-8",
+        "image": "/images/mockups/custom-couple-wedding-vows-acrylic-keepsake-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-couple-wedding-vows-acrylic-keepsake-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-9",
+        "name": "M-9",
+        "image": "/images/mockups/custom-couple-wedding-vows-acrylic-keepsake-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-couple-wedding-vows-acrylic-keepsake-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-11",
+        "name": "M-11",
+        "image": "/images/mockups/custom-couple-wedding-vows-acrylic-keepsake-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-couple-wedding-vows-acrylic-keepsake-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-12",
+        "name": "M-12",
+        "image": "/images/mockups/custom-couple-wedding-vows-acrylic-keepsake-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-couple-wedding-vows-acrylic-keepsake-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-13",
+        "name": "M-13",
+        "image": "/images/mockups/custom-couple-wedding-vows-acrylic-keepsake-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-couple-wedding-vows-acrylic-keepsake-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-14",
+        "name": "M-14",
+        "image": "/images/mockups/custom-couple-wedding-vows-acrylic-keepsake-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-couple-wedding-vows-acrylic-keepsake-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-15",
+        "name": "M-15",
+        "image": "/images/mockups/custom-couple-wedding-vows-acrylic-keepsake-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-couple-wedding-vows-acrylic-keepsake-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-16",
+        "name": "M-16",
+        "image": "/images/mockups/custom-couple-wedding-vows-acrylic-keepsake-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-couple-wedding-vows-acrylic-keepsake-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-17",
+        "name": "M-17",
+        "image": "/images/mockups/custom-couple-wedding-vows-acrylic-keepsake-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-couple-wedding-vows-acrylic-keepsake-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-19",
+        "name": "M-19",
+        "image": "/images/mockups/custom-couple-wedding-vows-acrylic-keepsake-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-couple-wedding-vows-acrylic-keepsake-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-20",
+        "name": "M-20",
+        "image": "/images/mockups/custom-couple-wedding-vows-acrylic-keepsake-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-couple-wedding-vows-acrylic-keepsake-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-21",
+        "name": "M-21",
+        "image": "/images/mockups/custom-couple-wedding-vows-acrylic-keepsake-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-couple-wedding-vows-acrylic-keepsake-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-22",
+        "name": "M-22",
+        "image": "/images/mockups/custom-couple-wedding-vows-acrylic-keepsake-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-couple-wedding-vows-acrylic-keepsake-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-23",
+        "name": "M-23",
+        "image": "/images/mockups/custom-couple-wedding-vows-acrylic-keepsake-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-couple-wedding-vows-acrylic-keepsake-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-24",
+        "name": "M-24",
+        "image": "/images/mockups/custom-couple-wedding-vows-acrylic-keepsake-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-couple-wedding-vows-acrylic-keepsake-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-25",
+        "name": "M-25",
+        "image": "/images/mockups/custom-couple-wedding-vows-acrylic-keepsake-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-couple-wedding-vows-acrylic-keepsake-frame/primary-square.jpg"
+        ]
+      }
+    ]
   },
   {
     "slug": "lord-ganesha-vighnaharta-divine-led-backlit-acrylic-art",
@@ -461,24 +1098,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "artStyle": "LED Backlit Acrylic",
     "orientation": "square",
     "images": [
-      "/images/mockups/lord-ganesha-vighnaharta-divine-led-backlit-acrylic-art/primary-square.jpg",
-      "/images/mockups/lord-ganesha-vighnaharta-divine-led-backlit-acrylic-art/mockup-living-room.jpg",
-      "/images/mockups/lord-ganesha-vighnaharta-divine-led-backlit-acrylic-art/mockup-interior.jpg",
-      "/images/mockups/lord-ganesha-vighnaharta-divine-led-backlit-acrylic-art/mockup-foyer.jpg",
-      "/images/mockups/lord-ganesha-vighnaharta-divine-led-backlit-acrylic-art/mockup-detail.jpg",
-      "/images/mockups/lord-ganesha-vighnaharta-divine-led-backlit-acrylic-art/mockup-artistic.jpg",
-      "/images/atelier/ganesha-complete-framed.jpg",
-      "/images/atelier/ganesha-sanctum-masterpiece.jpg",
-      "/images/atelier/ganesha-space-reveal-clean.jpg",
-      "/images/atelier/hero-ganesha-frame.jpg",
-      "/images/atelier/hero-ganesha-legacy.jpg",
-      "/images/atelier/hero-ganesha-portrait.jpg",
-      "/images/promo-aluminium-frames-clean.png",
-      "/images/print-size-options-clean.jpg",
-      "/images/trust-badges-clean.png",
-      "/images/frames/gold-border-ref.jpg",
-      "/images/frames/black-border-ref.jpg",
-      "/images/frames/acrylic-border-ref.jpg"
+      "/images/mockups/lord-ganesha-vighnaharta-divine-led-backlit-acrylic-art/primary-square.jpg"
     ],
     "tags": [
       "Ganesha",
@@ -547,7 +1167,234 @@ export const INITIAL_PRODUCTS: Product[] = [
     "reviews": [],
     "createdAt": "2026-10-18T00:00:00.000Z",
     "updatedAt": "2026-11-02T13:35:03.408Z",
-    "id": "6ae89187382113ccb9a54299"
+    "id": "6ae89187382113ccb9a54299",
+    "models": [
+      {
+        "id": "M-18",
+        "name": "M-18",
+        "image": "/images/mockups/lord-ganesha-vighnaharta-divine-led-backlit-acrylic-art/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/lord-ganesha-vighnaharta-divine-led-backlit-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-10",
+        "name": "M-10",
+        "image": "/images/mockups/lord-ganesha-vighnaharta-divine-led-backlit-acrylic-art/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/lord-ganesha-vighnaharta-divine-led-backlit-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-1",
+        "name": "M-1",
+        "image": "/images/mockups/lord-ganesha-vighnaharta-divine-led-backlit-acrylic-art/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/lord-ganesha-vighnaharta-divine-led-backlit-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-2",
+        "name": "M-2",
+        "image": "/images/mockups/lord-ganesha-vighnaharta-divine-led-backlit-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-ganesha-vighnaharta-divine-led-backlit-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-3",
+        "name": "M-3",
+        "image": "/images/mockups/lord-ganesha-vighnaharta-divine-led-backlit-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-ganesha-vighnaharta-divine-led-backlit-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-4",
+        "name": "M-4",
+        "image": "/images/mockups/lord-ganesha-vighnaharta-divine-led-backlit-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-ganesha-vighnaharta-divine-led-backlit-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-5",
+        "name": "M-5",
+        "image": "/images/mockups/lord-ganesha-vighnaharta-divine-led-backlit-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-ganesha-vighnaharta-divine-led-backlit-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-6",
+        "name": "M-6",
+        "image": "/images/mockups/lord-ganesha-vighnaharta-divine-led-backlit-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-ganesha-vighnaharta-divine-led-backlit-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-7",
+        "name": "M-7",
+        "image": "/images/mockups/lord-ganesha-vighnaharta-divine-led-backlit-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-ganesha-vighnaharta-divine-led-backlit-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-8",
+        "name": "M-8",
+        "image": "/images/mockups/lord-ganesha-vighnaharta-divine-led-backlit-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-ganesha-vighnaharta-divine-led-backlit-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-9",
+        "name": "M-9",
+        "image": "/images/mockups/lord-ganesha-vighnaharta-divine-led-backlit-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-ganesha-vighnaharta-divine-led-backlit-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-11",
+        "name": "M-11",
+        "image": "/images/mockups/lord-ganesha-vighnaharta-divine-led-backlit-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-ganesha-vighnaharta-divine-led-backlit-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-12",
+        "name": "M-12",
+        "image": "/images/mockups/lord-ganesha-vighnaharta-divine-led-backlit-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-ganesha-vighnaharta-divine-led-backlit-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-13",
+        "name": "M-13",
+        "image": "/images/mockups/lord-ganesha-vighnaharta-divine-led-backlit-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-ganesha-vighnaharta-divine-led-backlit-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-14",
+        "name": "M-14",
+        "image": "/images/mockups/lord-ganesha-vighnaharta-divine-led-backlit-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-ganesha-vighnaharta-divine-led-backlit-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-15",
+        "name": "M-15",
+        "image": "/images/mockups/lord-ganesha-vighnaharta-divine-led-backlit-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-ganesha-vighnaharta-divine-led-backlit-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-16",
+        "name": "M-16",
+        "image": "/images/mockups/lord-ganesha-vighnaharta-divine-led-backlit-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-ganesha-vighnaharta-divine-led-backlit-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-17",
+        "name": "M-17",
+        "image": "/images/mockups/lord-ganesha-vighnaharta-divine-led-backlit-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-ganesha-vighnaharta-divine-led-backlit-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-19",
+        "name": "M-19",
+        "image": "/images/mockups/lord-ganesha-vighnaharta-divine-led-backlit-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-ganesha-vighnaharta-divine-led-backlit-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-20",
+        "name": "M-20",
+        "image": "/images/mockups/lord-ganesha-vighnaharta-divine-led-backlit-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-ganesha-vighnaharta-divine-led-backlit-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-21",
+        "name": "M-21",
+        "image": "/images/mockups/lord-ganesha-vighnaharta-divine-led-backlit-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-ganesha-vighnaharta-divine-led-backlit-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-22",
+        "name": "M-22",
+        "image": "/images/mockups/lord-ganesha-vighnaharta-divine-led-backlit-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-ganesha-vighnaharta-divine-led-backlit-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-23",
+        "name": "M-23",
+        "image": "/images/mockups/lord-ganesha-vighnaharta-divine-led-backlit-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-ganesha-vighnaharta-divine-led-backlit-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-24",
+        "name": "M-24",
+        "image": "/images/mockups/lord-ganesha-vighnaharta-divine-led-backlit-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-ganesha-vighnaharta-divine-led-backlit-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-25",
+        "name": "M-25",
+        "image": "/images/mockups/lord-ganesha-vighnaharta-divine-led-backlit-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-ganesha-vighnaharta-divine-led-backlit-acrylic-art/primary-square.jpg"
+        ]
+      }
+    ]
   },
   {
     "slug": "lord-venkateswara-balaji-24k-gold-acrylic-wall-art",
@@ -561,18 +1408,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "artStyle": "24K Gold Embellished Acrylic",
     "orientation": "vertical",
     "images": [
-      "/images/mockups/lord-venkateswara-balaji-24k-gold-acrylic-wall-art/primary-square.jpg",
-      "/images/mockups/lord-venkateswara-balaji-24k-gold-acrylic-wall-art/mockup-living-room.jpg",
-      "/images/mockups/lord-venkateswara-balaji-24k-gold-acrylic-wall-art/mockup-interior.jpg",
-      "/images/mockups/lord-venkateswara-balaji-24k-gold-acrylic-wall-art/mockup-foyer.jpg",
-      "/images/mockups/lord-venkateswara-balaji-24k-gold-acrylic-wall-art/mockup-detail.jpg",
-      "/images/mockups/lord-venkateswara-balaji-24k-gold-acrylic-wall-art/mockup-artistic.jpg",
-      "/images/promo-aluminium-frames-clean.png",
-      "/images/print-size-options-clean.jpg",
-      "/images/trust-badges-clean.png",
-      "/images/frames/gold-border-ref.jpg",
-      "/images/frames/black-border-ref.jpg",
-      "/images/frames/acrylic-border-ref.jpg"
+      "/images/mockups/lord-venkateswara-balaji-24k-gold-acrylic-wall-art/primary-square.jpg"
     ],
     "tags": [
       "Balaji",
@@ -660,7 +1496,242 @@ export const INITIAL_PRODUCTS: Product[] = [
     "reviews": [],
     "createdAt": "2026-08-05T00:00:00.000Z",
     "updatedAt": "2026-11-02T13:35:03.408Z",
-    "id": "6ae89187382113ccb9a542a3"
+    "id": "6ae89187382113ccb9a542a3",
+    "models": [
+      {
+        "id": "M-18",
+        "name": "M-18",
+        "image": "/images/models/balaji-m18-room.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/models/balaji-m18-room.jpg",
+          "/images/models/balaji-m18-view-1.jpg",
+          "/images/models/balaji-m18-view-2.jpg",
+          "/images/models/balaji-m18-view-3.jpg",
+          "/images/models/balaji-m18-view-4.jpg",
+          "/images/models/balaji-m18-view-5.jpg",
+          "/images/models/balaji-m18-art.jpg"
+        ]
+      },
+      {
+        "id": "M-10",
+        "name": "M-10",
+        "image": "/images/wall-decor/products/balaji/balaji-acrylic-gold-frame.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/wall-decor/products/balaji/balaji-acrylic-gold-frame.jpg",
+          "/images/wall-decor/products/balaji/balaji-daylight-unlit.jpg",
+          "/images/mockups/lord-venkateswara-balaji-24k-gold-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-1",
+        "name": "M-1",
+        "image": "/images/mockups/lord-venkateswara-balaji-24k-gold-acrylic-wall-art/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/lord-venkateswara-balaji-24k-gold-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-2",
+        "name": "M-2",
+        "image": "/images/mockups/lord-venkateswara-balaji-24k-gold-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-venkateswara-balaji-24k-gold-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-3",
+        "name": "M-3",
+        "image": "/images/mockups/lord-venkateswara-balaji-24k-gold-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-venkateswara-balaji-24k-gold-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-4",
+        "name": "M-4",
+        "image": "/images/mockups/lord-venkateswara-balaji-24k-gold-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-venkateswara-balaji-24k-gold-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-5",
+        "name": "M-5",
+        "image": "/images/mockups/lord-venkateswara-balaji-24k-gold-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-venkateswara-balaji-24k-gold-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-6",
+        "name": "M-6",
+        "image": "/images/mockups/lord-venkateswara-balaji-24k-gold-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-venkateswara-balaji-24k-gold-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-7",
+        "name": "M-7",
+        "image": "/images/mockups/lord-venkateswara-balaji-24k-gold-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-venkateswara-balaji-24k-gold-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-8",
+        "name": "M-8",
+        "image": "/images/mockups/lord-venkateswara-balaji-24k-gold-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-venkateswara-balaji-24k-gold-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-9",
+        "name": "M-9",
+        "image": "/images/mockups/lord-venkateswara-balaji-24k-gold-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-venkateswara-balaji-24k-gold-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-11",
+        "name": "M-11",
+        "image": "/images/mockups/lord-venkateswara-balaji-24k-gold-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-venkateswara-balaji-24k-gold-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-12",
+        "name": "M-12",
+        "image": "/images/mockups/lord-venkateswara-balaji-24k-gold-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-venkateswara-balaji-24k-gold-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-13",
+        "name": "M-13",
+        "image": "/images/mockups/lord-venkateswara-balaji-24k-gold-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-venkateswara-balaji-24k-gold-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-14",
+        "name": "M-14",
+        "image": "/images/mockups/lord-venkateswara-balaji-24k-gold-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-venkateswara-balaji-24k-gold-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-15",
+        "name": "M-15",
+        "image": "/images/mockups/lord-venkateswara-balaji-24k-gold-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-venkateswara-balaji-24k-gold-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-16",
+        "name": "M-16",
+        "image": "/images/mockups/lord-venkateswara-balaji-24k-gold-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-venkateswara-balaji-24k-gold-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-17",
+        "name": "M-17",
+        "image": "/images/mockups/lord-venkateswara-balaji-24k-gold-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-venkateswara-balaji-24k-gold-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-19",
+        "name": "M-19",
+        "image": "/images/mockups/lord-venkateswara-balaji-24k-gold-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-venkateswara-balaji-24k-gold-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-20",
+        "name": "M-20",
+        "image": "/images/mockups/lord-venkateswara-balaji-24k-gold-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-venkateswara-balaji-24k-gold-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-21",
+        "name": "M-21",
+        "image": "/images/mockups/lord-venkateswara-balaji-24k-gold-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-venkateswara-balaji-24k-gold-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-22",
+        "name": "M-22",
+        "image": "/images/mockups/lord-venkateswara-balaji-24k-gold-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-venkateswara-balaji-24k-gold-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-23",
+        "name": "M-23",
+        "image": "/images/mockups/lord-venkateswara-balaji-24k-gold-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-venkateswara-balaji-24k-gold-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-24",
+        "name": "M-24",
+        "image": "/images/mockups/lord-venkateswara-balaji-24k-gold-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-venkateswara-balaji-24k-gold-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-25",
+        "name": "M-25",
+        "image": "/images/mockups/lord-venkateswara-balaji-24k-gold-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-venkateswara-balaji-24k-gold-acrylic-wall-art/primary-square.jpg"
+        ]
+      }
+    ]
   },
   {
     "slug": "sparkling-diamond-glitter-wedding-photo-frame",
@@ -675,21 +1746,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "images": [
       "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/primary-square.jpg",
       "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/mockup-living-room.jpg",
-      "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/mockup-interior.jpg",
-      "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/mockup-foyer.jpg",
-      "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/mockup-detail.jpg",
-      "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/mockup-artistic.jpg",
-      "/images/atelier/ganesha-complete-framed.jpg",
-      "/images/atelier/hero-ganesha-frame.jpg",
-      "/images/atelier/hero-ram-legacy.jpg",
-      "/images/atelier/hero-ram-portrait.jpg",
-      "/images/atelier/layers-exploded-diagram.jpg",
-      "/images/promo-aluminium-frames-clean.png",
-      "/images/print-size-options-clean.jpg",
-      "/images/trust-badges-clean.png",
-      "/images/frames/gold-border-ref.jpg",
-      "/images/frames/black-border-ref.jpg",
-      "/images/frames/acrylic-border-ref.jpg"
+      "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/mockup-interior.jpg"
     ],
     "tags": [
       "Diamond Glitter",
@@ -769,7 +1826,284 @@ export const INITIAL_PRODUCTS: Product[] = [
     "reviews": [],
     "createdAt": "2026-11-01T00:00:00.000Z",
     "updatedAt": "2026-11-02T13:35:03.409Z",
-    "id": "6ae89187382113ccb9a542c4"
+    "id": "6ae89187382113ccb9a542c4",
+    "models": [
+      {
+        "id": "M-18",
+        "name": "M-18",
+        "image": "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/primary-square.jpg",
+          "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/mockup-living-room.jpg",
+          "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/mockup-interior.jpg"
+        ]
+      },
+      {
+        "id": "M-10",
+        "name": "M-10",
+        "image": "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/mockup-living-room.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/mockup-living-room.jpg",
+          "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/mockup-interior.jpg",
+          "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-1",
+        "name": "M-1",
+        "image": "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/mockup-interior.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/mockup-interior.jpg",
+          "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/primary-square.jpg",
+          "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/mockup-living-room.jpg"
+        ]
+      },
+      {
+        "id": "M-2",
+        "name": "M-2",
+        "image": "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/primary-square.jpg",
+          "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/mockup-living-room.jpg",
+          "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/mockup-interior.jpg"
+        ]
+      },
+      {
+        "id": "M-3",
+        "name": "M-3",
+        "image": "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/mockup-living-room.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/mockup-living-room.jpg",
+          "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/mockup-interior.jpg",
+          "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-4",
+        "name": "M-4",
+        "image": "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/mockup-interior.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/mockup-interior.jpg",
+          "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/primary-square.jpg",
+          "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/mockup-living-room.jpg"
+        ]
+      },
+      {
+        "id": "M-5",
+        "name": "M-5",
+        "image": "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/primary-square.jpg",
+          "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/mockup-living-room.jpg",
+          "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/mockup-interior.jpg"
+        ]
+      },
+      {
+        "id": "M-6",
+        "name": "M-6",
+        "image": "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/mockup-living-room.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/mockup-living-room.jpg",
+          "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/mockup-interior.jpg",
+          "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-7",
+        "name": "M-7",
+        "image": "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/mockup-interior.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/mockup-interior.jpg",
+          "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/primary-square.jpg",
+          "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/mockup-living-room.jpg"
+        ]
+      },
+      {
+        "id": "M-8",
+        "name": "M-8",
+        "image": "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/primary-square.jpg",
+          "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/mockup-living-room.jpg",
+          "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/mockup-interior.jpg"
+        ]
+      },
+      {
+        "id": "M-9",
+        "name": "M-9",
+        "image": "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/mockup-living-room.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/mockup-living-room.jpg",
+          "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/mockup-interior.jpg",
+          "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-11",
+        "name": "M-11",
+        "image": "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/mockup-interior.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/mockup-interior.jpg",
+          "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/primary-square.jpg",
+          "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/mockup-living-room.jpg"
+        ]
+      },
+      {
+        "id": "M-12",
+        "name": "M-12",
+        "image": "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/primary-square.jpg",
+          "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/mockup-living-room.jpg",
+          "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/mockup-interior.jpg"
+        ]
+      },
+      {
+        "id": "M-13",
+        "name": "M-13",
+        "image": "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/mockup-living-room.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/mockup-living-room.jpg",
+          "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/mockup-interior.jpg",
+          "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-14",
+        "name": "M-14",
+        "image": "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/mockup-interior.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/mockup-interior.jpg",
+          "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/primary-square.jpg",
+          "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/mockup-living-room.jpg"
+        ]
+      },
+      {
+        "id": "M-15",
+        "name": "M-15",
+        "image": "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/primary-square.jpg",
+          "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/mockup-living-room.jpg",
+          "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/mockup-interior.jpg"
+        ]
+      },
+      {
+        "id": "M-16",
+        "name": "M-16",
+        "image": "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/mockup-living-room.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/mockup-living-room.jpg",
+          "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/mockup-interior.jpg",
+          "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-17",
+        "name": "M-17",
+        "image": "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/mockup-interior.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/mockup-interior.jpg",
+          "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/primary-square.jpg",
+          "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/mockup-living-room.jpg"
+        ]
+      },
+      {
+        "id": "M-19",
+        "name": "M-19",
+        "image": "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/primary-square.jpg",
+          "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/mockup-living-room.jpg",
+          "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/mockup-interior.jpg"
+        ]
+      },
+      {
+        "id": "M-20",
+        "name": "M-20",
+        "image": "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/mockup-living-room.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/mockup-living-room.jpg",
+          "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/mockup-interior.jpg",
+          "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-21",
+        "name": "M-21",
+        "image": "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/mockup-interior.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/mockup-interior.jpg",
+          "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/primary-square.jpg",
+          "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/mockup-living-room.jpg"
+        ]
+      },
+      {
+        "id": "M-22",
+        "name": "M-22",
+        "image": "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/primary-square.jpg",
+          "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/mockup-living-room.jpg",
+          "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/mockup-interior.jpg"
+        ]
+      },
+      {
+        "id": "M-23",
+        "name": "M-23",
+        "image": "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/mockup-living-room.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/mockup-living-room.jpg",
+          "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/mockup-interior.jpg",
+          "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-24",
+        "name": "M-24",
+        "image": "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/mockup-interior.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/mockup-interior.jpg",
+          "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/primary-square.jpg",
+          "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/mockup-living-room.jpg"
+        ]
+      },
+      {
+        "id": "M-25",
+        "name": "M-25",
+        "image": "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/primary-square.jpg",
+          "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/mockup-living-room.jpg",
+          "/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/mockup-interior.jpg"
+        ]
+      }
+    ]
   },
   {
     "slug": "lord-ganesha-auspicious-gold-leaf-acrylic-wall-art",
@@ -783,24 +2117,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "artStyle": "Devotional Acrylic",
     "orientation": "square",
     "images": [
-      "/images/mockups/lord-ganesha-auspicious-gold-leaf-acrylic-wall-art/primary-square.jpg",
-      "/images/mockups/lord-ganesha-auspicious-gold-leaf-acrylic-wall-art/mockup-living-room.jpg",
-      "/images/mockups/lord-ganesha-auspicious-gold-leaf-acrylic-wall-art/mockup-interior.jpg",
-      "/images/mockups/lord-ganesha-auspicious-gold-leaf-acrylic-wall-art/mockup-foyer.jpg",
-      "/images/mockups/lord-ganesha-auspicious-gold-leaf-acrylic-wall-art/mockup-detail.jpg",
-      "/images/mockups/lord-ganesha-auspicious-gold-leaf-acrylic-wall-art/mockup-artistic.jpg",
-      "/images/atelier/ganesha-complete-framed.jpg",
-      "/images/atelier/ganesha-sanctum-masterpiece.jpg",
-      "/images/atelier/ganesha-space-reveal-clean.jpg",
-      "/images/atelier/hero-ganesha-frame.jpg",
-      "/images/atelier/hero-ganesha-legacy.jpg",
-      "/images/atelier/hero-ganesha-portrait.jpg",
-      "/images/promo-aluminium-frames-clean.png",
-      "/images/print-size-options-clean.jpg",
-      "/images/trust-badges-clean.png",
-      "/images/frames/gold-border-ref.jpg",
-      "/images/frames/black-border-ref.jpg",
-      "/images/frames/acrylic-border-ref.jpg"
+      "/images/mockups/lord-ganesha-auspicious-gold-leaf-acrylic-wall-art/primary-square.jpg"
     ],
     "tags": [
       "Ganesha",
@@ -893,7 +2210,234 @@ export const INITIAL_PRODUCTS: Product[] = [
     "reviews": [],
     "createdAt": "2026-08-15T00:00:00.000Z",
     "updatedAt": "2026-11-02T13:35:03.396Z",
-    "id": "6ae89187382113ccb9a541e7"
+    "id": "6ae89187382113ccb9a541e7",
+    "models": [
+      {
+        "id": "M-18",
+        "name": "M-18",
+        "image": "/images/mockups/lord-ganesha-auspicious-gold-leaf-acrylic-wall-art/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/lord-ganesha-auspicious-gold-leaf-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-10",
+        "name": "M-10",
+        "image": "/images/mockups/lord-ganesha-auspicious-gold-leaf-acrylic-wall-art/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/lord-ganesha-auspicious-gold-leaf-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-1",
+        "name": "M-1",
+        "image": "/images/mockups/lord-ganesha-auspicious-gold-leaf-acrylic-wall-art/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/lord-ganesha-auspicious-gold-leaf-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-2",
+        "name": "M-2",
+        "image": "/images/mockups/lord-ganesha-auspicious-gold-leaf-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-ganesha-auspicious-gold-leaf-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-3",
+        "name": "M-3",
+        "image": "/images/mockups/lord-ganesha-auspicious-gold-leaf-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-ganesha-auspicious-gold-leaf-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-4",
+        "name": "M-4",
+        "image": "/images/mockups/lord-ganesha-auspicious-gold-leaf-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-ganesha-auspicious-gold-leaf-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-5",
+        "name": "M-5",
+        "image": "/images/mockups/lord-ganesha-auspicious-gold-leaf-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-ganesha-auspicious-gold-leaf-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-6",
+        "name": "M-6",
+        "image": "/images/mockups/lord-ganesha-auspicious-gold-leaf-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-ganesha-auspicious-gold-leaf-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-7",
+        "name": "M-7",
+        "image": "/images/mockups/lord-ganesha-auspicious-gold-leaf-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-ganesha-auspicious-gold-leaf-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-8",
+        "name": "M-8",
+        "image": "/images/mockups/lord-ganesha-auspicious-gold-leaf-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-ganesha-auspicious-gold-leaf-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-9",
+        "name": "M-9",
+        "image": "/images/mockups/lord-ganesha-auspicious-gold-leaf-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-ganesha-auspicious-gold-leaf-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-11",
+        "name": "M-11",
+        "image": "/images/mockups/lord-ganesha-auspicious-gold-leaf-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-ganesha-auspicious-gold-leaf-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-12",
+        "name": "M-12",
+        "image": "/images/mockups/lord-ganesha-auspicious-gold-leaf-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-ganesha-auspicious-gold-leaf-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-13",
+        "name": "M-13",
+        "image": "/images/mockups/lord-ganesha-auspicious-gold-leaf-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-ganesha-auspicious-gold-leaf-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-14",
+        "name": "M-14",
+        "image": "/images/mockups/lord-ganesha-auspicious-gold-leaf-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-ganesha-auspicious-gold-leaf-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-15",
+        "name": "M-15",
+        "image": "/images/mockups/lord-ganesha-auspicious-gold-leaf-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-ganesha-auspicious-gold-leaf-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-16",
+        "name": "M-16",
+        "image": "/images/mockups/lord-ganesha-auspicious-gold-leaf-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-ganesha-auspicious-gold-leaf-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-17",
+        "name": "M-17",
+        "image": "/images/mockups/lord-ganesha-auspicious-gold-leaf-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-ganesha-auspicious-gold-leaf-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-19",
+        "name": "M-19",
+        "image": "/images/mockups/lord-ganesha-auspicious-gold-leaf-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-ganesha-auspicious-gold-leaf-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-20",
+        "name": "M-20",
+        "image": "/images/mockups/lord-ganesha-auspicious-gold-leaf-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-ganesha-auspicious-gold-leaf-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-21",
+        "name": "M-21",
+        "image": "/images/mockups/lord-ganesha-auspicious-gold-leaf-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-ganesha-auspicious-gold-leaf-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-22",
+        "name": "M-22",
+        "image": "/images/mockups/lord-ganesha-auspicious-gold-leaf-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-ganesha-auspicious-gold-leaf-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-23",
+        "name": "M-23",
+        "image": "/images/mockups/lord-ganesha-auspicious-gold-leaf-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-ganesha-auspicious-gold-leaf-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-24",
+        "name": "M-24",
+        "image": "/images/mockups/lord-ganesha-auspicious-gold-leaf-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-ganesha-auspicious-gold-leaf-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-25",
+        "name": "M-25",
+        "image": "/images/mockups/lord-ganesha-auspicious-gold-leaf-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-ganesha-auspicious-gold-leaf-acrylic-wall-art/primary-square.jpg"
+        ]
+      }
+    ]
   },
   {
     "slug": "radha-krishna-divine-flute-acrylic-wall-decor",
@@ -907,20 +2451,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "artStyle": "Premium Acrylic",
     "orientation": "vertical",
     "images": [
-      "/images/mockups/radha-krishna-divine-flute-acrylic-wall-decor/primary-square.jpg",
-      "/images/mockups/radha-krishna-divine-flute-acrylic-wall-decor/mockup-living-room.jpg",
-      "/images/mockups/radha-krishna-divine-flute-acrylic-wall-decor/mockup-interior.jpg",
-      "/images/mockups/radha-krishna-divine-flute-acrylic-wall-decor/mockup-foyer.jpg",
-      "/images/mockups/radha-krishna-divine-flute-acrylic-wall-decor/mockup-detail.jpg",
-      "/images/mockups/radha-krishna-divine-flute-acrylic-wall-decor/mockup-artistic.jpg",
-      "/images/atelier/hero-krishna-legacy.jpg",
-      "/images/atelier/hero-krishna-portrait.jpg",
-      "/images/promo-aluminium-frames-clean.png",
-      "/images/print-size-options-clean.jpg",
-      "/images/trust-badges-clean.png",
-      "/images/frames/gold-border-ref.jpg",
-      "/images/frames/black-border-ref.jpg",
-      "/images/frames/acrylic-border-ref.jpg"
+      "/images/mockups/radha-krishna-divine-flute-acrylic-wall-decor/primary-square.jpg"
     ],
     "tags": [
       "Radha Krishna",
@@ -1001,7 +2532,234 @@ export const INITIAL_PRODUCTS: Product[] = [
     "reviews": [],
     "createdAt": "2026-09-01T00:00:00.000Z",
     "updatedAt": "2026-11-02T13:35:03.398Z",
-    "id": "6ae89187382113ccb9a541f6"
+    "id": "6ae89187382113ccb9a541f6",
+    "models": [
+      {
+        "id": "M-18",
+        "name": "M-18",
+        "image": "/images/mockups/radha-krishna-divine-flute-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/radha-krishna-divine-flute-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-10",
+        "name": "M-10",
+        "image": "/images/mockups/radha-krishna-divine-flute-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/radha-krishna-divine-flute-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-1",
+        "name": "M-1",
+        "image": "/images/mockups/radha-krishna-divine-flute-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/radha-krishna-divine-flute-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-2",
+        "name": "M-2",
+        "image": "/images/mockups/radha-krishna-divine-flute-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/radha-krishna-divine-flute-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-3",
+        "name": "M-3",
+        "image": "/images/mockups/radha-krishna-divine-flute-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/radha-krishna-divine-flute-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-4",
+        "name": "M-4",
+        "image": "/images/mockups/radha-krishna-divine-flute-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/radha-krishna-divine-flute-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-5",
+        "name": "M-5",
+        "image": "/images/mockups/radha-krishna-divine-flute-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/radha-krishna-divine-flute-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-6",
+        "name": "M-6",
+        "image": "/images/mockups/radha-krishna-divine-flute-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/radha-krishna-divine-flute-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-7",
+        "name": "M-7",
+        "image": "/images/mockups/radha-krishna-divine-flute-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/radha-krishna-divine-flute-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-8",
+        "name": "M-8",
+        "image": "/images/mockups/radha-krishna-divine-flute-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/radha-krishna-divine-flute-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-9",
+        "name": "M-9",
+        "image": "/images/mockups/radha-krishna-divine-flute-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/radha-krishna-divine-flute-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-11",
+        "name": "M-11",
+        "image": "/images/mockups/radha-krishna-divine-flute-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/radha-krishna-divine-flute-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-12",
+        "name": "M-12",
+        "image": "/images/mockups/radha-krishna-divine-flute-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/radha-krishna-divine-flute-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-13",
+        "name": "M-13",
+        "image": "/images/mockups/radha-krishna-divine-flute-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/radha-krishna-divine-flute-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-14",
+        "name": "M-14",
+        "image": "/images/mockups/radha-krishna-divine-flute-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/radha-krishna-divine-flute-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-15",
+        "name": "M-15",
+        "image": "/images/mockups/radha-krishna-divine-flute-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/radha-krishna-divine-flute-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-16",
+        "name": "M-16",
+        "image": "/images/mockups/radha-krishna-divine-flute-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/radha-krishna-divine-flute-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-17",
+        "name": "M-17",
+        "image": "/images/mockups/radha-krishna-divine-flute-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/radha-krishna-divine-flute-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-19",
+        "name": "M-19",
+        "image": "/images/mockups/radha-krishna-divine-flute-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/radha-krishna-divine-flute-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-20",
+        "name": "M-20",
+        "image": "/images/mockups/radha-krishna-divine-flute-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/radha-krishna-divine-flute-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-21",
+        "name": "M-21",
+        "image": "/images/mockups/radha-krishna-divine-flute-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/radha-krishna-divine-flute-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-22",
+        "name": "M-22",
+        "image": "/images/mockups/radha-krishna-divine-flute-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/radha-krishna-divine-flute-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-23",
+        "name": "M-23",
+        "image": "/images/mockups/radha-krishna-divine-flute-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/radha-krishna-divine-flute-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-24",
+        "name": "M-24",
+        "image": "/images/mockups/radha-krishna-divine-flute-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/radha-krishna-divine-flute-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-25",
+        "name": "M-25",
+        "image": "/images/mockups/radha-krishna-divine-flute-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/radha-krishna-divine-flute-acrylic-wall-decor/primary-square.jpg"
+        ]
+      }
+    ]
   },
   {
     "slug": "custom-personalised-photo-acrylic-wall-frame",
@@ -1014,23 +2772,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "artStyle": "Custom Photo Frames",
     "orientation": "vertical",
     "images": [
-      "/images/mockups/custom-personalised-photo-acrylic-wall-frame/primary-square.jpg",
-      "/images/mockups/custom-personalised-photo-acrylic-wall-frame/mockup-living-room.jpg",
-      "/images/mockups/custom-personalised-photo-acrylic-wall-frame/mockup-interior.jpg",
-      "/images/mockups/custom-personalised-photo-acrylic-wall-frame/mockup-foyer.jpg",
-      "/images/mockups/custom-personalised-photo-acrylic-wall-frame/mockup-detail.jpg",
-      "/images/mockups/custom-personalised-photo-acrylic-wall-frame/mockup-artistic.jpg",
-      "/images/atelier/ganesha-complete-framed.jpg",
-      "/images/atelier/hero-ganesha-frame.jpg",
-      "/images/atelier/hero-ram-legacy.jpg",
-      "/images/atelier/hero-ram-portrait.jpg",
-      "/images/atelier/layers-exploded-diagram.jpg",
-      "/images/promo-aluminium-frames-clean.png",
-      "/images/print-size-options-clean.jpg",
-      "/images/trust-badges-clean.png",
-      "/images/frames/gold-border-ref.jpg",
-      "/images/frames/black-border-ref.jpg",
-      "/images/frames/acrylic-border-ref.jpg"
+      "/images/mockups/custom-personalised-photo-acrylic-wall-frame/primary-square.jpg"
     ],
     "tags": [
       "Custom Photo",
@@ -1129,7 +2871,234 @@ export const INITIAL_PRODUCTS: Product[] = [
     "reviews": [],
     "createdAt": "2026-08-05T00:00:00.000Z",
     "updatedAt": "2026-11-02T13:35:03.400Z",
-    "id": "6ae89187382113ccb9a54217"
+    "id": "6ae89187382113ccb9a54217",
+    "models": [
+      {
+        "id": "M-18",
+        "name": "M-18",
+        "image": "/images/mockups/custom-personalised-photo-acrylic-wall-frame/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/custom-personalised-photo-acrylic-wall-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-10",
+        "name": "M-10",
+        "image": "/images/mockups/custom-personalised-photo-acrylic-wall-frame/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/custom-personalised-photo-acrylic-wall-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-1",
+        "name": "M-1",
+        "image": "/images/mockups/custom-personalised-photo-acrylic-wall-frame/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/custom-personalised-photo-acrylic-wall-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-2",
+        "name": "M-2",
+        "image": "/images/mockups/custom-personalised-photo-acrylic-wall-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-personalised-photo-acrylic-wall-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-3",
+        "name": "M-3",
+        "image": "/images/mockups/custom-personalised-photo-acrylic-wall-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-personalised-photo-acrylic-wall-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-4",
+        "name": "M-4",
+        "image": "/images/mockups/custom-personalised-photo-acrylic-wall-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-personalised-photo-acrylic-wall-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-5",
+        "name": "M-5",
+        "image": "/images/mockups/custom-personalised-photo-acrylic-wall-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-personalised-photo-acrylic-wall-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-6",
+        "name": "M-6",
+        "image": "/images/mockups/custom-personalised-photo-acrylic-wall-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-personalised-photo-acrylic-wall-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-7",
+        "name": "M-7",
+        "image": "/images/mockups/custom-personalised-photo-acrylic-wall-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-personalised-photo-acrylic-wall-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-8",
+        "name": "M-8",
+        "image": "/images/mockups/custom-personalised-photo-acrylic-wall-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-personalised-photo-acrylic-wall-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-9",
+        "name": "M-9",
+        "image": "/images/mockups/custom-personalised-photo-acrylic-wall-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-personalised-photo-acrylic-wall-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-11",
+        "name": "M-11",
+        "image": "/images/mockups/custom-personalised-photo-acrylic-wall-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-personalised-photo-acrylic-wall-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-12",
+        "name": "M-12",
+        "image": "/images/mockups/custom-personalised-photo-acrylic-wall-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-personalised-photo-acrylic-wall-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-13",
+        "name": "M-13",
+        "image": "/images/mockups/custom-personalised-photo-acrylic-wall-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-personalised-photo-acrylic-wall-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-14",
+        "name": "M-14",
+        "image": "/images/mockups/custom-personalised-photo-acrylic-wall-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-personalised-photo-acrylic-wall-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-15",
+        "name": "M-15",
+        "image": "/images/mockups/custom-personalised-photo-acrylic-wall-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-personalised-photo-acrylic-wall-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-16",
+        "name": "M-16",
+        "image": "/images/mockups/custom-personalised-photo-acrylic-wall-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-personalised-photo-acrylic-wall-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-17",
+        "name": "M-17",
+        "image": "/images/mockups/custom-personalised-photo-acrylic-wall-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-personalised-photo-acrylic-wall-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-19",
+        "name": "M-19",
+        "image": "/images/mockups/custom-personalised-photo-acrylic-wall-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-personalised-photo-acrylic-wall-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-20",
+        "name": "M-20",
+        "image": "/images/mockups/custom-personalised-photo-acrylic-wall-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-personalised-photo-acrylic-wall-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-21",
+        "name": "M-21",
+        "image": "/images/mockups/custom-personalised-photo-acrylic-wall-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-personalised-photo-acrylic-wall-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-22",
+        "name": "M-22",
+        "image": "/images/mockups/custom-personalised-photo-acrylic-wall-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-personalised-photo-acrylic-wall-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-23",
+        "name": "M-23",
+        "image": "/images/mockups/custom-personalised-photo-acrylic-wall-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-personalised-photo-acrylic-wall-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-24",
+        "name": "M-24",
+        "image": "/images/mockups/custom-personalised-photo-acrylic-wall-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-personalised-photo-acrylic-wall-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-25",
+        "name": "M-25",
+        "image": "/images/mockups/custom-personalised-photo-acrylic-wall-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-personalised-photo-acrylic-wall-frame/primary-square.jpg"
+        ]
+      }
+    ]
   },
   {
     "slug": "modern-square-acrylic-photo-frame",
@@ -1142,23 +3111,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "artStyle": "Custom Photo Frames",
     "orientation": "square",
     "images": [
-      "/images/mockups/modern-square-acrylic-photo-frame/primary-square.jpg",
-      "/images/mockups/modern-square-acrylic-photo-frame/mockup-living-room.jpg",
-      "/images/mockups/modern-square-acrylic-photo-frame/mockup-interior.jpg",
-      "/images/mockups/modern-square-acrylic-photo-frame/mockup-foyer.jpg",
-      "/images/mockups/modern-square-acrylic-photo-frame/mockup-detail.jpg",
-      "/images/mockups/modern-square-acrylic-photo-frame/mockup-artistic.jpg",
-      "/images/atelier/ganesha-complete-framed.jpg",
-      "/images/atelier/hero-ganesha-frame.jpg",
-      "/images/atelier/hero-ram-legacy.jpg",
-      "/images/atelier/hero-ram-portrait.jpg",
-      "/images/atelier/layers-exploded-diagram.jpg",
-      "/images/promo-aluminium-frames-clean.png",
-      "/images/print-size-options-clean.jpg",
-      "/images/trust-badges-clean.png",
-      "/images/frames/gold-border-ref.jpg",
-      "/images/frames/black-border-ref.jpg",
-      "/images/frames/acrylic-border-ref.jpg"
+      "/images/mockups/modern-square-acrylic-photo-frame/primary-square.jpg"
     ],
     "tags": [
       "Square Frame",
@@ -1244,7 +3197,234 @@ export const INITIAL_PRODUCTS: Product[] = [
     "reviews": [],
     "createdAt": "2026-08-25T00:00:00.000Z",
     "updatedAt": "2026-11-02T13:35:03.401Z",
-    "id": "6ae89187382113ccb9a5422c"
+    "id": "6ae89187382113ccb9a5422c",
+    "models": [
+      {
+        "id": "M-18",
+        "name": "M-18",
+        "image": "/images/mockups/modern-square-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/modern-square-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-10",
+        "name": "M-10",
+        "image": "/images/mockups/modern-square-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/modern-square-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-1",
+        "name": "M-1",
+        "image": "/images/mockups/modern-square-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/modern-square-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-2",
+        "name": "M-2",
+        "image": "/images/mockups/modern-square-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/modern-square-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-3",
+        "name": "M-3",
+        "image": "/images/mockups/modern-square-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/modern-square-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-4",
+        "name": "M-4",
+        "image": "/images/mockups/modern-square-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/modern-square-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-5",
+        "name": "M-5",
+        "image": "/images/mockups/modern-square-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/modern-square-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-6",
+        "name": "M-6",
+        "image": "/images/mockups/modern-square-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/modern-square-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-7",
+        "name": "M-7",
+        "image": "/images/mockups/modern-square-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/modern-square-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-8",
+        "name": "M-8",
+        "image": "/images/mockups/modern-square-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/modern-square-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-9",
+        "name": "M-9",
+        "image": "/images/mockups/modern-square-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/modern-square-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-11",
+        "name": "M-11",
+        "image": "/images/mockups/modern-square-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/modern-square-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-12",
+        "name": "M-12",
+        "image": "/images/mockups/modern-square-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/modern-square-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-13",
+        "name": "M-13",
+        "image": "/images/mockups/modern-square-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/modern-square-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-14",
+        "name": "M-14",
+        "image": "/images/mockups/modern-square-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/modern-square-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-15",
+        "name": "M-15",
+        "image": "/images/mockups/modern-square-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/modern-square-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-16",
+        "name": "M-16",
+        "image": "/images/mockups/modern-square-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/modern-square-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-17",
+        "name": "M-17",
+        "image": "/images/mockups/modern-square-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/modern-square-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-19",
+        "name": "M-19",
+        "image": "/images/mockups/modern-square-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/modern-square-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-20",
+        "name": "M-20",
+        "image": "/images/mockups/modern-square-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/modern-square-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-21",
+        "name": "M-21",
+        "image": "/images/mockups/modern-square-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/modern-square-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-22",
+        "name": "M-22",
+        "image": "/images/mockups/modern-square-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/modern-square-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-23",
+        "name": "M-23",
+        "image": "/images/mockups/modern-square-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/modern-square-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-24",
+        "name": "M-24",
+        "image": "/images/mockups/modern-square-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/modern-square-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-25",
+        "name": "M-25",
+        "image": "/images/mockups/modern-square-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/modern-square-acrylic-photo-frame/primary-square.jpg"
+        ]
+      }
+    ]
   },
   {
     "slug": "modern-illuminated-celestial-horizon-acrylic-art",
@@ -1257,18 +3437,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "artStyle": "Contemporary Illuminated",
     "orientation": "horizontal",
     "images": [
-      "/images/mockups/modern-illuminated-celestial-horizon-acrylic-art/primary-square.jpg",
-      "/images/mockups/modern-illuminated-celestial-horizon-acrylic-art/mockup-living-room.jpg",
-      "/images/mockups/modern-illuminated-celestial-horizon-acrylic-art/mockup-interior.jpg",
-      "/images/mockups/modern-illuminated-celestial-horizon-acrylic-art/mockup-foyer.jpg",
-      "/images/mockups/modern-illuminated-celestial-horizon-acrylic-art/mockup-detail.jpg",
-      "/images/mockups/modern-illuminated-celestial-horizon-acrylic-art/mockup-artistic.jpg",
-      "/images/promo-aluminium-frames-clean.png",
-      "/images/print-size-options-clean.jpg",
-      "/images/trust-badges-clean.png",
-      "/images/frames/gold-border-ref.jpg",
-      "/images/frames/black-border-ref.jpg",
-      "/images/frames/acrylic-border-ref.jpg"
+      "/images/mockups/modern-illuminated-celestial-horizon-acrylic-art/primary-square.jpg"
     ],
     "tags": [
       "Illuminated Art",
@@ -1330,7 +3499,234 @@ export const INITIAL_PRODUCTS: Product[] = [
     "reviews": [],
     "createdAt": "2026-10-12T00:00:00.000Z",
     "updatedAt": "2026-11-02T13:35:03.408Z",
-    "id": "6ae89187382113ccb9a54295"
+    "id": "6ae89187382113ccb9a54295",
+    "models": [
+      {
+        "id": "M-18",
+        "name": "M-18",
+        "image": "/images/mockups/modern-illuminated-celestial-horizon-acrylic-art/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/modern-illuminated-celestial-horizon-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-10",
+        "name": "M-10",
+        "image": "/images/mockups/modern-illuminated-celestial-horizon-acrylic-art/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/modern-illuminated-celestial-horizon-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-1",
+        "name": "M-1",
+        "image": "/images/mockups/modern-illuminated-celestial-horizon-acrylic-art/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/modern-illuminated-celestial-horizon-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-2",
+        "name": "M-2",
+        "image": "/images/mockups/modern-illuminated-celestial-horizon-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/modern-illuminated-celestial-horizon-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-3",
+        "name": "M-3",
+        "image": "/images/mockups/modern-illuminated-celestial-horizon-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/modern-illuminated-celestial-horizon-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-4",
+        "name": "M-4",
+        "image": "/images/mockups/modern-illuminated-celestial-horizon-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/modern-illuminated-celestial-horizon-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-5",
+        "name": "M-5",
+        "image": "/images/mockups/modern-illuminated-celestial-horizon-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/modern-illuminated-celestial-horizon-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-6",
+        "name": "M-6",
+        "image": "/images/mockups/modern-illuminated-celestial-horizon-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/modern-illuminated-celestial-horizon-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-7",
+        "name": "M-7",
+        "image": "/images/mockups/modern-illuminated-celestial-horizon-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/modern-illuminated-celestial-horizon-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-8",
+        "name": "M-8",
+        "image": "/images/mockups/modern-illuminated-celestial-horizon-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/modern-illuminated-celestial-horizon-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-9",
+        "name": "M-9",
+        "image": "/images/mockups/modern-illuminated-celestial-horizon-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/modern-illuminated-celestial-horizon-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-11",
+        "name": "M-11",
+        "image": "/images/mockups/modern-illuminated-celestial-horizon-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/modern-illuminated-celestial-horizon-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-12",
+        "name": "M-12",
+        "image": "/images/mockups/modern-illuminated-celestial-horizon-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/modern-illuminated-celestial-horizon-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-13",
+        "name": "M-13",
+        "image": "/images/mockups/modern-illuminated-celestial-horizon-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/modern-illuminated-celestial-horizon-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-14",
+        "name": "M-14",
+        "image": "/images/mockups/modern-illuminated-celestial-horizon-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/modern-illuminated-celestial-horizon-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-15",
+        "name": "M-15",
+        "image": "/images/mockups/modern-illuminated-celestial-horizon-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/modern-illuminated-celestial-horizon-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-16",
+        "name": "M-16",
+        "image": "/images/mockups/modern-illuminated-celestial-horizon-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/modern-illuminated-celestial-horizon-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-17",
+        "name": "M-17",
+        "image": "/images/mockups/modern-illuminated-celestial-horizon-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/modern-illuminated-celestial-horizon-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-19",
+        "name": "M-19",
+        "image": "/images/mockups/modern-illuminated-celestial-horizon-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/modern-illuminated-celestial-horizon-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-20",
+        "name": "M-20",
+        "image": "/images/mockups/modern-illuminated-celestial-horizon-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/modern-illuminated-celestial-horizon-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-21",
+        "name": "M-21",
+        "image": "/images/mockups/modern-illuminated-celestial-horizon-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/modern-illuminated-celestial-horizon-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-22",
+        "name": "M-22",
+        "image": "/images/mockups/modern-illuminated-celestial-horizon-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/modern-illuminated-celestial-horizon-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-23",
+        "name": "M-23",
+        "image": "/images/mockups/modern-illuminated-celestial-horizon-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/modern-illuminated-celestial-horizon-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-24",
+        "name": "M-24",
+        "image": "/images/mockups/modern-illuminated-celestial-horizon-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/modern-illuminated-celestial-horizon-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-25",
+        "name": "M-25",
+        "image": "/images/mockups/modern-illuminated-celestial-horizon-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/modern-illuminated-celestial-horizon-acrylic-art/primary-square.jpg"
+        ]
+      }
+    ]
   },
   {
     "slug": "shri-hanuman-chalisa-full-inscribed-led-acrylic-frame",
@@ -1344,23 +3740,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "artStyle": "LED Backlit Acrylic",
     "orientation": "vertical",
     "images": [
-      "/images/mockups/shri-hanuman-chalisa-full-inscribed-led-acrylic-frame/primary-square.jpg",
-      "/images/mockups/shri-hanuman-chalisa-full-inscribed-led-acrylic-frame/mockup-living-room.jpg",
-      "/images/mockups/shri-hanuman-chalisa-full-inscribed-led-acrylic-frame/mockup-interior.jpg",
-      "/images/mockups/shri-hanuman-chalisa-full-inscribed-led-acrylic-frame/mockup-foyer.jpg",
-      "/images/mockups/shri-hanuman-chalisa-full-inscribed-led-acrylic-frame/mockup-detail.jpg",
-      "/images/mockups/shri-hanuman-chalisa-full-inscribed-led-acrylic-frame/mockup-artistic.jpg",
-      "/images/atelier/ganesha-complete-framed.jpg",
-      "/images/atelier/hero-ganesha-frame.jpg",
-      "/images/atelier/hero-ram-legacy.jpg",
-      "/images/atelier/hero-ram-portrait.jpg",
-      "/images/atelier/layers-exploded-diagram.jpg",
-      "/images/promo-aluminium-frames-clean.png",
-      "/images/print-size-options-clean.jpg",
-      "/images/trust-badges-clean.png",
-      "/images/frames/gold-border-ref.jpg",
-      "/images/frames/black-border-ref.jpg",
-      "/images/frames/acrylic-border-ref.jpg"
+      "/images/mockups/shri-hanuman-chalisa-full-inscribed-led-acrylic-frame/primary-square.jpg"
     ],
     "tags": [
       "Hanuman",
@@ -1448,7 +3828,234 @@ export const INITIAL_PRODUCTS: Product[] = [
     "reviews": [],
     "createdAt": "2026-08-20T00:00:00.000Z",
     "updatedAt": "2026-11-02T13:35:03.396Z",
-    "id": "6ae89187382113ccb9a541ef"
+    "id": "6ae89187382113ccb9a541ef",
+    "models": [
+      {
+        "id": "M-18",
+        "name": "M-18",
+        "image": "/images/mockups/shri-hanuman-chalisa-full-inscribed-led-acrylic-frame/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/shri-hanuman-chalisa-full-inscribed-led-acrylic-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-10",
+        "name": "M-10",
+        "image": "/images/mockups/shri-hanuman-chalisa-full-inscribed-led-acrylic-frame/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/shri-hanuman-chalisa-full-inscribed-led-acrylic-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-1",
+        "name": "M-1",
+        "image": "/images/mockups/shri-hanuman-chalisa-full-inscribed-led-acrylic-frame/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/shri-hanuman-chalisa-full-inscribed-led-acrylic-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-2",
+        "name": "M-2",
+        "image": "/images/mockups/shri-hanuman-chalisa-full-inscribed-led-acrylic-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/shri-hanuman-chalisa-full-inscribed-led-acrylic-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-3",
+        "name": "M-3",
+        "image": "/images/mockups/shri-hanuman-chalisa-full-inscribed-led-acrylic-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/shri-hanuman-chalisa-full-inscribed-led-acrylic-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-4",
+        "name": "M-4",
+        "image": "/images/mockups/shri-hanuman-chalisa-full-inscribed-led-acrylic-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/shri-hanuman-chalisa-full-inscribed-led-acrylic-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-5",
+        "name": "M-5",
+        "image": "/images/mockups/shri-hanuman-chalisa-full-inscribed-led-acrylic-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/shri-hanuman-chalisa-full-inscribed-led-acrylic-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-6",
+        "name": "M-6",
+        "image": "/images/mockups/shri-hanuman-chalisa-full-inscribed-led-acrylic-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/shri-hanuman-chalisa-full-inscribed-led-acrylic-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-7",
+        "name": "M-7",
+        "image": "/images/mockups/shri-hanuman-chalisa-full-inscribed-led-acrylic-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/shri-hanuman-chalisa-full-inscribed-led-acrylic-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-8",
+        "name": "M-8",
+        "image": "/images/mockups/shri-hanuman-chalisa-full-inscribed-led-acrylic-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/shri-hanuman-chalisa-full-inscribed-led-acrylic-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-9",
+        "name": "M-9",
+        "image": "/images/mockups/shri-hanuman-chalisa-full-inscribed-led-acrylic-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/shri-hanuman-chalisa-full-inscribed-led-acrylic-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-11",
+        "name": "M-11",
+        "image": "/images/mockups/shri-hanuman-chalisa-full-inscribed-led-acrylic-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/shri-hanuman-chalisa-full-inscribed-led-acrylic-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-12",
+        "name": "M-12",
+        "image": "/images/mockups/shri-hanuman-chalisa-full-inscribed-led-acrylic-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/shri-hanuman-chalisa-full-inscribed-led-acrylic-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-13",
+        "name": "M-13",
+        "image": "/images/mockups/shri-hanuman-chalisa-full-inscribed-led-acrylic-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/shri-hanuman-chalisa-full-inscribed-led-acrylic-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-14",
+        "name": "M-14",
+        "image": "/images/mockups/shri-hanuman-chalisa-full-inscribed-led-acrylic-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/shri-hanuman-chalisa-full-inscribed-led-acrylic-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-15",
+        "name": "M-15",
+        "image": "/images/mockups/shri-hanuman-chalisa-full-inscribed-led-acrylic-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/shri-hanuman-chalisa-full-inscribed-led-acrylic-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-16",
+        "name": "M-16",
+        "image": "/images/mockups/shri-hanuman-chalisa-full-inscribed-led-acrylic-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/shri-hanuman-chalisa-full-inscribed-led-acrylic-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-17",
+        "name": "M-17",
+        "image": "/images/mockups/shri-hanuman-chalisa-full-inscribed-led-acrylic-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/shri-hanuman-chalisa-full-inscribed-led-acrylic-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-19",
+        "name": "M-19",
+        "image": "/images/mockups/shri-hanuman-chalisa-full-inscribed-led-acrylic-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/shri-hanuman-chalisa-full-inscribed-led-acrylic-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-20",
+        "name": "M-20",
+        "image": "/images/mockups/shri-hanuman-chalisa-full-inscribed-led-acrylic-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/shri-hanuman-chalisa-full-inscribed-led-acrylic-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-21",
+        "name": "M-21",
+        "image": "/images/mockups/shri-hanuman-chalisa-full-inscribed-led-acrylic-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/shri-hanuman-chalisa-full-inscribed-led-acrylic-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-22",
+        "name": "M-22",
+        "image": "/images/mockups/shri-hanuman-chalisa-full-inscribed-led-acrylic-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/shri-hanuman-chalisa-full-inscribed-led-acrylic-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-23",
+        "name": "M-23",
+        "image": "/images/mockups/shri-hanuman-chalisa-full-inscribed-led-acrylic-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/shri-hanuman-chalisa-full-inscribed-led-acrylic-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-24",
+        "name": "M-24",
+        "image": "/images/mockups/shri-hanuman-chalisa-full-inscribed-led-acrylic-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/shri-hanuman-chalisa-full-inscribed-led-acrylic-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-25",
+        "name": "M-25",
+        "image": "/images/mockups/shri-hanuman-chalisa-full-inscribed-led-acrylic-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/shri-hanuman-chalisa-full-inscribed-led-acrylic-frame/primary-square.jpg"
+        ]
+      }
+    ]
   },
   {
     "slug": "golden-himalayan-sunrise-mountain-landscape-acrylic-art",
@@ -1461,18 +4068,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "artStyle": "Landscape Acrylic",
     "orientation": "horizontal",
     "images": [
-      "/images/mockups/golden-himalayan-sunrise-mountain-landscape-acrylic-art/primary-square.jpg",
-      "/images/mockups/golden-himalayan-sunrise-mountain-landscape-acrylic-art/mockup-living-room.jpg",
-      "/images/mockups/golden-himalayan-sunrise-mountain-landscape-acrylic-art/mockup-interior.jpg",
-      "/images/mockups/golden-himalayan-sunrise-mountain-landscape-acrylic-art/mockup-foyer.jpg",
-      "/images/mockups/golden-himalayan-sunrise-mountain-landscape-acrylic-art/mockup-detail.jpg",
-      "/images/mockups/golden-himalayan-sunrise-mountain-landscape-acrylic-art/mockup-artistic.jpg",
-      "/images/promo-aluminium-frames-clean.png",
-      "/images/print-size-options-clean.jpg",
-      "/images/trust-badges-clean.png",
-      "/images/frames/gold-border-ref.jpg",
-      "/images/frames/black-border-ref.jpg",
-      "/images/frames/acrylic-border-ref.jpg"
+      "/images/mockups/golden-himalayan-sunrise-mountain-landscape-acrylic-art/primary-square.jpg"
     ],
     "tags": [
       "Mountain",
@@ -1540,7 +4136,234 @@ export const INITIAL_PRODUCTS: Product[] = [
     "reviews": [],
     "createdAt": "2026-09-10T00:00:00.000Z",
     "updatedAt": "2026-11-02T13:35:03.406Z",
-    "id": "6ae89187382113ccb9a54261"
+    "id": "6ae89187382113ccb9a54261",
+    "models": [
+      {
+        "id": "M-18",
+        "name": "M-18",
+        "image": "/images/mockups/golden-himalayan-sunrise-mountain-landscape-acrylic-art/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/golden-himalayan-sunrise-mountain-landscape-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-10",
+        "name": "M-10",
+        "image": "/images/mockups/golden-himalayan-sunrise-mountain-landscape-acrylic-art/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/golden-himalayan-sunrise-mountain-landscape-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-1",
+        "name": "M-1",
+        "image": "/images/mockups/golden-himalayan-sunrise-mountain-landscape-acrylic-art/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/golden-himalayan-sunrise-mountain-landscape-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-2",
+        "name": "M-2",
+        "image": "/images/mockups/golden-himalayan-sunrise-mountain-landscape-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/golden-himalayan-sunrise-mountain-landscape-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-3",
+        "name": "M-3",
+        "image": "/images/mockups/golden-himalayan-sunrise-mountain-landscape-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/golden-himalayan-sunrise-mountain-landscape-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-4",
+        "name": "M-4",
+        "image": "/images/mockups/golden-himalayan-sunrise-mountain-landscape-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/golden-himalayan-sunrise-mountain-landscape-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-5",
+        "name": "M-5",
+        "image": "/images/mockups/golden-himalayan-sunrise-mountain-landscape-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/golden-himalayan-sunrise-mountain-landscape-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-6",
+        "name": "M-6",
+        "image": "/images/mockups/golden-himalayan-sunrise-mountain-landscape-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/golden-himalayan-sunrise-mountain-landscape-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-7",
+        "name": "M-7",
+        "image": "/images/mockups/golden-himalayan-sunrise-mountain-landscape-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/golden-himalayan-sunrise-mountain-landscape-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-8",
+        "name": "M-8",
+        "image": "/images/mockups/golden-himalayan-sunrise-mountain-landscape-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/golden-himalayan-sunrise-mountain-landscape-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-9",
+        "name": "M-9",
+        "image": "/images/mockups/golden-himalayan-sunrise-mountain-landscape-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/golden-himalayan-sunrise-mountain-landscape-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-11",
+        "name": "M-11",
+        "image": "/images/mockups/golden-himalayan-sunrise-mountain-landscape-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/golden-himalayan-sunrise-mountain-landscape-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-12",
+        "name": "M-12",
+        "image": "/images/mockups/golden-himalayan-sunrise-mountain-landscape-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/golden-himalayan-sunrise-mountain-landscape-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-13",
+        "name": "M-13",
+        "image": "/images/mockups/golden-himalayan-sunrise-mountain-landscape-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/golden-himalayan-sunrise-mountain-landscape-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-14",
+        "name": "M-14",
+        "image": "/images/mockups/golden-himalayan-sunrise-mountain-landscape-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/golden-himalayan-sunrise-mountain-landscape-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-15",
+        "name": "M-15",
+        "image": "/images/mockups/golden-himalayan-sunrise-mountain-landscape-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/golden-himalayan-sunrise-mountain-landscape-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-16",
+        "name": "M-16",
+        "image": "/images/mockups/golden-himalayan-sunrise-mountain-landscape-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/golden-himalayan-sunrise-mountain-landscape-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-17",
+        "name": "M-17",
+        "image": "/images/mockups/golden-himalayan-sunrise-mountain-landscape-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/golden-himalayan-sunrise-mountain-landscape-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-19",
+        "name": "M-19",
+        "image": "/images/mockups/golden-himalayan-sunrise-mountain-landscape-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/golden-himalayan-sunrise-mountain-landscape-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-20",
+        "name": "M-20",
+        "image": "/images/mockups/golden-himalayan-sunrise-mountain-landscape-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/golden-himalayan-sunrise-mountain-landscape-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-21",
+        "name": "M-21",
+        "image": "/images/mockups/golden-himalayan-sunrise-mountain-landscape-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/golden-himalayan-sunrise-mountain-landscape-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-22",
+        "name": "M-22",
+        "image": "/images/mockups/golden-himalayan-sunrise-mountain-landscape-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/golden-himalayan-sunrise-mountain-landscape-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-23",
+        "name": "M-23",
+        "image": "/images/mockups/golden-himalayan-sunrise-mountain-landscape-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/golden-himalayan-sunrise-mountain-landscape-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-24",
+        "name": "M-24",
+        "image": "/images/mockups/golden-himalayan-sunrise-mountain-landscape-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/golden-himalayan-sunrise-mountain-landscape-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-25",
+        "name": "M-25",
+        "image": "/images/mockups/golden-himalayan-sunrise-mountain-landscape-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/golden-himalayan-sunrise-mountain-landscape-acrylic-art/primary-square.jpg"
+        ]
+      }
+    ]
   },
   {
     "slug": "round-diamond-beveled-crystal-acrylic-photo-frame",
@@ -1553,23 +4376,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "artStyle": "Personalised Frame",
     "orientation": "square",
     "images": [
-      "/images/mockups/round-diamond-beveled-crystal-acrylic-photo-frame/primary-square.jpg",
-      "/images/mockups/round-diamond-beveled-crystal-acrylic-photo-frame/mockup-living-room.jpg",
-      "/images/mockups/round-diamond-beveled-crystal-acrylic-photo-frame/mockup-interior.jpg",
-      "/images/mockups/round-diamond-beveled-crystal-acrylic-photo-frame/mockup-foyer.jpg",
-      "/images/mockups/round-diamond-beveled-crystal-acrylic-photo-frame/mockup-detail.jpg",
-      "/images/mockups/round-diamond-beveled-crystal-acrylic-photo-frame/mockup-artistic.jpg",
-      "/images/atelier/ganesha-complete-framed.jpg",
-      "/images/atelier/hero-ganesha-frame.jpg",
-      "/images/atelier/hero-ram-legacy.jpg",
-      "/images/atelier/hero-ram-portrait.jpg",
-      "/images/atelier/layers-exploded-diagram.jpg",
-      "/images/promo-aluminium-frames-clean.png",
-      "/images/print-size-options-clean.jpg",
-      "/images/trust-badges-clean.png",
-      "/images/frames/gold-border-ref.jpg",
-      "/images/frames/black-border-ref.jpg",
-      "/images/frames/acrylic-border-ref.jpg"
+      "/images/mockups/round-diamond-beveled-crystal-acrylic-photo-frame/primary-square.jpg"
     ],
     "tags": [
       "Round",
@@ -1637,7 +4444,234 @@ export const INITIAL_PRODUCTS: Product[] = [
     "reviews": [],
     "createdAt": "2026-09-18T00:00:00.000Z",
     "updatedAt": "2026-11-02T13:35:03.407Z",
-    "id": "6ae89187382113ccb9a54266"
+    "id": "6ae89187382113ccb9a54266",
+    "models": [
+      {
+        "id": "M-18",
+        "name": "M-18",
+        "image": "/images/mockups/round-diamond-beveled-crystal-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/round-diamond-beveled-crystal-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-10",
+        "name": "M-10",
+        "image": "/images/mockups/round-diamond-beveled-crystal-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/round-diamond-beveled-crystal-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-1",
+        "name": "M-1",
+        "image": "/images/mockups/round-diamond-beveled-crystal-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/round-diamond-beveled-crystal-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-2",
+        "name": "M-2",
+        "image": "/images/mockups/round-diamond-beveled-crystal-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/round-diamond-beveled-crystal-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-3",
+        "name": "M-3",
+        "image": "/images/mockups/round-diamond-beveled-crystal-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/round-diamond-beveled-crystal-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-4",
+        "name": "M-4",
+        "image": "/images/mockups/round-diamond-beveled-crystal-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/round-diamond-beveled-crystal-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-5",
+        "name": "M-5",
+        "image": "/images/mockups/round-diamond-beveled-crystal-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/round-diamond-beveled-crystal-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-6",
+        "name": "M-6",
+        "image": "/images/mockups/round-diamond-beveled-crystal-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/round-diamond-beveled-crystal-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-7",
+        "name": "M-7",
+        "image": "/images/mockups/round-diamond-beveled-crystal-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/round-diamond-beveled-crystal-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-8",
+        "name": "M-8",
+        "image": "/images/mockups/round-diamond-beveled-crystal-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/round-diamond-beveled-crystal-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-9",
+        "name": "M-9",
+        "image": "/images/mockups/round-diamond-beveled-crystal-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/round-diamond-beveled-crystal-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-11",
+        "name": "M-11",
+        "image": "/images/mockups/round-diamond-beveled-crystal-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/round-diamond-beveled-crystal-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-12",
+        "name": "M-12",
+        "image": "/images/mockups/round-diamond-beveled-crystal-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/round-diamond-beveled-crystal-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-13",
+        "name": "M-13",
+        "image": "/images/mockups/round-diamond-beveled-crystal-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/round-diamond-beveled-crystal-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-14",
+        "name": "M-14",
+        "image": "/images/mockups/round-diamond-beveled-crystal-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/round-diamond-beveled-crystal-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-15",
+        "name": "M-15",
+        "image": "/images/mockups/round-diamond-beveled-crystal-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/round-diamond-beveled-crystal-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-16",
+        "name": "M-16",
+        "image": "/images/mockups/round-diamond-beveled-crystal-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/round-diamond-beveled-crystal-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-17",
+        "name": "M-17",
+        "image": "/images/mockups/round-diamond-beveled-crystal-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/round-diamond-beveled-crystal-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-19",
+        "name": "M-19",
+        "image": "/images/mockups/round-diamond-beveled-crystal-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/round-diamond-beveled-crystal-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-20",
+        "name": "M-20",
+        "image": "/images/mockups/round-diamond-beveled-crystal-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/round-diamond-beveled-crystal-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-21",
+        "name": "M-21",
+        "image": "/images/mockups/round-diamond-beveled-crystal-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/round-diamond-beveled-crystal-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-22",
+        "name": "M-22",
+        "image": "/images/mockups/round-diamond-beveled-crystal-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/round-diamond-beveled-crystal-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-23",
+        "name": "M-23",
+        "image": "/images/mockups/round-diamond-beveled-crystal-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/round-diamond-beveled-crystal-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-24",
+        "name": "M-24",
+        "image": "/images/mockups/round-diamond-beveled-crystal-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/round-diamond-beveled-crystal-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-25",
+        "name": "M-25",
+        "image": "/images/mockups/round-diamond-beveled-crystal-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/round-diamond-beveled-crystal-acrylic-photo-frame/primary-square.jpg"
+        ]
+      }
+    ]
   },
   {
     "slug": "nine-auspicious-golden-koi-fish-acrylic-wall-decor",
@@ -1650,18 +4684,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "artStyle": "Feng Shui Fluid Acrylic",
     "orientation": "square",
     "images": [
-      "/images/mockups/nine-auspicious-golden-koi-fish-acrylic-wall-decor/primary-square.jpg",
-      "/images/mockups/nine-auspicious-golden-koi-fish-acrylic-wall-decor/mockup-living-room.jpg",
-      "/images/mockups/nine-auspicious-golden-koi-fish-acrylic-wall-decor/mockup-interior.jpg",
-      "/images/mockups/nine-auspicious-golden-koi-fish-acrylic-wall-decor/mockup-foyer.jpg",
-      "/images/mockups/nine-auspicious-golden-koi-fish-acrylic-wall-decor/mockup-detail.jpg",
-      "/images/mockups/nine-auspicious-golden-koi-fish-acrylic-wall-decor/mockup-artistic.jpg",
-      "/images/promo-aluminium-frames-clean.png",
-      "/images/print-size-options-clean.jpg",
-      "/images/trust-badges-clean.png",
-      "/images/frames/gold-border-ref.jpg",
-      "/images/frames/black-border-ref.jpg",
-      "/images/frames/acrylic-border-ref.jpg"
+      "/images/mockups/nine-auspicious-golden-koi-fish-acrylic-wall-decor/primary-square.jpg"
     ],
     "tags": [
       "Koi Fish",
@@ -1724,7 +4747,234 @@ export const INITIAL_PRODUCTS: Product[] = [
     "reviews": [],
     "createdAt": "2026-10-05T00:00:00.000Z",
     "updatedAt": "2026-11-02T13:35:03.408Z",
-    "id": "6ae89187382113ccb9a54288"
+    "id": "6ae89187382113ccb9a54288",
+    "models": [
+      {
+        "id": "M-18",
+        "name": "M-18",
+        "image": "/images/mockups/nine-auspicious-golden-koi-fish-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/nine-auspicious-golden-koi-fish-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-10",
+        "name": "M-10",
+        "image": "/images/mockups/nine-auspicious-golden-koi-fish-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/nine-auspicious-golden-koi-fish-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-1",
+        "name": "M-1",
+        "image": "/images/mockups/nine-auspicious-golden-koi-fish-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/nine-auspicious-golden-koi-fish-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-2",
+        "name": "M-2",
+        "image": "/images/mockups/nine-auspicious-golden-koi-fish-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/nine-auspicious-golden-koi-fish-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-3",
+        "name": "M-3",
+        "image": "/images/mockups/nine-auspicious-golden-koi-fish-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/nine-auspicious-golden-koi-fish-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-4",
+        "name": "M-4",
+        "image": "/images/mockups/nine-auspicious-golden-koi-fish-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/nine-auspicious-golden-koi-fish-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-5",
+        "name": "M-5",
+        "image": "/images/mockups/nine-auspicious-golden-koi-fish-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/nine-auspicious-golden-koi-fish-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-6",
+        "name": "M-6",
+        "image": "/images/mockups/nine-auspicious-golden-koi-fish-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/nine-auspicious-golden-koi-fish-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-7",
+        "name": "M-7",
+        "image": "/images/mockups/nine-auspicious-golden-koi-fish-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/nine-auspicious-golden-koi-fish-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-8",
+        "name": "M-8",
+        "image": "/images/mockups/nine-auspicious-golden-koi-fish-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/nine-auspicious-golden-koi-fish-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-9",
+        "name": "M-9",
+        "image": "/images/mockups/nine-auspicious-golden-koi-fish-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/nine-auspicious-golden-koi-fish-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-11",
+        "name": "M-11",
+        "image": "/images/mockups/nine-auspicious-golden-koi-fish-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/nine-auspicious-golden-koi-fish-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-12",
+        "name": "M-12",
+        "image": "/images/mockups/nine-auspicious-golden-koi-fish-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/nine-auspicious-golden-koi-fish-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-13",
+        "name": "M-13",
+        "image": "/images/mockups/nine-auspicious-golden-koi-fish-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/nine-auspicious-golden-koi-fish-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-14",
+        "name": "M-14",
+        "image": "/images/mockups/nine-auspicious-golden-koi-fish-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/nine-auspicious-golden-koi-fish-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-15",
+        "name": "M-15",
+        "image": "/images/mockups/nine-auspicious-golden-koi-fish-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/nine-auspicious-golden-koi-fish-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-16",
+        "name": "M-16",
+        "image": "/images/mockups/nine-auspicious-golden-koi-fish-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/nine-auspicious-golden-koi-fish-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-17",
+        "name": "M-17",
+        "image": "/images/mockups/nine-auspicious-golden-koi-fish-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/nine-auspicious-golden-koi-fish-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-19",
+        "name": "M-19",
+        "image": "/images/mockups/nine-auspicious-golden-koi-fish-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/nine-auspicious-golden-koi-fish-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-20",
+        "name": "M-20",
+        "image": "/images/mockups/nine-auspicious-golden-koi-fish-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/nine-auspicious-golden-koi-fish-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-21",
+        "name": "M-21",
+        "image": "/images/mockups/nine-auspicious-golden-koi-fish-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/nine-auspicious-golden-koi-fish-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-22",
+        "name": "M-22",
+        "image": "/images/mockups/nine-auspicious-golden-koi-fish-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/nine-auspicious-golden-koi-fish-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-23",
+        "name": "M-23",
+        "image": "/images/mockups/nine-auspicious-golden-koi-fish-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/nine-auspicious-golden-koi-fish-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-24",
+        "name": "M-24",
+        "image": "/images/mockups/nine-auspicious-golden-koi-fish-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/nine-auspicious-golden-koi-fish-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-25",
+        "name": "M-25",
+        "image": "/images/mockups/nine-auspicious-golden-koi-fish-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/nine-auspicious-golden-koi-fish-acrylic-wall-decor/primary-square.jpg"
+        ]
+      }
+    ]
   },
   {
     "slug": "emerald-liquid-gold-vein-abstract-luxury-acrylic-art",
@@ -1737,18 +4987,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "artStyle": "Luxury Geode Acrylic",
     "orientation": "horizontal",
     "images": [
-      "/images/mockups/emerald-liquid-gold-vein-abstract-luxury-acrylic-art/primary-square.jpg",
-      "/images/mockups/emerald-liquid-gold-vein-abstract-luxury-acrylic-art/mockup-living-room.jpg",
-      "/images/mockups/emerald-liquid-gold-vein-abstract-luxury-acrylic-art/mockup-interior.jpg",
-      "/images/mockups/emerald-liquid-gold-vein-abstract-luxury-acrylic-art/mockup-foyer.jpg",
-      "/images/mockups/emerald-liquid-gold-vein-abstract-luxury-acrylic-art/mockup-detail.jpg",
-      "/images/mockups/emerald-liquid-gold-vein-abstract-luxury-acrylic-art/mockup-artistic.jpg",
-      "/images/promo-aluminium-frames-clean.png",
-      "/images/print-size-options-clean.jpg",
-      "/images/trust-badges-clean.png",
-      "/images/frames/gold-border-ref.jpg",
-      "/images/frames/black-border-ref.jpg",
-      "/images/frames/acrylic-border-ref.jpg"
+      "/images/mockups/emerald-liquid-gold-vein-abstract-luxury-acrylic-art/primary-square.jpg"
     ],
     "tags": [
       "Luxury Art",
@@ -1811,7 +5050,234 @@ export const INITIAL_PRODUCTS: Product[] = [
     "reviews": [],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-11-02T13:35:03.408Z",
-    "id": "6ae89187382113ccb9a5428c"
+    "id": "6ae89187382113ccb9a5428c",
+    "models": [
+      {
+        "id": "M-18",
+        "name": "M-18",
+        "image": "/images/mockups/emerald-liquid-gold-vein-abstract-luxury-acrylic-art/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/emerald-liquid-gold-vein-abstract-luxury-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-10",
+        "name": "M-10",
+        "image": "/images/mockups/emerald-liquid-gold-vein-abstract-luxury-acrylic-art/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/emerald-liquid-gold-vein-abstract-luxury-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-1",
+        "name": "M-1",
+        "image": "/images/mockups/emerald-liquid-gold-vein-abstract-luxury-acrylic-art/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/emerald-liquid-gold-vein-abstract-luxury-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-2",
+        "name": "M-2",
+        "image": "/images/mockups/emerald-liquid-gold-vein-abstract-luxury-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/emerald-liquid-gold-vein-abstract-luxury-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-3",
+        "name": "M-3",
+        "image": "/images/mockups/emerald-liquid-gold-vein-abstract-luxury-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/emerald-liquid-gold-vein-abstract-luxury-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-4",
+        "name": "M-4",
+        "image": "/images/mockups/emerald-liquid-gold-vein-abstract-luxury-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/emerald-liquid-gold-vein-abstract-luxury-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-5",
+        "name": "M-5",
+        "image": "/images/mockups/emerald-liquid-gold-vein-abstract-luxury-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/emerald-liquid-gold-vein-abstract-luxury-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-6",
+        "name": "M-6",
+        "image": "/images/mockups/emerald-liquid-gold-vein-abstract-luxury-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/emerald-liquid-gold-vein-abstract-luxury-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-7",
+        "name": "M-7",
+        "image": "/images/mockups/emerald-liquid-gold-vein-abstract-luxury-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/emerald-liquid-gold-vein-abstract-luxury-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-8",
+        "name": "M-8",
+        "image": "/images/mockups/emerald-liquid-gold-vein-abstract-luxury-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/emerald-liquid-gold-vein-abstract-luxury-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-9",
+        "name": "M-9",
+        "image": "/images/mockups/emerald-liquid-gold-vein-abstract-luxury-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/emerald-liquid-gold-vein-abstract-luxury-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-11",
+        "name": "M-11",
+        "image": "/images/mockups/emerald-liquid-gold-vein-abstract-luxury-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/emerald-liquid-gold-vein-abstract-luxury-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-12",
+        "name": "M-12",
+        "image": "/images/mockups/emerald-liquid-gold-vein-abstract-luxury-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/emerald-liquid-gold-vein-abstract-luxury-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-13",
+        "name": "M-13",
+        "image": "/images/mockups/emerald-liquid-gold-vein-abstract-luxury-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/emerald-liquid-gold-vein-abstract-luxury-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-14",
+        "name": "M-14",
+        "image": "/images/mockups/emerald-liquid-gold-vein-abstract-luxury-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/emerald-liquid-gold-vein-abstract-luxury-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-15",
+        "name": "M-15",
+        "image": "/images/mockups/emerald-liquid-gold-vein-abstract-luxury-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/emerald-liquid-gold-vein-abstract-luxury-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-16",
+        "name": "M-16",
+        "image": "/images/mockups/emerald-liquid-gold-vein-abstract-luxury-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/emerald-liquid-gold-vein-abstract-luxury-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-17",
+        "name": "M-17",
+        "image": "/images/mockups/emerald-liquid-gold-vein-abstract-luxury-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/emerald-liquid-gold-vein-abstract-luxury-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-19",
+        "name": "M-19",
+        "image": "/images/mockups/emerald-liquid-gold-vein-abstract-luxury-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/emerald-liquid-gold-vein-abstract-luxury-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-20",
+        "name": "M-20",
+        "image": "/images/mockups/emerald-liquid-gold-vein-abstract-luxury-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/emerald-liquid-gold-vein-abstract-luxury-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-21",
+        "name": "M-21",
+        "image": "/images/mockups/emerald-liquid-gold-vein-abstract-luxury-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/emerald-liquid-gold-vein-abstract-luxury-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-22",
+        "name": "M-22",
+        "image": "/images/mockups/emerald-liquid-gold-vein-abstract-luxury-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/emerald-liquid-gold-vein-abstract-luxury-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-23",
+        "name": "M-23",
+        "image": "/images/mockups/emerald-liquid-gold-vein-abstract-luxury-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/emerald-liquid-gold-vein-abstract-luxury-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-24",
+        "name": "M-24",
+        "image": "/images/mockups/emerald-liquid-gold-vein-abstract-luxury-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/emerald-liquid-gold-vein-abstract-luxury-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-25",
+        "name": "M-25",
+        "image": "/images/mockups/emerald-liquid-gold-vein-abstract-luxury-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/emerald-liquid-gold-vein-abstract-luxury-acrylic-art/primary-square.jpg"
+        ]
+      }
+    ]
   },
   {
     "slug": "enchanted-liquid-gold-glitter-acrylic-photo-frame",
@@ -1826,21 +5292,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "images": [
       "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg",
       "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg",
-      "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg",
-      "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-foyer.jpg",
-      "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-detail.jpg",
-      "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-artistic.jpg",
-      "/images/atelier/ganesha-complete-framed.jpg",
-      "/images/atelier/hero-ganesha-frame.jpg",
-      "/images/atelier/hero-ram-legacy.jpg",
-      "/images/atelier/hero-ram-portrait.jpg",
-      "/images/atelier/layers-exploded-diagram.jpg",
-      "/images/promo-aluminium-frames-clean.png",
-      "/images/print-size-options-clean.jpg",
-      "/images/trust-badges-clean.png",
-      "/images/frames/gold-border-ref.jpg",
-      "/images/frames/black-border-ref.jpg",
-      "/images/frames/acrylic-border-ref.jpg"
+      "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg"
     ],
     "tags": [
       "Glitter Frame",
@@ -1941,7 +5393,284 @@ export const INITIAL_PRODUCTS: Product[] = [
     "reviews": [],
     "createdAt": "2026-11-01T00:00:00.000Z",
     "updatedAt": "2026-11-02T13:35:03.409Z",
-    "id": "6ae89187382113ccb9a542bc"
+    "id": "6ae89187382113ccb9a542bc",
+    "models": [
+      {
+        "id": "M-18",
+        "name": "M-18",
+        "image": "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg"
+        ]
+      },
+      {
+        "id": "M-10",
+        "name": "M-10",
+        "image": "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-1",
+        "name": "M-1",
+        "image": "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg"
+        ]
+      },
+      {
+        "id": "M-2",
+        "name": "M-2",
+        "image": "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg"
+        ]
+      },
+      {
+        "id": "M-3",
+        "name": "M-3",
+        "image": "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-4",
+        "name": "M-4",
+        "image": "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg"
+        ]
+      },
+      {
+        "id": "M-5",
+        "name": "M-5",
+        "image": "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg"
+        ]
+      },
+      {
+        "id": "M-6",
+        "name": "M-6",
+        "image": "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-7",
+        "name": "M-7",
+        "image": "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg"
+        ]
+      },
+      {
+        "id": "M-8",
+        "name": "M-8",
+        "image": "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg"
+        ]
+      },
+      {
+        "id": "M-9",
+        "name": "M-9",
+        "image": "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-11",
+        "name": "M-11",
+        "image": "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg"
+        ]
+      },
+      {
+        "id": "M-12",
+        "name": "M-12",
+        "image": "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg"
+        ]
+      },
+      {
+        "id": "M-13",
+        "name": "M-13",
+        "image": "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-14",
+        "name": "M-14",
+        "image": "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg"
+        ]
+      },
+      {
+        "id": "M-15",
+        "name": "M-15",
+        "image": "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg"
+        ]
+      },
+      {
+        "id": "M-16",
+        "name": "M-16",
+        "image": "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-17",
+        "name": "M-17",
+        "image": "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg"
+        ]
+      },
+      {
+        "id": "M-19",
+        "name": "M-19",
+        "image": "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg"
+        ]
+      },
+      {
+        "id": "M-20",
+        "name": "M-20",
+        "image": "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-21",
+        "name": "M-21",
+        "image": "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg"
+        ]
+      },
+      {
+        "id": "M-22",
+        "name": "M-22",
+        "image": "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg"
+        ]
+      },
+      {
+        "id": "M-23",
+        "name": "M-23",
+        "image": "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-24",
+        "name": "M-24",
+        "image": "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg"
+        ]
+      },
+      {
+        "id": "M-25",
+        "name": "M-25",
+        "image": "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg"
+        ]
+      }
+    ]
   },
   {
     "slug": "motorized-360-rotating-led-cylinder-photo-lamp",
@@ -1955,17 +5684,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "orientation": "vertical",
     "images": [
       "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/primary-square.jpg",
-      "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/mockup-living-room.jpg",
-      "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/mockup-interior.jpg",
-      "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/mockup-foyer.jpg",
-      "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/mockup-detail.jpg",
-      "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/mockup-artistic.jpg",
-      "/images/promo-aluminium-frames-clean.png",
-      "/images/print-size-options-clean.jpg",
-      "/images/trust-badges-clean.png",
-      "/images/frames/gold-border-ref.jpg",
-      "/images/frames/black-border-ref.jpg",
-      "/images/frames/acrylic-border-ref.jpg"
+      "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/mockup-living-room.jpg"
     ],
     "tags": [
       "Rotating Lamp",
@@ -2059,7 +5778,259 @@ export const INITIAL_PRODUCTS: Product[] = [
     "reviews": [],
     "createdAt": "2026-11-01T00:00:00.000Z",
     "updatedAt": "2026-11-02T13:35:03.409Z",
-    "id": "6ae89187382113ccb9a542ca"
+    "id": "6ae89187382113ccb9a542ca",
+    "models": [
+      {
+        "id": "M-18",
+        "name": "M-18",
+        "image": "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/primary-square.jpg",
+          "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/mockup-living-room.jpg"
+        ]
+      },
+      {
+        "id": "M-10",
+        "name": "M-10",
+        "image": "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/mockup-living-room.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/mockup-living-room.jpg",
+          "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-1",
+        "name": "M-1",
+        "image": "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/primary-square.jpg",
+          "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/mockup-living-room.jpg"
+        ]
+      },
+      {
+        "id": "M-2",
+        "name": "M-2",
+        "image": "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/mockup-living-room.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/mockup-living-room.jpg",
+          "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-3",
+        "name": "M-3",
+        "image": "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/primary-square.jpg",
+          "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/mockup-living-room.jpg"
+        ]
+      },
+      {
+        "id": "M-4",
+        "name": "M-4",
+        "image": "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/mockup-living-room.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/mockup-living-room.jpg",
+          "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-5",
+        "name": "M-5",
+        "image": "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/primary-square.jpg",
+          "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/mockup-living-room.jpg"
+        ]
+      },
+      {
+        "id": "M-6",
+        "name": "M-6",
+        "image": "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/mockup-living-room.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/mockup-living-room.jpg",
+          "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-7",
+        "name": "M-7",
+        "image": "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/primary-square.jpg",
+          "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/mockup-living-room.jpg"
+        ]
+      },
+      {
+        "id": "M-8",
+        "name": "M-8",
+        "image": "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/mockup-living-room.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/mockup-living-room.jpg",
+          "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-9",
+        "name": "M-9",
+        "image": "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/primary-square.jpg",
+          "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/mockup-living-room.jpg"
+        ]
+      },
+      {
+        "id": "M-11",
+        "name": "M-11",
+        "image": "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/mockup-living-room.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/mockup-living-room.jpg",
+          "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-12",
+        "name": "M-12",
+        "image": "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/primary-square.jpg",
+          "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/mockup-living-room.jpg"
+        ]
+      },
+      {
+        "id": "M-13",
+        "name": "M-13",
+        "image": "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/mockup-living-room.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/mockup-living-room.jpg",
+          "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-14",
+        "name": "M-14",
+        "image": "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/primary-square.jpg",
+          "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/mockup-living-room.jpg"
+        ]
+      },
+      {
+        "id": "M-15",
+        "name": "M-15",
+        "image": "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/mockup-living-room.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/mockup-living-room.jpg",
+          "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-16",
+        "name": "M-16",
+        "image": "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/primary-square.jpg",
+          "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/mockup-living-room.jpg"
+        ]
+      },
+      {
+        "id": "M-17",
+        "name": "M-17",
+        "image": "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/mockup-living-room.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/mockup-living-room.jpg",
+          "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-19",
+        "name": "M-19",
+        "image": "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/primary-square.jpg",
+          "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/mockup-living-room.jpg"
+        ]
+      },
+      {
+        "id": "M-20",
+        "name": "M-20",
+        "image": "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/mockup-living-room.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/mockup-living-room.jpg",
+          "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-21",
+        "name": "M-21",
+        "image": "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/primary-square.jpg",
+          "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/mockup-living-room.jpg"
+        ]
+      },
+      {
+        "id": "M-22",
+        "name": "M-22",
+        "image": "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/mockup-living-room.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/mockup-living-room.jpg",
+          "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-23",
+        "name": "M-23",
+        "image": "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/primary-square.jpg",
+          "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/mockup-living-room.jpg"
+        ]
+      },
+      {
+        "id": "M-24",
+        "name": "M-24",
+        "image": "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/mockup-living-room.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/mockup-living-room.jpg",
+          "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-25",
+        "name": "M-25",
+        "image": "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/primary-square.jpg",
+          "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/mockup-living-room.jpg"
+        ]
+      }
+    ]
   },
   {
     "slug": "ashta-lakshmi-wealth-prosperity-acrylic-wall-decor",
@@ -2073,20 +6044,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "artStyle": "Devotional Acrylic",
     "orientation": "square",
     "images": [
-      "/images/mockups/ashta-lakshmi-wealth-prosperity-acrylic-wall-decor/primary-square.jpg",
-      "/images/mockups/ashta-lakshmi-wealth-prosperity-acrylic-wall-decor/mockup-living-room.jpg",
-      "/images/mockups/ashta-lakshmi-wealth-prosperity-acrylic-wall-decor/mockup-interior.jpg",
-      "/images/mockups/ashta-lakshmi-wealth-prosperity-acrylic-wall-decor/mockup-foyer.jpg",
-      "/images/mockups/ashta-lakshmi-wealth-prosperity-acrylic-wall-decor/mockup-detail.jpg",
-      "/images/mockups/ashta-lakshmi-wealth-prosperity-acrylic-wall-decor/mockup-artistic.jpg",
-      "/images/atelier/hero-lakshmi-legacy.jpg",
-      "/images/atelier/hero-lakshmi-portrait.jpg",
-      "/images/promo-aluminium-frames-clean.png",
-      "/images/print-size-options-clean.jpg",
-      "/images/trust-badges-clean.png",
-      "/images/frames/gold-border-ref.jpg",
-      "/images/frames/black-border-ref.jpg",
-      "/images/frames/acrylic-border-ref.jpg"
+      "/images/mockups/ashta-lakshmi-wealth-prosperity-acrylic-wall-decor/primary-square.jpg"
     ],
     "tags": [
       "Lakshmi",
@@ -2154,7 +6112,234 @@ export const INITIAL_PRODUCTS: Product[] = [
     "reviews": [],
     "createdAt": "2026-08-25T00:00:00.000Z",
     "updatedAt": "2026-11-02T13:35:03.399Z",
-    "id": "6ae89187382113ccb9a5420d"
+    "id": "6ae89187382113ccb9a5420d",
+    "models": [
+      {
+        "id": "M-18",
+        "name": "M-18",
+        "image": "/images/mockups/ashta-lakshmi-wealth-prosperity-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/ashta-lakshmi-wealth-prosperity-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-10",
+        "name": "M-10",
+        "image": "/images/mockups/ashta-lakshmi-wealth-prosperity-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/ashta-lakshmi-wealth-prosperity-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-1",
+        "name": "M-1",
+        "image": "/images/mockups/ashta-lakshmi-wealth-prosperity-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/ashta-lakshmi-wealth-prosperity-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-2",
+        "name": "M-2",
+        "image": "/images/mockups/ashta-lakshmi-wealth-prosperity-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/ashta-lakshmi-wealth-prosperity-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-3",
+        "name": "M-3",
+        "image": "/images/mockups/ashta-lakshmi-wealth-prosperity-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/ashta-lakshmi-wealth-prosperity-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-4",
+        "name": "M-4",
+        "image": "/images/mockups/ashta-lakshmi-wealth-prosperity-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/ashta-lakshmi-wealth-prosperity-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-5",
+        "name": "M-5",
+        "image": "/images/mockups/ashta-lakshmi-wealth-prosperity-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/ashta-lakshmi-wealth-prosperity-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-6",
+        "name": "M-6",
+        "image": "/images/mockups/ashta-lakshmi-wealth-prosperity-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/ashta-lakshmi-wealth-prosperity-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-7",
+        "name": "M-7",
+        "image": "/images/mockups/ashta-lakshmi-wealth-prosperity-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/ashta-lakshmi-wealth-prosperity-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-8",
+        "name": "M-8",
+        "image": "/images/mockups/ashta-lakshmi-wealth-prosperity-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/ashta-lakshmi-wealth-prosperity-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-9",
+        "name": "M-9",
+        "image": "/images/mockups/ashta-lakshmi-wealth-prosperity-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/ashta-lakshmi-wealth-prosperity-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-11",
+        "name": "M-11",
+        "image": "/images/mockups/ashta-lakshmi-wealth-prosperity-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/ashta-lakshmi-wealth-prosperity-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-12",
+        "name": "M-12",
+        "image": "/images/mockups/ashta-lakshmi-wealth-prosperity-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/ashta-lakshmi-wealth-prosperity-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-13",
+        "name": "M-13",
+        "image": "/images/mockups/ashta-lakshmi-wealth-prosperity-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/ashta-lakshmi-wealth-prosperity-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-14",
+        "name": "M-14",
+        "image": "/images/mockups/ashta-lakshmi-wealth-prosperity-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/ashta-lakshmi-wealth-prosperity-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-15",
+        "name": "M-15",
+        "image": "/images/mockups/ashta-lakshmi-wealth-prosperity-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/ashta-lakshmi-wealth-prosperity-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-16",
+        "name": "M-16",
+        "image": "/images/mockups/ashta-lakshmi-wealth-prosperity-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/ashta-lakshmi-wealth-prosperity-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-17",
+        "name": "M-17",
+        "image": "/images/mockups/ashta-lakshmi-wealth-prosperity-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/ashta-lakshmi-wealth-prosperity-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-19",
+        "name": "M-19",
+        "image": "/images/mockups/ashta-lakshmi-wealth-prosperity-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/ashta-lakshmi-wealth-prosperity-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-20",
+        "name": "M-20",
+        "image": "/images/mockups/ashta-lakshmi-wealth-prosperity-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/ashta-lakshmi-wealth-prosperity-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-21",
+        "name": "M-21",
+        "image": "/images/mockups/ashta-lakshmi-wealth-prosperity-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/ashta-lakshmi-wealth-prosperity-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-22",
+        "name": "M-22",
+        "image": "/images/mockups/ashta-lakshmi-wealth-prosperity-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/ashta-lakshmi-wealth-prosperity-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-23",
+        "name": "M-23",
+        "image": "/images/mockups/ashta-lakshmi-wealth-prosperity-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/ashta-lakshmi-wealth-prosperity-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-24",
+        "name": "M-24",
+        "image": "/images/mockups/ashta-lakshmi-wealth-prosperity-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/ashta-lakshmi-wealth-prosperity-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-25",
+        "name": "M-25",
+        "image": "/images/mockups/ashta-lakshmi-wealth-prosperity-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/ashta-lakshmi-wealth-prosperity-acrylic-wall-decor/primary-square.jpg"
+        ]
+      }
+    ]
   },
   {
     "slug": "custom-studio-square-acrylic-grid-photo-frame",
@@ -2167,23 +6352,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "artStyle": "Personalised Frame",
     "orientation": "square",
     "images": [
-      "/images/mockups/custom-studio-square-acrylic-grid-photo-frame/primary-square.jpg",
-      "/images/mockups/custom-studio-square-acrylic-grid-photo-frame/mockup-living-room.jpg",
-      "/images/mockups/custom-studio-square-acrylic-grid-photo-frame/mockup-interior.jpg",
-      "/images/mockups/custom-studio-square-acrylic-grid-photo-frame/mockup-foyer.jpg",
-      "/images/mockups/custom-studio-square-acrylic-grid-photo-frame/mockup-detail.jpg",
-      "/images/mockups/custom-studio-square-acrylic-grid-photo-frame/mockup-artistic.jpg",
-      "/images/atelier/ganesha-complete-framed.jpg",
-      "/images/atelier/hero-ganesha-frame.jpg",
-      "/images/atelier/hero-ram-legacy.jpg",
-      "/images/atelier/hero-ram-portrait.jpg",
-      "/images/atelier/layers-exploded-diagram.jpg",
-      "/images/promo-aluminium-frames-clean.png",
-      "/images/print-size-options-clean.jpg",
-      "/images/trust-badges-clean.png",
-      "/images/frames/gold-border-ref.jpg",
-      "/images/frames/black-border-ref.jpg",
-      "/images/frames/acrylic-border-ref.jpg"
+      "/images/mockups/custom-studio-square-acrylic-grid-photo-frame/primary-square.jpg"
     ],
     "tags": [
       "Square",
@@ -2245,7 +6414,234 @@ export const INITIAL_PRODUCTS: Product[] = [
     "reviews": [],
     "createdAt": "2026-09-22T00:00:00.000Z",
     "updatedAt": "2026-11-02T13:35:03.407Z",
-    "id": "6ae89187382113ccb9a54274"
+    "id": "6ae89187382113ccb9a54274",
+    "models": [
+      {
+        "id": "M-18",
+        "name": "M-18",
+        "image": "/images/mockups/custom-studio-square-acrylic-grid-photo-frame/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/custom-studio-square-acrylic-grid-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-10",
+        "name": "M-10",
+        "image": "/images/mockups/custom-studio-square-acrylic-grid-photo-frame/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/custom-studio-square-acrylic-grid-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-1",
+        "name": "M-1",
+        "image": "/images/mockups/custom-studio-square-acrylic-grid-photo-frame/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/custom-studio-square-acrylic-grid-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-2",
+        "name": "M-2",
+        "image": "/images/mockups/custom-studio-square-acrylic-grid-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-studio-square-acrylic-grid-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-3",
+        "name": "M-3",
+        "image": "/images/mockups/custom-studio-square-acrylic-grid-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-studio-square-acrylic-grid-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-4",
+        "name": "M-4",
+        "image": "/images/mockups/custom-studio-square-acrylic-grid-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-studio-square-acrylic-grid-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-5",
+        "name": "M-5",
+        "image": "/images/mockups/custom-studio-square-acrylic-grid-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-studio-square-acrylic-grid-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-6",
+        "name": "M-6",
+        "image": "/images/mockups/custom-studio-square-acrylic-grid-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-studio-square-acrylic-grid-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-7",
+        "name": "M-7",
+        "image": "/images/mockups/custom-studio-square-acrylic-grid-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-studio-square-acrylic-grid-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-8",
+        "name": "M-8",
+        "image": "/images/mockups/custom-studio-square-acrylic-grid-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-studio-square-acrylic-grid-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-9",
+        "name": "M-9",
+        "image": "/images/mockups/custom-studio-square-acrylic-grid-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-studio-square-acrylic-grid-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-11",
+        "name": "M-11",
+        "image": "/images/mockups/custom-studio-square-acrylic-grid-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-studio-square-acrylic-grid-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-12",
+        "name": "M-12",
+        "image": "/images/mockups/custom-studio-square-acrylic-grid-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-studio-square-acrylic-grid-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-13",
+        "name": "M-13",
+        "image": "/images/mockups/custom-studio-square-acrylic-grid-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-studio-square-acrylic-grid-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-14",
+        "name": "M-14",
+        "image": "/images/mockups/custom-studio-square-acrylic-grid-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-studio-square-acrylic-grid-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-15",
+        "name": "M-15",
+        "image": "/images/mockups/custom-studio-square-acrylic-grid-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-studio-square-acrylic-grid-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-16",
+        "name": "M-16",
+        "image": "/images/mockups/custom-studio-square-acrylic-grid-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-studio-square-acrylic-grid-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-17",
+        "name": "M-17",
+        "image": "/images/mockups/custom-studio-square-acrylic-grid-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-studio-square-acrylic-grid-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-19",
+        "name": "M-19",
+        "image": "/images/mockups/custom-studio-square-acrylic-grid-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-studio-square-acrylic-grid-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-20",
+        "name": "M-20",
+        "image": "/images/mockups/custom-studio-square-acrylic-grid-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-studio-square-acrylic-grid-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-21",
+        "name": "M-21",
+        "image": "/images/mockups/custom-studio-square-acrylic-grid-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-studio-square-acrylic-grid-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-22",
+        "name": "M-22",
+        "image": "/images/mockups/custom-studio-square-acrylic-grid-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-studio-square-acrylic-grid-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-23",
+        "name": "M-23",
+        "image": "/images/mockups/custom-studio-square-acrylic-grid-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-studio-square-acrylic-grid-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-24",
+        "name": "M-24",
+        "image": "/images/mockups/custom-studio-square-acrylic-grid-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-studio-square-acrylic-grid-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-25",
+        "name": "M-25",
+        "image": "/images/mockups/custom-studio-square-acrylic-grid-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-studio-square-acrylic-grid-photo-frame/primary-square.jpg"
+        ]
+      }
+    ]
   },
   {
     "slug": "signature-24k-gold-embellished-crystal-acrylic-wall-art",
@@ -2258,18 +6654,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "artStyle": "High-End Luxury Acrylic",
     "orientation": "horizontal",
     "images": [
-      "/images/mockups/signature-24k-gold-embellished-crystal-acrylic-wall-art/primary-square.jpg",
-      "/images/mockups/signature-24k-gold-embellished-crystal-acrylic-wall-art/mockup-living-room.jpg",
-      "/images/mockups/signature-24k-gold-embellished-crystal-acrylic-wall-art/mockup-interior.jpg",
-      "/images/mockups/signature-24k-gold-embellished-crystal-acrylic-wall-art/mockup-foyer.jpg",
-      "/images/mockups/signature-24k-gold-embellished-crystal-acrylic-wall-art/mockup-detail.jpg",
-      "/images/mockups/signature-24k-gold-embellished-crystal-acrylic-wall-art/mockup-artistic.jpg",
-      "/images/promo-aluminium-frames-clean.png",
-      "/images/print-size-options-clean.jpg",
-      "/images/trust-badges-clean.png",
-      "/images/frames/gold-border-ref.jpg",
-      "/images/frames/black-border-ref.jpg",
-      "/images/frames/acrylic-border-ref.jpg"
+      "/images/mockups/signature-24k-gold-embellished-crystal-acrylic-wall-art/primary-square.jpg"
     ],
     "tags": [
       "Premium Acrylic",
@@ -2331,7 +6716,234 @@ export const INITIAL_PRODUCTS: Product[] = [
     "reviews": [],
     "createdAt": "2026-10-05T00:00:00.000Z",
     "updatedAt": "2026-11-02T13:35:03.409Z",
-    "id": "6ae89187382113ccb9a542b8"
+    "id": "6ae89187382113ccb9a542b8",
+    "models": [
+      {
+        "id": "M-18",
+        "name": "M-18",
+        "image": "/images/mockups/signature-24k-gold-embellished-crystal-acrylic-wall-art/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/signature-24k-gold-embellished-crystal-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-10",
+        "name": "M-10",
+        "image": "/images/mockups/signature-24k-gold-embellished-crystal-acrylic-wall-art/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/signature-24k-gold-embellished-crystal-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-1",
+        "name": "M-1",
+        "image": "/images/mockups/signature-24k-gold-embellished-crystal-acrylic-wall-art/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/signature-24k-gold-embellished-crystal-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-2",
+        "name": "M-2",
+        "image": "/images/mockups/signature-24k-gold-embellished-crystal-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/signature-24k-gold-embellished-crystal-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-3",
+        "name": "M-3",
+        "image": "/images/mockups/signature-24k-gold-embellished-crystal-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/signature-24k-gold-embellished-crystal-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-4",
+        "name": "M-4",
+        "image": "/images/mockups/signature-24k-gold-embellished-crystal-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/signature-24k-gold-embellished-crystal-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-5",
+        "name": "M-5",
+        "image": "/images/mockups/signature-24k-gold-embellished-crystal-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/signature-24k-gold-embellished-crystal-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-6",
+        "name": "M-6",
+        "image": "/images/mockups/signature-24k-gold-embellished-crystal-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/signature-24k-gold-embellished-crystal-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-7",
+        "name": "M-7",
+        "image": "/images/mockups/signature-24k-gold-embellished-crystal-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/signature-24k-gold-embellished-crystal-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-8",
+        "name": "M-8",
+        "image": "/images/mockups/signature-24k-gold-embellished-crystal-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/signature-24k-gold-embellished-crystal-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-9",
+        "name": "M-9",
+        "image": "/images/mockups/signature-24k-gold-embellished-crystal-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/signature-24k-gold-embellished-crystal-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-11",
+        "name": "M-11",
+        "image": "/images/mockups/signature-24k-gold-embellished-crystal-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/signature-24k-gold-embellished-crystal-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-12",
+        "name": "M-12",
+        "image": "/images/mockups/signature-24k-gold-embellished-crystal-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/signature-24k-gold-embellished-crystal-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-13",
+        "name": "M-13",
+        "image": "/images/mockups/signature-24k-gold-embellished-crystal-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/signature-24k-gold-embellished-crystal-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-14",
+        "name": "M-14",
+        "image": "/images/mockups/signature-24k-gold-embellished-crystal-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/signature-24k-gold-embellished-crystal-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-15",
+        "name": "M-15",
+        "image": "/images/mockups/signature-24k-gold-embellished-crystal-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/signature-24k-gold-embellished-crystal-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-16",
+        "name": "M-16",
+        "image": "/images/mockups/signature-24k-gold-embellished-crystal-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/signature-24k-gold-embellished-crystal-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-17",
+        "name": "M-17",
+        "image": "/images/mockups/signature-24k-gold-embellished-crystal-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/signature-24k-gold-embellished-crystal-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-19",
+        "name": "M-19",
+        "image": "/images/mockups/signature-24k-gold-embellished-crystal-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/signature-24k-gold-embellished-crystal-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-20",
+        "name": "M-20",
+        "image": "/images/mockups/signature-24k-gold-embellished-crystal-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/signature-24k-gold-embellished-crystal-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-21",
+        "name": "M-21",
+        "image": "/images/mockups/signature-24k-gold-embellished-crystal-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/signature-24k-gold-embellished-crystal-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-22",
+        "name": "M-22",
+        "image": "/images/mockups/signature-24k-gold-embellished-crystal-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/signature-24k-gold-embellished-crystal-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-23",
+        "name": "M-23",
+        "image": "/images/mockups/signature-24k-gold-embellished-crystal-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/signature-24k-gold-embellished-crystal-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-24",
+        "name": "M-24",
+        "image": "/images/mockups/signature-24k-gold-embellished-crystal-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/signature-24k-gold-embellished-crystal-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-25",
+        "name": "M-25",
+        "image": "/images/mockups/signature-24k-gold-embellished-crystal-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/signature-24k-gold-embellished-crystal-acrylic-wall-art/primary-square.jpg"
+        ]
+      }
+    ]
   },
   {
     "slug": "custom-led-backlit-acrylic-photo-frame",
@@ -2344,23 +6956,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "artStyle": "Custom Photo Frames",
     "orientation": "vertical",
     "images": [
-      "/images/mockups/custom-led-backlit-acrylic-photo-frame/primary-square.jpg",
-      "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-living-room.jpg",
-      "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-interior.jpg",
-      "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-foyer.jpg",
-      "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-detail.jpg",
-      "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-artistic.jpg",
-      "/images/atelier/ganesha-complete-framed.jpg",
-      "/images/atelier/hero-ganesha-frame.jpg",
-      "/images/atelier/hero-ram-legacy.jpg",
-      "/images/atelier/hero-ram-portrait.jpg",
-      "/images/atelier/layers-exploded-diagram.jpg",
-      "/images/promo-aluminium-frames-clean.png",
-      "/images/print-size-options-clean.jpg",
-      "/images/trust-badges-clean.png",
-      "/images/frames/gold-border-ref.jpg",
-      "/images/frames/black-border-ref.jpg",
-      "/images/frames/acrylic-border-ref.jpg"
+      "/images/mockups/custom-led-backlit-acrylic-photo-frame/primary-square.jpg"
     ],
     "tags": [
       "Custom LED",
@@ -2441,7 +7037,234 @@ export const INITIAL_PRODUCTS: Product[] = [
     "reviews": [],
     "createdAt": "2026-09-15T00:00:00.000Z",
     "updatedAt": "2026-11-02T13:35:03.400Z",
-    "id": "6ae89187382113ccb9a5421f"
+    "id": "6ae89187382113ccb9a5421f",
+    "models": [
+      {
+        "id": "M-18",
+        "name": "M-18",
+        "image": "/images/mockups/custom-led-backlit-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-10",
+        "name": "M-10",
+        "image": "/images/mockups/custom-led-backlit-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-1",
+        "name": "M-1",
+        "image": "/images/mockups/custom-led-backlit-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-2",
+        "name": "M-2",
+        "image": "/images/mockups/custom-led-backlit-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-3",
+        "name": "M-3",
+        "image": "/images/mockups/custom-led-backlit-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-4",
+        "name": "M-4",
+        "image": "/images/mockups/custom-led-backlit-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-5",
+        "name": "M-5",
+        "image": "/images/mockups/custom-led-backlit-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-6",
+        "name": "M-6",
+        "image": "/images/mockups/custom-led-backlit-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-7",
+        "name": "M-7",
+        "image": "/images/mockups/custom-led-backlit-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-8",
+        "name": "M-8",
+        "image": "/images/mockups/custom-led-backlit-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-9",
+        "name": "M-9",
+        "image": "/images/mockups/custom-led-backlit-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-11",
+        "name": "M-11",
+        "image": "/images/mockups/custom-led-backlit-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-12",
+        "name": "M-12",
+        "image": "/images/mockups/custom-led-backlit-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-13",
+        "name": "M-13",
+        "image": "/images/mockups/custom-led-backlit-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-14",
+        "name": "M-14",
+        "image": "/images/mockups/custom-led-backlit-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-15",
+        "name": "M-15",
+        "image": "/images/mockups/custom-led-backlit-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-16",
+        "name": "M-16",
+        "image": "/images/mockups/custom-led-backlit-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-17",
+        "name": "M-17",
+        "image": "/images/mockups/custom-led-backlit-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-19",
+        "name": "M-19",
+        "image": "/images/mockups/custom-led-backlit-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-20",
+        "name": "M-20",
+        "image": "/images/mockups/custom-led-backlit-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-21",
+        "name": "M-21",
+        "image": "/images/mockups/custom-led-backlit-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-22",
+        "name": "M-22",
+        "image": "/images/mockups/custom-led-backlit-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-23",
+        "name": "M-23",
+        "image": "/images/mockups/custom-led-backlit-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-24",
+        "name": "M-24",
+        "image": "/images/mockups/custom-led-backlit-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-25",
+        "name": "M-25",
+        "image": "/images/mockups/custom-led-backlit-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/primary-square.jpg"
+        ]
+      }
+    ]
   },
   {
     "slug": "radha-krishna-divine-bansuri-3d-led-acrylic-wall-art",
@@ -2455,20 +7278,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "artStyle": "LED Backlit Acrylic",
     "orientation": "square",
     "images": [
-      "/images/mockups/radha-krishna-divine-bansuri-3d-led-acrylic-wall-art/primary-square.jpg",
-      "/images/mockups/radha-krishna-divine-bansuri-3d-led-acrylic-wall-art/mockup-living-room.jpg",
-      "/images/mockups/radha-krishna-divine-bansuri-3d-led-acrylic-wall-art/mockup-interior.jpg",
-      "/images/mockups/radha-krishna-divine-bansuri-3d-led-acrylic-wall-art/mockup-foyer.jpg",
-      "/images/mockups/radha-krishna-divine-bansuri-3d-led-acrylic-wall-art/mockup-detail.jpg",
-      "/images/mockups/radha-krishna-divine-bansuri-3d-led-acrylic-wall-art/mockup-artistic.jpg",
-      "/images/atelier/hero-krishna-legacy.jpg",
-      "/images/atelier/hero-krishna-portrait.jpg",
-      "/images/promo-aluminium-frames-clean.png",
-      "/images/print-size-options-clean.jpg",
-      "/images/trust-badges-clean.png",
-      "/images/frames/gold-border-ref.jpg",
-      "/images/frames/black-border-ref.jpg",
-      "/images/frames/acrylic-border-ref.jpg"
+      "/images/mockups/radha-krishna-divine-bansuri-3d-led-acrylic-wall-art/primary-square.jpg"
     ],
     "tags": [
       "Radha Krishna",
@@ -2591,7 +7401,234 @@ export const INITIAL_PRODUCTS: Product[] = [
     "reviews": [],
     "createdAt": "2026-10-25T00:00:00.000Z",
     "updatedAt": "2026-11-02T13:35:03.398Z",
-    "id": "6ae89187382113ccb9a541fc"
+    "id": "6ae89187382113ccb9a541fc",
+    "models": [
+      {
+        "id": "M-18",
+        "name": "M-18",
+        "image": "/images/mockups/radha-krishna-divine-bansuri-3d-led-acrylic-wall-art/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/radha-krishna-divine-bansuri-3d-led-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-10",
+        "name": "M-10",
+        "image": "/images/mockups/radha-krishna-divine-bansuri-3d-led-acrylic-wall-art/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/radha-krishna-divine-bansuri-3d-led-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-1",
+        "name": "M-1",
+        "image": "/images/mockups/radha-krishna-divine-bansuri-3d-led-acrylic-wall-art/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/radha-krishna-divine-bansuri-3d-led-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-2",
+        "name": "M-2",
+        "image": "/images/mockups/radha-krishna-divine-bansuri-3d-led-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/radha-krishna-divine-bansuri-3d-led-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-3",
+        "name": "M-3",
+        "image": "/images/mockups/radha-krishna-divine-bansuri-3d-led-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/radha-krishna-divine-bansuri-3d-led-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-4",
+        "name": "M-4",
+        "image": "/images/mockups/radha-krishna-divine-bansuri-3d-led-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/radha-krishna-divine-bansuri-3d-led-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-5",
+        "name": "M-5",
+        "image": "/images/mockups/radha-krishna-divine-bansuri-3d-led-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/radha-krishna-divine-bansuri-3d-led-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-6",
+        "name": "M-6",
+        "image": "/images/mockups/radha-krishna-divine-bansuri-3d-led-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/radha-krishna-divine-bansuri-3d-led-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-7",
+        "name": "M-7",
+        "image": "/images/mockups/radha-krishna-divine-bansuri-3d-led-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/radha-krishna-divine-bansuri-3d-led-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-8",
+        "name": "M-8",
+        "image": "/images/mockups/radha-krishna-divine-bansuri-3d-led-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/radha-krishna-divine-bansuri-3d-led-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-9",
+        "name": "M-9",
+        "image": "/images/mockups/radha-krishna-divine-bansuri-3d-led-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/radha-krishna-divine-bansuri-3d-led-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-11",
+        "name": "M-11",
+        "image": "/images/mockups/radha-krishna-divine-bansuri-3d-led-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/radha-krishna-divine-bansuri-3d-led-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-12",
+        "name": "M-12",
+        "image": "/images/mockups/radha-krishna-divine-bansuri-3d-led-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/radha-krishna-divine-bansuri-3d-led-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-13",
+        "name": "M-13",
+        "image": "/images/mockups/radha-krishna-divine-bansuri-3d-led-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/radha-krishna-divine-bansuri-3d-led-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-14",
+        "name": "M-14",
+        "image": "/images/mockups/radha-krishna-divine-bansuri-3d-led-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/radha-krishna-divine-bansuri-3d-led-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-15",
+        "name": "M-15",
+        "image": "/images/mockups/radha-krishna-divine-bansuri-3d-led-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/radha-krishna-divine-bansuri-3d-led-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-16",
+        "name": "M-16",
+        "image": "/images/mockups/radha-krishna-divine-bansuri-3d-led-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/radha-krishna-divine-bansuri-3d-led-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-17",
+        "name": "M-17",
+        "image": "/images/mockups/radha-krishna-divine-bansuri-3d-led-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/radha-krishna-divine-bansuri-3d-led-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-19",
+        "name": "M-19",
+        "image": "/images/mockups/radha-krishna-divine-bansuri-3d-led-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/radha-krishna-divine-bansuri-3d-led-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-20",
+        "name": "M-20",
+        "image": "/images/mockups/radha-krishna-divine-bansuri-3d-led-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/radha-krishna-divine-bansuri-3d-led-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-21",
+        "name": "M-21",
+        "image": "/images/mockups/radha-krishna-divine-bansuri-3d-led-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/radha-krishna-divine-bansuri-3d-led-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-22",
+        "name": "M-22",
+        "image": "/images/mockups/radha-krishna-divine-bansuri-3d-led-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/radha-krishna-divine-bansuri-3d-led-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-23",
+        "name": "M-23",
+        "image": "/images/mockups/radha-krishna-divine-bansuri-3d-led-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/radha-krishna-divine-bansuri-3d-led-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-24",
+        "name": "M-24",
+        "image": "/images/mockups/radha-krishna-divine-bansuri-3d-led-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/radha-krishna-divine-bansuri-3d-led-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-25",
+        "name": "M-25",
+        "image": "/images/mockups/radha-krishna-divine-bansuri-3d-led-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/radha-krishna-divine-bansuri-3d-led-acrylic-wall-art/primary-square.jpg"
+        ]
+      }
+    ]
   },
   {
     "slug": "lord-kartikeya-murugan-golden-vel-acrylic-art",
@@ -2605,18 +7642,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "artStyle": "Devotional Acrylic",
     "orientation": "vertical",
     "images": [
-      "/images/mockups/lord-kartikeya-murugan-golden-vel-acrylic-art/primary-square.jpg",
-      "/images/mockups/lord-kartikeya-murugan-golden-vel-acrylic-art/mockup-living-room.jpg",
-      "/images/mockups/lord-kartikeya-murugan-golden-vel-acrylic-art/mockup-interior.jpg",
-      "/images/mockups/lord-kartikeya-murugan-golden-vel-acrylic-art/mockup-foyer.jpg",
-      "/images/mockups/lord-kartikeya-murugan-golden-vel-acrylic-art/mockup-detail.jpg",
-      "/images/mockups/lord-kartikeya-murugan-golden-vel-acrylic-art/mockup-artistic.jpg",
-      "/images/promo-aluminium-frames-clean.png",
-      "/images/print-size-options-clean.jpg",
-      "/images/trust-badges-clean.png",
-      "/images/frames/gold-border-ref.jpg",
-      "/images/frames/black-border-ref.jpg",
-      "/images/frames/acrylic-border-ref.jpg"
+      "/images/mockups/lord-kartikeya-murugan-golden-vel-acrylic-art/primary-square.jpg"
     ],
     "tags": [
       "Murugan",
@@ -2679,7 +7705,234 @@ export const INITIAL_PRODUCTS: Product[] = [
     "reviews": [],
     "createdAt": "2026-09-02T00:00:00.000Z",
     "updatedAt": "2026-11-02T13:35:03.404Z",
-    "id": "6ae89187382113ccb9a5424c"
+    "id": "6ae89187382113ccb9a5424c",
+    "models": [
+      {
+        "id": "M-18",
+        "name": "M-18",
+        "image": "/images/mockups/lord-kartikeya-murugan-golden-vel-acrylic-art/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/lord-kartikeya-murugan-golden-vel-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-10",
+        "name": "M-10",
+        "image": "/images/mockups/lord-kartikeya-murugan-golden-vel-acrylic-art/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/lord-kartikeya-murugan-golden-vel-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-1",
+        "name": "M-1",
+        "image": "/images/mockups/lord-kartikeya-murugan-golden-vel-acrylic-art/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/lord-kartikeya-murugan-golden-vel-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-2",
+        "name": "M-2",
+        "image": "/images/mockups/lord-kartikeya-murugan-golden-vel-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-kartikeya-murugan-golden-vel-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-3",
+        "name": "M-3",
+        "image": "/images/mockups/lord-kartikeya-murugan-golden-vel-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-kartikeya-murugan-golden-vel-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-4",
+        "name": "M-4",
+        "image": "/images/mockups/lord-kartikeya-murugan-golden-vel-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-kartikeya-murugan-golden-vel-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-5",
+        "name": "M-5",
+        "image": "/images/mockups/lord-kartikeya-murugan-golden-vel-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-kartikeya-murugan-golden-vel-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-6",
+        "name": "M-6",
+        "image": "/images/mockups/lord-kartikeya-murugan-golden-vel-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-kartikeya-murugan-golden-vel-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-7",
+        "name": "M-7",
+        "image": "/images/mockups/lord-kartikeya-murugan-golden-vel-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-kartikeya-murugan-golden-vel-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-8",
+        "name": "M-8",
+        "image": "/images/mockups/lord-kartikeya-murugan-golden-vel-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-kartikeya-murugan-golden-vel-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-9",
+        "name": "M-9",
+        "image": "/images/mockups/lord-kartikeya-murugan-golden-vel-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-kartikeya-murugan-golden-vel-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-11",
+        "name": "M-11",
+        "image": "/images/mockups/lord-kartikeya-murugan-golden-vel-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-kartikeya-murugan-golden-vel-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-12",
+        "name": "M-12",
+        "image": "/images/mockups/lord-kartikeya-murugan-golden-vel-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-kartikeya-murugan-golden-vel-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-13",
+        "name": "M-13",
+        "image": "/images/mockups/lord-kartikeya-murugan-golden-vel-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-kartikeya-murugan-golden-vel-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-14",
+        "name": "M-14",
+        "image": "/images/mockups/lord-kartikeya-murugan-golden-vel-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-kartikeya-murugan-golden-vel-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-15",
+        "name": "M-15",
+        "image": "/images/mockups/lord-kartikeya-murugan-golden-vel-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-kartikeya-murugan-golden-vel-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-16",
+        "name": "M-16",
+        "image": "/images/mockups/lord-kartikeya-murugan-golden-vel-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-kartikeya-murugan-golden-vel-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-17",
+        "name": "M-17",
+        "image": "/images/mockups/lord-kartikeya-murugan-golden-vel-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-kartikeya-murugan-golden-vel-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-19",
+        "name": "M-19",
+        "image": "/images/mockups/lord-kartikeya-murugan-golden-vel-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-kartikeya-murugan-golden-vel-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-20",
+        "name": "M-20",
+        "image": "/images/mockups/lord-kartikeya-murugan-golden-vel-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-kartikeya-murugan-golden-vel-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-21",
+        "name": "M-21",
+        "image": "/images/mockups/lord-kartikeya-murugan-golden-vel-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-kartikeya-murugan-golden-vel-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-22",
+        "name": "M-22",
+        "image": "/images/mockups/lord-kartikeya-murugan-golden-vel-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-kartikeya-murugan-golden-vel-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-23",
+        "name": "M-23",
+        "image": "/images/mockups/lord-kartikeya-murugan-golden-vel-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-kartikeya-murugan-golden-vel-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-24",
+        "name": "M-24",
+        "image": "/images/mockups/lord-kartikeya-murugan-golden-vel-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-kartikeya-murugan-golden-vel-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-25",
+        "name": "M-25",
+        "image": "/images/mockups/lord-kartikeya-murugan-golden-vel-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-kartikeya-murugan-golden-vel-acrylic-art/primary-square.jpg"
+        ]
+      }
+    ]
   },
   {
     "slug": "sankat-mochan-lord-hanuman-24k-gold-acrylic-wall-art",
@@ -2693,18 +7946,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "artStyle": "Vedic Devotional Acrylic",
     "orientation": "vertical",
     "images": [
-      "/images/mockups/sankat-mochan-lord-hanuman-24k-gold-acrylic-wall-art/primary-square.jpg",
-      "/images/mockups/sankat-mochan-lord-hanuman-24k-gold-acrylic-wall-art/mockup-living-room.jpg",
-      "/images/mockups/sankat-mochan-lord-hanuman-24k-gold-acrylic-wall-art/mockup-interior.jpg",
-      "/images/mockups/sankat-mochan-lord-hanuman-24k-gold-acrylic-wall-art/mockup-foyer.jpg",
-      "/images/mockups/sankat-mochan-lord-hanuman-24k-gold-acrylic-wall-art/mockup-detail.jpg",
-      "/images/mockups/sankat-mochan-lord-hanuman-24k-gold-acrylic-wall-art/mockup-artistic.jpg",
-      "/images/promo-aluminium-frames-clean.png",
-      "/images/print-size-options-clean.jpg",
-      "/images/trust-badges-clean.png",
-      "/images/frames/gold-border-ref.jpg",
-      "/images/frames/black-border-ref.jpg",
-      "/images/frames/acrylic-border-ref.jpg"
+      "/images/mockups/sankat-mochan-lord-hanuman-24k-gold-acrylic-wall-art/primary-square.jpg"
     ],
     "tags": [
       "Hanuman",
@@ -2767,7 +8009,234 @@ export const INITIAL_PRODUCTS: Product[] = [
     "reviews": [],
     "createdAt": "2026-08-15T00:00:00.000Z",
     "updatedAt": "2026-11-02T13:35:03.408Z",
-    "id": "6ae89187382113ccb9a542af"
+    "id": "6ae89187382113ccb9a542af",
+    "models": [
+      {
+        "id": "M-18",
+        "name": "M-18",
+        "image": "/images/mockups/sankat-mochan-lord-hanuman-24k-gold-acrylic-wall-art/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/sankat-mochan-lord-hanuman-24k-gold-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-10",
+        "name": "M-10",
+        "image": "/images/mockups/sankat-mochan-lord-hanuman-24k-gold-acrylic-wall-art/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/sankat-mochan-lord-hanuman-24k-gold-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-1",
+        "name": "M-1",
+        "image": "/images/mockups/sankat-mochan-lord-hanuman-24k-gold-acrylic-wall-art/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/sankat-mochan-lord-hanuman-24k-gold-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-2",
+        "name": "M-2",
+        "image": "/images/mockups/sankat-mochan-lord-hanuman-24k-gold-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/sankat-mochan-lord-hanuman-24k-gold-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-3",
+        "name": "M-3",
+        "image": "/images/mockups/sankat-mochan-lord-hanuman-24k-gold-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/sankat-mochan-lord-hanuman-24k-gold-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-4",
+        "name": "M-4",
+        "image": "/images/mockups/sankat-mochan-lord-hanuman-24k-gold-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/sankat-mochan-lord-hanuman-24k-gold-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-5",
+        "name": "M-5",
+        "image": "/images/mockups/sankat-mochan-lord-hanuman-24k-gold-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/sankat-mochan-lord-hanuman-24k-gold-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-6",
+        "name": "M-6",
+        "image": "/images/mockups/sankat-mochan-lord-hanuman-24k-gold-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/sankat-mochan-lord-hanuman-24k-gold-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-7",
+        "name": "M-7",
+        "image": "/images/mockups/sankat-mochan-lord-hanuman-24k-gold-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/sankat-mochan-lord-hanuman-24k-gold-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-8",
+        "name": "M-8",
+        "image": "/images/mockups/sankat-mochan-lord-hanuman-24k-gold-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/sankat-mochan-lord-hanuman-24k-gold-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-9",
+        "name": "M-9",
+        "image": "/images/mockups/sankat-mochan-lord-hanuman-24k-gold-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/sankat-mochan-lord-hanuman-24k-gold-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-11",
+        "name": "M-11",
+        "image": "/images/mockups/sankat-mochan-lord-hanuman-24k-gold-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/sankat-mochan-lord-hanuman-24k-gold-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-12",
+        "name": "M-12",
+        "image": "/images/mockups/sankat-mochan-lord-hanuman-24k-gold-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/sankat-mochan-lord-hanuman-24k-gold-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-13",
+        "name": "M-13",
+        "image": "/images/mockups/sankat-mochan-lord-hanuman-24k-gold-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/sankat-mochan-lord-hanuman-24k-gold-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-14",
+        "name": "M-14",
+        "image": "/images/mockups/sankat-mochan-lord-hanuman-24k-gold-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/sankat-mochan-lord-hanuman-24k-gold-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-15",
+        "name": "M-15",
+        "image": "/images/mockups/sankat-mochan-lord-hanuman-24k-gold-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/sankat-mochan-lord-hanuman-24k-gold-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-16",
+        "name": "M-16",
+        "image": "/images/mockups/sankat-mochan-lord-hanuman-24k-gold-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/sankat-mochan-lord-hanuman-24k-gold-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-17",
+        "name": "M-17",
+        "image": "/images/mockups/sankat-mochan-lord-hanuman-24k-gold-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/sankat-mochan-lord-hanuman-24k-gold-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-19",
+        "name": "M-19",
+        "image": "/images/mockups/sankat-mochan-lord-hanuman-24k-gold-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/sankat-mochan-lord-hanuman-24k-gold-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-20",
+        "name": "M-20",
+        "image": "/images/mockups/sankat-mochan-lord-hanuman-24k-gold-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/sankat-mochan-lord-hanuman-24k-gold-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-21",
+        "name": "M-21",
+        "image": "/images/mockups/sankat-mochan-lord-hanuman-24k-gold-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/sankat-mochan-lord-hanuman-24k-gold-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-22",
+        "name": "M-22",
+        "image": "/images/mockups/sankat-mochan-lord-hanuman-24k-gold-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/sankat-mochan-lord-hanuman-24k-gold-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-23",
+        "name": "M-23",
+        "image": "/images/mockups/sankat-mochan-lord-hanuman-24k-gold-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/sankat-mochan-lord-hanuman-24k-gold-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-24",
+        "name": "M-24",
+        "image": "/images/mockups/sankat-mochan-lord-hanuman-24k-gold-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/sankat-mochan-lord-hanuman-24k-gold-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-25",
+        "name": "M-25",
+        "image": "/images/mockups/sankat-mochan-lord-hanuman-24k-gold-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/sankat-mochan-lord-hanuman-24k-gold-acrylic-wall-art/primary-square.jpg"
+        ]
+      }
+    ]
   },
   {
     "slug": "tirupati-balaji-divine-led-backlit-acrylic-wall-art",
@@ -2781,18 +8250,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "artStyle": "LED Backlit Acrylic",
     "orientation": "vertical",
     "images": [
-      "/images/mockups/tirupati-balaji-divine-led-backlit-acrylic-wall-art/primary-square.jpg",
-      "/images/mockups/tirupati-balaji-divine-led-backlit-acrylic-wall-art/mockup-living-room.jpg",
-      "/images/mockups/tirupati-balaji-divine-led-backlit-acrylic-wall-art/mockup-interior.jpg",
-      "/images/mockups/tirupati-balaji-divine-led-backlit-acrylic-wall-art/mockup-foyer.jpg",
-      "/images/mockups/tirupati-balaji-divine-led-backlit-acrylic-wall-art/mockup-detail.jpg",
-      "/images/mockups/tirupati-balaji-divine-led-backlit-acrylic-wall-art/mockup-artistic.jpg",
-      "/images/promo-aluminium-frames-clean.png",
-      "/images/print-size-options-clean.jpg",
-      "/images/trust-badges-clean.png",
-      "/images/frames/gold-border-ref.jpg",
-      "/images/frames/black-border-ref.jpg",
-      "/images/frames/acrylic-border-ref.jpg"
+      "/images/mockups/tirupati-balaji-divine-led-backlit-acrylic-wall-art/primary-square.jpg"
     ],
     "tags": [
       "Balaji",
@@ -3054,7 +8512,242 @@ export const INITIAL_PRODUCTS: Product[] = [
       ]
     },
     "couponCode": "WELCOME10",
-    "id": "6ae89187382113ccb9a541d3"
+    "id": "6ae89187382113ccb9a541d3",
+    "models": [
+      {
+        "id": "M-18",
+        "name": "M-18",
+        "image": "/images/models/balaji-m18-room.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/models/balaji-m18-room.jpg",
+          "/images/models/balaji-m18-view-1.jpg",
+          "/images/models/balaji-m18-view-2.jpg",
+          "/images/models/balaji-m18-view-3.jpg",
+          "/images/models/balaji-m18-view-4.jpg",
+          "/images/models/balaji-m18-view-5.jpg",
+          "/images/models/balaji-m18-art.jpg"
+        ]
+      },
+      {
+        "id": "M-10",
+        "name": "M-10",
+        "image": "/images/wall-decor/products/balaji/balaji-acrylic-gold-frame.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/wall-decor/products/balaji/balaji-acrylic-gold-frame.jpg",
+          "/images/wall-decor/products/balaji/balaji-daylight-unlit.jpg",
+          "/images/mockups/tirupati-balaji-divine-led-backlit-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-1",
+        "name": "M-1",
+        "image": "/images/mockups/tirupati-balaji-divine-led-backlit-acrylic-wall-art/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/tirupati-balaji-divine-led-backlit-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-2",
+        "name": "M-2",
+        "image": "/images/mockups/tirupati-balaji-divine-led-backlit-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/tirupati-balaji-divine-led-backlit-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-3",
+        "name": "M-3",
+        "image": "/images/mockups/tirupati-balaji-divine-led-backlit-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/tirupati-balaji-divine-led-backlit-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-4",
+        "name": "M-4",
+        "image": "/images/mockups/tirupati-balaji-divine-led-backlit-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/tirupati-balaji-divine-led-backlit-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-5",
+        "name": "M-5",
+        "image": "/images/mockups/tirupati-balaji-divine-led-backlit-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/tirupati-balaji-divine-led-backlit-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-6",
+        "name": "M-6",
+        "image": "/images/mockups/tirupati-balaji-divine-led-backlit-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/tirupati-balaji-divine-led-backlit-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-7",
+        "name": "M-7",
+        "image": "/images/mockups/tirupati-balaji-divine-led-backlit-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/tirupati-balaji-divine-led-backlit-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-8",
+        "name": "M-8",
+        "image": "/images/mockups/tirupati-balaji-divine-led-backlit-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/tirupati-balaji-divine-led-backlit-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-9",
+        "name": "M-9",
+        "image": "/images/mockups/tirupati-balaji-divine-led-backlit-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/tirupati-balaji-divine-led-backlit-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-11",
+        "name": "M-11",
+        "image": "/images/mockups/tirupati-balaji-divine-led-backlit-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/tirupati-balaji-divine-led-backlit-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-12",
+        "name": "M-12",
+        "image": "/images/mockups/tirupati-balaji-divine-led-backlit-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/tirupati-balaji-divine-led-backlit-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-13",
+        "name": "M-13",
+        "image": "/images/mockups/tirupati-balaji-divine-led-backlit-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/tirupati-balaji-divine-led-backlit-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-14",
+        "name": "M-14",
+        "image": "/images/mockups/tirupati-balaji-divine-led-backlit-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/tirupati-balaji-divine-led-backlit-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-15",
+        "name": "M-15",
+        "image": "/images/mockups/tirupati-balaji-divine-led-backlit-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/tirupati-balaji-divine-led-backlit-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-16",
+        "name": "M-16",
+        "image": "/images/mockups/tirupati-balaji-divine-led-backlit-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/tirupati-balaji-divine-led-backlit-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-17",
+        "name": "M-17",
+        "image": "/images/mockups/tirupati-balaji-divine-led-backlit-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/tirupati-balaji-divine-led-backlit-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-19",
+        "name": "M-19",
+        "image": "/images/mockups/tirupati-balaji-divine-led-backlit-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/tirupati-balaji-divine-led-backlit-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-20",
+        "name": "M-20",
+        "image": "/images/mockups/tirupati-balaji-divine-led-backlit-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/tirupati-balaji-divine-led-backlit-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-21",
+        "name": "M-21",
+        "image": "/images/mockups/tirupati-balaji-divine-led-backlit-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/tirupati-balaji-divine-led-backlit-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-22",
+        "name": "M-22",
+        "image": "/images/mockups/tirupati-balaji-divine-led-backlit-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/tirupati-balaji-divine-led-backlit-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-23",
+        "name": "M-23",
+        "image": "/images/mockups/tirupati-balaji-divine-led-backlit-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/tirupati-balaji-divine-led-backlit-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-24",
+        "name": "M-24",
+        "image": "/images/mockups/tirupati-balaji-divine-led-backlit-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/tirupati-balaji-divine-led-backlit-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-25",
+        "name": "M-25",
+        "image": "/images/mockups/tirupati-balaji-divine-led-backlit-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/tirupati-balaji-divine-led-backlit-acrylic-wall-art/primary-square.jpg"
+        ]
+      }
+    ]
   },
   {
     "slug": "swamiye-saranam-ayyappa-sacred-acrylic-wall-decor",
@@ -3068,18 +8761,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "artStyle": "Devotional Acrylic",
     "orientation": "vertical",
     "images": [
-      "/images/mockups/swamiye-saranam-ayyappa-sacred-acrylic-wall-decor/primary-square.jpg",
-      "/images/mockups/swamiye-saranam-ayyappa-sacred-acrylic-wall-decor/mockup-living-room.jpg",
-      "/images/mockups/swamiye-saranam-ayyappa-sacred-acrylic-wall-decor/mockup-interior.jpg",
-      "/images/mockups/swamiye-saranam-ayyappa-sacred-acrylic-wall-decor/mockup-foyer.jpg",
-      "/images/mockups/swamiye-saranam-ayyappa-sacred-acrylic-wall-decor/mockup-detail.jpg",
-      "/images/mockups/swamiye-saranam-ayyappa-sacred-acrylic-wall-decor/mockup-artistic.jpg",
-      "/images/promo-aluminium-frames-clean.png",
-      "/images/print-size-options-clean.jpg",
-      "/images/trust-badges-clean.png",
-      "/images/frames/gold-border-ref.jpg",
-      "/images/frames/black-border-ref.jpg",
-      "/images/frames/acrylic-border-ref.jpg"
+      "/images/mockups/swamiye-saranam-ayyappa-sacred-acrylic-wall-decor/primary-square.jpg"
     ],
     "tags": [
       "Ayyappa",
@@ -3141,7 +8823,234 @@ export const INITIAL_PRODUCTS: Product[] = [
     "reviews": [],
     "createdAt": "2026-09-18T00:00:00.000Z",
     "updatedAt": "2026-11-02T13:35:03.403Z",
-    "id": "6ae89187382113ccb9a54248"
+    "id": "6ae89187382113ccb9a54248",
+    "models": [
+      {
+        "id": "M-18",
+        "name": "M-18",
+        "image": "/images/mockups/swamiye-saranam-ayyappa-sacred-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/swamiye-saranam-ayyappa-sacred-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-10",
+        "name": "M-10",
+        "image": "/images/mockups/swamiye-saranam-ayyappa-sacred-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/swamiye-saranam-ayyappa-sacred-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-1",
+        "name": "M-1",
+        "image": "/images/mockups/swamiye-saranam-ayyappa-sacred-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/swamiye-saranam-ayyappa-sacred-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-2",
+        "name": "M-2",
+        "image": "/images/mockups/swamiye-saranam-ayyappa-sacred-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/swamiye-saranam-ayyappa-sacred-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-3",
+        "name": "M-3",
+        "image": "/images/mockups/swamiye-saranam-ayyappa-sacred-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/swamiye-saranam-ayyappa-sacred-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-4",
+        "name": "M-4",
+        "image": "/images/mockups/swamiye-saranam-ayyappa-sacred-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/swamiye-saranam-ayyappa-sacred-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-5",
+        "name": "M-5",
+        "image": "/images/mockups/swamiye-saranam-ayyappa-sacred-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/swamiye-saranam-ayyappa-sacred-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-6",
+        "name": "M-6",
+        "image": "/images/mockups/swamiye-saranam-ayyappa-sacred-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/swamiye-saranam-ayyappa-sacred-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-7",
+        "name": "M-7",
+        "image": "/images/mockups/swamiye-saranam-ayyappa-sacred-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/swamiye-saranam-ayyappa-sacred-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-8",
+        "name": "M-8",
+        "image": "/images/mockups/swamiye-saranam-ayyappa-sacred-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/swamiye-saranam-ayyappa-sacred-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-9",
+        "name": "M-9",
+        "image": "/images/mockups/swamiye-saranam-ayyappa-sacred-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/swamiye-saranam-ayyappa-sacred-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-11",
+        "name": "M-11",
+        "image": "/images/mockups/swamiye-saranam-ayyappa-sacred-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/swamiye-saranam-ayyappa-sacred-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-12",
+        "name": "M-12",
+        "image": "/images/mockups/swamiye-saranam-ayyappa-sacred-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/swamiye-saranam-ayyappa-sacred-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-13",
+        "name": "M-13",
+        "image": "/images/mockups/swamiye-saranam-ayyappa-sacred-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/swamiye-saranam-ayyappa-sacred-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-14",
+        "name": "M-14",
+        "image": "/images/mockups/swamiye-saranam-ayyappa-sacred-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/swamiye-saranam-ayyappa-sacred-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-15",
+        "name": "M-15",
+        "image": "/images/mockups/swamiye-saranam-ayyappa-sacred-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/swamiye-saranam-ayyappa-sacred-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-16",
+        "name": "M-16",
+        "image": "/images/mockups/swamiye-saranam-ayyappa-sacred-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/swamiye-saranam-ayyappa-sacred-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-17",
+        "name": "M-17",
+        "image": "/images/mockups/swamiye-saranam-ayyappa-sacred-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/swamiye-saranam-ayyappa-sacred-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-19",
+        "name": "M-19",
+        "image": "/images/mockups/swamiye-saranam-ayyappa-sacred-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/swamiye-saranam-ayyappa-sacred-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-20",
+        "name": "M-20",
+        "image": "/images/mockups/swamiye-saranam-ayyappa-sacred-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/swamiye-saranam-ayyappa-sacred-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-21",
+        "name": "M-21",
+        "image": "/images/mockups/swamiye-saranam-ayyappa-sacred-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/swamiye-saranam-ayyappa-sacred-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-22",
+        "name": "M-22",
+        "image": "/images/mockups/swamiye-saranam-ayyappa-sacred-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/swamiye-saranam-ayyappa-sacred-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-23",
+        "name": "M-23",
+        "image": "/images/mockups/swamiye-saranam-ayyappa-sacred-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/swamiye-saranam-ayyappa-sacred-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-24",
+        "name": "M-24",
+        "image": "/images/mockups/swamiye-saranam-ayyappa-sacred-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/swamiye-saranam-ayyappa-sacred-acrylic-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-25",
+        "name": "M-25",
+        "image": "/images/mockups/swamiye-saranam-ayyappa-sacred-acrylic-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/swamiye-saranam-ayyappa-sacred-acrylic-wall-decor/primary-square.jpg"
+        ]
+      }
+    ]
   },
   {
     "slug": "ayodhya-ram-janmabhoomi-mandir-3d-led-wall-decor",
@@ -3155,23 +9064,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "artStyle": "LED Backlit Wall Art",
     "orientation": "horizontal",
     "images": [
-      "/images/mockups/ayodhya-ram-janmabhoomi-mandir-3d-led-wall-decor/primary-square.jpg",
-      "/images/mockups/ayodhya-ram-janmabhoomi-mandir-3d-led-wall-decor/mockup-living-room.jpg",
-      "/images/mockups/ayodhya-ram-janmabhoomi-mandir-3d-led-wall-decor/mockup-interior.jpg",
-      "/images/mockups/ayodhya-ram-janmabhoomi-mandir-3d-led-wall-decor/mockup-foyer.jpg",
-      "/images/mockups/ayodhya-ram-janmabhoomi-mandir-3d-led-wall-decor/mockup-detail.jpg",
-      "/images/mockups/ayodhya-ram-janmabhoomi-mandir-3d-led-wall-decor/mockup-artistic.jpg",
-      "/images/atelier/ganesha-complete-framed.jpg",
-      "/images/atelier/hero-ganesha-frame.jpg",
-      "/images/atelier/hero-ram-legacy.jpg",
-      "/images/atelier/hero-ram-portrait.jpg",
-      "/images/atelier/layers-exploded-diagram.jpg",
-      "/images/promo-aluminium-frames-clean.png",
-      "/images/print-size-options-clean.jpg",
-      "/images/trust-badges-clean.png",
-      "/images/frames/gold-border-ref.jpg",
-      "/images/frames/black-border-ref.jpg",
-      "/images/frames/acrylic-border-ref.jpg"
+      "/images/mockups/ayodhya-ram-janmabhoomi-mandir-3d-led-wall-decor/primary-square.jpg"
     ],
     "tags": [
       "Ayodhya",
@@ -3251,7 +9144,234 @@ export const INITIAL_PRODUCTS: Product[] = [
     "reviews": [],
     "createdAt": "2026-09-10T00:00:00.000Z",
     "updatedAt": "2026-11-02T13:35:03.398Z",
-    "id": "6ae89187382113ccb9a54207"
+    "id": "6ae89187382113ccb9a54207",
+    "models": [
+      {
+        "id": "M-18",
+        "name": "M-18",
+        "image": "/images/mockups/ayodhya-ram-janmabhoomi-mandir-3d-led-wall-decor/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/ayodhya-ram-janmabhoomi-mandir-3d-led-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-10",
+        "name": "M-10",
+        "image": "/images/mockups/ayodhya-ram-janmabhoomi-mandir-3d-led-wall-decor/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/ayodhya-ram-janmabhoomi-mandir-3d-led-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-1",
+        "name": "M-1",
+        "image": "/images/mockups/ayodhya-ram-janmabhoomi-mandir-3d-led-wall-decor/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/ayodhya-ram-janmabhoomi-mandir-3d-led-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-2",
+        "name": "M-2",
+        "image": "/images/mockups/ayodhya-ram-janmabhoomi-mandir-3d-led-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/ayodhya-ram-janmabhoomi-mandir-3d-led-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-3",
+        "name": "M-3",
+        "image": "/images/mockups/ayodhya-ram-janmabhoomi-mandir-3d-led-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/ayodhya-ram-janmabhoomi-mandir-3d-led-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-4",
+        "name": "M-4",
+        "image": "/images/mockups/ayodhya-ram-janmabhoomi-mandir-3d-led-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/ayodhya-ram-janmabhoomi-mandir-3d-led-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-5",
+        "name": "M-5",
+        "image": "/images/mockups/ayodhya-ram-janmabhoomi-mandir-3d-led-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/ayodhya-ram-janmabhoomi-mandir-3d-led-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-6",
+        "name": "M-6",
+        "image": "/images/mockups/ayodhya-ram-janmabhoomi-mandir-3d-led-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/ayodhya-ram-janmabhoomi-mandir-3d-led-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-7",
+        "name": "M-7",
+        "image": "/images/mockups/ayodhya-ram-janmabhoomi-mandir-3d-led-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/ayodhya-ram-janmabhoomi-mandir-3d-led-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-8",
+        "name": "M-8",
+        "image": "/images/mockups/ayodhya-ram-janmabhoomi-mandir-3d-led-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/ayodhya-ram-janmabhoomi-mandir-3d-led-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-9",
+        "name": "M-9",
+        "image": "/images/mockups/ayodhya-ram-janmabhoomi-mandir-3d-led-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/ayodhya-ram-janmabhoomi-mandir-3d-led-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-11",
+        "name": "M-11",
+        "image": "/images/mockups/ayodhya-ram-janmabhoomi-mandir-3d-led-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/ayodhya-ram-janmabhoomi-mandir-3d-led-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-12",
+        "name": "M-12",
+        "image": "/images/mockups/ayodhya-ram-janmabhoomi-mandir-3d-led-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/ayodhya-ram-janmabhoomi-mandir-3d-led-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-13",
+        "name": "M-13",
+        "image": "/images/mockups/ayodhya-ram-janmabhoomi-mandir-3d-led-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/ayodhya-ram-janmabhoomi-mandir-3d-led-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-14",
+        "name": "M-14",
+        "image": "/images/mockups/ayodhya-ram-janmabhoomi-mandir-3d-led-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/ayodhya-ram-janmabhoomi-mandir-3d-led-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-15",
+        "name": "M-15",
+        "image": "/images/mockups/ayodhya-ram-janmabhoomi-mandir-3d-led-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/ayodhya-ram-janmabhoomi-mandir-3d-led-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-16",
+        "name": "M-16",
+        "image": "/images/mockups/ayodhya-ram-janmabhoomi-mandir-3d-led-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/ayodhya-ram-janmabhoomi-mandir-3d-led-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-17",
+        "name": "M-17",
+        "image": "/images/mockups/ayodhya-ram-janmabhoomi-mandir-3d-led-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/ayodhya-ram-janmabhoomi-mandir-3d-led-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-19",
+        "name": "M-19",
+        "image": "/images/mockups/ayodhya-ram-janmabhoomi-mandir-3d-led-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/ayodhya-ram-janmabhoomi-mandir-3d-led-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-20",
+        "name": "M-20",
+        "image": "/images/mockups/ayodhya-ram-janmabhoomi-mandir-3d-led-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/ayodhya-ram-janmabhoomi-mandir-3d-led-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-21",
+        "name": "M-21",
+        "image": "/images/mockups/ayodhya-ram-janmabhoomi-mandir-3d-led-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/ayodhya-ram-janmabhoomi-mandir-3d-led-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-22",
+        "name": "M-22",
+        "image": "/images/mockups/ayodhya-ram-janmabhoomi-mandir-3d-led-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/ayodhya-ram-janmabhoomi-mandir-3d-led-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-23",
+        "name": "M-23",
+        "image": "/images/mockups/ayodhya-ram-janmabhoomi-mandir-3d-led-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/ayodhya-ram-janmabhoomi-mandir-3d-led-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-24",
+        "name": "M-24",
+        "image": "/images/mockups/ayodhya-ram-janmabhoomi-mandir-3d-led-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/ayodhya-ram-janmabhoomi-mandir-3d-led-wall-decor/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-25",
+        "name": "M-25",
+        "image": "/images/mockups/ayodhya-ram-janmabhoomi-mandir-3d-led-wall-decor/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/ayodhya-ram-janmabhoomi-mandir-3d-led-wall-decor/primary-square.jpg"
+        ]
+      }
+    ]
   },
   {
     "slug": "botanical-golden-ginkgo-leaves-triptych-acrylic-set",
@@ -3264,18 +9384,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "artStyle": "Sets of Two or Three",
     "orientation": "vertical",
     "images": [
-      "/images/mockups/botanical-golden-ginkgo-leaves-triptych-acrylic-set/primary-square.jpg",
-      "/images/mockups/botanical-golden-ginkgo-leaves-triptych-acrylic-set/mockup-living-room.jpg",
-      "/images/mockups/botanical-golden-ginkgo-leaves-triptych-acrylic-set/mockup-interior.jpg",
-      "/images/mockups/botanical-golden-ginkgo-leaves-triptych-acrylic-set/mockup-foyer.jpg",
-      "/images/mockups/botanical-golden-ginkgo-leaves-triptych-acrylic-set/mockup-detail.jpg",
-      "/images/mockups/botanical-golden-ginkgo-leaves-triptych-acrylic-set/mockup-artistic.jpg",
-      "/images/promo-aluminium-frames-clean.png",
-      "/images/print-size-options-clean.jpg",
-      "/images/trust-badges-clean.png",
-      "/images/frames/gold-border-ref.jpg",
-      "/images/frames/black-border-ref.jpg",
-      "/images/frames/acrylic-border-ref.jpg"
+      "/images/mockups/botanical-golden-ginkgo-leaves-triptych-acrylic-set/primary-square.jpg"
     ],
     "tags": [
       "Set of 3",
@@ -3343,7 +9452,234 @@ export const INITIAL_PRODUCTS: Product[] = [
     "reviews": [],
     "createdAt": "2026-09-08T00:00:00.000Z",
     "updatedAt": "2026-11-02T13:35:03.399Z",
-    "id": "6ae89187382113ccb9a54212"
+    "id": "6ae89187382113ccb9a54212",
+    "models": [
+      {
+        "id": "M-18",
+        "name": "M-18",
+        "image": "/images/mockups/botanical-golden-ginkgo-leaves-triptych-acrylic-set/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/botanical-golden-ginkgo-leaves-triptych-acrylic-set/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-10",
+        "name": "M-10",
+        "image": "/images/mockups/botanical-golden-ginkgo-leaves-triptych-acrylic-set/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/botanical-golden-ginkgo-leaves-triptych-acrylic-set/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-1",
+        "name": "M-1",
+        "image": "/images/mockups/botanical-golden-ginkgo-leaves-triptych-acrylic-set/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/botanical-golden-ginkgo-leaves-triptych-acrylic-set/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-2",
+        "name": "M-2",
+        "image": "/images/mockups/botanical-golden-ginkgo-leaves-triptych-acrylic-set/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/botanical-golden-ginkgo-leaves-triptych-acrylic-set/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-3",
+        "name": "M-3",
+        "image": "/images/mockups/botanical-golden-ginkgo-leaves-triptych-acrylic-set/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/botanical-golden-ginkgo-leaves-triptych-acrylic-set/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-4",
+        "name": "M-4",
+        "image": "/images/mockups/botanical-golden-ginkgo-leaves-triptych-acrylic-set/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/botanical-golden-ginkgo-leaves-triptych-acrylic-set/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-5",
+        "name": "M-5",
+        "image": "/images/mockups/botanical-golden-ginkgo-leaves-triptych-acrylic-set/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/botanical-golden-ginkgo-leaves-triptych-acrylic-set/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-6",
+        "name": "M-6",
+        "image": "/images/mockups/botanical-golden-ginkgo-leaves-triptych-acrylic-set/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/botanical-golden-ginkgo-leaves-triptych-acrylic-set/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-7",
+        "name": "M-7",
+        "image": "/images/mockups/botanical-golden-ginkgo-leaves-triptych-acrylic-set/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/botanical-golden-ginkgo-leaves-triptych-acrylic-set/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-8",
+        "name": "M-8",
+        "image": "/images/mockups/botanical-golden-ginkgo-leaves-triptych-acrylic-set/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/botanical-golden-ginkgo-leaves-triptych-acrylic-set/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-9",
+        "name": "M-9",
+        "image": "/images/mockups/botanical-golden-ginkgo-leaves-triptych-acrylic-set/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/botanical-golden-ginkgo-leaves-triptych-acrylic-set/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-11",
+        "name": "M-11",
+        "image": "/images/mockups/botanical-golden-ginkgo-leaves-triptych-acrylic-set/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/botanical-golden-ginkgo-leaves-triptych-acrylic-set/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-12",
+        "name": "M-12",
+        "image": "/images/mockups/botanical-golden-ginkgo-leaves-triptych-acrylic-set/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/botanical-golden-ginkgo-leaves-triptych-acrylic-set/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-13",
+        "name": "M-13",
+        "image": "/images/mockups/botanical-golden-ginkgo-leaves-triptych-acrylic-set/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/botanical-golden-ginkgo-leaves-triptych-acrylic-set/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-14",
+        "name": "M-14",
+        "image": "/images/mockups/botanical-golden-ginkgo-leaves-triptych-acrylic-set/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/botanical-golden-ginkgo-leaves-triptych-acrylic-set/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-15",
+        "name": "M-15",
+        "image": "/images/mockups/botanical-golden-ginkgo-leaves-triptych-acrylic-set/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/botanical-golden-ginkgo-leaves-triptych-acrylic-set/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-16",
+        "name": "M-16",
+        "image": "/images/mockups/botanical-golden-ginkgo-leaves-triptych-acrylic-set/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/botanical-golden-ginkgo-leaves-triptych-acrylic-set/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-17",
+        "name": "M-17",
+        "image": "/images/mockups/botanical-golden-ginkgo-leaves-triptych-acrylic-set/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/botanical-golden-ginkgo-leaves-triptych-acrylic-set/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-19",
+        "name": "M-19",
+        "image": "/images/mockups/botanical-golden-ginkgo-leaves-triptych-acrylic-set/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/botanical-golden-ginkgo-leaves-triptych-acrylic-set/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-20",
+        "name": "M-20",
+        "image": "/images/mockups/botanical-golden-ginkgo-leaves-triptych-acrylic-set/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/botanical-golden-ginkgo-leaves-triptych-acrylic-set/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-21",
+        "name": "M-21",
+        "image": "/images/mockups/botanical-golden-ginkgo-leaves-triptych-acrylic-set/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/botanical-golden-ginkgo-leaves-triptych-acrylic-set/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-22",
+        "name": "M-22",
+        "image": "/images/mockups/botanical-golden-ginkgo-leaves-triptych-acrylic-set/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/botanical-golden-ginkgo-leaves-triptych-acrylic-set/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-23",
+        "name": "M-23",
+        "image": "/images/mockups/botanical-golden-ginkgo-leaves-triptych-acrylic-set/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/botanical-golden-ginkgo-leaves-triptych-acrylic-set/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-24",
+        "name": "M-24",
+        "image": "/images/mockups/botanical-golden-ginkgo-leaves-triptych-acrylic-set/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/botanical-golden-ginkgo-leaves-triptych-acrylic-set/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-25",
+        "name": "M-25",
+        "image": "/images/mockups/botanical-golden-ginkgo-leaves-triptych-acrylic-set/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/botanical-golden-ginkgo-leaves-triptych-acrylic-set/primary-square.jpg"
+        ]
+      }
+    ]
   },
   {
     "slug": "personalized-family-heirloom-gold-script-acrylic-frame",
@@ -3356,23 +9692,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "artStyle": "Custom Photo Frames",
     "orientation": "horizontal",
     "images": [
-      "/images/mockups/personalized-family-heirloom-gold-script-acrylic-frame/primary-square.jpg",
-      "/images/mockups/personalized-family-heirloom-gold-script-acrylic-frame/mockup-living-room.jpg",
-      "/images/mockups/personalized-family-heirloom-gold-script-acrylic-frame/mockup-interior.jpg",
-      "/images/mockups/personalized-family-heirloom-gold-script-acrylic-frame/mockup-foyer.jpg",
-      "/images/mockups/personalized-family-heirloom-gold-script-acrylic-frame/mockup-detail.jpg",
-      "/images/mockups/personalized-family-heirloom-gold-script-acrylic-frame/mockup-artistic.jpg",
-      "/images/atelier/ganesha-complete-framed.jpg",
-      "/images/atelier/hero-ganesha-frame.jpg",
-      "/images/atelier/hero-ram-legacy.jpg",
-      "/images/atelier/hero-ram-portrait.jpg",
-      "/images/atelier/layers-exploded-diagram.jpg",
-      "/images/promo-aluminium-frames-clean.png",
-      "/images/print-size-options-clean.jpg",
-      "/images/trust-badges-clean.png",
-      "/images/frames/gold-border-ref.jpg",
-      "/images/frames/black-border-ref.jpg",
-      "/images/frames/acrylic-border-ref.jpg"
+      "/images/mockups/personalized-family-heirloom-gold-script-acrylic-frame/primary-square.jpg"
     ],
     "tags": [
       "Family Photo",
@@ -3458,7 +9778,234 @@ export const INITIAL_PRODUCTS: Product[] = [
     "reviews": [],
     "createdAt": "2026-09-05T00:00:00.000Z",
     "updatedAt": "2026-11-02T13:35:03.402Z",
-    "id": "6ae89187382113ccb9a5423a"
+    "id": "6ae89187382113ccb9a5423a",
+    "models": [
+      {
+        "id": "M-18",
+        "name": "M-18",
+        "image": "/images/mockups/personalized-family-heirloom-gold-script-acrylic-frame/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/personalized-family-heirloom-gold-script-acrylic-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-10",
+        "name": "M-10",
+        "image": "/images/mockups/personalized-family-heirloom-gold-script-acrylic-frame/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/personalized-family-heirloom-gold-script-acrylic-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-1",
+        "name": "M-1",
+        "image": "/images/mockups/personalized-family-heirloom-gold-script-acrylic-frame/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/personalized-family-heirloom-gold-script-acrylic-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-2",
+        "name": "M-2",
+        "image": "/images/mockups/personalized-family-heirloom-gold-script-acrylic-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/personalized-family-heirloom-gold-script-acrylic-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-3",
+        "name": "M-3",
+        "image": "/images/mockups/personalized-family-heirloom-gold-script-acrylic-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/personalized-family-heirloom-gold-script-acrylic-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-4",
+        "name": "M-4",
+        "image": "/images/mockups/personalized-family-heirloom-gold-script-acrylic-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/personalized-family-heirloom-gold-script-acrylic-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-5",
+        "name": "M-5",
+        "image": "/images/mockups/personalized-family-heirloom-gold-script-acrylic-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/personalized-family-heirloom-gold-script-acrylic-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-6",
+        "name": "M-6",
+        "image": "/images/mockups/personalized-family-heirloom-gold-script-acrylic-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/personalized-family-heirloom-gold-script-acrylic-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-7",
+        "name": "M-7",
+        "image": "/images/mockups/personalized-family-heirloom-gold-script-acrylic-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/personalized-family-heirloom-gold-script-acrylic-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-8",
+        "name": "M-8",
+        "image": "/images/mockups/personalized-family-heirloom-gold-script-acrylic-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/personalized-family-heirloom-gold-script-acrylic-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-9",
+        "name": "M-9",
+        "image": "/images/mockups/personalized-family-heirloom-gold-script-acrylic-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/personalized-family-heirloom-gold-script-acrylic-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-11",
+        "name": "M-11",
+        "image": "/images/mockups/personalized-family-heirloom-gold-script-acrylic-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/personalized-family-heirloom-gold-script-acrylic-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-12",
+        "name": "M-12",
+        "image": "/images/mockups/personalized-family-heirloom-gold-script-acrylic-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/personalized-family-heirloom-gold-script-acrylic-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-13",
+        "name": "M-13",
+        "image": "/images/mockups/personalized-family-heirloom-gold-script-acrylic-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/personalized-family-heirloom-gold-script-acrylic-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-14",
+        "name": "M-14",
+        "image": "/images/mockups/personalized-family-heirloom-gold-script-acrylic-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/personalized-family-heirloom-gold-script-acrylic-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-15",
+        "name": "M-15",
+        "image": "/images/mockups/personalized-family-heirloom-gold-script-acrylic-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/personalized-family-heirloom-gold-script-acrylic-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-16",
+        "name": "M-16",
+        "image": "/images/mockups/personalized-family-heirloom-gold-script-acrylic-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/personalized-family-heirloom-gold-script-acrylic-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-17",
+        "name": "M-17",
+        "image": "/images/mockups/personalized-family-heirloom-gold-script-acrylic-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/personalized-family-heirloom-gold-script-acrylic-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-19",
+        "name": "M-19",
+        "image": "/images/mockups/personalized-family-heirloom-gold-script-acrylic-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/personalized-family-heirloom-gold-script-acrylic-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-20",
+        "name": "M-20",
+        "image": "/images/mockups/personalized-family-heirloom-gold-script-acrylic-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/personalized-family-heirloom-gold-script-acrylic-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-21",
+        "name": "M-21",
+        "image": "/images/mockups/personalized-family-heirloom-gold-script-acrylic-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/personalized-family-heirloom-gold-script-acrylic-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-22",
+        "name": "M-22",
+        "image": "/images/mockups/personalized-family-heirloom-gold-script-acrylic-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/personalized-family-heirloom-gold-script-acrylic-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-23",
+        "name": "M-23",
+        "image": "/images/mockups/personalized-family-heirloom-gold-script-acrylic-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/personalized-family-heirloom-gold-script-acrylic-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-24",
+        "name": "M-24",
+        "image": "/images/mockups/personalized-family-heirloom-gold-script-acrylic-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/personalized-family-heirloom-gold-script-acrylic-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-25",
+        "name": "M-25",
+        "image": "/images/mockups/personalized-family-heirloom-gold-script-acrylic-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/personalized-family-heirloom-gold-script-acrylic-frame/primary-square.jpg"
+        ]
+      }
+    ]
   },
   {
     "slug": "seven-running-horses-vastu-gold-acrylic-wall-art",
@@ -3471,18 +10018,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "artStyle": "Vastu Gold Acrylic",
     "orientation": "horizontal",
     "images": [
-      "/images/mockups/seven-running-horses-vastu-gold-acrylic-wall-art/primary-square.jpg",
-      "/images/mockups/seven-running-horses-vastu-gold-acrylic-wall-art/mockup-living-room.jpg",
-      "/images/mockups/seven-running-horses-vastu-gold-acrylic-wall-art/mockup-interior.jpg",
-      "/images/mockups/seven-running-horses-vastu-gold-acrylic-wall-art/mockup-foyer.jpg",
-      "/images/mockups/seven-running-horses-vastu-gold-acrylic-wall-art/mockup-detail.jpg",
-      "/images/mockups/seven-running-horses-vastu-gold-acrylic-wall-art/mockup-artistic.jpg",
-      "/images/promo-aluminium-frames-clean.png",
-      "/images/print-size-options-clean.jpg",
-      "/images/trust-badges-clean.png",
-      "/images/frames/gold-border-ref.jpg",
-      "/images/frames/black-border-ref.jpg",
-      "/images/frames/acrylic-border-ref.jpg"
+      "/images/mockups/seven-running-horses-vastu-gold-acrylic-wall-art/primary-square.jpg"
     ],
     "tags": [
       "7 Horses",
@@ -3564,7 +10100,234 @@ export const INITIAL_PRODUCTS: Product[] = [
     "reviews": [],
     "createdAt": "2026-09-10T00:00:00.000Z",
     "updatedAt": "2026-11-02T13:35:03.408Z",
-    "id": "6ae89187382113ccb9a5427d"
+    "id": "6ae89187382113ccb9a5427d",
+    "models": [
+      {
+        "id": "M-18",
+        "name": "M-18",
+        "image": "/images/mockups/seven-running-horses-vastu-gold-acrylic-wall-art/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/seven-running-horses-vastu-gold-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-10",
+        "name": "M-10",
+        "image": "/images/mockups/seven-running-horses-vastu-gold-acrylic-wall-art/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/seven-running-horses-vastu-gold-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-1",
+        "name": "M-1",
+        "image": "/images/mockups/seven-running-horses-vastu-gold-acrylic-wall-art/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/seven-running-horses-vastu-gold-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-2",
+        "name": "M-2",
+        "image": "/images/mockups/seven-running-horses-vastu-gold-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/seven-running-horses-vastu-gold-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-3",
+        "name": "M-3",
+        "image": "/images/mockups/seven-running-horses-vastu-gold-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/seven-running-horses-vastu-gold-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-4",
+        "name": "M-4",
+        "image": "/images/mockups/seven-running-horses-vastu-gold-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/seven-running-horses-vastu-gold-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-5",
+        "name": "M-5",
+        "image": "/images/mockups/seven-running-horses-vastu-gold-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/seven-running-horses-vastu-gold-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-6",
+        "name": "M-6",
+        "image": "/images/mockups/seven-running-horses-vastu-gold-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/seven-running-horses-vastu-gold-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-7",
+        "name": "M-7",
+        "image": "/images/mockups/seven-running-horses-vastu-gold-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/seven-running-horses-vastu-gold-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-8",
+        "name": "M-8",
+        "image": "/images/mockups/seven-running-horses-vastu-gold-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/seven-running-horses-vastu-gold-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-9",
+        "name": "M-9",
+        "image": "/images/mockups/seven-running-horses-vastu-gold-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/seven-running-horses-vastu-gold-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-11",
+        "name": "M-11",
+        "image": "/images/mockups/seven-running-horses-vastu-gold-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/seven-running-horses-vastu-gold-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-12",
+        "name": "M-12",
+        "image": "/images/mockups/seven-running-horses-vastu-gold-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/seven-running-horses-vastu-gold-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-13",
+        "name": "M-13",
+        "image": "/images/mockups/seven-running-horses-vastu-gold-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/seven-running-horses-vastu-gold-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-14",
+        "name": "M-14",
+        "image": "/images/mockups/seven-running-horses-vastu-gold-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/seven-running-horses-vastu-gold-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-15",
+        "name": "M-15",
+        "image": "/images/mockups/seven-running-horses-vastu-gold-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/seven-running-horses-vastu-gold-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-16",
+        "name": "M-16",
+        "image": "/images/mockups/seven-running-horses-vastu-gold-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/seven-running-horses-vastu-gold-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-17",
+        "name": "M-17",
+        "image": "/images/mockups/seven-running-horses-vastu-gold-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/seven-running-horses-vastu-gold-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-19",
+        "name": "M-19",
+        "image": "/images/mockups/seven-running-horses-vastu-gold-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/seven-running-horses-vastu-gold-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-20",
+        "name": "M-20",
+        "image": "/images/mockups/seven-running-horses-vastu-gold-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/seven-running-horses-vastu-gold-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-21",
+        "name": "M-21",
+        "image": "/images/mockups/seven-running-horses-vastu-gold-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/seven-running-horses-vastu-gold-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-22",
+        "name": "M-22",
+        "image": "/images/mockups/seven-running-horses-vastu-gold-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/seven-running-horses-vastu-gold-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-23",
+        "name": "M-23",
+        "image": "/images/mockups/seven-running-horses-vastu-gold-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/seven-running-horses-vastu-gold-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-24",
+        "name": "M-24",
+        "image": "/images/mockups/seven-running-horses-vastu-gold-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/seven-running-horses-vastu-gold-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-25",
+        "name": "M-25",
+        "image": "/images/mockups/seven-running-horses-vastu-gold-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/seven-running-horses-vastu-gold-acrylic-wall-art/primary-square.jpg"
+        ]
+      }
+    ]
   },
   {
     "slug": "panoramic-landscape-acrylic-photo-frame",
@@ -3577,23 +10340,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "artStyle": "Custom Photo Frames",
     "orientation": "horizontal",
     "images": [
-      "/images/mockups/panoramic-landscape-acrylic-photo-frame/primary-square.jpg",
-      "/images/mockups/panoramic-landscape-acrylic-photo-frame/mockup-living-room.jpg",
-      "/images/mockups/panoramic-landscape-acrylic-photo-frame/mockup-interior.jpg",
-      "/images/mockups/panoramic-landscape-acrylic-photo-frame/mockup-foyer.jpg",
-      "/images/mockups/panoramic-landscape-acrylic-photo-frame/mockup-detail.jpg",
-      "/images/mockups/panoramic-landscape-acrylic-photo-frame/mockup-artistic.jpg",
-      "/images/atelier/ganesha-complete-framed.jpg",
-      "/images/atelier/hero-ganesha-frame.jpg",
-      "/images/atelier/hero-ram-legacy.jpg",
-      "/images/atelier/hero-ram-portrait.jpg",
-      "/images/atelier/layers-exploded-diagram.jpg",
-      "/images/promo-aluminium-frames-clean.png",
-      "/images/print-size-options-clean.jpg",
-      "/images/trust-badges-clean.png",
-      "/images/frames/gold-border-ref.jpg",
-      "/images/frames/black-border-ref.jpg",
-      "/images/frames/acrylic-border-ref.jpg"
+      "/images/mockups/panoramic-landscape-acrylic-photo-frame/primary-square.jpg"
     ],
     "tags": [
       "Landscape Frame",
@@ -3679,7 +10426,234 @@ export const INITIAL_PRODUCTS: Product[] = [
     "reviews": [],
     "createdAt": "2026-08-20T00:00:00.000Z",
     "updatedAt": "2026-11-02T13:35:03.401Z",
-    "id": "6ae89187382113ccb9a54225"
+    "id": "6ae89187382113ccb9a54225",
+    "models": [
+      {
+        "id": "M-18",
+        "name": "M-18",
+        "image": "/images/mockups/panoramic-landscape-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/panoramic-landscape-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-10",
+        "name": "M-10",
+        "image": "/images/mockups/panoramic-landscape-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/panoramic-landscape-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-1",
+        "name": "M-1",
+        "image": "/images/mockups/panoramic-landscape-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/panoramic-landscape-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-2",
+        "name": "M-2",
+        "image": "/images/mockups/panoramic-landscape-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/panoramic-landscape-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-3",
+        "name": "M-3",
+        "image": "/images/mockups/panoramic-landscape-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/panoramic-landscape-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-4",
+        "name": "M-4",
+        "image": "/images/mockups/panoramic-landscape-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/panoramic-landscape-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-5",
+        "name": "M-5",
+        "image": "/images/mockups/panoramic-landscape-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/panoramic-landscape-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-6",
+        "name": "M-6",
+        "image": "/images/mockups/panoramic-landscape-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/panoramic-landscape-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-7",
+        "name": "M-7",
+        "image": "/images/mockups/panoramic-landscape-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/panoramic-landscape-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-8",
+        "name": "M-8",
+        "image": "/images/mockups/panoramic-landscape-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/panoramic-landscape-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-9",
+        "name": "M-9",
+        "image": "/images/mockups/panoramic-landscape-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/panoramic-landscape-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-11",
+        "name": "M-11",
+        "image": "/images/mockups/panoramic-landscape-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/panoramic-landscape-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-12",
+        "name": "M-12",
+        "image": "/images/mockups/panoramic-landscape-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/panoramic-landscape-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-13",
+        "name": "M-13",
+        "image": "/images/mockups/panoramic-landscape-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/panoramic-landscape-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-14",
+        "name": "M-14",
+        "image": "/images/mockups/panoramic-landscape-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/panoramic-landscape-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-15",
+        "name": "M-15",
+        "image": "/images/mockups/panoramic-landscape-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/panoramic-landscape-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-16",
+        "name": "M-16",
+        "image": "/images/mockups/panoramic-landscape-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/panoramic-landscape-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-17",
+        "name": "M-17",
+        "image": "/images/mockups/panoramic-landscape-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/panoramic-landscape-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-19",
+        "name": "M-19",
+        "image": "/images/mockups/panoramic-landscape-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/panoramic-landscape-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-20",
+        "name": "M-20",
+        "image": "/images/mockups/panoramic-landscape-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/panoramic-landscape-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-21",
+        "name": "M-21",
+        "image": "/images/mockups/panoramic-landscape-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/panoramic-landscape-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-22",
+        "name": "M-22",
+        "image": "/images/mockups/panoramic-landscape-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/panoramic-landscape-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-23",
+        "name": "M-23",
+        "image": "/images/mockups/panoramic-landscape-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/panoramic-landscape-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-24",
+        "name": "M-24",
+        "image": "/images/mockups/panoramic-landscape-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/panoramic-landscape-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-25",
+        "name": "M-25",
+        "image": "/images/mockups/panoramic-landscape-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/panoramic-landscape-acrylic-photo-frame/primary-square.jpg"
+        ]
+      }
+    ]
   },
   {
     "slug": "crystal-tower-hexagonal-rotating-photo-lamp",
@@ -3693,17 +10667,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "orientation": "vertical",
     "images": [
       "/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/primary-square.jpg",
-      "/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/mockup-living-room.jpg",
-      "/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/mockup-interior.jpg",
-      "/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/mockup-foyer.jpg",
-      "/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/mockup-detail.jpg",
-      "/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/mockup-artistic.jpg",
-      "/images/promo-aluminium-frames-clean.png",
-      "/images/print-size-options-clean.jpg",
-      "/images/trust-badges-clean.png",
-      "/images/frames/gold-border-ref.jpg",
-      "/images/frames/black-border-ref.jpg",
-      "/images/frames/acrylic-border-ref.jpg"
+      "/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/mockup-living-room.jpg"
     ],
     "tags": [
       "Hexagonal Lamp",
@@ -3778,7 +10742,259 @@ export const INITIAL_PRODUCTS: Product[] = [
     "reviews": [],
     "createdAt": "2026-11-01T00:00:00.000Z",
     "updatedAt": "2026-11-02T13:35:03.409Z",
-    "id": "6ae89187382113ccb9a542d2"
+    "id": "6ae89187382113ccb9a542d2",
+    "models": [
+      {
+        "id": "M-18",
+        "name": "M-18",
+        "image": "/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/primary-square.jpg",
+          "/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/mockup-living-room.jpg"
+        ]
+      },
+      {
+        "id": "M-10",
+        "name": "M-10",
+        "image": "/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/mockup-living-room.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/mockup-living-room.jpg",
+          "/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-1",
+        "name": "M-1",
+        "image": "/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/primary-square.jpg",
+          "/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/mockup-living-room.jpg"
+        ]
+      },
+      {
+        "id": "M-2",
+        "name": "M-2",
+        "image": "/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/mockup-living-room.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/mockup-living-room.jpg",
+          "/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-3",
+        "name": "M-3",
+        "image": "/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/primary-square.jpg",
+          "/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/mockup-living-room.jpg"
+        ]
+      },
+      {
+        "id": "M-4",
+        "name": "M-4",
+        "image": "/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/mockup-living-room.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/mockup-living-room.jpg",
+          "/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-5",
+        "name": "M-5",
+        "image": "/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/primary-square.jpg",
+          "/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/mockup-living-room.jpg"
+        ]
+      },
+      {
+        "id": "M-6",
+        "name": "M-6",
+        "image": "/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/mockup-living-room.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/mockup-living-room.jpg",
+          "/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-7",
+        "name": "M-7",
+        "image": "/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/primary-square.jpg",
+          "/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/mockup-living-room.jpg"
+        ]
+      },
+      {
+        "id": "M-8",
+        "name": "M-8",
+        "image": "/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/mockup-living-room.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/mockup-living-room.jpg",
+          "/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-9",
+        "name": "M-9",
+        "image": "/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/primary-square.jpg",
+          "/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/mockup-living-room.jpg"
+        ]
+      },
+      {
+        "id": "M-11",
+        "name": "M-11",
+        "image": "/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/mockup-living-room.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/mockup-living-room.jpg",
+          "/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-12",
+        "name": "M-12",
+        "image": "/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/primary-square.jpg",
+          "/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/mockup-living-room.jpg"
+        ]
+      },
+      {
+        "id": "M-13",
+        "name": "M-13",
+        "image": "/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/mockup-living-room.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/mockup-living-room.jpg",
+          "/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-14",
+        "name": "M-14",
+        "image": "/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/primary-square.jpg",
+          "/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/mockup-living-room.jpg"
+        ]
+      },
+      {
+        "id": "M-15",
+        "name": "M-15",
+        "image": "/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/mockup-living-room.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/mockup-living-room.jpg",
+          "/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-16",
+        "name": "M-16",
+        "image": "/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/primary-square.jpg",
+          "/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/mockup-living-room.jpg"
+        ]
+      },
+      {
+        "id": "M-17",
+        "name": "M-17",
+        "image": "/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/mockup-living-room.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/mockup-living-room.jpg",
+          "/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-19",
+        "name": "M-19",
+        "image": "/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/primary-square.jpg",
+          "/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/mockup-living-room.jpg"
+        ]
+      },
+      {
+        "id": "M-20",
+        "name": "M-20",
+        "image": "/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/mockup-living-room.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/mockup-living-room.jpg",
+          "/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-21",
+        "name": "M-21",
+        "image": "/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/primary-square.jpg",
+          "/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/mockup-living-room.jpg"
+        ]
+      },
+      {
+        "id": "M-22",
+        "name": "M-22",
+        "image": "/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/mockup-living-room.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/mockup-living-room.jpg",
+          "/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-23",
+        "name": "M-23",
+        "image": "/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/primary-square.jpg",
+          "/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/mockup-living-room.jpg"
+        ]
+      },
+      {
+        "id": "M-24",
+        "name": "M-24",
+        "image": "/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/mockup-living-room.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/mockup-living-room.jpg",
+          "/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-25",
+        "name": "M-25",
+        "image": "/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/primary-square.jpg",
+          "/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/mockup-living-room.jpg"
+        ]
+      }
+    ]
   },
   {
     "slug": "lord-shiva-mahadev-dhyana-mudra-acrylic-wall-art",
@@ -3792,18 +11008,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "artStyle": "Meditative Sacred Acrylic",
     "orientation": "vertical",
     "images": [
-      "/images/mockups/lord-shiva-mahadev-dhyana-mudra-acrylic-wall-art/primary-square.jpg",
-      "/images/mockups/lord-shiva-mahadev-dhyana-mudra-acrylic-wall-art/mockup-living-room.jpg",
-      "/images/mockups/lord-shiva-mahadev-dhyana-mudra-acrylic-wall-art/mockup-interior.jpg",
-      "/images/mockups/lord-shiva-mahadev-dhyana-mudra-acrylic-wall-art/mockup-foyer.jpg",
-      "/images/mockups/lord-shiva-mahadev-dhyana-mudra-acrylic-wall-art/mockup-detail.jpg",
-      "/images/mockups/lord-shiva-mahadev-dhyana-mudra-acrylic-wall-art/mockup-artistic.jpg",
-      "/images/promo-aluminium-frames-clean.png",
-      "/images/print-size-options-clean.jpg",
-      "/images/trust-badges-clean.png",
-      "/images/frames/gold-border-ref.jpg",
-      "/images/frames/black-border-ref.jpg",
-      "/images/frames/acrylic-border-ref.jpg"
+      "/images/mockups/lord-shiva-mahadev-dhyana-mudra-acrylic-wall-art/primary-square.jpg"
     ],
     "tags": [
       "Shiva",
@@ -3872,7 +11077,234 @@ export const INITIAL_PRODUCTS: Product[] = [
     "reviews": [],
     "createdAt": "2026-08-12T00:00:00.000Z",
     "updatedAt": "2026-11-02T13:35:03.408Z",
-    "id": "6ae89187382113ccb9a542aa"
+    "id": "6ae89187382113ccb9a542aa",
+    "models": [
+      {
+        "id": "M-18",
+        "name": "M-18",
+        "image": "/images/mockups/lord-shiva-mahadev-dhyana-mudra-acrylic-wall-art/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/lord-shiva-mahadev-dhyana-mudra-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-10",
+        "name": "M-10",
+        "image": "/images/mockups/lord-shiva-mahadev-dhyana-mudra-acrylic-wall-art/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/lord-shiva-mahadev-dhyana-mudra-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-1",
+        "name": "M-1",
+        "image": "/images/mockups/lord-shiva-mahadev-dhyana-mudra-acrylic-wall-art/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/lord-shiva-mahadev-dhyana-mudra-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-2",
+        "name": "M-2",
+        "image": "/images/mockups/lord-shiva-mahadev-dhyana-mudra-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-shiva-mahadev-dhyana-mudra-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-3",
+        "name": "M-3",
+        "image": "/images/mockups/lord-shiva-mahadev-dhyana-mudra-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-shiva-mahadev-dhyana-mudra-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-4",
+        "name": "M-4",
+        "image": "/images/mockups/lord-shiva-mahadev-dhyana-mudra-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-shiva-mahadev-dhyana-mudra-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-5",
+        "name": "M-5",
+        "image": "/images/mockups/lord-shiva-mahadev-dhyana-mudra-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-shiva-mahadev-dhyana-mudra-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-6",
+        "name": "M-6",
+        "image": "/images/mockups/lord-shiva-mahadev-dhyana-mudra-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-shiva-mahadev-dhyana-mudra-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-7",
+        "name": "M-7",
+        "image": "/images/mockups/lord-shiva-mahadev-dhyana-mudra-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-shiva-mahadev-dhyana-mudra-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-8",
+        "name": "M-8",
+        "image": "/images/mockups/lord-shiva-mahadev-dhyana-mudra-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-shiva-mahadev-dhyana-mudra-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-9",
+        "name": "M-9",
+        "image": "/images/mockups/lord-shiva-mahadev-dhyana-mudra-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-shiva-mahadev-dhyana-mudra-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-11",
+        "name": "M-11",
+        "image": "/images/mockups/lord-shiva-mahadev-dhyana-mudra-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-shiva-mahadev-dhyana-mudra-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-12",
+        "name": "M-12",
+        "image": "/images/mockups/lord-shiva-mahadev-dhyana-mudra-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-shiva-mahadev-dhyana-mudra-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-13",
+        "name": "M-13",
+        "image": "/images/mockups/lord-shiva-mahadev-dhyana-mudra-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-shiva-mahadev-dhyana-mudra-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-14",
+        "name": "M-14",
+        "image": "/images/mockups/lord-shiva-mahadev-dhyana-mudra-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-shiva-mahadev-dhyana-mudra-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-15",
+        "name": "M-15",
+        "image": "/images/mockups/lord-shiva-mahadev-dhyana-mudra-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-shiva-mahadev-dhyana-mudra-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-16",
+        "name": "M-16",
+        "image": "/images/mockups/lord-shiva-mahadev-dhyana-mudra-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-shiva-mahadev-dhyana-mudra-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-17",
+        "name": "M-17",
+        "image": "/images/mockups/lord-shiva-mahadev-dhyana-mudra-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-shiva-mahadev-dhyana-mudra-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-19",
+        "name": "M-19",
+        "image": "/images/mockups/lord-shiva-mahadev-dhyana-mudra-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-shiva-mahadev-dhyana-mudra-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-20",
+        "name": "M-20",
+        "image": "/images/mockups/lord-shiva-mahadev-dhyana-mudra-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-shiva-mahadev-dhyana-mudra-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-21",
+        "name": "M-21",
+        "image": "/images/mockups/lord-shiva-mahadev-dhyana-mudra-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-shiva-mahadev-dhyana-mudra-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-22",
+        "name": "M-22",
+        "image": "/images/mockups/lord-shiva-mahadev-dhyana-mudra-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-shiva-mahadev-dhyana-mudra-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-23",
+        "name": "M-23",
+        "image": "/images/mockups/lord-shiva-mahadev-dhyana-mudra-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-shiva-mahadev-dhyana-mudra-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-24",
+        "name": "M-24",
+        "image": "/images/mockups/lord-shiva-mahadev-dhyana-mudra-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-shiva-mahadev-dhyana-mudra-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-25",
+        "name": "M-25",
+        "image": "/images/mockups/lord-shiva-mahadev-dhyana-mudra-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/lord-shiva-mahadev-dhyana-mudra-acrylic-wall-art/primary-square.jpg"
+        ]
+      }
+    ]
   },
   {
     "slug": "luxury-beveled-floating-border-acrylic-masterpiece-frame",
@@ -3885,23 +11317,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "artStyle": "Museum Gallery Framing",
     "orientation": "vertical",
     "images": [
-      "/images/mockups/luxury-beveled-floating-border-acrylic-masterpiece-frame/primary-square.jpg",
-      "/images/mockups/luxury-beveled-floating-border-acrylic-masterpiece-frame/mockup-living-room.jpg",
-      "/images/mockups/luxury-beveled-floating-border-acrylic-masterpiece-frame/mockup-interior.jpg",
-      "/images/mockups/luxury-beveled-floating-border-acrylic-masterpiece-frame/mockup-foyer.jpg",
-      "/images/mockups/luxury-beveled-floating-border-acrylic-masterpiece-frame/mockup-detail.jpg",
-      "/images/mockups/luxury-beveled-floating-border-acrylic-masterpiece-frame/mockup-artistic.jpg",
-      "/images/atelier/ganesha-complete-framed.jpg",
-      "/images/atelier/hero-ganesha-frame.jpg",
-      "/images/atelier/hero-ram-legacy.jpg",
-      "/images/atelier/hero-ram-portrait.jpg",
-      "/images/atelier/layers-exploded-diagram.jpg",
-      "/images/promo-aluminium-frames-clean.png",
-      "/images/print-size-options-clean.jpg",
-      "/images/trust-badges-clean.png",
-      "/images/frames/gold-border-ref.jpg",
-      "/images/frames/black-border-ref.jpg",
-      "/images/frames/acrylic-border-ref.jpg"
+      "/images/mockups/luxury-beveled-floating-border-acrylic-masterpiece-frame/primary-square.jpg"
     ],
     "tags": [
       "Premium Frames",
@@ -3968,7 +11384,234 @@ export const INITIAL_PRODUCTS: Product[] = [
     "reviews": [],
     "createdAt": "2026-10-01T00:00:00.000Z",
     "updatedAt": "2026-11-02T13:35:03.409Z",
-    "id": "6ae89187382113ccb9a542b3"
+    "id": "6ae89187382113ccb9a542b3",
+    "models": [
+      {
+        "id": "M-18",
+        "name": "M-18",
+        "image": "/images/mockups/luxury-beveled-floating-border-acrylic-masterpiece-frame/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/luxury-beveled-floating-border-acrylic-masterpiece-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-10",
+        "name": "M-10",
+        "image": "/images/mockups/luxury-beveled-floating-border-acrylic-masterpiece-frame/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/luxury-beveled-floating-border-acrylic-masterpiece-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-1",
+        "name": "M-1",
+        "image": "/images/mockups/luxury-beveled-floating-border-acrylic-masterpiece-frame/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/luxury-beveled-floating-border-acrylic-masterpiece-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-2",
+        "name": "M-2",
+        "image": "/images/mockups/luxury-beveled-floating-border-acrylic-masterpiece-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/luxury-beveled-floating-border-acrylic-masterpiece-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-3",
+        "name": "M-3",
+        "image": "/images/mockups/luxury-beveled-floating-border-acrylic-masterpiece-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/luxury-beveled-floating-border-acrylic-masterpiece-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-4",
+        "name": "M-4",
+        "image": "/images/mockups/luxury-beveled-floating-border-acrylic-masterpiece-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/luxury-beveled-floating-border-acrylic-masterpiece-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-5",
+        "name": "M-5",
+        "image": "/images/mockups/luxury-beveled-floating-border-acrylic-masterpiece-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/luxury-beveled-floating-border-acrylic-masterpiece-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-6",
+        "name": "M-6",
+        "image": "/images/mockups/luxury-beveled-floating-border-acrylic-masterpiece-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/luxury-beveled-floating-border-acrylic-masterpiece-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-7",
+        "name": "M-7",
+        "image": "/images/mockups/luxury-beveled-floating-border-acrylic-masterpiece-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/luxury-beveled-floating-border-acrylic-masterpiece-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-8",
+        "name": "M-8",
+        "image": "/images/mockups/luxury-beveled-floating-border-acrylic-masterpiece-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/luxury-beveled-floating-border-acrylic-masterpiece-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-9",
+        "name": "M-9",
+        "image": "/images/mockups/luxury-beveled-floating-border-acrylic-masterpiece-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/luxury-beveled-floating-border-acrylic-masterpiece-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-11",
+        "name": "M-11",
+        "image": "/images/mockups/luxury-beveled-floating-border-acrylic-masterpiece-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/luxury-beveled-floating-border-acrylic-masterpiece-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-12",
+        "name": "M-12",
+        "image": "/images/mockups/luxury-beveled-floating-border-acrylic-masterpiece-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/luxury-beveled-floating-border-acrylic-masterpiece-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-13",
+        "name": "M-13",
+        "image": "/images/mockups/luxury-beveled-floating-border-acrylic-masterpiece-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/luxury-beveled-floating-border-acrylic-masterpiece-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-14",
+        "name": "M-14",
+        "image": "/images/mockups/luxury-beveled-floating-border-acrylic-masterpiece-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/luxury-beveled-floating-border-acrylic-masterpiece-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-15",
+        "name": "M-15",
+        "image": "/images/mockups/luxury-beveled-floating-border-acrylic-masterpiece-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/luxury-beveled-floating-border-acrylic-masterpiece-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-16",
+        "name": "M-16",
+        "image": "/images/mockups/luxury-beveled-floating-border-acrylic-masterpiece-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/luxury-beveled-floating-border-acrylic-masterpiece-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-17",
+        "name": "M-17",
+        "image": "/images/mockups/luxury-beveled-floating-border-acrylic-masterpiece-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/luxury-beveled-floating-border-acrylic-masterpiece-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-19",
+        "name": "M-19",
+        "image": "/images/mockups/luxury-beveled-floating-border-acrylic-masterpiece-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/luxury-beveled-floating-border-acrylic-masterpiece-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-20",
+        "name": "M-20",
+        "image": "/images/mockups/luxury-beveled-floating-border-acrylic-masterpiece-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/luxury-beveled-floating-border-acrylic-masterpiece-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-21",
+        "name": "M-21",
+        "image": "/images/mockups/luxury-beveled-floating-border-acrylic-masterpiece-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/luxury-beveled-floating-border-acrylic-masterpiece-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-22",
+        "name": "M-22",
+        "image": "/images/mockups/luxury-beveled-floating-border-acrylic-masterpiece-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/luxury-beveled-floating-border-acrylic-masterpiece-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-23",
+        "name": "M-23",
+        "image": "/images/mockups/luxury-beveled-floating-border-acrylic-masterpiece-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/luxury-beveled-floating-border-acrylic-masterpiece-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-24",
+        "name": "M-24",
+        "image": "/images/mockups/luxury-beveled-floating-border-acrylic-masterpiece-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/luxury-beveled-floating-border-acrylic-masterpiece-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-25",
+        "name": "M-25",
+        "image": "/images/mockups/luxury-beveled-floating-border-acrylic-masterpiece-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/luxury-beveled-floating-border-acrylic-masterpiece-frame/primary-square.jpg"
+        ]
+      }
+    ]
   },
   {
     "slug": "sacred-om-swastik-divine-acrylic-diptych-set-of-2",
@@ -3981,18 +11624,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "artStyle": "Devotional Acrylic",
     "orientation": "vertical",
     "images": [
-      "/images/mockups/sacred-om-swastik-divine-acrylic-diptych-set-of-2/primary-square.jpg",
-      "/images/mockups/sacred-om-swastik-divine-acrylic-diptych-set-of-2/mockup-living-room.jpg",
-      "/images/mockups/sacred-om-swastik-divine-acrylic-diptych-set-of-2/mockup-interior.jpg",
-      "/images/mockups/sacred-om-swastik-divine-acrylic-diptych-set-of-2/mockup-foyer.jpg",
-      "/images/mockups/sacred-om-swastik-divine-acrylic-diptych-set-of-2/mockup-detail.jpg",
-      "/images/mockups/sacred-om-swastik-divine-acrylic-diptych-set-of-2/mockup-artistic.jpg",
-      "/images/promo-aluminium-frames-clean.png",
-      "/images/print-size-options-clean.jpg",
-      "/images/trust-badges-clean.png",
-      "/images/frames/gold-border-ref.jpg",
-      "/images/frames/black-border-ref.jpg",
-      "/images/frames/acrylic-border-ref.jpg"
+      "/images/mockups/sacred-om-swastik-divine-acrylic-diptych-set-of-2/primary-square.jpg"
     ],
     "tags": [
       "Set of 2",
@@ -4048,7 +11680,234 @@ export const INITIAL_PRODUCTS: Product[] = [
     "reviews": [],
     "createdAt": "2026-09-08T00:00:00.000Z",
     "updatedAt": "2026-11-02T13:35:03.407Z",
-    "id": "6ae89187382113ccb9a5426b"
+    "id": "6ae89187382113ccb9a5426b",
+    "models": [
+      {
+        "id": "M-18",
+        "name": "M-18",
+        "image": "/images/mockups/sacred-om-swastik-divine-acrylic-diptych-set-of-2/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/sacred-om-swastik-divine-acrylic-diptych-set-of-2/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-10",
+        "name": "M-10",
+        "image": "/images/mockups/sacred-om-swastik-divine-acrylic-diptych-set-of-2/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/sacred-om-swastik-divine-acrylic-diptych-set-of-2/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-1",
+        "name": "M-1",
+        "image": "/images/mockups/sacred-om-swastik-divine-acrylic-diptych-set-of-2/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/sacred-om-swastik-divine-acrylic-diptych-set-of-2/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-2",
+        "name": "M-2",
+        "image": "/images/mockups/sacred-om-swastik-divine-acrylic-diptych-set-of-2/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/sacred-om-swastik-divine-acrylic-diptych-set-of-2/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-3",
+        "name": "M-3",
+        "image": "/images/mockups/sacred-om-swastik-divine-acrylic-diptych-set-of-2/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/sacred-om-swastik-divine-acrylic-diptych-set-of-2/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-4",
+        "name": "M-4",
+        "image": "/images/mockups/sacred-om-swastik-divine-acrylic-diptych-set-of-2/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/sacred-om-swastik-divine-acrylic-diptych-set-of-2/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-5",
+        "name": "M-5",
+        "image": "/images/mockups/sacred-om-swastik-divine-acrylic-diptych-set-of-2/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/sacred-om-swastik-divine-acrylic-diptych-set-of-2/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-6",
+        "name": "M-6",
+        "image": "/images/mockups/sacred-om-swastik-divine-acrylic-diptych-set-of-2/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/sacred-om-swastik-divine-acrylic-diptych-set-of-2/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-7",
+        "name": "M-7",
+        "image": "/images/mockups/sacred-om-swastik-divine-acrylic-diptych-set-of-2/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/sacred-om-swastik-divine-acrylic-diptych-set-of-2/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-8",
+        "name": "M-8",
+        "image": "/images/mockups/sacred-om-swastik-divine-acrylic-diptych-set-of-2/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/sacred-om-swastik-divine-acrylic-diptych-set-of-2/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-9",
+        "name": "M-9",
+        "image": "/images/mockups/sacred-om-swastik-divine-acrylic-diptych-set-of-2/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/sacred-om-swastik-divine-acrylic-diptych-set-of-2/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-11",
+        "name": "M-11",
+        "image": "/images/mockups/sacred-om-swastik-divine-acrylic-diptych-set-of-2/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/sacred-om-swastik-divine-acrylic-diptych-set-of-2/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-12",
+        "name": "M-12",
+        "image": "/images/mockups/sacred-om-swastik-divine-acrylic-diptych-set-of-2/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/sacred-om-swastik-divine-acrylic-diptych-set-of-2/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-13",
+        "name": "M-13",
+        "image": "/images/mockups/sacred-om-swastik-divine-acrylic-diptych-set-of-2/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/sacred-om-swastik-divine-acrylic-diptych-set-of-2/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-14",
+        "name": "M-14",
+        "image": "/images/mockups/sacred-om-swastik-divine-acrylic-diptych-set-of-2/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/sacred-om-swastik-divine-acrylic-diptych-set-of-2/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-15",
+        "name": "M-15",
+        "image": "/images/mockups/sacred-om-swastik-divine-acrylic-diptych-set-of-2/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/sacred-om-swastik-divine-acrylic-diptych-set-of-2/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-16",
+        "name": "M-16",
+        "image": "/images/mockups/sacred-om-swastik-divine-acrylic-diptych-set-of-2/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/sacred-om-swastik-divine-acrylic-diptych-set-of-2/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-17",
+        "name": "M-17",
+        "image": "/images/mockups/sacred-om-swastik-divine-acrylic-diptych-set-of-2/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/sacred-om-swastik-divine-acrylic-diptych-set-of-2/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-19",
+        "name": "M-19",
+        "image": "/images/mockups/sacred-om-swastik-divine-acrylic-diptych-set-of-2/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/sacred-om-swastik-divine-acrylic-diptych-set-of-2/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-20",
+        "name": "M-20",
+        "image": "/images/mockups/sacred-om-swastik-divine-acrylic-diptych-set-of-2/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/sacred-om-swastik-divine-acrylic-diptych-set-of-2/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-21",
+        "name": "M-21",
+        "image": "/images/mockups/sacred-om-swastik-divine-acrylic-diptych-set-of-2/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/sacred-om-swastik-divine-acrylic-diptych-set-of-2/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-22",
+        "name": "M-22",
+        "image": "/images/mockups/sacred-om-swastik-divine-acrylic-diptych-set-of-2/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/sacred-om-swastik-divine-acrylic-diptych-set-of-2/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-23",
+        "name": "M-23",
+        "image": "/images/mockups/sacred-om-swastik-divine-acrylic-diptych-set-of-2/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/sacred-om-swastik-divine-acrylic-diptych-set-of-2/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-24",
+        "name": "M-24",
+        "image": "/images/mockups/sacred-om-swastik-divine-acrylic-diptych-set-of-2/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/sacred-om-swastik-divine-acrylic-diptych-set-of-2/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-25",
+        "name": "M-25",
+        "image": "/images/mockups/sacred-om-swastik-divine-acrylic-diptych-set-of-2/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/sacred-om-swastik-divine-acrylic-diptych-set-of-2/primary-square.jpg"
+        ]
+      }
+    ]
   },
   {
     "slug": "golden-bodhi-tree-ginkgo-leaves-acrylic-wall-art",
@@ -4061,18 +11920,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "artStyle": "Botanical Gold Acrylic",
     "orientation": "horizontal",
     "images": [
-      "/images/mockups/golden-bodhi-tree-ginkgo-leaves-acrylic-wall-art/primary-square.jpg",
-      "/images/mockups/golden-bodhi-tree-ginkgo-leaves-acrylic-wall-art/mockup-living-room.jpg",
-      "/images/mockups/golden-bodhi-tree-ginkgo-leaves-acrylic-wall-art/mockup-interior.jpg",
-      "/images/mockups/golden-bodhi-tree-ginkgo-leaves-acrylic-wall-art/mockup-foyer.jpg",
-      "/images/mockups/golden-bodhi-tree-ginkgo-leaves-acrylic-wall-art/mockup-detail.jpg",
-      "/images/mockups/golden-bodhi-tree-ginkgo-leaves-acrylic-wall-art/mockup-artistic.jpg",
-      "/images/promo-aluminium-frames-clean.png",
-      "/images/print-size-options-clean.jpg",
-      "/images/trust-badges-clean.png",
-      "/images/frames/gold-border-ref.jpg",
-      "/images/frames/black-border-ref.jpg",
-      "/images/frames/acrylic-border-ref.jpg"
+      "/images/mockups/golden-bodhi-tree-ginkgo-leaves-acrylic-wall-art/primary-square.jpg"
     ],
     "tags": [
       "Bodhi Tree",
@@ -4140,7 +11988,234 @@ export const INITIAL_PRODUCTS: Product[] = [
     "reviews": [],
     "createdAt": "2026-10-01T00:00:00.000Z",
     "updatedAt": "2026-11-02T13:35:03.408Z",
-    "id": "6ae89187382113ccb9a54283"
+    "id": "6ae89187382113ccb9a54283",
+    "models": [
+      {
+        "id": "M-18",
+        "name": "M-18",
+        "image": "/images/mockups/golden-bodhi-tree-ginkgo-leaves-acrylic-wall-art/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/golden-bodhi-tree-ginkgo-leaves-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-10",
+        "name": "M-10",
+        "image": "/images/mockups/golden-bodhi-tree-ginkgo-leaves-acrylic-wall-art/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/golden-bodhi-tree-ginkgo-leaves-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-1",
+        "name": "M-1",
+        "image": "/images/mockups/golden-bodhi-tree-ginkgo-leaves-acrylic-wall-art/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/golden-bodhi-tree-ginkgo-leaves-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-2",
+        "name": "M-2",
+        "image": "/images/mockups/golden-bodhi-tree-ginkgo-leaves-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/golden-bodhi-tree-ginkgo-leaves-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-3",
+        "name": "M-3",
+        "image": "/images/mockups/golden-bodhi-tree-ginkgo-leaves-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/golden-bodhi-tree-ginkgo-leaves-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-4",
+        "name": "M-4",
+        "image": "/images/mockups/golden-bodhi-tree-ginkgo-leaves-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/golden-bodhi-tree-ginkgo-leaves-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-5",
+        "name": "M-5",
+        "image": "/images/mockups/golden-bodhi-tree-ginkgo-leaves-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/golden-bodhi-tree-ginkgo-leaves-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-6",
+        "name": "M-6",
+        "image": "/images/mockups/golden-bodhi-tree-ginkgo-leaves-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/golden-bodhi-tree-ginkgo-leaves-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-7",
+        "name": "M-7",
+        "image": "/images/mockups/golden-bodhi-tree-ginkgo-leaves-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/golden-bodhi-tree-ginkgo-leaves-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-8",
+        "name": "M-8",
+        "image": "/images/mockups/golden-bodhi-tree-ginkgo-leaves-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/golden-bodhi-tree-ginkgo-leaves-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-9",
+        "name": "M-9",
+        "image": "/images/mockups/golden-bodhi-tree-ginkgo-leaves-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/golden-bodhi-tree-ginkgo-leaves-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-11",
+        "name": "M-11",
+        "image": "/images/mockups/golden-bodhi-tree-ginkgo-leaves-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/golden-bodhi-tree-ginkgo-leaves-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-12",
+        "name": "M-12",
+        "image": "/images/mockups/golden-bodhi-tree-ginkgo-leaves-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/golden-bodhi-tree-ginkgo-leaves-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-13",
+        "name": "M-13",
+        "image": "/images/mockups/golden-bodhi-tree-ginkgo-leaves-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/golden-bodhi-tree-ginkgo-leaves-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-14",
+        "name": "M-14",
+        "image": "/images/mockups/golden-bodhi-tree-ginkgo-leaves-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/golden-bodhi-tree-ginkgo-leaves-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-15",
+        "name": "M-15",
+        "image": "/images/mockups/golden-bodhi-tree-ginkgo-leaves-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/golden-bodhi-tree-ginkgo-leaves-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-16",
+        "name": "M-16",
+        "image": "/images/mockups/golden-bodhi-tree-ginkgo-leaves-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/golden-bodhi-tree-ginkgo-leaves-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-17",
+        "name": "M-17",
+        "image": "/images/mockups/golden-bodhi-tree-ginkgo-leaves-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/golden-bodhi-tree-ginkgo-leaves-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-19",
+        "name": "M-19",
+        "image": "/images/mockups/golden-bodhi-tree-ginkgo-leaves-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/golden-bodhi-tree-ginkgo-leaves-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-20",
+        "name": "M-20",
+        "image": "/images/mockups/golden-bodhi-tree-ginkgo-leaves-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/golden-bodhi-tree-ginkgo-leaves-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-21",
+        "name": "M-21",
+        "image": "/images/mockups/golden-bodhi-tree-ginkgo-leaves-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/golden-bodhi-tree-ginkgo-leaves-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-22",
+        "name": "M-22",
+        "image": "/images/mockups/golden-bodhi-tree-ginkgo-leaves-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/golden-bodhi-tree-ginkgo-leaves-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-23",
+        "name": "M-23",
+        "image": "/images/mockups/golden-bodhi-tree-ginkgo-leaves-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/golden-bodhi-tree-ginkgo-leaves-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-24",
+        "name": "M-24",
+        "image": "/images/mockups/golden-bodhi-tree-ginkgo-leaves-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/golden-bodhi-tree-ginkgo-leaves-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-25",
+        "name": "M-25",
+        "image": "/images/mockups/golden-bodhi-tree-ginkgo-leaves-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/golden-bodhi-tree-ginkgo-leaves-acrylic-wall-art/primary-square.jpg"
+        ]
+      }
+    ]
   },
   {
     "slug": "goddess-mahalakshmi-prosperity-divine-led-backlit-acrylic-art",
@@ -4154,20 +12229,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "artStyle": "LED Backlit Acrylic",
     "orientation": "square",
     "images": [
-      "/images/mockups/goddess-mahalakshmi-prosperity-divine-led-backlit-acrylic-art/primary-square.jpg",
-      "/images/mockups/goddess-mahalakshmi-prosperity-divine-led-backlit-acrylic-art/mockup-living-room.jpg",
-      "/images/mockups/goddess-mahalakshmi-prosperity-divine-led-backlit-acrylic-art/mockup-interior.jpg",
-      "/images/mockups/goddess-mahalakshmi-prosperity-divine-led-backlit-acrylic-art/mockup-foyer.jpg",
-      "/images/mockups/goddess-mahalakshmi-prosperity-divine-led-backlit-acrylic-art/mockup-detail.jpg",
-      "/images/mockups/goddess-mahalakshmi-prosperity-divine-led-backlit-acrylic-art/mockup-artistic.jpg",
-      "/images/atelier/hero-lakshmi-legacy.jpg",
-      "/images/atelier/hero-lakshmi-portrait.jpg",
-      "/images/promo-aluminium-frames-clean.png",
-      "/images/print-size-options-clean.jpg",
-      "/images/trust-badges-clean.png",
-      "/images/frames/gold-border-ref.jpg",
-      "/images/frames/black-border-ref.jpg",
-      "/images/frames/acrylic-border-ref.jpg"
+      "/images/mockups/goddess-mahalakshmi-prosperity-divine-led-backlit-acrylic-art/primary-square.jpg"
     ],
     "tags": [
       "Lakshmi",
@@ -4236,7 +12298,234 @@ export const INITIAL_PRODUCTS: Product[] = [
     "reviews": [],
     "createdAt": "2026-10-18T00:00:00.000Z",
     "updatedAt": "2026-11-02T13:35:03.408Z",
-    "id": "6ae89187382113ccb9a5429e"
+    "id": "6ae89187382113ccb9a5429e",
+    "models": [
+      {
+        "id": "M-18",
+        "name": "M-18",
+        "image": "/images/mockups/goddess-mahalakshmi-prosperity-divine-led-backlit-acrylic-art/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/goddess-mahalakshmi-prosperity-divine-led-backlit-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-10",
+        "name": "M-10",
+        "image": "/images/mockups/goddess-mahalakshmi-prosperity-divine-led-backlit-acrylic-art/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/goddess-mahalakshmi-prosperity-divine-led-backlit-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-1",
+        "name": "M-1",
+        "image": "/images/mockups/goddess-mahalakshmi-prosperity-divine-led-backlit-acrylic-art/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/goddess-mahalakshmi-prosperity-divine-led-backlit-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-2",
+        "name": "M-2",
+        "image": "/images/mockups/goddess-mahalakshmi-prosperity-divine-led-backlit-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/goddess-mahalakshmi-prosperity-divine-led-backlit-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-3",
+        "name": "M-3",
+        "image": "/images/mockups/goddess-mahalakshmi-prosperity-divine-led-backlit-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/goddess-mahalakshmi-prosperity-divine-led-backlit-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-4",
+        "name": "M-4",
+        "image": "/images/mockups/goddess-mahalakshmi-prosperity-divine-led-backlit-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/goddess-mahalakshmi-prosperity-divine-led-backlit-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-5",
+        "name": "M-5",
+        "image": "/images/mockups/goddess-mahalakshmi-prosperity-divine-led-backlit-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/goddess-mahalakshmi-prosperity-divine-led-backlit-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-6",
+        "name": "M-6",
+        "image": "/images/mockups/goddess-mahalakshmi-prosperity-divine-led-backlit-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/goddess-mahalakshmi-prosperity-divine-led-backlit-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-7",
+        "name": "M-7",
+        "image": "/images/mockups/goddess-mahalakshmi-prosperity-divine-led-backlit-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/goddess-mahalakshmi-prosperity-divine-led-backlit-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-8",
+        "name": "M-8",
+        "image": "/images/mockups/goddess-mahalakshmi-prosperity-divine-led-backlit-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/goddess-mahalakshmi-prosperity-divine-led-backlit-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-9",
+        "name": "M-9",
+        "image": "/images/mockups/goddess-mahalakshmi-prosperity-divine-led-backlit-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/goddess-mahalakshmi-prosperity-divine-led-backlit-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-11",
+        "name": "M-11",
+        "image": "/images/mockups/goddess-mahalakshmi-prosperity-divine-led-backlit-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/goddess-mahalakshmi-prosperity-divine-led-backlit-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-12",
+        "name": "M-12",
+        "image": "/images/mockups/goddess-mahalakshmi-prosperity-divine-led-backlit-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/goddess-mahalakshmi-prosperity-divine-led-backlit-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-13",
+        "name": "M-13",
+        "image": "/images/mockups/goddess-mahalakshmi-prosperity-divine-led-backlit-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/goddess-mahalakshmi-prosperity-divine-led-backlit-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-14",
+        "name": "M-14",
+        "image": "/images/mockups/goddess-mahalakshmi-prosperity-divine-led-backlit-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/goddess-mahalakshmi-prosperity-divine-led-backlit-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-15",
+        "name": "M-15",
+        "image": "/images/mockups/goddess-mahalakshmi-prosperity-divine-led-backlit-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/goddess-mahalakshmi-prosperity-divine-led-backlit-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-16",
+        "name": "M-16",
+        "image": "/images/mockups/goddess-mahalakshmi-prosperity-divine-led-backlit-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/goddess-mahalakshmi-prosperity-divine-led-backlit-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-17",
+        "name": "M-17",
+        "image": "/images/mockups/goddess-mahalakshmi-prosperity-divine-led-backlit-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/goddess-mahalakshmi-prosperity-divine-led-backlit-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-19",
+        "name": "M-19",
+        "image": "/images/mockups/goddess-mahalakshmi-prosperity-divine-led-backlit-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/goddess-mahalakshmi-prosperity-divine-led-backlit-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-20",
+        "name": "M-20",
+        "image": "/images/mockups/goddess-mahalakshmi-prosperity-divine-led-backlit-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/goddess-mahalakshmi-prosperity-divine-led-backlit-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-21",
+        "name": "M-21",
+        "image": "/images/mockups/goddess-mahalakshmi-prosperity-divine-led-backlit-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/goddess-mahalakshmi-prosperity-divine-led-backlit-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-22",
+        "name": "M-22",
+        "image": "/images/mockups/goddess-mahalakshmi-prosperity-divine-led-backlit-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/goddess-mahalakshmi-prosperity-divine-led-backlit-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-23",
+        "name": "M-23",
+        "image": "/images/mockups/goddess-mahalakshmi-prosperity-divine-led-backlit-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/goddess-mahalakshmi-prosperity-divine-led-backlit-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-24",
+        "name": "M-24",
+        "image": "/images/mockups/goddess-mahalakshmi-prosperity-divine-led-backlit-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/goddess-mahalakshmi-prosperity-divine-led-backlit-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-25",
+        "name": "M-25",
+        "image": "/images/mockups/goddess-mahalakshmi-prosperity-divine-led-backlit-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/goddess-mahalakshmi-prosperity-divine-led-backlit-acrylic-art/primary-square.jpg"
+        ]
+      }
+    ]
   },
   {
     "slug": "maryada-purushottam-shri-ram-kodanda-acrylic-wall-art",
@@ -4250,23 +12539,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "artStyle": "Devotional Acrylic",
     "orientation": "vertical",
     "images": [
-      "/images/mockups/maryada-purushottam-shri-ram-kodanda-acrylic-wall-art/primary-square.jpg",
-      "/images/mockups/maryada-purushottam-shri-ram-kodanda-acrylic-wall-art/mockup-living-room.jpg",
-      "/images/mockups/maryada-purushottam-shri-ram-kodanda-acrylic-wall-art/mockup-interior.jpg",
-      "/images/mockups/maryada-purushottam-shri-ram-kodanda-acrylic-wall-art/mockup-foyer.jpg",
-      "/images/mockups/maryada-purushottam-shri-ram-kodanda-acrylic-wall-art/mockup-detail.jpg",
-      "/images/mockups/maryada-purushottam-shri-ram-kodanda-acrylic-wall-art/mockup-artistic.jpg",
-      "/images/atelier/ganesha-complete-framed.jpg",
-      "/images/atelier/hero-ganesha-frame.jpg",
-      "/images/atelier/hero-ram-legacy.jpg",
-      "/images/atelier/hero-ram-portrait.jpg",
-      "/images/atelier/layers-exploded-diagram.jpg",
-      "/images/promo-aluminium-frames-clean.png",
-      "/images/print-size-options-clean.jpg",
-      "/images/trust-badges-clean.png",
-      "/images/frames/gold-border-ref.jpg",
-      "/images/frames/black-border-ref.jpg",
-      "/images/frames/acrylic-border-ref.jpg"
+      "/images/mockups/maryada-purushottam-shri-ram-kodanda-acrylic-wall-art/primary-square.jpg"
     ],
     "tags": [
       "Rama",
@@ -4347,7 +12620,234 @@ export const INITIAL_PRODUCTS: Product[] = [
     "reviews": [],
     "createdAt": "2026-09-25T00:00:00.000Z",
     "updatedAt": "2026-11-02T13:35:03.404Z",
-    "id": "6ae89187382113ccb9a54250"
+    "id": "6ae89187382113ccb9a54250",
+    "models": [
+      {
+        "id": "M-18",
+        "name": "M-18",
+        "image": "/images/mockups/maryada-purushottam-shri-ram-kodanda-acrylic-wall-art/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/maryada-purushottam-shri-ram-kodanda-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-10",
+        "name": "M-10",
+        "image": "/images/mockups/maryada-purushottam-shri-ram-kodanda-acrylic-wall-art/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/maryada-purushottam-shri-ram-kodanda-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-1",
+        "name": "M-1",
+        "image": "/images/mockups/maryada-purushottam-shri-ram-kodanda-acrylic-wall-art/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/maryada-purushottam-shri-ram-kodanda-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-2",
+        "name": "M-2",
+        "image": "/images/mockups/maryada-purushottam-shri-ram-kodanda-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/maryada-purushottam-shri-ram-kodanda-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-3",
+        "name": "M-3",
+        "image": "/images/mockups/maryada-purushottam-shri-ram-kodanda-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/maryada-purushottam-shri-ram-kodanda-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-4",
+        "name": "M-4",
+        "image": "/images/mockups/maryada-purushottam-shri-ram-kodanda-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/maryada-purushottam-shri-ram-kodanda-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-5",
+        "name": "M-5",
+        "image": "/images/mockups/maryada-purushottam-shri-ram-kodanda-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/maryada-purushottam-shri-ram-kodanda-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-6",
+        "name": "M-6",
+        "image": "/images/mockups/maryada-purushottam-shri-ram-kodanda-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/maryada-purushottam-shri-ram-kodanda-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-7",
+        "name": "M-7",
+        "image": "/images/mockups/maryada-purushottam-shri-ram-kodanda-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/maryada-purushottam-shri-ram-kodanda-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-8",
+        "name": "M-8",
+        "image": "/images/mockups/maryada-purushottam-shri-ram-kodanda-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/maryada-purushottam-shri-ram-kodanda-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-9",
+        "name": "M-9",
+        "image": "/images/mockups/maryada-purushottam-shri-ram-kodanda-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/maryada-purushottam-shri-ram-kodanda-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-11",
+        "name": "M-11",
+        "image": "/images/mockups/maryada-purushottam-shri-ram-kodanda-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/maryada-purushottam-shri-ram-kodanda-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-12",
+        "name": "M-12",
+        "image": "/images/mockups/maryada-purushottam-shri-ram-kodanda-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/maryada-purushottam-shri-ram-kodanda-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-13",
+        "name": "M-13",
+        "image": "/images/mockups/maryada-purushottam-shri-ram-kodanda-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/maryada-purushottam-shri-ram-kodanda-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-14",
+        "name": "M-14",
+        "image": "/images/mockups/maryada-purushottam-shri-ram-kodanda-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/maryada-purushottam-shri-ram-kodanda-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-15",
+        "name": "M-15",
+        "image": "/images/mockups/maryada-purushottam-shri-ram-kodanda-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/maryada-purushottam-shri-ram-kodanda-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-16",
+        "name": "M-16",
+        "image": "/images/mockups/maryada-purushottam-shri-ram-kodanda-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/maryada-purushottam-shri-ram-kodanda-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-17",
+        "name": "M-17",
+        "image": "/images/mockups/maryada-purushottam-shri-ram-kodanda-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/maryada-purushottam-shri-ram-kodanda-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-19",
+        "name": "M-19",
+        "image": "/images/mockups/maryada-purushottam-shri-ram-kodanda-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/maryada-purushottam-shri-ram-kodanda-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-20",
+        "name": "M-20",
+        "image": "/images/mockups/maryada-purushottam-shri-ram-kodanda-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/maryada-purushottam-shri-ram-kodanda-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-21",
+        "name": "M-21",
+        "image": "/images/mockups/maryada-purushottam-shri-ram-kodanda-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/maryada-purushottam-shri-ram-kodanda-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-22",
+        "name": "M-22",
+        "image": "/images/mockups/maryada-purushottam-shri-ram-kodanda-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/maryada-purushottam-shri-ram-kodanda-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-23",
+        "name": "M-23",
+        "image": "/images/mockups/maryada-purushottam-shri-ram-kodanda-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/maryada-purushottam-shri-ram-kodanda-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-24",
+        "name": "M-24",
+        "image": "/images/mockups/maryada-purushottam-shri-ram-kodanda-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/maryada-purushottam-shri-ram-kodanda-acrylic-wall-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-25",
+        "name": "M-25",
+        "image": "/images/mockups/maryada-purushottam-shri-ram-kodanda-acrylic-wall-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/maryada-purushottam-shri-ram-kodanda-acrylic-wall-art/primary-square.jpg"
+        ]
+      }
+    ]
   },
   {
     "slug": "royal-peacock-avian-paradise-led-backlit-acrylic",
@@ -4360,18 +12860,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "artStyle": "Premium Acrylic",
     "orientation": "vertical",
     "images": [
-      "/images/mockups/royal-peacock-avian-paradise-led-backlit-acrylic/primary-square.jpg",
-      "/images/mockups/royal-peacock-avian-paradise-led-backlit-acrylic/mockup-living-room.jpg",
-      "/images/mockups/royal-peacock-avian-paradise-led-backlit-acrylic/mockup-interior.jpg",
-      "/images/mockups/royal-peacock-avian-paradise-led-backlit-acrylic/mockup-foyer.jpg",
-      "/images/mockups/royal-peacock-avian-paradise-led-backlit-acrylic/mockup-detail.jpg",
-      "/images/mockups/royal-peacock-avian-paradise-led-backlit-acrylic/mockup-artistic.jpg",
-      "/images/promo-aluminium-frames-clean.png",
-      "/images/print-size-options-clean.jpg",
-      "/images/trust-badges-clean.png",
-      "/images/frames/gold-border-ref.jpg",
-      "/images/frames/black-border-ref.jpg",
-      "/images/frames/acrylic-border-ref.jpg"
+      "/images/mockups/royal-peacock-avian-paradise-led-backlit-acrylic/primary-square.jpg"
     ],
     "tags": [
       "Peacock",
@@ -4439,7 +12928,234 @@ export const INITIAL_PRODUCTS: Product[] = [
     "reviews": [],
     "createdAt": "2026-09-20T00:00:00.000Z",
     "updatedAt": "2026-11-02T13:35:03.405Z",
-    "id": "6ae89187382113ccb9a5425c"
+    "id": "6ae89187382113ccb9a5425c",
+    "models": [
+      {
+        "id": "M-18",
+        "name": "M-18",
+        "image": "/images/mockups/royal-peacock-avian-paradise-led-backlit-acrylic/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/royal-peacock-avian-paradise-led-backlit-acrylic/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-10",
+        "name": "M-10",
+        "image": "/images/mockups/royal-peacock-avian-paradise-led-backlit-acrylic/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/royal-peacock-avian-paradise-led-backlit-acrylic/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-1",
+        "name": "M-1",
+        "image": "/images/mockups/royal-peacock-avian-paradise-led-backlit-acrylic/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/royal-peacock-avian-paradise-led-backlit-acrylic/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-2",
+        "name": "M-2",
+        "image": "/images/mockups/royal-peacock-avian-paradise-led-backlit-acrylic/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/royal-peacock-avian-paradise-led-backlit-acrylic/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-3",
+        "name": "M-3",
+        "image": "/images/mockups/royal-peacock-avian-paradise-led-backlit-acrylic/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/royal-peacock-avian-paradise-led-backlit-acrylic/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-4",
+        "name": "M-4",
+        "image": "/images/mockups/royal-peacock-avian-paradise-led-backlit-acrylic/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/royal-peacock-avian-paradise-led-backlit-acrylic/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-5",
+        "name": "M-5",
+        "image": "/images/mockups/royal-peacock-avian-paradise-led-backlit-acrylic/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/royal-peacock-avian-paradise-led-backlit-acrylic/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-6",
+        "name": "M-6",
+        "image": "/images/mockups/royal-peacock-avian-paradise-led-backlit-acrylic/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/royal-peacock-avian-paradise-led-backlit-acrylic/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-7",
+        "name": "M-7",
+        "image": "/images/mockups/royal-peacock-avian-paradise-led-backlit-acrylic/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/royal-peacock-avian-paradise-led-backlit-acrylic/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-8",
+        "name": "M-8",
+        "image": "/images/mockups/royal-peacock-avian-paradise-led-backlit-acrylic/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/royal-peacock-avian-paradise-led-backlit-acrylic/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-9",
+        "name": "M-9",
+        "image": "/images/mockups/royal-peacock-avian-paradise-led-backlit-acrylic/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/royal-peacock-avian-paradise-led-backlit-acrylic/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-11",
+        "name": "M-11",
+        "image": "/images/mockups/royal-peacock-avian-paradise-led-backlit-acrylic/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/royal-peacock-avian-paradise-led-backlit-acrylic/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-12",
+        "name": "M-12",
+        "image": "/images/mockups/royal-peacock-avian-paradise-led-backlit-acrylic/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/royal-peacock-avian-paradise-led-backlit-acrylic/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-13",
+        "name": "M-13",
+        "image": "/images/mockups/royal-peacock-avian-paradise-led-backlit-acrylic/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/royal-peacock-avian-paradise-led-backlit-acrylic/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-14",
+        "name": "M-14",
+        "image": "/images/mockups/royal-peacock-avian-paradise-led-backlit-acrylic/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/royal-peacock-avian-paradise-led-backlit-acrylic/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-15",
+        "name": "M-15",
+        "image": "/images/mockups/royal-peacock-avian-paradise-led-backlit-acrylic/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/royal-peacock-avian-paradise-led-backlit-acrylic/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-16",
+        "name": "M-16",
+        "image": "/images/mockups/royal-peacock-avian-paradise-led-backlit-acrylic/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/royal-peacock-avian-paradise-led-backlit-acrylic/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-17",
+        "name": "M-17",
+        "image": "/images/mockups/royal-peacock-avian-paradise-led-backlit-acrylic/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/royal-peacock-avian-paradise-led-backlit-acrylic/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-19",
+        "name": "M-19",
+        "image": "/images/mockups/royal-peacock-avian-paradise-led-backlit-acrylic/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/royal-peacock-avian-paradise-led-backlit-acrylic/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-20",
+        "name": "M-20",
+        "image": "/images/mockups/royal-peacock-avian-paradise-led-backlit-acrylic/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/royal-peacock-avian-paradise-led-backlit-acrylic/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-21",
+        "name": "M-21",
+        "image": "/images/mockups/royal-peacock-avian-paradise-led-backlit-acrylic/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/royal-peacock-avian-paradise-led-backlit-acrylic/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-22",
+        "name": "M-22",
+        "image": "/images/mockups/royal-peacock-avian-paradise-led-backlit-acrylic/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/royal-peacock-avian-paradise-led-backlit-acrylic/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-23",
+        "name": "M-23",
+        "image": "/images/mockups/royal-peacock-avian-paradise-led-backlit-acrylic/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/royal-peacock-avian-paradise-led-backlit-acrylic/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-24",
+        "name": "M-24",
+        "image": "/images/mockups/royal-peacock-avian-paradise-led-backlit-acrylic/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/royal-peacock-avian-paradise-led-backlit-acrylic/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-25",
+        "name": "M-25",
+        "image": "/images/mockups/royal-peacock-avian-paradise-led-backlit-acrylic/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/royal-peacock-avian-paradise-led-backlit-acrylic/primary-square.jpg"
+        ]
+      }
+    ]
   },
   {
     "slug": "custom-panoramic-landscape-acrylic-family-frame",
@@ -4452,23 +13168,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "artStyle": "Personalised Frame",
     "orientation": "horizontal",
     "images": [
-      "/images/mockups/custom-panoramic-landscape-acrylic-family-frame/primary-square.jpg",
-      "/images/mockups/custom-panoramic-landscape-acrylic-family-frame/mockup-living-room.jpg",
-      "/images/mockups/custom-panoramic-landscape-acrylic-family-frame/mockup-interior.jpg",
-      "/images/mockups/custom-panoramic-landscape-acrylic-family-frame/mockup-foyer.jpg",
-      "/images/mockups/custom-panoramic-landscape-acrylic-family-frame/mockup-detail.jpg",
-      "/images/mockups/custom-panoramic-landscape-acrylic-family-frame/mockup-artistic.jpg",
-      "/images/atelier/ganesha-complete-framed.jpg",
-      "/images/atelier/hero-ganesha-frame.jpg",
-      "/images/atelier/hero-ram-legacy.jpg",
-      "/images/atelier/hero-ram-portrait.jpg",
-      "/images/atelier/layers-exploded-diagram.jpg",
-      "/images/promo-aluminium-frames-clean.png",
-      "/images/print-size-options-clean.jpg",
-      "/images/trust-badges-clean.png",
-      "/images/frames/gold-border-ref.jpg",
-      "/images/frames/black-border-ref.jpg",
-      "/images/frames/acrylic-border-ref.jpg"
+      "/images/mockups/custom-panoramic-landscape-acrylic-family-frame/primary-square.jpg"
     ],
     "tags": [
       "Landscape",
@@ -4535,7 +13235,234 @@ export const INITIAL_PRODUCTS: Product[] = [
     "reviews": [],
     "createdAt": "2026-09-12T00:00:00.000Z",
     "updatedAt": "2026-11-02T13:35:03.407Z",
-    "id": "6ae89187382113ccb9a5426f"
+    "id": "6ae89187382113ccb9a5426f",
+    "models": [
+      {
+        "id": "M-18",
+        "name": "M-18",
+        "image": "/images/mockups/custom-panoramic-landscape-acrylic-family-frame/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/custom-panoramic-landscape-acrylic-family-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-10",
+        "name": "M-10",
+        "image": "/images/mockups/custom-panoramic-landscape-acrylic-family-frame/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/custom-panoramic-landscape-acrylic-family-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-1",
+        "name": "M-1",
+        "image": "/images/mockups/custom-panoramic-landscape-acrylic-family-frame/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/custom-panoramic-landscape-acrylic-family-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-2",
+        "name": "M-2",
+        "image": "/images/mockups/custom-panoramic-landscape-acrylic-family-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-panoramic-landscape-acrylic-family-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-3",
+        "name": "M-3",
+        "image": "/images/mockups/custom-panoramic-landscape-acrylic-family-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-panoramic-landscape-acrylic-family-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-4",
+        "name": "M-4",
+        "image": "/images/mockups/custom-panoramic-landscape-acrylic-family-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-panoramic-landscape-acrylic-family-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-5",
+        "name": "M-5",
+        "image": "/images/mockups/custom-panoramic-landscape-acrylic-family-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-panoramic-landscape-acrylic-family-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-6",
+        "name": "M-6",
+        "image": "/images/mockups/custom-panoramic-landscape-acrylic-family-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-panoramic-landscape-acrylic-family-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-7",
+        "name": "M-7",
+        "image": "/images/mockups/custom-panoramic-landscape-acrylic-family-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-panoramic-landscape-acrylic-family-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-8",
+        "name": "M-8",
+        "image": "/images/mockups/custom-panoramic-landscape-acrylic-family-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-panoramic-landscape-acrylic-family-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-9",
+        "name": "M-9",
+        "image": "/images/mockups/custom-panoramic-landscape-acrylic-family-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-panoramic-landscape-acrylic-family-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-11",
+        "name": "M-11",
+        "image": "/images/mockups/custom-panoramic-landscape-acrylic-family-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-panoramic-landscape-acrylic-family-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-12",
+        "name": "M-12",
+        "image": "/images/mockups/custom-panoramic-landscape-acrylic-family-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-panoramic-landscape-acrylic-family-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-13",
+        "name": "M-13",
+        "image": "/images/mockups/custom-panoramic-landscape-acrylic-family-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-panoramic-landscape-acrylic-family-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-14",
+        "name": "M-14",
+        "image": "/images/mockups/custom-panoramic-landscape-acrylic-family-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-panoramic-landscape-acrylic-family-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-15",
+        "name": "M-15",
+        "image": "/images/mockups/custom-panoramic-landscape-acrylic-family-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-panoramic-landscape-acrylic-family-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-16",
+        "name": "M-16",
+        "image": "/images/mockups/custom-panoramic-landscape-acrylic-family-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-panoramic-landscape-acrylic-family-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-17",
+        "name": "M-17",
+        "image": "/images/mockups/custom-panoramic-landscape-acrylic-family-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-panoramic-landscape-acrylic-family-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-19",
+        "name": "M-19",
+        "image": "/images/mockups/custom-panoramic-landscape-acrylic-family-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-panoramic-landscape-acrylic-family-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-20",
+        "name": "M-20",
+        "image": "/images/mockups/custom-panoramic-landscape-acrylic-family-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-panoramic-landscape-acrylic-family-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-21",
+        "name": "M-21",
+        "image": "/images/mockups/custom-panoramic-landscape-acrylic-family-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-panoramic-landscape-acrylic-family-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-22",
+        "name": "M-22",
+        "image": "/images/mockups/custom-panoramic-landscape-acrylic-family-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-panoramic-landscape-acrylic-family-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-23",
+        "name": "M-23",
+        "image": "/images/mockups/custom-panoramic-landscape-acrylic-family-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-panoramic-landscape-acrylic-family-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-24",
+        "name": "M-24",
+        "image": "/images/mockups/custom-panoramic-landscape-acrylic-family-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-panoramic-landscape-acrylic-family-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-25",
+        "name": "M-25",
+        "image": "/images/mockups/custom-panoramic-landscape-acrylic-family-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-panoramic-landscape-acrylic-family-frame/primary-square.jpg"
+        ]
+      }
+    ]
   },
   {
     "slug": "luxury-circular-round-acrylic-photo-frame",
@@ -4548,23 +13475,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "artStyle": "Custom Photo Frames",
     "orientation": "square",
     "images": [
-      "/images/mockups/luxury-circular-round-acrylic-photo-frame/primary-square.jpg",
-      "/images/mockups/luxury-circular-round-acrylic-photo-frame/mockup-living-room.jpg",
-      "/images/mockups/luxury-circular-round-acrylic-photo-frame/mockup-interior.jpg",
-      "/images/mockups/luxury-circular-round-acrylic-photo-frame/mockup-foyer.jpg",
-      "/images/mockups/luxury-circular-round-acrylic-photo-frame/mockup-detail.jpg",
-      "/images/mockups/luxury-circular-round-acrylic-photo-frame/mockup-artistic.jpg",
-      "/images/atelier/ganesha-complete-framed.jpg",
-      "/images/atelier/hero-ganesha-frame.jpg",
-      "/images/atelier/hero-ram-legacy.jpg",
-      "/images/atelier/hero-ram-portrait.jpg",
-      "/images/atelier/layers-exploded-diagram.jpg",
-      "/images/promo-aluminium-frames-clean.png",
-      "/images/print-size-options-clean.jpg",
-      "/images/trust-badges-clean.png",
-      "/images/frames/gold-border-ref.jpg",
-      "/images/frames/black-border-ref.jpg",
-      "/images/frames/acrylic-border-ref.jpg"
+      "/images/mockups/luxury-circular-round-acrylic-photo-frame/primary-square.jpg"
     ],
     "tags": [
       "Round Frame",
@@ -4650,7 +13561,234 @@ export const INITIAL_PRODUCTS: Product[] = [
     "reviews": [],
     "createdAt": "2026-09-01T00:00:00.000Z",
     "updatedAt": "2026-11-02T13:35:03.402Z",
-    "id": "6ae89187382113ccb9a54233"
+    "id": "6ae89187382113ccb9a54233",
+    "models": [
+      {
+        "id": "M-18",
+        "name": "M-18",
+        "image": "/images/mockups/luxury-circular-round-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/luxury-circular-round-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-10",
+        "name": "M-10",
+        "image": "/images/mockups/luxury-circular-round-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/luxury-circular-round-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-1",
+        "name": "M-1",
+        "image": "/images/mockups/luxury-circular-round-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/luxury-circular-round-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-2",
+        "name": "M-2",
+        "image": "/images/mockups/luxury-circular-round-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/luxury-circular-round-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-3",
+        "name": "M-3",
+        "image": "/images/mockups/luxury-circular-round-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/luxury-circular-round-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-4",
+        "name": "M-4",
+        "image": "/images/mockups/luxury-circular-round-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/luxury-circular-round-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-5",
+        "name": "M-5",
+        "image": "/images/mockups/luxury-circular-round-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/luxury-circular-round-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-6",
+        "name": "M-6",
+        "image": "/images/mockups/luxury-circular-round-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/luxury-circular-round-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-7",
+        "name": "M-7",
+        "image": "/images/mockups/luxury-circular-round-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/luxury-circular-round-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-8",
+        "name": "M-8",
+        "image": "/images/mockups/luxury-circular-round-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/luxury-circular-round-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-9",
+        "name": "M-9",
+        "image": "/images/mockups/luxury-circular-round-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/luxury-circular-round-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-11",
+        "name": "M-11",
+        "image": "/images/mockups/luxury-circular-round-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/luxury-circular-round-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-12",
+        "name": "M-12",
+        "image": "/images/mockups/luxury-circular-round-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/luxury-circular-round-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-13",
+        "name": "M-13",
+        "image": "/images/mockups/luxury-circular-round-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/luxury-circular-round-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-14",
+        "name": "M-14",
+        "image": "/images/mockups/luxury-circular-round-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/luxury-circular-round-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-15",
+        "name": "M-15",
+        "image": "/images/mockups/luxury-circular-round-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/luxury-circular-round-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-16",
+        "name": "M-16",
+        "image": "/images/mockups/luxury-circular-round-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/luxury-circular-round-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-17",
+        "name": "M-17",
+        "image": "/images/mockups/luxury-circular-round-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/luxury-circular-round-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-19",
+        "name": "M-19",
+        "image": "/images/mockups/luxury-circular-round-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/luxury-circular-round-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-20",
+        "name": "M-20",
+        "image": "/images/mockups/luxury-circular-round-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/luxury-circular-round-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-21",
+        "name": "M-21",
+        "image": "/images/mockups/luxury-circular-round-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/luxury-circular-round-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-22",
+        "name": "M-22",
+        "image": "/images/mockups/luxury-circular-round-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/luxury-circular-round-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-23",
+        "name": "M-23",
+        "image": "/images/mockups/luxury-circular-round-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/luxury-circular-round-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-24",
+        "name": "M-24",
+        "image": "/images/mockups/luxury-circular-round-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/luxury-circular-round-acrylic-photo-frame/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-25",
+        "name": "M-25",
+        "image": "/images/mockups/luxury-circular-round-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/luxury-circular-round-acrylic-photo-frame/primary-square.jpg"
+        ]
+      }
+    ]
   },
   {
     "slug": "majestic-golden-deer-sacred-forest-acrylic-art",
@@ -4663,18 +13801,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "artStyle": "Modern Abstract Acrylic",
     "orientation": "horizontal",
     "images": [
-      "/images/mockups/majestic-golden-deer-sacred-forest-acrylic-art/primary-square.jpg",
-      "/images/mockups/majestic-golden-deer-sacred-forest-acrylic-art/mockup-living-room.jpg",
-      "/images/mockups/majestic-golden-deer-sacred-forest-acrylic-art/mockup-interior.jpg",
-      "/images/mockups/majestic-golden-deer-sacred-forest-acrylic-art/mockup-foyer.jpg",
-      "/images/mockups/majestic-golden-deer-sacred-forest-acrylic-art/mockup-detail.jpg",
-      "/images/mockups/majestic-golden-deer-sacred-forest-acrylic-art/mockup-artistic.jpg",
-      "/images/promo-aluminium-frames-clean.png",
-      "/images/print-size-options-clean.jpg",
-      "/images/trust-badges-clean.png",
-      "/images/frames/gold-border-ref.jpg",
-      "/images/frames/black-border-ref.jpg",
-      "/images/frames/acrylic-border-ref.jpg"
+      "/images/mockups/majestic-golden-deer-sacred-forest-acrylic-art/primary-square.jpg"
     ],
     "tags": [
       "Deer",
@@ -4749,7 +13876,234 @@ export const INITIAL_PRODUCTS: Product[] = [
     "reviews": [],
     "createdAt": "2026-09-15T00:00:00.000Z",
     "updatedAt": "2026-11-02T13:35:03.405Z",
-    "id": "6ae89187382113ccb9a54256"
+    "id": "6ae89187382113ccb9a54256",
+    "models": [
+      {
+        "id": "M-18",
+        "name": "M-18",
+        "image": "/images/mockups/majestic-golden-deer-sacred-forest-acrylic-art/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/majestic-golden-deer-sacred-forest-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-10",
+        "name": "M-10",
+        "image": "/images/mockups/majestic-golden-deer-sacred-forest-acrylic-art/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/majestic-golden-deer-sacred-forest-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-1",
+        "name": "M-1",
+        "image": "/images/mockups/majestic-golden-deer-sacred-forest-acrylic-art/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/majestic-golden-deer-sacred-forest-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-2",
+        "name": "M-2",
+        "image": "/images/mockups/majestic-golden-deer-sacred-forest-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/majestic-golden-deer-sacred-forest-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-3",
+        "name": "M-3",
+        "image": "/images/mockups/majestic-golden-deer-sacred-forest-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/majestic-golden-deer-sacred-forest-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-4",
+        "name": "M-4",
+        "image": "/images/mockups/majestic-golden-deer-sacred-forest-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/majestic-golden-deer-sacred-forest-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-5",
+        "name": "M-5",
+        "image": "/images/mockups/majestic-golden-deer-sacred-forest-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/majestic-golden-deer-sacred-forest-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-6",
+        "name": "M-6",
+        "image": "/images/mockups/majestic-golden-deer-sacred-forest-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/majestic-golden-deer-sacred-forest-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-7",
+        "name": "M-7",
+        "image": "/images/mockups/majestic-golden-deer-sacred-forest-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/majestic-golden-deer-sacred-forest-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-8",
+        "name": "M-8",
+        "image": "/images/mockups/majestic-golden-deer-sacred-forest-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/majestic-golden-deer-sacred-forest-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-9",
+        "name": "M-9",
+        "image": "/images/mockups/majestic-golden-deer-sacred-forest-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/majestic-golden-deer-sacred-forest-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-11",
+        "name": "M-11",
+        "image": "/images/mockups/majestic-golden-deer-sacred-forest-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/majestic-golden-deer-sacred-forest-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-12",
+        "name": "M-12",
+        "image": "/images/mockups/majestic-golden-deer-sacred-forest-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/majestic-golden-deer-sacred-forest-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-13",
+        "name": "M-13",
+        "image": "/images/mockups/majestic-golden-deer-sacred-forest-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/majestic-golden-deer-sacred-forest-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-14",
+        "name": "M-14",
+        "image": "/images/mockups/majestic-golden-deer-sacred-forest-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/majestic-golden-deer-sacred-forest-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-15",
+        "name": "M-15",
+        "image": "/images/mockups/majestic-golden-deer-sacred-forest-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/majestic-golden-deer-sacred-forest-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-16",
+        "name": "M-16",
+        "image": "/images/mockups/majestic-golden-deer-sacred-forest-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/majestic-golden-deer-sacred-forest-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-17",
+        "name": "M-17",
+        "image": "/images/mockups/majestic-golden-deer-sacred-forest-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/majestic-golden-deer-sacred-forest-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-19",
+        "name": "M-19",
+        "image": "/images/mockups/majestic-golden-deer-sacred-forest-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/majestic-golden-deer-sacred-forest-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-20",
+        "name": "M-20",
+        "image": "/images/mockups/majestic-golden-deer-sacred-forest-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/majestic-golden-deer-sacred-forest-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-21",
+        "name": "M-21",
+        "image": "/images/mockups/majestic-golden-deer-sacred-forest-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/majestic-golden-deer-sacred-forest-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-22",
+        "name": "M-22",
+        "image": "/images/mockups/majestic-golden-deer-sacred-forest-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/majestic-golden-deer-sacred-forest-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-23",
+        "name": "M-23",
+        "image": "/images/mockups/majestic-golden-deer-sacred-forest-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/majestic-golden-deer-sacred-forest-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-24",
+        "name": "M-24",
+        "image": "/images/mockups/majestic-golden-deer-sacred-forest-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/majestic-golden-deer-sacred-forest-acrylic-art/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-25",
+        "name": "M-25",
+        "image": "/images/mockups/majestic-golden-deer-sacred-forest-acrylic-art/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/majestic-golden-deer-sacred-forest-acrylic-art/primary-square.jpg"
+        ]
+      }
+    ]
   },
   {
     "slug": "personalized-golden-family-crest-photo-acrylic-heirloom",
@@ -4762,18 +14116,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     "artStyle": "Personalised Frame",
     "orientation": "horizontal",
     "images": [
-      "/images/mockups/personalized-golden-family-crest-photo-acrylic-heirloom/primary-square.jpg",
-      "/images/mockups/personalized-golden-family-crest-photo-acrylic-heirloom/mockup-living-room.jpg",
-      "/images/mockups/personalized-golden-family-crest-photo-acrylic-heirloom/mockup-interior.jpg",
-      "/images/mockups/personalized-golden-family-crest-photo-acrylic-heirloom/mockup-foyer.jpg",
-      "/images/mockups/personalized-golden-family-crest-photo-acrylic-heirloom/mockup-detail.jpg",
-      "/images/mockups/personalized-golden-family-crest-photo-acrylic-heirloom/mockup-artistic.jpg",
-      "/images/promo-aluminium-frames-clean.png",
-      "/images/print-size-options-clean.jpg",
-      "/images/trust-badges-clean.png",
-      "/images/frames/gold-border-ref.jpg",
-      "/images/frames/black-border-ref.jpg",
-      "/images/frames/acrylic-border-ref.jpg"
+      "/images/mockups/personalized-golden-family-crest-photo-acrylic-heirloom/primary-square.jpg"
     ],
     "tags": [
       "Family Heirloom",
@@ -4840,6 +14183,233 @@ export const INITIAL_PRODUCTS: Product[] = [
     "reviews": [],
     "createdAt": "2026-09-05T00:00:00.000Z",
     "updatedAt": "2026-11-02T13:35:03.407Z",
-    "id": "6ae89187382113ccb9a54278"
+    "id": "6ae89187382113ccb9a54278",
+    "models": [
+      {
+        "id": "M-18",
+        "name": "M-18",
+        "image": "/images/mockups/personalized-golden-family-crest-photo-acrylic-heirloom/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/personalized-golden-family-crest-photo-acrylic-heirloom/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-10",
+        "name": "M-10",
+        "image": "/images/mockups/personalized-golden-family-crest-photo-acrylic-heirloom/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/personalized-golden-family-crest-photo-acrylic-heirloom/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-1",
+        "name": "M-1",
+        "image": "/images/mockups/personalized-golden-family-crest-photo-acrylic-heirloom/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/personalized-golden-family-crest-photo-acrylic-heirloom/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-2",
+        "name": "M-2",
+        "image": "/images/mockups/personalized-golden-family-crest-photo-acrylic-heirloom/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/personalized-golden-family-crest-photo-acrylic-heirloom/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-3",
+        "name": "M-3",
+        "image": "/images/mockups/personalized-golden-family-crest-photo-acrylic-heirloom/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/personalized-golden-family-crest-photo-acrylic-heirloom/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-4",
+        "name": "M-4",
+        "image": "/images/mockups/personalized-golden-family-crest-photo-acrylic-heirloom/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/personalized-golden-family-crest-photo-acrylic-heirloom/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-5",
+        "name": "M-5",
+        "image": "/images/mockups/personalized-golden-family-crest-photo-acrylic-heirloom/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/personalized-golden-family-crest-photo-acrylic-heirloom/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-6",
+        "name": "M-6",
+        "image": "/images/mockups/personalized-golden-family-crest-photo-acrylic-heirloom/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/personalized-golden-family-crest-photo-acrylic-heirloom/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-7",
+        "name": "M-7",
+        "image": "/images/mockups/personalized-golden-family-crest-photo-acrylic-heirloom/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/personalized-golden-family-crest-photo-acrylic-heirloom/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-8",
+        "name": "M-8",
+        "image": "/images/mockups/personalized-golden-family-crest-photo-acrylic-heirloom/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/personalized-golden-family-crest-photo-acrylic-heirloom/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-9",
+        "name": "M-9",
+        "image": "/images/mockups/personalized-golden-family-crest-photo-acrylic-heirloom/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/personalized-golden-family-crest-photo-acrylic-heirloom/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-11",
+        "name": "M-11",
+        "image": "/images/mockups/personalized-golden-family-crest-photo-acrylic-heirloom/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/personalized-golden-family-crest-photo-acrylic-heirloom/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-12",
+        "name": "M-12",
+        "image": "/images/mockups/personalized-golden-family-crest-photo-acrylic-heirloom/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/personalized-golden-family-crest-photo-acrylic-heirloom/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-13",
+        "name": "M-13",
+        "image": "/images/mockups/personalized-golden-family-crest-photo-acrylic-heirloom/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/personalized-golden-family-crest-photo-acrylic-heirloom/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-14",
+        "name": "M-14",
+        "image": "/images/mockups/personalized-golden-family-crest-photo-acrylic-heirloom/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/personalized-golden-family-crest-photo-acrylic-heirloom/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-15",
+        "name": "M-15",
+        "image": "/images/mockups/personalized-golden-family-crest-photo-acrylic-heirloom/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/personalized-golden-family-crest-photo-acrylic-heirloom/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-16",
+        "name": "M-16",
+        "image": "/images/mockups/personalized-golden-family-crest-photo-acrylic-heirloom/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/personalized-golden-family-crest-photo-acrylic-heirloom/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-17",
+        "name": "M-17",
+        "image": "/images/mockups/personalized-golden-family-crest-photo-acrylic-heirloom/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/personalized-golden-family-crest-photo-acrylic-heirloom/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-19",
+        "name": "M-19",
+        "image": "/images/mockups/personalized-golden-family-crest-photo-acrylic-heirloom/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/personalized-golden-family-crest-photo-acrylic-heirloom/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-20",
+        "name": "M-20",
+        "image": "/images/mockups/personalized-golden-family-crest-photo-acrylic-heirloom/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/personalized-golden-family-crest-photo-acrylic-heirloom/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-21",
+        "name": "M-21",
+        "image": "/images/mockups/personalized-golden-family-crest-photo-acrylic-heirloom/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/personalized-golden-family-crest-photo-acrylic-heirloom/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-22",
+        "name": "M-22",
+        "image": "/images/mockups/personalized-golden-family-crest-photo-acrylic-heirloom/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/personalized-golden-family-crest-photo-acrylic-heirloom/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-23",
+        "name": "M-23",
+        "image": "/images/mockups/personalized-golden-family-crest-photo-acrylic-heirloom/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/personalized-golden-family-crest-photo-acrylic-heirloom/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-24",
+        "name": "M-24",
+        "image": "/images/mockups/personalized-golden-family-crest-photo-acrylic-heirloom/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/personalized-golden-family-crest-photo-acrylic-heirloom/primary-square.jpg"
+        ]
+      },
+      {
+        "id": "M-25",
+        "name": "M-25",
+        "image": "/images/mockups/personalized-golden-family-crest-photo-acrylic-heirloom/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/personalized-golden-family-crest-photo-acrylic-heirloom/primary-square.jpg"
+        ]
+      }
+    ]
   }
 ];

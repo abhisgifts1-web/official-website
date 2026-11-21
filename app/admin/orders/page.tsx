@@ -231,6 +231,9 @@ export default function AdminOrdersPage() {
                         <td className="py-3.5 px-4 font-medium text-white">
                           {order.items.length} {order.items.length > 1 ? 'items' : 'item'}
                           <span className="text-[11px] text-[#A1A1AA] block truncate max-w-[180px]">
+                            {order.items[0]?.selectedModel && (
+                              <span className="text-amber-400 font-bold mr-1">[{order.items[0].selectedModel}]</span>
+                            )}
                             {order.items[0]?.title}
                           </span>
                         </td>
@@ -413,7 +416,17 @@ export default function AdminOrdersPage() {
                       <img src={it.customization?.previewUrl || it.image} alt="" className="w-12 h-12 object-cover rounded-lg border border-[#333333]" />
                       <div className="flex-1 min-w-0">
                         <p className="font-semibold text-white truncate">{it.title}</p>
-                        <p className="text-[#A1A1AA]">{it.size} • Qty: {it.quantity}</p>
+                        <div className="flex items-center gap-2 text-[#A1A1AA] text-xs mt-0.5">
+                          {it.selectedModel && (
+                            <span className="font-bold text-amber-300 bg-amber-950/80 border border-amber-600/60 px-2 py-0.5 rounded text-[11px] font-mono flex items-center gap-1 shadow-2xs">
+                              <span>🔥</span>
+                              <span>Model: {it.selectedModel}</span>
+                            </span>
+                          )}
+                          <span>{it.size}</span>
+                          <span>•</span>
+                          <span>Qty: {it.quantity}</span>
+                        </div>
                         {it.customization?.customText && (
                           <p className="text-[#FACC15] italic font-serif">Inscription: &ldquo;{it.customization.customText}&rdquo;</p>
                         )}
