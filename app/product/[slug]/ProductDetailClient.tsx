@@ -28,6 +28,7 @@ import {
   Eye,
   Flame,
   Camera,
+  Image as ImageIcon,
   Power,
   Wrench,
 } from 'lucide-react';
@@ -347,13 +348,26 @@ export const SIZE_OPTIONS: SizeOption[] = [
 ];
 
 export const GALLERY_STYLE_LABELS = [
-  'Primary Product Showcase',
-  'Luxury Living Room View',
-  'Modern Minimalist Interior',
-  'Artwork Close-up Detail',
-  'Frame & Material Details',
-  'Alternative Room Setting',
+  'Primary Product View',
+  'Luxury Living Room Wall',
+  'Modern Luxury Interior',
+  'Foyer & Entrance Display',
+  'Texture & Craftsmanship Close-up',
+  'Artistic Ambient Perspective',
+  'Master Suite / Bedroom Setting',
 ];
+
+export function getImagePerspectiveLabel(src: string, index: number): string {
+  const lower = (src || '').toLowerCase();
+  if (lower.includes('living-room') || lower.includes('living_room')) return 'Living Room Wall';
+  if (lower.includes('interior')) return 'Luxury Interior';
+  if (lower.includes('foyer')) return 'Foyer & Entrance';
+  if (lower.includes('detail')) return 'Craftsmanship Detail';
+  if (lower.includes('artistic')) return 'Ambient Lighting Angle';
+  if (lower.includes('suite') || lower.includes('bedroom')) return 'Bedroom Setting';
+  if (lower.includes('primary') || index === 0) return 'Primary Product View';
+  return GALLERY_STYLE_LABELS[index] || `Perspective ${index + 1}`;
+}
 
 interface Props {
   product: Product;
@@ -565,17 +579,50 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
   const [customWidth, setCustomWidth] = useState<number>(24);
   const [customHeight, setCustomHeight] = useState<number>(36);
 
-  // Gallery state
+  // Gallery state - prioritizes liveProduct images updated via Admin Dashboard
   const galleryImages = useMemo(() => {
-    return Array.from(new Set((product.images || []).filter(Boolean)));
-  }, [product.images]);
+    const list =
+      liveProduct?.images && liveProduct.images.length > 0
+        ? liveProduct.images
+        : product.images || [];
+    return Array.from(new Set(list.filter(Boolean)));
+  }, [liveProduct?.images, product.images]);
 
   const [activeImageIndex, setActiveImageIndex] = useState<number>(0);
-  const activeImage = galleryImages[activeImageIndex] || product.images[0] || '';
+  const activeImage = galleryImages[activeImageIndex] || galleryImages[0] || product.images?.[0] || '';
 
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [zoomCoords, setZoomCoords] = useState<{ x: number; y: number } | null>(null);
   const [isAartiGlow, setIsAartiGlow] = useState(product.hasLedBacklight);
+
+  const prevImage = () => {
+    setActiveImageIndex((prev) => (prev > 0 ? prev - 1 : galleryImages.length - 1));
+  };
+
+  const nextImage = () => {
+    setActiveImageIndex((prev) => (prev < galleryImages.length - 1 ? prev + 1 : 0));
+  };
+
+  useEffect(() => {
+    if (activeImageIndex >= galleryImages.length && galleryImages.length > 0) {
+      setActiveImageIndex(0);
+    }
+  }, [galleryImages.length, activeImageIndex]);
+
+  // Desktop keyboard arrow navigation for product images
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (lightboxOpen) return;
+      if (galleryImages.length <= 1) return;
+      if (e.key === 'ArrowLeft') {
+        setActiveImageIndex((prev) => (prev > 0 ? prev - 1 : galleryImages.length - 1));
+      } else if (e.key === 'ArrowRight') {
+        setActiveImageIndex((prev) => (prev < galleryImages.length - 1 ? prev + 1 : 0));
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [galleryImages.length, lightboxOpen]);
 
   // Pincode Checker State
   const [pincode, setPincode] = useState('');
@@ -944,14 +991,6 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
     }\n• Finish: ${selectedFrame}\n• Auto-Calculated Price: ₹${currentPricing.price.toLocaleString('en-IN')}\n${artworkImgRef ? `• Artwork Link: ${artworkImgRef}\n` : ''}\nPlease assist me with proofing before printing. Thank you!`
   )}`;
 
-  const nextImage = () => {
-    setActiveImageIndex((prev) => (prev + 1) % galleryImages.length);
-  };
-
-  const prevImage = () => {
-    setActiveImageIndex((prev) => (prev - 1 + galleryImages.length) % galleryImages.length);
-  };
-
   return (
     <div className="w-full bg-white text-stone-900 transition-colors duration-300">
       <div className="w-full max-w-[1720px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-14 py-4 sm:py-6 space-y-8 sm:space-y-12">
@@ -1036,25 +1075,64 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                     />
                   </div>
                 </div>
+
+                {/* Floating Left / Right Navigation Overlays */}
+                {galleryImages.length > 1 && (
+                  <>
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        prevImage();
+                      }}
+                      className="absolute left-2.5 top-1/2 -translate-y-1/2 z-20 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/90 hover:bg-white text-stone-900 border border-stone-200/80 shadow-md flex items-center justify-center transition-all opacity-85 sm:opacity-0 sm:group-hover:opacity-100 cursor-pointer hover:scale-105"
+                      aria-label="Previous image"
+                      title="Previous Image"
+                    >
+                      <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5" />
+                    </button>
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        nextImage();
+                      }}
+                      className="absolute right-2.5 top-1/2 -translate-y-1/2 z-20 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/90 hover:bg-white text-stone-900 border border-stone-200/80 shadow-md flex items-center justify-center transition-all opacity-85 sm:opacity-0 sm:group-hover:opacity-100 cursor-pointer hover:scale-105"
+                      aria-label="Next image"
+                      title="Next Image"
+                    >
+                      <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
+                    </button>
+
+                    {/* Image Counter Badge on Main Image */}
+                    <div className="absolute bottom-2.5 left-1/2 -translate-x-1/2 z-20 px-2.5 py-1 rounded-full bg-stone-900/70 backdrop-blur-xs text-white text-[10px] sm:text-[11px] font-medium tracking-wide flex items-center gap-1.5 shadow-sm pointer-events-none">
+                      <ImageIcon className="w-3 h-3 text-amber-400" />
+                      <span>{activeImageIndex + 1} / {galleryImages.length}</span>
+                    </div>
+                  </>
+                )}
               </div>
             </div>
 
             {/* Upgraded Image Gallery Strip with Prev/Next Navigation */}
             {galleryImages.length > 1 && (
-              <div className="space-y-2.5">
-                <div className="flex items-center justify-between text-xs font-semibold text-stone-600">
+              <div className="space-y-2">
+                <div className="flex items-center justify-between text-xs font-semibold text-stone-700 px-0.5">
                   <span className="flex items-center gap-1.5">
                     <Eye className="w-3.5 h-3.5 text-amber-600" />
-                    <span>
-                      {GALLERY_STYLE_LABELS[activeImageIndex] || `Perspective ${activeImageIndex + 1}`} ({activeImageIndex + 1}/{galleryImages.length})
+                    <span className="font-bold text-stone-900">
+                      {getImagePerspectiveLabel(activeImage, activeImageIndex)}
+                    </span>
+                    <span className="text-[11px] text-stone-500 font-normal">
+                      ({activeImageIndex + 1} of {galleryImages.length})
                     </span>
                   </span>
                   <div className="flex items-center gap-1">
                     <button
                       type="button"
                       onClick={prevImage}
-                      className="p-1 rounded-full border border-stone-200 bg-stone-100 hover:bg-stone-200 text-stone-800 transition-colors cursor-pointer"
-                      title="Previous Image"
+                      className="p-1 rounded-lg border border-stone-200 bg-stone-100 hover:bg-stone-200 text-stone-800 transition-colors cursor-pointer"
+                      title="Previous Image (Left Arrow)"
                       aria-label="Previous image"
                     >
                       <ChevronLeft className="w-3.5 h-3.5" />
@@ -1062,8 +1140,8 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                     <button
                       type="button"
                       onClick={nextImage}
-                      className="p-1 rounded-full border border-stone-200 bg-stone-100 hover:bg-stone-200 text-stone-800 transition-colors cursor-pointer"
-                      title="Next Image"
+                      className="p-1 rounded-lg border border-stone-200 bg-stone-100 hover:bg-stone-200 text-stone-800 transition-colors cursor-pointer"
+                      title="Next Image (Right Arrow)"
                       aria-label="Next image"
                     >
                       <ChevronRight className="w-3.5 h-3.5" />
@@ -1071,19 +1149,19 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                   </div>
                 </div>
 
-                <div className="flex items-center gap-2.5 sm:gap-3 overflow-x-auto pb-1 pt-0.5 scrollbar-thin">
+                <div className="flex items-center gap-2 sm:gap-2.5 overflow-x-auto pb-2 pt-0.5 scrollbar-thin">
                   {galleryImages.map((img, i) => {
-                    const label = GALLERY_STYLE_LABELS[i] || `View style ${i + 1}`;
+                    const label = getImagePerspectiveLabel(img, i);
                     const isSelected = activeImageIndex === i;
                     return (
                       <button
                         key={i}
                         type="button"
                         onClick={() => setActiveImageIndex(i)}
-                        className={`w-16 h-16 sm:w-20 sm:h-20 shrink-0 rounded-xl overflow-hidden border-2 bg-stone-100 cursor-pointer relative group transition-all ${
+                        className={`w-16 h-16 sm:w-20 sm:h-20 shrink-0 rounded-xl overflow-hidden border-2 bg-stone-50 cursor-pointer relative group transition-all flex flex-col ${
                           isSelected
-                            ? 'border-stone-900 opacity-100 shadow-xs'
-                            : 'border-stone-200 opacity-70 hover:opacity-100 hover:border-stone-400'
+                            ? 'border-amber-500 ring-2 ring-amber-400/40 shadow-xs scale-[1.02]'
+                            : 'border-stone-200 opacity-75 hover:opacity-100 hover:border-amber-300'
                         }`}
                         title={label}
                         aria-label={label}
@@ -1098,6 +1176,12 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                           }}
                           className="w-full h-full object-cover"
                         />
+                        {/* Number badge */}
+                        <span className={`absolute bottom-0.5 right-0.5 text-[8.5px] font-bold px-1 py-0.2 rounded ${
+                          isSelected ? 'bg-amber-500 text-stone-950' : 'bg-black/60 text-white'
+                        }`}>
+                          {i + 1}
+                        </span>
                       </button>
                     );
                   })}
@@ -2823,7 +2907,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
               </p>
               {galleryImages.length > 1 && (
                 <p className="text-xs font-medium text-amber-200/80">
-                  {GALLERY_STYLE_LABELS[activeImageIndex] || `View ${activeImageIndex + 1}`} ({activeImageIndex + 1}/{galleryImages.length})
+                  {getImagePerspectiveLabel(activeImage, activeImageIndex)} ({activeImageIndex + 1}/{galleryImages.length})
                 </p>
               )}
               {galleryImages.length > 1 && (

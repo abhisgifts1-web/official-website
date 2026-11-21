@@ -18,6 +18,10 @@ import {
   Image as ImageIcon,
   Loader2,
   Check,
+  Star,
+  ArrowLeft,
+  ArrowRight,
+  Eye,
 } from 'lucide-react';
 import AdminLayout from '@/components/admin/AdminLayout';
 import { Product, ProductOrientation, OrientationShape } from '@/types';
@@ -91,6 +95,7 @@ export default function AdminProductsPage() {
   const fileInputRef = useRef<HTMLInputElement | null>(null);
   const [uploadingImage, setUploadingImage] = useState(false);
   const [imagePreviewError, setImagePreviewError] = useState(false);
+  const [newImageUrl, setNewImageUrl] = useState('');
 
   const handleImageFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -114,14 +119,31 @@ export default function AdminProductsPage() {
             body: JSON.stringify({ image: rawDataUrl }),
           });
           const data = await res.json();
-          if (data && data.success) {
-            const finalUrl = data.cdnUrl || data.url || rawDataUrl;
-            setFormData((prev) => ({ ...prev, imageUrl: finalUrl }));
-          } else {
-            setFormData((prev) => ({ ...prev, imageUrl: rawDataUrl }));
-          }
+          const finalUrl = data && data.success && (data.cdnUrl || data.url) ? (data.cdnUrl || data.url) : rawDataUrl;
+
+          setFormData((prev) => {
+            const currentList = Array.isArray(prev.images) && prev.images.length > 0
+              ? prev.images
+              : [prev.imageUrl].filter(Boolean);
+            const updated = [...currentList, finalUrl];
+            return {
+              ...prev,
+              images: updated,
+              imageUrl: updated[0] || finalUrl,
+            };
+          });
         } catch {
-          setFormData((prev) => ({ ...prev, imageUrl: rawDataUrl }));
+          setFormData((prev) => {
+            const currentList = Array.isArray(prev.images) && prev.images.length > 0
+              ? prev.images
+              : [prev.imageUrl].filter(Boolean);
+            const updated = [...currentList, rawDataUrl];
+            return {
+              ...prev,
+              images: updated,
+              imageUrl: updated[0] || rawDataUrl,
+            };
+          });
         } finally {
           setUploadingImage(false);
         }
@@ -130,6 +152,107 @@ export default function AdminProductsPage() {
     } catch {
       setUploadingImage(false);
     }
+  };
+
+  const handleAddImage = (urlToAdd?: string) => {
+    const raw = (urlToAdd || newImageUrl).trim();
+    if (!raw) return;
+    const clean = ensureJpgExtension(raw);
+    setFormData((prev) => {
+      const currentList = Array.isArray(prev.images) && prev.images.length > 0
+        ? prev.images
+        : [prev.imageUrl].filter(Boolean);
+      if (currentList.includes(clean)) return prev;
+      const updated = [...currentList, clean];
+      return {
+        ...prev,
+        images: updated,
+        imageUrl: updated[0] || clean,
+      };
+    });
+    setNewImageUrl('');
+  };
+
+  const handleRemoveImage = (index: number) => {
+    setFormData((prev) => {
+      const currentList = Array.isArray(prev.images) && prev.images.length > 0
+        ? prev.images
+        : [prev.imageUrl].filter(Boolean);
+      if (currentList.length <= 1) {
+        alert('A product must have at least one image in its gallery.');
+        return prev;
+      }
+      const updated = currentList.filter((_, i) => i !== index);
+      return {
+        ...prev,
+        images: updated,
+        imageUrl: updated[0] || '',
+      };
+    });
+  };
+
+  const handleSetPrimaryImage = (index: number) => {
+    if (index === 0) return;
+    setFormData((prev) => {
+      const currentList = Array.isArray(prev.images) && prev.images.length > 0
+        ? [...prev.images]
+        : [prev.imageUrl].filter(Boolean);
+      const [chosen] = currentList.splice(index, 1);
+      if (!chosen) return prev;
+      currentList.unshift(chosen);
+      return {
+        ...prev,
+        images: currentList,
+        imageUrl: currentList[0] || '',
+      };
+    });
+  };
+
+  const handleMoveImage = (index: number, direction: 'left' | 'right') => {
+    setFormData((prev) => {
+      const currentList = Array.isArray(prev.images) && prev.images.length > 0
+        ? [...prev.images]
+        : [prev.imageUrl].filter(Boolean);
+      const targetIdx = direction === 'left' ? index - 1 : index + 1;
+      if (targetIdx < 0 || targetIdx >= currentList.length) return prev;
+      const temp = currentList[index];
+      currentList[index] = currentList[targetIdx];
+      currentList[targetIdx] = temp;
+      return {
+        ...prev,
+        images: currentList,
+        imageUrl: currentList[0] || '',
+      };
+    });
+  };
+
+  const handleAutoAddStandardMockups = () => {
+    const slug = formData.slug.trim().toLowerCase();
+    if (!slug) {
+      alert('Please enter or select a product with a valid slug first.');
+      return;
+    }
+    const standardSuffixes = [
+      'primary-square.jpg',
+      'mockup-living-room.jpg',
+      'mockup-interior.jpg',
+      'mockup-foyer.jpg',
+      'mockup-detail.jpg',
+      'mockup-artistic.jpg',
+      'mockup-suite.jpg',
+    ];
+    const generated = standardSuffixes.map((s) => `/images/mockups/${slug}/${s}`);
+    setFormData((prev) => {
+      const currentList = Array.isArray(prev.images) && prev.images.length > 0
+        ? prev.images
+        : [prev.imageUrl].filter(Boolean);
+      const combined = Array.from(new Set([...currentList, ...generated]));
+      return {
+        ...prev,
+        images: combined,
+        imageUrl: combined[0] || prev.imageUrl,
+      };
+    });
   };
 
   // Quick Add Size Option state (accessible directly from any product row in the table)
@@ -160,6 +283,7 @@ export default function AdminProductsPage() {
     shortDescription: '',
     description: '',
     imageUrl: '/images/collections/custom-portrait-frame.jpg',
+    images: ['/images/collections/custom-portrait-frame.jpg'] as string[],
     tags: 'Acrylic Photo Frame, Hyderabad, Wall Decor',
     variants: getDefault4Variants(2499, 4999),
   };
@@ -228,7 +352,8 @@ export default function AdminProductsPage() {
       isBestseller: Boolean(prod.isBestseller),
       shortDescription: prod.shortDescription || '',
       description: prod.description || '',
-      imageUrl: prod.images[0] || '',
+      imageUrl: (prod.images && prod.images[0]) || '',
+      images: Array.isArray(prod.images) && prod.images.length > 0 ? prod.images.filter(Boolean) : [prod.images?.[0] || '/images/collections/custom-portrait-frame.jpg'],
       tags: (prod.tags || []).join(', '),
       variants: existingVariants,
     });
@@ -414,6 +539,15 @@ export default function AdminProductsPage() {
       const primaryBasePrice = formattedVariants[0]?.price || Number(formData.basePrice);
       const primaryBaseMrp = formattedVariants[0]?.mrp || Number(formData.baseMrp);
 
+      const cleanedImages = Array.from(
+        new Set(
+          (formData.images && formData.images.length > 0 ? formData.images : [formData.imageUrl])
+            .map((img) => img.trim())
+            .filter(Boolean)
+            .map(ensureJpgExtension)
+        )
+      );
+
       const payload = {
         title: formData.title.trim(),
         slug: formData.slug.trim().toLowerCase(),
@@ -426,7 +560,7 @@ export default function AdminProductsPage() {
         shape: formData.shape,
         artStyle: formData.artStyle,
         orientation: formData.orientation,
-        images: [ensureJpgExtension(formData.imageUrl)],
+        images: cleanedImages.length > 0 ? cleanedImages : [ensureJpgExtension(formData.imageUrl)],
         tags: formData.tags.split(',').map((t) => t.trim()),
         isFeatured: formData.isFeatured,
         isBestseller: formData.isBestseller,
@@ -621,14 +755,30 @@ export default function AdminProductsPage() {
                         {/* Artwork column */}
                         <td className="py-3 px-4">
                           <div className="flex items-center gap-3">
-                            <img
-                              src={prod.images[0]}
-                              alt={prod.title}
-                              className="w-12 h-12 object-cover rounded-xl border border-stone-200 shrink-0 shadow-2xs"
-                            />
+                            <div className="relative shrink-0">
+                              <img
+                                src={prod.images[0]}
+                                alt={prod.title}
+                                className="w-12 h-12 object-cover rounded-xl border border-stone-200 shadow-2xs"
+                              />
+                              {prod.images.length > 1 && (
+                                <span
+                                  className="absolute -bottom-1 -right-1 bg-stone-900 text-white text-[9px] font-bold px-1.5 py-0.2 rounded-full shadow-xs border border-white"
+                                  title={`${prod.images.length} gallery images`}
+                                >
+                                  {prod.images.length}
+                                </span>
+                              )}
+                            </div>
                             <div className="min-w-0">
                               <p className="font-bold text-stone-900 truncate max-w-xs">{prod.title}</p>
-                              <p className="text-[11px] text-stone-500 font-mono truncate">{prod.slug}</p>
+                              <div className="flex items-center gap-1.5 text-[11px] text-stone-500 font-mono truncate">
+                                <span>{prod.slug}</span>
+                                <span className="text-stone-300">•</span>
+                                <span className="text-amber-800 font-sans font-semibold text-[10px]">
+                                  {prod.images.length} {prod.images.length === 1 ? 'view' : 'views'}
+                                </span>
+                              </div>
                             </div>
                           </div>
                         </td>
@@ -820,96 +970,190 @@ export default function AdminProductsPage() {
                       </select>
                     </div>
 
-                    <div>
-                      <div className="flex items-center justify-between mb-1">
-                        <label className="font-semibold text-stone-800 text-xs">
-                          Artwork Image (JPG / WebP) *
-                        </label>
-                        <input
-                          ref={fileInputRef}
-                          type="file"
-                          accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp"
-                          className="hidden"
-                          onChange={handleImageFileUpload}
-                        />
-                        <button
-                          type="button"
-                          onClick={() => fileInputRef.current?.click()}
-                          disabled={uploadingImage}
-                          className="inline-flex items-center gap-1 px-2 py-0.5 text-[11px] font-semibold bg-amber-500 hover:bg-amber-600 text-stone-900 rounded-lg shadow-sm transition-colors disabled:opacity-50 cursor-pointer"
-                        >
-                          {uploadingImage ? (
-                            <>
-                              <Loader2 className="w-3 h-3 animate-spin text-stone-900" />
-                              <span>Uploading...</span>
-                            </>
-                          ) : (
-                            <>
-                              <Upload className="w-3 h-3" />
-                              <span>Upload JPG</span>
-                            </>
-                          )}
-                        </button>
-                      </div>
+                    {/* Product Media & Image Gallery Manager */}
+                    <div className="md:col-span-2 border border-stone-200 rounded-2xl p-4 bg-stone-50/70 space-y-3.5">
+                      <div className="flex items-center justify-between flex-wrap gap-2">
+                        <div className="flex items-center gap-2">
+                          <div className="w-8 h-8 rounded-lg bg-amber-100 text-amber-800 flex items-center justify-center">
+                            <ImageIcon className="w-4 h-4" />
+                          </div>
+                          <div>
+                            <label className="font-bold text-stone-900 text-sm block">
+                              Product Images &amp; Mockup Gallery ({formData.images.length})
+                            </label>
+                            <p className="text-[11px] text-stone-500">
+                              Add, reorder, or update e-commerce image angles (Primary, Living Room Wall, Interior, Detail, etc.)
+                            </p>
+                          </div>
+                        </div>
 
-                      <div className="flex gap-2 items-center">
-                        <div className="relative flex-1">
+                        <div className="flex items-center gap-2">
                           <input
-                            type="text"
-                            required
-                            value={formData.imageUrl}
-                            onChange={(e) => {
-                              setImagePreviewError(false);
-                              setFormData({ ...formData, imageUrl: e.target.value });
-                            }}
-                            className="w-full px-3 py-2 bg-white border border-stone-300 rounded-xl outline-none font-mono text-[11px] text-stone-900 placeholder-stone-400 focus:border-amber-500"
-                            placeholder="/images/mockups/... or https://... or upload JPG"
+                            ref={fileInputRef}
+                            type="file"
+                            accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp"
+                            className="hidden"
+                            onChange={handleImageFileUpload}
                           />
-                        </div>
-
-                        {/* Image Preview Thumbnail */}
-                        <div className="w-9 h-9 rounded-lg border border-stone-200 bg-stone-100 flex-shrink-0 overflow-hidden flex items-center justify-center relative shadow-sm">
-                          {formData.imageUrl && !imagePreviewError ? (
-                            <img
-                              src={formData.imageUrl}
-                              alt="Preview"
-                              className="w-full h-full object-cover"
-                              onError={() => setImagePreviewError(true)}
-                            />
-                          ) : (
-                            <ImageIcon className="w-4 h-4 text-stone-400" />
-                          )}
-                        </div>
-                      </div>
-
-                      {/* Helper options: append .jpg or verification indicator */}
-                      <div className="mt-1 flex items-center justify-between text-[11px]">
-                        {formData.imageUrl &&
-                        !/\.(jpg|jpeg|png|webp|svg|gif|avif)$/i.test(formData.imageUrl.trim()) &&
-                        !formData.imageUrl.startsWith('data:') ? (
                           <button
                             type="button"
-                            onClick={() => {
-                              setFormData({
-                                ...formData,
-                                imageUrl: `${formData.imageUrl.trim()}.jpg`,
-                              });
-                            }}
-                            className="text-amber-700 hover:text-amber-900 font-medium underline flex items-center gap-1 text-[10px]"
+                            onClick={() => fileInputRef.current?.click()}
+                            disabled={uploadingImage}
+                            className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold bg-stone-900 hover:bg-stone-800 text-white rounded-xl shadow-xs transition-colors disabled:opacity-50 cursor-pointer"
                           >
-                            + Append &apos;.jpg&apos; extension
+                            {uploadingImage ? (
+                              <>
+                                <Loader2 className="w-3.5 h-3.5 animate-spin text-amber-400" />
+                                <span>Uploading...</span>
+                              </>
+                            ) : (
+                              <>
+                                <Upload className="w-3.5 h-3.5" />
+                                <span>+ Upload Image File</span>
+                              </>
+                            )}
                           </button>
-                        ) : (
-                          <span className="text-stone-400 text-[10px]">
-                            Accepts .jpg, .jpeg, .webp, .png or direct path
-                          </span>
-                        )}
+                        </div>
+                      </div>
 
-                        {formData.imageUrl && (
-                          <span className="text-emerald-700 text-[10px] font-medium flex items-center gap-0.5">
-                            <Check className="w-3 h-3" /> Image linked
+                      {/* Image Cards Grid */}
+                      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2.5 pt-1">
+                        {formData.images.map((imgUrl, idx) => {
+                          const isPrimary = idx === 0;
+                          return (
+                            <div
+                              key={idx}
+                              className={`group relative rounded-xl border-2 overflow-hidden bg-white shadow-2xs transition-all flex flex-col ${
+                                isPrimary
+                                  ? 'border-amber-500 ring-2 ring-amber-400/30'
+                                  : 'border-stone-200 hover:border-stone-300'
+                              }`}
+                            >
+                              {/* Preview Thumbnail */}
+                              <div className="w-full aspect-square bg-stone-100 overflow-hidden relative">
+                                <img
+                                  src={imgUrl}
+                                  alt={`Gallery image ${idx + 1}`}
+                                  className="w-full h-full object-cover transition-transform duration-200 group-hover:scale-105"
+                                  onError={(e) => {
+                                    (e.target as HTMLImageElement).src = '/images/brand/logo-badge-icon.png';
+                                  }}
+                                />
+
+                                {/* Index & Primary Badge */}
+                                <div className="absolute top-1 left-1 flex items-center gap-1">
+                                  <span className={`text-[9px] font-bold px-1.5 py-0.2 rounded shadow-xs ${
+                                    isPrimary
+                                      ? 'bg-amber-500 text-stone-950 font-bold'
+                                      : 'bg-stone-900/80 text-white'
+                                  }`}>
+                                    #{idx + 1}
+                                  </span>
+                                  {isPrimary && (
+                                    <span className="text-[8.5px] font-bold px-1 py-0.2 rounded bg-amber-500 text-stone-950 shadow-xs flex items-center gap-0.5">
+                                      <Star className="w-2.5 h-2.5 fill-stone-950" /> Cover
+                                    </span>
+                                  )}
+                                </div>
+
+                                {/* Delete Action Button */}
+                                <button
+                                  type="button"
+                                  onClick={() => handleRemoveImage(idx)}
+                                  className="absolute top-1 right-1 w-5 h-5 rounded bg-rose-600/90 hover:bg-rose-700 text-white flex items-center justify-center shadow-xs cursor-pointer transition-colors"
+                                  title="Remove image"
+                                >
+                                  <X className="w-3 h-3" />
+                                </button>
+                              </div>
+
+                              {/* Card Controls */}
+                              <div className="p-1.5 bg-stone-50 border-t border-stone-200/80 flex items-center justify-between gap-1 text-[10px]">
+                                {!isPrimary ? (
+                                  <button
+                                    type="button"
+                                    onClick={() => handleSetPrimaryImage(idx)}
+                                    className="text-[9.5px] font-bold text-amber-800 hover:text-amber-950 flex items-center gap-0.5 transition-colors cursor-pointer"
+                                    title="Set as primary cover image"
+                                  >
+                                    <Star className="w-2.5 h-2.5 text-amber-600" />
+                                    <span>Cover</span>
+                                  </button>
+                                ) : (
+                                  <span className="text-[9.5px] font-bold text-emerald-700 flex items-center gap-0.5">
+                                    <Check className="w-2.5 h-2.5" /> Cover
+                                  </span>
+                                )}
+
+                                <div className="flex items-center gap-0.5 ml-auto">
+                                  <button
+                                    type="button"
+                                    disabled={idx === 0}
+                                    onClick={() => handleMoveImage(idx, 'left')}
+                                    className="p-0.5 rounded bg-white hover:bg-stone-200 text-stone-700 border border-stone-200 disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer transition-colors"
+                                    title="Move Left"
+                                  >
+                                    <ArrowLeft className="w-2.5 h-2.5" />
+                                  </button>
+                                  <button
+                                    type="button"
+                                    disabled={idx === formData.images.length - 1}
+                                    onClick={() => handleMoveImage(idx, 'right')}
+                                    className="p-0.5 rounded bg-white hover:bg-stone-200 text-stone-700 border border-stone-200 disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer transition-colors"
+                                    title="Move Right"
+                                  >
+                                    <ArrowRight className="w-2.5 h-2.5" />
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+                          );
+                        })}
+                      </div>
+
+                      {/* Add Image by URL Bar */}
+                      <div className="pt-2 border-t border-stone-200">
+                        <label className="text-[11px] font-bold text-stone-700 block mb-1">
+                          + Add Image by URL or Path:
+                        </label>
+                        <div className="flex gap-2">
+                          <input
+                            type="text"
+                            value={newImageUrl}
+                            onChange={(e) => setNewImageUrl(e.target.value)}
+                            onKeyDown={(e) => {
+                              if (e.key === 'Enter') {
+                                e.preventDefault();
+                                handleAddImage();
+                              }
+                            }}
+                            placeholder="/images/mockups/... or https://..."
+                            className="flex-1 px-3 py-2 bg-white border border-stone-300 rounded-xl outline-none font-mono text-xs text-stone-900 placeholder-stone-400 focus:border-amber-500"
+                          />
+                          <button
+                            type="button"
+                            onClick={() => handleAddImage()}
+                            disabled={!newImageUrl.trim()}
+                            className="px-4 py-2 bg-amber-500 hover:bg-amber-600 disabled:opacity-50 text-stone-950 font-bold text-xs rounded-xl shadow-xs transition-colors cursor-pointer"
+                          >
+                            + Add Image
+                          </button>
+                        </div>
+
+                        <div className="mt-2 flex items-center justify-between flex-wrap gap-2 text-[11px]">
+                          <button
+                            type="button"
+                            onClick={handleAutoAddStandardMockups}
+                            className="text-amber-800 hover:text-amber-950 font-bold inline-flex items-center gap-1.5 transition-colors cursor-pointer"
+                          >
+                            <Sparkles className="w-3.5 h-3.5 text-amber-600" />
+                            <span>Auto-Load Standard Mockups for this Product (Living Room, Foyer, Detail, Artistic)</span>
+                          </button>
+
+                          <span className="text-stone-400 text-[10px]">
+                            Accepts .jpg, .jpeg, .png, .webp or direct path
                           </span>
-                        )}
+                        </div>
                       </div>
                     </div>
                   </div>
