@@ -1006,6 +1006,13 @@ export default function AdminProductsPage() {
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white border border-stone-200 p-5 sm:p-6 rounded-3xl shadow-sm text-stone-900">
           <div>
             <div className="flex items-center gap-2 mb-1">
+              <Link
+                href="/admin/categories"
+                className="inline-flex items-center gap-1 text-[11px] font-semibold text-stone-500 hover:text-stone-950 transition-colors"
+              >
+                <span>← 8 Store Collections</span>
+              </Link>
+              <span className="text-stone-300">•</span>
               <span className="px-2.5 py-0.5 rounded-full bg-amber-50 border border-amber-300 text-amber-800 font-bold text-[10px] tracking-wider uppercase flex items-center gap-1 shadow-2xs">
                 <Sparkles className="w-3 h-3 text-amber-700" />
                 Catalog Operations

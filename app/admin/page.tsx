@@ -488,11 +488,11 @@ export default function AdminDashboardPage() {
 
                   <div className="pt-2 border-t border-stone-200 flex items-center justify-between text-[11px]">
                     <Link
-                      href="/admin/categories"
-                      className="text-stone-800 hover:text-[#E0CC04] font-bold flex items-center gap-1"
+                      href={`/admin/products?cat=${cat.slug}`}
+                      className="text-stone-900 hover:text-[#E0CC04] font-bold flex items-center gap-1"
                     >
-                      <Layers className="w-3 h-3 text-[#E0CC04]" />
-                      <span>Collection Info</span>
+                      <Edit className="w-3 h-3 text-[#E0CC04]" />
+                      <span>Edit Items</span>
                     </Link>
                     <Link
                       href={`/category/${cat.slug}`}

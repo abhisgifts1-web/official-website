@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { ExternalLink, Sparkles, Zap, Package } from 'lucide-react';
+import { ExternalLink, Sparkles, Zap, Package, Edit3 } from 'lucide-react';
 import AdminLayout from '@/components/admin/AdminLayout';
 import { Category, Product } from '@/types';
 import { INITIAL_CATEGORIES } from '@/lib/data/categories';
@@ -141,20 +141,35 @@ export default function AdminCategoriesPage() {
                     </p>
                   </div>
 
-                  <div className="pt-3 border-t border-stone-100 flex items-center justify-between text-xs">
-                    <span className="text-stone-500 font-medium flex items-center gap-1.5">
-                      <span className="w-2 h-2 rounded-full bg-emerald-500 inline-block" />
-                      Live in Store
-                    </span>
-                    <a
-                      href={`/category/${cat.slug}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-stone-950 bg-[#FEE815] hover:bg-[#FFF04B] font-bold px-3 py-1.5 rounded-lg flex items-center gap-1.5 transition-all shadow-xs"
-                    >
-                      <span>View in Storefront</span>
-                      <ExternalLink className="w-3 h-3 text-stone-900" />
-                    </a>
+                  <div className="pt-3 border-t border-stone-100 space-y-2.5">
+                    <div className="flex items-center justify-between text-[11px]">
+                      <span className="text-stone-500 font-medium flex items-center gap-1.5">
+                        <span className="w-2 h-2 rounded-full bg-emerald-500 inline-block animate-pulse" />
+                        Live in Store
+                      </span>
+                      <span className="font-mono text-[10.5px] font-bold text-stone-500">
+                        {liveCount} Items
+                      </span>
+                    </div>
+
+                    <div className="grid grid-cols-2 gap-2 text-xs">
+                      <Link
+                        href={`/admin/products?cat=${cat.slug}`}
+                        className="inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-stone-900 hover:bg-stone-800 text-white font-bold transition-all shadow-xs"
+                      >
+                        <Edit3 className="w-3.5 h-3.5 text-[#FEE815]" />
+                        <span>Edit Items</span>
+                      </Link>
+                      <a
+                        href={`/category/${cat.slug}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-stone-950 bg-[#FEE815] hover:bg-[#FFF04B] font-bold px-3 py-2 rounded-xl flex items-center justify-center gap-1.5 transition-all shadow-xs"
+                      >
+                        <span>Storefront</span>
+                        <ExternalLink className="w-3.5 h-3.5 text-stone-900" />
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
