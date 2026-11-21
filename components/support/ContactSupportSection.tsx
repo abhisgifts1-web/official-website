@@ -44,7 +44,7 @@ const SUPPORT_FAQS = [
 export default function ContactSupportSection() {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
-  const cleanNumber = (INITIAL_SETTINGS.whatsappNumber || '919032372782').replace(/[^0-9]/g, '');
+  const cleanNumber = (INITIAL_SETTINGS.whatsappNumber || '917780269927').replace(/[^0-9]/g, '');
   const waUrl = `https://wa.me/${cleanNumber}?text=${encodeURIComponent(
     "Hello Abhi's Gifts, I need assistance regarding your custom acrylic photo frames and orders."
   )}`;

@@ -3,9 +3,9 @@ import { SiteSettings } from '@/types';
 export const INITIAL_SETTINGS: SiteSettings = {
   storeName: "Abhi's Gifts",
   tagline: 'Frame Your Memories.',
-  supportPhone: '+91 90323 72782',
+  supportPhone: '+91 77802 69927',
   supportEmail: 'abhisgifts@gmail.com',
-  whatsappNumber: '+919032372782',
+  whatsappNumber: '+917780269927',
   announcementText: '✨ Handcrafted Photo Frames & Custom Art • Dilsukhnagar, Hyderabad Store',
   freeShippingThreshold: 0,
   defaultShippingFee: 0,

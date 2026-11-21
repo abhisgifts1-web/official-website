@@ -282,13 +282,13 @@ export default function AboutPage() {
               <ArrowRight className="w-4 h-4 text-stone-950" />
             </Link>
             <a
-              href="https://wa.me/919032372782?text=Hi%20Abhi%27s%20Gifts%2C%20I%20would%20like%20to%20order%20a%20personalized%20photo%20frame."
+              href="https://wa.me/917780269927?text=Hi%20Abhi%27s%20Gifts%2C%20I%20would%20like%20to%20order%20a%20personalized%20photo%20frame."
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#1EBE5D] text-white font-bold text-xs sm:text-sm px-6 py-3.5 rounded-full shadow-md transition-all hover:scale-105 active:scale-95 cursor-pointer"
             >
               <MessageCircle className="w-4 h-4 fill-current" />
-              <span>CHAT ON WHATSAPP (+91 9032372782)</span>
+              <span>CHAT ON WHATSAPP (+91 77802 69927)</span>
             </a>
           </div>
 
@@ -653,12 +653,12 @@ export default function AboutPage() {
                   Phone / WhatsApp
                 </span>
                 <a
-                  href="https://wa.me/919032372782"
+                  href="https://wa.me/917780269927"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-stone-800 hover:text-amber-700 transition-colors mt-0.5 block font-semibold"
                 >
-                  +91 9032372782
+                  +91 77802 69927
                 </a>
               </div>
             </div>

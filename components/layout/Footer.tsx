@@ -155,7 +155,7 @@ export default function Footer() {
                     className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1B5E20]/30 hover:bg-[#1B5E20]/60 border border-[#4CAF50]/60 text-[#A5D6A7] text-xs font-bold transition-all shadow-xs"
                   >
                     <WhatsAppIcon className="w-3.5 h-3.5 text-[#25D366] shrink-0" />
-                    <span>WhatsApp: +91 90323 72782</span>
+                    <span>WhatsApp: +91 77802 69927</span>
                   </a>
 
                   <div className="flex items-center gap-2">

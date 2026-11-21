@@ -686,7 +686,7 @@ export default function CustomizerStudio() {
       .filter(Boolean)
       .join('\n');
 
-    const cleanWa = (INITIAL_SETTINGS.whatsappNumber || '919032372782').replace(/[^0-9]/g, '');
+    const cleanWa = (INITIAL_SETTINGS.whatsappNumber || '917780269927').replace(/[^0-9]/g, '');
     window.open(`https://wa.me/${cleanWa}?text=${encodeURIComponent(details)}`, '_blank');
   };
 
