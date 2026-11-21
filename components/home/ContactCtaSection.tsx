@@ -55,7 +55,7 @@ export default function ContactCtaSection() {
               className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-full bg-[#25D366] hover:bg-[#20BD5A] text-white font-semibold text-xs sm:text-sm shadow-sm transition-colors"
             >
               <MessageCircle className="w-4 h-4 fill-white" />
-              <span>Chat on WhatsApp for Custom Order</span>
+              <span>Enquire in WhatsApp for Custom Order</span>
             </a>
 
             <a
