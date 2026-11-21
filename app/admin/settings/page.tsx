@@ -188,7 +188,7 @@ export default function AdminSettingsPage() {
             <button
               type="submit"
               disabled={saving}
-              className="bg-[#EAB308] hover:bg-[#FACC15] disabled:opacity-50 text-black font-extrabold text-xs px-6 py-2.5 rounded-xl shadow-sm flex items-center gap-1.5 transition-all cursor-pointer"
+              className="bg-[#FEE815] hover:bg-[#FFF04B] disabled:opacity-50 text-black font-extrabold text-xs px-6 py-2.5 rounded-xl shadow-sm flex items-center gap-1.5 transition-all cursor-pointer"
             >
               <Save className="w-3.5 h-3.5" />
               <span>{saving ? 'Saving...' : 'Save Settings'}</span>

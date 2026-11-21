@@ -346,7 +346,7 @@ export default function AddPhotoModal({
                 {/* Acrylic Frame Mockup */}
                 <div
                   className={`relative max-w-sm w-full aspect-[4/3] rounded-xl overflow-hidden border border-stone-300 shadow-md bg-stone-900 transition-all ${
-                    ledEnabled ? 'ring-4 ring-amber-400/40 shadow-[0_0_35px_rgba(234,179,8,0.35)]' : ''
+                    ledEnabled ? 'ring-4 ring-amber-400/40 shadow-[0_0_35px_rgba(254,232,21,0.35)]' : ''
                   }`}
                 >
                   <img
@@ -494,7 +494,7 @@ export default function AddPhotoModal({
             <button
               type="button"
               onClick={() => handleAddToCartWithPhoto(false)}
-              className="w-full py-2.5 px-4 rounded-xl font-bold text-xs flex items-center justify-center gap-2 bg-[#EAB308] hover:bg-[#CA8A04] text-stone-950 shadow-md border border-amber-400 transition-all cursor-pointer"
+              className="w-full py-2.5 px-4 rounded-xl font-bold text-xs flex items-center justify-center gap-2 bg-[#FEE815] hover:bg-[#FFF04B] text-stone-950 shadow-md border border-[#FEE815] transition-all cursor-pointer"
             >
               {addedSuccess ? (
                 <>
@@ -530,17 +530,17 @@ export default function AddPhotoModal({
               onClick={onClose}
               className="text-[#D1D5DB] hover:text-[#FFFFFF] font-semibold flex items-center gap-1"
             >
-              <Sparkles className="w-3 h-3 text-[#EAB308]" />
+              <Sparkles className="w-3 h-3 text-[#FEE815]" />
               <span>Open in Full 3D Customizer</span>
             </Link>
           </div>
 
           {/* Info note when photo is uploaded */}
           {photoPreview && (
-            <div className="mt-2 bg-[#EAB308]/10 border border-[#EAB308]/40 rounded-xl px-3 py-2 flex items-center gap-2">
-              <Check className="w-3.5 h-3.5 text-[#EAB308] shrink-0" />
+            <div className="mt-2 bg-[#FEE815]/10 border border-[#FEE815]/40 rounded-xl px-3 py-2 flex items-center gap-2">
+              <Check className="w-3.5 h-3.5 text-[#FEE815] shrink-0" />
               <p className="text-[11px] text-[#D1D5DB]">
-                Custom photo is <span className="text-[#EAB308] font-semibold">ready and attached</span>. Proceed to checkout to complete your custom acrylic print order.
+                Custom photo is <span className="text-[#FEE815] font-semibold">ready and attached</span>. Proceed to checkout to complete your custom acrylic print order.
               </p>
             </div>
           )}

@@ -471,7 +471,7 @@ export default function HeroRotatingFrames() {
       >
         {/* Active Deity Sacred Mantra Pill */}
         <div className="flex items-center gap-1.5 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full border border-[#2D2D2D] shadow-xs max-w-[240px] sm:max-w-[280px] truncate">
-          <Sparkles className="w-3 h-3 text-[#EAB308] shrink-0 animate-pulse" />
+          <Sparkles className="w-3 h-3 text-[#FEE815] shrink-0 animate-pulse" />
           <span className="font-telugu font-bold text-[11px] sm:text-[11.5px] text-[#FFFFFF] tracking-normal truncate">
             {activeDeity.sanskritMantra}
           </span>
@@ -500,7 +500,7 @@ export default function HeroRotatingFrames() {
               onClick={() => toggleLightingMode('aarti')}
               className={`flex items-center gap-1.5 px-2.5 sm:px-3 py-1 rounded-full text-[10.5px] sm:text-[11px] font-bold transition-all duration-300 cursor-pointer ${
                 isAartiMode
-                  ? 'bg-gradient-to-r from-[#EAB308] to-[#FACC15] text-[#FFFFFF] shadow-[0_0_14px_rgba(255,213,138,0.65)] scale-[1.02]'
+                  ? 'bg-gradient-to-r from-[#FEE815] to-[#FFF04B] text-[#FFFFFF] shadow-[0_0_14px_rgba(255,213,138,0.65)] scale-[1.02]'
                   : 'text-[#D1D5DB] hover:text-[#FFFFFF]'
               }`}
               title="Warm Aarti Glow: Warm golden illuminated atmosphere"
@@ -514,10 +514,10 @@ export default function HeroRotatingFrames() {
           <button
             type="button"
             onClick={() => setShowInspectModal(true)}
-            className="flex items-center gap-1.5 bg-gradient-to-r from-[#181818] to-[#222222] hover:from-[#222222] hover:to-[#181818] text-[#FACC15] border border-[#EAB308]/70 px-2.5 sm:px-3 py-1.5 rounded-full text-[10.5px] sm:text-[11px] font-bold shadow-xs transition-all hover:scale-[1.03] cursor-pointer group"
+            className="flex items-center gap-1.5 bg-gradient-to-r from-[#181818] to-[#222222] hover:from-[#222222] hover:to-[#181818] text-[#FFF04B] border border-[#FEE815]/70 px-2.5 sm:px-3 py-1.5 rounded-full text-[10.5px] sm:text-[11px] font-bold shadow-xs transition-all hover:scale-[1.03] cursor-pointer group"
             title="Open 3D craftsmanship inspection"
           >
-            <Layers className="w-3 h-3 text-[#EAB308] group-hover:rotate-45 transition-transform" />
+            <Layers className="w-3 h-3 text-[#FEE815] group-hover:rotate-45 transition-transform" />
             <span className="hidden xs:inline">Inspect Craft</span>
           </button>
         </div>
@@ -538,7 +538,7 @@ export default function HeroRotatingFrames() {
               : 'opacity-20 scale-85'
           }`}
           style={{
-            background: `radial-gradient(circle, #FDE047 0%, #FACC15 30%, #EAB308 55%, #181818 75%, transparent 100%)`,
+            background: `radial-gradient(circle, #FFF04B 0%, #FFF04B 30%, #FEE815 55%, #181818 75%, transparent 100%)`,
           }}
         />
 
@@ -554,12 +554,12 @@ export default function HeroRotatingFrames() {
 
         {/* Circular Golden Energy Vortex Ring (Fires During Signature Transformation) */}
         {transitionState !== 'idle' && (
-          <div className="absolute w-[230px] sm:w-[260px] h-[230px] sm:h-[260px] rounded-full border-2 border-[#FACC15] pointer-events-none z-30 animate-vortex-ring shadow-[0_0_25px_rgba(255,213,138,0.85)]" />
+          <div className="absolute w-[230px] sm:w-[260px] h-[230px] sm:h-[260px] rounded-full border-2 border-[#FFF04B] pointer-events-none z-30 animate-vortex-ring shadow-[0_0_25px_rgba(255,213,138,0.85)]" />
         )}
 
         {/* Radial Golden Pulse Burst (Fires at center reveal) */}
         {transitionState === 'burst' && (
-          <div className="absolute w-[160px] h-[160px] rounded-full bg-gradient-to-r from-[#FFF7ED] via-[#FFD58A] to-[#FACC15] pointer-events-none z-30 animate-golden-burst" />
+          <div className="absolute w-[160px] h-[160px] rounded-full bg-gradient-to-r from-[#FFF7ED] via-[#FFD58A] to-[#FFF04B] pointer-events-none z-30 animate-golden-burst" />
         )}
 
         {/* Left Peeking Frame (Clickable) */}
@@ -623,7 +623,7 @@ export default function HeroRotatingFrames() {
               className={`relative w-full h-full rounded-2xl p-2 transition-all duration-500 ${
                 isAartiMode
                   ? 'bg-gradient-to-br from-[#FFF7ED] via-[#FEF08A] to-[#7D5B1E] ring-2 ring-[#FFF7CC] ring-offset-1 ring-offset-[#7D5B1E]'
-                  : 'bg-gradient-to-br from-[#FAF7F0] via-[#E8D5BD] to-[#8C620B] ring-1 ring-[#EAB308]/80'
+                  : 'bg-gradient-to-br from-[#FAF7F0] via-[#E8D5BD] to-[#8C620B] ring-1 ring-[#FEE815]/80'
               }`}
             >
               {/* 4 Metallic Corner Brackets with Specular Gleam Highlights */}
@@ -654,10 +654,10 @@ export default function HeroRotatingFrames() {
                 </div>
 
                 {/* 4 Solid Brass Standoff Screw Pins with Light Reflections */}
-                <div className="absolute top-1.5 left-1.5 w-1.5 h-1.5 rounded-full bg-gradient-to-tr from-[#7D5B1E] via-[#FEF08A] to-[#EAB308] border border-white/90 shadow-xs pointer-events-none z-30" />
-                <div className="absolute top-1.5 right-1.5 w-1.5 h-1.5 rounded-full bg-gradient-to-tr from-[#7D5B1E] via-[#FEF08A] to-[#EAB308] border border-white/90 shadow-xs pointer-events-none z-30" />
-                <div className="absolute bottom-10 left-1.5 w-1.5 h-1.5 rounded-full bg-gradient-to-tr from-[#7D5B1E] via-[#FEF08A] to-[#EAB308] border border-white/90 shadow-xs pointer-events-none z-30" />
-                <div className="absolute bottom-10 right-1.5 w-1.5 h-1.5 rounded-full bg-gradient-to-tr from-[#7D5B1E] via-[#FEF08A] to-[#EAB308] border border-white/90 shadow-xs pointer-events-none z-30" />
+                <div className="absolute top-1.5 left-1.5 w-1.5 h-1.5 rounded-full bg-gradient-to-tr from-[#7D5B1E] via-[#FEF08A] to-[#FEE815] border border-white/90 shadow-xs pointer-events-none z-30" />
+                <div className="absolute top-1.5 right-1.5 w-1.5 h-1.5 rounded-full bg-gradient-to-tr from-[#7D5B1E] via-[#FEF08A] to-[#FEE815] border border-white/90 shadow-xs pointer-events-none z-30" />
+                <div className="absolute bottom-10 left-1.5 w-1.5 h-1.5 rounded-full bg-gradient-to-tr from-[#7D5B1E] via-[#FEF08A] to-[#FEE815] border border-white/90 shadow-xs pointer-events-none z-30" />
+                <div className="absolute bottom-10 right-1.5 w-1.5 h-1.5 rounded-full bg-gradient-to-tr from-[#7D5B1E] via-[#FEF08A] to-[#FEE815] border border-white/90 shadow-xs pointer-events-none z-30" />
 
                 {/* ANIMATION 4: Dynamic Specular Glass Reflection Layer (Tracks Cursor) */}
                 <div
@@ -674,14 +674,14 @@ export default function HeroRotatingFrames() {
                 </div>
 
                 {/* gold foil Consecration Badge */}
-                <div className="absolute top-2 right-2 bg-[#121212]/90 backdrop-blur-md px-2 py-0.5 rounded-full border border-[#EAB308]/60 text-[8.5px] font-bold text-[#FACC15] z-20 flex items-center gap-1 shadow-xs">
-                  <Sparkles className="w-2.5 h-2.5 text-[#FACC15]" />
+                <div className="absolute top-2 right-2 bg-[#121212]/90 backdrop-blur-md px-2 py-0.5 rounded-full border border-[#FEE815]/60 text-[8.5px] font-bold text-[#FFF04B] z-20 flex items-center gap-1 shadow-xs">
+                  <Sparkles className="w-2.5 h-2.5 text-[#FFF04B]" />
                   <span>gold foil</span>
                 </div>
 
                 {/* Bottom Artwork Information Plaque */}
                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#0A0A0A] via-[#121212]/85 to-transparent p-2 text-left pointer-events-none z-20">
-                  <span className="text-[#FACC15] font-bold text-[9px] tracking-wide block truncate">
+                  <span className="text-[#FFF04B] font-bold text-[9px] tracking-wide block truncate">
                     {activeDeity.deityIcon} {activeDeity.titleBadge}
                   </span>
                   <h3 className="font-serif font-bold text-white text-[11.5px] sm:text-[12px] drop-shadow-md line-clamp-1 mt-0.5">
@@ -727,8 +727,8 @@ export default function HeroRotatingFrames() {
                   isEntered ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
                 } ${
                   isActive
-                    ? 'bg-gradient-to-r from-[#181818] to-[#0A0A0A] text-[#FFFFFF] border border-[#EAB308] shadow-[0_4px_14px_rgba(0,0,0,0.4)] font-bold scale-[1.03] ring-1 ring-[#E8C77E]/60'
-                    : 'bg-white/95 hover:bg-white text-[#FFFFFF] border border-[#2D2D2D] hover:border-[#EAB308]/70 shadow-2xs hover:-translate-y-0.5'
+                    ? 'bg-gradient-to-r from-[#181818] to-[#0A0A0A] text-[#FFFFFF] border border-[#FEE815] shadow-[0_4px_14px_rgba(0,0,0,0.4)] font-bold scale-[1.03] ring-1 ring-[#E8C77E]/60'
+                    : 'bg-white/95 hover:bg-white text-[#FFFFFF] border border-[#2D2D2D] hover:border-[#FEE815]/70 shadow-2xs hover:-translate-y-0.5'
                 }`}
                 aria-label={`Select ${deity.categoryLabel}`}
               >
@@ -742,7 +742,7 @@ export default function HeroRotatingFrames() {
         {/* Slim Progress Indicator Line */}
         <div className="w-24 h-1 bg-[#E8D5BD]/80 rounded-full overflow-hidden my-0.5">
           <div
-            className="h-full bg-gradient-to-r from-[#EAB308] to-[#181818] rounded-full transition-all duration-500"
+            className="h-full bg-gradient-to-r from-[#FEE815] to-[#181818] rounded-full transition-all duration-500"
             style={{
               width: `${((activeIndex + 1) / total) * 100}%`,
             }}
@@ -760,7 +760,7 @@ export default function HeroRotatingFrames() {
           <button
             type="button"
             onClick={handlePrev}
-            className="p-1.5 rounded-full bg-white hover:bg-[#121212] text-[#FFFFFF] shadow-xs border border-[#2D2D2D] hover:border-[#EAB308] transition-all hover:scale-105 active:scale-95 outline-none cursor-pointer"
+            className="p-1.5 rounded-full bg-white hover:bg-[#121212] text-[#FFFFFF] shadow-xs border border-[#2D2D2D] hover:border-[#FEE815] transition-all hover:scale-105 active:scale-95 outline-none cursor-pointer"
             aria-label="Previous Sacred Artwork"
             title="Previous artwork"
           >
@@ -769,17 +769,17 @@ export default function HeroRotatingFrames() {
 
           <Link
             href={`/product/${activeDeity.slug}`}
-            className="inline-flex items-center gap-1.5 sm:gap-2 bg-gradient-to-r from-[#181818] to-[#0A0A0A] hover:from-[#222222] hover:to-[#181818] text-[#FFFFFF] font-semibold text-xs px-4 sm:px-5 py-1.5 sm:py-2 rounded-full border border-[#EAB308]/70 shadow-xs transition-all hover:scale-[1.03] active:scale-95 group"
+            className="inline-flex items-center gap-1.5 sm:gap-2 bg-gradient-to-r from-[#181818] to-[#0A0A0A] hover:from-[#222222] hover:to-[#181818] text-[#FFFFFF] font-semibold text-xs px-4 sm:px-5 py-1.5 sm:py-2 rounded-full border border-[#FEE815]/70 shadow-xs transition-all hover:scale-[1.03] active:scale-95 group"
           >
-            <Sparkles className="w-3.5 h-3.5 text-[#FACC15]" />
+            <Sparkles className="w-3.5 h-3.5 text-[#FFF04B]" />
             <span>Explore {activeDeity.shortName} Frame</span>
-            <ArrowRight className="w-3.5 h-3.5 text-[#FACC15] group-hover:translate-x-1 transition-transform" />
+            <ArrowRight className="w-3.5 h-3.5 text-[#FFF04B] group-hover:translate-x-1 transition-transform" />
           </Link>
 
           <button
             type="button"
             onClick={handleNext}
-            className="p-1.5 rounded-full bg-white hover:bg-[#121212] text-[#FFFFFF] shadow-xs border border-[#2D2D2D] hover:border-[#EAB308] transition-all hover:scale-105 active:scale-95 outline-none cursor-pointer"
+            className="p-1.5 rounded-full bg-white hover:bg-[#121212] text-[#FFFFFF] shadow-xs border border-[#2D2D2D] hover:border-[#FEE815] transition-all hover:scale-105 active:scale-95 outline-none cursor-pointer"
             aria-label="Next Sacred Artwork"
             title="Next artwork"
           >
@@ -797,20 +797,20 @@ export default function HeroRotatingFrames() {
           onClick={() => setShowInspectModal(false)}
         >
           <div
-            className="relative w-full max-w-2xl bg-gradient-to-b from-[#121212] via-[#181818] to-[#121212] border border-[#EAB308]/70 rounded-3xl p-5 sm:p-7 shadow-[0_25px_60px_rgba(0,0,0,0.8)] text-[#FFFFFF] animate-in zoom-in-95 duration-200 select-none overflow-hidden"
+            className="relative w-full max-w-2xl bg-gradient-to-b from-[#121212] via-[#181818] to-[#121212] border border-[#FEE815]/70 rounded-3xl p-5 sm:p-7 shadow-[0_25px_60px_rgba(0,0,0,0.8)] text-[#FFFFFF] animate-in zoom-in-95 duration-200 select-none overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Modal Ambient Golden Glow */}
-            <div className="absolute top-0 right-0 w-80 h-80 bg-[#EAB308]/15 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute top-0 right-0 w-80 h-80 bg-[#FEE815]/15 rounded-full blur-3xl pointer-events-none" />
 
             {/* Modal Header */}
-            <div className="flex items-center justify-between pb-3.5 border-b border-[#EAB308]/30 relative z-10">
+            <div className="flex items-center justify-between pb-3.5 border-b border-[#FEE815]/30 relative z-10">
               <div className="flex items-center gap-2.5">
-                <div className="w-8 h-8 rounded-full bg-[#181818] text-[#FACC15] border border-[#EAB308]/50 flex items-center justify-center shadow-xs">
+                <div className="w-8 h-8 rounded-full bg-[#181818] text-[#FFF04B] border border-[#FEE815]/50 flex items-center justify-center shadow-xs">
                   <Layers className="w-4 h-4" />
                 </div>
                 <div>
-                  <h3 className="font-serif font-bold text-base sm:text-lg text-[#FACC15]">
+                  <h3 className="font-serif font-bold text-base sm:text-lg text-[#FFF04B]">
                     3D Craftsmanship &amp; Layer Architecture
                   </h3>
                   <p className="text-[11px] text-[#E5E7EB]/80">
@@ -833,8 +833,8 @@ export default function HeroRotatingFrames() {
             <div className="relative py-4 z-10">
               {/* Explosion Distance Slider */}
               <div className="flex items-center justify-between gap-4 mb-4 bg-white/5 p-2.5 rounded-2xl border border-white/10">
-                <div className="flex items-center gap-2 text-xs text-[#FACC15] font-bold">
-                  <Sliders className="w-3.5 h-3.5 text-[#EAB308]" />
+                <div className="flex items-center gap-2 text-xs text-[#FFF04B] font-bold">
+                  <Sliders className="w-3.5 h-3.5 text-[#FEE815]" />
                   <span>3D Layer Explosion:</span>
                 </div>
                 <input
@@ -860,7 +860,7 @@ export default function HeroRotatingFrames() {
                       onClick={() => setInspectActiveLayer(idx)}
                       className={`p-3 rounded-2xl border transition-all cursor-pointer ${
                         isSelected
-                          ? 'bg-gradient-to-r from-[#181818]/90 to-[#0A0A0A]/90 border-[#EAB308] shadow-[0_0_18px_rgba(184,138,53,0.3)] ring-1 ring-[#EAB308]/50'
+                          ? 'bg-gradient-to-r from-[#181818]/90 to-[#0A0A0A]/90 border-[#FEE815] shadow-[0_0_18px_rgba(184,138,53,0.3)] ring-1 ring-[#FEE815]/50'
                           : 'bg-white/5 hover:bg-white/10 border-white/10'
                       }`}
                     >
@@ -869,14 +869,14 @@ export default function HeroRotatingFrames() {
                           <span className="text-lg">{layer.icon}</span>
                           <div>
                             <div className="flex items-center gap-2">
-                              <span className="font-serif font-bold text-sm text-[#FACC15]">
+                              <span className="font-serif font-bold text-sm text-[#FFF04B]">
                                 Layer {layer.num}: {layer.title}
                               </span>
-                              <span className="text-[10px] font-mono text-[#EAB308] bg-black/40 px-1.5 py-0.5 rounded-md border border-[#EAB308]/30">
+                              <span className="text-[10px] font-mono text-[#FEE815] bg-black/40 px-1.5 py-0.5 rounded-md border border-[#FEE815]/30">
                                 {layer.thickness}
                               </span>
                             </div>
-                            <span className="text-[10px] text-[#EAB308] font-semibold tracking-wider block mt-0.5">
+                            <span className="text-[10px] text-[#FEE815] font-semibold tracking-wider block mt-0.5">
                               {layer.tagline}
                             </span>
                           </div>
@@ -885,7 +885,7 @@ export default function HeroRotatingFrames() {
                         <span
                           className={`w-5 h-5 rounded-full flex items-center justify-center shrink-0 text-xs border ${
                             isSelected
-                              ? 'bg-[#EAB308] text-[#FFFFFF] border-[#EAB308]'
+                              ? 'bg-[#FEE815] text-[#FFFFFF] border-[#FEE815]'
                               : 'bg-transparent text-transparent border-white/20'
                           }`}
                         >
@@ -905,17 +905,17 @@ export default function HeroRotatingFrames() {
             </div>
 
             {/* Modal Footer Trust Guarantees */}
-            <div className="pt-3 border-t border-[#EAB308]/30 flex flex-wrap items-center justify-between gap-2 text-[11px] text-[#E5E7EB] relative z-10">
+            <div className="pt-3 border-t border-[#FEE815]/30 flex flex-wrap items-center justify-between gap-2 text-[11px] text-[#E5E7EB] relative z-10">
               <span className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-3.5 h-3.5 text-[#EAB308]" />
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#FEE815]" />
                 <span>100% Shatterproof Guarantee</span>
               </span>
               <span className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-3.5 h-3.5 text-[#EAB308]" />
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#FEE815]" />
                 <span>Vibrant UV Print Quality</span>
               </span>
               <span className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-3.5 h-3.5 text-[#EAB308]" />
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#FEE815]" />
                 <span>BIS-Certified 12V 2A Adapter</span>
               </span>
             </div>

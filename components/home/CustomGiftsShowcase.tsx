@@ -145,8 +145,8 @@ export default function CustomGiftsShowcase() {
             onClick={() => handleFilterChange('all')}
             className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all whitespace-nowrap cursor-pointer ${
               activeFilter === 'all'
-                ? 'bg-[#EAB308] text-[#000000] border border-[#EAB308] shadow-xs'
-                : 'bg-stone-100 text-stone-700 border border-stone-200 hover:border-[#EAB308]'
+                ? 'bg-[#FEE815] text-[#000000] border border-[#FEE815] shadow-xs'
+                : 'bg-stone-100 text-stone-700 border border-stone-200 hover:border-[#FEE815]'
             }`}
           >
             All Keepsakes
@@ -157,8 +157,8 @@ export default function CustomGiftsShowcase() {
             onClick={() => handleFilterChange('lamps')}
             className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all whitespace-nowrap flex items-center gap-1.5 cursor-pointer ${
               activeFilter === 'lamps'
-                ? 'bg-[#EAB308] text-[#000000] border border-[#EAB308] shadow-xs'
-                : 'bg-stone-100 text-stone-700 border border-stone-200 hover:border-[#EAB308]'
+                ? 'bg-[#FEE815] text-[#000000] border border-[#FEE815] shadow-xs'
+                : 'bg-stone-100 text-stone-700 border border-stone-200 hover:border-[#FEE815]'
             }`}
           >
             <RotateCw className="w-3 h-3 text-amber-700" />
@@ -170,8 +170,8 @@ export default function CustomGiftsShowcase() {
             onClick={() => handleFilterChange('glitter')}
             className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all whitespace-nowrap flex items-center gap-1.5 cursor-pointer ${
               activeFilter === 'glitter'
-                ? 'bg-[#EAB308] text-[#000000] border border-[#EAB308] shadow-xs'
-                : 'bg-stone-100 text-stone-700 border border-stone-200 hover:border-[#EAB308]'
+                ? 'bg-[#FEE815] text-[#000000] border border-[#FEE815] shadow-xs'
+                : 'bg-stone-100 text-stone-700 border border-stone-200 hover:border-[#FEE815]'
             }`}
           >
             <Stars className="w-3 h-3 text-amber-700" />
@@ -183,8 +183,8 @@ export default function CustomGiftsShowcase() {
             onClick={() => handleFilterChange('led')}
             className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all whitespace-nowrap flex items-center gap-1.5 cursor-pointer ${
               activeFilter === 'led'
-                ? 'bg-[#EAB308] text-[#000000] border border-[#EAB308] shadow-xs'
-                : 'bg-stone-100 text-stone-700 border border-stone-200 hover:border-[#EAB308]'
+                ? 'bg-[#FEE815] text-[#000000] border border-[#FEE815] shadow-xs'
+                : 'bg-stone-100 text-stone-700 border border-stone-200 hover:border-[#FEE815]'
             }`}
           >
             <Sun className="w-3 h-3 text-amber-700" />
@@ -196,8 +196,8 @@ export default function CustomGiftsShowcase() {
             onClick={() => handleFilterChange('couple_family')}
             className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all whitespace-nowrap flex items-center gap-1.5 cursor-pointer ${
               activeFilter === 'couple_family'
-                ? 'bg-[#EAB308] text-[#000000] border border-[#EAB308] shadow-xs'
-                : 'bg-stone-100 text-stone-700 border border-stone-200 hover:border-[#EAB308]'
+                ? 'bg-[#FEE815] text-[#000000] border border-[#FEE815] shadow-xs'
+                : 'bg-stone-100 text-stone-700 border border-stone-200 hover:border-[#FEE815]'
             }`}
           >
             <Heart className="w-3 h-3 text-amber-700" />
@@ -223,7 +223,7 @@ export default function CustomGiftsShowcase() {
             className={`inline-flex items-center gap-1 px-3.5 py-2 rounded-full text-xs font-bold transition-all cursor-pointer ${
               currentPage === 1
                 ? 'bg-stone-100 text-stone-400 cursor-not-allowed opacity-60'
-                : 'bg-white text-stone-800 border border-stone-200 hover:border-[#EAB308] shadow-xs'
+                : 'bg-white text-stone-800 border border-stone-200 hover:border-[#FEE815] shadow-xs'
             }`}
             aria-label="Previous page"
           >
@@ -241,8 +241,8 @@ export default function CustomGiftsShowcase() {
                 onClick={() => goToPage(pageNum)}
                 className={`w-9 h-9 rounded-full text-xs font-bold transition-all cursor-pointer flex items-center justify-center ${
                   isActive
-                    ? 'bg-[#EAB308] text-[#000000] border border-[#EAB308] shadow-xs scale-105'
-                    : 'bg-white text-stone-700 border border-stone-200 hover:border-[#EAB308]'
+                    ? 'bg-[#FEE815] text-[#000000] border border-[#FEE815] shadow-xs scale-105'
+                    : 'bg-white text-stone-700 border border-stone-200 hover:border-[#FEE815]'
                 }`}
               >
                 {pageNum}
@@ -257,7 +257,7 @@ export default function CustomGiftsShowcase() {
             className={`inline-flex items-center gap-1 px-3.5 py-2 rounded-full text-xs font-bold transition-all cursor-pointer ${
               currentPage === totalPages
                 ? 'bg-stone-100 text-stone-400 cursor-not-allowed opacity-60'
-                : 'bg-white text-stone-800 border border-stone-200 hover:border-[#EAB308] shadow-xs'
+                : 'bg-white text-stone-800 border border-stone-200 hover:border-[#FEE815] shadow-xs'
             }`}
             aria-label="Next page"
           >
@@ -271,11 +271,11 @@ export default function CustomGiftsShowcase() {
       <div className="mt-8 sm:mt-10 text-center">
         <Link
           href="/customise"
-          className="inline-flex items-center justify-center gap-2.5 bg-[#EAB308] hover:bg-[#FACC15] text-[#000000] font-bold text-xs sm:text-sm px-8 py-3.5 rounded-full shadow-md border border-[#EAB308]/80 transition-all hover:scale-[1.02] tracking-wider uppercase group"
+          className="inline-flex items-center justify-center gap-2.5 bg-[#FEE815] hover:bg-[#FFF04B] text-[#000000] font-bold text-xs sm:text-sm px-8 py-3.5 rounded-full shadow-md border border-[#FEE815]/80 transition-all hover:scale-[1.02] tracking-wider uppercase group"
         >
-          <Sparkles className="w-4 h-4 text-[#EAB308]" />
+          <Sparkles className="w-4 h-4 text-[#FEE815]" />
           <span>Customize Your Acrylic Keepsake</span>
-          <ArrowRight className="w-4 h-4 text-[#EAB308] group-hover:translate-x-1 transition-transform" />
+          <ArrowRight className="w-4 h-4 text-[#FEE815] group-hover:translate-x-1 transition-transform" />
         </Link>
       </div>
     </section>

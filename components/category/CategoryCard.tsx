@@ -37,11 +37,11 @@ export default function CategoryCard({ category, priority = false }: CategoryCar
     <Link
       href={`/product/${productSlug}`}
       prefetch={true}
-      className="group relative flex flex-col justify-between bg-white rounded-3xl p-3 sm:p-3.5 border border-stone-200 hover:border-[#EAB308] shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 focus-visible:ring-2 focus-visible:ring-[#EAB308] outline-none"
+      className="group relative flex flex-col justify-between bg-white rounded-3xl p-3 sm:p-3.5 border border-stone-200 hover:border-[#FEE815] shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 focus-visible:ring-2 focus-visible:ring-[#FEE815] outline-none"
       aria-label={`View ${category.name} product details`}
     >
       {/* Framed Acrylic Art Viewport (100% Unobscured Artwork) */}
-      <div className="relative aspect-[4/3.6] w-full rounded-2xl overflow-hidden bg-stone-100 border border-stone-200 group-hover:border-[#EAB308]/80 transition-all duration-300 shadow-inner">
+      <div className="relative aspect-[4/3.6] w-full rounded-2xl overflow-hidden bg-stone-100 border border-stone-200 group-hover:border-[#FEE815]/80 transition-all duration-300 shadow-inner">
         {/* Background Artwork */}
         {!imgError ? (
           <img
@@ -86,7 +86,7 @@ export default function CategoryCard({ category, priority = false }: CategoryCar
       <div className="pt-3.5 flex flex-col justify-between flex-1">
         <div>
           {/* Gold Foil Accent Line */}
-          <div className="h-[2px] w-10 bg-gradient-to-r from-[#EAB308] via-amber-200 to-[#EAB308] rounded-full mb-2 group-hover:w-full transition-all duration-500" />
+          <div className="h-[2px] w-10 bg-gradient-to-r from-[#FEE815] via-[#FFF04B] to-[#FEE815] rounded-full mb-2 group-hover:w-full transition-all duration-500" />
 
           {/* Deity / Collection Title */}
           <h3 className="font-serif font-bold text-base sm:text-lg text-stone-900 group-hover:text-amber-800 transition-colors line-clamp-1">
@@ -100,9 +100,9 @@ export default function CategoryCard({ category, priority = false }: CategoryCar
         </div>
 
         {/* Attractive Interactive CTA Button */}
-        <div className="mt-3.5 w-full py-2.5 px-3.5 rounded-xl bg-stone-900 group-hover:bg-[#EAB308] text-white group-hover:text-stone-950 text-xs font-bold flex items-center justify-center gap-2 transition-all duration-300 shadow-xs group-hover:shadow-md border border-stone-800 group-hover:border-amber-400">
+        <div className="mt-3.5 w-full py-2.5 px-3.5 rounded-xl bg-stone-900 group-hover:bg-[#FEE815] text-white group-hover:text-stone-950 text-xs font-bold flex items-center justify-center gap-2 transition-all duration-300 shadow-xs group-hover:shadow-md border border-stone-800 group-hover:border-[#FEE815]">
           <span>{buttonLabel}</span>
-          <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform text-amber-400 group-hover:text-stone-950" />
+          <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform text-[#FEE815] group-hover:text-stone-950" />
         </div>
       </div>
     </Link>

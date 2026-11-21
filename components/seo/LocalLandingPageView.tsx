@@ -90,7 +90,7 @@ export default function LocalLandingPageView({
       {/* Hero Banner with Rich Local Context */}
       <section className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-amber-50 via-white to-amber-50 text-stone-900 p-6 sm:p-10 lg:p-14 border-2 border-amber-300 shadow-sm">
         <div className="absolute top-0 right-0 w-96 h-96 bg-amber-200/25 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#EAB308]/15 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#FEE815]/15 rounded-full blur-3xl pointer-events-none" />
 
         <div className="relative z-10 max-w-4xl space-y-4">
           <div className="flex flex-wrap items-center gap-2">
@@ -117,9 +117,9 @@ export default function LocalLandingPageView({
               href={`https://wa.me/917780269927?text=${whatsappMessage}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-[#25D366] hover:bg-[#1EBE5D] text-white font-bold text-xs sm:text-sm px-6 py-3.5 rounded-full shadow-md flex items-center gap-2 transition-all hover:scale-105 cursor-pointer uppercase tracking-wider"
+              className="bg-[#FEE815] hover:bg-[#FFF04B] text-black font-bold text-xs sm:text-sm px-6 py-3.5 rounded-full shadow-md flex items-center gap-2 transition-all hover:scale-105 cursor-pointer uppercase tracking-wider"
             >
-              <MessageCircle className="w-4 h-4 fill-white" />
+              <MessageCircle className="w-4 h-4 fill-black text-black" />
               <span>WhatsApp Quick Quote &amp; Digital Proof</span>
             </a>
 
@@ -315,7 +315,7 @@ export default function LocalLandingPageView({
               href="https://maps.app.goo.gl/fmGv35KsGabFna9E6?g_st=ac"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-[#EAB308] text-stone-950 px-5 py-2.5 rounded-full text-xs font-bold hover:bg-[#FACC15] transition-colors border border-amber-500 uppercase tracking-wider cursor-pointer"
+              className="bg-[#FEE815] text-stone-950 px-5 py-2.5 rounded-full text-xs font-bold hover:bg-[#FFF04B] transition-colors border border-amber-500 uppercase tracking-wider cursor-pointer"
             >
               Get Google Maps Directions
             </a>

@@ -110,7 +110,7 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
   return (
     <>
       <div
-        className="group relative flex flex-col h-full bg-white rounded-2xl overflow-hidden border border-stone-200 hover:border-[#EAB308] shadow-[0_2px_10px_rgba(0,0,0,0.06)] hover:shadow-[0_12px_28px_rgba(0,0,0,0.12)] transition-all duration-300 hover:-translate-y-1 focus-within:ring-2 focus-within:ring-[#EAB308]/50"
+        className="group relative flex flex-col h-full bg-white rounded-2xl overflow-hidden border border-stone-200 hover:border-[#FEE815] shadow-[0_2px_10px_rgba(0,0,0,0.06)] hover:shadow-[0_12px_28px_rgba(254,232,21,0.25)] transition-all duration-300 hover:-translate-y-1 focus-within:ring-2 focus-within:ring-[#FEE815]/50"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
@@ -121,7 +121,7 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
             <Link
               href={`/product/${product.slug}`}
               prefetch={true}
-              className="block w-full h-full outline-none focus-visible:ring-2 focus-visible:ring-[#EAB308]"
+              className="block w-full h-full outline-none focus-visible:ring-2 focus-visible:ring-[#FEE815]"
               aria-label={`View details for ${product.title}`}
             >
               <img
@@ -144,7 +144,7 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
           {/* Genuine Badges Overlay — Clean Horizontal Layout */}
           <div className="absolute top-2.5 left-2.5 flex items-center gap-1.5 pointer-events-none z-10">
             {hasRealDiscount && discountPercent > 0 && (
-              <span className="bg-[#EAB308] text-black font-bold text-[9px] sm:text-[10px] tracking-wider uppercase px-2 py-0.5 rounded-full shadow-sm border border-[#EAB308]/50 backdrop-blur-sm">
+              <span className="bg-[#FEE815] text-black font-bold text-[9px] sm:text-[10px] tracking-wider uppercase px-2 py-0.5 rounded-full shadow-sm border border-[#FEE815]/50 backdrop-blur-sm">
                 {discountPercent}% OFF
               </span>
             )}
@@ -169,14 +169,14 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
           <button
             type="button"
             onClick={handleWishlistToggle}
-            className={`absolute top-2.5 right-2.5 w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center p-2 rounded-full transition-all duration-200 z-10 shadow-sm outline-none focus-visible:ring-2 focus-visible:ring-[#EAB308] cursor-pointer ${
+            className={`absolute top-2.5 right-2.5 w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center p-2 rounded-full transition-all duration-200 z-10 shadow-sm outline-none focus-visible:ring-2 focus-visible:ring-[#FEE815] cursor-pointer ${
               wishlisted
-                ? 'bg-rose-50 text-rose-600 border border-rose-200 scale-105 shadow-rose-100'
-                : 'bg-white/90 backdrop-blur-sm text-stone-700 hover:text-[#EAB308] hover:bg-white hover:scale-105 border border-stone-200'
+                ? 'bg-[#FEE815] text-black border border-[#FEE815] scale-105 shadow-sm'
+                : 'bg-white/90 backdrop-blur-sm text-stone-700 hover:text-black hover:bg-[#FEE815] hover:scale-105 border border-stone-200'
             }`}
             aria-label={wishlisted ? `Remove ${product.title} from wishlist` : `Add ${product.title} to wishlist`}
           >
-            <Heart className={`w-3.5 h-3.5 transition-transform ${wishlisted ? 'fill-current scale-110' : ''}`} />
+            <Heart className={`w-3.5 h-3.5 transition-transform ${wishlisted ? 'fill-current scale-110 text-black' : ''}`} />
           </button>
 
           {/* Desktop Hover Floating Quick Preview Pill */}
@@ -188,9 +188,9 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
               setIsQuickViewOpen(true);
             }}
             aria-label={`Quick view ${product.title}`}
-            className="absolute bottom-2 left-1/2 -translate-x-1/2 hidden md:inline-flex items-center gap-1 px-3 py-1 rounded-full bg-white/95 hover:bg-[#EAB308] hover:text-black text-stone-900 font-semibold text-[11px] shadow-md backdrop-blur-md opacity-0 group-hover:opacity-100 transition-all duration-300 hover:scale-105 border border-stone-200 z-10 cursor-pointer"
+            className="absolute bottom-2 left-1/2 -translate-x-1/2 hidden md:inline-flex items-center gap-1 px-3 py-1 rounded-full bg-white/95 hover:bg-[#FEE815] hover:text-black text-stone-900 font-semibold text-[11px] shadow-md backdrop-blur-md opacity-0 group-hover:opacity-100 transition-all duration-300 hover:scale-105 border border-stone-200 z-10 cursor-pointer"
           >
-            <Eye className="w-3 h-3 text-[#EAB308]" />
+            <Eye className="w-3 h-3 text-stone-950" />
             <span>Quick View</span>
           </button>
         </div>
@@ -223,7 +223,7 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
                 )}
               </div>
               {hasRealDiscount && discountPercent > 0 && (
-                <span className="text-[10px] font-bold text-amber-900 bg-amber-50 px-1.5 py-0.5 rounded border border-amber-200 shrink-0">
+                <span className="text-[10px] font-bold text-black bg-[#FEE815] px-1.5 py-0.5 rounded border border-[#FEE815]/60 shrink-0">
                   Save {discountPercent}%
                 </span>
               )}
@@ -235,7 +235,7 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
             <button
               type="button"
               onClick={handleInstantBuyNow}
-              className="w-full min-h-[38px] py-2 px-3 rounded-xl font-sans text-xs font-bold flex items-center justify-center gap-1.5 transition-all duration-200 shadow-2xs active:scale-[0.98] bg-[#EAB308] hover:bg-[#FACC15] text-black hover:shadow-xs border border-[#EAB308] cursor-pointer"
+              className="w-full min-h-[38px] py-2 px-3 rounded-xl font-sans text-xs font-bold flex items-center justify-center gap-1.5 transition-all duration-200 shadow-2xs active:scale-[0.98] bg-[#FEE815] hover:bg-[#FFF04B] text-black hover:shadow-xs border border-[#FEE815] cursor-pointer"
               aria-label={`Buy ${product.title} now`}
               title="Buy It Now"
             >

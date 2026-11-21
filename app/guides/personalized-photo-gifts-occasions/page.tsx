@@ -102,7 +102,7 @@ export default function PersonalizedPhotoGiftsOccasionsGuide() {
           <div className="pt-2">
             <Link
               href="/customized-gifts-dilsukhnagar"
-              className="bg-[#EAB308] text-[#000000] px-5 py-2.5 rounded-full font-bold text-xs hover:bg-[#FACC15] transition-colors inline-block shadow-xs"
+              className="bg-[#FEE815] text-[#000000] px-5 py-2.5 rounded-full font-bold text-xs hover:bg-[#FFF04B] transition-colors inline-block shadow-xs"
             >
               Explore Customized Gifts in Dilsukhnagar →
             </Link>

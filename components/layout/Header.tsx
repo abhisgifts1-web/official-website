@@ -161,31 +161,31 @@ export default function Header() {
       id: 'home',
       label: 'Home',
       href: '/',
-      icon: <Home className="w-3.5 h-3.5 text-[#EAB308] shrink-0" />,
+      icon: <Home className="w-3.5 h-3.5 text-[#FEE815] shrink-0" />,
     },
     {
       id: 'shop',
       label: 'Shop',
       href: '/shop',
-      icon: <ShoppingBag className="w-3.5 h-3.5 text-[#EAB308] shrink-0" />,
+      icon: <ShoppingBag className="w-3.5 h-3.5 text-[#FEE815] shrink-0" />,
     },
     {
       id: 'customized',
       label: 'Customized',
       href: '/customise',
-      icon: <Sparkles className="w-3.5 h-3.5 text-[#EAB308] shrink-0" />,
+      icon: <Sparkles className="w-3.5 h-3.5 text-[#FEE815] shrink-0" />,
     },
     {
       id: 'about',
       label: 'About',
       href: '/about',
-      icon: <Info className="w-3.5 h-3.5 text-[#EAB308] shrink-0" />,
+      icon: <Info className="w-3.5 h-3.5 text-[#FEE815] shrink-0" />,
     },
     {
       id: 'contact',
       label: 'Contact',
       href: '/contact',
-      icon: <Phone className="w-3.5 h-3.5 text-[#EAB308] shrink-0" />,
+      icon: <Phone className="w-3.5 h-3.5 text-[#FEE815] shrink-0" />,
     },
   ];
 
@@ -194,8 +194,8 @@ export default function Header() {
       <header
         className={`sticky top-0 z-50 w-full transition-all duration-300 border-b select-none ${
           scrolled
-            ? 'bg-[#121212]/95 backdrop-blur-md shadow-xs border-[#EAB308]/40 py-2'
-            : 'bg-[#121212] border-[#EAB308]/30 py-2 sm:py-2.5'
+            ? 'bg-[#121212]/95 backdrop-blur-md shadow-xs border-[#FEE815]/40 py-2'
+            : 'bg-[#121212] border-[#FEE815]/30 py-2 sm:py-2.5'
         }`}
       >
         <div className="w-full max-w-[1760px] mx-auto px-2 sm:px-6 lg:px-4 xl:px-12 2xl:px-16">
@@ -205,7 +205,7 @@ export default function Header() {
               <button
                 type="button"
                 onClick={() => setMobileMenuOpen(true)}
-                className="lg:hidden w-10 h-10 sm:w-11 sm:h-11 flex items-center justify-center p-2 text-[#FFFFFF] hover:text-[#EAB308] hover:bg-[#1A1A1A] rounded-xl focus:outline-none transition-colors cursor-pointer"
+                className="lg:hidden w-10 h-10 sm:w-11 sm:h-11 flex items-center justify-center p-2 text-[#FFFFFF] hover:text-[#FEE815] hover:bg-[#1A1A1A] rounded-xl focus:outline-none transition-colors cursor-pointer"
                 aria-label="Open mobile menu"
               >
                 <Menu className="w-5 h-5" />
@@ -227,11 +227,11 @@ export default function Header() {
             <nav className="hidden lg:flex items-center justify-center flex-1 max-w-3xl 2xl:max-w-4xl mx-auto px-2">
               <div
                 ref={navContainerRef}
-                className="relative flex items-center bg-[#1A1A1A]/80 backdrop-blur-md p-1 rounded-full border border-[#EAB308]/40 shadow-2xs"
+                className="relative flex items-center bg-[#1A1A1A]/80 backdrop-blur-md p-1 rounded-full border border-[#FEE815]/40 shadow-2xs"
               >
                 {/* Animated Sliding Selection Pill */}
                 <div
-                  className="absolute top-1 bottom-1 rounded-full bg-gradient-to-r from-[#121212] via-[#262626] to-[#121212] shadow-[0_3px_14px_rgba(0,0,0,0.5)] border border-[#EAB308]/60 transition-all duration-300 ease-[cubic-bezier(0.2,0.9,0.3,1)] pointer-events-none"
+                  className="absolute top-1 bottom-1 rounded-full bg-gradient-to-r from-[#121212] via-[#262626] to-[#121212] shadow-[0_3px_14px_rgba(0,0,0,0.5)] border border-[#FEE815]/60 transition-all duration-300 ease-[cubic-bezier(0.2,0.9,0.3,1)] pointer-events-none"
                   style={{
                     left: `${pillStyle.left}px`,
                     width: `${pillStyle.width}px`,
@@ -265,14 +265,14 @@ export default function Header() {
                           className={`relative z-10 py-1.5 px-2 xl:px-3.5 2xl:px-4 rounded-full text-[11.5px] xl:text-[13px] font-semibold transition-all duration-200 flex items-center gap-1 xl:gap-1.5 whitespace-nowrap outline-none cursor-pointer active:scale-95 ${
                             isActive || megaMenuOpen
                               ? 'text-[#FFFFFF] font-bold drop-shadow-xs'
-                              : 'text-[#FFFFFF] hover:text-[#EAB308]'
+                              : 'text-[#FFFFFF] hover:text-[#FEE815]'
                           }`}
                         >
                           {item.icon}
                           <span>{item.label}</span>
                           <ChevronDown
                             className={`w-3.5 h-3.5 transition-transform duration-200 ${
-                              megaMenuOpen ? 'rotate-180 text-[#EAB308]' : 'text-[#D1D5DB]'
+                              megaMenuOpen ? 'rotate-180 text-[#FEE815]' : 'text-[#D1D5DB]'
                             }`}
                           />
                         </button>
@@ -294,13 +294,13 @@ export default function Header() {
                           <div
                             onMouseEnter={handleMenuEnter}
                             onMouseLeave={handleMenuLeave}
-                            className="fixed top-[62px] sm:top-[68px] left-1/2 -translate-x-1/2 w-[96vw] max-w-6xl 2xl:max-w-7xl rounded-3xl shadow-[0_25px_80px_rgba(0,0,0,0.6)] border-2 border-[#EAB308]/80 p-5 sm:p-7 z-50 animate-in fade-in zoom-in-95 slide-in-from-top-2 duration-200 text-[#FFFFFF] select-auto"
+                            className="fixed top-[62px] sm:top-[68px] left-1/2 -translate-x-1/2 w-[96vw] max-w-6xl 2xl:max-w-7xl rounded-3xl shadow-[0_25px_80px_rgba(0,0,0,0.6)] border-2 border-[#FEE815]/80 p-5 sm:p-7 z-50 animate-in fade-in zoom-in-95 slide-in-from-top-2 duration-200 text-[#FFFFFF] select-auto"
                             style={{ backgroundColor: '#141414' }}
                           >
                             {/* Header Bar */}
                             <div className="flex items-center justify-between pb-3.5 mb-4 border-b border-[#2D2D2D]/80">
                               <div className="flex items-center gap-2.5">
-                                <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-[#181818] to-[#0A0A0A] flex items-center justify-center text-[#FACC15] border border-[#EAB308]/50 shadow-xs">
+                                <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-[#181818] to-[#0A0A0A] flex items-center justify-center text-[#FFF04B] border border-[#FEE815]/50 shadow-xs">
                                   <Layers className="w-4 h-4" />
                                 </div>
                                 <div>
@@ -319,7 +319,7 @@ export default function Header() {
                                   setMegaMenuOpen(false);
                                   setHoveredTab(null);
                                 }}
-                                className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold text-[#FFFFFF] bg-[#1E1E1E] hover:bg-[#2A2A2A] border border-[#EAB308]/60 transition-all cursor-pointer shadow-2xs hover:scale-105 active:scale-95"
+                                className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold text-[#FFFFFF] bg-[#1E1E1E] hover:bg-[#2A2A2A] border border-[#FEE815]/60 transition-all cursor-pointer shadow-2xs hover:scale-105 active:scale-95"
                                 aria-label="Close categories menu"
                               >
                                 <X className="w-3.5 h-3.5 text-[#FFFFFF]" />
@@ -337,11 +337,11 @@ export default function Header() {
                                       setMegaMenuOpen(false);
                                       setHoveredTab(null);
                                     }}
-                                    className="group relative flex flex-col justify-between p-3.5 rounded-2xl border border-[#2D2D2D] hover:border-[#EAB308] shadow-2xs hover:shadow-xs transition-all duration-200 bg-[#1A1A1A] hover:bg-[#202020]"
+                                    className="group relative flex flex-col justify-between p-3.5 rounded-2xl border border-[#2D2D2D] hover:border-[#FEE815] shadow-2xs hover:shadow-xs transition-all duration-200 bg-[#1A1A1A] hover:bg-[#202020]"
                                   >
                                     <div>
                                       <div className="flex items-start justify-between gap-1.5">
-                                        <span className="font-serif font-bold text-xs sm:text-sm text-[#FFFFFF] group-hover:text-[#EAB308] transition-colors line-clamp-1">
+                                        <span className="font-serif font-bold text-xs sm:text-sm text-[#FFFFFF] group-hover:text-[#FEE815] transition-colors line-clamp-1">
                                           {cat.name}
                                         </span>
                                         {cat.lightingType === 'backlight' && (
@@ -354,7 +354,7 @@ export default function Header() {
                                         {cat.description}
                                       </span>
                                     </div>
-                                    <div className="mt-3 pt-2 border-t border-[#2D2D2D] flex items-center justify-between text-[11px] font-semibold text-[#EAB308]">
+                                    <div className="mt-3 pt-2 border-t border-[#2D2D2D] flex items-center justify-between text-[11px] font-semibold text-[#FEE815]">
                                       <span>Explore</span>
                                       <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
                                     </div>
@@ -369,11 +369,11 @@ export default function Header() {
                                     setMegaMenuOpen(false);
                                     setHoveredTab(null);
                                   }}
-                                  className="inline-flex items-center gap-1.5 text-xs font-bold text-[#FFFFFF] hover:text-[#EAB308] group"
+                                  className="inline-flex items-center gap-1.5 text-xs font-bold text-[#FFFFFF] hover:text-[#FEE815] group"
                                 >
-                                  <Sparkles className="w-3.5 h-3.5 text-[#EAB308]" />
+                                  <Sparkles className="w-3.5 h-3.5 text-[#FEE815]" />
                                   <span>View All 8 Categories</span>
-                                  <ArrowRight className="w-3.5 h-3.5 text-[#EAB308] group-hover:translate-x-1 transition-transform" />
+                                  <ArrowRight className="w-3.5 h-3.5 text-[#FEE815] group-hover:translate-x-1 transition-transform" />
                                 </Link>
 
                                 <Link
@@ -382,7 +382,7 @@ export default function Header() {
                                     setMegaMenuOpen(false);
                                     setHoveredTab(null);
                                   }}
-                                  className="inline-flex items-center gap-1.5 text-xs font-bold text-[#EAB308] hover:underline"
+                                  className="inline-flex items-center gap-1.5 text-xs font-bold text-[#FEE815] hover:underline"
                                 >
                                   <span>Shop Full Catalog</span>
                                   <ArrowRight className="w-3.5 h-3.5" />
@@ -411,14 +411,14 @@ export default function Header() {
                       className={`relative z-10 py-1.5 px-2 xl:px-3 2xl:px-4 rounded-full text-[11.5px] xl:text-[13px] font-semibold transition-colors duration-200 flex items-center gap-1 xl:gap-1.5 whitespace-nowrap outline-none active:scale-95 ${
                         isActive
                           ? 'text-[#FFFFFF] font-bold drop-shadow-xs'
-                          : 'text-[#FFFFFF] hover:text-[#EAB308]'
+                          : 'text-[#FFFFFF] hover:text-[#FEE815]'
                       }`}
                     >
                       {item.icon}
                       <span>{item.label}</span>
                       {/* Active Golden Shimmer Indicator */}
                       {isCurrentSelected && (
-                        <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-3 h-0.5 bg-[#EAB308] rounded-full shadow-[0_0_8px_#D6AA55]" />
+                        <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-3 h-0.5 bg-[#FEE815] rounded-full shadow-[0_0_8px_#FEE815]" />
                       )}
                     </Link>
                   );
@@ -433,7 +433,7 @@ export default function Header() {
                 href="https://wa.me/917780269927?text=Hi%20Abhi%27s%20Gifts%2C%20I%20would%20like%20to%20inquire%20about%20ordering%20a%20personalized%20photo%20frame"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-8 h-8 min-[360px]:w-9 min-[360px]:h-9 sm:w-10 sm:h-10 p-1.5 text-[#25D366] bg-[#E8F5E9] hover:bg-[#C8E6C9] border border-[#81C784]/80 rounded-full transition-all shadow-2xs hover:scale-110 active:scale-95 flex items-center justify-center cursor-pointer"
+                className="w-8 h-8 min-[360px]:w-9 min-[360px]:h-9 sm:w-10 sm:h-10 p-1.5 text-stone-950 bg-[#FEE815] hover:bg-[#FFF04B] border border-[#FEE815] rounded-full transition-all shadow-2xs hover:scale-110 active:scale-95 flex items-center justify-center cursor-pointer"
                 title="Chat on WhatsApp"
                 aria-label="Chat on WhatsApp"
               >
@@ -467,13 +467,13 @@ export default function Header() {
               {/* Attractive Luxury Wishlist Button */}
               <Link
                 href="/wishlist"
-                className="group relative flex items-center justify-center w-9 h-9 min-[360px]:w-10 min-[360px]:h-10 sm:w-11 sm:h-11 rounded-2xl bg-gradient-to-b from-[#222222] to-[#121212] hover:from-[#2A2A2A] hover:to-[#181818] border border-[#333333] hover:border-rose-400/60 text-[#FFFFFF] hover:text-rose-400 shadow-md shadow-black/40 transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer"
+                className="group relative flex items-center justify-center w-9 h-9 min-[360px]:w-10 min-[360px]:h-10 sm:w-11 sm:h-11 rounded-2xl bg-gradient-to-b from-[#222222] to-[#121212] hover:from-[#2A2A2A] hover:to-[#181818] border border-[#333333] hover:border-[#FEE815]/60 text-[#FFFFFF] hover:text-[#FEE815] shadow-md shadow-black/40 transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer"
                 aria-label="Wishlist"
                 title="View Saved Wishlist"
               >
-                <Heart className="w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-300 group-hover:scale-110 group-hover:fill-rose-500/20" />
+                <Heart className="w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-300 group-hover:scale-110 group-hover:fill-[#FEE815]/20" />
                 {wishlistCount > 0 && (
-                  <span className="absolute -top-1.5 -right-1.5 bg-gradient-to-r from-rose-500 to-pink-600 text-white text-[10px] font-extrabold min-w-[20px] h-[20px] px-1 rounded-full flex items-center justify-center ring-2 ring-[#0D0D0D] shadow-[0_2px_8px_rgba(244,63,94,0.5)] animate-in zoom-in-75">
+                  <span className="absolute -top-1.5 -right-1.5 bg-[#FEE815] text-stone-950 text-[10px] font-black min-w-[20px] h-[20px] px-1 rounded-full flex items-center justify-center ring-2 ring-[#0D0D0D] shadow-[0_2px_8px_rgba(254,232,21,0.5)] animate-in zoom-in-75">
                     {wishlistCount}
                   </span>
                 )}
@@ -483,7 +483,7 @@ export default function Header() {
               <button
                 type="button"
                 onClick={openCart}
-                className="group relative flex items-center justify-center gap-2 h-9 min-[360px]:h-10 px-3 sm:h-11 sm:px-4 rounded-2xl bg-gradient-to-r from-[#EAB308] via-[#FACC15] to-[#CA8A04] hover:from-[#FACC15] hover:to-[#EAB308] text-stone-950 font-extrabold shadow-[0_2px_14px_rgba(234,179,8,0.35)] hover:shadow-[0_4px_22px_rgba(234,179,8,0.55)] hover:scale-[1.04] active:scale-95 transition-all duration-300 cursor-pointer"
+                className="group relative flex items-center justify-center gap-2 h-9 min-[360px]:h-10 px-3 sm:h-11 sm:px-4 rounded-2xl bg-gradient-to-r from-[#FEE815] via-[#FFF04B] to-[#FEE815] hover:from-[#FFF04B] hover:to-[#FEE815] text-stone-950 font-extrabold shadow-[0_2px_14px_rgba(254,232,21,0.4)] hover:shadow-[0_4px_22px_rgba(254,232,21,0.6)] hover:scale-[1.04] active:scale-95 transition-all duration-300 cursor-pointer"
                 aria-label="Shopping Cart"
                 title="View Shopping Bag"
               >
@@ -491,7 +491,7 @@ export default function Header() {
                 <span className="hidden sm:inline-block text-xs font-serif font-black tracking-wider uppercase text-stone-950">
                   Cart
                 </span>
-                <span className="bg-stone-950 text-[#FACC15] font-mono text-[10.5px] font-black min-w-[20px] h-[20px] px-1.5 rounded-full flex items-center justify-center shadow-xs border border-stone-800">
+                <span className="bg-stone-950 text-[#FEE815] font-mono text-[10.5px] font-black min-w-[20px] h-[20px] px-1.5 rounded-full flex items-center justify-center shadow-xs border border-stone-800">
                   {cartCount}
                 </span>
               </button>
@@ -541,13 +541,13 @@ export default function Header() {
                 href="https://wa.me/917780269927?text=Hi%20Abhi%27s%20Gifts%2C%20I%20have%20an%20enquiry%20regarding%20custom%20photo%20frames"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-between p-2.5 bg-[#E8F5E9] hover:bg-[#C8E6C9] text-[#1B5E20] border border-[#81C784]/80 rounded-xl font-bold text-xs shadow-2xs transition-colors"
+                className="flex items-center justify-between p-2.5 bg-[#FEE815] hover:bg-[#FFF04B] text-stone-950 border border-[#FEE815] rounded-xl font-bold text-xs shadow-2xs transition-colors"
               >
                 <span className="flex items-center gap-2">
-                  <WhatsAppIcon className="w-4 h-4 text-[#25D366] shrink-0" />
+                  <WhatsAppIcon className="w-4 h-4 text-stone-950 shrink-0 fill-current" />
                   <span>Chat on WhatsApp</span>
                 </span>
-                <span className="text-[11px] text-[#2E7D32] font-semibold">Support →</span>
+                <span className="text-[11px] text-stone-900 font-bold">Support →</span>
               </a>
 
               <div className="grid grid-cols-2 gap-2">
@@ -578,9 +578,9 @@ export default function Header() {
             </div>
 
             {/* Customise Banner CTA */}
-            <div className="p-3.5 bg-gradient-to-br from-[#181818] to-[#0A0A0A] text-[#FFFFFF] m-3 rounded-2xl shadow-sm border border-[#EAB308]/50">
+            <div className="p-3.5 bg-gradient-to-br from-[#181818] to-[#0A0A0A] text-[#FFFFFF] m-3 rounded-2xl shadow-sm border border-[#FEE815]/50">
               <div className="flex items-center gap-2 font-bold text-xs">
-                <Sparkles className="w-3.5 h-3.5 text-[#FACC15]" />
+                <Sparkles className="w-3.5 h-3.5 text-[#FFF04B]" />
                 <span>Personalise Photo Frames</span>
               </div>
               <p className="text-[11px] text-[#E5E7EB]/90 mt-1 leading-snug">
@@ -589,7 +589,7 @@ export default function Header() {
               <Link
                 href="/customise"
                 onClick={() => setMobileMenuOpen(false)}
-                className="mt-2.5 inline-block bg-gradient-to-r from-[#EAB308] to-[#FACC15] text-black font-extrabold px-3.5 py-1.5 rounded-lg text-xs shadow-xs transition-all active:scale-95"
+                className="mt-2.5 inline-block bg-gradient-to-r from-[#FEE815] to-[#FFF04B] text-black font-extrabold px-3.5 py-1.5 rounded-lg text-xs shadow-xs transition-all active:scale-95"
               >
                 Customise Now →
               </Link>
@@ -602,7 +602,7 @@ export default function Header() {
                   href="/"
                   onClick={() => setMobileMenuOpen(false)}
                   className={`block px-3 py-2 font-semibold rounded-xl text-xs sm:text-sm transition-colors ${
-                    pathname === '/' ? 'bg-[#1E1E1E] text-[#EAB308]' : 'text-[#FFFFFF] hover:bg-[#1E1E1E]'
+                    pathname === '/' ? 'bg-[#1E1E1E] text-[#FEE815]' : 'text-[#FFFFFF] hover:bg-[#1E1E1E]'
                   }`}
                 >
                   Home
@@ -611,7 +611,7 @@ export default function Header() {
                   href="/shop"
                   onClick={() => setMobileMenuOpen(false)}
                   className={`block px-3 py-2 font-semibold rounded-xl text-xs sm:text-sm transition-colors ${
-                    pathname === '/shop' ? 'bg-[#1E1E1E] text-[#EAB308]' : 'text-[#FFFFFF] hover:bg-[#1E1E1E]'
+                    pathname === '/shop' ? 'bg-[#1E1E1E] text-[#FEE815]' : 'text-[#FFFFFF] hover:bg-[#1E1E1E]'
                   }`}
                 >
                   Shop
@@ -620,7 +620,7 @@ export default function Header() {
                   href="/customise"
                   onClick={() => setMobileMenuOpen(false)}
                   className={`block px-3 py-2 font-semibold rounded-xl text-xs sm:text-sm transition-colors ${
-                    pathname === '/customise' ? 'bg-[#1E1E1E] text-[#EAB308]' : 'text-[#FFFFFF] hover:bg-[#1E1E1E]'
+                    pathname === '/customise' ? 'bg-[#1E1E1E] text-[#FEE815]' : 'text-[#FFFFFF] hover:bg-[#1E1E1E]'
                   }`}
                 >
                   Customized
@@ -629,7 +629,7 @@ export default function Header() {
                   href="/about"
                   onClick={() => setMobileMenuOpen(false)}
                   className={`block px-3 py-2 font-semibold rounded-xl text-xs sm:text-sm transition-colors ${
-                    pathname === '/about' ? 'bg-[#1E1E1E] text-[#EAB308]' : 'text-[#FFFFFF] hover:bg-[#1E1E1E]'
+                    pathname === '/about' ? 'bg-[#1E1E1E] text-[#FEE815]' : 'text-[#FFFFFF] hover:bg-[#1E1E1E]'
                   }`}
                 >
                   About
@@ -638,7 +638,7 @@ export default function Header() {
                   href="/contact"
                   onClick={() => setMobileMenuOpen(false)}
                   className={`block px-3 py-2 font-semibold rounded-xl text-xs sm:text-sm transition-colors ${
-                    pathname === '/contact' ? 'bg-[#1E1E1E] text-[#EAB308]' : 'text-[#FFFFFF] hover:bg-[#1E1E1E]'
+                    pathname === '/contact' ? 'bg-[#1E1E1E] text-[#FEE815]' : 'text-[#FFFFFF] hover:bg-[#1E1E1E]'
                   }`}
                 >
                   Contact
@@ -647,7 +647,7 @@ export default function Header() {
 
               {/* God Wall Art Accordion Group */}
               <div className="py-2.5">
-                <p className="text-[10px] font-bold uppercase text-[#EAB308] px-3 py-1 tracking-wider">
+                <p className="text-[10px] font-bold uppercase text-[#FEE815] px-3 py-1 tracking-wider">
                   Categories
                 </p>
                 {INITIAL_CATEGORIES.map((c) => (
@@ -666,7 +666,7 @@ export default function Header() {
 
               {/* Customer Care */}
               <div className="py-2.5 space-y-0.5">
-                <p className="text-[10px] font-bold uppercase text-[#EAB308] px-3 py-1 tracking-wider">
+                <p className="text-[10px] font-bold uppercase text-[#FEE815] px-3 py-1 tracking-wider">
                   Support &amp; Saved
                 </p>
                 <Link
@@ -691,7 +691,7 @@ export default function Header() {
               <Link
                 href="/admin"
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-[#FFFFFF] hover:text-[#EAB308] font-medium"
+                className="text-[#FFFFFF] hover:text-[#FEE815] font-medium"
               >
                 Staff Portal
               </Link>

@@ -236,8 +236,8 @@ function ShopContent() {
                     <div
                       className={`relative w-[80px] h-[80px] sm:w-[94px] sm:h-[94px] lg:w-[108px] lg:h-[108px] aspect-square rounded-2xl p-[3px] category-gold-shimmer shadow-md transition-all duration-400 ease-out flex items-center justify-center animate-category-ring ${
                         isSelected
-                          ? 'ring-2 ring-amber-500 shadow-[0_12px_28px_rgba(234,179,8,0.55)] scale-105'
-                          : 'group-hover:shadow-[0_12px_28px_rgba(217,119,6,0.42)] group-hover:-translate-y-1.5 group-hover:scale-105'
+                          ? 'ring-2 ring-amber-500 shadow-[0_12px_28px_rgba(254,232,21,0.55)] scale-105'
+                          : 'group-hover:shadow-[0_12px_28px_rgba(254,232,21,0.42)] group-hover:-translate-y-1.5 group-hover:scale-105'
                       }`}
                     >
                       {/* Inner Clipping Square */}

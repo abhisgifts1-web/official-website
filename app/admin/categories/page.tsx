@@ -171,7 +171,7 @@ export default function AdminCategoriesPage() {
             <button
               type="button"
               onClick={() => setModalOpen(true)}
-              className="bg-[#EAB308] hover:bg-[#FACC15] text-black font-extrabold text-xs px-4 py-2.5 rounded-xl shadow-sm flex items-center justify-center gap-1.5 transition-all cursor-pointer"
+              className="bg-[#FEE815] hover:bg-[#FFF04B] text-black font-extrabold text-xs px-4 py-2.5 rounded-xl shadow-sm flex items-center justify-center gap-1.5 transition-all cursor-pointer"
             >
               <Plus className="w-4 h-4" />
               <span>Add Collection</span>
@@ -425,7 +425,7 @@ export default function AdminCategoriesPage() {
                   </button>
                   <button
                     type="submit"
-                    className="px-5 py-2 bg-[#EAB308] hover:bg-[#FACC15] text-black font-extrabold rounded-xl transition-colors cursor-pointer shadow-xs"
+                    className="px-5 py-2 bg-[#FEE815] hover:bg-[#FFF04B] text-black font-extrabold rounded-xl transition-colors cursor-pointer shadow-xs"
                   >
                     Save Category
                   </button>

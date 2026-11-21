@@ -47,7 +47,7 @@ export default function NewsletterSection() {
             />
             <button
               type="submit"
-              className="bg-[#EAB308] hover:bg-[#FACC15] text-[#000000] font-bold text-xs sm:text-sm px-7 py-3 rounded-xl transition-all shrink-0 flex items-center justify-center gap-1.5 shadow-sm uppercase tracking-wider cursor-pointer"
+              className="bg-[#FEE815] hover:bg-[#FFF04B] text-[#000000] font-bold text-xs sm:text-sm px-7 py-3 rounded-xl transition-all shrink-0 flex items-center justify-center gap-1.5 shadow-sm uppercase tracking-wider cursor-pointer"
             >
               <span>Subscribe</span>
               <Send className="w-3.5 h-3.5" />

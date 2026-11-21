@@ -210,7 +210,7 @@ const FRAME_SIZES = [
 
 const FRAME_FINISHES = [
   { id: 'matte-black', name: 'Sleek Matte Black', borderClass: 'border-[#1A1A1A]', shadowClass: 'shadow-2xl' },
-  { id: 'champagne-gold', name: 'Champagne gold Gold', borderClass: 'border-[#EAB308]', shadowClass: 'shadow-[0_0_25px_rgba(198,154,66,0.3)]' },
+  { id: 'champagne-gold', name: 'Champagne gold Gold', borderClass: 'border-[#FEE815]', shadowClass: 'shadow-[0_0_25px_rgba(198,154,66,0.3)]' },
   { id: 'frameless-crystal', name: 'Frameless Diamond Bevel', borderClass: 'border-white/40', shadowClass: 'shadow-[0_15px_40px_rgba(0,0,0,0.4)]' },
 ];
 
@@ -251,18 +251,18 @@ export default function RoomVisualizerSection() {
       <div className="bg-gradient-to-br from-[#181818] via-[#141414] to-[#181818] rounded-3xl sm:rounded-[36px] p-6 sm:p-8 lg:p-12 border border-[#2D2D2D] shadow-[0_16px_50px_rgba(0,0,0,0.4)] relative overflow-hidden">
         {/* Subtle Ambient Decorative Gradients */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-amber-200/20 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#EAB308]/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#FEE815]/10 rounded-full blur-3xl pointer-events-none" />
 
         {/* SECTION HEADER: Editorial Title & Concept Badge */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-8 sm:mb-10 pb-6 border-b border-[#2D2D2D]/80 relative z-10">
           <div className="space-y-2.5 max-w-3xl">
-            <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#FFFFFF] bg-white border border-[#EAB308]/60 px-4 py-1.5 rounded-full shadow-2xs">
-              <Compass className="w-3.5 h-3.5 text-[#EAB308] animate-spin-slow" />
+            <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#FFFFFF] bg-white border border-[#FEE815]/60 px-4 py-1.5 rounded-full shadow-2xs">
+              <Compass className="w-3.5 h-3.5 text-[#FEE815] animate-spin-slow" />
               <span>INTERACTIVE SACRED SPACE VISUALIZER • VASTU GALLERY</span>
             </div>
 
             <h2 className="font-serif font-bold text-2xl sm:text-3xl lg:text-4xl xl:text-5xl text-[#FFFFFF] tracking-tight leading-tight">
-              SEE IT ON YOUR WALL. <span className="font-normal italic text-[#EAB308]">FEEL THE DIVINE AURA.</span>
+              SEE IT ON YOUR WALL. <span className="font-normal italic text-[#FEE815]">FEEL THE DIVINE AURA.</span>
             </h2>
 
             <p className="text-xs sm:text-sm text-[#D1D5DB] leading-relaxed font-sans">
@@ -281,9 +281,9 @@ export default function RoomVisualizerSection() {
             />
             <button
               onClick={() => fileInputRef.current?.click()}
-              className="inline-flex items-center gap-2 bg-white hover:bg-[#121212] border border-[#EAB308] text-[#FFFFFF] px-5 py-2.5 rounded-full text-xs font-bold shadow-xs hover:shadow-sm transition-all cursor-pointer"
+              className="inline-flex items-center gap-2 bg-white hover:bg-[#121212] border border-[#FEE815] text-[#FFFFFF] px-5 py-2.5 rounded-full text-xs font-bold shadow-xs hover:shadow-sm transition-all cursor-pointer"
             >
-              <Upload className="w-3.5 h-3.5 text-[#EAB308]" />
+              <Upload className="w-3.5 h-3.5 text-[#FEE815]" />
               <span>Test Your Own Photo</span>
             </button>
           </div>
@@ -305,7 +305,7 @@ export default function RoomVisualizerSection() {
                   onClick={() => setSelectedRoom(env)}
                   className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
                     selectedRoom.id === env.id
-                      ? 'bg-[#EAB308] text-[#000000] shadow-xs'
+                      ? 'bg-[#FEE815] text-[#000000] shadow-xs'
                       : 'text-[#D1D5DB] hover:text-[#FFFFFF] hover:bg-[#121212]'
                   }`}
                 >
@@ -316,7 +316,7 @@ export default function RoomVisualizerSection() {
 
             {/* Interactive Wall Stage Viewport */}
             <div
-              className={`relative w-full aspect-[4/3.4] sm:aspect-[4/3] rounded-3xl overflow-hidden border-2 border-[#EAB308]/60 shadow-2xl transition-all duration-700 bg-gradient-to-b ${
+              className={`relative w-full aspect-[4/3.4] sm:aspect-[4/3] rounded-3xl overflow-hidden border-2 border-[#FEE815]/60 shadow-2xl transition-all duration-700 bg-gradient-to-b ${
                 isLedOn ? selectedRoom.wallColorNight : selectedRoom.wallColorDay
               }`}
             >
@@ -341,19 +341,19 @@ export default function RoomVisualizerSection() {
 
               {/* Top Bar Indicator Pills */}
               <div className="absolute top-4 left-4 right-4 z-20 flex items-center justify-between pointer-events-none">
-                <span className="bg-black/75 backdrop-blur-md text-[#FFFFFF] text-[11px] font-bold px-3 py-1 rounded-full border border-[#EAB308]/50 flex items-center gap-1.5 shadow-sm">
-                  <MapPin className="w-3 h-3 text-[#EAB308]" />
+                <span className="bg-black/75 backdrop-blur-md text-[#FFFFFF] text-[11px] font-bold px-3 py-1 rounded-full border border-[#FEE815]/50 flex items-center gap-1.5 shadow-sm">
+                  <MapPin className="w-3 h-3 text-[#FEE815]" />
                   <span>{selectedRoom.name}</span>
                 </span>
 
                 {/* Day / Night Switch */}
                 <button
                   onClick={() => setIsLedOn(!isLedOn)}
-                  className="pointer-events-auto bg-[#EAB308] hover:bg-[#FACC15] text-[#000000] border border-[#EAB308] px-3.5 py-1.5 rounded-full text-xs font-bold flex items-center gap-2 shadow-md transition-all cursor-pointer active:scale-95"
+                  className="pointer-events-auto bg-[#FEE815] hover:bg-[#FFF04B] text-[#000000] border border-[#FEE815] px-3.5 py-1.5 rounded-full text-xs font-bold flex items-center gap-2 shadow-md transition-all cursor-pointer active:scale-95"
                 >
                   {isLedOn ? (
                     <>
-                      <Moon className="w-3.5 h-3.5 text-[#FACC15] animate-pulse" />
+                      <Moon className="w-3.5 h-3.5 text-[#FFF04B] animate-pulse" />
                       <span>LED: ON</span>
                     </>
                   ) : (
@@ -413,7 +413,7 @@ export default function RoomVisualizerSection() {
                   </div>
 
                   {/* Dimensions Scale Badge Below Frame */}
-                  <div className="absolute -bottom-7 left-1/2 -translate-x-1/2 whitespace-nowrap bg-black/80 backdrop-blur-xs text-[#FACC15] text-[10.5px] font-bold px-2.5 py-0.5 rounded-full border border-[#EAB308]/40 shadow-sm pointer-events-none">
+                  <div className="absolute -bottom-7 left-1/2 -translate-x-1/2 whitespace-nowrap bg-black/80 backdrop-blur-xs text-[#FFF04B] text-[10.5px] font-bold px-2.5 py-0.5 rounded-full border border-[#FEE815]/40 shadow-sm pointer-events-none">
                     {selectedSize.label} • {selectedFinish.name}
                   </div>
                 </div>
@@ -425,17 +425,17 @@ export default function RoomVisualizerSection() {
                   <span>Furniture Reference:</span>
                   <span className="font-semibold text-white/90">{selectedRoom.furnitureType}</span>
                 </span>
-                <span className="text-[10px] text-[#EAB308] font-semibold">
+                <span className="text-[10px] text-[#FEE815] font-semibold">
                   Eye-Level 5ft Hanging Guide
                 </span>
               </div>
             </div>
 
             {/* Vastu Shastra Placement Recommendation Card */}
-            <div className="bg-gradient-to-br from-[#181818] to-[#141414] rounded-2xl p-4 sm:p-5 border border-[#EAB308]/50 shadow-xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div className="bg-gradient-to-br from-[#181818] to-[#141414] rounded-2xl p-4 sm:p-5 border border-[#FEE815]/50 shadow-xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
               <div className="space-y-1">
                 <div className="flex items-center gap-2 text-xs font-bold text-[#FFFFFF] uppercase tracking-wider">
-                  <Compass className="w-4 h-4 text-[#EAB308]" />
+                  <Compass className="w-4 h-4 text-[#FEE815]" />
                   <span>VASTU SHASTRA ENERGY GUIDE • {selectedArtwork.vastuZone}</span>
                 </div>
                 <p className="text-xs text-[#D1D5DB] leading-relaxed">
@@ -457,7 +457,7 @@ export default function RoomVisualizerSection() {
             <div className="space-y-2.5">
               <div className="flex items-center justify-between">
                 <label className="font-serif font-bold text-sm text-[#FFFFFF] uppercase tracking-wider flex items-center gap-1.5">
-                  <Sparkles className="w-4 h-4 text-[#EAB308]" />
+                  <Sparkles className="w-4 h-4 text-[#FEE815]" />
                   <span>1. Choose Sacred Art or Photo</span>
                 </label>
                 <span className="text-[11px] text-[#D1D5DB]">{ARTWORKS.length} Styles Available</span>
@@ -470,8 +470,8 @@ export default function RoomVisualizerSection() {
                     onClick={() => setSelectedArtwork(art)}
                     className={`flex items-center gap-2 p-2 rounded-xl border text-left transition-all cursor-pointer ${
                       selectedArtwork.id === art.id
-                        ? 'bg-[#181818] border-[#EAB308] ring-2 ring-[#EAB308]/40 shadow-xs'
-                        : 'bg-white/80 border-[#2D2D2D] hover:bg-white hover:border-[#EAB308]'
+                        ? 'bg-[#181818] border-[#FEE815] ring-2 ring-[#FEE815]/40 shadow-xs'
+                        : 'bg-white/80 border-[#2D2D2D] hover:bg-white hover:border-[#FEE815]'
                     }`}
                   >
                     <img
@@ -481,7 +481,7 @@ export default function RoomVisualizerSection() {
                     />
                     <div className="overflow-hidden">
                       <p className="text-xs font-bold text-[#FFFFFF] truncate">{art.shortName}</p>
-                      <p className="text-[10px] text-[#EAB308] font-semibold">{art.price}</p>
+                      <p className="text-[10px] text-[#FEE815] font-semibold">{art.price}</p>
                     </div>
                   </button>
                 ))}
@@ -491,7 +491,7 @@ export default function RoomVisualizerSection() {
             {/* 2. CHOOSE FRAME SIZE */}
             <div className="space-y-2.5">
               <label className="font-serif font-bold text-sm text-[#FFFFFF] uppercase tracking-wider flex items-center gap-1.5">
-                <Maximize2 className="w-4 h-4 text-[#EAB308]" />
+                <Maximize2 className="w-4 h-4 text-[#FEE815]" />
                 <span>2. Select Frame Dimensions</span>
               </label>
 
@@ -502,15 +502,15 @@ export default function RoomVisualizerSection() {
                     onClick={() => setSelectedSize(sz)}
                     className={`p-3 rounded-xl border text-left transition-all cursor-pointer ${
                       selectedSize.id === sz.id
-                        ? 'bg-[#EAB308] text-[#000000] border-[#EAB308] shadow-sm'
-                        : 'bg-white text-[#FFFFFF] border-[#2D2D2D] hover:border-[#EAB308]'
+                        ? 'bg-[#FEE815] text-[#000000] border-[#FEE815] shadow-sm'
+                        : 'bg-white text-[#FFFFFF] border-[#2D2D2D] hover:border-[#FEE815]'
                     }`}
                   >
                     <div className="flex items-center justify-between">
                       <span className="font-bold text-xs">{sz.label}</span>
                       <span
                         className={`text-[10px] font-bold ${
-                          selectedSize.id === sz.id ? 'text-[#FACC15]' : 'text-[#EAB308]'
+                          selectedSize.id === sz.id ? 'text-[#FFF04B]' : 'text-[#FEE815]'
                         }`}
                       >
                         {sz.priceOffset}
@@ -531,7 +531,7 @@ export default function RoomVisualizerSection() {
             {/* 3. CHOOSE FRAME FINISH */}
             <div className="space-y-2.5">
               <label className="font-serif font-bold text-sm text-[#FFFFFF] uppercase tracking-wider flex items-center gap-1.5">
-                <Layers className="w-4 h-4 text-[#EAB308]" />
+                <Layers className="w-4 h-4 text-[#FEE815]" />
                 <span>3. Frame Border &amp; Finish</span>
               </label>
 
@@ -542,8 +542,8 @@ export default function RoomVisualizerSection() {
                     onClick={() => setSelectedFinish(fin)}
                     className={`p-2.5 rounded-xl border text-center transition-all cursor-pointer ${
                       selectedFinish.id === fin.id
-                        ? 'bg-[#EAB308] text-[#000000] border-[#EAB308] shadow-sm'
-                        : 'bg-white text-[#FFFFFF] border-[#2D2D2D] hover:border-[#EAB308]'
+                        ? 'bg-[#FEE815] text-[#000000] border-[#FEE815] shadow-sm'
+                        : 'bg-white text-[#FFFFFF] border-[#2D2D2D] hover:border-[#FEE815]'
                     }`}
                   >
                     <span className="text-[11px] font-bold block">{fin.name}</span>
@@ -572,20 +572,20 @@ export default function RoomVisualizerSection() {
               <div className="space-y-2.5">
                 <Link
                   href={selectedArtwork.productUrl}
-                  className="w-full bg-[#EAB308] hover:bg-[#FACC15] text-[#000000] py-3 px-5 rounded-full font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-md hover:shadow-lg transition-all"
+                  className="w-full bg-[#FEE815] hover:bg-[#FFF04B] text-[#000000] py-3 px-5 rounded-full font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-md hover:shadow-lg transition-all"
                 >
-                  <Sparkles className="w-4 h-4 text-[#EAB308]" />
+                  <Sparkles className="w-4 h-4 text-[#FEE815]" />
                   <span>Customize &amp; Order This Setup</span>
-                  <ArrowRight className="w-4 h-4 text-[#EAB308]" />
+                  <ArrowRight className="w-4 h-4 text-[#FEE815]" />
                 </Link>
 
                 <a
                   href={whatsappInquiryUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full bg-[#25D366] hover:bg-[#1EBE5D] text-white py-2.5 px-4 rounded-full font-bold text-xs flex items-center justify-center gap-2 shadow-xs transition-all cursor-pointer"
+                  className="w-full bg-[#FEE815] hover:bg-[#FFF04B] text-black py-2.5 px-4 rounded-full font-bold text-xs flex items-center justify-center gap-2 shadow-xs transition-all cursor-pointer"
                 >
-                  <MessageCircle className="w-4 h-4 fill-white" />
+                  <MessageCircle className="w-4 h-4 fill-black text-black" />
                   <span>Ask Artisan for 1:1 WhatsApp Proof</span>
                 </a>
               </div>
@@ -593,11 +593,11 @@ export default function RoomVisualizerSection() {
               {/* Micro Trust Pills */}
               <div className="pt-2 flex items-center justify-between text-[11px] text-[#785E59]">
                 <span className="flex items-center gap-1">
-                  <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
+                  <ShieldCheck className="w-3.5 h-3.5 text-stone-900" />
                   <span>secure packaging</span>
                 </span>
                 <span className="flex items-center gap-1">
-                  <Award className="w-3.5 h-3.5 text-[#EAB308]" />
+                  <Award className="w-3.5 h-3.5 text-[#FEE815]" />
                   <span>Premium Acrylic</span>
                 </span>
                 <span className="flex items-center gap-1">

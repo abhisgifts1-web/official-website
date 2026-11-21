@@ -219,10 +219,10 @@ export default function BrandStorySection() {
               </div>
 
               {/* 4 Corner Gold Standoff Studs with Specular Twinkle */}
-              <div className="absolute top-3 left-3 w-3 h-3 rounded-full bg-gradient-to-br from-[#FFE8A3] via-[#FACC15] to-[#7A551E] shadow-md border border-amber-900/40 pointer-events-none animate-stud-twinkle-1" />
-              <div className="absolute top-3 right-3 w-3 h-3 rounded-full bg-gradient-to-br from-[#FFE8A3] via-[#FACC15] to-[#7A551E] shadow-md border border-amber-900/40 pointer-events-none animate-stud-twinkle-2" />
-              <div className="absolute bottom-3 left-3 w-3 h-3 rounded-full bg-gradient-to-br from-[#FFE8A3] via-[#FACC15] to-[#7A551E] shadow-md border border-amber-900/40 pointer-events-none animate-stud-twinkle-3" />
-              <div className="absolute bottom-3 right-3 w-3 h-3 rounded-full bg-gradient-to-br from-[#FFE8A3] via-[#FACC15] to-[#7A551E] shadow-md border border-amber-900/40 pointer-events-none animate-stud-twinkle-4" />
+              <div className="absolute top-3 left-3 w-3 h-3 rounded-full bg-gradient-to-br from-[#FFE8A3] via-[#FFF04B] to-[#7A551E] shadow-md border border-amber-900/40 pointer-events-none animate-stud-twinkle-1" />
+              <div className="absolute top-3 right-3 w-3 h-3 rounded-full bg-gradient-to-br from-[#FFE8A3] via-[#FFF04B] to-[#7A551E] shadow-md border border-amber-900/40 pointer-events-none animate-stud-twinkle-2" />
+              <div className="absolute bottom-3 left-3 w-3 h-3 rounded-full bg-gradient-to-br from-[#FFE8A3] via-[#FFF04B] to-[#7A551E] shadow-md border border-amber-900/40 pointer-events-none animate-stud-twinkle-3" />
+              <div className="absolute bottom-3 right-3 w-3 h-3 rounded-full bg-gradient-to-br from-[#FFE8A3] via-[#FFF04B] to-[#7A551E] shadow-md border border-amber-900/40 pointer-events-none animate-stud-twinkle-4" />
 
               {/* Floating Craftsmanship Callouts (Synchronized with selected pillar) */}
               <div className="absolute top-3.5 left-3.5 z-20 flex flex-col gap-1.5 pointer-events-none">
@@ -302,7 +302,7 @@ export default function BrandStorySection() {
                       <div
                         className={`w-10 h-10 sm:w-11 sm:h-11 rounded-xl flex items-center justify-center transition-all ${
                           isSelected
-                            ? 'bg-[#EAB308] text-stone-950 border-2 border-amber-500 shadow-xs'
+                            ? 'bg-[#FEE815] text-stone-950 border-2 border-amber-500 shadow-xs'
                             : 'bg-stone-100 text-amber-700 border border-stone-200 group-hover:border-amber-400'
                         }`}
                       >
@@ -362,7 +362,7 @@ export default function BrandStorySection() {
             <div className="pt-3 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3">
               <Link
                 href="/about"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-[#EAB308] hover:bg-[#FACC15] text-stone-950 font-bold text-xs sm:text-[13.5px] px-7 py-3.5 rounded-full border border-amber-500 shadow-md uppercase tracking-wider transition-all hover:scale-[1.02] active:scale-[0.98] group cursor-pointer"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-[#FEE815] hover:bg-[#FFF04B] text-stone-950 font-bold text-xs sm:text-[13.5px] px-7 py-3.5 rounded-full border border-[#FEE815] shadow-md uppercase tracking-wider transition-all hover:scale-[1.02] active:scale-[0.98] group cursor-pointer"
               >
                 <span>Read Our Full Story</span>
                 <ArrowRight className="w-4 h-4 text-stone-950 group-hover:translate-x-1 transition-transform" />
@@ -374,7 +374,7 @@ export default function BrandStorySection() {
                 rel="noopener noreferrer"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white hover:bg-stone-50 text-stone-900 font-bold text-xs sm:text-[13.5px] px-6 py-3.5 rounded-full border border-stone-300 shadow-xs uppercase tracking-wider transition-all hover:scale-[1.02] cursor-pointer"
               >
-                <MessageCircle className="w-4 h-4 text-emerald-600" />
+                <MessageCircle className="w-4 h-4 text-stone-900" />
                 <span>Talk with Artisan Guild</span>
               </a>
             </div>

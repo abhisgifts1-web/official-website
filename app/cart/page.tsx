@@ -240,7 +240,7 @@ export default function CartPage() {
             <button
               type="button"
               onClick={() => router.push('/checkout')}
-              className="w-full bg-[#EAB308] hover:bg-[#FACC15] text-stone-950 border border-amber-500 py-3.5 rounded-xl font-bold text-sm shadow-md flex items-center justify-center gap-2 transition-all hover:scale-[1.01] cursor-pointer uppercase tracking-wider"
+              className="w-full bg-[#FEE815] hover:bg-[#FFF04B] text-stone-950 border border-amber-500 py-3.5 rounded-xl font-bold text-sm shadow-md flex items-center justify-center gap-2 transition-all hover:scale-[1.01] cursor-pointer uppercase tracking-wider"
             >
               <span>Proceed to Checkout</span>
               <ArrowRight className="w-4 h-4 text-stone-950" />

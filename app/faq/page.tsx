@@ -143,7 +143,7 @@ export default function FaqPage() {
             )}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-[#EAB308] hover:bg-[#FACC15] text-stone-950 text-xs font-bold px-6 py-3 rounded-full transition-colors border border-amber-500 uppercase tracking-wider shadow-xs cursor-pointer"
+            className="inline-flex items-center gap-2 bg-[#FEE815] hover:bg-[#FFF04B] text-stone-950 text-xs font-bold px-6 py-3 rounded-full transition-colors border border-amber-500 uppercase tracking-wider shadow-xs cursor-pointer"
           >
             <MessageCircle className="w-4 h-4 fill-current" />
             <span>Chat with Customer Desk on WhatsApp</span>

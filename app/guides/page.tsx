@@ -166,7 +166,7 @@ export default function GuidesIndexPage() {
             href="https://wa.me/917780269927?text=Hi%20Abhi%27s%20Gifts,%20I%20have%20a%20question%20about%20photo%20framing%20sizes"
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-[#25D366] text-white font-bold text-xs sm:text-sm px-6 py-3 rounded-full hover:bg-[#1EBE5D] transition-colors"
+            className="bg-[#FEE815] text-black font-bold text-xs sm:text-sm px-6 py-3 rounded-full hover:bg-[#FFF04B] transition-colors shadow-sm"
           >
             Chat with Artisan on WhatsApp
           </a>

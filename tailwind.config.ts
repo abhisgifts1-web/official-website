@@ -12,7 +12,7 @@ const config: Config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
 
-        // THEME TOKENS — MATTE BLACK + GOLDEN YELLOW + WHITE SYSTEM
+        // THEME TOKENS — MATTE BLACK + SIGNATURE BRAND YELLOW (#FEE815) + WHITE SYSTEM
         primary: {
           DEFAULT: "#121212", // Primary Matte Black
           dark: "#0A0A0A",    // Deep Matte Charcoal
@@ -25,15 +25,15 @@ const config: Config = {
           dark: "#E5E7EB",    // Light Off-White
         },
         accent: {
-          DEFAULT: "#EAB308", // Primary Accent: Golden Yellow
-          glow: "#FDE047",    // Radiant Golden Yellow Glow
+          DEFAULT: "#FEE815", // Exact Logo Brand Yellow
+          glow: "#FFF04B",    // Radiant Brand Yellow Glow
         },
         darkbg: "#121212",    // Matte Black Background
         warmivory: "#181818", // Matte Surface Card
-        goldborder: "rgba(234, 179, 8, 0.35)", // Subtle Golden Yellow Border
+        goldborder: "rgba(254, 232, 21, 0.45)", // Signature Brand Yellow Border
         primarytext: "#FFFFFF", // Secondary White Text on Matte Black
         secondarytext: "#E5E7EB", // Muted White / Off-white Text
-        ledglow: "#FDE047",   // Golden Yellow LED Radiance
+        ledglow: "#FEE815",   // Brand Yellow LED Radiance
 
         // MATTE BLACK / CHARCOAL SWATCH PALETTE
         burgundy: {
@@ -50,19 +50,45 @@ const config: Config = {
           950: "#0A0A0A", // Deep Charcoal
         },
 
-        // GOLDEN YELLOW SWATCH PALETTE
+        // UNIFIED SIGNATURE BRAND YELLOW PALETTE (#FEE815)
+        amber: {
+          50: "#fefdeb",
+          100: "#fef9cd",
+          200: "#fdf49b",
+          300: "#fdee5d",
+          400: "#FFF04B",
+          500: "#FEE815", // Exact Logo Brand Yellow
+          600: "#E0CC04",
+          700: "#B3A203",
+          800: "#857802",
+          900: "#574E01",
+          950: "#2E2900",
+        },
+        yellow: {
+          50: "#fefdeb",
+          100: "#fef9cd",
+          200: "#fdf49b",
+          300: "#fdee5d",
+          400: "#FFF04B",
+          500: "#FEE815",
+          600: "#E0CC04",
+          700: "#B3A203",
+          800: "#857802",
+          900: "#574E01",
+          950: "#2E2900",
+        },
         champagne: {
-          50: "#FEFCE8",
-          100: "#FEF9C3",
-          200: "#FEF08A",
-          300: "#FDE047", // Light Golden Yellow
-          400: "#FACC15", // Luminous Gold
-          500: "#EAB308", // Golden Yellow Primary Accent
-          600: "#CA8A04",
-          700: "#A16207",
-          800: "#854D0E",
-          900: "#713F12",
-          950: "#422006",
+          50: "#fefdeb",
+          100: "#fef9cd",
+          200: "#fdf49b",
+          300: "#fdee5d",
+          400: "#FFF04B",
+          500: "#FEE815",
+          600: "#E0CC04",
+          700: "#B3A203",
+          800: "#857802",
+          900: "#574E01",
+          950: "#2E2900",
         },
 
         // MATTE SURFACES & WHITE PALETTE
@@ -79,17 +105,17 @@ const config: Config = {
           900: "#121212",
         },
         gold: {
-          50: "#FEFCE8",
-          100: "#FEF9C3",
-          200: "#FEF08A",
-          300: "#FDE047",
-          400: "#FACC15",
-          500: "#EAB308",
-          600: "#CA8A04",
-          700: "#A16207",
-          800: "#854D0E",
-          900: "#713F12",
-          950: "#422006",
+          50: "#fefdeb",
+          100: "#fef9cd",
+          200: "#fdf49b",
+          300: "#fdee5d",
+          400: "#FFF04B",
+          500: "#FEE815",
+          600: "#E0CC04",
+          700: "#B3A203",
+          800: "#857802",
+          900: "#574E01",
+          950: "#2E2900",
         },
         ivory: {
           50: "#FFFFFF",
@@ -104,16 +130,17 @@ const config: Config = {
           900: "#121212",
         },
         brand: {
-          50: "#181818",
-          100: "#222222",
-          200: "#2A2A2A",
-          300: "#FDE047",
-          400: "#FACC15",
-          500: "#EAB308", // Golden Yellow Accent
-          600: "#CA8A04",
-          700: "#1E1E1E",
-          800: "#161616",
-          900: "#121212",
+          50: "#fefdeb",
+          100: "#fef9cd",
+          200: "#fdf49b",
+          300: "#fdee5d",
+          400: "#FFF04B",
+          500: "#FEE815", // Exact Logo Brand Yellow Accent
+          600: "#E0CC04",
+          700: "#B3A203",
+          800: "#857802",
+          900: "#574E01",
+          950: "#2E2900",
         },
         warmstone: "#2A2A2A",
       },
@@ -127,11 +154,11 @@ const config: Config = {
       boxShadow: {
         warm: "0 4px 20px -2px rgba(0, 0, 0, 0.65)",
         "warm-lg": "0 10px 30px -4px rgba(0, 0, 0, 0.85)",
-        glow: "0 0 25px rgba(234, 179, 8, 0.45)",
-        "led-glow": "0 0 35px rgba(253, 224, 71, 0.65)",
+        glow: "0 0 25px rgba(254, 232, 21, 0.50)",
+        "led-glow": "0 0 35px rgba(254, 232, 21, 0.70)",
         burgundy: "0 8px 30px -4px rgba(0, 0, 0, 0.70)",
-        emerald: "0 8px 30px -4px rgba(16, 185, 129, 0.40)",
-        gold: "0 8px 30px -4px rgba(234, 179, 8, 0.40)",
+        emerald: "0 8px 30px -4px rgba(254, 232, 21, 0.40)",
+        gold: "0 8px 30px -4px rgba(254, 232, 21, 0.45)",
       },
     },
   },

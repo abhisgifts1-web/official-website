@@ -129,8 +129,8 @@ export default function AdminOrdersPage() {
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-[#141414] border border-[#2D2D2D] p-5 sm:p-6 rounded-3xl">
           <div>
             <div className="flex items-center gap-2 mb-1">
-              <span className="px-2.5 py-0.5 rounded-full bg-[#EAB308]/15 border border-[#EAB308]/40 text-[#FACC15] font-bold text-[10px] tracking-wider uppercase flex items-center gap-1">
-                <Sparkles className="w-3 h-3 text-[#EAB308]" />
+              <span className="px-2.5 py-0.5 rounded-full bg-[#FEE815]/15 border border-[#FEE815]/40 text-[#FFF04B] font-bold text-[10px] tracking-wider uppercase flex items-center gap-1">
+                <Sparkles className="w-3 h-3 text-[#FEE815]" />
                 Fulfillment Operations
               </span>
             </div>
@@ -147,7 +147,7 @@ export default function AdminOrdersPage() {
             onClick={handleExportCSV}
             className="bg-[#1E1E1E] hover:bg-[#262626] text-white border border-[#333333] font-semibold text-xs px-4 py-2.5 rounded-xl shadow-sm flex items-center gap-1.5 transition-colors self-start sm:self-auto cursor-pointer"
           >
-            <Download className="w-3.5 h-3.5 text-[#EAB308]" />
+            <Download className="w-3.5 h-3.5 text-[#FEE815]" />
             <span>Export Orders to CSV</span>
           </button>
         </div>
@@ -160,7 +160,7 @@ export default function AdminOrdersPage() {
               placeholder="Search by Order ID, Name, Mobile..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="w-full pl-9 pr-3 py-2 text-xs bg-[#1A1A1A] border border-[#2D2D2D] rounded-xl outline-none focus:border-[#EAB308] text-white"
+              className="w-full pl-9 pr-3 py-2 text-xs bg-[#1A1A1A] border border-[#2D2D2D] rounded-xl outline-none focus:border-[#FEE815] text-white"
             />
             <Search className="w-3.5 h-3.5 text-[#A1A1AA] absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" />
           </div>
@@ -173,7 +173,7 @@ export default function AdminOrdersPage() {
                 onClick={() => setStatusFilter(st)}
                 className={`px-3 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-all cursor-pointer ${
                   statusFilter === st
-                    ? 'bg-[#EAB308] text-black font-extrabold shadow-sm'
+                    ? 'bg-[#FEE815] text-black font-extrabold shadow-sm'
                     : 'bg-[#1A1A1A] border border-[#2D2D2D] text-[#D1D5DB] hover:bg-[#242424]'
                 }`}
               >
@@ -248,7 +248,7 @@ export default function AdminOrdersPage() {
                             className={`px-2 py-0.5 rounded text-[10px] font-bold ${
                               order.paymentStatus === 'Paid'
                                 ? 'bg-emerald-950/80 border border-emerald-500/40 text-emerald-300'
-                                : 'bg-[#EAB308]/15 border border-[#EAB308]/40 text-[#FACC15]'
+                                : 'bg-[#FEE815]/15 border border-[#FEE815]/40 text-[#FFF04B]'
                             }`}
                           >
                             {order.paymentMethod} • {order.paymentStatus}
@@ -274,7 +274,7 @@ export default function AdminOrdersPage() {
                             <button
                               type="button"
                               onClick={() => handleOpenDetail(order)}
-                              className="bg-[#EAB308] hover:bg-[#FACC15] text-black px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer"
+                              className="bg-[#FEE815] hover:bg-[#FFF04B] text-black px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer"
                             >
                               Manage
                             </button>
@@ -312,8 +312,8 @@ export default function AdminOrdersPage() {
 
               {/* Status Update Form */}
               <form onSubmit={handleUpdateStatus} className="bg-[#1A1A1A] p-4 rounded-2xl border border-[#2D2D2D] space-y-3 text-xs">
-                <h4 className="font-bold text-[#FACC15] uppercase tracking-wider flex items-center gap-1.5">
-                  <ShieldCheck className="w-4 h-4 text-[#EAB308]" />
+                <h4 className="font-bold text-[#FFF04B] uppercase tracking-wider flex items-center gap-1.5">
+                  <ShieldCheck className="w-4 h-4 text-[#FEE815]" />
                   Update Fulfillment &amp; Transit Status
                 </h4>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
@@ -361,7 +361,7 @@ export default function AdminOrdersPage() {
                   <button
                     type="submit"
                     disabled={savingStatus}
-                    className="bg-[#EAB308] hover:bg-[#FACC15] text-black font-extrabold text-xs px-5 py-2 rounded-xl transition-all shadow-sm cursor-pointer"
+                    className="bg-[#FEE815] hover:bg-[#FFF04B] text-black font-extrabold text-xs px-5 py-2 rounded-xl transition-all shadow-sm cursor-pointer"
                   >
                     {savingStatus ? 'Saving...' : 'Update Order Status'}
                   </button>
@@ -401,11 +401,11 @@ export default function AdminOrdersPage() {
                   <p className="text-[#D1D5DB]">Payment Method: <strong className="text-white">{selectedOrder.paymentMethod}</strong></p>
                   <p className="text-[#D1D5DB]">Payment Status: <strong className="text-emerald-400">{selectedOrder.paymentStatus}</strong></p>
                   <p className="text-[#D1D5DB]">Store Delivery: <strong className="text-white">₹0 (Zero Charges Active)</strong></p>
-                  <p className="font-serif font-bold text-base text-[#FACC15] pt-1">
+                  <p className="font-serif font-bold text-base text-[#FFF04B] pt-1">
                     Total: ₹{selectedOrder.totalAmount.toLocaleString('en-IN')}
                   </p>
                   {selectedOrder.notes && (
-                    <p className="text-[11px] text-[#EAB308] italic pt-1">Notes: &ldquo;{selectedOrder.notes}&rdquo;</p>
+                    <p className="text-[11px] text-[#FEE815] italic pt-1">Notes: &ldquo;{selectedOrder.notes}&rdquo;</p>
                   )}
                 </div>
               </div>
@@ -431,7 +431,7 @@ export default function AdminOrdersPage() {
                           <span>Qty: {it.quantity}</span>
                         </div>
                         {it.customization?.customText && (
-                          <p className="text-[#FACC15] italic font-serif">Inscription: &ldquo;{it.customization.customText}&rdquo;</p>
+                          <p className="text-[#FFF04B] italic font-serif">Inscription: &ldquo;{it.customization.customText}&rdquo;</p>
                         )}
                       </div>
                       <span className="font-bold font-serif text-white">

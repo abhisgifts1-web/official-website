@@ -263,7 +263,7 @@ export default function HeroShowcase() {
               {/* Primary CTA */}
               <Link
                 href="/shop"
-                className="group relative inline-flex items-center justify-center gap-2.5 px-7 py-3.5 sm:px-8 sm:py-4 rounded-full bg-gradient-to-r from-[#F5D061] via-[#EAB308] to-[#D97706] hover:from-[#FDE047] hover:to-[#EAB308] text-stone-950 font-bold text-sm sm:text-base shadow-lg shadow-amber-500/25 hover:shadow-xl hover:shadow-amber-500/40 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 cursor-pointer text-center"
+                className="group relative inline-flex items-center justify-center gap-2.5 px-7 py-3.5 sm:px-8 sm:py-4 rounded-full bg-gradient-to-r from-[#F5D061] via-[#FEE815] to-[#D97706] hover:from-[#FFF04B] hover:to-[#FEE815] text-stone-950 font-bold text-sm sm:text-base shadow-lg shadow-amber-500/25 hover:shadow-xl hover:shadow-amber-500/40 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 cursor-pointer text-center"
               >
                 <span>Explore Collections</span>
                 <ArrowRight className="w-4 h-4 text-stone-950 group-hover:translate-x-1.5 transition-transform duration-300 shrink-0" />

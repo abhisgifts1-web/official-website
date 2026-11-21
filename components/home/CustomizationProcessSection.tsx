@@ -101,7 +101,7 @@ export default function CustomizationProcessSection() {
           rel="noopener noreferrer"
           className="inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 sm:py-3.5 rounded-full bg-white hover:bg-stone-50 text-stone-900 font-semibold text-xs sm:text-sm border border-stone-300 transition-colors shadow-2xs"
         >
-          <MessageCircle className="w-4 h-4 text-[#25D366] fill-[#25D366]" />
+          <MessageCircle className="w-4 h-4 text-[#FEE815] fill-[#FEE815]" />
           <span>Chat with Design Team</span>
         </a>
       </div>

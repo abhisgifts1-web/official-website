@@ -135,7 +135,7 @@ export default function CustomSizeInput({
                 }}
                 className={`px-2.5 py-1 rounded-lg text-[11px] font-semibold transition-all shrink-0 cursor-pointer flex flex-col items-center ${
                   isMatch
-                    ? 'bg-[#EAB308] text-stone-950 font-bold shadow-xs'
+                    ? 'bg-[#FEE815] text-stone-950 font-bold shadow-xs'
                     : 'bg-stone-100 hover:bg-stone-200 text-stone-800 border border-stone-200'
                 }`}
               >

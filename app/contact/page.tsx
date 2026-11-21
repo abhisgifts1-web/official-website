@@ -134,7 +134,7 @@ export default function ContactPage() {
               )}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full bg-[#EAB308] hover:bg-[#FACC15] text-stone-950 font-bold py-3 px-4 rounded-xl flex items-center justify-center gap-2 text-xs transition-colors border border-amber-500 uppercase tracking-wider cursor-pointer shadow-xs"
+              className="w-full bg-[#FEE815] hover:bg-[#FFF04B] text-stone-950 font-bold py-3 px-4 rounded-xl flex items-center justify-center gap-2 text-xs transition-colors border border-amber-500 uppercase tracking-wider cursor-pointer shadow-xs"
             >
               <MessageCircle className="w-4 h-4 fill-current" />
               <span>Direct WhatsApp Chat</span>
@@ -220,7 +220,7 @@ export default function ContactPage() {
             <button
               type="submit"
               disabled={submitting}
-              className="bg-[#EAB308] hover:bg-[#FACC15] disabled:opacity-50 text-stone-950 font-bold text-xs sm:text-sm px-8 py-3.5 rounded-xl shadow-md flex items-center justify-center gap-2 transition-colors border border-amber-500 uppercase tracking-wider cursor-pointer"
+              className="bg-[#FEE815] hover:bg-[#FFF04B] disabled:opacity-50 text-stone-950 font-bold text-xs sm:text-sm px-8 py-3.5 rounded-xl shadow-md flex items-center justify-center gap-2 transition-colors border border-amber-500 uppercase tracking-wider cursor-pointer"
             >
               <Send className="w-4 h-4" />
               <span>{submitting ? 'Submitting...' : 'Send Message'}</span>
@@ -245,7 +245,7 @@ export default function ContactPage() {
             href="https://maps.app.goo.gl/fmGv35KsGabFna9E6?g_st=ac"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-[#EAB308] hover:bg-[#FACC15] text-stone-950 font-bold text-xs uppercase tracking-wider transition-colors border border-amber-500 shrink-0 shadow-xs"
+            className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-[#FEE815] hover:bg-[#FFF04B] text-stone-950 font-bold text-xs uppercase tracking-wider transition-colors border border-amber-500 shrink-0 shadow-xs"
           >
             <MapPin className="w-4 h-4" />
             <span>Open in Google Maps</span>

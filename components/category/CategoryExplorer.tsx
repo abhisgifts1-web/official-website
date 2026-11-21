@@ -166,11 +166,11 @@ export default function CategoryExplorer({ initialCategories }: CategoryExplorer
             }}
             className={`px-4 py-2 rounded-2xl text-xs sm:text-sm font-bold transition-all cursor-pointer flex items-center gap-2 ${
               lightingFilter === 'all'
-                ? 'bg-[#EAB308] text-stone-950 shadow-sm border border-amber-400'
+                ? 'bg-[#FEE815] text-stone-950 shadow-sm border border-[#FEE815]'
                 : 'bg-white text-stone-700 hover:bg-stone-50 border border-stone-200'
             }`}
           >
-            <Sparkles className="w-4 h-4 text-amber-600" />
+            <Sparkles className="w-4 h-4 text-stone-950" />
             <span>All Master Collections ({initialCategories.length})</span>
           </button>
 
@@ -182,11 +182,11 @@ export default function CategoryExplorer({ initialCategories }: CategoryExplorer
             }}
             className={`px-4 py-2 rounded-2xl text-xs sm:text-sm font-bold transition-all cursor-pointer flex items-center gap-2 ${
               lightingFilter === 'backlight'
-                ? 'bg-gradient-to-r from-[#EAB308] to-amber-500 text-stone-950 shadow-md border border-amber-300 ring-2 ring-amber-400/40 scale-102'
-                : 'bg-white text-amber-800 hover:bg-amber-50 border border-amber-200'
+                ? 'bg-[#FEE815] text-stone-950 shadow-md border border-[#FEE815] ring-2 ring-[#FEE815]/40 scale-102'
+                : 'bg-white text-stone-800 hover:bg-amber-50 border border-stone-200'
             }`}
           >
-            <Flame className="w-4 h-4 text-amber-600 animate-pulse" />
+            <Flame className="w-4 h-4 text-stone-950 animate-pulse" />
             <span>✨ LED Backlit Collections ({backlightCount})</span>
           </button>
 
@@ -198,7 +198,7 @@ export default function CategoryExplorer({ initialCategories }: CategoryExplorer
             }}
             className={`px-4 py-2 rounded-2xl text-xs sm:text-sm font-bold transition-all cursor-pointer flex items-center gap-2 ${
               lightingFilter === 'normal'
-                ? 'bg-[#EAB308] text-stone-950 shadow-md border border-amber-400 ring-2 ring-amber-400/30 scale-102'
+                ? 'bg-[#FEE815] text-stone-950 shadow-md border border-[#FEE815] ring-2 ring-[#FEE815]/30 scale-102'
                 : 'bg-white text-stone-700 hover:bg-stone-50 border border-stone-200'
             }`}
           >

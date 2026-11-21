@@ -152,9 +152,9 @@ export default function Footer() {
                     href={whatsappUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1B5E20]/30 hover:bg-[#1B5E20]/60 border border-[#4CAF50]/60 text-[#A5D6A7] text-xs font-bold transition-all shadow-xs"
+                    className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#181818] hover:bg-[#222222] border border-[#FEE815]/60 text-[#FEE815] text-xs font-bold transition-all shadow-xs"
                   >
-                    <WhatsAppIcon className="w-3.5 h-3.5 text-[#25D366] shrink-0" />
+                    <WhatsAppIcon className="w-3.5 h-3.5 text-[#FEE815] shrink-0 fill-current" />
                     <span>WhatsApp: +91 77802 69927</span>
                   </a>
 
@@ -289,11 +289,11 @@ export default function Footer() {
                     placeholder="Enter your email"
                     value={newsletterEmail}
                     onChange={(e) => setNewsletterEmail(e.target.value)}
-                    className="w-full pl-3 pr-16 py-2 text-xs bg-[#1A1A1A] border border-stone-700 rounded-lg text-white placeholder-stone-500 focus:outline-none focus:border-[#EAB308] transition-colors shadow-2xs"
+                    className="w-full pl-3 pr-16 py-2 text-xs bg-[#1A1A1A] border border-stone-700 rounded-lg text-white placeholder-stone-500 focus:outline-none focus:border-[#FEE815] transition-colors shadow-2xs"
                   />
                   <button
                     type="submit"
-                    className="absolute right-1 px-2.5 py-1 text-xs font-semibold bg-[#EAB308] hover:bg-[#FACC15] text-black rounded-md transition-colors cursor-pointer flex items-center gap-1 shadow-2xs"
+                    className="absolute right-1 px-2.5 py-1 text-xs font-semibold bg-[#FEE815] hover:bg-[#FFF04B] text-black rounded-md transition-colors cursor-pointer flex items-center gap-1 shadow-2xs"
                     aria-label="Subscribe"
                   >
                     <span>Join</span>

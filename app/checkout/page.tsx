@@ -136,7 +136,7 @@ export default function CheckoutPage() {
         <div className="pt-2">
           <Link
             href="/shop"
-            className="inline-flex items-center gap-2 bg-[#EAB308] hover:bg-[#FACC15] text-stone-950 text-xs font-bold px-7 py-3.5 rounded-full shadow-md transition-all uppercase tracking-wider cursor-pointer"
+            className="inline-flex items-center gap-2 bg-[#FEE815] hover:bg-[#FFF04B] text-stone-950 text-xs font-bold px-7 py-3.5 rounded-full shadow-md transition-all uppercase tracking-wider cursor-pointer"
           >
             <span>Explore Photo Frames</span>
             <Sparkles className="w-4 h-4 text-stone-950" />
@@ -676,8 +676,8 @@ export default function CheckoutPage() {
                   </div>
                 </div>
                 {it.size?.toLowerCase().includes('custom size') || it.variantId?.toLowerCase().includes('custom-size') ? (
-                  <span className="font-semibold text-[#25D366] shrink-0 text-xs">
-                    Price in WhatsApp
+                  <span className="font-bold text-stone-950 bg-[#FEE815] px-2 py-0.5 rounded-full shrink-0 text-xs">
+                    Custom Sizing
                   </span>
                 ) : (
                   <span className="font-bold text-stone-900 shrink-0 text-sm">
@@ -752,7 +752,7 @@ export default function CheckoutPage() {
                     type="button"
                     onClick={handleApplyCoupon}
                     disabled={applyingCoupon || !couponInput.trim()}
-                    className="px-5 py-2.5 bg-[#EAB308] hover:bg-[#FACC15] disabled:bg-stone-200 text-stone-950 disabled:text-stone-400 font-extrabold text-xs rounded-xl shadow-xs transition-all uppercase tracking-wider cursor-pointer shrink-0"
+                    className="px-5 py-2.5 bg-[#FEE815] hover:bg-[#FFF04B] disabled:bg-stone-200 text-stone-950 disabled:text-stone-400 font-extrabold text-xs rounded-xl shadow-xs transition-all uppercase tracking-wider cursor-pointer shrink-0"
                   >
                     {applyingCoupon ? 'Checking...' : 'APPLY'}
                   </button>
@@ -813,20 +813,20 @@ export default function CheckoutPage() {
             <button
               type="submit"
               disabled={submitting}
-              className={`w-full py-4 rounded-2xl font-bold text-sm sm:text-base shadow-md transition-all flex items-center justify-center gap-2.5 cursor-pointer uppercase tracking-wider ${
+              className={`w-full py-4 rounded-2xl font-black text-sm sm:text-base shadow-md transition-all flex items-center justify-center gap-2.5 cursor-pointer uppercase tracking-wider ${
                 submitting
                   ? 'bg-stone-300 text-stone-500 cursor-not-allowed'
-                  : 'bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 hover:from-blue-700 hover:to-indigo-800 text-white shadow-lg shadow-blue-600/25 hover:scale-[1.01]'
+                  : 'bg-[#FEE815] hover:bg-[#FFF04B] text-stone-950 shadow-lg shadow-[#FEE815]/30 hover:scale-[1.01]'
               }`}
             >
               {submitting ? (
                 <div className="flex items-center gap-2">
-                  <div className="w-4 h-4 border-2 border-white/60 border-t-white rounded-full animate-spin" />
+                  <div className="w-4 h-4 border-2 border-stone-900 border-t-transparent rounded-full animate-spin" />
                   <span>Processing Order...</span>
                 </div>
               ) : (
                 <>
-                  <Lock className="w-4 h-4 text-emerald-300" />
+                  <Lock className="w-4 h-4 text-stone-950" />
                   <span>Pay ₹{finalPayable.toLocaleString('en-IN')} with Razorpay</span>
                 </>
               )}

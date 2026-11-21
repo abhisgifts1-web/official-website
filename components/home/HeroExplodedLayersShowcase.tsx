@@ -434,7 +434,7 @@ export default function HeroExplodedLayersShowcase() {
                   isLedOn ? 'opacity-80 scale-110' : 'opacity-0'
                 }`}
                 style={{
-                  background: 'radial-gradient(circle, rgba(245, 158, 11, 0.55) 0%, rgba(217, 119, 6, 0.15) 60%, transparent 100%)',
+                  background: 'radial-gradient(circle, rgba(245, 158, 11, 0.55) 0%, rgba(254, 232, 21, 0.15) 60%, transparent 100%)',
                 }}
               />
 

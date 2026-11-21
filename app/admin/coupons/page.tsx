@@ -434,7 +434,7 @@ export default function AdminCouponsPage() {
           <button
             type="button"
             onClick={handleOpenCreate}
-            className="bg-[#EAB308] hover:bg-[#FACC15] text-stone-950 font-extrabold text-xs px-5 py-3 rounded-xl shadow-xs flex items-center justify-center gap-2 transition-all self-start sm:self-auto cursor-pointer"
+            className="bg-[#FEE815] hover:bg-[#FFF04B] text-stone-950 font-extrabold text-xs px-5 py-3 rounded-xl shadow-xs flex items-center justify-center gap-2 transition-all self-start sm:self-auto cursor-pointer"
           >
             <Plus className="w-4 h-4" />
             <span>Create New Coupon</span>
@@ -655,7 +655,7 @@ export default function AdminCouponsPage() {
                         <div className="w-full bg-stone-200 h-1.5 rounded-full overflow-hidden">
                           <div
                             className={`h-full rounded-full transition-all ${
-                              usagePercent >= 90 ? 'bg-rose-500' : 'bg-[#EAB308]'
+                              usagePercent >= 90 ? 'bg-rose-500' : 'bg-[#FEE815]'
                             }`}
                             style={{ width: `${usagePercent}%` }}
                           />
@@ -1046,7 +1046,7 @@ export default function AdminCouponsPage() {
                   <button
                     type="submit"
                     disabled={saving}
-                    className="px-5 py-2 bg-[#EAB308] hover:bg-[#FACC15] text-stone-950 font-extrabold rounded-xl transition-colors cursor-pointer shadow-xs"
+                    className="px-5 py-2 bg-[#FEE815] hover:bg-[#FFF04B] text-stone-950 font-extrabold rounded-xl transition-colors cursor-pointer shadow-xs"
                   >
                     {saving ? 'Saving...' : editingCode ? 'Update Coupon' : 'Create Coupon'}
                   </button>

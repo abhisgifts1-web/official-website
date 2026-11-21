@@ -135,7 +135,7 @@ export default function CategoryShowcase() {
                 <div className="absolute -inset-1.5 rounded-3xl bg-gradient-to-tr from-amber-400/30 via-yellow-300/40 to-amber-500/30 blur-md opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500 pointer-events-none" />
 
                 {/* 24K Gold Shimmering Border (Square Shape) */}
-                <div className="relative w-[84px] h-[84px] sm:w-[98px] sm:h-[98px] lg:w-[112px] lg:h-[112px] aspect-square rounded-2xl p-[3px] category-gold-shimmer shadow-md group-hover:shadow-[0_14px_32px_rgba(217,119,6,0.45)] group-hover:-translate-y-2 group-hover:scale-108 transition-all duration-400 ease-out flex items-center justify-center animate-category-ring">
+                <div className="relative w-[84px] h-[84px] sm:w-[98px] sm:h-[98px] lg:w-[112px] lg:h-[112px] aspect-square rounded-2xl p-[3px] category-gold-shimmer shadow-md group-hover:shadow-[0_14px_32px_rgba(254,232,21,0.45)] group-hover:-translate-y-2 group-hover:scale-108 transition-all duration-400 ease-out flex items-center justify-center animate-category-ring">
                   {/* Inner White Well / Clipping Square */}
                   <div className="w-full h-full rounded-[13px] overflow-hidden bg-white p-[1.5px] relative flex items-center justify-center shadow-inner">
                     <img

@@ -281,7 +281,7 @@ export default function AdminCustomersPage() {
                 Total Ordered Clients
               </span>
               <div className="w-7 h-7 rounded-lg bg-amber-50 border border-amber-200 text-amber-800 flex items-center justify-center">
-                <Users className="w-3.5 h-3.5 text-[#CA8A04]" />
+                <Users className="w-3.5 h-3.5 text-[#E0CC04]" />
               </div>
             </div>
             <p className="font-serif text-2xl sm:text-3xl font-extrabold text-stone-900">
@@ -332,7 +332,7 @@ export default function AdminCustomersPage() {
                 Gross Client Spend
               </span>
               <div className="w-7 h-7 rounded-lg bg-amber-50 border border-amber-200 text-amber-800 flex items-center justify-center">
-                <Sparkles className="w-3.5 h-3.5 text-[#CA8A04]" />
+                <Sparkles className="w-3.5 h-3.5 text-[#E0CC04]" />
               </div>
             </div>
             <p className="font-serif text-2xl sm:text-3xl font-extrabold text-amber-800">

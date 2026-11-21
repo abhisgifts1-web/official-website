@@ -52,9 +52,9 @@ export default function ContactCtaSection() {
               href={waUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-full bg-[#25D366] hover:bg-[#20BD5A] text-white font-semibold text-xs sm:text-sm shadow-sm transition-colors"
+              className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-full bg-[#FEE815] hover:bg-[#FFF04B] text-black font-bold text-xs sm:text-sm shadow-md transition-all hover:scale-105 active:scale-95 cursor-pointer"
             >
-              <MessageCircle className="w-4 h-4 fill-white" />
+              <MessageCircle className="w-4 h-4 fill-black text-black" />
               <span>Enquire in WhatsApp for Custom Order</span>
             </a>
 

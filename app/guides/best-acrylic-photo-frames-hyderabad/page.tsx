@@ -123,7 +123,7 @@ export default function BestAcrylicPhotoFramesHyderabadGuide() {
           <div className="flex flex-wrap gap-3 pt-2">
             <Link
               href="/customise"
-              className="bg-[#EAB308] text-[#000000] px-5 py-2.5 rounded-full font-bold text-xs hover:bg-[#FACC15] transition-colors shadow-xs"
+              className="bg-[#FEE815] text-[#000000] px-5 py-2.5 rounded-full font-bold text-xs hover:bg-[#FFF04B] transition-colors shadow-xs"
             >
               Upload Your Photo &amp; Customize Online
             </Link>

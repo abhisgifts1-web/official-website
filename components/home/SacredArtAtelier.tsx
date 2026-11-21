@@ -394,7 +394,7 @@ export default function SacredArtAtelier() {
             <div className="flex flex-wrap items-center gap-4 pt-2">
               <button
                 onClick={() => scrollToSection('section-craft')}
-                className="relative group inline-flex items-center gap-2 bg-[#EAB308] hover:bg-[#FACC15] text-[#000000] font-bold text-xs uppercase tracking-wider px-7 py-3.5 rounded-full shadow-md transition-all cursor-pointer active:scale-95 overflow-hidden"
+                className="relative group inline-flex items-center gap-2 bg-[#FEE815] hover:bg-[#FFF04B] text-[#000000] font-bold text-xs uppercase tracking-wider px-7 py-3.5 rounded-full shadow-md transition-all cursor-pointer active:scale-95 overflow-hidden"
               >
                 <span className="relative z-10 font-extrabold">EXPLORE THE CRAFT</span>
                 <span className="relative z-10 transition-transform duration-300 group-hover:translate-x-1">→</span>
@@ -424,7 +424,7 @@ export default function SacredArtAtelier() {
                       onClick={() => setSelectedArtwork(art)}
                       className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
                         isSelected
-                          ? 'bg-[#EAB308] text-stone-950 font-bold shadow-xs scale-105'
+                          ? 'bg-[#FEE815] text-stone-950 font-bold shadow-xs scale-105'
                           : 'bg-white text-stone-700 hover:text-stone-900 border border-stone-200 hover:border-amber-400'
                       }`}
                     >
@@ -475,7 +475,7 @@ export default function SacredArtAtelier() {
 
                 {/* Top-Right Badge: LED Aura */}
                 <div className="absolute top-3 right-3 sm:top-4 sm:right-4 bg-stone-900/85 backdrop-blur-md px-3 py-1 rounded-full border border-amber-400/50 text-[10px] font-mono text-amber-300 flex items-center gap-1.5 shadow-md">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#FACC15] animate-pulse" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#FFF04B] animate-pulse" />
                   <span>warm Backlit Aura</span>
                 </div>
               </div>
@@ -542,7 +542,7 @@ export default function SacredArtAtelier() {
 
         {/* Ambient Floating Gold Dust Particles */}
         <div className="absolute top-1/4 right-[20%] w-1.5 h-1.5 rounded-full bg-[#F0D79B]/60 blur-[0.5px] pointer-events-none animate-sparkle-float" />
-        <div className="absolute bottom-1/3 left-[15%] w-1.5 h-1.5 rounded-full bg-[#EAB308]/50 blur-[0.5px] pointer-events-none animate-sparkle-float [animation-delay:2.2s]" />
+        <div className="absolute bottom-1/3 left-[15%] w-1.5 h-1.5 rounded-full bg-[#FEE815]/50 blur-[0.5px] pointer-events-none animate-sparkle-float [animation-delay:2.2s]" />
 
         <div className="max-w-[1440px] mx-auto space-y-8 sm:space-y-10 relative z-10">
           
@@ -578,7 +578,7 @@ export default function SacredArtAtelier() {
                   onClick={handleViewComplete}
                   className={`px-4 sm:px-5 py-2 rounded-full text-xs font-serif font-bold transition-all duration-300 cursor-pointer flex items-center gap-2 ${
                     viewMode === 'complete'
-                      ? 'bg-[#EAB308] text-stone-950 font-extrabold shadow-xs'
+                      ? 'bg-[#FEE815] text-stone-950 font-extrabold shadow-xs'
                       : 'text-stone-600 hover:text-stone-900'
                   }`}
                 >
@@ -593,7 +593,7 @@ export default function SacredArtAtelier() {
                   }}
                   className={`px-4 sm:px-5 py-2 rounded-full text-xs font-serif font-bold transition-all duration-300 cursor-pointer flex items-center gap-2 ${
                     viewMode === 'exploded'
-                      ? 'bg-[#EAB308] text-stone-950 font-extrabold shadow-xs'
+                      ? 'bg-[#FEE815] text-stone-950 font-extrabold shadow-xs'
                       : 'text-stone-600 hover:text-stone-900'
                   }`}
                 >
@@ -610,7 +610,7 @@ export default function SacredArtAtelier() {
                   <div className="relative w-full h-full flex items-center justify-center">
                     
                     {/* Frame Container with warm Warm Ambient Corona Glow */}
-                    <div className="relative w-full h-full max-h-[380px] sm:max-h-[420px] rounded-2xl overflow-hidden border-[10px] sm:border-[12px] border-[#EAB308] shadow-[0_20px_60px_rgba(0,0,0,0.95)] ring-2 ring-[#F0D79B]/50 bg-black flex items-center justify-center">
+                    <div className="relative w-full h-full max-h-[380px] sm:max-h-[420px] rounded-2xl overflow-hidden border-[10px] sm:border-[12px] border-[#FEE815] shadow-[0_20px_60px_rgba(0,0,0,0.95)] ring-2 ring-[#F0D79B]/50 bg-black flex items-center justify-center">
                       
                       {/* Assembled Lord Ganesha Photo Frame Image */}
                       <img
@@ -649,14 +649,14 @@ export default function SacredArtAtelier() {
                             {/* Pulsing Concentric Outer Ring */}
                             <span
                               className={`absolute inset-0 rounded-full animate-ping opacity-75 ${
-                                isSelected ? 'bg-[#F0D79B]' : 'bg-[#EAB308]/50'
+                                isSelected ? 'bg-[#F0D79B]' : 'bg-[#FEE815]/50'
                               }`}
                             />
                             {/* Hotspot Badge Circle */}
                             <span
                               className={`relative w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center font-mono text-xs font-bold shadow-md border transition-all ${
                                 isSelected
-                                  ? 'bg-[#EAB308] text-stone-950 border-white ring-4 ring-amber-300 shadow-md'
+                                  ? 'bg-[#FEE815] text-stone-950 border-white ring-4 ring-amber-300 shadow-md'
                                   : 'bg-white text-stone-900 border-amber-400 hover:bg-stone-50'
                               }`}
                             >
@@ -750,7 +750,7 @@ export default function SacredArtAtelier() {
                   <div className="absolute bottom-3 inset-x-3 sm:bottom-4 sm:inset-x-5 z-30 bg-white/95 backdrop-blur-xl p-3.5 sm:p-4 rounded-2xl border border-stone-200 shadow-xl animate-fadeIn">
                     <div className="flex items-center justify-between pb-2 border-b border-stone-200">
                       <div className="flex items-center gap-2">
-                        <span className="font-mono text-xs font-bold text-stone-950 bg-[#EAB308] px-2 py-0.5 rounded-full">
+                        <span className="font-mono text-xs font-bold text-stone-950 bg-[#FEE815] px-2 py-0.5 rounded-full">
                           LAYER {activeLayer.number}
                         </span>
                         <h4 className="font-serif font-bold text-xs sm:text-sm text-stone-900">
@@ -837,7 +837,7 @@ export default function SacredArtAtelier() {
                       <span
                         className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center font-mono text-xs font-bold shrink-0 transition-colors ${
                           isSelected
-                            ? 'bg-[#EAB308] text-stone-950'
+                            ? 'bg-[#FEE815] text-stone-950'
                             : 'bg-stone-100 text-stone-800 border border-stone-200'
                         }`}
                       >
@@ -884,7 +884,7 @@ export default function SacredArtAtelier() {
                 <button
                   type="button"
                   onClick={handleViewComplete}
-                  className="w-full py-3.5 px-6 rounded-full border border-amber-300 hover:border-amber-400 bg-[#EAB308] hover:bg-[#FACC15] text-xs font-serif font-bold tracking-wider text-[#000000] flex items-center justify-center gap-2 transition-all cursor-pointer shadow-sm hover:scale-[1.01] active:scale-95"
+                  className="w-full py-3.5 px-6 rounded-full border border-amber-300 hover:border-amber-400 bg-[#FEE815] hover:bg-[#FFF04B] text-xs font-serif font-bold tracking-wider text-[#000000] flex items-center justify-center gap-2 transition-all cursor-pointer shadow-sm hover:scale-[1.01] active:scale-95"
                 >
                   <span>VIEW COMPLETE FRAME</span>
                   <span>→</span>
@@ -1049,7 +1049,7 @@ export default function SacredArtAtelier() {
                 <div className="pt-3">
                   <Link
                     href="/shop"
-                    className="relative group inline-flex items-center gap-3 bg-gradient-to-r from-[#EAB308] via-[#FEF08A] to-[#EAB308] text-[#000000] font-bold text-xs sm:text-sm uppercase tracking-widest px-8 py-4 rounded-full shadow-md hover:scale-105 active:scale-95 transition-all duration-300 overflow-hidden"
+                    className="relative group inline-flex items-center gap-3 bg-gradient-to-r from-[#FEE815] via-[#FEF08A] to-[#FEE815] text-[#000000] font-bold text-xs sm:text-sm uppercase tracking-widest px-8 py-4 rounded-full shadow-md hover:scale-105 active:scale-95 transition-all duration-300 overflow-hidden"
                   >
                     <span className="relative z-10 font-extrabold">EXPLORE THE COLLECTION</span>
                     <ArrowRight className="w-4 h-4 relative z-10 transition-transform duration-300 group-hover:translate-x-1.5" />
@@ -1091,7 +1091,7 @@ export default function SacredArtAtelier() {
 
                   {/* Top-Right precision-cut Indicator Pill */}
                   <div className="absolute top-3.5 right-3.5 sm:top-5 sm:right-5 bg-stone-900/80 backdrop-blur-md px-3 py-1 rounded-full border border-stone-700 text-[10px] font-mono text-white flex items-center gap-1.5 opacity-90 group-hover:opacity-100 transition-opacity">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#FACC15] animate-pulse" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#FFF04B] animate-pulse" />
                     <span>Precision Square-Cut Cast Acrylic</span>
                   </div>
                 </div>
@@ -1199,7 +1199,7 @@ export default function SacredArtAtelier() {
                       onClick={() => setSelectedStageModal(s)}
                       className={`h-2.5 rounded-full transition-all cursor-pointer ${
                         s.id === selectedStageModal.id
-                          ? 'bg-[#EAB308] w-6'
+                          ? 'bg-[#FEE815] w-6'
                           : 'bg-stone-300 hover:bg-stone-400 w-2.5'
                       }`}
                       aria-label={`Go to stage ${s.stageNumber}`}

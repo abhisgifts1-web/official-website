@@ -273,7 +273,7 @@ export default function CategoryPage({ params }: CategoryPageProps) {
         <div className="flex items-center gap-2 shrink-0">
           <Link
             href="/customise"
-            className="bg-[#EAB308] text-stone-950 px-4 py-2 rounded-full font-bold text-xs hover:bg-[#CA8A04] transition-colors shadow-xs"
+            className="bg-[#FEE815] text-stone-950 px-4 py-2 rounded-full font-bold text-xs hover:bg-[#E0CC04] transition-colors shadow-xs"
           >
             Upload Your Photo
           </Link>

@@ -95,7 +95,7 @@ export default function LedBacklitShowcase() {
       case 'deep-amber':
         return {
           haloBg: 'bg-amber-600/30',
-          haloShadow: '0 0 35px rgba(217,119,6,0.6), 0 0 70px rgba(180,83,9,0.35)',
+          haloShadow: '0 0 35px rgba(254,232,21,0.6), 0 0 70px rgba(180,83,9,0.35)',
           frameBorder: 'border-amber-400/80',
           badgeColor: 'text-amber-300 bg-amber-950/80 border-amber-600/40',
         };
@@ -110,7 +110,7 @@ export default function LedBacklitShowcase() {
       default:
         return {
           haloBg: 'bg-amber-500/25',
-          haloShadow: '0 0 35px rgba(245,158,11,0.65), 0 0 75px rgba(217,119,6,0.35)',
+          haloShadow: '0 0 35px rgba(245,158,11,0.65), 0 0 75px rgba(254,232,21,0.35)',
           frameBorder: 'border-amber-300/90',
           badgeColor: 'text-amber-300 bg-amber-950/80 border-amber-500/40',
         };
@@ -121,7 +121,7 @@ export default function LedBacklitShowcase() {
 
   return (
     <section className="w-full max-w-[1760px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 py-4 sm:py-6">
-      <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden bg-gradient-to-br from-[#0A0A0A] via-[#181818] to-[#121212] p-5 sm:p-7 lg:p-9 border border-[#EAB308]/35 shadow-xl">
+      <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden bg-gradient-to-br from-[#0A0A0A] via-[#181818] to-[#121212] p-5 sm:p-7 lg:p-9 border border-[#FEE815]/35 shadow-xl">
         {/* Dynamic animated ambient background aura */}
         <div
           className={`absolute top-1/2 right-1/4 -translate-y-1/2 w-[420px] h-[260px] rounded-full blur-3xl pointer-events-none transition-all duration-700 ${
@@ -134,7 +134,7 @@ export default function LedBacklitShowcase() {
           <div className="lg:col-span-7 space-y-4 text-left">
             {/* Top Interactive Controls Row */}
             <div className="flex flex-wrap items-center justify-between gap-3">
-              <span className="text-[11px] uppercase tracking-widest font-bold text-[#FFFFFF] bg-[#121212] border border-[#EAB308]/80 px-3.5 py-1 rounded-full inline-flex items-center gap-1.5 shadow-2xs">
+              <span className="text-[11px] uppercase tracking-widest font-bold text-[#FFFFFF] bg-[#121212] border border-[#FEE815]/80 px-3.5 py-1 rounded-full inline-flex items-center gap-1.5 shadow-2xs">
                 <Flame className="w-3.5 h-3.5 text-amber-700 animate-pulse" />
                 <span>Warm Golden LED Ambient Glow</span>
               </span>
@@ -190,7 +190,7 @@ export default function LedBacklitShowcase() {
                   disabled={!isLedOn}
                   className={`px-3 py-1 rounded-full text-xs font-medium transition-all duration-200 border cursor-pointer ${
                     glowTone === 'deep-amber' && isLedOn
-                      ? 'bg-amber-600/20 text-amber-300 border-amber-500/80 shadow-[0_0_10px_rgba(217,119,6,0.3)]'
+                      ? 'bg-amber-600/20 text-amber-300 border-amber-500/80 shadow-[0_0_10px_rgba(254,232,21,0.3)]'
                       : 'bg-stone-900/60 text-stone-400 border-stone-800 hover:border-stone-700'
                   } disabled:opacity-40 disabled:cursor-not-allowed`}
                 >
@@ -277,7 +277,7 @@ export default function LedBacklitShowcase() {
             <div className="pt-2 flex flex-wrap items-center gap-3">
               <Link
                 href="/category/led-backlit-wall-art"
-                className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-600 via-amber-700 to-amber-800 hover:from-amber-500 hover:to-amber-700 text-white font-semibold text-xs sm:text-sm px-5 py-2.5 rounded-full shadow-warm transition-all duration-300 hover:shadow-[0_0_20px_rgba(217,119,6,0.5)] hover:-translate-y-0.5 group"
+                className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-600 via-amber-700 to-amber-800 hover:from-amber-500 hover:to-amber-700 text-white font-semibold text-xs sm:text-sm px-5 py-2.5 rounded-full shadow-warm transition-all duration-300 hover:shadow-[0_0_20px_rgba(254,232,21,0.5)] hover:-translate-y-0.5 group"
               >
                 <span>Explore All LED Backlit Art</span>
                 <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
@@ -302,7 +302,7 @@ export default function LedBacklitShowcase() {
               }`}
               style={{
                 boxShadow: isLedOn ? glowStyles.haloShadow : 'none',
-                background: isLedOn ? 'radial-gradient(circle, rgba(245,158,11,0.45) 0%, rgba(217,119,6,0.2) 70%, transparent 100%)' : 'none',
+                background: isLedOn ? 'radial-gradient(circle, rgba(245,158,11,0.45) 0%, rgba(254,232,21,0.2) 70%, transparent 100%)' : 'none',
               }}
             />
 

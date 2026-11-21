@@ -755,7 +755,7 @@ export default function CustomizerStudio() {
           ========================================================= */}
       <section className="relative overflow-hidden bg-gradient-to-b from-stone-50 via-white to-stone-50 text-stone-900 border-b border-stone-200 py-12 sm:py-16 lg:py-20">
         <div className="absolute -top-32 -right-32 w-96 h-96 bg-amber-200/30 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute -bottom-32 -left-32 w-96 h-96 bg-[#EAB308]/15 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute -bottom-32 -left-32 w-96 h-96 bg-[#FEE815]/15 rounded-full blur-3xl pointer-events-none" />
 
         <div className="w-full max-w-[1720px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-14">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-14">
@@ -783,7 +783,7 @@ export default function CustomizerStudio() {
                 <button
                   type="button"
                   onClick={() => studioSectionRef.current?.scrollIntoView({ behavior: 'smooth' })}
-                  className="inline-flex items-center gap-2 bg-[#EAB308] hover:bg-[#FACC15] text-stone-950 font-bold text-xs sm:text-sm px-8 py-3.5 rounded-full shadow-md hover:shadow-lg transition-all duration-300 group uppercase tracking-wider cursor-pointer"
+                  className="inline-flex items-center gap-2 bg-[#FEE815] hover:bg-[#FFF04B] text-stone-950 font-bold text-xs sm:text-sm px-8 py-3.5 rounded-full shadow-md hover:shadow-lg transition-all duration-300 group uppercase tracking-wider cursor-pointer"
                 >
                   <span>Start Customizing</span>
                   <ArrowRight className="w-4 h-4 text-stone-950 group-hover:translate-x-1 transition-transform" />
@@ -1381,16 +1381,16 @@ export default function CustomizerStudio() {
                   type="button"
                   onClick={handleWhatsAppInquiry}
                   disabled={waUploading}
-                  className="w-full bg-[#25D366]/15 hover:bg-[#25D366]/25 text-[#128C7E] border border-[#25D366]/40 py-2.5 rounded-xl font-bold text-xs shadow-xs transition-all cursor-pointer flex items-center justify-center gap-2 disabled:opacity-60"
+                  className="w-full bg-[#FEE815]/20 hover:bg-[#FEE815]/35 text-stone-950 border border-[#FEE815] py-2.5 rounded-xl font-bold text-xs shadow-xs transition-all cursor-pointer flex items-center justify-center gap-2 disabled:opacity-60"
                 >
                   {waUploading ? (
                     <>
-                      <div className="w-4 h-4 border-2 border-[#128C7E] border-t-transparent rounded-full animate-spin" />
+                      <div className="w-4 h-4 border-2 border-stone-900 border-t-transparent rounded-full animate-spin" />
                       <span>Uploading Photo for WhatsApp...</span>
                     </>
                   ) : (
                     <>
-                      <MessageCircle className="w-4 h-4 fill-current text-[#25D366]" />
+                      <MessageCircle className="w-4 h-4 fill-stone-950 text-stone-950" />
                       <span>Order or Inquire via WhatsApp • ₹{pricing.price.toLocaleString('en-IN')}</span>
                     </>
                   )}
@@ -1580,7 +1580,7 @@ export default function CustomizerStudio() {
               type="button"
               onClick={handleWhatsAppInquiry}
               disabled={waUploading}
-              className="bg-[#25D366] hover:bg-[#20BD5A] text-white font-bold text-xs sm:text-sm px-7 py-3.5 rounded-full shadow-md hover:shadow-[#25D366]/30 transition-all flex items-center gap-2 uppercase tracking-wider cursor-pointer disabled:opacity-60"
+              className="bg-[#FEE815] hover:bg-[#FFF04B] text-black font-extrabold text-xs sm:text-sm px-7 py-3.5 rounded-full shadow-md hover:shadow-[#FEE815]/30 transition-all flex items-center gap-2 uppercase tracking-wider cursor-pointer disabled:opacity-60"
             >
               {waUploading ? (
                 <>

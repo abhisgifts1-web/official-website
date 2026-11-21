@@ -235,22 +235,22 @@ export default function PersonalizedPhotoSection() {
       <div className="relative overflow-hidden bg-gradient-to-br from-[#181818] via-[#141414] to-[#181818] rounded-3xl sm:rounded-[40px] p-6 sm:p-10 lg:p-14 border border-[#2D2D2D] shadow-[0_16px_60px_rgba(0,0,0,0.4)]">
         {/* Ambient Decorative Shimmer Orbs */}
         <div className="absolute -top-40 -right-40 w-[500px] h-[500px] bg-amber-200/20 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute -bottom-40 -left-40 w-[500px] h-[500px] bg-[#EAB308]/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute -bottom-40 -left-40 w-[500px] h-[500px] bg-[#FEE815]/10 rounded-full blur-3xl pointer-events-none" />
 
         {/* =========================================================
             1. SECTION HERO HEADER & VALUE PROPOSITION
             ========================================================= */}
         <div className="relative z-10 flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-8 border-b border-[#2D2D2D]/80">
           <div className="space-y-3 max-w-3xl">
-            <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-bold text-[#FFFFFF] bg-white border border-[#EAB308]/60 px-4 py-1.5 rounded-full shadow-2xs">
-              <Sparkles className="w-3.5 h-3.5 text-[#EAB308] animate-pulse" />
+            <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-bold text-[#FFFFFF] bg-white border border-[#FEE815]/60 px-4 py-1.5 rounded-full shadow-2xs">
+              <Sparkles className="w-3.5 h-3.5 text-[#FEE815] animate-pulse" />
               <span>CUSTOM SACRED &amp; ARTISAN FRAMING ATELIER • HYDERABAD</span>
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping ml-0.5" />
             </div>
 
             <h2 className="font-serif font-bold text-3xl sm:text-4xl lg:text-5xl text-[#FFFFFF] tracking-tight leading-[1.15]">
               CRAFT YOUR SACRED SANCTUM.
-              <span className="block mt-1 bg-gradient-to-r from-[#A06E28] via-[#FACC15] to-[#784B15] bg-clip-text text-transparent italic font-serif">
+              <span className="block mt-1 bg-gradient-to-r from-[#A06E28] via-[#FFF04B] to-[#784B15] bg-clip-text text-transparent italic font-serif">
                 Tailored In Premium Acrylic.
               </span>
             </h2>
@@ -263,19 +263,19 @@ export default function PersonalizedPhotoSection() {
           <div className="flex flex-wrap items-center gap-3 shrink-0">
             <Link
               href="/customise"
-              className="inline-flex items-center gap-2 bg-[#EAB308] hover:bg-[#FACC15] text-[#000000] font-bold text-xs sm:text-sm px-6 py-3 rounded-full shadow-md hover:shadow-lg transition-all duration-300 group uppercase tracking-wider"
+              className="inline-flex items-center gap-2 bg-[#FEE815] hover:bg-[#FFF04B] text-[#000000] font-bold text-xs sm:text-sm px-6 py-3 rounded-full shadow-md hover:shadow-lg transition-all duration-300 group uppercase tracking-wider"
             >
               <span>Open Customizer</span>
-              <ArrowRight className="w-4 h-4 text-[#FACC15] group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="w-4 h-4 text-[#FFF04B] group-hover:translate-x-1 transition-transform" />
             </Link>
 
             <a
               href={whatsappInquiryUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-white hover:bg-[#121212] text-[#FFFFFF] font-bold text-xs sm:text-sm px-5 py-3 rounded-full border border-[#EAB308] shadow-xs hover:border-[#A06E28] transition-colors uppercase tracking-wider"
+              className="inline-flex items-center gap-2 bg-white hover:bg-[#121212] text-[#FFFFFF] font-bold text-xs sm:text-sm px-5 py-3 rounded-full border border-[#FEE815] shadow-xs hover:border-[#FFF04B] transition-colors uppercase tracking-wider"
             >
-              <MessageCircle className="w-4 h-4 text-emerald-600 fill-emerald-600" />
+              <MessageCircle className="w-4 h-4 text-[#FEE815] fill-[#FEE815]" />
               <span>WhatsApp Artisan</span>
             </a>
           </div>
@@ -287,10 +287,10 @@ export default function PersonalizedPhotoSection() {
         <div className="relative z-10 pt-8 pb-6">
           <div className="flex items-center justify-between mb-3 text-xs font-bold uppercase tracking-wider text-[#D1D5DB]">
             <span className="flex items-center gap-2">
-              <SlidersHorizontal className="w-3.5 h-3.5 text-[#EAB308]" />
+              <SlidersHorizontal className="w-3.5 h-3.5 text-[#FEE815]" />
               <span>Select Framing Style &amp; Silhouette</span>
             </span>
-            <span className="text-[11px] text-[#EAB308] font-semibold hidden sm:inline">
+            <span className="text-[11px] text-[#FEE815] font-semibold hidden sm:inline">
               Hand-Polished In Dilsukhnagar
             </span>
           </div>
@@ -305,17 +305,17 @@ export default function PersonalizedPhotoSection() {
                   onClick={() => handleFrameSelect(frame)}
                   className={`p-4 rounded-2xl border-2 transition-all duration-300 text-left flex flex-col justify-between cursor-pointer relative group ${
                     isSelected
-                      ? 'border-[#EAB308] bg-white ring-2 ring-[#EAB308]/30 shadow-md -translate-y-1'
-                      : 'border-[#2D2D2D]/80 bg-white/70 hover:bg-white hover:border-[#EAB308]/60 hover:-translate-y-0.5'
+                      ? 'border-[#FEE815] bg-white ring-2 ring-[#FEE815]/30 shadow-md -translate-y-1'
+                      : 'border-[#2D2D2D]/80 bg-white/70 hover:bg-white hover:border-[#FEE815]/60 hover:-translate-y-0.5'
                   }`}
                 >
                   {isSelected && (
-                    <span className="absolute -top-1.5 right-3 w-3 h-3 rounded-full bg-[#EAB308] ring-2 ring-white shadow-xs" />
+                    <span className="absolute -top-1.5 right-3 w-3 h-3 rounded-full bg-[#FEE815] ring-2 ring-white shadow-xs" />
                   )}
 
                   <div className="space-y-1.5">
                     <div className="flex items-center justify-between">
-                      <span className="text-[10px] font-bold uppercase tracking-wider text-[#FFFFFF] bg-[#181818] px-2.5 py-0.5 rounded-full border border-[#EAB308]/40 shadow-2xs">
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-[#FFFFFF] bg-[#181818] px-2.5 py-0.5 rounded-full border border-[#FEE815]/40 shadow-2xs">
                         {frame.badge}
                       </span>
                       {frame.hasLed && (
@@ -334,7 +334,7 @@ export default function PersonalizedPhotoSection() {
                   </div>
 
                   <div className="pt-3 mt-3 border-t border-[#2D2D2D]/50 flex items-center justify-between">
-                    <span className="text-xs font-bold text-[#EAB308]">{frame.price}</span>
+                    <span className="text-xs font-bold text-[#FEE815]">{frame.price}</span>
                     <span className="text-[11px] text-[#D1D5DB] font-medium">{frame.shape}</span>
                   </div>
                 </button>
@@ -397,7 +397,7 @@ export default function PersonalizedPhotoSection() {
                 onClick={() => setIsLedOn(!isLedOn)}
                 className={`px-4 py-1.5 rounded-full text-xs font-bold border transition-all flex items-center gap-1.5 cursor-pointer ${
                   isLedOn
-                    ? 'bg-[#1C0912] text-[#FACC15] border-[#EAB308] shadow-[0_0_20px_rgba(214,170,85,0.4)]'
+                    ? 'bg-[#1C0912] text-[#FFF04B] border-[#FEE815] shadow-[0_0_20px_rgba(214,170,85,0.4)]'
                     : 'bg-white text-[#D1D5DB] border-[#2D2D2D] hover:text-[#FFFFFF]'
                 }`}
                 title="Toggle LED Warm Golden Backlight"
@@ -419,10 +419,10 @@ export default function PersonalizedPhotoSection() {
               <button
                 type="button"
                 onClick={() => fileInputRef.current?.click()}
-                className="px-4 py-1.5 rounded-full bg-white hover:bg-[#121212] text-[#FFFFFF] border border-[#2D2D2D] hover:border-[#EAB308] text-xs font-semibold flex items-center gap-1.5 transition-colors cursor-pointer shadow-2xs"
+                className="px-4 py-1.5 rounded-full bg-white hover:bg-[#121212] text-[#FFFFFF] border border-[#2D2D2D] hover:border-[#FEE815] text-xs font-semibold flex items-center gap-1.5 transition-colors cursor-pointer shadow-2xs"
                 title="Upload your family photo, wedding memory, or deity"
               >
-                <Upload className="w-3.5 h-3.5 text-[#EAB308]" />
+                <Upload className="w-3.5 h-3.5 text-[#FEE815]" />
                 <span>{userUploadedPhoto ? 'Change Photo' : 'Upload Your Photo'}</span>
               </button>
               <input
@@ -437,7 +437,7 @@ export default function PersonalizedPhotoSection() {
                 <button
                   type="button"
                   onClick={() => setUserUploadedPhoto(null)}
-                  className="text-[#FFFFFF] hover:text-[#EAB308] underline text-xs cursor-pointer ml-1"
+                  className="text-[#FFFFFF] hover:text-[#FEE815] underline text-xs cursor-pointer ml-1"
                   title="Revert back to website artwork"
                 >
                   Reset
@@ -578,9 +578,9 @@ export default function PersonalizedPhotoSection() {
 
             {/* Bottom Floating Info Pill */}
             <div className="absolute bottom-4 left-4 z-30 bg-white/95 backdrop-blur-md px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs font-bold text-[#FFFFFF] border border-[#2D2D2D] shadow-md flex items-center gap-2 max-w-[90%] sm:max-w-none truncate">
-              <Sparkles className="w-3.5 h-3.5 text-[#EAB308] shrink-0" />
+              <Sparkles className="w-3.5 h-3.5 text-[#FEE815] shrink-0" />
               <span className="truncate">{activeTitle}</span>
-              <span className="text-[#EAB308]/60 shrink-0">•</span>
+              <span className="text-[#FEE815]/60 shrink-0">•</span>
               <span className="text-[#D1D5DB] font-medium shrink-0">{selectedFrame.dimensionsLabel}</span>
               {userUploadedPhoto && (
                 <span className="text-emerald-700 font-semibold shrink-0">• Custom Photo Active</span>
@@ -594,10 +594,10 @@ export default function PersonalizedPhotoSection() {
           <div className="space-y-3 pt-2">
             <div className="flex items-center justify-between text-xs font-semibold text-[#D1D5DB]">
               <span className="flex items-center gap-2 font-bold text-[#FFFFFF]">
-                <ImageIcon className="w-4 h-4 text-[#EAB308]" />
+                <ImageIcon className="w-4 h-4 text-[#FEE815]" />
                 <span>Test Reference Sacred Artworks from Our Catalog:</span>
               </span>
-              <span className="text-[11px] text-[#EAB308]">
+              <span className="text-[11px] text-[#FEE815]">
                 Click any art below to see it inside the 3D frame
               </span>
             </div>
@@ -612,8 +612,8 @@ export default function PersonalizedPhotoSection() {
                     onClick={() => handleArtSelect(art)}
                     className={`p-2 rounded-2xl border transition-all flex flex-col items-center text-center gap-2 cursor-pointer group ${
                       isActive
-                        ? 'border-[#EAB308] bg-[#181818] ring-2 ring-[#EAB308]/30 shadow-xs -translate-y-0.5'
-                        : 'border-[#2D2D2D]/80 bg-white hover:bg-[#121212] hover:border-[#EAB308]/50'
+                        ? 'border-[#FEE815] bg-[#181818] ring-2 ring-[#FEE815]/30 shadow-xs -translate-y-0.5'
+                        : 'border-[#2D2D2D]/80 bg-white hover:bg-[#121212] hover:border-[#FEE815]/50'
                     }`}
                   >
                     <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-xl overflow-hidden border border-[#2D2D2D] shadow-xs relative shrink-0">
@@ -642,10 +642,10 @@ export default function PersonalizedPhotoSection() {
 
           {/* Real-Time Personalization Input (When Gold Script Heirloom is active) */}
           {selectedFrame.id === 'gold-crest' && (
-            <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-[#FFF8EF] to-[#FAF3E8] border border-[#EAB308]/80 space-y-2 animate-in fade-in duration-300">
+            <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-[#FFF8EF] to-[#FAF3E8] border border-[#FEE815]/80 space-y-2 animate-in fade-in duration-300">
               <div className="flex items-center justify-between text-xs font-bold text-[#FFFFFF]">
                 <label className="flex items-center gap-1.5">
-                  <Award className="w-4 h-4 text-[#EAB308]" />
+                  <Award className="w-4 h-4 text-[#FEE815]" />
                   <span>Type Your gold foil Gold Script Inscription (Real-time Live Preview):</span>
                 </label>
                 <span className="text-[11px] text-[#D1D5DB] font-normal">
@@ -658,7 +658,7 @@ export default function PersonalizedPhotoSection() {
                 value={customInscription}
                 onChange={(e) => setCustomInscription(e.target.value)}
                 placeholder="e.g. The Sharma Family • Consecrated 2026"
-                className="w-full px-4 py-2.5 text-xs sm:text-sm bg-white border border-[#EAB308] rounded-xl outline-none focus:border-[#A06E28] focus:ring-1 focus:ring-[#A06E28] text-[#FFFFFF] font-serif"
+                className="w-full px-4 py-2.5 text-xs sm:text-sm bg-white border border-[#FEE815] rounded-xl outline-none focus:border-[#A06E28] focus:ring-1 focus:ring-[#A06E28] text-[#FFFFFF] font-serif"
               />
               <p className="text-[11px] text-[#D1D5DB]">
                 ✦ Rendered with genuine 24-karat gold leaf foil beneath the premium acrylic shield. Perfect for housewarmings, temple sanctums &amp; wedding anniversaries.
@@ -672,7 +672,7 @@ export default function PersonalizedPhotoSection() {
             ========================================================= */}
         <div className="relative z-10 pt-10">
           <div className="text-center max-w-2xl mx-auto mb-8 space-y-2">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#FFFFFF] bg-[#181818] px-3.5 py-1 rounded-full border border-[#EAB308]/40 shadow-2xs">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#FFFFFF] bg-[#181818] px-3.5 py-1 rounded-full border border-[#FEE815]/40 shadow-2xs">
               Effortless Custom Fabrication
             </span>
             <h3 className="font-serif font-bold text-2xl sm:text-3xl text-[#FFFFFF]">
@@ -685,8 +685,8 @@ export default function PersonalizedPhotoSection() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {/* Step 1 */}
-            <div className="bg-white p-6 rounded-3xl border border-[#2D2D2D] shadow-sm hover:border-[#EAB308] hover:shadow-md transition-all space-y-3">
-              <div className="w-10 h-10 rounded-2xl bg-[#181818] text-[#EAB308] border border-[#EAB308]/40 font-serif font-bold text-base flex items-center justify-center shadow-xs">
+            <div className="bg-white p-6 rounded-3xl border border-[#2D2D2D] shadow-sm hover:border-[#FEE815] hover:shadow-md transition-all space-y-3">
+              <div className="w-10 h-10 rounded-2xl bg-[#181818] text-[#FEE815] border border-[#FEE815]/40 font-serif font-bold text-base flex items-center justify-center shadow-xs">
                 01
               </div>
               <h4 className="font-serif font-bold text-lg text-[#FFFFFF]">
@@ -695,15 +695,15 @@ export default function PersonalizedPhotoSection() {
               <p className="text-xs text-[#D1D5DB] leading-relaxed">
                 Choose any sacred deity artwork from our catalog or upload your family portrait. Select custom dimensions up to 6×4 feet with portrait, landscape, or circular shapes.
               </p>
-              <div className="pt-2 text-[11px] font-bold text-[#EAB308] flex items-center gap-1">
+              <div className="pt-2 text-[11px] font-bold text-[#FEE815] flex items-center gap-1">
                 <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
                 <span>Instant 3D Wall Preview</span>
               </div>
             </div>
 
             {/* Step 2 */}
-            <div className="bg-white p-6 rounded-3xl border border-[#2D2D2D] shadow-sm hover:border-[#EAB308] hover:shadow-md transition-all space-y-3">
-              <div className="w-10 h-10 rounded-2xl bg-[#EAB308] text-[#FFFFFF] font-serif font-bold text-base flex items-center justify-center shadow-xs">
+            <div className="bg-white p-6 rounded-3xl border border-[#2D2D2D] shadow-sm hover:border-[#FEE815] hover:shadow-md transition-all space-y-3">
+              <div className="w-10 h-10 rounded-2xl bg-[#FEE815] text-[#FFFFFF] font-serif font-bold text-base flex items-center justify-center shadow-xs">
                 02
               </div>
               <h4 className="font-serif font-bold text-lg text-[#FFFFFF]">
@@ -712,15 +712,15 @@ export default function PersonalizedPhotoSection() {
               <p className="text-xs text-[#D1D5DB] leading-relaxed">
                 Our master graphic artisans inspect your image resolution, enhance color dynamics, and share an exact 1:1 digital layout on WhatsApp for your sign-off before printing.
               </p>
-              <div className="pt-2 text-[11px] font-bold text-[#EAB308] flex items-center gap-1">
+              <div className="pt-2 text-[11px] font-bold text-[#FEE815] flex items-center gap-1">
                 <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
                 <span>100% Visual Sign-off Guarantee</span>
               </div>
             </div>
 
             {/* Step 3 */}
-            <div className="bg-white p-6 rounded-3xl border border-[#2D2D2D] shadow-sm hover:border-[#EAB308] hover:shadow-md transition-all space-y-3">
-              <div className="w-10 h-10 rounded-2xl bg-[#181818] text-[#EAB308] border border-[#EAB308]/40 font-serif font-bold text-base flex items-center justify-center shadow-xs">
+            <div className="bg-white p-6 rounded-3xl border border-[#2D2D2D] shadow-sm hover:border-[#FEE815] hover:shadow-md transition-all space-y-3">
+              <div className="w-10 h-10 rounded-2xl bg-[#181818] text-[#FEE815] border border-[#FEE815]/40 font-serif font-bold text-base flex items-center justify-center shadow-xs">
                 03
               </div>
               <h4 className="font-serif font-bold text-lg text-[#FFFFFF]">
@@ -729,7 +729,7 @@ export default function PersonalizedPhotoSection() {
               <p className="text-xs text-[#D1D5DB] leading-relaxed">
                 Fabricated with premium acrylic and long-lasting Epistar LEDs. Packed in 5-layer wood-reinforced crates with direct store pickup or doorstep delivery.
               </p>
-              <div className="pt-2 text-[11px] font-bold text-[#EAB308] flex items-center gap-1">
+              <div className="pt-2 text-[11px] font-bold text-[#FEE815] flex items-center gap-1">
                 <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
                 <span>secure packaging Replacement</span>
               </div>
@@ -737,7 +737,7 @@ export default function PersonalizedPhotoSection() {
           </div>
 
           {/* Bottom Luxury Action & Trust Bar */}
-          <div className="mt-8 p-6 rounded-3xl bg-gradient-to-r from-[#121212] via-[#181818] to-[#121212] text-white flex flex-col md:flex-row items-center justify-between gap-6 border border-[#EAB308]">
+          <div className="mt-8 p-6 rounded-3xl bg-gradient-to-r from-[#121212] via-[#181818] to-[#121212] text-white flex flex-col md:flex-row items-center justify-between gap-6 border border-[#FEE815]">
             <div className="space-y-1 text-center md:text-left">
               <h4 className="font-serif font-bold text-xl text-[#FFFFFF]">
                 Need a specific temple size, gold inscription, or urgent express fabrication?
@@ -750,7 +750,7 @@ export default function PersonalizedPhotoSection() {
             <div className="flex flex-wrap items-center gap-3 shrink-0">
               <Link
                 href="/customise"
-                className="bg-[#EAB308] hover:bg-[#FACC15] text-[#FFFFFF] font-bold text-xs sm:text-sm px-6 py-3 rounded-full shadow-md transition-all hover:scale-105 uppercase tracking-wider"
+                className="bg-[#FEE815] hover:bg-[#FFF04B] text-[#FFFFFF] font-bold text-xs sm:text-sm px-6 py-3 rounded-full shadow-md transition-all hover:scale-105 uppercase tracking-wider"
               >
                 Launch Customizer →
               </Link>
@@ -761,7 +761,7 @@ export default function PersonalizedPhotoSection() {
                 rel="noopener noreferrer"
                 className="bg-white/10 hover:bg-white/20 text-[#FFFFFF] border border-white/30 font-bold text-xs sm:text-sm px-5 py-3 rounded-full transition-colors flex items-center gap-1.5 uppercase tracking-wider"
               >
-                <MessageCircle className="w-4 h-4 text-emerald-400" />
+                <MessageCircle className="w-4 h-4 text-[#FEE815]" />
                 <span>Chat on WhatsApp</span>
               </a>
             </div>

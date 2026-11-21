@@ -199,8 +199,8 @@ export default function CartDrawer() {
 
                         <div className="text-right">
                           {item.size?.toLowerCase().includes('custom size') || item.variantId?.toLowerCase().includes('custom-size') ? (
-                            <span className="text-[11px] font-semibold text-[#25D366] block">
-                              Price in WhatsApp
+                            <span className="text-[11px] font-bold text-stone-950 bg-[#FEE815] px-2 py-0.5 rounded-full inline-block">
+                              Custom Sizing
                             </span>
                           ) : (
                             <>
@@ -291,7 +291,7 @@ export default function CartDrawer() {
                 <button
                   type="button"
                   onClick={handleProceedCheckout}
-                  className="w-full bg-[#EAB308] hover:bg-[#FACC15] text-stone-950 border border-amber-500 py-3 rounded-xl font-bold text-sm shadow-md flex items-center justify-center gap-2 transition-all hover:scale-[1.01] cursor-pointer uppercase tracking-wider"
+                  className="w-full bg-[#FEE815] hover:bg-[#FFF04B] text-stone-950 border border-[#FEE815] py-3 rounded-xl font-bold text-sm shadow-md flex items-center justify-center gap-2 transition-all hover:scale-[1.01] cursor-pointer uppercase tracking-wider"
                 >
                   <span>Proceed to Checkout</span>
                   <ArrowRight className="w-4 h-4 text-stone-950" />

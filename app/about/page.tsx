@@ -204,7 +204,7 @@ export default function AboutPage() {
       <section className="relative w-full pt-12 sm:pt-16 pb-14 sm:pb-20 px-4 sm:px-6 lg:px-12 xl:px-16 overflow-hidden bg-gradient-to-b from-stone-50 via-white to-stone-50 border-b border-stone-200">
         {/* Soft Background Accents */}
         <div className="absolute top-10 right-10 w-96 h-96 bg-amber-200/25 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-10 left-10 w-96 h-96 bg-[#EAB308]/15 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-10 left-10 w-96 h-96 bg-[#FEE815]/15 rounded-full blur-3xl pointer-events-none" />
 
         <div className="max-w-5xl mx-auto text-center space-y-6 relative z-10">
           
@@ -276,7 +276,7 @@ export default function AboutPage() {
           <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
             <Link
               href="/shop"
-              className="inline-flex items-center gap-2 bg-[#EAB308] hover:bg-[#FACC15] text-stone-950 font-bold text-xs sm:text-sm px-7 py-3.5 rounded-full border border-amber-500 shadow-md uppercase tracking-wider transition-all hover:scale-105 active:scale-95 cursor-pointer"
+              className="inline-flex items-center gap-2 bg-[#FEE815] hover:bg-[#FFF04B] text-stone-950 font-bold text-xs sm:text-sm px-7 py-3.5 rounded-full border border-amber-500 shadow-md uppercase tracking-wider transition-all hover:scale-105 active:scale-95 cursor-pointer"
             >
               <span>EXPLORE ALL COLLECTIONS</span>
               <ArrowRight className="w-4 h-4 text-stone-950" />
@@ -285,9 +285,9 @@ export default function AboutPage() {
               href="https://wa.me/917780269927?text=Hi%20Abhi%27s%20Gifts%2C%20I%20would%20like%20to%20order%20a%20personalized%20photo%20frame."
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#1EBE5D] text-white font-bold text-xs sm:text-sm px-6 py-3.5 rounded-full shadow-md transition-all hover:scale-105 active:scale-95 cursor-pointer"
+              className="inline-flex items-center gap-2 bg-[#FEE815] hover:bg-[#FFF04B] text-black font-bold text-xs sm:text-sm px-6 py-3.5 rounded-full shadow-md transition-all hover:scale-105 active:scale-95 cursor-pointer"
             >
-              <MessageCircle className="w-4 h-4 fill-current" />
+              <MessageCircle className="w-4 h-4 fill-black text-black" />
               <span>CHAT ON WHATSAPP (+91 77802 69927)</span>
             </a>
           </div>
@@ -729,7 +729,7 @@ export default function AboutPage() {
             <div className="flex flex-wrap items-center gap-3">
               <Link
                 href="/shop"
-                className="inline-flex items-center gap-2 bg-[#EAB308] hover:bg-[#FACC15] text-stone-950 font-bold text-xs uppercase tracking-wider px-6 py-3 rounded-full shadow-md transition-all hover:scale-105 active:scale-95 cursor-pointer"
+                className="inline-flex items-center gap-2 bg-[#FEE815] hover:bg-[#FFF04B] text-stone-950 font-bold text-xs uppercase tracking-wider px-6 py-3 rounded-full shadow-md transition-all hover:scale-105 active:scale-95 cursor-pointer"
               >
                 <span>Shop Frames</span>
                 <ArrowRight className="w-4 h-4 text-stone-950" />

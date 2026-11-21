@@ -195,7 +195,7 @@ export default function AdminTeamPage() {
               <button
                 type="button"
                 onClick={() => setAddModalOpen(true)}
-                className="bg-[#EAB308] hover:bg-[#FACC15] text-black font-extrabold text-xs px-4 py-2.5 rounded-xl shadow-sm flex items-center justify-center gap-1.5 transition-all cursor-pointer"
+                className="bg-[#FEE815] hover:bg-[#FFF04B] text-black font-extrabold text-xs px-4 py-2.5 rounded-xl shadow-sm flex items-center justify-center gap-1.5 transition-all cursor-pointer"
               >
                 <UserPlus className="w-4 h-4" />
                 <span>Add Team Member</span>
@@ -238,7 +238,7 @@ export default function AdminTeamPage() {
           <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6">
             {/* Avatar with Camera Trigger */}
             <div className="relative group/avatar shrink-0">
-              <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full border-2 border-[#EAB308] bg-stone-900 flex items-center justify-center overflow-hidden shadow-md">
+              <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full border-2 border-[#FEE815] bg-stone-900 flex items-center justify-center overflow-hidden shadow-md">
                 {currentAdmin?.avatar ? (
                   <img
                     src={currentAdmin.avatar}
@@ -246,7 +246,7 @@ export default function AdminTeamPage() {
                     className="w-full h-full object-cover"
                   />
                 ) : (
-                  <span className="font-serif font-extrabold text-3xl sm:text-4xl text-[#FACC15]">
+                  <span className="font-serif font-extrabold text-3xl sm:text-4xl text-[#FFF04B]">
                     {currentAdmin?.name?.charAt(0).toUpperCase() || 'A'}
                   </span>
                 )}
@@ -260,7 +260,7 @@ export default function AdminTeamPage() {
                 className="absolute inset-0 rounded-full bg-black/60 opacity-0 group-hover/avatar:opacity-100 flex flex-col items-center justify-center text-white transition-opacity cursor-pointer text-[10px] font-bold gap-1"
                 title="Upload Profile Photo"
               >
-                <Camera className="w-5 h-5 text-[#FACC15]" />
+                <Camera className="w-5 h-5 text-[#FFF04B]" />
                 <span>{uploadingPhoto ? 'Uploading...' : 'Change Photo'}</span>
               </button>
 
@@ -344,7 +344,7 @@ export default function AdminTeamPage() {
                     key={member.id}
                     className={`p-4 rounded-2xl border transition-all ${
                       isCurrentUser
-                        ? 'border-[#EAB308] bg-amber-50/30 shadow-xs'
+                        ? 'border-[#FEE815] bg-amber-50/30 shadow-xs'
                         : 'border-stone-200 bg-stone-50 hover:bg-white hover:border-stone-300'
                     }`}
                   >
@@ -358,7 +358,7 @@ export default function AdminTeamPage() {
                             className="w-full h-full object-cover"
                           />
                         ) : (
-                          <span className="font-serif font-bold text-base text-[#FACC15]">
+                          <span className="font-serif font-bold text-base text-[#FFF04B]">
                             {member.name.charAt(0).toUpperCase()}
                           </span>
                         )}
@@ -371,7 +371,7 @@ export default function AdminTeamPage() {
                             {member.name}
                           </p>
                           {isCurrentUser && (
-                            <span className="text-[9px] font-bold bg-[#EAB308] text-black px-1.5 py-0.2 rounded-full">
+                            <span className="text-[9px] font-bold bg-[#FEE815] text-black px-1.5 py-0.2 rounded-full">
                               You
                             </span>
                           )}
@@ -517,7 +517,7 @@ export default function AdminTeamPage() {
                   <button
                     type="submit"
                     disabled={addLoading}
-                    className="px-5 py-2 text-black bg-[#EAB308] hover:bg-[#FACC15] font-extrabold rounded-xl transition-all cursor-pointer shadow-xs disabled:opacity-50"
+                    className="px-5 py-2 text-black bg-[#FEE815] hover:bg-[#FFF04B] font-extrabold rounded-xl transition-all cursor-pointer shadow-xs disabled:opacity-50"
                   >
                     {addLoading ? 'Adding Member...' : 'Create Staff Member'}
                   </button>

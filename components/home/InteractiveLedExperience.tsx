@@ -142,7 +142,7 @@ export default function InteractiveLedExperience() {
                     onClick={() => setSelectedItem(item)}
                     className={`px-3 py-1.5 rounded-full text-xs font-bold transition-all cursor-pointer ${
                       selectedItem.id === item.id
-                        ? 'bg-[#EAB308] text-stone-950 shadow-xs font-bold'
+                        ? 'bg-[#FEE815] text-stone-950 shadow-xs font-bold'
                         : 'bg-white text-stone-700 border border-stone-200 hover:border-amber-400'
                     }`}
                   >
@@ -176,7 +176,7 @@ export default function InteractiveLedExperience() {
             <div className="pt-2">
               <Link
                 href="/category/led-backlit-wall-art"
-                className="inline-flex items-center justify-center gap-2.5 bg-gradient-to-r from-[#EAB308] via-[#FEF08A] to-[#EAB308] hover:brightness-105 text-[#000000] font-bold text-xs sm:text-sm px-8 py-4 rounded-full shadow-md tracking-wider uppercase transition-all hover:scale-[1.02] group"
+                className="inline-flex items-center justify-center gap-2.5 bg-gradient-to-r from-[#FEE815] via-[#FEF08A] to-[#FEE815] hover:brightness-105 text-[#000000] font-bold text-xs sm:text-sm px-8 py-4 rounded-full shadow-md tracking-wider uppercase transition-all hover:scale-[1.02] group"
               >
                 <Flame className="w-4 h-4 text-[#000000]" />
                 <span>EXPLORE LED BACKLIT ART</span>
@@ -208,7 +208,7 @@ export default function InteractiveLedExperience() {
                 onClick={() => setSliderPosition(50)}
                 className={`px-3 py-1 rounded-full text-xs font-bold transition-all border flex items-center gap-1 cursor-pointer ${
                   sliderPosition === 50
-                    ? 'bg-[#EAB308] text-stone-950 border-[#EAB308] shadow-xs'
+                    ? 'bg-[#FEE815] text-stone-950 border-[#FEE815] shadow-xs'
                     : 'bg-white text-stone-700 border-stone-200 hover:border-amber-400'
                 }`}
               >
@@ -220,7 +220,7 @@ export default function InteractiveLedExperience() {
                 onClick={() => setSliderPosition(100)}
                 className={`px-3 py-1 rounded-full text-xs font-bold transition-all border flex items-center gap-1 cursor-pointer ${
                   sliderPosition === 100
-                    ? 'bg-[#EAB308] text-stone-950 border-[#EAB308] shadow-xs'
+                    ? 'bg-[#FEE815] text-stone-950 border-[#FEE815] shadow-xs'
                     : 'bg-white text-stone-700 border-stone-200 hover:border-amber-400'
                 }`}
               >
@@ -252,7 +252,7 @@ export default function InteractiveLedExperience() {
                 />
 
                 {/* warm ambient Ambient Halo Glow Layer */}
-                <div className="absolute inset-0 bg-radial from-[#EAB308]/25 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute inset-0 bg-radial from-[#FEE815]/25 via-transparent to-transparent pointer-events-none" />
 
                 {/* Top Right Label: ambient LED BACKLIT */}
                 <div className="absolute top-2.5 sm:top-3.5 right-2.5 sm:right-3.5 z-20 bg-stone-900/90 text-amber-300 border border-amber-400/50 px-2 sm:px-3 py-0.5 sm:py-1 rounded-full text-[10px] sm:text-xs font-bold shadow-md backdrop-blur-xs flex items-center gap-1 sm:gap-1.5 pointer-events-none">
@@ -284,7 +284,7 @@ export default function InteractiveLedExperience() {
                 className="absolute top-0 bottom-0 z-30 pointer-events-none flex items-center justify-center"
                 style={{ left: `${sliderPosition}%`, transform: 'translateX(-50%)' }}
               >
-                <div className="w-0.5 h-full bg-[#EAB308] shadow-[0_0_10px_#D6AA55]" />
+                <div className="w-0.5 h-full bg-[#FEE815] shadow-[0_0_10px_#D6AA55]" />
                 <div className="absolute w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white border-2 border-amber-500 shadow-md flex items-center justify-center text-amber-600 cursor-ew-resize">
                   <span className="text-[11px] font-bold tracking-tighter">↔</span>
                 </div>

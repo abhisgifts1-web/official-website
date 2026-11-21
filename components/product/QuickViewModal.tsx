@@ -117,7 +117,7 @@ export default function QuickViewModal({ product, isOpen, onClose }: QuickViewMo
                   className="w-full h-full object-cover"
                 />
                 {product.hasLedBacklight && (
-                  <span className="absolute top-3 left-3 bg-[#EAB308] text-stone-950 font-bold text-[10px] uppercase px-2.5 py-1 rounded-full shadow-xs flex items-center gap-1">
+                  <span className="absolute top-3 left-3 bg-[#FEE815] text-stone-950 font-bold text-[10px] uppercase px-2.5 py-1 rounded-full shadow-xs flex items-center gap-1">
                     <Sparkles className="w-3 h-3" /> Warm Backlit LED
                   </span>
                 )}
@@ -217,7 +217,7 @@ export default function QuickViewModal({ product, isOpen, onClose }: QuickViewMo
                       <div className="font-bold flex items-center gap-1 text-amber-700">
                         <Ruler className="w-3 h-3 text-amber-600" /> Custom Size
                       </div>
-                      <div className="text-[11px] text-[#25D366] font-medium">Price in WhatsApp chat</div>
+                      <div className="text-[11px] text-stone-900 font-bold">Tailored Dimensions</div>
                     </button>
                   </div>
 
@@ -263,7 +263,7 @@ export default function QuickViewModal({ product, isOpen, onClose }: QuickViewMo
                 <button
                   type="button"
                   onClick={handleBuyNow}
-                  className="w-full bg-[#EAB308] hover:bg-[#FACC15] text-stone-950 py-3 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-md border border-amber-500 transition-all cursor-pointer uppercase tracking-wider"
+                  className="w-full bg-[#FEE815] hover:bg-[#FFF04B] text-stone-950 py-3 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-md border border-[#FEE815] transition-all cursor-pointer uppercase tracking-wider"
                 >
                   <span>Buy Now • ₹{(activePrice * quantity).toLocaleString('en-IN')}</span>
                   <ArrowRight className="w-4 h-4 text-stone-950" />

@@ -101,8 +101,8 @@ export default function InSituShowcase() {
       <div className="max-w-6xl 2xl:max-w-7xl mx-auto">
         {/* Compact, Well-Proportioned Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-3.5 sm:mb-4">
-          <span className="text-[11px] uppercase tracking-widest font-bold text-[#FFFFFF] bg-[#1E1E1E] border border-[#EAB308]/80 px-3 py-1 rounded-full inline-flex items-center gap-1.5 shadow-2xs">
-            <Layers className="w-3.5 h-3.5 text-[#EAB308]" />
+          <span className="text-[11px] uppercase tracking-widest font-bold text-[#FFFFFF] bg-[#1E1E1E] border border-[#FEE815]/80 px-3 py-1 rounded-full inline-flex items-center gap-1.5 shadow-2xs">
+            <Layers className="w-3.5 h-3.5 text-[#FEE815]" />
             <span>Interior In Situ Inspiration</span>
           </span>
           <h2 className="font-serif font-bold text-xl sm:text-2xl lg:text-3xl text-[#FFFFFF] mt-1.5 tracking-tight">
@@ -121,7 +121,7 @@ export default function InSituShowcase() {
                 onClick={() => setActiveRoom(room)}
                 className={`px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full text-xs font-semibold transition-all duration-200 cursor-pointer flex items-center gap-1.5 ${
                   activeRoom.id === room.id
-                    ? 'bg-[#EAB308] text-[#000000] border border-[#EAB308] shadow-sm scale-102'
+                    ? 'bg-[#FEE815] text-[#000000] border border-[#FEE815] shadow-sm scale-102'
                     : 'bg-white hover:bg-[#121212] border border-[#2D2D2D] text-[#FFFFFF] shadow-2xs'
                 }`}
               >
@@ -133,7 +133,7 @@ export default function InSituShowcase() {
         </div>
 
         {/* Main Showcase Stage with Proportional Width and Height */}
-        <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-xl border border-[#EAB308]/40 bg-[#121212] w-full aspect-[16/10] sm:aspect-[16/9] lg:aspect-[2.05/1] max-h-[350px] sm:max-h-[390px] lg:max-h-[415px] group">
+        <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-xl border border-[#FEE815]/40 bg-[#121212] w-full aspect-[16/10] sm:aspect-[16/9] lg:aspect-[2.05/1] max-h-[350px] sm:max-h-[390px] lg:max-h-[415px] group">
           {/* Architectural Room Image */}
           <img
             key={activeRoom.id}
@@ -153,7 +153,7 @@ export default function InSituShowcase() {
 
           {/* Top Control Bar: Room Badge & Light Switch */}
           <div className="absolute top-2.5 sm:top-3.5 inset-x-2.5 sm:inset-x-4 flex items-center justify-between z-10">
-            <span className="inline-flex items-center gap-1.5 text-[10px] sm:text-[11px] font-bold uppercase tracking-wider bg-[#121212]/85 backdrop-blur-md text-[#EAB308] px-2.5 sm:px-3 py-1 rounded-full border border-[#EAB308]/40 shadow-xs">
+            <span className="inline-flex items-center gap-1.5 text-[10px] sm:text-[11px] font-bold uppercase tracking-wider bg-[#121212]/85 backdrop-blur-md text-[#FEE815] px-2.5 sm:px-3 py-1 rounded-full border border-[#FEE815]/40 shadow-xs">
               <span>{activeRoom.icon}</span>
               <span>{activeRoom.title}</span>
             </span>
@@ -163,29 +163,29 @@ export default function InSituShowcase() {
               onClick={() => setGlowActive(!glowActive)}
               className={`inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1 rounded-full text-[11px] font-semibold backdrop-blur-md border transition-all cursor-pointer ${
                 glowActive
-                  ? 'bg-[#181818]/90 text-[#EAB308] border-[#EAB308]/60 shadow-[0_0_12px_rgba(234,179,8,0.4)]'
+                  ? 'bg-[#181818]/90 text-[#FEE815] border-[#FEE815]/60 shadow-[0_0_12px_rgba(254,232,21,0.4)]'
                   : 'bg-[#121212]/80 text-[#E5E7EB]/70 border-[#2D2D2D]/30'
               }`}
             >
-              <Lightbulb className={`w-3 h-3 ${glowActive ? 'text-[#EAB308] animate-pulse' : 'text-stone-500'}`} />
+              <Lightbulb className={`w-3 h-3 ${glowActive ? 'text-[#FEE815] animate-pulse' : 'text-stone-500'}`} />
               <span>LED Halo: <strong>{glowActive ? 'ON' : 'OFF'}</strong></span>
             </button>
           </div>
 
           {/* Interactive Floating Hotspot Beacon positioned over the wall art */}
           <div className="absolute top-1/4 sm:top-[28%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 pointer-events-none animate-divine-float">
-            <div className="flex items-center gap-1.5 sm:gap-2 bg-[#121212]/90 backdrop-blur-md text-[#EAB308] border border-[#EAB308]/50 px-2.5 sm:px-3 py-1 rounded-full shadow-lg text-[10px] sm:text-[11px] font-semibold">
-              <span className="w-2 h-2 rounded-full bg-[#EAB308] shadow-[0_0_8px_#B88A35] animate-ping" />
+            <div className="flex items-center gap-1.5 sm:gap-2 bg-[#121212]/90 backdrop-blur-md text-[#FEE815] border border-[#FEE815]/50 px-2.5 sm:px-3 py-1 rounded-full shadow-lg text-[10px] sm:text-[11px] font-semibold">
+              <span className="w-2 h-2 rounded-full bg-[#FEE815] shadow-[0_0_8px_#B88A35] animate-ping" />
               <span>{activeRoom.hotspotLabel}</span>
             </div>
           </div>
 
           {/* Bottom Details Glassmorphic Overlay Bar */}
           <div className="absolute bottom-2.5 sm:bottom-3 inset-x-2.5 sm:inset-x-3.5 z-10">
-            <div className="bg-[#121212]/85 backdrop-blur-md border border-[#EAB308]/30 rounded-xl sm:rounded-2xl p-2.5 sm:p-3 sm:py-2.5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-3 text-left">
+            <div className="bg-[#121212]/85 backdrop-blur-md border border-[#FEE815]/30 rounded-xl sm:rounded-2xl p-2.5 sm:p-3 sm:py-2.5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-3 text-left">
               <div className="space-y-0.5">
                 <div className="flex items-center gap-2">
-                  <span className="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-[#EAB308] bg-[#181818] border border-[#EAB308]/40 px-2 py-0.5 rounded">
+                  <span className="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-[#FEE815] bg-[#181818] border border-[#FEE815]/40 px-2 py-0.5 rounded">
                     Featured Piece
                   </span>
                   <span className="text-[11px] text-[#E5E7EB] font-sans hidden sm:inline">
@@ -196,7 +196,7 @@ export default function InSituShowcase() {
                   {activeRoom.subtitle}
                 </h3>
                 <p className="text-[11px] text-[#E5E7EB]/90 font-sans hidden md:block">
-                  💡 <span className="text-[#EAB308] font-medium">Styling Tip:</span> {activeRoom.guideTip}
+                  💡 <span className="text-[#FEE815] font-medium">Styling Tip:</span> {activeRoom.guideTip}
                 </p>
               </div>
 
@@ -215,10 +215,10 @@ export default function InSituShowcase() {
 
                 <Link
                   href={`/category/${activeRoom.artworkSlug}`}
-                  className="inline-flex items-center gap-1.5 bg-[#EAB308] hover:bg-[#FACC15] text-[#000000] border border-[#EAB308]/60 font-semibold text-xs px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full shadow-[0_4px_14px_rgba(0,0,0,0.4)] transition-all duration-200 hover:-translate-y-0.5"
+                  className="inline-flex items-center gap-1.5 bg-[#FEE815] hover:bg-[#FFF04B] text-[#000000] border border-[#FEE815]/60 font-semibold text-xs px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full shadow-[0_4px_14px_rgba(0,0,0,0.4)] transition-all duration-200 hover:-translate-y-0.5"
                 >
                   <span>Shop Artwork</span>
-                  <ArrowRight className="w-3.5 h-3.5 text-[#EAB308]" />
+                  <ArrowRight className="w-3.5 h-3.5 text-[#FEE815]" />
                 </Link>
               </div>
             </div>

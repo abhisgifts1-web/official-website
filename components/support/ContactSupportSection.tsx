@@ -68,9 +68,9 @@ export default function ContactSupportSection() {
       {/* 4 Pillars of Contact Support */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-12">
         {/* 1. Direct WhatsApp */}
-        <div className="bg-white rounded-2xl p-5 border border-stone-200 shadow-sm hover:border-[#25D366] transition-all flex flex-col justify-between">
+        <div className="bg-white rounded-2xl p-5 border border-stone-200 shadow-sm hover:border-[#FEE815] transition-all flex flex-col justify-between">
           <div className="space-y-3">
-            <div className="w-10 h-10 rounded-xl bg-[#25D366]/10 text-[#25D366] flex items-center justify-center">
+            <div className="w-10 h-10 rounded-xl bg-[#FEE815]/20 text-stone-950 flex items-center justify-center">
               <MessageCircle className="w-5 h-5 fill-current" />
             </div>
             <div>
@@ -85,16 +85,16 @@ export default function ContactSupportSection() {
               href={waUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-1.5 w-full bg-[#25D366] hover:bg-[#20BD5A] text-white text-xs font-bold py-2.5 rounded-full transition-colors shadow-sm"
+              className="inline-flex items-center justify-center gap-1.5 w-full bg-[#FEE815] hover:bg-[#FFF04B] text-black text-xs font-bold py-2.5 rounded-full transition-colors shadow-sm"
             >
-              <MessageCircle className="w-3.5 h-3.5 fill-white" />
+              <MessageCircle className="w-3.5 h-3.5 fill-black text-black" />
               <span>Chat on WhatsApp</span>
             </a>
           </div>
         </div>
 
         {/* 2. Direct Phone Call */}
-        <div className="bg-white rounded-2xl p-5 border border-stone-200 shadow-sm hover:border-[#EAB308] transition-all flex flex-col justify-between">
+        <div className="bg-white rounded-2xl p-5 border border-stone-200 shadow-sm hover:border-[#FEE815] transition-all flex flex-col justify-between">
           <div className="space-y-3">
             <div className="w-10 h-10 rounded-xl bg-amber-50 text-amber-900 border border-amber-200 flex items-center justify-center">
               <Phone className="w-5 h-5" />
@@ -109,7 +109,7 @@ export default function ContactSupportSection() {
           <div className="mt-5 pt-4 border-t border-stone-100">
             <a
               href={`tel:${INITIAL_SETTINGS.supportPhone.replace(/\s+/g, '')}`}
-              className="inline-flex items-center justify-center gap-1.5 w-full bg-[#EAB308] hover:bg-[#CA8A04] text-stone-950 text-xs font-bold py-2.5 rounded-full transition-colors shadow-sm"
+              className="inline-flex items-center justify-center gap-1.5 w-full bg-[#FEE815] hover:bg-[#E0CC04] text-stone-950 text-xs font-bold py-2.5 rounded-full transition-colors shadow-sm"
             >
               <Phone className="w-3.5 h-3.5" />
               <span>{INITIAL_SETTINGS.supportPhone}</span>
@@ -118,7 +118,7 @@ export default function ContactSupportSection() {
         </div>
 
         {/* 3. Studio Location */}
-        <div className="bg-white rounded-2xl p-5 border border-stone-200 shadow-sm hover:border-[#EAB308] transition-all flex flex-col justify-between">
+        <div className="bg-white rounded-2xl p-5 border border-stone-200 shadow-sm hover:border-[#FEE815] transition-all flex flex-col justify-between">
           <div className="space-y-3">
             <div className="w-10 h-10 rounded-xl bg-stone-100 text-stone-800 border border-stone-200 flex items-center justify-center">
               <MapPin className="w-5 h-5 text-stone-700" />
@@ -138,7 +138,7 @@ export default function ContactSupportSection() {
         </div>
 
         {/* 4. Custom Photo Frame & Artisan Studio */}
-        <div className="bg-white rounded-2xl p-5 border border-stone-200 shadow-sm hover:border-[#EAB308] transition-all flex flex-col justify-between">
+        <div className="bg-white rounded-2xl p-5 border border-stone-200 shadow-sm hover:border-[#FEE815] transition-all flex flex-col justify-between">
           <div className="space-y-3">
             <div className="w-10 h-10 rounded-xl bg-amber-50 text-amber-800 border border-amber-200 flex items-center justify-center">
               <Sparkles className="w-5 h-5 text-amber-600" />

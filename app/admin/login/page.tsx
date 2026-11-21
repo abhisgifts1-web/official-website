@@ -115,7 +115,7 @@ export default function AdminLoginPage() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-[#EAB308] hover:bg-[#FACC15] disabled:opacity-50 text-black font-extrabold text-xs sm:text-sm py-3.5 rounded-xl shadow-md flex items-center justify-center gap-2 transition-all cursor-pointer"
+            className="w-full bg-[#FEE815] hover:bg-[#FFF04B] disabled:opacity-50 text-black font-extrabold text-xs sm:text-sm py-3.5 rounded-xl shadow-md flex items-center justify-center gap-2 transition-all cursor-pointer"
           >
             <Lock className="w-4 h-4 text-black" />
             <span>{loading ? 'Authenticating...' : 'Sign In to Portal'}</span>

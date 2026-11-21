@@ -23,55 +23,55 @@ export default function AnnouncementBar() {
     <div className="flex items-center gap-6 sm:gap-10 shrink-0 px-3">
       {/* 1. Craftsmanship */}
       <span className="flex items-center gap-1.5 shrink-0 text-[#E5E7EB]">
-        <Sparkles className="w-3.5 h-3.5 text-[#FACC15] shrink-0" />
+        <Sparkles className="w-3.5 h-3.5 text-[#FFF04B] shrink-0" />
         <span className="font-medium">Handcrafted Acrylic Photo Frames</span>
       </span>
 
-      <span className="w-1.5 h-1.5 rounded-full bg-[#FACC15]/50 shrink-0" />
+      <span className="w-1.5 h-1.5 rounded-full bg-[#FFF04B]/50 shrink-0" />
 
       {/* 2. Studio Location */}
       <span className="flex items-center gap-1.5 shrink-0 text-[#E5E7EB]">
-        <ShieldCheck className="w-3.5 h-3.5 text-[#FACC15] shrink-0" />
+        <ShieldCheck className="w-3.5 h-3.5 text-[#FFF04B] shrink-0" />
         <span className="font-medium">Dilsukhnagar, Hyderabad Store</span>
       </span>
 
-      <span className="w-1.5 h-1.5 rounded-full bg-[#FACC15]/50 shrink-0" />
+      <span className="w-1.5 h-1.5 rounded-full bg-[#FFF04B]/50 shrink-0" />
 
       {/* 3. Products & CTA */}
       <span className="flex items-center gap-1.5 shrink-0 text-[#FFFFFF]">
-        <Flame className="w-3.5 h-3.5 text-[#FACC15] animate-pulse shrink-0" />
+        <Flame className="w-3.5 h-3.5 text-[#FFF04B] animate-pulse shrink-0" />
         <span className="font-medium">
           Custom Photo Frames • LED Light Frames
         </span>
         <Link
           href="/shop"
-          className="inline-flex items-center gap-1 underline decoration-[#EAB308] hover:text-[#FACC15] text-[#FFFFFF] font-bold ml-1.5 transition-colors cursor-pointer"
+          className="inline-flex items-center gap-1 underline decoration-[#FEE815] hover:text-[#FFF04B] text-[#FFFFFF] font-bold ml-1.5 transition-colors cursor-pointer"
         >
           <span>Explore Frames</span>
-          <ArrowRight className="w-3 h-3 text-[#FACC15]" />
+          <ArrowRight className="w-3 h-3 text-[#FFF04B]" />
         </Link>
       </span>
 
-      <span className="w-1.5 h-1.5 rounded-full bg-[#FACC15]/50 shrink-0" />
+      <span className="w-1.5 h-1.5 rounded-full bg-[#FFF04B]/50 shrink-0" />
 
       {/* 4. Craftsmanship */}
       <span className="flex items-center gap-1.5 shrink-0 text-[#E5E7EB]">
-        <Sparkles className="w-3.5 h-3.5 text-[#FACC15] shrink-0" />
+        <Sparkles className="w-3.5 h-3.5 text-[#FFF04B] shrink-0" />
         <span className="font-medium">Direct Workshop Fabrication</span>
       </span>
 
-      <span className="w-1.5 h-1.5 rounded-full bg-[#FACC15]/50 shrink-0" />
+      <span className="w-1.5 h-1.5 rounded-full bg-[#FFF04B]/50 shrink-0" />
 
       {/* 5. Phone Support */}
       <a
         href={`tel:${INITIAL_SETTINGS.supportPhone}`}
-        className="flex items-center gap-1.5 shrink-0 text-[#E5E7EB] hover:text-[#FACC15] transition-colors cursor-pointer"
+        className="flex items-center gap-1.5 shrink-0 text-[#E5E7EB] hover:text-[#FFF04B] transition-colors cursor-pointer"
       >
-        <Phone className="w-3 h-3 text-[#FACC15] shrink-0" />
+        <Phone className="w-3 h-3 text-[#FFF04B] shrink-0" />
         <span>{INITIAL_SETTINGS.supportPhone}</span>
       </a>
 
-      <span className="w-1.5 h-1.5 rounded-full bg-[#FACC15]/50 shrink-0" />
+      <span className="w-1.5 h-1.5 rounded-full bg-[#FFF04B]/50 shrink-0" />
     </div>
   );
 
