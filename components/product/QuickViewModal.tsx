@@ -258,7 +258,7 @@ export default function QuickViewModal({ product, isOpen, onClose }: QuickViewMo
                 </div>
               </div>
 
-              {/* Action Button: Direct Buy Now with WhatsApp Order Option */}
+              {/* Action Button: Direct Buy Now */}
               <div className="space-y-2 pt-4">
                 <button
                   type="button"
@@ -268,24 +268,6 @@ export default function QuickViewModal({ product, isOpen, onClose }: QuickViewMo
                   <span>Buy Now • ₹{(activePrice * quantity).toLocaleString('en-IN')}</span>
                   <ArrowRight className="w-4 h-4 text-stone-950" />
                 </button>
-
-                {isCustomSize && (
-                  <a
-                    href={`https://wa.me/${(INITIAL_SETTINGS.whatsappNumber || '919032372782').replace(/[^0-9]/g, '')}?text=${encodeURIComponent(
-                      `Hello Abhi's Gifts! 🙏\nI want to place an order for: "${product.title}"\n• Custom Size: ${customWidth}x${customHeight} inches (${customSizeCalc.dimensionsCm})\n• Auto-Calculated Price: ₹${activePrice.toLocaleString('en-IN')}\n• Artwork Reference: ${
-                        typeof window !== 'undefined' && product.images?.[0]
-                          ? `${window.location.origin}${product.images[0].startsWith('/') ? '' : '/'}${product.images[0]}`
-                          : product.images?.[0] || ''
-                      }\nPlease assist me with proofing before printing. Thank you!`
-                    )}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full bg-[#25D366]/10 hover:bg-[#25D366]/20 border border-[#25D366]/40 text-[#128C7E] py-2.5 rounded-xl font-bold text-xs flex items-center justify-center gap-2 transition-all cursor-pointer"
-                  >
-                    <MessageCircle className="w-4 h-4 fill-current text-[#25D366]" />
-                    <span>Order via WhatsApp (₹{activePrice.toLocaleString('en-IN')})</span>
-                  </a>
-                )}
 
                 <div className="flex items-center justify-between text-xs pt-1">
                   <span className="flex items-center gap-1 text-stone-500">

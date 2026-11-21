@@ -102,7 +102,7 @@ export default function CustomizationProcessSection() {
           className="inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 sm:py-3.5 rounded-full bg-white hover:bg-stone-50 text-stone-900 font-semibold text-xs sm:text-sm border border-stone-300 transition-colors shadow-2xs"
         >
           <MessageCircle className="w-4 h-4 text-[#25D366] fill-[#25D366]" />
-          <span>Order via WhatsApp Chat</span>
+          <span>Chat with Design Team</span>
         </a>
       </div>
     </section>

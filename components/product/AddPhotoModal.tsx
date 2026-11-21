@@ -167,58 +167,6 @@ export default function AddPhotoModal({
     }
   };
 
-  // WhatsApp order handler — uploads photo to server, includes public URL in message
-  const handleWhatsAppOrder = async () => {
-    let photoUrl = uploadedPhotoUrl;
-
-    if (!photoUrl && photoPreview) {
-      if (photoPreview.startsWith('data:')) {
-        setWaUploading(true);
-        try {
-          const compressed = await compressImageToDataUrl(photoPreview);
-          const res = await fetch('/api/upload-photo', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ image: compressed }),
-          });
-          const data = await res.json();
-          photoUrl = data?.cdnUrl || (data?.url ? `${window.location.origin}${data.url}` : null);
-          if (photoUrl) setUploadedPhotoUrl(photoUrl);
-        } catch (err) {
-          console.error('Error uploading custom photo for WhatsApp order:', err);
-        } finally {
-          setWaUploading(false);
-        }
-      } else {
-        photoUrl = photoPreview.startsWith('http')
-          ? photoPreview
-          : `${window.location.origin}${photoPreview.startsWith('/') ? '' : '/'}${photoPreview}`;
-      }
-    }
-
-    // Build WhatsApp message with photo URL if available
-    const lines = [
-      `Hello Abhi's Gifts! 🙏`,
-      `I want to place an order for:`,
-      `📦 *${product.title}*`,
-      ``,
-      photoUrl
-        ? `📸 *Custom Customer Photo Link:* ${photoUrl}\n👉 *(Click link to view/download original high-res customer photo)*`
-        : photoPreview
-        ? `📸 *Custom Photo:* [Customer photo attached with order]`
-        : `🖼️ *Artwork:* Using catalog artwork`,
-      `📐 *Size:* ${activeSizeLabel}`,
-      `💰 *Price:* ₹${activePrice.toLocaleString('en-IN')}`,
-      ledEnabled ? `💡 *Lighting:* LED Backlit (12V Adapter)` : '',
-      customText.trim() ? `✍️ *Text/Dedication:* "${customText.trim()}"` : '',
-      ``,
-      `Please confirm my order and share proofing layout before printing. Thank you!`,
-    ].filter(Boolean).join('\n');
-
-    const waNum = (INITIAL_SETTINGS.whatsappNumber || '919032372782').replace(/[^0-9]/g, '');
-    window.open(`https://wa.me/${waNum}?text=${encodeURIComponent(lines)}`, '_blank');
-  };
-
   const handleAddToCartWithPhoto = async (redirectCheckout = false) => {
     let finalImage = uploadedPhotoUrl || photoPreview || product.images[0];
     if (!uploadedPhotoUrl && photoPreview && photoPreview.startsWith('data:')) {
@@ -571,55 +519,11 @@ export default function AddPhotoModal({
             </button>
           </div>
 
-          <button
-            type="button"
-            onClick={handleWhatsAppOrder}
-            disabled={waUploading}
-            className="w-full py-2.5 px-4 rounded-xl font-bold text-xs flex items-center justify-center gap-2 bg-[#25D366]/15 hover:bg-[#25D366]/25 text-[#128C7E] border border-[#25D366]/40 transition-all cursor-pointer disabled:opacity-60"
-          >
-            {waUploading ? (
-              <>
-                <svg className="animate-spin w-4 h-4 text-[#128C7E]" fill="none" viewBox="0 0 24 24">
-                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z" />
-                </svg>
-                <span>Uploading Photo for WhatsApp...</span>
-              </>
-            ) : (
-              <>
-                <MessageCircle className="w-4 h-4 fill-current text-[#25D366]" />
-                <span>Order via WhatsApp (₹{activePrice.toLocaleString('en-IN')})</span>
-              </>
-            )}
-          </button>
-
           <div className="flex items-center justify-between text-xs pt-1">
-            {/* WhatsApp Order — uploads photo to server, includes direct link in message */}
-            <button
-              type="button"
-              onClick={handleWhatsAppOrder}
-              disabled={waUploading}
-              className={`font-semibold flex items-center gap-1.5 transition-colors ${
-                waUploading
-                  ? 'text-amber-600/50 cursor-wait'
-                  : 'text-amber-800 hover:underline cursor-pointer'
-              }`}
-            >
-              {waUploading ? (
-                <>
-                  <svg className="animate-spin w-3.5 h-3.5 text-amber-600" fill="none" viewBox="0 0 24 24">
-                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z" />
-                  </svg>
-                  <span>Uploading photo…</span>
-                </>
-              ) : (
-                <>
-                  <MessageCircle className="w-3.5 h-3.5" />
-                  <span>Order via WhatsApp{photoPreview ? ' + Photo' : ''}</span>
-                </>
-              )}
-            </button>
+            <span className="text-stone-400 text-[11px] flex items-center gap-1">
+              <ShieldCheck className="w-3.5 h-3.5 text-amber-500" />
+              <span>100% Insured Pan-India Safe Delivery</span>
+            </span>
 
             <Link
               href={`/customise?product=${product.slug}&title=${encodeURIComponent(product.title)}`}
@@ -634,9 +538,9 @@ export default function AddPhotoModal({
           {/* Info note when photo is uploaded */}
           {photoPreview && (
             <div className="mt-2 bg-[#EAB308]/10 border border-[#EAB308]/40 rounded-xl px-3 py-2 flex items-center gap-2">
-              <Send className="w-3.5 h-3.5 text-[#EAB308] shrink-0" />
+              <Check className="w-3.5 h-3.5 text-[#EAB308] shrink-0" />
               <p className="text-[11px] text-[#D1D5DB]">
-                Your photo will be <span className="text-[#EAB308] font-semibold">automatically included</span> as a direct link in the WhatsApp message — we can view it instantly.
+                Custom photo is <span className="text-[#EAB308] font-semibold">ready and attached</span>. Proceed to checkout to complete your custom acrylic print order.
               </p>
             </div>
           )}

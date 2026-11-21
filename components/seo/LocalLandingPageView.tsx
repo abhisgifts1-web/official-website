@@ -264,16 +264,13 @@ export default function LocalLandingPageView({
                   <td className="py-3 px-4 text-stone-600">{row.idealFor}</td>
                   <td className="py-3 px-4 font-bold text-stone-900">{row.price}</td>
                   <td className="py-3 px-4">
-                    <a
-                      href={`https://wa.me/917780269927?text=${encodeURIComponent(
-                        `Hi Abhi's Gifts, I want to order a ${row.size} frame (${row.price}) in ${locationName}.`
-                      )}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-xs font-bold text-amber-700 hover:underline"
+                    <Link
+                      href="/shop"
+                      className="text-xs font-bold text-amber-700 hover:underline inline-flex items-center gap-0.5"
                     >
-                      Order on WhatsApp →
-                    </a>
+                      <span>Order Online</span>
+                      <span>→</span>
+                    </Link>
                   </td>
                 </tr>
               ))}

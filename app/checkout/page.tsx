@@ -26,11 +26,10 @@ import {
 } from 'lucide-react';
 import { useCart } from '@/context/CartContext';
 import { ShippingAddress } from '@/types';
-import { getWhatsAppOrderUrl } from '@/lib/whatsapp';
 import { INITIAL_SETTINGS } from '@/lib/data/settings';
 import { compressImageToDataUrl } from '@/lib/utils/imageCompress';
 
-type PaymentOption = 'razorpay' | 'whatsapp';
+type PaymentOption = 'razorpay';
 
 export default function CheckoutPage() {
   const router = useRouter();
@@ -64,7 +63,6 @@ export default function CheckoutPage() {
   const [orderNotes, setOrderNotes] = useState('');
   const [submitting, setSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
-  const [redirectUrl, setRedirectUrl] = useState<string | null>(null);
 
   // Razorpay Simulator Modal State (for smooth testing before user inputs live API keys)
   const [showSimModal, setShowSimModal] = useState(false);
@@ -125,7 +123,7 @@ export default function CheckoutPage() {
 
   const finalPayable = totalAmount;
 
-  if (items.length === 0 && !redirectUrl) {
+  if (items.length === 0) {
     return (
       <div className="max-w-2xl mx-auto px-4 py-20 text-center space-y-4 bg-white min-h-[60vh] flex flex-col items-center justify-center">
         <div className="w-16 h-16 rounded-full bg-stone-100 text-stone-900 border border-amber-300 flex items-center justify-center mx-auto shadow-xs">
@@ -230,7 +228,7 @@ export default function CheckoutPage() {
             customer: formData,
             items: preparedItems,
             couponCode: appliedCoupon?.code,
-            paymentMethod: paymentMethod === 'razorpay' ? 'Razorpay' : 'WhatsApp',
+            paymentMethod: 'Razorpay',
             notes: orderNotes,
           }),
         });
@@ -354,23 +352,6 @@ export default function CheckoutPage() {
           setShowSimModal(true);
           setSubmitting(false);
         }
-      } else if (paymentMethod === 'whatsapp') {
-        const waUrl = getWhatsAppOrderUrl({
-          orderId: createdOrderId,
-          customer: formData,
-          items: preparedItems,
-          subtotal,
-          discountAmount,
-          couponCode: appliedCoupon?.code,
-          shippingFee,
-          totalAmount: finalPayable,
-          notes: orderNotes,
-          baseUrl: window.location.origin,
-        });
-
-        setRedirectUrl(waUrl);
-        clearCart();
-        window.location.href = waUrl;
       }
     } catch (err: any) {
       setErrorMessage(err.message || 'An error occurred while creating your order. Please try again.');
@@ -429,27 +410,6 @@ export default function CheckoutPage() {
           <span>Continue Shopping</span>
         </Link>
       </div>
-
-      {redirectUrl && (
-        <div className="p-6 bg-stone-50 border border-amber-300 rounded-3xl text-center space-y-3 shadow-sm">
-          <div className="w-12 h-12 bg-[#25D366]/10 text-[#25D366] rounded-full flex items-center justify-center mx-auto">
-            <MessageCircle className="w-6 h-6 fill-current" />
-          </div>
-          <h3 className="font-serif font-bold text-lg text-stone-900">Redirecting to WhatsApp...</h3>
-          <p className="text-xs text-stone-600 max-w-md mx-auto">
-            Your order details have been securely prepared. If WhatsApp didn’t open automatically, click below to open your chat.
-          </p>
-          <a
-            href={redirectUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20BD5A] text-white font-bold text-xs px-6 py-3 rounded-full shadow-md transition-all cursor-pointer uppercase tracking-wider"
-          >
-            <Send className="w-4 h-4 fill-white" />
-            <span>Open WhatsApp Now</span>
-          </a>
-        </div>
-      )}
 
       <form onSubmit={handleSubmit} className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         {/* LEFT COLUMN: Address & Payment Selection (7 Cols) */}
@@ -611,21 +571,14 @@ export default function CheckoutPage() {
             </div>
 
             <div className="space-y-3">
-              {/* Option 1: Razorpay Online Payment (Default & Recommended) */}
-              <div
-                onClick={() => setPaymentMethod('razorpay')}
-                className={`flex items-start gap-3.5 p-4 sm:p-5 rounded-2xl border-2 transition-all cursor-pointer ${
-                  paymentMethod === 'razorpay'
-                    ? 'border-amber-500 bg-amber-50/30 ring-2 ring-amber-400/20 shadow-xs'
-                    : 'border-stone-200 hover:border-stone-300 bg-white'
-                }`}
-              >
+              {/* Online Payment (Razorpay) */}
+              <div className="flex items-start gap-3.5 p-4 sm:p-5 rounded-2xl border-2 border-amber-500 bg-amber-50/30 ring-2 ring-amber-400/20 shadow-xs">
                 <input
                   type="radio"
                   name="paymentMethod"
                   value="razorpay"
-                  checked={paymentMethod === 'razorpay'}
-                  onChange={() => setPaymentMethod('razorpay')}
+                  checked={true}
+                  readOnly
                   className="mt-1 accent-amber-600 w-4 h-4 cursor-pointer"
                 />
                 <div className="flex-1 space-y-1.5">
@@ -633,10 +586,10 @@ export default function CheckoutPage() {
                     <span className="font-bold text-sm text-stone-900 flex items-center gap-2">
                       <span>Online Payment (Razorpay)</span>
                       <span className="text-[10px] font-bold text-amber-900 bg-amber-100 border border-amber-300 px-2 py-0.5 rounded-full">
-                        Recommended
+                        100% Secure
                       </span>
                     </span>
-                    <span className="text-[10.5px] font-semibold text-stone-500">
+                    <span className="text-[10.5px] font-semibold text-emerald-700">
                       Zero Processing Fee
                     </span>
                   </div>
@@ -649,39 +602,6 @@ export default function CheckoutPage() {
                     <span className="px-2 py-0.5 bg-stone-100 border border-stone-200 rounded text-[10px] font-bold text-stone-700">NetBanking</span>
                     <span className="px-2 py-0.5 bg-stone-100 border border-stone-200 rounded text-[10px] font-bold text-stone-700">Wallets</span>
                   </div>
-                </div>
-              </div>
-
-              {/* Option 2: WhatsApp Order Assistance */}
-              <div
-                onClick={() => setPaymentMethod('whatsapp')}
-                className={`flex items-start gap-3.5 p-4 rounded-2xl border-2 transition-all cursor-pointer ${
-                  paymentMethod === 'whatsapp'
-                    ? 'border-[#25D366] bg-[#25D366]/5 ring-2 ring-[#25D366]/20 shadow-xs'
-                    : 'border-stone-200 hover:border-stone-300 bg-white'
-                }`}
-              >
-                <input
-                  type="radio"
-                  name="paymentMethod"
-                  value="whatsapp"
-                  checked={paymentMethod === 'whatsapp'}
-                  onChange={() => setPaymentMethod('whatsapp')}
-                  className="mt-1 accent-emerald-600 w-4 h-4 cursor-pointer"
-                />
-                <div className="flex-1 space-y-1">
-                  <div className="flex items-center justify-between">
-                    <span className="font-bold text-xs sm:text-sm text-stone-900 flex items-center gap-1.5">
-                      <MessageCircle className="w-3.5 h-3.5 text-[#25D366] fill-[#25D366]" />
-                      <span>WhatsApp Order Assistance</span>
-                    </span>
-                    <span className="text-[10.5px] font-semibold text-[#128C7E]">
-                      Live Support
-                    </span>
-                  </div>
-                  <p className="text-xs text-stone-600 leading-relaxed">
-                    Have custom sizing or special queries? Forward your order details directly to our workshop team on WhatsApp.
-                  </p>
                 </div>
               </div>
             </div>
@@ -896,9 +816,7 @@ export default function CheckoutPage() {
               className={`w-full py-4 rounded-2xl font-bold text-sm sm:text-base shadow-md transition-all flex items-center justify-center gap-2.5 cursor-pointer uppercase tracking-wider ${
                 submitting
                   ? 'bg-stone-300 text-stone-500 cursor-not-allowed'
-                  : paymentMethod === 'razorpay'
-                  ? 'bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 hover:from-blue-700 hover:to-indigo-800 text-white shadow-lg shadow-blue-600/25 hover:scale-[1.01]'
-                  : 'bg-[#25D366] hover:bg-[#20BD5A] text-white hover:scale-[1.01]'
+                  : 'bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 hover:from-blue-700 hover:to-indigo-800 text-white shadow-lg shadow-blue-600/25 hover:scale-[1.01]'
               }`}
             >
               {submitting ? (
@@ -906,25 +824,18 @@ export default function CheckoutPage() {
                   <div className="w-4 h-4 border-2 border-white/60 border-t-white rounded-full animate-spin" />
                   <span>Processing Order...</span>
                 </div>
-              ) : paymentMethod === 'razorpay' ? (
+              ) : (
                 <>
                   <Lock className="w-4 h-4 text-emerald-300" />
                   <span>Pay ₹{finalPayable.toLocaleString('en-IN')} with Razorpay</span>
                 </>
-              ) : (
-                <>
-                  <MessageCircle className="w-5 h-5 fill-white" />
-                  <span>Order via WhatsApp • ₹{finalPayable.toLocaleString('en-IN')}</span>
-                </>
               )}
             </button>
 
-            {paymentMethod === 'razorpay' && (
-              <div className="flex items-center justify-center gap-2 text-[11px] text-stone-500 text-center font-medium">
-                <span className="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                <span>UPI (GPay / PhonePe / Paytm) • Credit / Debit Cards • NetBanking • EMI</span>
-              </div>
-            )}
+            <div className="flex items-center justify-center gap-2 text-[11px] text-stone-500 text-center font-medium">
+              <span className="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+              <span>UPI (GPay / PhonePe / Paytm) • Credit / Debit Cards • NetBanking • Wallets</span>
+            </div>
 
             <div className="flex items-center justify-center gap-1.5 text-[11px] text-stone-500 text-center">
               <ShieldCheck className="w-3.5 h-3.5 text-amber-600" />

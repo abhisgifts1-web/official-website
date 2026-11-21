@@ -42,7 +42,7 @@
         "sku": "AG-ADIYOG-1",
         "inStock": true,
         "stockCount": 38,
-        "_id": "6b019a3a42d4f63ee1bcc551"
+        "_id": "6b01b269f97721ad46832a9e"
       },
       {
         "id": "var-s2",
@@ -55,7 +55,7 @@
         "sku": "AG-ADIYOG-2",
         "inStock": true,
         "stockCount": 50,
-        "_id": "6b019a3a42d4f63ee1bcc552"
+        "_id": "6b01b269f97721ad46832a9f"
       },
       {
         "id": "var-s3",
@@ -68,19 +68,19 @@
         "sku": "AG-ADIYOG-3",
         "inStock": true,
         "stockCount": 22,
-        "_id": "6b019a3a42d4f63ee1bcc553"
+        "_id": "6b01b269f97721ad46832aa0"
       }
     ],
     "specifications": [
       {
         "label": "Art Material",
         "value": "Premium Acrylic with CNC Beveled Edges",
-        "_id": "6b019a3a42d4f63ee1bcc576"
+        "_id": "6b01b269f97721ad46832ac3"
       },
       {
         "label": "Lighting Technology",
         "value": "Epistar Ambient Glow LED Perimeter (12V Safe)",
-        "_id": "6b019a3a42d4f63ee1bcc577"
+        "_id": "6b01b269f97721ad46832ac4"
       }
     ],
     "materialAndCare": [
@@ -93,7 +93,7 @@
     ],
     "reviews": [],
     "createdAt": "2026-08-10T00:00:00.000Z",
-    "updatedAt": "2026-11-21T13:18:49.980Z",
+    "updatedAt": "2026-11-21T15:02:01.635Z",
     "orientationVariants": {
       "portrait": [
         {
@@ -107,7 +107,7 @@
           "sku": "AG-ADIYOG-1",
           "inStock": true,
           "stockCount": 38,
-          "_id": "6b019a3a42d4f63ee1bcc573"
+          "_id": "6b01b269f97721ad46832ac0"
         },
         {
           "id": "var-s2",
@@ -120,7 +120,7 @@
           "sku": "AG-ADIYOG-2",
           "inStock": true,
           "stockCount": 50,
-          "_id": "6b019a3a42d4f63ee1bcc574"
+          "_id": "6b01b269f97721ad46832ac1"
         },
         {
           "id": "var-s3",
@@ -133,7 +133,7 @@
           "sku": "AG-ADIYOG-3",
           "inStock": true,
           "stockCount": 22,
-          "_id": "6b019a3a42d4f63ee1bcc575"
+          "_id": "6b01b269f97721ad46832ac2"
         }
       ],
       "landscape": [
@@ -148,7 +148,7 @@
           "sku": "AG-ADIYOG-1",
           "inStock": true,
           "stockCount": 38,
-          "_id": "6b019a3a42d4f63ee1bcc570"
+          "_id": "6b01b269f97721ad46832abd"
         },
         {
           "id": "var-s2",
@@ -161,7 +161,7 @@
           "sku": "AG-ADIYOG-2",
           "inStock": true,
           "stockCount": 50,
-          "_id": "6b019a3a42d4f63ee1bcc571"
+          "_id": "6b01b269f97721ad46832abe"
         },
         {
           "id": "var-s3",
@@ -174,7 +174,7 @@
           "sku": "AG-ADIYOG-3",
           "inStock": true,
           "stockCount": 22,
-          "_id": "6b019a3a42d4f63ee1bcc572"
+          "_id": "6b01b269f97721ad46832abf"
         }
       ],
       "square": [
@@ -189,7 +189,7 @@
           "sku": "AG-ADIYOG-1",
           "inStock": true,
           "stockCount": 38,
-          "_id": "6b019a3a42d4f63ee1bcc56d"
+          "_id": "6b01b269f97721ad46832aba"
         },
         {
           "id": "var-s2",
@@ -202,7 +202,7 @@
           "sku": "AG-ADIYOG-2",
           "inStock": true,
           "stockCount": 50,
-          "_id": "6b019a3a42d4f63ee1bcc56e"
+          "_id": "6b01b269f97721ad46832abb"
         },
         {
           "id": "var-s3",
@@ -215,7 +215,7 @@
           "sku": "AG-ADIYOG-3",
           "inStock": true,
           "stockCount": 22,
-          "_id": "6b019a3a42d4f63ee1bcc56f"
+          "_id": "6b01b269f97721ad46832abc"
         }
       ]
     },
@@ -223,12 +223,12 @@
       {
         "id": "M-18",
         "name": "M-18",
-        "image": "https://tmpfiles.org/dl/whAObEjiF6iK/custom-1795267085215-da379ab1.jpg",
+        "image": "https://res.cloudinary.com/pwjyb57h/image/upload/v1795273281/abhi-gifts/uploads/qe1quvr0zvklrul5gjls.jpg",
         "isPopular": true,
         "mockups": [
-          "https://tmpfiles.org/dl/whAObEjiF6iK/custom-1795267085215-da379ab1.jpg"
+          "https://res.cloudinary.com/pwjyb57h/image/upload/v1795273281/abhi-gifts/uploads/qe1quvr0zvklrul5gjls.jpg"
         ],
-        "_id": "6b019a3a42d4f63ee1bcc554"
+        "_id": "6b01b269f97721ad46832aa1"
       },
       {
         "id": "M-10",
@@ -238,7 +238,7 @@
         "mockups": [
           "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg"
         ],
-        "_id": "6b019a3a42d4f63ee1bcc555"
+        "_id": "6b01b269f97721ad46832aa2"
       },
       {
         "id": "M-1",
@@ -248,7 +248,7 @@
         "mockups": [
           "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg"
         ],
-        "_id": "6b019a3a42d4f63ee1bcc556"
+        "_id": "6b01b269f97721ad46832aa3"
       },
       {
         "id": "M-2",
@@ -258,7 +258,7 @@
         "mockups": [
           "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg"
         ],
-        "_id": "6b019a3a42d4f63ee1bcc557"
+        "_id": "6b01b269f97721ad46832aa4"
       },
       {
         "id": "M-3",
@@ -268,7 +268,7 @@
         "mockups": [
           "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg"
         ],
-        "_id": "6b019a3a42d4f63ee1bcc558"
+        "_id": "6b01b269f97721ad46832aa5"
       },
       {
         "id": "M-4",
@@ -278,7 +278,7 @@
         "mockups": [
           "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg"
         ],
-        "_id": "6b019a3a42d4f63ee1bcc559"
+        "_id": "6b01b269f97721ad46832aa6"
       },
       {
         "id": "M-5",
@@ -288,7 +288,7 @@
         "mockups": [
           "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg"
         ],
-        "_id": "6b019a3a42d4f63ee1bcc55a"
+        "_id": "6b01b269f97721ad46832aa7"
       },
       {
         "id": "M-6",
@@ -298,7 +298,7 @@
         "mockups": [
           "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg"
         ],
-        "_id": "6b019a3a42d4f63ee1bcc55b"
+        "_id": "6b01b269f97721ad46832aa8"
       },
       {
         "id": "M-7",
@@ -308,7 +308,7 @@
         "mockups": [
           "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg"
         ],
-        "_id": "6b019a3a42d4f63ee1bcc55c"
+        "_id": "6b01b269f97721ad46832aa9"
       },
       {
         "id": "M-8",
@@ -318,7 +318,7 @@
         "mockups": [
           "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg"
         ],
-        "_id": "6b019a3a42d4f63ee1bcc55d"
+        "_id": "6b01b269f97721ad46832aaa"
       },
       {
         "id": "M-9",
@@ -328,7 +328,7 @@
         "mockups": [
           "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg"
         ],
-        "_id": "6b019a3a42d4f63ee1bcc55e"
+        "_id": "6b01b269f97721ad46832aab"
       },
       {
         "id": "M-11",
@@ -338,7 +338,7 @@
         "mockups": [
           "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg"
         ],
-        "_id": "6b019a3a42d4f63ee1bcc55f"
+        "_id": "6b01b269f97721ad46832aac"
       },
       {
         "id": "M-12",
@@ -348,7 +348,7 @@
         "mockups": [
           "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg"
         ],
-        "_id": "6b019a3a42d4f63ee1bcc560"
+        "_id": "6b01b269f97721ad46832aad"
       },
       {
         "id": "M-13",
@@ -358,7 +358,7 @@
         "mockups": [
           "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg"
         ],
-        "_id": "6b019a3a42d4f63ee1bcc561"
+        "_id": "6b01b269f97721ad46832aae"
       },
       {
         "id": "M-14",
@@ -368,7 +368,7 @@
         "mockups": [
           "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg"
         ],
-        "_id": "6b019a3a42d4f63ee1bcc562"
+        "_id": "6b01b269f97721ad46832aaf"
       },
       {
         "id": "M-15",
@@ -378,7 +378,7 @@
         "mockups": [
           "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg"
         ],
-        "_id": "6b019a3a42d4f63ee1bcc563"
+        "_id": "6b01b269f97721ad46832ab0"
       },
       {
         "id": "M-16",
@@ -388,7 +388,7 @@
         "mockups": [
           "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg"
         ],
-        "_id": "6b019a3a42d4f63ee1bcc564"
+        "_id": "6b01b269f97721ad46832ab1"
       },
       {
         "id": "M-17",
@@ -398,7 +398,7 @@
         "mockups": [
           "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg"
         ],
-        "_id": "6b019a3a42d4f63ee1bcc565"
+        "_id": "6b01b269f97721ad46832ab2"
       },
       {
         "id": "M-19",
@@ -408,7 +408,7 @@
         "mockups": [
           "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg"
         ],
-        "_id": "6b019a3a42d4f63ee1bcc566"
+        "_id": "6b01b269f97721ad46832ab3"
       },
       {
         "id": "M-20",
@@ -418,7 +418,7 @@
         "mockups": [
           "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg"
         ],
-        "_id": "6b019a3a42d4f63ee1bcc567"
+        "_id": "6b01b269f97721ad46832ab4"
       },
       {
         "id": "M-21",
@@ -428,7 +428,7 @@
         "mockups": [
           "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg"
         ],
-        "_id": "6b019a3a42d4f63ee1bcc568"
+        "_id": "6b01b269f97721ad46832ab5"
       },
       {
         "id": "M-22",
@@ -438,7 +438,7 @@
         "mockups": [
           "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg"
         ],
-        "_id": "6b019a3a42d4f63ee1bcc569"
+        "_id": "6b01b269f97721ad46832ab6"
       },
       {
         "id": "M-23",
@@ -448,7 +448,7 @@
         "mockups": [
           "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg"
         ],
-        "_id": "6b019a3a42d4f63ee1bcc56a"
+        "_id": "6b01b269f97721ad46832ab7"
       },
       {
         "id": "M-24",
@@ -458,7 +458,7 @@
         "mockups": [
           "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg"
         ],
-        "_id": "6b019a3a42d4f63ee1bcc56b"
+        "_id": "6b01b269f97721ad46832ab8"
       },
       {
         "id": "M-25",
@@ -468,7 +468,7 @@
         "mockups": [
           "/images/mockups/adiyogi-lord-shiva-meditation-led-wall-decor/primary-square.jpg"
         ],
-        "_id": "6b019a3a42d4f63ee1bcc56c"
+        "_id": "6b01b269f97721ad46832ab9"
       }
     ],
     "id": "6ae89187382113ccb9a541de"
@@ -1841,7 +1841,7 @@
   {
     "slug": "enchanted-liquid-gold-glitter-acrylic-photo-frame",
     "title": "Enchanted Liquid Gold Shimmer Glitter Acrylic Photo Frame",
-    "subtitle": "Floating Metallic Gold Flakes & Shimmer Dust Inside Crystal Cast Acrylic",
+    "subtitle": "Handcrafted Museum Grade Cast Acrylic",
     "shortDescription": "Luminous sparkle and metallic glitter effects adding celebration radiance to special portraits.",
     "description": "Infuse your favorite memories with mesmerizing shimmer. Our Enchanted Liquid Gold Glitter Photo Frame suspends fine metallic gold dust and sparkling foil flakes inside dual-sealed, optical-grade 4mm cast acrylic. Every glance catches the light with a gentle, cascading shimmer that turns wedding portraits, couple anniversaries, and festive celebrations into glowing, radiant works of art.",
     "categorySlug": "glitter-photo-frames",
@@ -1849,9 +1849,7 @@
     "artStyle": "Glitter Shimmer Acrylic",
     "orientation": "vertical",
     "images": [
-      "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg",
-      "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg",
-      "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg"
+      "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg"
     ],
     "tags": [
       "Glitter Frame",
@@ -1865,8 +1863,8 @@
     "isBestseller": true,
     "isNewArrival": true,
     "hasLedBacklight": false,
-    "basePrice": 1699,
-    "baseMrp": 3299,
+    "basePrice": 1299,
+    "baseMrp": 2499,
     "discountPercentage": 48,
     "rating": 0,
     "reviewCount": 0,
@@ -1879,10 +1877,10 @@
         "lighting": "No Lighting (Pure Art)",
         "price": 1299,
         "mrp": 2499,
-        "sku": "AG-GLIT-68",
+        "sku": "AG-ENCHAN-1",
         "inStock": true,
         "stockCount": 45,
-        "_id": "6ae89187382113ccb9a542bd"
+        "_id": "6b01bf9d9c693ef07d9d0520"
       },
       {
         "id": "var-glit-2",
@@ -1892,10 +1890,10 @@
         "lighting": "No Lighting (Pure Art)",
         "price": 1699,
         "mrp": 3299,
-        "sku": "AG-GLIT-810",
+        "sku": "AG-ENCHAN-2",
         "inStock": true,
         "stockCount": 50,
-        "_id": "6ae89187382113ccb9a542be"
+        "_id": "6b01bf9d9c693ef07d9d0521"
       },
       {
         "id": "var-glit-3",
@@ -1905,10 +1903,10 @@
         "lighting": "No Lighting (Pure Art)",
         "price": 2199,
         "mrp": 4199,
-        "sku": "AG-GLIT-1012",
+        "sku": "AG-ENCHAN-3",
         "inStock": true,
         "stockCount": 35,
-        "_id": "6ae89187382113ccb9a542bf"
+        "_id": "6b01bf9d9c693ef07d9d0522"
       },
       {
         "id": "var-glit-4",
@@ -1918,40 +1916,501 @@
         "lighting": "No Lighting (Pure Art)",
         "price": 2999,
         "mrp": 5499,
-        "sku": "AG-GLIT-1218",
+        "sku": "AG-ENCHAN-4",
         "inStock": true,
         "stockCount": 25,
-        "_id": "6ae89187382113ccb9a542c0"
+        "_id": "6b01bf9d9c693ef07d9d0523"
       }
     ],
     "specifications": [
       {
-        "label": "Glitter Medium",
-        "value": "Sealed Liquid Metallic Gold Flakes & Micro-Shimmer Dust",
-        "_id": "6ae89187382113ccb9a542c1"
+        "label": "Art Material",
+        "value": "Premium Acrylic with CNC Beveled Edges",
+        "_id": "6b01bf9d9c693ef07d9d0549"
       },
       {
-        "label": "Panel Quality",
-        "value": "4mm Optically Clear Crystal Cast Acrylic with CNC Beveled Edges",
-        "_id": "6ae89187382113ccb9a542c2"
-      },
-      {
-        "label": "Mounting",
-        "value": "Includes 4 Brushed Floating Chrome Standoff Wall Studs",
-        "_id": "6ae89187382113ccb9a542c3"
+        "label": "Lighting Technology",
+        "value": "Non-Lit Museum Art",
+        "_id": "6b01bf9d9c693ef07d9d054a"
       }
     ],
     "materialAndCare": [
-      "Wipe acrylic face with dry microfiber cloth.",
-      "Do not use abrasive solvents or ammonia based cleaners."
+      "Clean gently with dry microfiber cloth",
+      "Keep away from abrasive chemical cleaners"
     ],
     "shippingHighlights": [
-      "Pre-assembled with safety seal packaging",
-      "Express 48h dispatch across India"
+      "Safe multi-layer packaging standard",
+      "Zero transit damage guarantee"
     ],
     "reviews": [],
     "createdAt": "2026-11-01T00:00:00.000Z",
-    "updatedAt": "2026-11-02T13:35:03.409Z",
+    "updatedAt": "2026-11-21T15:58:21.701Z",
+    "models": [
+      {
+        "id": "M-18",
+        "name": "M-18",
+        "image": "https://res.cloudinary.com/pwjyb57h/image/upload/v1795275935/abhi-gifts/uploads/gbboh9y7ila74vzqwnzi.jpg",
+        "isPopular": true,
+        "mockups": [
+          "https://res.cloudinary.com/pwjyb57h/image/upload/v1795275935/abhi-gifts/uploads/gbboh9y7ila74vzqwnzi.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg"
+        ],
+        "_id": "6b01bcb7117c27d8e621a97a"
+      },
+      {
+        "id": "M-10",
+        "name": "M-10",
+        "image": "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg"
+        ],
+        "_id": "6b01bcb7117c27d8e621a97b"
+      },
+      {
+        "id": "M-1",
+        "name": "M-1",
+        "image": "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg"
+        ],
+        "_id": "6b01bcb7117c27d8e621a97c"
+      },
+      {
+        "id": "M-2",
+        "name": "M-2",
+        "image": "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg"
+        ],
+        "_id": "6b01bcb7117c27d8e621a97d"
+      },
+      {
+        "id": "M-3",
+        "name": "M-3",
+        "image": "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg"
+        ],
+        "_id": "6b01bcb7117c27d8e621a97e"
+      },
+      {
+        "id": "M-4",
+        "name": "M-4",
+        "image": "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg"
+        ],
+        "_id": "6b01bcb7117c27d8e621a97f"
+      },
+      {
+        "id": "M-5",
+        "name": "M-5",
+        "image": "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg"
+        ],
+        "_id": "6b01bcb7117c27d8e621a980"
+      },
+      {
+        "id": "M-6",
+        "name": "M-6",
+        "image": "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg"
+        ],
+        "_id": "6b01bcb7117c27d8e621a981"
+      },
+      {
+        "id": "M-7",
+        "name": "M-7",
+        "image": "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg"
+        ],
+        "_id": "6b01bcb7117c27d8e621a982"
+      },
+      {
+        "id": "M-8",
+        "name": "M-8",
+        "image": "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg"
+        ],
+        "_id": "6b01bcb7117c27d8e621a983"
+      },
+      {
+        "id": "M-9",
+        "name": "M-9",
+        "image": "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg"
+        ],
+        "_id": "6b01bcb7117c27d8e621a984"
+      },
+      {
+        "id": "M-11",
+        "name": "M-11",
+        "image": "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg"
+        ],
+        "_id": "6b01bcb7117c27d8e621a985"
+      },
+      {
+        "id": "M-12",
+        "name": "M-12",
+        "image": "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg"
+        ],
+        "_id": "6b01bcb7117c27d8e621a986"
+      },
+      {
+        "id": "M-13",
+        "name": "M-13",
+        "image": "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg"
+        ],
+        "_id": "6b01bcb7117c27d8e621a987"
+      },
+      {
+        "id": "M-14",
+        "name": "M-14",
+        "image": "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg"
+        ],
+        "_id": "6b01bcb7117c27d8e621a988"
+      },
+      {
+        "id": "M-15",
+        "name": "M-15",
+        "image": "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg"
+        ],
+        "_id": "6b01bcb7117c27d8e621a989"
+      },
+      {
+        "id": "M-16",
+        "name": "M-16",
+        "image": "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg"
+        ],
+        "_id": "6b01bcb7117c27d8e621a98a"
+      },
+      {
+        "id": "M-17",
+        "name": "M-17",
+        "image": "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg"
+        ],
+        "_id": "6b01bcb7117c27d8e621a98b"
+      },
+      {
+        "id": "M-19",
+        "name": "M-19",
+        "image": "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg"
+        ],
+        "_id": "6b01bcb7117c27d8e621a98c"
+      },
+      {
+        "id": "M-20",
+        "name": "M-20",
+        "image": "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg"
+        ],
+        "_id": "6b01bcb7117c27d8e621a98d"
+      },
+      {
+        "id": "M-21",
+        "name": "M-21",
+        "image": "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg"
+        ],
+        "_id": "6b01bcb7117c27d8e621a98e"
+      },
+      {
+        "id": "M-22",
+        "name": "M-22",
+        "image": "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg"
+        ],
+        "_id": "6b01bcb7117c27d8e621a98f"
+      },
+      {
+        "id": "M-23",
+        "name": "M-23",
+        "image": "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg"
+        ],
+        "_id": "6b01bcb7117c27d8e621a990"
+      },
+      {
+        "id": "M-24",
+        "name": "M-24",
+        "image": "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg"
+        ],
+        "_id": "6b01bcb7117c27d8e621a991"
+      },
+      {
+        "id": "M-25",
+        "name": "M-25",
+        "image": "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg",
+          "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg"
+        ],
+        "_id": "6b01bcb7117c27d8e621a992"
+      }
+    ],
+    "orientationVariants": {
+      "portrait": [
+        {
+          "id": "var-glit-1",
+          "size": "6 x 8 inches",
+          "dimensionsCm": "15 x 20 cm",
+          "finish": "Acrylic Ultra-Gloss",
+          "lighting": "No Lighting (Pure Art)",
+          "price": 1299,
+          "mrp": 2499,
+          "sku": "AG-ENCHAN-1",
+          "inStock": true,
+          "stockCount": 45,
+          "_id": "6b01bf9d9c693ef07d9d0545"
+        },
+        {
+          "id": "var-glit-2",
+          "size": "8 x 10 inches",
+          "dimensionsCm": "20 x 25 cm",
+          "finish": "Acrylic Ultra-Gloss",
+          "lighting": "No Lighting (Pure Art)",
+          "price": 1699,
+          "mrp": 3299,
+          "sku": "AG-ENCHAN-2",
+          "inStock": true,
+          "stockCount": 50,
+          "_id": "6b01bf9d9c693ef07d9d0546"
+        },
+        {
+          "id": "var-glit-3",
+          "size": "10 x 12 inches",
+          "dimensionsCm": "25 x 30 cm",
+          "finish": "Acrylic Ultra-Gloss",
+          "lighting": "No Lighting (Pure Art)",
+          "price": 2199,
+          "mrp": 4199,
+          "sku": "AG-ENCHAN-3",
+          "inStock": true,
+          "stockCount": 35,
+          "_id": "6b01bf9d9c693ef07d9d0547"
+        },
+        {
+          "id": "var-glit-4",
+          "size": "12 x 18 inches",
+          "dimensionsCm": "30 x 45 cm",
+          "finish": "Acrylic Ultra-Gloss",
+          "lighting": "No Lighting (Pure Art)",
+          "price": 2999,
+          "mrp": 5499,
+          "sku": "AG-ENCHAN-4",
+          "inStock": true,
+          "stockCount": 25,
+          "_id": "6b01bf9d9c693ef07d9d0548"
+        }
+      ],
+      "landscape": [
+        {
+          "id": "var-glit-1",
+          "size": "6 x 8 inches",
+          "dimensionsCm": "15 x 20 cm",
+          "finish": "Acrylic Ultra-Gloss",
+          "lighting": "No Lighting (Pure Art)",
+          "price": 1299,
+          "mrp": 2499,
+          "sku": "AG-ENCHAN-1",
+          "inStock": true,
+          "stockCount": 45,
+          "_id": "6b01bf9d9c693ef07d9d0541"
+        },
+        {
+          "id": "var-glit-2",
+          "size": "8 x 10 inches",
+          "dimensionsCm": "20 x 25 cm",
+          "finish": "Acrylic Ultra-Gloss",
+          "lighting": "No Lighting (Pure Art)",
+          "price": 1699,
+          "mrp": 3299,
+          "sku": "AG-ENCHAN-2",
+          "inStock": true,
+          "stockCount": 50,
+          "_id": "6b01bf9d9c693ef07d9d0542"
+        },
+        {
+          "id": "var-glit-3",
+          "size": "10 x 12 inches",
+          "dimensionsCm": "25 x 30 cm",
+          "finish": "Acrylic Ultra-Gloss",
+          "lighting": "No Lighting (Pure Art)",
+          "price": 2199,
+          "mrp": 4199,
+          "sku": "AG-ENCHAN-3",
+          "inStock": true,
+          "stockCount": 35,
+          "_id": "6b01bf9d9c693ef07d9d0543"
+        },
+        {
+          "id": "var-glit-4",
+          "size": "12 x 18 inches",
+          "dimensionsCm": "30 x 45 cm",
+          "finish": "Acrylic Ultra-Gloss",
+          "lighting": "No Lighting (Pure Art)",
+          "price": 2999,
+          "mrp": 5499,
+          "sku": "AG-ENCHAN-4",
+          "inStock": true,
+          "stockCount": 25,
+          "_id": "6b01bf9d9c693ef07d9d0544"
+        }
+      ],
+      "square": [
+        {
+          "id": "var-glit-1",
+          "size": "6 x 8 inches",
+          "dimensionsCm": "15 x 20 cm",
+          "finish": "Acrylic Ultra-Gloss",
+          "lighting": "No Lighting (Pure Art)",
+          "price": 1299,
+          "mrp": 2499,
+          "sku": "AG-ENCHAN-1",
+          "inStock": true,
+          "stockCount": 45,
+          "_id": "6b01bf9d9c693ef07d9d053d"
+        },
+        {
+          "id": "var-glit-2",
+          "size": "8 x 10 inches",
+          "dimensionsCm": "20 x 25 cm",
+          "finish": "Acrylic Ultra-Gloss",
+          "lighting": "No Lighting (Pure Art)",
+          "price": 1699,
+          "mrp": 3299,
+          "sku": "AG-ENCHAN-2",
+          "inStock": true,
+          "stockCount": 50,
+          "_id": "6b01bf9d9c693ef07d9d053e"
+        },
+        {
+          "id": "var-glit-3",
+          "size": "10 x 12 inches",
+          "dimensionsCm": "25 x 30 cm",
+          "finish": "Acrylic Ultra-Gloss",
+          "lighting": "No Lighting (Pure Art)",
+          "price": 2199,
+          "mrp": 4199,
+          "sku": "AG-ENCHAN-3",
+          "inStock": true,
+          "stockCount": 35,
+          "_id": "6b01bf9d9c693ef07d9d053f"
+        },
+        {
+          "id": "var-glit-4",
+          "size": "12 x 18 inches",
+          "dimensionsCm": "30 x 45 cm",
+          "finish": "Acrylic Ultra-Gloss",
+          "lighting": "No Lighting (Pure Art)",
+          "price": 2999,
+          "mrp": 5499,
+          "sku": "AG-ENCHAN-4",
+          "inStock": true,
+          "stockCount": 25,
+          "_id": "6b01bf9d9c693ef07d9d0540"
+        }
+      ]
+    },
     "id": "6ae89187382113ccb9a542bc"
   },
   {

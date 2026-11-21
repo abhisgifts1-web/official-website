@@ -151,8 +151,8 @@ export default function ConfirmationClient({ order }: Props) {
                   Cash on Delivery (COD)
                 </span>
               ) : order.paymentMethod === 'WhatsApp' ? (
-                <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-50 text-emerald-800 border border-emerald-200">
-                  WhatsApp Order
+                <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold bg-stone-100 text-stone-800 border border-stone-200">
+                  Direct Order
                 </span>
               ) : (
                 order.paymentMethod
