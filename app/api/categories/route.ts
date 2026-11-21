@@ -5,16 +5,35 @@ import { getAuthenticatedAdmin } from '@/lib/auth';
 import { connectToDatabase } from '@/lib/db/mongodb';
 import { CategoryModel } from '@/lib/db/models/Category';
 import { Category } from '@/types';
+import { INITIAL_CATEGORIES } from '@/lib/data/categories';
 
 export const dynamic = 'force-dynamic';
 
 export async function GET() {
   try {
     let categories: Category[] = [];
+    const officialSlugs = INITIAL_CATEGORIES.map((c) => c.slug);
+    const slugOrder = new Map(INITIAL_CATEGORIES.map((c, i) => [c.slug, i]));
+
     try {
       const conn = await connectToDatabase();
       if (conn) {
-        const docs = await CategoryModel.find({}).lean();
+        // Enforce removal of all non-official categories from MongoDB
+        try {
+          await CategoryModel.deleteMany({ slug: { $nin: officialSlugs } });
+          for (const cat of INITIAL_CATEGORIES) {
+            const { id, ...data } = cat;
+            await CategoryModel.findOneAndUpdate(
+              { slug: cat.slug },
+              { ...data, id: id || cat.id },
+              { upsert: true }
+            );
+          }
+        } catch (syncErr) {
+          console.warn('MongoDB category sync warning:', syncErr);
+        }
+
+        const docs = await CategoryModel.find({ slug: { $in: officialSlugs } }).lean();
         if (docs && docs.length > 0) {
           categories = docs.map((doc: any) => {
             const { _id, __v, ...c } = doc;
@@ -28,6 +47,16 @@ export async function GET() {
 
     if (!categories || categories.length === 0) {
       categories = getAllCategories();
+    }
+
+    // STRICTLY filter and order to the exact 8 official categories in the live website
+    categories = categories
+      .filter((c) => officialSlugs.includes(c.slug))
+      .sort((a, b) => (slugOrder.get(a.slug) ?? 99) - (slugOrder.get(b.slug) ?? 99));
+
+    // Fallback to INITIAL_CATEGORIES if incomplete
+    if (categories.length < officialSlugs.length) {
+      categories = [...INITIAL_CATEGORIES];
     }
 
     return NextResponse.json({ success: true, categories });

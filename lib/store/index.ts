@@ -143,7 +143,11 @@ function loadPersistedCategories(): Category[] {
       const raw = fs.readFileSync(PERSISTENCE_CATEGORIES_FILE, 'utf8');
       const parsed = JSON.parse(raw);
       if (Array.isArray(parsed) && parsed.length > 0) {
-        return parsed;
+        const officialSlugs = INITIAL_CATEGORIES.map((c) => c.slug);
+        const filtered = parsed.filter((c: any) => officialSlugs.includes(c.slug));
+        if (filtered.length === officialSlugs.length) {
+          return filtered;
+        }
       }
     }
   } catch (err) {
@@ -536,7 +540,11 @@ export function addProductReview(productSlug: string, review: Omit<ProductReview
 
 // CATEGORY METHODS
 export function getAllCategories(): Category[] {
-  return [...store.categories];
+  const officialSlugs = INITIAL_CATEGORIES.map((c) => c.slug);
+  const slugOrder = new Map(INITIAL_CATEGORIES.map((c, i) => [c.slug, i]));
+  return store.categories
+    .filter((c) => officialSlugs.includes(c.slug))
+    .sort((a, b) => (slugOrder.get(a.slug) ?? 99) - (slugOrder.get(b.slug) ?? 99));
 }
 
 export function getCategoryBySlug(slug: string): Category | null {
