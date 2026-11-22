@@ -103,12 +103,9 @@ export const CATEGORY_DISTINCT_MODEL_IMAGES: Record<string, string[]> = {
  * Guarantees that EVERY MODEL has a DISTINCT, beautiful image for focused customer selection.
  */
 export function getProductModels(product: Product): ProductModel[] {
-  // If product has predefined models with multiple distinct images, return them
-  if (product.models && product.models.length > 0) {
-    const uniqueImages = new Set(product.models.map((m) => m.image));
-    if (uniqueImages.size >= 4) {
-      return product.models;
-    }
+  // If product has predefined models from admin dashboard, return them directly
+  if (Array.isArray(product.models) && product.models.length > 0) {
+    return product.models;
   }
 
   const catKey = (product.categorySlug || '').toLowerCase();

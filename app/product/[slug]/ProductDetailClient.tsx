@@ -610,9 +610,13 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
   const [customWidth, setCustomWidth] = useState<number>(24);
   const [customHeight, setCustomHeight] = useState<number>(36);
 
-  // Models state - streamlined to top 5-6 models for focused selection across all categories
+  // Models state - displays exactly the models kept in admin dashboard for this product
   const availableModels = useMemo(() => {
-    return getProductModels(liveProduct || product).slice(0, 6);
+    const currentProd = liveProduct || product;
+    if (Array.isArray(currentProd.models) && currentProd.models.length > 0) {
+      return currentProd.models;
+    }
+    return getProductModels(currentProd);
   }, [liveProduct, product]);
 
   const [selectedModelId, setSelectedModelId] = useState<string>(() => {
@@ -697,7 +701,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
       return availableModels.map((m) => m.image);
     }
     const raw = (liveProduct?.images?.length ? liveProduct.images : product.images) || [];
-    return raw.slice(0, 6);
+    return raw;
   }, [availableModels, liveProduct?.images, product.images]);
 
   const thumbnailContainerRef = useRef<HTMLDivElement>(null);
