@@ -90,16 +90,14 @@ function loadPersistedOrders(): Order[] {
     if (fs.existsSync(PERSISTENCE_ORDERS_FILE)) {
       const raw = fs.readFileSync(PERSISTENCE_ORDERS_FILE, 'utf8');
       const parsed = JSON.parse(raw);
-      if (Array.isArray(parsed) && parsed.length > 0) {
+      if (Array.isArray(parsed)) {
         return parsed;
       }
     }
   } catch (err) {
     console.warn('Error reading persistedOrders.json:', err);
   }
-  const initial = JSON.parse(JSON.stringify(INITIAL_ORDERS)) as Order[];
-  savePersistedOrders(initial);
-  return initial;
+  return [];
 }
 
 function savePersistedOrders(orders: Order[]) {
@@ -171,25 +169,14 @@ function loadPersistedEnquiries(): ContactEnquiry[] {
     if (fs.existsSync(PERSISTENCE_ENQUIRIES_FILE)) {
       const raw = fs.readFileSync(PERSISTENCE_ENQUIRIES_FILE, 'utf8');
       const parsed = JSON.parse(raw);
-      if (Array.isArray(parsed) && parsed.length > 0) {
+      if (Array.isArray(parsed)) {
         return parsed;
       }
     }
   } catch (err) {
     console.warn('Error reading persistedEnquiries.json:', err);
   }
-  return [
-    {
-      id: 'enq-1',
-      name: 'Karthik Raja',
-      email: 'karthik.r@example.com',
-      phone: '9841122334',
-      subject: 'Custom Mandir Wall Art Measurement',
-      message: 'Can you create an Adiyogi LED frame in 5x3 feet customized size for our meditation hall?',
-      status: 'new',
-      createdAt: '2026-10-25T15:30:00.000Z',
-    },
-  ];
+  return [];
 }
 
 function savePersistedEnquiries(enquiries: ContactEnquiry[]) {
@@ -340,10 +327,9 @@ async function initDbSync() {
       });
       store.orders = formattedOrders;
       savePersistedOrders(formattedOrders);
-    } else if (store.orders.length > 0) {
-      for (const o of store.orders) {
-        await OrderModel.findOneAndUpdate({ orderId: o.id }, { ...o, orderId: o.id }, { upsert: true });
-      }
+    } else {
+      store.orders = [];
+      savePersistedOrders([]);
     }
 
     // 3. Load categories from MongoDB if available
@@ -1124,6 +1110,22 @@ export function updateSiteSettings(updates: Partial<SiteSettings>): SiteSettings
   savePersistedSettings(store.settings);
   syncSettingsToDatabase(store.settings).catch(() => {});
   return { ...store.settings };
+}
+
+
+export function resetCustomerActivity() {
+  store.orders = [];
+  savePersistedOrders([]);
+  store.enquiries = [];
+  savePersistedEnquiries([]);
+  if (Array.isArray(store.coupons)) {
+    store.coupons.forEach((c) => {
+      c.usageCount = 0;
+      c.totalDiscountGiven = 0;
+      c.usedBy = [];
+    });
+    savePersistedCoupons(store.coupons);
+  }
 }
 
 // ENQUIRIES

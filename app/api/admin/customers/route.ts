@@ -2,7 +2,8 @@ import { NextRequest, NextResponse } from 'next/server';
 import { getAuthenticatedAdmin } from '@/lib/auth';
 import { connectToDatabase } from '@/lib/db/mongodb';
 import { OrderModel } from '@/lib/db/models/Order';
-import { getAllOrders } from '@/lib/store';
+import { getAllOrders, resetCustomerActivity } from '@/lib/store';
+import { CouponModel } from '@/lib/db/models/Coupon';
 import { Order } from '@/types';
 
 export const dynamic = 'force-dynamic';
@@ -178,4 +179,45 @@ export async function GET(req: NextRequest) {
   } catch (err: any) {
     return NextResponse.json({ success: false, error: err.message }, { status: 500 });
   }
+}
+
+export async function DELETE(req: NextRequest) {
+  try {
+    const admin = await getAuthenticatedAdmin();
+    if (!admin) {
+      return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
+    }
+
+    try {
+      const conn = await connectToDatabase();
+      if (conn) {
+        await OrderModel.deleteMany({});
+        await CouponModel.updateMany({}, { $set: { usageCount: 0, totalDiscountGiven: 0, usedBy: [] } });
+        if (conn.connection?.db) {
+          try {
+            await conn.connection.db.collection('customphotos').deleteMany({});
+          } catch (e) {}
+        }
+      }
+    } catch (dbErr) {
+      console.warn('MongoDB customer reset notice:', dbErr);
+    }
+
+    resetCustomerActivity();
+
+    return NextResponse.json({
+      success: true,
+      message: 'All customer activity, orders, and test histories have been reset successfully.',
+    });
+  } catch (err: any) {
+    return NextResponse.json({ success: false, error: err.message }, { status: 500 });
+  }
+}
+
+export async function POST(req: NextRequest) {
+  const { searchParams } = new URL(req.url);
+  if (searchParams.get('action') === 'reset' || req.headers.get('x-admin-action') === 'reset') {
+    return DELETE(req);
+  }
+  return DELETE(req);
 }

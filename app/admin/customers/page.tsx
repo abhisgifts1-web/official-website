@@ -56,6 +56,8 @@ export default function AdminCustomersPage() {
   const [tierFilter, setTierFilter] = useState<'All' | 'VIP' | 'Repeat' | 'New'>('All');
   const [selectedCustomer, setSelectedCustomer] = useState<CustomerAggregated | null>(null);
   const [copiedText, setCopiedText] = useState(false);
+  const [resetting, setResetting] = useState(false);
+  const [showResetModal, setShowResetModal] = useState(false);
 
   useEffect(() => {
     const loadCustomers = async () => {
@@ -182,6 +184,25 @@ export default function AdminCustomersPage() {
   const averageClientValue = totalClients > 0 ? Math.round(totalSpentAll / totalClients) : 0;
 
   // Export to CSV
+  const handleConfirmReset = async () => {
+    setResetting(true);
+    try {
+      const res = await fetch('/api/admin/customers?action=reset', { method: 'DELETE' });
+      const data = await res.json();
+      if (data.success) {
+        setCustomers([]);
+        setSelectedCustomer(null);
+        setShowResetModal(false);
+      } else {
+        alert(data.error || 'Failed to reset customer activity.');
+      }
+    } catch (err: any) {
+      alert(err.message || 'Error resetting customer activity.');
+    } finally {
+      setResetting(false);
+    }
+  };
+
   const handleExportCSV = () => {
     if (customers.length === 0) return;
 
