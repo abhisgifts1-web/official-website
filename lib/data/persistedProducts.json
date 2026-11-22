@@ -633,13 +633,13 @@
   {
     "slug": "custom-led-backlit-acrylic-photo-frame",
     "artStyle": "Custom Photo Frames",
-    "baseMrp": 2399,
-    "basePrice": 1199,
+    "baseMrp": 2499,
+    "basePrice": 2499,
     "categoryName": "LED Photo Frames",
     "categorySlug": "led-acrylic-photo-frames",
     "createdAt": "2026-11-22T05:32:30.417Z",
     "description": "A magical gift for anniversaries, birthdays, and milestones. Your uploaded photo is printed on optical grade acrylic and illuminated from behind with precision LED diodes. At night, it casts a soothing, romantic ambient light that illuminates your memories with warmth and clarity.",
-    "discountPercentage": 50,
+    "discountPercentage": 0,
     "hasLedBacklight": true,
     "images": [
       "/images/mockups/custom-led-backlit-acrylic-photo-frame/primary-square.jpg",
@@ -653,37 +653,508 @@
     "isFeatured": true,
     "isNewArrival": true,
     "materialAndCare": [
-      "Indoor use",
-      "Keep cord dry"
+      "Clean gently with dry microfiber cloth",
+      "Keep away from abrasive chemical cleaners"
     ],
-    "models": [],
+    "models": [
+      {
+        "id": "M-18",
+        "name": "M-18",
+        "image": "/images/mockups/custom-led-backlit-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/primary-square.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-living-room.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-foyer.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-interior.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-detail.jpg"
+        ],
+        "_id": "6b032080cf75eef3724972de"
+      },
+      {
+        "id": "M-10",
+        "name": "M-10",
+        "image": "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-living-room.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-living-room.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-foyer.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-interior.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-detail.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-artistic.jpg"
+        ],
+        "_id": "6b032080cf75eef3724972df"
+      },
+      {
+        "id": "M-1",
+        "name": "M-1",
+        "image": "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-foyer.jpg",
+        "isPopular": true,
+        "mockups": [
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-foyer.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-interior.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-detail.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-artistic.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/primary-square.jpg"
+        ],
+        "_id": "6b032080cf75eef3724972e0"
+      },
+      {
+        "id": "M-2",
+        "name": "M-2",
+        "image": "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-interior.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-interior.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-detail.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-artistic.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/primary-square.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-living-room.jpg"
+        ],
+        "_id": "6b032080cf75eef3724972e1"
+      },
+      {
+        "id": "M-3",
+        "name": "M-3",
+        "image": "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-detail.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-detail.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-artistic.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/primary-square.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-living-room.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-foyer.jpg"
+        ],
+        "_id": "6b032080cf75eef3724972e2"
+      },
+      {
+        "id": "M-4",
+        "name": "M-4",
+        "image": "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-artistic.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-artistic.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/primary-square.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-living-room.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-foyer.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-interior.jpg"
+        ],
+        "_id": "6b032080cf75eef3724972e3"
+      },
+      {
+        "id": "M-5",
+        "name": "M-5",
+        "image": "/images/mockups/custom-led-backlit-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/primary-square.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-living-room.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-foyer.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-interior.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-detail.jpg"
+        ],
+        "_id": "6b032080cf75eef3724972e4"
+      },
+      {
+        "id": "M-6",
+        "name": "M-6",
+        "image": "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-living-room.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-living-room.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-foyer.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-interior.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-detail.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-artistic.jpg"
+        ],
+        "_id": "6b032080cf75eef3724972e5"
+      },
+      {
+        "id": "M-7",
+        "name": "M-7",
+        "image": "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-foyer.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-foyer.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-interior.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-detail.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-artistic.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/primary-square.jpg"
+        ],
+        "_id": "6b032080cf75eef3724972e6"
+      },
+      {
+        "id": "M-8",
+        "name": "M-8",
+        "image": "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-interior.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-interior.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-detail.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-artistic.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/primary-square.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-living-room.jpg"
+        ],
+        "_id": "6b032080cf75eef3724972e7"
+      },
+      {
+        "id": "M-9",
+        "name": "M-9",
+        "image": "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-detail.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-detail.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-artistic.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/primary-square.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-living-room.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-foyer.jpg"
+        ],
+        "_id": "6b032080cf75eef3724972e8"
+      },
+      {
+        "id": "M-11",
+        "name": "M-11",
+        "image": "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-artistic.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-artistic.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/primary-square.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-living-room.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-foyer.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-interior.jpg"
+        ],
+        "_id": "6b032080cf75eef3724972e9"
+      },
+      {
+        "id": "M-12",
+        "name": "M-12",
+        "image": "/images/mockups/custom-led-backlit-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/primary-square.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-living-room.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-foyer.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-interior.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-detail.jpg"
+        ],
+        "_id": "6b032080cf75eef3724972ea"
+      },
+      {
+        "id": "M-13",
+        "name": "M-13",
+        "image": "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-living-room.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-living-room.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-foyer.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-interior.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-detail.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-artistic.jpg"
+        ],
+        "_id": "6b032080cf75eef3724972eb"
+      },
+      {
+        "id": "M-14",
+        "name": "M-14",
+        "image": "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-foyer.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-foyer.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-interior.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-detail.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-artistic.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/primary-square.jpg"
+        ],
+        "_id": "6b032080cf75eef3724972ec"
+      },
+      {
+        "id": "M-15",
+        "name": "M-15",
+        "image": "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-interior.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-interior.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-detail.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-artistic.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/primary-square.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-living-room.jpg"
+        ],
+        "_id": "6b032080cf75eef3724972ed"
+      },
+      {
+        "id": "M-16",
+        "name": "M-16",
+        "image": "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-detail.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-detail.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-artistic.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/primary-square.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-living-room.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-foyer.jpg"
+        ],
+        "_id": "6b032080cf75eef3724972ee"
+      },
+      {
+        "id": "M-17",
+        "name": "M-17",
+        "image": "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-artistic.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-artistic.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/primary-square.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-living-room.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-foyer.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-interior.jpg"
+        ],
+        "_id": "6b032080cf75eef3724972ef"
+      },
+      {
+        "id": "M-19",
+        "name": "M-19",
+        "image": "/images/mockups/custom-led-backlit-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/primary-square.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-living-room.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-foyer.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-interior.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-detail.jpg"
+        ],
+        "_id": "6b032080cf75eef3724972f0"
+      },
+      {
+        "id": "M-20",
+        "name": "M-20",
+        "image": "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-living-room.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-living-room.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-foyer.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-interior.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-detail.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-artistic.jpg"
+        ],
+        "_id": "6b032080cf75eef3724972f1"
+      },
+      {
+        "id": "M-21",
+        "name": "M-21",
+        "image": "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-foyer.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-foyer.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-interior.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-detail.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-artistic.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/primary-square.jpg"
+        ],
+        "_id": "6b032080cf75eef3724972f2"
+      },
+      {
+        "id": "M-22",
+        "name": "M-22",
+        "image": "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-interior.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-interior.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-detail.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-artistic.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/primary-square.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-living-room.jpg"
+        ],
+        "_id": "6b032080cf75eef3724972f3"
+      },
+      {
+        "id": "M-23",
+        "name": "M-23",
+        "image": "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-detail.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-detail.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-artistic.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/primary-square.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-living-room.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-foyer.jpg"
+        ],
+        "_id": "6b032080cf75eef3724972f4"
+      },
+      {
+        "id": "M-24",
+        "name": "M-24",
+        "image": "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-artistic.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-artistic.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/primary-square.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-living-room.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-foyer.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-interior.jpg"
+        ],
+        "_id": "6b032080cf75eef3724972f5"
+      },
+      {
+        "id": "M-25",
+        "name": "M-25",
+        "image": "/images/mockups/custom-led-backlit-acrylic-photo-frame/primary-square.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/primary-square.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-living-room.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-foyer.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-interior.jpg",
+          "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-detail.jpg"
+        ],
+        "_id": "6b032080cf75eef3724972f6"
+      }
+    ],
     "orientation": "vertical",
     "orientationVariants": {
-      "landscape": [],
-      "portrait": [],
-      "round": [],
-      "square": []
+      "portrait": [
+        {
+          "id": "var-cled1",
+          "size": "10 x 14 inches",
+          "dimensionsCm": "1.0 sq.ft",
+          "finish": "Acrylic Ultra-Gloss",
+          "lighting": "LED Backlit (12V Adapter)",
+          "price": 2499,
+          "mrp": 2499,
+          "sku": "AG-CUSTOM-1",
+          "inStock": true,
+          "stockCount": 60,
+          "_id": "6b032080cf75eef3724972fd"
+        },
+        {
+          "id": "var-cled2",
+          "size": "14 x 20 inches",
+          "dimensionsCm": "1.9 sq.ft",
+          "finish": "Acrylic Ultra-Gloss",
+          "lighting": "LED Backlit (12V Adapter)",
+          "price": 3499,
+          "mrp": 3499,
+          "sku": "AG-CUSTOM-2",
+          "inStock": true,
+          "stockCount": 40,
+          "_id": "6b032080cf75eef3724972fe"
+        },
+        {
+          "id": "var-cled3",
+          "size": "18 x 26 inches",
+          "dimensionsCm": "3.3 sq.ft",
+          "finish": "Acrylic Ultra-Gloss",
+          "lighting": "LED Backlit (12V Adapter)",
+          "price": 4999,
+          "mrp": 8999,
+          "sku": "AG-CUSTOM-3",
+          "inStock": true,
+          "stockCount": 25,
+          "_id": "6b032080cf75eef3724972ff"
+        }
+      ],
+      "landscape": [
+        {
+          "id": "var-cled1",
+          "size": "10 x 14 inches",
+          "dimensionsCm": "1.0 sq.ft",
+          "finish": "Acrylic Ultra-Gloss",
+          "lighting": "LED Backlit (12V Adapter)",
+          "price": 2499,
+          "mrp": 2499,
+          "sku": "AG-CUSTOM-1",
+          "inStock": true,
+          "stockCount": 60,
+          "_id": "6b032080cf75eef3724972fa"
+        },
+        {
+          "id": "var-cled2",
+          "size": "14 x 20 inches",
+          "dimensionsCm": "1.9 sq.ft",
+          "finish": "Acrylic Ultra-Gloss",
+          "lighting": "LED Backlit (12V Adapter)",
+          "price": 3499,
+          "mrp": 3499,
+          "sku": "AG-CUSTOM-2",
+          "inStock": true,
+          "stockCount": 40,
+          "_id": "6b032080cf75eef3724972fb"
+        },
+        {
+          "id": "var-cled3",
+          "size": "18 x 26 inches",
+          "dimensionsCm": "3.3 sq.ft",
+          "finish": "Acrylic Ultra-Gloss",
+          "lighting": "LED Backlit (12V Adapter)",
+          "price": 4999,
+          "mrp": 8999,
+          "sku": "AG-CUSTOM-3",
+          "inStock": true,
+          "stockCount": 25,
+          "_id": "6b032080cf75eef3724972fc"
+        }
+      ],
+      "square": [
+        {
+          "id": "var-cled1",
+          "size": "10 x 14 inches",
+          "dimensionsCm": "1.0 sq.ft",
+          "finish": "Acrylic Ultra-Gloss",
+          "lighting": "LED Backlit (12V Adapter)",
+          "price": 2499,
+          "mrp": 2499,
+          "sku": "AG-CUSTOM-1",
+          "inStock": true,
+          "stockCount": 60,
+          "_id": "6b032080cf75eef3724972f7"
+        },
+        {
+          "id": "var-cled2",
+          "size": "14 x 20 inches",
+          "dimensionsCm": "1.9 sq.ft",
+          "finish": "Acrylic Ultra-Gloss",
+          "lighting": "LED Backlit (12V Adapter)",
+          "price": 3499,
+          "mrp": 3499,
+          "sku": "AG-CUSTOM-2",
+          "inStock": true,
+          "stockCount": 40,
+          "_id": "6b032080cf75eef3724972f8"
+        },
+        {
+          "id": "var-cled3",
+          "size": "18 x 26 inches",
+          "dimensionsCm": "3.3 sq.ft",
+          "finish": "Acrylic Ultra-Gloss",
+          "lighting": "LED Backlit (12V Adapter)",
+          "price": 4999,
+          "mrp": 8999,
+          "sku": "AG-CUSTOM-3",
+          "inStock": true,
+          "stockCount": 25,
+          "_id": "6b032080cf75eef3724972f9"
+        }
+      ]
     },
     "rating": 4.9,
     "reviewCount": 48,
     "reviews": [],
     "shippingHighlights": [
-      "Dispatched in 2 days with safe foam packaging"
+      "Safe multi-layer packaging standard",
+      "Zero transit damage guarantee"
     ],
     "shortDescription": "Turn your cherished memory into a lighted nocturnal work of art with our warm perimeter LED glow frame.",
     "specifications": [
       {
-        "label": "Lighting Technology",
-        "value": "Edge-lit diffused LED warm array",
-        "_id": "6ae89187382113ccb9a54223"
+        "label": "Art Material",
+        "value": "Premium Acrylic with CNC Beveled Edges",
+        "_id": "6b032080cf75eef372497300"
       },
       {
-        "label": "Power",
-        "value": "12V safe low-voltage adapter included",
-        "_id": "6ae89187382113ccb9a54224"
+        "label": "Lighting Technology",
+        "value": "Epistar Ambient Glow LED Perimeter (12V Safe)",
+        "_id": "6b032080cf75eef372497301"
       }
     ],
-    "subtitle": "Cool White LED Halo Glow & Rose Gold Aluminium Side Frame",
+    "subtitle": "Handcrafted Museum Grade Cast Acrylic",
     "tags": [
       "LED Photo Frame",
       "Backlit Acrylic",
@@ -692,48 +1163,52 @@
       "Night Light"
     ],
     "title": "Custom LED Backlit Night-Glow Acrylic Photo Frame",
-    "updatedAt": "2026-11-22T07:38:05.164Z",
+    "updatedAt": "2026-11-22T17:04:00.603Z",
     "variants": [
       {
         "id": "var-cled1",
         "size": "10 x 14 inches",
-        "dimensionsCm": "25 x 35 cm",
+        "dimensionsCm": "1.0 sq.ft",
         "finish": "Acrylic Ultra-Gloss",
-        "lighting": "Warm LED Backlit (12V Adapter)",
+        "lighting": "LED Backlit (12V Adapter)",
         "price": 2499,
-        "mrp": 4999,
-        "sku": "AG-CLED-1014",
+        "mrp": 2499,
+        "sku": "AG-CUSTOM-1",
         "inStock": true,
         "stockCount": 60,
-        "_id": "6ae89187382113ccb9a54220"
+        "_id": "6b032080cf75eef372497302"
       },
       {
         "id": "var-cled2",
         "size": "14 x 20 inches",
-        "dimensionsCm": "35 x 50 cm",
+        "dimensionsCm": "1.9 sq.ft",
         "finish": "Acrylic Ultra-Gloss",
-        "lighting": "Warm LED Backlit (12V Adapter)",
+        "lighting": "LED Backlit (12V Adapter)",
         "price": 3499,
-        "mrp": 6499,
-        "sku": "AG-CLED-1420",
+        "mrp": 3499,
+        "sku": "AG-CUSTOM-2",
         "inStock": true,
         "stockCount": 40,
-        "_id": "6ae89187382113ccb9a54221"
+        "_id": "6b032080cf75eef372497303"
       },
       {
         "id": "var-cled3",
         "size": "18 x 26 inches",
-        "dimensionsCm": "45 x 65 cm",
+        "dimensionsCm": "3.3 sq.ft",
         "finish": "Acrylic Ultra-Gloss",
-        "lighting": "Warm LED Backlit (12V Adapter)",
+        "lighting": "LED Backlit (12V Adapter)",
         "price": 4999,
         "mrp": 8999,
-        "sku": "AG-CLED-1826",
+        "sku": "AG-CUSTOM-3",
         "inStock": true,
         "stockCount": 25,
-        "_id": "6ae89187382113ccb9a54222"
+        "_id": "6b032080cf75eef372497304"
       }
     ],
+    "categorySlugs": [
+      "led-acrylic-photo-frames"
+    ],
+    "shape": "portrait",
     "id": "6b027e6e5093473a07608a10"
   },
   {

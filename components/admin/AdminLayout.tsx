@@ -106,9 +106,10 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
               <Image
                 src="/images/brand/logo-gold-v2.png"
                 alt="Abhi's Gifts Admin Portal"
-                width={160}
-                height={32}
-                className="h-8 w-auto object-contain brightness-105 group-hover:scale-105 transition-transform drop-shadow-[0_0_12px_rgba(254,232,21,0.3)]"
+                width={200}
+                height={44}
+                priority
+                className="h-9 sm:h-10 w-auto object-contain brightness-105 group-hover:scale-105 transition-transform drop-shadow-[0_0_12px_rgba(254,232,21,0.3)]"
               />
             </Link>
           </div>
@@ -221,7 +222,16 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
               <Menu className="w-5 h-5" />
             </button>
             <div className="flex items-center gap-2 text-xs text-stone-400">
-              <Link href="/admin" className="hover:text-[#FFF04B] font-semibold transition-colors">Abhi&apos;s Gifts</Link>
+              <Link href="/admin" className="flex items-center group shrink-0" aria-label="Abhi's Gifts Admin">
+                <Image
+                  src="/images/brand/logo-gold-v2.png"
+                  alt="Abhi's Gifts Admin"
+                  width={150}
+                  height={32}
+                  priority
+                  className="h-6 sm:h-7 w-auto object-contain brightness-105 group-hover:scale-105 transition-transform drop-shadow-[0_0_8px_rgba(254,232,21,0.3)]"
+                />
+              </Link>
               <ChevronRight className="w-3.5 h-3.5 text-stone-600" />
               <span className="text-white font-bold capitalize">
                 {pathname.replace('/admin/', '').replace('/admin', 'Overview') || 'Dashboard'}
@@ -267,9 +277,10 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
               <Image
                 src="/images/brand/logo-gold-v2.png"
                 alt="Abhi's Gifts Admin"
-                width={140}
-                height={28}
-                className="h-7 w-auto object-contain brightness-105 drop-shadow-[0_0_10px_rgba(254,232,21,0.3)]"
+                width={160}
+                height={36}
+                priority
+                className="h-8.5 w-auto object-contain brightness-105 drop-shadow-[0_0_10px_rgba(254,232,21,0.3)]"
               />
               <button
                 type="button"

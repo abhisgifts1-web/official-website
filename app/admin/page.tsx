@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import {
   Package,
   ArrowRight,
@@ -110,6 +111,17 @@ export default function AdminDashboardPage() {
 
           <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 relative z-10">
             <div className="space-y-3 max-w-2xl">
+              <div className="flex items-center gap-3 pb-0.5">
+                <Image
+                  src="/images/brand/logo-gold-v2.png"
+                  alt="Abhi's Gifts - Frame Your Memories"
+                  width={220}
+                  height={48}
+                  priority
+                  className="h-10 sm:h-12 w-auto object-contain drop-shadow-[0_0_14px_rgba(254,232,21,0.35)]"
+                />
+              </div>
+
               <div className="flex flex-wrap items-center gap-2">
                 <span className="px-3 py-1 rounded-full bg-[#1F1F1F] border border-[#FEE815]/40 text-[#FFF04B] font-bold text-[10.5px] tracking-wider uppercase flex items-center gap-1.5 shadow-sm">
                   <Sparkles className="w-3.5 h-3.5 text-[#FEE815]" />

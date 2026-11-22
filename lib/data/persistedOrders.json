@@ -38,13 +38,15 @@
         "_id": "6b02d3e7029f11f6b3db1627"
       }
     ],
-    "orderStatus": "Pending",
+    "orderStatus": "Cancelled",
     "paymentMethod": "Razorpay",
     "paymentStatus": "Pending",
     "shippingFee": 0,
     "subtotal": 3299,
     "totalAmount": 3299,
-    "updatedAt": "2026-11-22T11:37:11.221Z",
+    "updatedAt": "2026-11-22T17:07:47.821Z",
+    "courierPartner": "Direct Workshop Dispatch",
+    "trackingNumber": "",
     "id": "AG-2026-23957"
   },
   {
