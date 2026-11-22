@@ -15,6 +15,7 @@ import {
 } from 'lucide-react';
 import AdminLayout from '@/components/admin/AdminLayout';
 import { Order, OrderStatus } from '@/types';
+import { formatSizeWithSqFt } from '@/lib/utils/sizeFormat';
 
 export default function AdminOrdersPage() {
   const [orders, setOrders] = useState<Order[]>([]);
@@ -426,7 +427,7 @@ export default function AdminOrdersPage() {
                               <span>Model: {it.selectedModel}</span>
                             </span>
                           )}
-                          <span>{it.size}</span>
+                          <span className="font-semibold text-amber-200">{formatSizeWithSqFt(it.size)}</span>
                           <span>•</span>
                           <span>Qty: {it.quantity}</span>
                         </div>

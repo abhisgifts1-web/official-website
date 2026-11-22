@@ -243,7 +243,7 @@ export function calculateCustomDimensions(
   const mrp = Math.max(price + 200, Math.round(Math.max(rawMrp, price * 1.6) / 100) * 100 - 1);
   const discountPercent = Math.max(10, Math.round(((mrp - price) / mrp) * 100));
 
-  const label = `${w}" × ${h}" (${sqFeet} sq ft Custom Size)`;
+  const label = `${sqFeet} sq.ft (${w}" × ${h}" Custom Size)`;
   const dimensionsCm = `${cmWidth} × ${cmHeight} cm`;
 
   return {

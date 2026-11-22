@@ -130,10 +130,10 @@ const CATEGORY_PROFILES: Record<string, CategoryProfile> = {
       { label: 'Recommended Placement', value: 'Living Room, Bedroom, Office, Home Decor and Pooja Room' },
     ],
     sizing: [
-      { size: '12 × 18 In', sqft: '1.5 sq ft', placement: 'Pooja Mandir or Entry Foyer', w: 'w-10', h: 'h-14' },
-      { size: '16 × 24 In', sqft: '2.6 sq ft', placement: 'Corridor & Dining Wall', w: 'w-12', h: 'h-18' },
-      { size: '20 × 30 In', sqft: '4.2 sq ft', placement: 'Above 3-Seater Sofa / Bed', w: 'w-14', h: 'h-20' },
-      { size: '24 × 36 In', sqft: '6.0 sq ft', placement: 'Grand Living Room Centerpiece', w: 'w-16', h: 'h-22' },
+      { size: '12 × 18 In', sqft: '1.5 sq.ft', placement: 'Pooja Mandir or Entry Foyer', w: 'w-10', h: 'h-14' },
+      { size: '16 × 24 In', sqft: '2.6 sq.ft', placement: 'Corridor & Dining Wall', w: 'w-12', h: 'h-18' },
+      { size: '20 × 30 In', sqft: '4.2 sq.ft', placement: 'Above 3-Seater Sofa / Bed', w: 'w-14', h: 'h-20' },
+      { size: '24 × 36 In', sqft: '6.0 sq.ft', placement: 'Grand Living Room Centerpiece', w: 'w-16', h: 'h-22' },
     ],
     craftHighlights: [
       { title: '5MM Premium Acrylic', desc: 'Crafted exclusively with 5MM thick crystal-clear acrylic for rich visual depth and rigidity.' },
@@ -207,10 +207,10 @@ const CATEGORY_PROFILES: Record<string, CategoryProfile> = {
       { label: 'Energy Consumption', value: 'Ultra-Low 12W Power Consumption' },
     ],
     sizing: [
-      { size: '12 × 18 In', sqft: '1.5 sq ft', placement: 'Bedside Night Accent / Foyer', w: 'w-10', h: 'h-14' },
-      { size: '16 × 24 In', sqft: '2.6 sq ft', placement: 'Bedroom Headboard / Dining Wall', w: 'w-12', h: 'h-18' },
-      { size: '20 × 30 In', sqft: '4.2 sq ft', placement: 'Above 3-Seater Living Room Sofa', w: 'w-14', h: 'h-20' },
-      { size: '24 × 36 In', sqft: '6.0 sq ft', placement: 'Grand Feature Wall Centerpiece', w: 'w-16', h: 'h-22' },
+      { size: '12 × 18 In', sqft: '1.5 sq.ft', placement: 'Bedside Night Accent / Foyer', w: 'w-10', h: 'h-14' },
+      { size: '16 × 24 In', sqft: '2.6 sq.ft', placement: 'Bedroom Headboard / Dining Wall', w: 'w-12', h: 'h-18' },
+      { size: '20 × 30 In', sqft: '4.2 sq.ft', placement: 'Above 3-Seater Living Room Sofa', w: 'w-14', h: 'h-20' },
+      { size: '24 × 36 In', sqft: '6.0 sq.ft', placement: 'Grand Feature Wall Centerpiece', w: 'w-16', h: 'h-22' },
     ],
     craftHighlights: [
       { title: 'Virgin Cast Acrylic Core', desc: 'Superior light transmission without clouding or edge distortion over time.' },
@@ -281,10 +281,10 @@ const CATEGORY_PROFILES: Record<string, CategoryProfile> = {
       { label: 'Gift Packaging', value: 'Deluxe Padded Gift Box Included' },
     ],
     sizing: [
-      { size: '6 × 8 In', sqft: '0.33 sq ft', placement: 'Bedside Nightstand & Study Desk', w: 'w-8', h: 'h-10' },
-      { size: '8 × 10 In', sqft: '0.55 sq ft', placement: 'Office Executive Desk / Vanity', w: 'w-10', h: 'h-12' },
-      { size: '8 × 12 In', sqft: '0.66 sq ft', placement: 'Living Room Console / Display Unit', w: 'w-10', h: 'h-14' },
-      { size: '12 × 18 In', sqft: '1.5 sq ft', placement: 'Wall Centerpiece Display', w: 'w-12', h: 'h-18' },
+      { size: '6 × 8 In', sqft: '0.33 sq.ft', placement: 'Bedside Nightstand & Study Desk', w: 'w-8', h: 'h-10' },
+      { size: '8 × 10 In', sqft: '0.55 sq.ft', placement: 'Office Executive Desk / Vanity', w: 'w-10', h: 'h-12' },
+      { size: '8 × 12 In', sqft: '0.66 sq.ft', placement: 'Living Room Console / Display Unit', w: 'w-10', h: 'h-14' },
+      { size: '12 × 18 In', sqft: '1.5 sq.ft', placement: 'Wall Centerpiece Display', w: 'w-12', h: 'h-18' },
     ],
     craftHighlights: [
       { title: 'Hermetic Ultrasonic Sealing', desc: 'Guarantees the mineral liquid never leaks or evaporates over decades of display.' },
@@ -426,10 +426,10 @@ const CATEGORY_PROFILES: Record<string, CategoryProfile> = {
       { label: 'Mounting', value: 'Heavy-Duty Brass & Chrome Standoff Studs Included' },
     ],
     sizing: [
-      { size: '12 × 18 In', sqft: '1.5 sq ft', placement: 'Pooja Room Mandir Niche', w: 'w-10', h: 'h-14' },
-      { size: '16 × 24 In', sqft: '2.6 sq ft', placement: 'Main Mandir Wall / Entrance Foyer', w: 'w-12', h: 'h-18' },
-      { size: '20 × 30 In', sqft: '4.2 sq ft', placement: 'Grand Family Mandir / Living Room', w: 'w-14', h: 'h-20' },
-      { size: '24 × 36 In', sqft: '6.0 sq ft', placement: 'Temple Hall & Spiritual Centerpiece', w: 'w-16', h: 'h-22' },
+      { size: '12 × 18 In', sqft: '1.5 sq.ft', placement: 'Pooja Room Mandir Niche', w: 'w-10', h: 'h-14' },
+      { size: '16 × 24 In', sqft: '2.6 sq.ft', placement: 'Main Mandir Wall / Entrance Foyer', w: 'w-12', h: 'h-18' },
+      { size: '20 × 30 In', sqft: '4.2 sq.ft', placement: 'Grand Family Mandir / Living Room', w: 'w-14', h: 'h-20' },
+      { size: '24 × 36 In', sqft: '6.0 sq.ft', placement: 'Temple Hall & Spiritual Centerpiece', w: 'w-16', h: 'h-22' },
     ],
     craftHighlights: [
       { title: '3D Embossed Sacred Relief', desc: 'Intricate crown, jewelry, and shanka-chakra details raised above the acrylic plane.' },
@@ -499,10 +499,10 @@ const CATEGORY_PROFILES: Record<string, CategoryProfile> = {
       { label: 'Edge Finish', value: 'Diamond Polished Square-Cut Minimal Edges' },
     ],
     sizing: [
-      { size: '12 × 18 In', sqft: '1.5 sq ft', placement: 'Nursery / Bedroom Milestone Display', w: 'w-10', h: 'h-14' },
-      { size: '16 × 24 In', sqft: '2.6 sq ft', placement: 'Dining Area / Staircase Landing', w: 'w-12', h: 'h-18' },
-      { size: '20 × 30 In', sqft: '4.2 sq ft', placement: 'Main Living Room Family Feature Wall', w: 'w-14', h: 'h-20' },
-      { size: '24 × 36 In', sqft: '6.0 sq ft', placement: 'Grand Generational Family Tree Centerpiece', w: 'w-16', h: 'h-22' },
+      { size: '12 × 18 In', sqft: '1.5 sq.ft', placement: 'Nursery / Bedroom Milestone Display', w: 'w-10', h: 'h-14' },
+      { size: '16 × 24 In', sqft: '2.6 sq.ft', placement: 'Dining Area / Staircase Landing', w: 'w-12', h: 'h-18' },
+      { size: '20 × 30 In', sqft: '4.2 sq.ft', placement: 'Main Living Room Family Feature Wall', w: 'w-14', h: 'h-20' },
+      { size: '24 × 36 In', sqft: '6.0 sq.ft', placement: 'Grand Generational Family Tree Centerpiece', w: 'w-16', h: 'h-22' },
     ],
     craftHighlights: [
       { title: 'Custom Typography Design', desc: 'Each surname is tailored with custom serif or cursive gold lettering by our designers.' },
@@ -572,10 +572,10 @@ const CATEGORY_PROFILES: Record<string, CategoryProfile> = {
       { label: 'Proofing', value: 'Digital Proof on WhatsApp Before Printing' },
     ],
     sizing: [
-      { size: '8 × 12 In', sqft: '0.66 sq ft', placement: 'Bedside Nightstand / Dresser Console', w: 'w-10', h: 'h-14' },
-      { size: '12 × 18 In', sqft: '1.5 sq ft', placement: 'Master Bedroom Headboard Wall', w: 'w-12', h: 'h-18' },
-      { size: '16 × 24 In', sqft: '2.6 sq ft', placement: 'Living Room Couple Showcase', w: 'w-14', h: 'h-20' },
-      { size: '20 × 30 In', sqft: '4.2 sq ft', placement: 'Grand Anniversary Centerpiece', w: 'w-16', h: 'h-22' },
+      { size: '8 × 12 In', sqft: '0.66 sq.ft', placement: 'Bedside Nightstand / Dresser Console', w: 'w-10', h: 'h-14' },
+      { size: '12 × 18 In', sqft: '1.5 sq.ft', placement: 'Master Bedroom Headboard Wall', w: 'w-12', h: 'h-18' },
+      { size: '16 × 24 In', sqft: '2.6 sq.ft', placement: 'Living Room Couple Showcase', w: 'w-14', h: 'h-20' },
+      { size: '20 × 30 In', sqft: '4.2 sq.ft', placement: 'Grand Anniversary Centerpiece', w: 'w-16', h: 'h-22' },
     ],
     craftHighlights: [
       { title: 'Diamond Prismatic Facets', desc: 'Precision CNC-beveled edges refract light like a fine gemstone.' },
@@ -645,10 +645,10 @@ const CATEGORY_PROFILES: Record<string, CategoryProfile> = {
       { label: 'Shipping', value: 'Express Pan-India Insured Dispatch within 24-48 Hours' },
     ],
     sizing: [
-      { size: '8 × 12 In', sqft: '0.66 sq ft', placement: 'Executive Desk / Bookshelf Plaque', w: 'w-10', h: 'h-14' },
-      { size: '12 × 18 In', sqft: '1.5 sq ft', placement: 'Bedroom / Living Room Feature Display', w: 'w-12', h: 'h-18' },
-      { size: '16 × 24 In', sqft: '2.6 sq ft', placement: 'Grand Housewarming / Milestone Centerpiece', w: 'w-14', h: 'h-20' },
-      { size: '20 × 30 In', sqft: '4.2 sq ft', placement: 'Corporate Gala & Generational Tribute', w: 'w-16', h: 'h-22' },
+      { size: '8 × 12 In', sqft: '0.66 sq.ft', placement: 'Executive Desk / Bookshelf Plaque', w: 'w-10', h: 'h-14' },
+      { size: '12 × 18 In', sqft: '1.5 sq.ft', placement: 'Bedroom / Living Room Feature Display', w: 'w-12', h: 'h-18' },
+      { size: '16 × 24 In', sqft: '2.6 sq.ft', placement: 'Grand Housewarming / Milestone Centerpiece', w: 'w-14', h: 'h-20' },
+      { size: '20 × 30 In', sqft: '4.2 sq.ft', placement: 'Corporate Gala & Generational Tribute', w: 'w-16', h: 'h-22' },
     ],
     craftHighlights: [
       { title: 'Personalized Dedications', desc: 'Add personalized congratulatory notes, quotes, or corporate milestones.' },
@@ -896,12 +896,12 @@ export default function CategorySpecificationsSection({
                       <div
                         className={`${item.w} ${item.h} rounded-lg border-2 border-amber-500 bg-amber-50 shadow-xs flex flex-col items-center justify-center text-[10px] font-extrabold text-stone-900`}
                       >
-                        <span>{item.size.replace(' In', '')}</span>
-                        <span className="text-[8px] font-normal text-stone-500">{item.sqft}</span>
+                        <span className="text-amber-900 font-extrabold">{item.sqft}</span>
+                        <span className="text-[8px] font-medium text-stone-500">{item.size.replace(' In', '"')}</span>
                       </div>
                     </div>
                     <div>
-                      <h5 className="font-bold text-stone-900 text-xs sm:text-sm">{item.size}</h5>
+                      <h5 className="font-bold text-stone-900 text-xs sm:text-sm">{item.sqft} ({item.size})</h5>
                       <p className="text-[11px] text-stone-500 mt-0.5 leading-snug">{item.placement}</p>
                     </div>
                   </div>

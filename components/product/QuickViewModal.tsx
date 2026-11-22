@@ -7,6 +7,7 @@ import { X, ShieldCheck, Sparkles, ArrowRight, Camera, Ruler, MessageCircle } fr
 import AddPhotoModal from './AddPhotoModal';
 import CustomSizeInput from './CustomSizeInput';
 import { calculateCustomDimensions } from '@/lib/utils/customSize';
+import { formatSizeWithSqFt } from '@/lib/utils/sizeFormat';
 import { Product, ProductVariant } from '@/types';
 import { useCart } from '@/context/CartContext';
 import { INITIAL_SETTINGS } from '@/lib/data/settings';
@@ -58,7 +59,7 @@ export default function QuickViewModal({ product, isOpen, onClose }: QuickViewMo
 
   const activePrice = isCustomSize ? customSizeCalc.price : currentVariant.price;
   const activeMrp = isCustomSize ? customSizeCalc.mrp : currentVariant.mrp;
-  const activeSize = isCustomSize ? `${customSizeCalc.widthInches}" × ${customSizeCalc.heightInches}" (${customSizeCalc.dimensionsCm}) [Custom Size]` : currentVariant.size;
+  const activeSize = isCustomSize ? `${customSizeCalc.sqFeet} sq.ft (${customSizeCalc.widthInches}" × ${customSizeCalc.heightInches}") [Custom Size]` : formatSizeWithSqFt(currentVariant.size);
 
   const currentImg = activeImage || product.images[0];
 
@@ -182,7 +183,7 @@ export default function QuickViewModal({ product, isOpen, onClose }: QuickViewMo
                 {/* Size options */}
                 <div className="space-y-1.5 pt-2">
                   <label className="text-xs font-semibold text-stone-900 block">
-                    Choose Size ({product.shape || product.orientation}): <span className="font-normal text-stone-600">{currentVariant.size}</span>
+                    Choose Size ({product.shape || product.orientation}): <span className="font-bold text-amber-800">{formatSizeWithSqFt(currentVariant.size)}</span>
                   </label>
                   <div className="grid grid-cols-2 gap-2">
                     {product.variants.map((v) => (
@@ -199,7 +200,7 @@ export default function QuickViewModal({ product, isOpen, onClose }: QuickViewMo
                             : 'border-stone-200 text-stone-700 hover:border-amber-300 bg-white'
                         }`}
                       >
-                        <div className="text-stone-900 font-semibold">{v.size.split('(')[0]}</div>
+                        <div className="text-stone-900 font-bold">{formatSizeWithSqFt(v.size)}</div>
                         <div className="text-[11px] text-amber-700 font-bold">₹{v.price.toLocaleString('en-IN')}</div>
                       </button>
                     ))}

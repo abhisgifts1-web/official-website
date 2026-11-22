@@ -24,6 +24,7 @@ import {
   Filter,
 } from 'lucide-react';
 import AdminLayout from '@/components/admin/AdminLayout';
+import { formatSizeWithSqFt } from '@/lib/utils/sizeFormat';
 import { Order } from '@/types';
 
 export interface CustomerAggregated {
@@ -796,7 +797,7 @@ export default function AdminCustomersPage() {
                               <div className="flex-1 min-w-0">
                                 <p className="font-bold text-stone-900 truncate">{item.title}</p>
                                 <p className="text-[10.5px] text-stone-500">
-                                  {item.size || 'Standard'} • {item.finish || 'Acrylic'} • Qty: {item.quantity}
+                                  {formatSizeWithSqFt(item.size || 'Standard')} • {item.finish || 'Acrylic'} • Qty: {item.quantity}
                                 </p>
                               </div>
                               <span className="font-medium text-stone-800 shrink-0">

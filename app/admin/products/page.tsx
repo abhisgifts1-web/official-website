@@ -35,6 +35,7 @@ import AdminLayout from '@/components/admin/AdminLayout';
 import { Product, ProductOrientation, OrientationShape, ProductModel } from '@/types';
 import { getProductModels, STANDARD_MODEL_ORDER } from '@/lib/data/productModels';
 import { INITIAL_CATEGORIES } from '@/lib/data/categories';
+import { formatSizeWithSqFt, getSqFt } from '@/lib/utils/sizeFormat';
 
 const POPULAR_FRAME_SIZES = [
   { size: '8 x 12 inches', dimensionsCm: '20 x 30 cm', label: '8x12"' },
@@ -1313,7 +1314,7 @@ export default function AdminProductsPage() {
                                 {primaryVariants.map((v, i) => (
                                   <div key={i} className="flex items-center justify-between gap-2 border-b border-stone-100 last:border-0 pb-0.5">
                                     <span className="font-medium text-stone-700 truncate max-w-[130px]" title={v.size}>
-                                      {v.size.replace(' inches', '"').replace(' (Grand Wall Size)', ' Grand').replace(' (Grand Sanctum)', '')}
+                                      {formatSizeWithSqFt(v.size)}
                                     </span>
                                     <span className="font-bold font-serif text-amber-800">
                                       ₹{v.price.toLocaleString('en-IN')}

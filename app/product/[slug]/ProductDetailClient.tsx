@@ -111,7 +111,7 @@ export function getSqFtFromLabel(label: string): string {
     const w = parseFloat(match[1]);
     const h = parseFloat(match[2]);
     const sqFt = (w * h) / 144;
-    return `${Number.isInteger(sqFt) ? sqFt.toFixed(0) : sqFt.toFixed(1)} sq ft`;
+    return `${Number.isInteger(sqFt) ? sqFt.toFixed(0) : sqFt.toFixed(1)} sq.ft`;
   }
   return '';
 }
@@ -924,7 +924,9 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
       : isAcrylicFrame
       ? (selectedFrame === 'gold' ? 'Champagne Gold Frame' : selectedFrame === 'black' ? 'Matte Black Frame' : 'Frameless 5MM Acrylic (Metal Studs Included)')
       : (selectedFrame === 'gold' ? 'Gold Frame' : selectedFrame === 'black' ? 'Black Frame' : `Without Frame (${selectedThickness})`);
-    const sizeLabel = isCustomSize ? customSizeCalc.label : (currentSizeObj ? currentSizeObj.label : '12x18');
+    const sqFtVal = currentSizeObj ? getSqFtFromLabel(currentSizeObj.label) : '1.5 sq.ft';
+    const cleanDims = currentSizeObj ? formatSizeDisplay(currentSizeObj.label) : '12" × 18"';
+    const sizeLabel = isCustomSize ? `${customSizeCalc.sqFeet} sq.ft (${customSizeCalc.widthInches}" × ${customSizeCalc.heightInches}")` : `${sqFtVal} (${cleanDims})`;
 
     addToCart(
       {
@@ -1413,8 +1415,8 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                   Dimensions &amp; Size:{' '}
                   <strong className="text-amber-800 font-serif">
                     {isCustomSize
-                      ? `${customSizeCalc.widthInches}" × ${customSizeCalc.heightInches}" (${customSizeCalc.sqFeet} sq ft) [Custom Size]`
-                      : (currentSizeObj ? `${formatSizeDisplay(currentSizeObj.label)} (${getSqFtFromLabel(currentSizeObj.label)})` : 'Select Size')}
+                      ? `${customSizeCalc.sqFeet} sq.ft (${customSizeCalc.widthInches}" × ${customSizeCalc.heightInches}") [Custom Size]`
+                      : (currentSizeObj ? `${getSqFtFromLabel(currentSizeObj.label)} (${formatSizeDisplay(currentSizeObj.label)})` : 'Select Size')}
                   </strong>
                 </span>
                 {selectedSizeId && (
@@ -1446,9 +1448,9 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                           : 'border border-stone-200 text-stone-700 bg-stone-50 hover:border-amber-400 font-medium'
                       }`}
                     >
-                      <span className="font-bold text-xs sm:text-[13px]">{cleanDisplayLabel}</span>
+                      <span className="font-bold text-xs sm:text-[13px] text-stone-900">{sqFtText || cleanDisplayLabel}</span>
                       {sqFtText ? (
-                        <span className="text-[10px] text-amber-800 font-semibold leading-none mt-1">{sqFtText}</span>
+                        <span className="text-[10px] text-stone-500 font-medium leading-none mt-0.5">{cleanDisplayLabel}</span>
                       ) : null}
                     </button>
                   );
@@ -1648,7 +1650,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                 {product.title}
               </h4>
               <p className="text-[11px] text-stone-500 truncate">
-                Model: {currentModel?.name || 'M-18'} • {formatSizeDisplay(currentSizeObj?.label || '12x18')} • {isGlitterFrame ? 'Glitter Acrylic Block' : (selectedFrame === 'gold' ? 'Gold Frame' : selectedFrame === 'black' ? 'Black Frame' : 'Frameless Acrylic')}
+                Model: {currentModel?.name || 'M-18'} • {getSqFtFromLabel(currentSizeObj?.label || '12x18')} ({formatSizeDisplay(currentSizeObj?.label || '12x18')}) • {isGlitterFrame ? 'Glitter Acrylic Block' : (selectedFrame === 'gold' ? 'Gold Frame' : selectedFrame === 'black' ? 'Black Frame' : 'Frameless Acrylic')}
               </p>
             </div>
           </div>
