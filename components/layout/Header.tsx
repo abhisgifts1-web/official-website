@@ -77,10 +77,12 @@ export default function Header() {
     if (!pathname) return;
     if (pathname === '/') {
       setActiveTab('home');
-    } else if (pathname === '/about') {
+    } else if (pathname === '/about' || pathname.startsWith('/about')) {
       setActiveTab('about');
-    } else if (pathname === '/contact') {
+    } else if (pathname === '/contact' || pathname.startsWith('/contact')) {
       setActiveTab('contact');
+    } else if (pathname === '/enquiry' || pathname.startsWith('/enquiry')) {
+      setActiveTab('enquiry');
     } else if (
       pathname.startsWith('/shop') ||
       pathname.startsWith('/category') ||
@@ -95,28 +97,38 @@ export default function Header() {
 
   // Recalculate sliding select animation pill position
   useEffect(() => {
-    const targetKey = hoveredTab || activeTab;
-    if (!targetKey) {
-      setPillStyle((prev) => ({ ...prev, opacity: 0 }));
-      return;
-    }
+    const updatePill = () => {
+      const targetKey = hoveredTab || activeTab;
+      if (!targetKey) {
+        setPillStyle((prev) => ({ ...prev, opacity: 0 }));
+        return;
+      }
 
-    const targetEl = tabRefs.current[targetKey];
-    const containerEl = navContainerRef.current;
+      const targetEl = tabRefs.current[targetKey];
+      const containerEl = navContainerRef.current;
 
-    if (targetEl && containerEl) {
-      const containerRect = containerEl.getBoundingClientRect();
-      const targetRect = targetEl.getBoundingClientRect();
+      if (targetEl && containerEl) {
+        const containerRect = containerEl.getBoundingClientRect();
+        const targetRect = targetEl.getBoundingClientRect();
 
-      setPillStyle({
-        left: targetRect.left - containerRect.left,
-        width: targetRect.width,
-        opacity: 1,
-      });
-    } else {
-      setPillStyle((prev) => ({ ...prev, opacity: 0 }));
-    }
-  }, [hoveredTab, activeTab, megaMenuOpen]);
+        setPillStyle({
+          left: targetRect.left - containerRect.left,
+          width: targetRect.width,
+          opacity: 1,
+        });
+      } else {
+        setPillStyle((prev) => ({ ...prev, opacity: 0 }));
+      }
+    };
+
+    updatePill();
+    window.addEventListener('resize', updatePill);
+    const timer = setTimeout(updatePill, 60);
+    return () => {
+      window.removeEventListener('resize', updatePill);
+      clearTimeout(timer);
+    };
+  }, [hoveredTab, activeTab, megaMenuOpen, pathname]);
 
   // Keyboard escape listener & body scroll lock
   useEffect(() => {
