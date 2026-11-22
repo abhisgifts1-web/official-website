@@ -784,9 +784,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
     deliveryDate?: string;
   } | null>(null);
 
-  // Sticky Purchase Bar State
-  const [showStickyBar, setShowStickyBar] = useState(false);
-  const mainPurchaseRef = useRef<HTMLDivElement>(null);
+
 
 
 
@@ -808,18 +806,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
     }
   }, [galleryImages]);
 
-  // Sticky Bar Scroll Listener
-  useEffect(() => {
-    const handleScroll = () => {
-      if (mainPurchaseRef.current) {
-        const rect = mainPurchaseRef.current.getBoundingClientRect();
-        // Show sticky bar when the purchase section scrolls above viewport
-        setShowStickyBar(rect.bottom < 100);
-      }
-    };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+
 
   // Keyboard navigation for Lightbox
   useEffect(() => {
@@ -1377,7 +1364,6 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
 
           {/* RIGHT COLUMN: Variation Controls & Purchase Actions */}
           <div
-            ref={mainPurchaseRef}
             className="lg:col-span-5 xl:col-span-5 space-y-6"
           >
             {/* Header Block: Stock, Title & Clean Direct Pricing */}
@@ -1842,64 +1828,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
         )}
       </div>
 
-      {/* Sticky Bottom Purchase Bar (Appears on Scroll) */}
-      <div
-        className={`fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-stone-200 shadow-xl py-3 px-4 sm:px-8 transition-transform duration-300 text-stone-900 ${
-          showStickyBar ? 'translate-y-0' : 'translate-y-full'
-        }`}
-        style={{ paddingBottom: 'max(0.75rem, env(safe-area-inset-bottom, 0px))' }}
-      >
-        <div className="max-w-[1720px] mx-auto flex items-center justify-between gap-4">
-          <div className="flex items-center gap-3 min-w-0">
-            <div className="w-12 h-12 rounded-xl overflow-hidden border border-stone-200 shrink-0 bg-stone-100">
-              <img src={activeImage} alt="" className="w-full h-full object-cover" />
-            </div>
-            <div className="min-w-0 hidden sm:block">
-              <h4 className="font-serif font-bold text-xs sm:text-sm text-stone-900 truncate max-w-md">
-                {product.title}
-              </h4>
-              <p className="text-[11px] text-stone-500 truncate">
-                Model: {currentModel?.name || 'M-18'} • {getSqFtFromLabel(currentSizeObj?.label || '12x18')} ({formatSizeDisplay(currentSizeObj?.label || '12x18')}) • {isGlitterFrame ? 'Glitter Acrylic Block' : (selectedFrame === 'gold' ? 'Gold Frame' : selectedFrame === 'black' ? 'Black Frame' : 'Frameless Acrylic')}
-              </p>
-            </div>
-          </div>
 
-          <div className="flex items-center gap-3 shrink-0">
-            <div className="text-right">
-              <span className="font-serif font-bold text-base sm:text-xl text-stone-900 block leading-tight">
-                ₹{currentPricing.price.toLocaleString('en-IN')}
-              </span>
-              {currentPricing.mrp > currentPricing.price ? (
-                <span className="text-[10px] text-stone-400 line-through block">
-                  ₹{currentPricing.mrp.toLocaleString('en-IN')}
-                </span>
-              ) : isCustomSize ? (
-                <span className="text-[10px] text-emerald-700 font-semibold block leading-none">
-                  Custom Sized
-                </span>
-              ) : null}
-            </div>
-
-            <button
-              type="button"
-              onClick={handleAddToCart}
-              className="hidden sm:flex items-center gap-1.5 px-4 py-2.5 rounded-xl border-2 border-stone-300 bg-stone-100 text-stone-900 font-bold text-xs hover:bg-stone-200 transition-colors cursor-pointer"
-            >
-              <ShoppingBag className="w-3.5 h-3.5 text-amber-600" />
-              <span>Add to Cart</span>
-            </button>
-
-            <button
-              type="button"
-              onClick={handleBuyNow}
-              className="flex items-center justify-center gap-1.5 px-5 py-2.5 min-h-[44px] rounded-xl bg-[#FEE815] hover:bg-[#FFF04B] text-stone-950 font-bold text-xs sm:text-sm shadow-md transition-colors cursor-pointer"
-            >
-              <span>Proceed to Checkout</span>
-              <ArrowRight className="w-3.5 h-3.5 text-stone-900" />
-            </button>
-          </div>
-        </div>
-      </div>
 
       {/* Unified Custom Photo & Size Modal */}
       <AddPhotoModal
