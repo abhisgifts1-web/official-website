@@ -170,6 +170,11 @@ export default function CartDrawer() {
                               &ldquo;{item.customization.customText}&rdquo;
                             </p>
                           )}
+                          {item.customization?.photoUrls && item.customization.photoUrls.length > 1 && (
+                            <p className="text-emerald-700 font-semibold text-[10px] flex items-center gap-1 mt-0.5">
+                              <span>📸 {item.customization.photoUrls.length} Photos Attached</span>
+                            </p>
+                          )}
                         </div>
                       </div>
 

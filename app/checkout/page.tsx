@@ -214,6 +214,34 @@ export default function CheckoutPage() {
               console.warn('Could not upload base64 image during checkout:', err);
             }
           }
+
+          // Also upload any base64 photos in photoUrls array if present
+          if (updatedItem.customization?.photoUrls && updatedItem.customization.photoUrls.length > 0) {
+            const uploadedUrls = await Promise.all(
+              updatedItem.customization.photoUrls.map(async (pUrl) => {
+                if (pUrl && pUrl.startsWith('data:')) {
+                  try {
+                    const compressed = await compressImageToDataUrl(pUrl);
+                    const res = await fetch('/api/upload-photo', {
+                      method: 'POST',
+                      headers: { 'Content-Type': 'application/json' },
+                      body: JSON.stringify({ image: compressed }),
+                    });
+                    const uploadData = await res.json();
+                    return uploadData?.cdnUrl || (uploadData?.url ? `${window.location.origin}${uploadData.url}` : pUrl);
+                  } catch {
+                    return pUrl;
+                  }
+                }
+                return pUrl;
+              })
+            );
+            updatedItem.customization = {
+              ...updatedItem.customization,
+              photoUrls: uploadedUrls,
+            };
+          }
+
           return updatedItem;
         })
       );

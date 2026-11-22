@@ -129,6 +129,28 @@ export default function CartPage() {
                         Inscription: &ldquo;{item.customization.customText}&rdquo;
                       </p>
                     )}
+                    {item.customization?.photoUrls && item.customization.photoUrls.length > 1 && (
+                      <div className="mt-1.5 flex items-center gap-1.5 flex-wrap">
+                        <span className="inline-flex items-center gap-1 bg-amber-50 text-amber-900 border border-amber-300 px-2 py-0.5 rounded text-[10px] font-bold">
+                          📸 {item.customization.photoUrls.length} Photos Attached
+                        </span>
+                        <div className="flex -space-x-1">
+                          {item.customization.photoUrls.slice(0, 4).map((pUrl, idx) => (
+                            <img
+                              key={idx}
+                              src={pUrl}
+                              alt={`Thumb ${idx + 1}`}
+                              className="w-5 h-5 rounded-full object-cover border border-amber-400 bg-stone-900"
+                            />
+                          ))}
+                          {item.customization.photoUrls.length > 4 && (
+                            <span className="w-5 h-5 rounded-full bg-stone-900 text-white text-[9px] font-bold flex items-center justify-center border border-amber-400">
+                              +{item.customization.photoUrls.length - 4}
+                            </span>
+                          )}
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </div>
 

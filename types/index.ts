@@ -110,6 +110,8 @@ export interface Category {
 
 export interface CartCustomization {
   previewUrl: string;
+  photoUrls?: string[];
+  photoCount?: number;
   customText?: string;
   frameType?: string;
   selectedModel?: string;

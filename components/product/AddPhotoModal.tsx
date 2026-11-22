@@ -10,16 +10,17 @@ import {
   Sparkles,
   Check,
   CheckCircle2,
-  MessageCircle,
   ShoppingBag,
   ArrowRight,
-  Sun,
   ShieldCheck,
   RotateCcw,
   Ruler,
-  Image as ImageIcon,
-  Download,
-  Send,
+  ChevronLeft,
+  ChevronRight,
+  Trash2,
+  Plus,
+  AlertCircle,
+  Images,
 } from 'lucide-react';
 import { Product, ProductVariant } from '@/types';
 import CustomSizeInput from './CustomSizeInput';
@@ -27,6 +28,16 @@ import { calculateCustomDimensions } from '@/lib/utils/customSize';
 import { useCart } from '@/context/CartContext';
 import { INITIAL_SETTINGS } from '@/lib/data/settings';
 import { compressImageToDataUrl } from '@/lib/utils/imageCompress';
+
+const MAX_PHOTOS = 10;
+
+interface UploadedPhoto {
+  id: string;
+  preview: string;
+  cdnUrl: string | null;
+  name: string;
+  isUploading?: boolean;
+}
 
 interface AddPhotoModalProps {
   product: Product;
@@ -61,7 +72,9 @@ export default function AddPhotoModal({
   const [activeVariant, setActiveVariant] = useState<ProductVariant>(
     initialVariant || product.variants[0] || defaultVariant
   );
-  const [photoPreview, setPhotoPreview] = useState<string | null>(null);
+  const [photos, setPhotos] = useState<UploadedPhoto[]>([]);
+  const [activePhotoIndex, setActivePhotoIndex] = useState<number>(0);
+  const [limitWarning, setLimitWarning] = useState<string | null>(null);
   const [customText, setCustomText] = useState('');
   const [ledEnabled, setLedEnabled] = useState(product.hasLedBacklight);
   const [isDragging, setIsDragging] = useState(false);
@@ -69,8 +82,6 @@ export default function AddPhotoModal({
   const [isCustomSize, setIsCustomSize] = useState(false);
   const [customWidth, setCustomWidth] = useState<number>(24);
   const [customHeight, setCustomHeight] = useState<number>(36);
-  const [waUploading, setWaUploading] = useState(false);
-  const [uploadedPhotoUrl, setUploadedPhotoUrl] = useState<string | null>(null);
 
   // Sync if initialVariant changes
   React.useEffect(() => {
@@ -78,6 +89,15 @@ export default function AddPhotoModal({
       setActiveVariant(initialVariant);
     }
   }, [initialVariant]);
+
+  // Keep activePhotoIndex within bounds
+  React.useEffect(() => {
+    if (photos.length === 0) {
+      setActivePhotoIndex(0);
+    } else if (activePhotoIndex >= photos.length) {
+      setActivePhotoIndex(photos.length - 1);
+    }
+  }, [photos.length, activePhotoIndex]);
 
   // ⚠️ ALL hooks MUST be called before any conditional early return (Rules of Hooks)
   const customSizeCalc = React.useMemo(() => {
@@ -101,50 +121,90 @@ export default function AddPhotoModal({
     ? Math.round(((activeMrp - activePrice) / activeMrp) * 100)
     : 0;
 
-  const cleanWaNumber = (INITIAL_SETTINGS.whatsappNumber || '919032372782').replace(/[^0-9]/g, '');
-
   // Early return AFTER all hooks
   if (!isOpen) return null;
 
-  // Pre-upload photo in the background as soon as user selects it
-  const processAndPreUpload = async (file: File) => {
-    try {
-      const reader = new FileReader();
-      reader.onload = async (event) => {
-        const rawResult = event.target?.result as string;
-        if (!rawResult) return;
-        setPhotoPreview(rawResult);
-        setUploadedPhotoUrl(null);
+  // Process selected or dropped files up to MAX_PHOTOS
+  const handleFiles = async (selectedFiles: FileList | File[]) => {
+    const rawFiles = Array.from(selectedFiles).filter((f) => f.type.startsWith('image/'));
+    if (rawFiles.length === 0) return;
 
-        try {
-          setWaUploading(true);
-          const compressed = await compressImageToDataUrl(rawResult);
-          const res = await fetch('/api/upload-photo', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ image: compressed }),
-          });
-          const data = await res.json();
-          const finalUrl = data?.cdnUrl || (data?.url ? `${window.location.origin}${data.url}` : null);
-          if (finalUrl) {
-            setUploadedPhotoUrl(finalUrl);
+    const remainingSlots = MAX_PHOTOS - photos.length;
+    if (remainingSlots <= 0) {
+      setLimitWarning(`You have already reached the maximum of ${MAX_PHOTOS} photos.`);
+      setTimeout(() => setLimitWarning(null), 4000);
+      return;
+    }
+
+    let filesToAdd = rawFiles;
+    if (rawFiles.length > remainingSlots) {
+      filesToAdd = rawFiles.slice(0, remainingSlots);
+      setLimitWarning(`You can add up to ${MAX_PHOTOS} photos at a time. The first ${remainingSlots} photo(s) were added.`);
+      setTimeout(() => setLimitWarning(null), 5000);
+    } else {
+      setLimitWarning(null);
+    }
+
+    // Process each file with fast compression & preview
+    for (const file of filesToAdd) {
+      try {
+        const compressedDataUrl = await compressImageToDataUrl(file);
+        const newPhotoItem: UploadedPhoto = {
+          id: `photo-${Date.now()}-${Math.random().toString(36).substring(2, 9)}`,
+          preview: compressedDataUrl,
+          cdnUrl: null,
+          name: file.name,
+          isUploading: true,
+        };
+
+        setPhotos((prev) => [...prev, newPhotoItem]);
+
+        // Background upload to server / CDN
+        (async () => {
+          try {
+            const res = await fetch('/api/upload-photo', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ image: compressedDataUrl }),
+            });
+            const data = await res.json();
+            const finalUrl = data?.cdnUrl || (data?.url ? `${window.location.origin}${data.url}` : null);
+            if (finalUrl) {
+              setPhotos((prev) =>
+                prev.map((item) =>
+                  item.id === newPhotoItem.id ? { ...item, cdnUrl: finalUrl, isUploading: false } : item
+                )
+              );
+            } else {
+              setPhotos((prev) =>
+                prev.map((item) =>
+                  item.id === newPhotoItem.id ? { ...item, isUploading: false } : item
+                )
+              );
+            }
+          } catch (uploadErr) {
+            console.warn('Background upload notice:', uploadErr);
+            setPhotos((prev) =>
+              prev.map((item) =>
+                item.id === newPhotoItem.id ? { ...item, isUploading: false } : item
+              )
+            );
           }
-        } catch (uploadErr) {
-          console.warn('Pre-uploading photo notice:', uploadErr);
-        } finally {
-          setWaUploading(false);
-        }
-      };
-      reader.readAsDataURL(file);
-    } catch (err) {
-      console.warn('File read error:', err);
+        })();
+      } catch (err) {
+        console.warn('Error processing image file:', err);
+      }
+    }
+
+    // Reset input
+    if (fileInputRef.current) {
+      fileInputRef.current.value = '';
     }
   };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      processAndPreUpload(file);
+    if (e.target.files && e.target.files.length > 0) {
+      handleFiles(e.target.files);
     }
   };
 
@@ -161,44 +221,57 @@ export default function AddPhotoModal({
   const handleDrop = (e: React.DragEvent) => {
     e.preventDefault();
     setIsDragging(false);
-    const file = e.dataTransfer.files?.[0];
-    if (file && file.type.startsWith('image/')) {
-      processAndPreUpload(file);
+    if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
+      handleFiles(e.dataTransfer.files);
+    }
+  };
+
+  const handleRemovePhoto = (indexToRemove: number) => {
+    setPhotos((prev) => prev.filter((_, idx) => idx !== indexToRemove));
+    if (activePhotoIndex >= indexToRemove && activePhotoIndex > 0) {
+      setActivePhotoIndex((prev) => prev - 1);
+    }
+  };
+
+  const handleClearAllPhotos = () => {
+    setPhotos([]);
+    setActivePhotoIndex(0);
+    setLimitWarning(null);
+  };
+
+  const handleNextPhoto = () => {
+    if (photos.length > 1) {
+      setActivePhotoIndex((prev) => (prev + 1) % photos.length);
+    }
+  };
+
+  const handlePrevPhoto = () => {
+    if (photos.length > 1) {
+      setActivePhotoIndex((prev) => (prev - 1 + photos.length) % photos.length);
     }
   };
 
   const handleAddToCartWithPhoto = async (redirectCheckout = false) => {
-    let finalImage = uploadedPhotoUrl || photoPreview || product.images[0];
-    if (!uploadedPhotoUrl && photoPreview && photoPreview.startsWith('data:')) {
-      try {
-        const compressed = await compressImageToDataUrl(photoPreview);
-        const res = await fetch('/api/upload-photo', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ image: compressed }),
-        });
-        const uploadRes = await res.json();
-        const uploadedLink = uploadRes?.cdnUrl || (uploadRes?.url ? `${window.location.origin}${uploadRes.url}` : null);
-        if (uploadedLink) {
-          finalImage = uploadedLink;
-          setUploadedPhotoUrl(uploadedLink);
-        }
-      } catch (err) {
-        console.warn('Pre-uploading custom photo failed', err);
-      }
+    const hasPhotos = photos.length > 0;
+    const allPhotoUrls = photos.map((p) => p.cdnUrl || p.preview);
+    const primaryImage = allPhotoUrls[0] || product.images[0];
+
+    let itemTitle = product.title;
+    if (hasPhotos) {
+      itemTitle =
+        photos.length === 1
+          ? `${product.title} (With 1 Custom Photo${isCustomSize ? ` • ${customWidth}"×${customHeight}"` : ''})`
+          : `${product.title} (With ${photos.length} Custom Photos${isCustomSize ? ` • ${customWidth}"×${customHeight}"` : ''})`;
+    } else if (isCustomSize) {
+      itemTitle = `${product.title} (Custom Size: ${customWidth}" × ${customHeight}")`;
     }
-    const itemTitle = photoPreview
-      ? `${product.title} (With Custom Photo${isCustomSize ? ` • ${customWidth}x${customHeight}` : ''})`
-      : isCustomSize
-      ? `${product.title} (Custom Size: ${customWidth}" × ${customHeight}")`
-      : product.title;
 
     addToCart(
       {
         productId: product.id,
         slug: product.slug,
         title: itemTitle,
-        image: finalImage,
+        image: primaryImage,
         variantId: isCustomSize ? `custom-size-${customWidth}x${customHeight}-photo` : `${activeVariant.id}-custom-photo`,
         size: activeSizeLabel,
         finish: activeVariant.finish,
@@ -214,11 +287,15 @@ export default function AddPhotoModal({
         unitMrp: activeMrp,
         quantity: 1,
         customization: {
-          previewUrl: finalImage,
+          previewUrl: primaryImage,
+          photoUrls: allPhotoUrls,
+          photoCount: photos.length,
           customText: customText.trim() || undefined,
           frameType: activeVariant.finish,
           orientation: product.orientation,
-          specialInstructions: `Product: ${product.title} | Photo: ${photoPreview ? 'Custom User Upload' : 'Original Artwork'} | Size: ${activeSizeLabel}${customText.trim() ? ` | Text: ${customText.trim()}` : ''}`,
+          specialInstructions: `Product: ${product.title} | ${
+            hasPhotos ? `${photos.length} Custom Photo(s) Attached (Up to 10)` : 'Original Artwork'
+          } | Size: ${activeSizeLabel}${customText.trim() ? ` | Text: ${customText.trim()}` : ''}`,
         },
       },
       !redirectCheckout
@@ -237,19 +314,31 @@ export default function AddPhotoModal({
     }
   };
 
+  const activePhoto = photos[activePhotoIndex] || null;
+
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-stone-950/70 backdrop-blur-md animate-fade-in overflow-y-auto">
       <div
         className="relative w-full max-w-2xl bg-white border border-stone-200 rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden my-auto max-h-[92vh] flex flex-col text-stone-900"
         onClick={(e) => e.stopPropagation()}
       >
+        {/* Hidden Multiple File Input */}
+        <input
+          type="file"
+          ref={fileInputRef}
+          onChange={handleFileChange}
+          accept="image/*"
+          multiple
+          className="hidden"
+        />
+
         {/* Header */}
         <div className="px-4 sm:px-6 py-3.5 bg-stone-50 border-b border-stone-200 flex items-center justify-between shrink-0">
           <div className="flex items-center gap-2 min-w-0">
             <span className="w-2.5 h-2.5 rounded-full bg-amber-500 animate-pulse shrink-0" />
             <div className="min-w-0">
               <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-amber-700 block truncate">
-                Customise: Photo & Size
+                Customise: Add Up to 10 Photos &amp; Custom Size
               </span>
               <h2 className="font-serif font-bold text-sm sm:text-base text-stone-900 truncate">
                 {product.title}
@@ -268,6 +357,14 @@ export default function AddPhotoModal({
 
         {/* Scrollable Body */}
         <div className="p-4 sm:p-6 overflow-y-auto space-y-5 flex-1">
+          {/* Limit Warning banner */}
+          {limitWarning && (
+            <div className="bg-amber-50 border border-amber-300 text-amber-900 px-3.5 py-2.5 rounded-xl text-xs flex items-center gap-2 animate-fade-in">
+              <AlertCircle className="w-4 h-4 text-amber-600 shrink-0" />
+              <span>{limitWarning}</span>
+            </div>
+          )}
+
           {/* Product context pill */}
           <div className="bg-stone-50 border border-stone-200 rounded-xl p-3 flex items-center gap-3">
             <img
@@ -280,35 +377,47 @@ export default function AddPhotoModal({
                 Personalized {product.title}
               </p>
               <p className="text-stone-600 text-[11px] mt-0.5">
-                Customise this frame with your own photo, custom width & height dimensions, or both. Precision crafted in Hyderabad.
+                Upload <strong>up to 10 photos at a time</strong> for custom collage or single display, with custom width &amp; height dimensions. Handcrafted with museum-grade acrylic in Hyderabad.
               </p>
             </div>
           </div>
 
           {/* Photo Upload & Live Mockup */}
-          <div className="space-y-2">
-            <label className="text-xs font-bold text-stone-900 uppercase tracking-wider flex items-center justify-between">
-              <span>1. Personal Photo <span className="text-stone-500 font-normal lowercase">(optional — upload your photo or keep original artwork)</span></span>
-              {photoPreview && (
-                <button
-                  type="button"
-                  onClick={() => fileInputRef.current?.click()}
-                  className="text-[11px] font-medium text-amber-700 hover:underline flex items-center gap-1 cursor-pointer"
-                >
-                  <RotateCcw className="w-3 h-3" /> Change Photo
-                </button>
+          <div className="space-y-2.5">
+            <div className="flex items-center justify-between text-xs">
+              <label className="font-bold text-stone-900 uppercase tracking-wider flex items-center gap-1.5">
+                <Images className="w-4 h-4 text-amber-600" />
+                <span>1. Upload Photos</span>
+                <span className="text-[11px] font-normal normal-case text-amber-700 bg-amber-100/70 px-2 py-0.5 rounded-full border border-amber-300">
+                  {photos.length} / {MAX_PHOTOS} Photos
+                </span>
+              </label>
+
+              {photos.length > 0 && (
+                <div className="flex items-center gap-2">
+                  {photos.length < MAX_PHOTOS && (
+                    <button
+                      type="button"
+                      onClick={() => fileInputRef.current?.click()}
+                      className="text-[11px] font-bold text-amber-800 hover:text-amber-950 flex items-center gap-1 cursor-pointer bg-amber-50 hover:bg-amber-100 px-2.5 py-1 rounded-lg border border-amber-200 transition-colors"
+                    >
+                      <Plus className="w-3.5 h-3.5" />
+                      Add More ({MAX_PHOTOS - photos.length} left)
+                    </button>
+                  )}
+                  <button
+                    type="button"
+                    onClick={handleClearAllPhotos}
+                    className="text-[11px] text-stone-500 hover:text-red-600 underline cursor-pointer"
+                  >
+                    Clear All
+                  </button>
+                </div>
               )}
-            </label>
+            </div>
 
-            <input
-              type="file"
-              ref={fileInputRef}
-              onChange={handleFileChange}
-              accept="image/*"
-              className="hidden"
-            />
-
-            {!photoPreview ? (
+            {photos.length === 0 ? (
+              /* Dropzone when no photos uploaded yet */
               <div
                 onClick={() => fileInputRef.current?.click()}
                 onDragOver={handleDragOver}
@@ -320,62 +429,180 @@ export default function AddPhotoModal({
                     : 'border-stone-300 hover:border-amber-400'
                 }`}
               >
-                <div className="flex flex-col items-center justify-center space-y-2">
-                  <div className="w-12 h-12 rounded-2xl bg-amber-100 border border-amber-300 flex items-center justify-center text-amber-700">
-                    <Camera className="w-6 h-6" />
+                <div className="flex flex-col items-center justify-center space-y-2.5">
+                  <div className="relative">
+                    <div className="w-14 h-14 rounded-2xl bg-amber-100 border border-amber-300 flex items-center justify-center text-amber-700 shadow-xs">
+                      <Camera className="w-7 h-7" />
+                    </div>
+                    <span className="absolute -top-1.5 -right-2 bg-stone-900 text-[#FEE815] text-[10px] font-bold px-1.5 py-0.5 rounded-full shadow-xs">
+                      Up to 10
+                    </span>
                   </div>
                   <div>
-                    <p className="text-xs sm:text-sm font-bold text-stone-900">
-                      Click or Drag &amp; Drop Your Photo Here
+                    <p className="text-sm sm:text-base font-bold text-stone-900">
+                      Click or Drag &amp; Drop Up to 10 Photos Here
                     </p>
-                    <p className="text-[11px] text-stone-500 mt-1">
-                      Upload any family, wedding, birthday, portrait, or devotional photo (JPG, PNG, WebP)
+                    <p className="text-xs text-stone-500 mt-1 max-w-md mx-auto">
+                      Select 1 to 10 photos simultaneously for your personalized frame order (Family, Wedding, Birthday, Portraits, or Devotional)
                     </p>
                   </div>
                   <button
                     type="button"
-                    className="mt-2 inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-stone-900 hover:bg-stone-800 text-white font-bold text-xs shadow-xs transition-colors pointer-events-none"
+                    className="mt-1 inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-stone-900 hover:bg-stone-800 text-white font-bold text-xs shadow-xs transition-colors pointer-events-none"
                   >
-                    <Upload className="w-3.5 h-3.5 text-amber-400" />
-                    <span>Select Photo from Device</span>
+                    <Upload className="w-4 h-4 text-amber-400" />
+                    <span>Select Up to 10 Photos from Device</span>
                   </button>
+                  <p className="text-[10px] text-stone-400">
+                    Supports JPG, PNG, WEBP • Fast high-resolution processing
+                  </p>
                 </div>
               </div>
             ) : (
-              <div className="relative rounded-2xl overflow-hidden border-2 border-amber-400 bg-stone-100 p-3 flex flex-col items-center">
-                {/* Acrylic Frame Mockup */}
-                <div
-                  className={`relative max-w-sm w-full aspect-[4/3] rounded-xl overflow-hidden border border-stone-300 shadow-md bg-stone-900 transition-all ${
-                    ledEnabled ? 'ring-4 ring-amber-400/40 shadow-[0_0_35px_rgba(254,232,21,0.35)]' : ''
-                  }`}
-                >
-                  <img
-                    src={photoPreview}
-                    alt="Uploaded photo preview"
-                    className="w-full h-full object-cover"
-                  />
+              /* Photos Uploaded: Main Mockup Preview + Thumbnail Strip */
+              <div className="space-y-3">
+                {/* Active Photo Mockup */}
+                <div className="relative rounded-2xl overflow-hidden border-2 border-amber-400 bg-stone-100 p-3 sm:p-4 flex flex-col items-center">
+                  <div
+                    className={`relative max-w-sm w-full aspect-[4/3] rounded-xl overflow-hidden border border-stone-300 shadow-md bg-stone-900 transition-all ${
+                      ledEnabled ? 'ring-4 ring-amber-400/40 shadow-[0_0_35px_rgba(254,232,21,0.35)]' : ''
+                    }`}
+                  >
+                    {activePhoto && (
+                      <img
+                        src={activePhoto.preview}
+                        alt={`Photo ${activePhotoIndex + 1}`}
+                        className="w-full h-full object-cover"
+                      />
+                    )}
 
-                  {/* Glass Sheen */}
-                  <div className="absolute inset-0 pointer-events-none bg-gradient-to-tr from-transparent via-white/10 to-white/20" />
+                    {/* Glass Sheen */}
+                    <div className="absolute inset-0 pointer-events-none bg-gradient-to-tr from-transparent via-white/10 to-white/20" />
 
-                  {/* Frame Badge */}
-                  <div className="absolute bottom-2 left-2 bg-stone-900/90 border border-amber-400/60 px-2 py-0.5 rounded text-[10px] text-amber-300 font-bold">
-                    {product.title} • {activeSizeLabel}
+                    {/* Top status & controls over photo */}
+                    <div className="absolute top-2 left-2 right-2 flex items-center justify-between pointer-events-auto">
+                      <span className="bg-stone-900/85 backdrop-blur-xs text-[#FEE815] font-mono text-[10px] font-bold px-2 py-0.5 rounded-md border border-amber-400/50">
+                        Photo {activePhotoIndex + 1} of {photos.length}
+                      </span>
+                      <button
+                        type="button"
+                        onClick={() => handleRemovePhoto(activePhotoIndex)}
+                        className="bg-stone-900/85 hover:bg-red-600 text-white p-1 rounded-md transition-colors border border-white/20 cursor-pointer"
+                        title="Remove this photo"
+                        aria-label="Remove this photo"
+                      >
+                        <Trash2 className="w-3.5 h-3.5" />
+                      </button>
+                    </div>
+
+                    {/* Next/Prev Navigation arrows if multiple photos */}
+                    {photos.length > 1 && (
+                      <>
+                        <button
+                          type="button"
+                          onClick={handlePrevPhoto}
+                          className="absolute left-2 top-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-stone-900/80 hover:bg-stone-900 text-white flex items-center justify-center border border-white/20 transition-all cursor-pointer shadow-xs"
+                          aria-label="Previous photo"
+                        >
+                          <ChevronLeft className="w-4 h-4" />
+                        </button>
+                        <button
+                          type="button"
+                          onClick={handleNextPhoto}
+                          className="absolute right-2 top-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-stone-900/80 hover:bg-stone-900 text-white flex items-center justify-center border border-white/20 transition-all cursor-pointer shadow-xs"
+                          aria-label="Next photo"
+                        >
+                          <ChevronRight className="w-4 h-4" />
+                        </button>
+                      </>
+                    )}
+
+                    {/* Frame Badge */}
+                    <div className="absolute bottom-2 left-2 bg-stone-900/90 border border-amber-400/60 px-2 py-0.5 rounded text-[10px] text-amber-300 font-bold">
+                      {product.title} • {activeSizeLabel}
+                    </div>
+                  </div>
+
+                  <div className="mt-2.5 flex items-center justify-between w-full text-xs">
+                    <span className="text-stone-700 text-[11px] flex items-center gap-1 font-medium">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
+                      {photos.length === 1
+                        ? '1 Photo Ready for Acrylic Printing'
+                        : `${photos.length} Photos Ready for Print & Design Proof`}
+                    </span>
+                    <span className="text-stone-500 text-[10px]">
+                      Click any thumbnail below to view
+                    </span>
                   </div>
                 </div>
 
-                <div className="mt-2.5 flex items-center justify-between w-full text-xs">
-                  <span className="text-stone-600 text-[11px] flex items-center gap-1">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
-                    Photo ready for {product.title}
-                  </span>
-                  <button
-                    type="button"
-                    onClick={() => fileInputRef.current?.click()}
-                    className="text-[11px] font-bold text-amber-700 hover:text-stone-900 underline cursor-pointer"
-                  >
-                    Replace Photo
-                  </button>
+                {/* Thumbnail Strip (Up to 10 photos) */}
+                <div className="bg-stone-50 border border-stone-200 rounded-xl p-2.5">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-[11px] font-bold text-stone-700">
+                      Uploaded Photos ({photos.length} of {MAX_PHOTOS}):
+                    </span>
+                    {photos.length < MAX_PHOTOS && (
+                      <span className="text-[10px] text-amber-700 font-medium">
+                        Can add {MAX_PHOTOS - photos.length} more
+                      </span>
+                    )}
+                  </div>
+
+                  <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-thin">
+                    {photos.map((photo, index) => {
+                      const isActive = index === activePhotoIndex;
+                      return (
+                        <div
+                          key={photo.id}
+                          className={`relative group shrink-0 w-16 h-16 rounded-lg overflow-hidden border-2 cursor-pointer transition-all ${
+                            isActive
+                              ? 'border-amber-500 ring-2 ring-amber-400 shadow-xs scale-105'
+                              : 'border-stone-300 hover:border-amber-400 opacity-80 hover:opacity-100'
+                          }`}
+                          onClick={() => setActivePhotoIndex(index)}
+                        >
+                          <img
+                            src={photo.preview}
+                            alt={`Thumb ${index + 1}`}
+                            className="w-full h-full object-cover"
+                          />
+
+                          {/* Index badge */}
+                          <span className="absolute bottom-0.5 left-0.5 bg-stone-900/85 text-white font-mono text-[9px] font-bold px-1 rounded">
+                            #{index + 1}
+                          </span>
+
+                          {/* Remove button */}
+                          <button
+                            type="button"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              handleRemovePhoto(index);
+                            }}
+                            className="absolute top-0.5 right-0.5 w-4 h-4 rounded-full bg-stone-900/90 text-white hover:bg-red-600 flex items-center justify-center transition-colors cursor-pointer"
+                            title="Remove"
+                            aria-label={`Remove photo ${index + 1}`}
+                          >
+                            <X className="w-2.5 h-2.5" />
+                          </button>
+                        </div>
+                      );
+                    })}
+
+                    {/* "+ Add More" thumbnail slot if under MAX_PHOTOS */}
+                    {photos.length < MAX_PHOTOS && (
+                      <button
+                        type="button"
+                        onClick={() => fileInputRef.current?.click()}
+                        className="shrink-0 w-16 h-16 rounded-lg border-2 border-dashed border-amber-300 hover:border-amber-500 bg-amber-50/50 hover:bg-amber-100/60 flex flex-col items-center justify-center text-amber-800 transition-colors cursor-pointer p-1"
+                        title="Add more photos"
+                      >
+                        <Plus className="w-5 h-5" />
+                        <span className="text-[9px] font-bold mt-0.5">Add</span>
+                      </button>
+                    )}
+                  </div>
                 </div>
               </div>
             )}
@@ -462,7 +689,7 @@ export default function AddPhotoModal({
           <div className="bg-stone-50 border border-stone-200 rounded-xl p-3.5 flex items-center justify-between">
             <div>
               <span className="text-[11px] text-stone-500 block">
-                {isCustomSize ? 'Custom Size Price with Photo' : 'Item Price with Custom Photo'}
+                {isCustomSize ? 'Custom Size Price' : 'Total Frame Price'}
               </span>
               <div className="flex items-baseline gap-2 mt-0.5">
                 <span className="text-lg font-bold text-stone-900 font-serif">
@@ -504,7 +731,10 @@ export default function AddPhotoModal({
               ) : (
                 <>
                   <ShoppingBag className="w-4 h-4 text-stone-950" />
-                  <span>Add to Cart • ₹{activePrice.toLocaleString('en-IN')}</span>
+                  <span>
+                    Add to Cart {photos.length > 0 ? `(${photos.length} Photo${photos.length > 1 ? 's' : ''})` : ''} • ₹
+                    {activePrice.toLocaleString('en-IN')}
+                  </span>
                 </>
               )}
             </button>
@@ -535,12 +765,12 @@ export default function AddPhotoModal({
             </Link>
           </div>
 
-          {/* Info note when photo is uploaded */}
-          {photoPreview && (
+          {/* Info note when photos are uploaded */}
+          {photos.length > 0 && (
             <div className="mt-2 bg-[#FEE815]/10 border border-[#FEE815]/40 rounded-xl px-3 py-2 flex items-center gap-2">
               <Check className="w-3.5 h-3.5 text-[#FEE815] shrink-0" />
               <p className="text-[11px] text-[#D1D5DB]">
-                Custom photo is <span className="text-[#FEE815] font-semibold">ready and attached</span>. Proceed to checkout to complete your custom acrylic print order.
+                <strong className="text-[#FEE815]">{photos.length} photo(s)</strong> attached to your order. Proceed to checkout to finalize your custom acrylic print!
               </p>
             </div>
           )}
@@ -549,6 +779,5 @@ export default function AddPhotoModal({
     </div>
   );
 }
-
 
 export const ProductCustomizerModal = AddPhotoModal;
