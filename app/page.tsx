@@ -5,7 +5,7 @@ import HeroShowcase from '@/components/home/HeroShowcase';
 import CategoryShowcase from '@/components/home/CategoryShowcase';
 import BestsellersShowcase from '@/components/home/BestsellersShowcase';
 import WhyChooseUsSection from '@/components/home/WhyChooseUsSection';
-import RealHomesGallery from '@/components/home/RealHomesGallery';
+import InteractiveWallStudio from '@/components/home/InteractiveWallStudio';
 import ContactCtaSection from '@/components/home/ContactCtaSection';
 
 export default function HomePage() {
@@ -23,8 +23,8 @@ export default function HomePage() {
       {/* 3. Why Choose Us Section */}
       <WhyChooseUsSection />
 
-      {/* 4. Real Homes & Customer Spotlight Gallery */}
-      <RealHomesGallery />
+      {/* 4. Interactive Wall Size & Lighting Visualizer */}
+      <InteractiveWallStudio />
 
       {/* 5. Contact and WhatsApp CTA Section */}
       <ContactCtaSection />
