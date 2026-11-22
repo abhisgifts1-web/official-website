@@ -10,7 +10,6 @@ import {
   ArrowRight,
   Flame,
   Gem,
-  PackageCheck,
   MapPin,
   CheckCircle2,
   Clock,
@@ -20,10 +19,8 @@ import {
   Palette,
   Lightbulb,
   Check,
-  MessageCircle,
   RotateCw,
   Smile,
-  Star,
   Eye,
   Phone,
   Mail,
@@ -39,150 +36,179 @@ import { INITIAL_SETTINGS } from '@/lib/data/settings';
 export const metadata: Metadata = {
   title: "About Us • Abhi's Gifts | Frame Your Memories — Dilsukhnagar, Hyderabad",
   description:
-    "Abhi's Gifts is Hyderabad's premier personalized photo framing atelier in Dilsukhnagar. Established in 2022, specializing in museum-grade 5MM cast acrylic frames, ambient LED backlit frames, liquid gold glitter frames, and bespoke keepsakes.",
+    "Abhi's Gifts is a premium personalized photo frame and gifting store based in Dilsukhnagar, Hyderabad. Established in 2022, specializing in acrylic photo frames, LED photo frames, glitter frames, acrylic clocks, and unique customized gifts.",
   alternates: {
     canonical: 'https://abhigifts.com/about',
   },
   openGraph: {
     title: "About Us • Abhi's Gifts | Frame Your Memories",
     description:
-      "Since 2022, Abhi's Gifts has been turning precious memories into long-lasting, illuminated acrylic masterpieces in Dilsukhnagar, Hyderabad.",
+      "Since 2022, Abhi's Gifts has been turning precious memories into beautiful, meaningful and long-lasting displays in Dilsukhnagar, Hyderabad.",
     url: 'https://abhigifts.com/about',
     images: [
       {
         url: '/images/atelier/room-living.jpg',
         width: 1200,
         height: 630,
-        alt: "Abhi's Gifts Atelier - Dilsukhnagar, Hyderabad",
+        alt: "Abhi's Gifts - Dilsukhnagar, Hyderabad",
       },
     ],
   },
 };
 
-const SIGNATURE_COLLECTIONS = [
+const SPECIALTIES = [
   {
-    title: '5MM Cast Acrylic Photo Frames',
-    desc: 'Diamond CNC-cut beveled edges with metal wall standoff studs for a modern floating aesthetic.',
+    title: 'Premium Acrylic Photo Frames',
+    desc: 'High-density cast acrylic with precision beveled edges and crystal optical clarity.',
     icon: Gem,
-    tag: 'Bestseller',
     href: '/category/acrylic-photo-frames',
-    image: '/images/mockups/custom-personalised-photo-acrylic-wall-frame/primary-square.jpg',
   },
   {
-    title: 'Concealed LED Backlit Wall Art',
-    desc: 'Soothing 3000K ambient halo illumination casting gentle light across your favorite portraits.',
+    title: 'LED Acrylic Photo Frames',
+    desc: 'Concealed LED illumination casting a soothing warm halo around your portraits.',
     icon: Lightbulb,
-    tag: 'Signature Craft',
     href: '/category/led-acrylic-photo-frames',
-    image: '/images/mockups/custom-led-backlit-acrylic-photo-frame/primary-square.jpg',
   },
   {
-    title: 'Liquid Gold Glitter Frames',
-    desc: 'Dual-layer acrylic block infused with floating shimmer flakes for romantic and celebratory displays.',
+    title: 'Customized Photo Frames',
+    desc: 'Bespoke designs tailored from your favourite high-resolution photographs.',
+    icon: Palette,
+    href: '/customise',
+  },
+  {
+    title: 'Acrylic Frames with Studs',
+    desc: 'Sophisticated metal standoff studs delivering a modern floating wall display.',
+    icon: ShieldCheck,
+    href: '/category/acrylic-photo-frames',
+  },
+  {
+    title: 'Glitter Photo Frames',
+    desc: 'Luminous sparkle and metallic glitter effects adding celebration radiance.',
     icon: Sparkles,
-    tag: 'Luxury Edition',
     href: '/category/glitter-photo-frames',
-    image: '/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg',
   },
   {
-    title: 'Pooja Room & Devotional Art',
-    desc: 'Lord Balaji, Shiva, Ayodhya Ram Mandir and Ashta Lakshmi rendered with gold foil and sanctum lighting.',
-    icon: Flame,
-    tag: 'Sacred Mandir',
-    href: '/category/god-photo-frames',
-    image: '/images/mockups/tirupati-balaji-divine-led-backlit-acrylic-wall-art/primary-square.jpg',
-  },
-  {
-    title: '360° Motorized Rotating Lamps',
-    desc: 'Revolving cylindrical tower illuminating multiple family portraits with warm ambient glow.',
+    title: 'Rotating Photo Lamps',
+    desc: 'Motorized 360-degree cylindrical lamps glowing warmly with multiple photos.',
     icon: RotateCw,
-    tag: 'Unique Gift',
     href: '/category/360-rotating-photo-lamps',
-    image: '/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/primary-square.jpg',
   },
   {
-    title: 'Wedding Vows & Couple Art',
-    desc: 'Romantic dual portraits, vow inscriptions, and anniversary heirlooms engineered to last generations.',
-    icon: Heart,
-    tag: 'Romantic Keepsake',
-    href: '/category/couple-wedding-frames',
-    image: '/images/mockups/custom-couple-wedding-vows-acrylic-keepsake-frame/primary-square.jpg',
+    title: 'Acrylic Photo Clocks',
+    desc: 'Functional timepiece and personalized artwork combined seamlessly on acrylic.',
+    icon: Clock,
+    href: '/shop',
   },
   {
-    title: 'Family & Milestone Baby Frames',
-    desc: 'Celebrate tender newborn memories, birthdays, and multi-generation family bonds in vibrant clarity.',
-    icon: Camera,
-    tag: 'Family Heirloom',
-    href: '/category/family-baby-frames',
-    image: '/images/mockups/personalized-family-heirloom-gold-script-acrylic-frame/primary-square.jpg',
-  },
-  {
-    title: 'Bulk Corporate & Event Gifting',
-    desc: 'Custom branded plaques, employee appreciation frames, and wedding return gift packages.',
+    title: 'Personalized Birthday Gifts',
+    desc: 'Memorable birthday keepsakes capturing milestone celebrations with heartfelt detail.',
     icon: Gift,
-    tag: 'Volume Pricing',
-    href: '/enquiry',
-    image: '/images/mockups/signature-24k-gold-embellished-crystal-acrylic-wall-art/primary-square.jpg',
+    href: '/category/personalized-gifts',
+  },
+  {
+    title: 'Wedding and Anniversary Frames',
+    desc: 'Eternal romantic displays immortalizing sacred wedding vows and anniversaries.',
+    icon: Heart,
+    href: '/category/couple-wedding-frames',
+  },
+  {
+    title: 'Couple and Love Photo Frames',
+    desc: 'Elegant dual portraits, romantic captions, and sentimental couple keepsakes.',
+    icon: Smile,
+    href: '/category/couple-wedding-frames',
+  },
+  {
+    title: 'Baby and Family Photo Frames',
+    desc: 'Tender childhood milestones, newborn memories, and family heirloom displays.',
+    icon: Camera,
+    href: '/category/family-baby-frames',
+  },
+  {
+    title: 'God and Devotional Photo Frames',
+    desc: 'Sacred deities rendered with golden detailing and soothing pooja room lighting.',
+    icon: Flame,
+    href: '/category/god-photo-frames',
   },
 ];
 
-const CRAFT_LAYERS = [
+const WHY_CHOOSE_US = [
   {
-    step: '01',
-    title: 'High-Density Cast Acrylic Sheet',
-    desc: '5MM virgin grade cast acrylic with 92% optical light transmission. Shatterproof, scratch-resistant, and impervious to room moisture.',
-    badge: 'Virgin Cast Acrylic',
+    title: 'Premium Quality',
+    desc: 'Carefully selected materials and quality finishing.',
+    icon: Gem,
   },
   {
-    step: '02',
-    title: '1200 DPI Micro-Piezo Direct UV Printing',
-    desc: 'Archival fade-resistant pigments cured with high-intensity ultraviolet lamps directly onto the reverse acrylic surface.',
-    badge: '1200 DPI Archival Inks',
-  },
-  {
-    step: '03',
-    title: 'Concealed Ambient LED Halo Guide',
-    desc: 'For illuminated models: low-voltage 3000K warm white LED strips with micro-etched light diffusion plates for shadowless backlighting.',
-    badge: '3000K Soothing Halo',
-  },
-  {
-    step: '04',
-    title: 'Architectural Stainless Steel Standoffs',
-    desc: 'Solid metal wall mounting studs delivering an architectural 1-inch floating separation from your living room or pooja wall.',
-    badge: 'Designer Wall Float',
-  },
-];
-
-const WHY_CHOOSE_PILLARS = [
-  {
-    title: 'Direct Hyderabad Workshop',
-    desc: 'Handcrafted in Dilsukhnagar without retail middlemen, giving you master artisan quality at honest studio prices.',
-    icon: Building2,
-  },
-  {
-    title: 'Free 1:1 WhatsApp Proof',
-    desc: 'Our design team prepares a full digital proof and confirms cropping with you on WhatsApp before printing begins.',
+    title: 'Personalized Designs',
+    desc: 'Customized frames made using your favourite photographs.',
     icon: Palette,
   },
   {
-    title: 'Zero-Breakage Transit Guarantee',
-    desc: 'Packaged in 5-layer honeycomb bubble crates with corner edge guards. 100% free immediate replacement if transit damaged.',
-    icon: ShieldCheck,
+    title: 'Modern Products',
+    desc: 'Stylish acrylic and LED photo frame collections.',
+    icon: Lightbulb,
   },
   {
-    title: 'Custom Sizing (8" to 60")',
-    desc: 'From compact desk photo blocks to grand 6-foot temple wall panels, we laser cut custom dimensions to the millimeter.',
+    title: 'Multiple Choices',
+    desc: 'Different sizes, designs and gifting options.',
     icon: Layers,
   },
   {
-    title: 'Archival Fade Resistance',
-    desc: 'High-grade ultraviolet curing shields your photographs from sunlight fading, room humidity, and aging yellow discoloration.',
+    title: 'Attention to Detail',
+    desc: 'Focus on printing, finishing and presentation.',
     icon: Award,
   },
   {
-    title: 'Dedicated Human Support',
-    desc: 'Talk directly with real craftspeople on WhatsApp or telephone (+91 90323 72782) for design advice and swift updates.',
-    icon: MessageCircle,
+    title: 'Customer Support',
+    desc: 'Assistance with design selection and order enquiries.',
+    icon: PhoneCall,
+  },
+  {
+    title: 'Trusted Experience',
+    desc: 'Serving customers since 2022.',
+    icon: ShieldCheck,
+  },
+];
+
+const UNIQUE_FEATURES = [
+  'Customized designs based on customer photographs.',
+  'Premium acrylic photo frame options.',
+  'LED illumination for an attractive display.',
+  'Stylish glitter and studded frame designs.',
+  'Multiple frame sizes for different spaces and occasions.',
+  'Personalized gifting options for special celebrations.',
+  'Designs suitable for homes, offices and devotional spaces.',
+];
+
+const EXPERIENCE_PILLARS = [
+  {
+    title: 'Customized photo frame production.',
+    desc: 'Precision laser cutting, CNC beveled edges, and cleanroom assembly for flawless display clarity.',
+    icon: Gem,
+  },
+  {
+    title: 'Acrylic and LED frame solutions.',
+    desc: 'Calibrated low-voltage LED guides delivering even light dispersion without glare or heating.',
+    icon: Lightbulb,
+  },
+  {
+    title: 'Personalized photo printing.',
+    desc: 'High-definition archival UV printing with rich, fade-resistant color pigments directly on cast acrylic.',
+    icon: Palette,
+  },
+  {
+    title: 'Glitter and decorative frame designs.',
+    desc: 'Artisanal floating shimmer flakes and decorative finishes that elevate portraits into showpieces.',
+    icon: Sparkles,
+  },
+  {
+    title: 'Customized gifting for different occasions.',
+    desc: 'Tailored solutions for birthdays, weddings, anniversaries, corporate events, and devotional spaces.',
+    icon: Gift,
+  },
+  {
+    title: 'Customer-focused product design and finishing.',
+    desc: '1:1 WhatsApp digital previews and responsive assistance before final production and safe dispatch.',
+    icon: CheckCircle2,
   },
 ];
 
@@ -191,19 +217,19 @@ export default function AboutPage() {
 
   return (
     <div className="w-full bg-white text-stone-900 font-sans selection:bg-amber-100 selection:text-amber-900">
-      
-      {/* =========================================================================
-          1. CINEMATIC EDITORIAL HERO SECTION
-          ========================================================================= */}
-      <section className="relative w-full pt-16 sm:pt-24 pb-20 sm:pb-28 px-4 sm:px-6 lg:px-12 xl:px-16 overflow-hidden bg-gradient-to-b from-[#0D0D0E] via-[#151517] to-[#1D1D20] text-white border-b border-amber-500/20">
-        {/* Ambient Warm Golden Glow Orbs */}
-        <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-amber-500/15 rounded-full blur-[120px] pointer-events-none" />
-        <div className="absolute bottom-0 left-1/4 w-[600px] h-[400px] bg-[#FEE815]/10 rounded-full blur-[140px] pointer-events-none" />
 
-        <div className="max-w-6xl mx-auto space-y-10 relative z-10 text-center">
+      {/* =========================================================================
+          HERO & 1. SHORT BUSINESS INTRODUCTION
+          ========================================================================= */}
+      <section className="relative w-full pt-14 sm:pt-20 pb-16 sm:pb-24 px-4 sm:px-6 lg:px-12 xl:px-16 overflow-hidden bg-gradient-to-b from-[#0D0D0E] via-[#141416] to-[#1C1C1F] text-white border-b border-amber-500/20">
+        {/* Ambient Golden Glows */}
+        <div className="absolute top-0 right-1/4 w-[450px] h-[450px] bg-amber-500/15 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute bottom-0 left-1/4 w-[500px] h-[350px] bg-[#FEE815]/10 rounded-full blur-[140px] pointer-events-none" />
+
+        <div className="max-w-5xl mx-auto space-y-8 relative z-10 text-center">
           
-          {/* Brand Logo & Est. Badge */}
-          <div className="inline-flex flex-col items-center gap-3">
+          {/* Logo Badge */}
+          <div className="inline-flex flex-col items-center gap-2.5">
             <div className="p-3.5 sm:p-4 rounded-2xl bg-black/60 border border-amber-400/40 shadow-2xl backdrop-blur-md">
               <Image
                 src="/images/brand/logo-gold-v2.png"
@@ -215,45 +241,53 @@ export default function AboutPage() {
               />
             </div>
             
-            <div className="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-amber-400/10 border border-amber-400/30 text-amber-300 text-[11px] sm:text-xs font-bold uppercase tracking-widest">
-              <Sparkles className="w-3.5 h-3.5 text-amber-400 animate-pulse" />
-              <span>EST. 2022 • DILSUKHNAGAR, HYDERABAD</span>
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-400/10 border border-amber-400/30 text-amber-300 text-[11px] sm:text-xs font-bold uppercase tracking-widest">
+              <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+              <span>ESTABLISHED 2022 • DILSUKHNAGAR, HYDERABAD</span>
             </div>
           </div>
 
-          {/* Main Headline & Signature Tagline */}
-          <div className="space-y-4 max-w-4xl mx-auto">
-            <h1 className="font-serif font-bold text-4xl sm:text-6xl lg:text-7xl text-white tracking-tight leading-[1.08]">
-              Where Cherished Memories Become{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FEE815] via-[#FFF275] to-[#E5C158]">
-                Illuminated Art
-              </span>
+          {/* Main Title & Tagline */}
+          <div className="space-y-3">
+            <h1 className="font-serif font-bold text-3xl sm:text-5xl lg:text-6xl text-white tracking-tight uppercase">
+              ABOUT ABHI&apos;S GIFTS
             </h1>
-            <p className="font-serif italic text-xl sm:text-2xl text-amber-200/90 font-medium">
+            <p className="font-serif italic text-2xl sm:text-3xl text-transparent bg-clip-text bg-gradient-to-r from-[#FEE815] via-[#FFF275] to-[#E5C158] font-semibold">
               &ldquo;Frame Your Memories.&rdquo;
             </p>
-            <p className="text-sm sm:text-base lg:text-lg text-stone-300 max-w-2xl mx-auto font-sans leading-relaxed pt-2">
-              Based in <strong>Dilsukhnagar, Hyderabad</strong>, Abhi&apos;s Gifts is an artisan atelier dedicated to crafting museum-grade 5MM cast acrylic frames, warm halo LED backlighting, and liquid gold keepsakes that transform photographs into permanent heirlooms.
-            </p>
           </div>
 
-          {/* Core Numbers / Trust Counter Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 max-w-4xl mx-auto pt-4">
-            <div className="p-4 sm:p-5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md text-center hover:border-amber-400/50 transition-colors">
-              <span className="font-serif font-bold text-2xl sm:text-3xl text-amber-400 block">12,000+</span>
-              <span className="text-xs text-stone-300 font-medium mt-0.5 block">Happy Homes Decorated</span>
+          {/* 1. Short Business Introduction Card */}
+          <div className="p-6 sm:p-8 lg:p-10 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-md shadow-2xl max-w-4xl mx-auto space-y-4 text-left">
+            <div className="flex items-center gap-2 text-xs font-mono font-bold text-amber-400 uppercase tracking-widest">
+              <Building2 className="w-4 h-4 text-amber-400" />
+              <span>1. Short Business Introduction</span>
             </div>
-            <div className="p-4 sm:p-5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md text-center hover:border-amber-400/50 transition-colors">
-              <span className="font-serif font-bold text-2xl sm:text-3xl text-amber-400 block">5MM</span>
-              <span className="text-xs text-stone-300 font-medium mt-0.5 block">Virgin Cast Crystal Acrylic</span>
-            </div>
-            <div className="p-4 sm:p-5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md text-center hover:border-amber-400/50 transition-colors">
-              <span className="font-serif font-bold text-2xl sm:text-3xl text-amber-400 block">100% Free</span>
-              <span className="text-xs text-stone-300 font-medium mt-0.5 block">1:1 WhatsApp Proof Approval</span>
-            </div>
-            <div className="p-4 sm:p-5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md text-center hover:border-amber-400/50 transition-colors">
-              <span className="font-serif font-bold text-2xl sm:text-3xl text-amber-400 block">24–48h</span>
-              <span className="text-xs text-stone-300 font-medium mt-0.5 block">Fast Workshop Dispatch</span>
+            <p className="text-sm sm:text-base lg:text-lg text-stone-200 leading-relaxed font-sans">
+              <strong className="text-white font-bold">Abhi&apos;s Gifts</strong> is a premium personalized photo frame and gifting store based in <strong>Dilsukhnagar, Hyderabad</strong>. Established in <strong>2022</strong>, we specialize in premium acrylic photo frames, LED photo frames, customized photo frames, glitter frames, acrylic clocks and unique personalized gifts.
+            </p>
+            <p className="text-sm sm:text-base text-amber-200/90 leading-relaxed pt-2 border-t border-white/10 font-serif italic">
+              Our goal is to turn your precious memories into beautiful, meaningful and long-lasting displays.
+            </p>
+
+            {/* Quick Badges */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-3">
+              <div className="p-3 rounded-xl bg-black/40 border border-white/10 text-center">
+                <span className="block text-xs font-mono font-bold text-amber-400">Est. 2022</span>
+                <span className="text-[11px] text-stone-300">Trusted Store</span>
+              </div>
+              <div className="p-3 rounded-xl bg-black/40 border border-white/10 text-center">
+                <span className="block text-xs font-mono font-bold text-amber-400">Hyderabad</span>
+                <span className="text-[11px] text-stone-300">Dilsukhnagar Hub</span>
+              </div>
+              <div className="p-3 rounded-xl bg-black/40 border border-white/10 text-center">
+                <span className="block text-xs font-mono font-bold text-amber-400">Acrylic &amp; LED</span>
+                <span className="text-[11px] text-stone-300">Modern Products</span>
+              </div>
+              <div className="p-3 rounded-xl bg-black/40 border border-white/10 text-center">
+                <span className="block text-xs font-mono font-bold text-amber-400">Customized</span>
+                <span className="text-[11px] text-stone-300">100% Personal</span>
+              </div>
             </div>
           </div>
 
@@ -261,25 +295,17 @@ export default function AboutPage() {
           <div className="flex flex-wrap items-center justify-center gap-3.5 pt-2">
             <Link
               href="/shop"
-              className="inline-flex items-center gap-2 bg-[#FEE815] hover:bg-[#FFF04B] text-stone-950 font-bold text-xs sm:text-sm px-7 py-3.5 rounded-full border border-amber-500 shadow-lg hover:shadow-xl uppercase tracking-wider transition-all hover:scale-105 active:scale-95 cursor-pointer"
+              className="inline-flex items-center gap-2 bg-[#FEE815] hover:bg-[#FFF04B] text-stone-950 font-bold text-xs sm:text-sm px-7 py-3.5 rounded-full border border-amber-500 shadow-md uppercase tracking-wider transition-all hover:scale-105 active:scale-95 cursor-pointer"
             >
-              <span>Explore Collections</span>
+              <span>Explore All Collections</span>
               <ArrowRight className="w-4 h-4 text-stone-950" />
             </Link>
-
             <Link
               href="/enquiry"
-              className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20ba59] text-stone-950 font-bold text-xs sm:text-sm px-6 py-3.5 rounded-full shadow-lg hover:shadow-xl transition-all hover:scale-105 active:scale-95 cursor-pointer"
+              className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20ba59] text-stone-950 font-bold text-xs sm:text-sm px-6 py-3.5 rounded-full shadow-md transition-all hover:scale-105 active:scale-95 cursor-pointer"
             >
               <WhatsAppIcon className="w-4 h-4 fill-stone-950 text-stone-950" />
-              <span>WhatsApp Custom Enquiry</span>
-            </Link>
-
-            <Link
-              href="/customise"
-              className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white font-semibold text-xs sm:text-sm px-5 py-3.5 rounded-full border border-white/20 transition-all hover:border-amber-400"
-            >
-              <span>Add Your Photo Now</span>
+              <span>Chat on WhatsApp (+91 90323 72782)</span>
             </Link>
           </div>
 
@@ -287,268 +313,88 @@ export default function AboutPage() {
       </section>
 
       {/* =========================================================================
-          2. THE ANATOMY OF CRAFTSMANSHIP (DECONSTRUCTED LAYERS)
+          2. COMPLETE BUSINESS DESCRIPTION & 12 CORE SPECIALTIES
           ========================================================================= */}
       <section className="relative w-full py-16 sm:py-24 px-4 sm:px-6 lg:px-12 xl:px-16 max-w-7xl mx-auto space-y-12">
         <div className="text-center max-w-3xl mx-auto space-y-3">
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-50 border border-amber-300 text-amber-800 text-xs font-bold uppercase tracking-wider">
-            <Sparkles className="w-3.5 h-3.5 text-amber-600" />
-            Our Artisan Technique
+          <span className="text-xs font-mono font-bold uppercase tracking-[0.25em] text-amber-700 block">
+            2. COMPLETE BUSINESS DESCRIPTION
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-stone-900 tracking-tight">
-            How Every Frame is Handcrafted
+            Making Special Moments Unforgettable
           </h2>
           <p className="text-sm sm:text-base text-stone-600 leading-relaxed font-sans">
-            Unlike cheap framed poster prints that warp and fade, every Abhi&apos;s Gifts frame is precision engineered using 4 specialized layers for museum-grade visual depth and lifelong durability.
+            Abhi&apos;s Gifts is a personalized photo frame and gifting brand dedicated to making special moments unforgettable. Since 2022, we have been creating customized photo frames and premium gifting products that help people celebrate their most precious memories.
           </p>
         </div>
 
-        {/* 4 Layers Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-          {CRAFT_LAYERS.map((layer) => (
-            <div
-              key={layer.step}
-              className="relative p-6 rounded-3xl bg-white border border-stone-200 hover:border-amber-400 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between space-y-4 group hover:-translate-y-1"
-            >
-              <div className="space-y-3">
-                <div className="flex items-center justify-between">
-                  <span className="font-serif font-extrabold text-2xl text-amber-600">
-                    {layer.step}
-                  </span>
-                  <span className="text-[10px] font-bold text-stone-700 bg-stone-100 border border-stone-200 px-2 py-0.5 rounded-full">
-                    {layer.badge}
-                  </span>
-                </div>
-                <h3 className="font-serif font-bold text-lg text-stone-900 group-hover:text-amber-800 transition-colors">
-                  {layer.title}
-                </h3>
-                <p className="text-xs sm:text-[13px] text-stone-600 leading-relaxed">
-                  {layer.desc}
-                </p>
-              </div>
-
-              <div className="pt-2 border-t border-stone-100 flex items-center gap-1.5 text-xs text-amber-700 font-semibold">
-                <CheckCheck className="w-4 h-4 text-emerald-600" />
-                <span>Zero-Defect Inspected</span>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Visual Workshop Spotlight Banner */}
-        <div className="rounded-3xl overflow-hidden bg-stone-900 text-white border border-stone-800 shadow-xl grid grid-cols-1 lg:grid-cols-12 items-center">
-          <div className="lg:col-span-7 p-8 sm:p-12 space-y-5">
-            <span className="text-xs font-mono uppercase tracking-widest text-amber-400 font-bold flex items-center gap-2">
-              <Gem className="w-4 h-4 text-amber-400" />
-              THE DILSUKHNAGAR WORKSHOP DIFFERENCE
-            </span>
-            <h3 className="font-serif font-bold text-2xl sm:text-4xl text-white leading-tight">
-              Crafted by Real Artisans in Hyderabad, Delivered Across India
+        {/* 12 Specialties Grid */}
+        <div className="space-y-4">
+          <div className="flex items-center justify-between border-b border-stone-200 pb-3">
+            <h3 className="font-serif font-bold text-xl sm:text-2xl text-stone-900">
+              We Specialize In:
             </h3>
-            <p className="text-xs sm:text-sm text-stone-300 leading-relaxed max-w-xl">
-              Every order is cut, polished, assembled, and light-tested right here in our Hyderabad studio. We take pride in 100% personalized customer care — you speak directly to the creators who craft your artwork.
-            </p>
-            <div className="flex flex-wrap items-center gap-4 pt-2">
-              <Link
-                href="/enquiry"
-                className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20ba59] text-stone-950 font-bold text-xs sm:text-sm px-6 py-3 rounded-full transition-all"
-              >
-                <WhatsAppIcon className="w-4 h-4 fill-stone-950 text-stone-950" />
-                <span>Talk with an Artisan</span>
-              </Link>
-              <a
-                href="https://maps.app.goo.gl/fmGv35KsGabFna9E6?g_st=ac"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-xs text-amber-300 hover:text-amber-200 underline font-semibold"
-              >
-                <MapPin className="w-3.5 h-3.5 text-amber-400" />
-                <span>Visit Dilsukhnagar Workshop</span>
-                <ExternalLink className="w-3 h-3" />
-              </a>
-            </div>
+            <span className="text-xs font-mono text-amber-800 font-bold bg-amber-50 border border-amber-200 px-3 py-1 rounded-full">
+              12 Signature Categories
+            </span>
           </div>
 
-          <div className="lg:col-span-5 h-72 sm:h-80 lg:h-full relative min-h-[300px]">
-            <Image
-              src="/images/atelier/room-living.jpg"
-              alt="Abhi's Gifts Handcrafted Living Room Acrylic Art"
-              fill
-              className="object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-stone-900 via-transparent to-transparent" />
-            <div className="absolute bottom-4 left-4 right-4 p-3 rounded-xl bg-black/60 backdrop-blur-md border border-white/10 text-xs text-stone-200">
-              <strong className="text-amber-400 block font-serif">Living Room Sanctum Installation</strong>
-              <span>Custom 5MM LED illuminated frame installed in Jubilee Hills, Hyderabad.</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* =========================================================================
-          3. SIGNATURE SPECIALTIES & COLLECTIONS
-          ========================================================================= */}
-      <section className="relative w-full py-16 sm:py-24 px-4 sm:px-6 lg:px-12 xl:px-16 bg-stone-50 border-t border-b border-stone-200">
-        <div className="max-w-7xl mx-auto space-y-12">
-          
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-stone-200 pb-6">
-            <div>
-              <span className="text-xs font-mono font-bold uppercase tracking-widest text-amber-800 flex items-center gap-1.5">
-                <Palette className="w-4 h-4 text-amber-600" />
-                Master Catalog
-              </span>
-              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-stone-900 tracking-tight mt-1">
-                Our Signature Collections
-              </h2>
-            </div>
-            <Link
-              href="/shop"
-              className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-amber-800 hover:text-amber-900 group"
-            >
-              <span>Explore All Products in Store</span>
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </Link>
-          </div>
-
-          {/* Collections Grid with Photos */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {SIGNATURE_COLLECTIONS.map((col, idx) => {
-              const Icon = col.icon;
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+            {SPECIALTIES.map((spec, i) => {
+              const Icon = spec.icon;
               return (
                 <Link
-                  key={idx}
-                  href={col.href}
-                  className="group rounded-3xl overflow-hidden bg-white border border-stone-200 hover:border-amber-400 shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col hover:-translate-y-1.5"
+                  key={i}
+                  href={spec.href}
+                  className="group p-5 rounded-2xl bg-white border border-stone-200 hover:border-amber-400 shadow-xs hover:shadow-md transition-all duration-300 hover:-translate-y-1 space-y-3 flex flex-col justify-between"
                 >
-                  <div className="relative aspect-[4/3] w-full overflow-hidden bg-stone-100">
-                    <Image
-                      src={col.image}
-                      alt={col.title}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                    <span className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-stone-900/80 backdrop-blur-xs text-[10px] font-bold text-amber-300 border border-white/10">
-                      {col.tag}
-                    </span>
+                  <div className="space-y-2.5">
+                    <div className="flex items-center justify-between">
+                      <div className="w-10 h-10 rounded-xl bg-amber-50 text-amber-700 flex items-center justify-center border border-amber-200 group-hover:scale-110 transition-transform">
+                        <Icon className="w-5 h-5" />
+                      </div>
+                      <span className="font-mono text-xs font-bold text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full border border-amber-200">
+                        #{String(i + 1).padStart(2, '0')}
+                      </span>
+                    </div>
+                    <h4 className="font-serif font-bold text-base text-stone-900 group-hover:text-amber-800 transition-colors">
+                      {spec.title}
+                    </h4>
+                    <p className="text-xs text-stone-600 leading-relaxed">
+                      {spec.desc}
+                    </p>
                   </div>
 
-                  <div className="p-5 flex-1 flex flex-col justify-between space-y-3">
-                    <div className="space-y-1.5">
-                      <div className="flex items-center gap-2 text-amber-700">
-                        <Icon className="w-4 h-4 shrink-0" />
-                        <h3 className="font-serif font-bold text-base text-stone-900 group-hover:text-amber-800 transition-colors line-clamp-1">
-                          {col.title}
-                        </h3>
-                      </div>
-                      <p className="text-xs text-stone-600 leading-relaxed line-clamp-2">
-                        {col.desc}
-                      </p>
-                    </div>
-
-                    <div className="pt-2 border-t border-stone-100 flex items-center justify-between text-xs font-bold text-amber-800 group-hover:text-amber-900">
-                      <span>View Collection</span>
-                      <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-                    </div>
+                  <div className="pt-2 border-t border-stone-100 flex items-center justify-between text-xs font-bold text-amber-800 group-hover:text-amber-900">
+                    <span>Explore Products</span>
+                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                   </div>
                 </Link>
               );
             })}
           </div>
+        </div>
 
+        {/* Narrative Summary Box */}
+        <div className="p-6 sm:p-8 rounded-3xl bg-stone-50 border border-stone-200 text-center max-w-4xl mx-auto space-y-3">
+          <p className="text-sm sm:text-base text-stone-700 leading-relaxed font-sans">
+            We focus on quality materials, attractive designs, customization and careful finishing. Whether it is a birthday, wedding, anniversary, family celebration or a devotional space, we help you transform your favourite photographs into special keepsakes.
+          </p>
+          <p className="font-serif italic text-base sm:text-lg text-stone-900 font-bold border-t border-stone-200 pt-3">
+            Located in Dilsukhnagar, Hyderabad, Abhi&apos;s Gifts aims to provide quality personalized gifting solutions with a convenient customer experience.
+          </p>
         </div>
       </section>
 
       {/* =========================================================================
-          4. OUR STORY & FOUNDING PHILOSOPHY
-          ========================================================================= */}
-      <section className="relative w-full py-16 sm:py-24 px-4 sm:px-6 lg:px-12 xl:px-16 max-w-6xl mx-auto space-y-12">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-          
-          {/* Narrative Column */}
-          <div className="lg:col-span-7 space-y-6">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-50 border border-amber-300 text-amber-800 text-xs font-bold uppercase tracking-wider">
-              <Clock className="w-3.5 h-3.5 text-amber-600" />
-              Our Hyderabad Story
-            </span>
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-stone-900 tracking-tight leading-tight">
-              Started in 2022 with One Belief: Every Memory Deserves to Shine
-            </h2>
-            <div className="space-y-4 text-stone-700 text-sm sm:text-base leading-relaxed">
-              <p>
-                In 2022, <strong>Abhi&apos;s Gifts</strong> was founded in Dilsukhnagar, Hyderabad, with a clear conviction: photographs are far more than pixels on a phone screen. They represent wedding vows, milestone birthdays, beloved parents, sacred temple prayers, and laughter with children.
-              </p>
-              <p>
-                Traditional wooden and glass frames were heavy, fragile in transit, prone to moisture damage, and lacked the visual brilliance of modern interior design.
-              </p>
-              <p>
-                We set out to master <strong>high-gloss crystal acrylic technology</strong> and <strong>calibrated LED backlighting</strong>. Over the years, our workshop has grown from a local artisan shop into a trusted personalized gifting destination across Telangana, Andhra Pradesh, and nationwide.
-              </p>
-            </div>
-
-            <div className="p-4 rounded-2xl bg-amber-50/80 border border-amber-300/80 flex items-center gap-3">
-              <Sparkles className="w-6 h-6 text-amber-600 shrink-0" />
-              <p className="font-serif italic text-sm sm:text-base text-amber-950 font-semibold">
-                &ldquo;Our goal is not just to sell a frame, but to give your memories a permanent place of honor in your home.&rdquo;
-              </p>
-            </div>
-          </div>
-
-          {/* Visual Card / Founder Commitment */}
-          <div className="lg:col-span-5 relative">
-            <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-stone-950 via-stone-900 to-stone-950 text-white p-6 sm:p-8 border border-amber-400/40 shadow-xl space-y-6">
-              <div className="flex items-center gap-3 pb-4 border-b border-white/10">
-                <div className="w-12 h-12 rounded-2xl bg-amber-400/15 border border-amber-400/40 text-amber-400 flex items-center justify-center font-serif font-bold text-xl">
-                  AG
-                </div>
-                <div>
-                  <h4 className="font-serif font-bold text-base text-white">Abhi&apos;s Gifts Studio</h4>
-                  <span className="text-xs text-amber-300">Dilsukhnagar, Hyderabad</span>
-                </div>
-              </div>
-
-              <div className="space-y-3 text-xs sm:text-sm text-stone-300 leading-relaxed">
-                <div className="flex items-start gap-2.5">
-                  <CheckCircle2 className="w-4 h-4 text-[#25D366] shrink-0 mt-0.5" />
-                  <span>100% Genuine 5MM Virgin Cast Acrylic</span>
-                </div>
-                <div className="flex items-start gap-2.5">
-                  <CheckCircle2 className="w-4 h-4 text-[#25D366] shrink-0 mt-0.5" />
-                  <span>Precision Laser Square Cut &amp; Beveled Edges</span>
-                </div>
-                <div className="flex items-start gap-2.5">
-                  <CheckCircle2 className="w-4 h-4 text-[#25D366] shrink-0 mt-0.5" />
-                  <span>Free WhatsApp Digital Proof Before Fabrication</span>
-                </div>
-                <div className="flex items-start gap-2.5">
-                  <CheckCircle2 className="w-4 h-4 text-[#25D366] shrink-0 mt-0.5" />
-                  <span>Zero-Breakage Transit Guarantee Across India</span>
-                </div>
-              </div>
-
-              <div className="pt-2">
-                <Link
-                  href="/customise"
-                  className="w-full py-3 px-4 rounded-xl bg-[#FEE815] hover:bg-[#FFF04B] text-stone-950 font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-all"
-                >
-                  <span>Customise Your Frame Online</span>
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      {/* =========================================================================
-          5. OUR MISSION & VISION (DUAL LUXURY GLASS CARDS)
+          3. OUR MISSION AND VISION (DUAL GLASS CARDS)
           ========================================================================= */}
       <section className="relative w-full py-16 sm:py-24 px-4 sm:px-6 lg:px-12 xl:px-16 bg-gradient-to-b from-[#111113] via-[#161619] to-[#0E0E10] text-white border-y border-amber-500/20">
         <div className="max-w-6xl mx-auto space-y-12">
           
           <div className="text-center max-w-2xl mx-auto space-y-3">
             <span className="text-xs font-mono font-bold uppercase tracking-[0.25em] text-amber-400 block">
-              OUR GUIDING LIGHT
+              3. OUR MISSION AND VISION
             </span>
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight">
               Guided by Purpose &amp; Heart
@@ -556,7 +402,8 @@ export default function AboutPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
-            {/* Mission */}
+            
+            {/* Mission Card */}
             <div className="p-8 sm:p-10 rounded-3xl bg-white/5 border border-white/10 hover:border-amber-400/60 shadow-xl backdrop-blur-md flex flex-col justify-between space-y-6 group transition-all">
               <div className="space-y-4">
                 <div className="w-14 h-14 rounded-2xl bg-amber-400/15 border border-amber-400/40 text-amber-400 flex items-center justify-center">
@@ -571,15 +418,15 @@ export default function AboutPage() {
                   </h3>
                 </div>
                 <p className="text-sm sm:text-base text-stone-300 leading-relaxed font-sans">
-                  To turn our customers&apos; most precious memories into museum-grade acrylic displays and sacred keepsakes through artisanal craftsmanship, transparent digital proofing, and reliable Hyderabad workshop service.
+                  Our mission is to transform customers&apos; precious photographs into beautiful personalized frames and meaningful gifts through quality products, creative designs and reliable service.
                 </p>
               </div>
               <div className="p-4 rounded-2xl bg-amber-400/10 border border-amber-400/25 text-xs sm:text-sm font-serif italic text-amber-200">
-                &ldquo;We make personalized gifting easy, memorable, and affordable for every family.&rdquo;
+                &ldquo;We aim to make personalized gifting easy, memorable and affordable for everyone.&rdquo;
               </div>
             </div>
 
-            {/* Vision */}
+            {/* Vision Card */}
             <div className="p-8 sm:p-10 rounded-3xl bg-white/5 border border-white/10 hover:border-amber-400/60 shadow-xl backdrop-blur-md flex flex-col justify-between space-y-6 group transition-all">
               <div className="space-y-4">
                 <div className="w-14 h-14 rounded-2xl bg-amber-400/15 border border-amber-400/40 text-amber-400 flex items-center justify-center">
@@ -594,12 +441,111 @@ export default function AboutPage() {
                   </h3>
                 </div>
                 <p className="text-sm sm:text-base text-stone-300 leading-relaxed font-sans">
-                  To become India&apos;s premier personalized photo framing atelier, recognized nationwide for optical clarity, illuminated wall decor, and customer satisfaction in every home we touch.
+                  Our vision is to become a trusted and recognized personalized photo frame and gifting brand in Hyderabad and expand our presence across India.
                 </p>
               </div>
               <div className="p-4 rounded-2xl bg-amber-400/10 border border-amber-400/25 text-xs sm:text-sm font-serif italic text-amber-200">
-                &ldquo;We want every special memory to have an everlasting place of light in people&apos;s homes and hearts.&rdquo;
+                &ldquo;We want every special memory to have a beautiful place in people&apos;s homes and hearts.&rdquo;
               </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* =========================================================================
+          4. WHY SHOULD CUSTOMERS CHOOSE ABHI'S GIFTS?
+          ========================================================================= */}
+      <section className="relative w-full py-16 sm:py-24 px-4 sm:px-6 lg:px-12 xl:px-16 max-w-7xl mx-auto space-y-12">
+        <div className="text-center max-w-3xl mx-auto space-y-3">
+          <span className="text-xs font-mono font-bold uppercase tracking-[0.25em] text-amber-700 block">
+            4. WHY SHOULD CUSTOMERS CHOOSE US?
+          </span>
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-stone-900 tracking-tight">
+            Why Should Customers Choose Abhi&apos;s Gifts?
+          </h2>
+          <p className="text-sm sm:text-base text-stone-600">
+            Customers choose Abhi&apos;s Gifts because we focus on quality, customization and customer satisfaction.
+          </p>
+        </div>
+
+        {/* 7 Key Reasons Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+          {WHY_CHOOSE_US.map((item, i) => {
+            const Icon = item.icon;
+            return (
+              <div
+                key={i}
+                className="p-6 rounded-2xl bg-white border border-stone-200 hover:border-amber-400 shadow-xs hover:shadow-md transition-all hover:-translate-y-1 space-y-3 group"
+              >
+                <div className="w-10 h-10 rounded-xl bg-amber-50 text-amber-700 flex items-center justify-center border border-amber-200 group-hover:scale-110 transition-transform">
+                  <Icon className="w-5 h-5 text-amber-700" />
+                </div>
+                <h3 className="font-serif font-bold text-lg text-stone-900 group-hover:text-amber-800 transition-colors">
+                  {item.title}
+                </h3>
+                <p className="text-xs sm:text-sm text-stone-600 leading-relaxed font-sans">
+                  {item.desc}
+                </p>
+              </div>
+            );
+          })}
+
+          {/* Closing Promise Card */}
+          <div className="p-6 rounded-2xl bg-gradient-to-br from-amber-50 via-white to-amber-50 text-stone-900 border-2 border-amber-300 shadow-xs flex flex-col justify-center space-y-2">
+            <span className="text-[11px] font-mono text-amber-800 uppercase tracking-wider font-bold">
+              OUR PROMISE
+            </span>
+            <p className="font-serif italic text-sm sm:text-base text-stone-900 leading-snug">
+              &ldquo;Our goal is not just to sell a photo frame but to help customers preserve their memories beautifully.&rdquo;
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* =========================================================================
+          5. WHAT MAKES OUR PRODUCTS UNIQUE?
+          ========================================================================= */}
+      <section className="relative w-full py-16 sm:py-20 px-4 sm:px-6 lg:px-12 xl:px-16 bg-stone-50 border-t border-b border-stone-200">
+        <div className="max-w-6xl mx-auto space-y-10">
+          
+          <div className="text-center max-w-3xl mx-auto space-y-3">
+            <span className="text-xs font-mono font-bold uppercase tracking-[0.25em] text-amber-700 block">
+              5. WHAT MAKES OUR PRODUCTS UNIQUE?
+            </span>
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-stone-900 tracking-tight">
+              What Makes Our Products Unique?
+            </h2>
+            <p className="text-sm sm:text-base text-stone-600 leading-relaxed font-sans">
+              Our products combine personalized photographs, modern designs and attractive presentation.
+            </p>
+          </div>
+
+          <div className="space-y-4 max-w-4xl mx-auto">
+            <h3 className="text-sm font-mono uppercase font-bold text-amber-800 tracking-wider text-center">
+              What makes our collection special:
+            </h3>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
+              {UNIQUE_FEATURES.map((feat, i) => (
+                <div
+                  key={i}
+                  className="flex items-start gap-3.5 p-4 sm:p-5 rounded-2xl bg-white border border-stone-200 hover:border-amber-400 transition-all shadow-2xs"
+                >
+                  <div className="w-6 h-6 rounded-full bg-amber-100 text-amber-800 flex items-center justify-center shrink-0 mt-0.5">
+                    <Check className="w-3.5 h-3.5 text-amber-800" />
+                  </div>
+                  <span className="text-xs sm:text-sm text-stone-800 font-medium leading-relaxed font-sans">
+                    {feat}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="text-center pt-2">
+            <div className="inline-block bg-white border border-amber-300 px-6 py-3 rounded-full text-sm font-serif italic text-stone-900 font-bold shadow-xs">
+              ✦ Every frame is created to make your memories look special.
             </div>
           </div>
 
@@ -607,47 +553,110 @@ export default function AboutPage() {
       </section>
 
       {/* =========================================================================
-          6. WHY CHOOSE ABHI'S GIFTS? (6 DISTINCTIONS)
+          6. OUR BUSINESS STORY
           ========================================================================= */}
-      <section className="relative w-full py-16 sm:py-24 px-4 sm:px-6 lg:px-12 xl:px-16 max-w-7xl mx-auto space-y-12">
-        <div className="text-center max-w-3xl mx-auto space-y-3">
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-50 border border-amber-300 text-amber-800 text-xs font-bold uppercase tracking-wider">
-            <Award className="w-3.5 h-3.5 text-amber-600" />
-            The Abhi&apos;s Gifts Promise
+      <section className="relative w-full py-16 sm:py-24 px-4 sm:px-6 lg:px-12 xl:px-16 max-w-5xl mx-auto space-y-10">
+        <div className="text-center space-y-3">
+          <span className="text-xs font-mono font-bold uppercase tracking-[0.25em] text-amber-700 block">
+            6. OUR BUSINESS STORY
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-stone-900 tracking-tight">
-            Why Discerning Customers Choose Us
+            Our Business Story
           </h2>
-          <p className="text-sm sm:text-base text-stone-600 leading-relaxed">
-            We hold ourselves to obsessive craftsmanship standards so you can proudly gift or hang your artwork with peace of mind.
-          </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {WHY_CHOOSE_PILLARS.map((item, i) => {
-            const Icon = item.icon;
-            return (
-              <div
-                key={i}
-                className="p-6 rounded-3xl bg-white border border-stone-200 hover:border-amber-400 shadow-xs hover:shadow-md transition-all hover:-translate-y-1 space-y-3 group"
-              >
-                <div className="w-12 h-12 rounded-2xl bg-amber-50 text-amber-700 flex items-center justify-center border border-amber-200 group-hover:scale-110 transition-transform">
-                  <Icon className="w-6 h-6" />
-                </div>
-                <h3 className="font-serif font-bold text-lg text-stone-900 group-hover:text-amber-800 transition-colors">
-                  {item.title}
-                </h3>
-                <p className="text-xs sm:text-sm text-stone-600 leading-relaxed">
-                  {item.desc}
-                </p>
-              </div>
-            );
-          })}
+        <div className="p-8 sm:p-12 rounded-3xl bg-white border border-stone-200 shadow-sm space-y-6 text-stone-700 text-sm sm:text-base leading-relaxed font-sans">
+          <p className="text-base sm:text-lg font-serif italic text-stone-900 font-semibold border-b border-stone-100 pb-4">
+            Abhi&apos;s Gifts started in 2022 with a simple idea: to turn ordinary photographs into extraordinary memories.
+          </p>
+
+          <p>
+            We understood that photographs are more than just pictures. They represent emotions, relationships, celebrations and unforgettable moments.
+          </p>
+
+          <p>
+            With this idea, we started creating personalized photo frames and gifting products for customers.
+          </p>
+
+          <p>
+            Over time, we expanded our product collection with acrylic photo frames, LED frames, glitter frames and other customized gifting solutions.
+          </p>
+
+          <p>
+            Today, Abhi&apos;s Gifts continues to focus on creativity, product quality and customer satisfaction.
+          </p>
+
+          <div className="p-6 rounded-2xl bg-amber-50 text-stone-900 text-center border border-amber-300 shadow-xs space-y-1">
+            <span className="text-xs font-mono text-amber-800 uppercase tracking-widest font-bold block">
+              OUR JOURNEY IS DRIVEN BY ONE BELIEF
+            </span>
+            <h3 className="font-serif italic text-xl sm:text-2xl text-amber-950 font-bold">
+              &ldquo;Every Memory Deserves a Beautiful Frame.&rdquo;
+            </h3>
+          </div>
         </div>
       </section>
 
       {/* =========================================================================
-          7. OFFICIAL WORKSHOP LOCATION & STUDIO IDENTITY
+          7. OUR EXPERIENCE IN THIS INDUSTRY
+          ========================================================================= */}
+      <section className="relative w-full py-16 sm:py-24 px-4 sm:px-6 lg:px-12 xl:px-16 bg-stone-50 border-t border-b border-stone-200">
+        <div className="max-w-6xl mx-auto space-y-12">
+          
+          <div className="text-center max-w-3xl mx-auto space-y-3">
+            <span className="text-xs font-mono font-bold uppercase tracking-[0.25em] text-amber-700 block">
+              7. OUR EXPERIENCE IN THIS INDUSTRY
+            </span>
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-stone-900 tracking-tight">
+              Our Experience in This Industry
+            </h2>
+            <p className="text-sm sm:text-base text-stone-700 leading-relaxed font-sans">
+              Abhi&apos;s Gifts has been serving customers in the personalized photo frame and gifting industry since 2022.
+            </p>
+            <p className="text-xs sm:text-sm text-stone-600 leading-relaxed font-sans">
+              With experience in customized photo frame design, printing, acrylic products and personalized gifting, we understand the importance of quality, presentation and customer requirements.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            <h3 className="text-xs font-mono uppercase font-bold text-amber-800 tracking-wider text-center">
+              Our experience includes:
+            </h3>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+              {EXPERIENCE_PILLARS.map((exp, i) => {
+                const Icon = exp.icon;
+                return (
+                  <div
+                    key={i}
+                    className="p-6 rounded-2xl bg-white border border-stone-200 hover:border-amber-400 shadow-xs hover:shadow-md transition-all space-y-2.5 group"
+                  >
+                    <div className="flex items-center gap-2">
+                      <div className="w-8 h-8 rounded-lg bg-amber-50 text-amber-700 flex items-center justify-center shrink-0">
+                        <Icon className="w-4 h-4" />
+                      </div>
+                      <h4 className="font-serif font-bold text-sm sm:text-base text-stone-900 group-hover:text-amber-800 transition-colors">
+                        {exp.title}
+                      </h4>
+                    </div>
+                    <p className="text-xs text-stone-600 leading-relaxed font-sans pl-10">
+                      {exp.desc}
+                    </p>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
+          <p className="text-center text-xs sm:text-sm text-stone-600 italic max-w-2xl mx-auto pt-2">
+            We continuously work to improve our products, designs and services to meet changing customer expectations.
+          </p>
+
+        </div>
+      </section>
+
+      {/* =========================================================================
+          OFFICIAL BUSINESS IDENTITY & CONTACT HUB
           ========================================================================= */}
       <section className="relative w-full py-16 sm:py-24 px-4 sm:px-6 lg:px-12 xl:px-16 max-w-5xl mx-auto">
         <div className="p-8 sm:p-12 rounded-3xl bg-gradient-to-br from-stone-950 via-stone-900 to-stone-950 text-white border border-amber-400/40 shadow-2xl space-y-8 relative overflow-hidden">
@@ -658,7 +667,7 @@ export default function AboutPage() {
           <div className="space-y-2 border-b border-white/10 pb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div>
               <span className="text-xs font-mono uppercase tracking-[0.25em] text-amber-400 font-bold block">
-                OFFICIAL HYDERABAD WORKSHOP
+                OFFICIAL BUSINESS DETAILS
               </span>
               <h2 className="font-serif text-3xl sm:text-4xl font-bold text-white tracking-tight mt-1">
                 ABHI&apos;S GIFTS
@@ -668,9 +677,8 @@ export default function AboutPage() {
               </p>
             </div>
 
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#25D366]/20 border border-[#25D366]/40 text-[#25D366] text-xs font-bold self-start sm:self-auto">
-              <span className="w-2 h-2 rounded-full bg-[#25D366] animate-pulse" />
-              <span>Open 7 Days • 9:00 AM – 9:00 PM</span>
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-400/15 border border-amber-400/30 text-amber-300 text-xs font-bold self-start sm:self-auto">
+              <span>Established 2022</span>
             </div>
           </div>
 
@@ -681,103 +689,85 @@ export default function AboutPage() {
             <div className="p-4 sm:p-5 rounded-2xl bg-white/5 border border-white/10 space-y-2">
               <div className="flex items-center gap-2 text-amber-400 font-bold">
                 <MapPin className="w-4 h-4 shrink-0" />
-                <span className="uppercase tracking-wider text-[11px] font-mono">Store &amp; Workshop Address</span>
+                <span className="uppercase tracking-wider text-[11px] font-mono">Location</span>
               </div>
-              <p className="text-stone-300 leading-relaxed">
-                {INITIAL_SETTINGS.businessAddress || 'H.No: 16-11-419, SBI Officers Colony, Moosarambagh, Dilsukhnagar, Hyderabad, Telangana – 500036.'}
+              <p className="text-stone-300 leading-relaxed font-sans">
+                Dilsukhnagar, Hyderabad, Telangana – 500036.
               </p>
               <a
-                href={INITIAL_SETTINGS.googleMapsUrl || 'https://maps.app.goo.gl/fmGv35KsGabFna9E6?g_st=ac'}
+                href="https://maps.app.goo.gl/fmGv35KsGabFna9E6?g_st=ac"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 text-xs text-amber-300 hover:text-amber-200 underline font-semibold pt-1"
               >
-                <span>Get Route on Google Maps</span>
+                <span>View on Google Maps</span>
                 <ExternalLink className="w-3.5 h-3.5" />
               </a>
             </div>
 
-            {/* Direct WhatsApp Consultation */}
+            {/* Phone & WhatsApp */}
             <div className="p-4 sm:p-5 rounded-2xl bg-white/5 border border-white/10 space-y-2">
               <div className="flex items-center gap-2 text-[#25D366] font-bold">
                 <WhatsAppIcon className="w-4 h-4 fill-[#25D366] shrink-0" />
-                <span className="uppercase tracking-wider text-[11px] font-mono">WhatsApp Support &amp; Orders</span>
+                <span className="uppercase tracking-wider text-[11px] font-mono">Phone / WhatsApp</span>
               </div>
-              <p className="text-stone-300">
-                Send your photo directly on WhatsApp for instantaneous size recommendations &amp; price quotes.
-              </p>
               <a
                 href={`https://wa.me/${cleanWaNumber}?text=Hello%20Abhi%27s%20Gifts%2C%20I%20would%20like%20to%20enquire%20about%20a%20custom%20photo%20frame.`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-xs font-bold text-[#25D366] hover:underline pt-1"
-              >
-                <span>Chat on WhatsApp: +91 90323 72782</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </a>
-            </div>
-
-            {/* Direct Telephone */}
-            <div className="p-4 sm:p-5 rounded-2xl bg-white/5 border border-white/10 space-y-1.5">
-              <div className="flex items-center gap-2 text-amber-400 font-bold">
-                <PhoneCall className="w-4 h-4 shrink-0" />
-                <span className="uppercase tracking-wider text-[11px] font-mono">Direct Phone Call</span>
-              </div>
-              <a
-                href={`tel:${INITIAL_SETTINGS.supportPhone || '+919032372782'}`}
                 className="text-stone-200 hover:text-amber-300 text-sm font-bold block"
               >
-                {INITIAL_SETTINGS.supportPhone || '+91 90323 72782'}
+                +91 90323 72782
               </a>
-              <span className="text-[11px] text-stone-400 block">Mon – Sun: 9:00 AM – 9:00 PM IST</span>
+              <span className="text-[11px] text-stone-400 block">Fast WhatsApp consultation available 7 days</span>
             </div>
 
             {/* Email */}
             <div className="p-4 sm:p-5 rounded-2xl bg-white/5 border border-white/10 space-y-1.5">
               <div className="flex items-center gap-2 text-amber-400 font-bold">
                 <Mail className="w-4 h-4 shrink-0" />
-                <span className="uppercase tracking-wider text-[11px] font-mono">Email Enquiries</span>
+                <span className="uppercase tracking-wider text-[11px] font-mono">Email</span>
               </div>
               <a
-                href={`mailto:${INITIAL_SETTINGS.supportEmail || 'abhisgifts@gmail.com'}`}
+                href="mailto:abhisgifts@gmail.com"
                 className="text-stone-200 hover:text-amber-300 text-sm font-bold block truncate"
               >
-                {INITIAL_SETTINGS.supportEmail || 'abhisgifts@gmail.com'}
+                abhisgifts@gmail.com
               </a>
-              <span className="text-[11px] text-stone-400 block">Guaranteed reply within 24 hours</span>
+              <span className="text-[11px] text-stone-400 block">General &amp; bulk order enquiries</span>
+            </div>
+
+            {/* Instagram */}
+            <div className="p-4 sm:p-5 rounded-2xl bg-white/5 border border-white/10 space-y-1.5">
+              <div className="flex items-center gap-2 text-amber-400 font-bold">
+                <InstagramIcon className="w-4 h-4 text-white fill-current shrink-0" />
+                <span className="uppercase tracking-wider text-[11px] font-mono">Instagram</span>
+              </div>
+              <a
+                href="https://www.instagram.com/abhis_gifts_?cplk=MWtkNTJla2s3NTQw"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-stone-200 hover:text-amber-300 text-sm font-bold block"
+              >
+                @abhis_gifts_
+              </a>
+              <span className="text-[11px] text-stone-400 block">Follow for new designs &amp; custom customer reels</span>
             </div>
 
           </div>
 
           {/* Social Links & Action Row */}
           <div className="pt-4 border-t border-white/10 flex flex-wrap items-center justify-between gap-4">
-            <div className="flex items-center gap-3">
-              <a
-                href="https://www.instagram.com/abhis_gifts_?cplk=MWtkNTJla2s3NTQw"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 hover:bg-white/20 text-xs font-semibold text-white transition-colors"
-              >
-                <InstagramIcon className="w-3.5 h-3.5 text-white fill-current" />
-                <span>@abhis_gifts_</span>
-              </a>
-              <a
-                href="https://youtube.com/@abhis_gifts?si=Ap98aZU7b21rJA_8"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 hover:bg-white/20 text-xs font-semibold text-white transition-colors"
-              >
-                <YouTubeIcon className="w-3.5 h-3.5 text-red-500 fill-current" />
-                <span>@abhis_gifts</span>
-              </a>
-            </div>
+            <span className="text-xs font-mono text-stone-400">
+              Established in 2022 • Dilsukhnagar, Hyderabad, Telangana – 500036
+            </span>
 
             <div className="flex flex-wrap items-center gap-3">
               <Link
                 href="/shop"
                 className="inline-flex items-center gap-2 bg-[#FEE815] hover:bg-[#FFF04B] text-stone-950 font-bold text-xs uppercase tracking-wider px-6 py-3 rounded-full shadow-md transition-all hover:scale-105 active:scale-95 cursor-pointer"
               >
-                <span>Shop Catalog</span>
+                <span>Shop Frames</span>
                 <ArrowRight className="w-4 h-4 text-stone-950" />
               </Link>
               <Link
