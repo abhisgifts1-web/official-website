@@ -255,6 +255,11 @@ export default function Footer() {
                 </h4>
                 <ul className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-1 gap-2 text-xs sm:text-[13px] text-stone-300 pt-1">
                   <li>
+                    <Link href="/enquiry" className="hover:text-[#25D366] font-semibold text-[#25D366] transition-colors block py-0.5">
+                      💬 WhatsApp Enquiry
+                    </Link>
+                  </li>
+                  <li>
                     <Link href="/customise" className="hover:text-amber-300 font-semibold text-amber-400 transition-colors block py-0.5">
                       ✨ Customise Photo Frame
                     </Link>

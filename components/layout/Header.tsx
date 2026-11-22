@@ -179,6 +179,12 @@ export default function Header() {
       href: '/contact',
       icon: <Phone className="w-3.5 h-3.5 text-[#FEE815] shrink-0" />,
     },
+    {
+      id: 'enquiry',
+      label: 'Enquiry',
+      href: '/enquiry',
+      icon: <WhatsAppIcon className="w-3.5 h-3.5 text-[#25D366] shrink-0 fill-current" />,
+    },
   ];
 
   return (
@@ -625,6 +631,15 @@ export default function Header() {
                   }`}
                 >
                   Contact
+                </Link>
+                <Link
+                  href="/enquiry"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={`block px-3 py-2 font-semibold rounded-xl text-xs sm:text-sm transition-colors ${
+                    pathname === '/enquiry' ? 'bg-[#1E1E1E] text-[#25D366]' : 'text-[#FFFFFF] hover:bg-[#1E1E1E]'
+                  }`}
+                >
+                  WhatsApp Enquiry
                 </Link>
               </div>
 

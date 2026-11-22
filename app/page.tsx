@@ -7,7 +7,7 @@ import BestsellersShowcase from '@/components/home/BestsellersShowcase';
 import NewArrivalsShowcase from '@/components/home/NewArrivalsShowcase';
 import PromotionalBanner from '@/components/home/PromotionalBanner';
 import WhyChooseUsSection from '@/components/home/WhyChooseUsSection';
-import CustomerReviewsSection from '@/components/home/CustomerReviewsSection';
+import WhatsAppEnquirySection from '@/components/home/WhatsAppEnquirySection';
 
 export default function HomePage() {
   return (
@@ -30,8 +30,8 @@ export default function HomePage() {
       {/* 10. Why choose us */}
       <WhyChooseUsSection />
 
-      {/* 11. Customer reviews */}
-      <CustomerReviewsSection />
+      {/* 11. WhatsApp Enquiry */}
+      <WhatsAppEnquirySection />
     </div>
   );
 }

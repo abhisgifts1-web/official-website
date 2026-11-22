@@ -7,7 +7,6 @@ import AnnouncementBar from '@/components/layout/AnnouncementBar';
 import Header from '@/components/layout/Header';
 import ConditionalFooter from '@/components/layout/ConditionalFooter';
 import CartDrawer from '@/components/cart/CartDrawer';
-import FloatingWhatsApp from '@/components/layout/FloatingWhatsApp';
 import { getLocalBusinessSchema } from '@/lib/seo/schema';
 
 const poppinsFont = Poppins({
@@ -146,7 +145,6 @@ export default function RootLayout({
             <main className="flex-1">{children}</main>
             <ConditionalFooter />
             <CartDrawer />
-            <FloatingWhatsApp />
           </WishlistProvider>
         </CartProvider>
       </body>
