@@ -1,4 +1,30 @@
-import { SiteSettings } from '@/types';
+import { SiteSettings, PromotionalOfferSettings } from '@/types';
+
+export const DEFAULT_PROMOTIONAL_OFFER: PromotionalOfferSettings = {
+  isActive: true,
+  tag: 'Direct Hyderabad Workshop Special',
+  title: 'Flat 50% OFF on Handcrafted Acrylic Photo Frames',
+  highlightedText: '50% OFF',
+  description:
+    'Transform your cherished portraits, wedding memories, and divine deity art into museum-grade 5MM cast crystal acrylic. Includes complimentary 1:1 WhatsApp digital proof approval before printing.',
+  discountBadge: '50% OFF',
+  productTitle: 'Custom LED Backlit Acrylic Photo Frame',
+  productCategory: 'Signature LED Series',
+  price: '₹2,499',
+  originalPrice: '₹4,999',
+  buttonText: 'Shop All Offers Now',
+  buttonLink: '/shop',
+  whatsappCtaText: 'Claim Offer on WhatsApp',
+  whatsappMessage:
+    "Hello Abhi's Gifts, I saw the Flat 50% Festive Promotion on your website and would like to order a custom acrylic photo frame!",
+  imageUrl: '/images/mockups/custom-led-backlit-acrylic-photo-frame/primary-square.jpg',
+  features: [
+    'Free WhatsApp Proof',
+    '5MM Crystal Acrylic',
+    '24-48h Dispatch',
+    'Zero-Breakage Transit',
+  ],
+};
 
 export const INITIAL_SETTINGS: SiteSettings = {
   storeName: "Abhi's Gifts",
@@ -17,4 +43,5 @@ export const INITIAL_SETTINGS: SiteSettings = {
   gstNumber: '36AAAAA0000A1Z5',
   instagramUrl: 'https://www.instagram.com/abhis_gifts_?cplk=MWtkNTJla2s3NTQw',
   youtubeUrl: 'https://youtube.com/@abhis_gifts?si=Ap98aZU7b21rJA_8',
+  promotionalOffer: DEFAULT_PROMOTIONAL_OFFER,
 };

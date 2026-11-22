@@ -8,8 +8,11 @@
     "itemCount": 1,
     "featured": true,
     "createdAt": "2026-11-02T13:35:05.536Z",
-    "updatedAt": "2026-11-22T06:18:16.136Z",
-    "id": "6ae89189382113ccb9a542f1"
+    "updatedAt": "2026-11-22T10:21:06.418Z",
+    "buttonText": "Shop Glitter Frames",
+    "group": "custom-frames",
+    "id": "cat-glitter-photo-frames",
+    "lightingType": "normal"
   },
   {
     "slug": "acrylic-photo-frames",
@@ -20,8 +23,11 @@
     "itemCount": 1,
     "name": "Acrylic Photo Frames",
     "parentType": "custom-frames",
-    "updatedAt": "2026-11-22T06:18:14.308Z",
-    "id": "6b01e3bd5093473a07607bc9"
+    "updatedAt": "2026-11-22T10:21:05.980Z",
+    "buttonText": "Shop Acrylic Frames",
+    "group": "custom-frames",
+    "id": "cat-acrylic-photo-frames",
+    "lightingType": "normal"
   },
   {
     "slug": "led-acrylic-photo-frames",
@@ -32,8 +38,11 @@
     "itemCount": 1,
     "name": "LED Photo Frames",
     "parentType": "wall-art-styles",
-    "updatedAt": "2026-11-22T06:18:14.705Z",
-    "id": "6b01e3bd5093473a07607bca"
+    "updatedAt": "2026-11-22T10:21:06.200Z",
+    "buttonText": "Shop LED Frames",
+    "group": "led-backlight",
+    "id": "cat-led-acrylic-photo-frames",
+    "lightingType": "backlight"
   },
   {
     "slug": "360-rotating-photo-lamps",
@@ -44,8 +53,11 @@
     "itemCount": 1,
     "name": "360° Rotating Lamps",
     "parentType": "custom-frames",
-    "updatedAt": "2026-11-22T06:18:16.341Z",
-    "id": "6b01e3bd5093473a07607bcb"
+    "updatedAt": "2026-11-22T10:21:06.636Z",
+    "buttonText": "Shop Rotating Lamps",
+    "group": "led-backlight",
+    "id": "cat-360-rotating-photo-lamps",
+    "lightingType": "backlight"
   },
   {
     "slug": "god-photo-frames",
@@ -56,8 +68,11 @@
     "itemCount": 1,
     "name": "God Photo Frames",
     "parentType": "devotional",
-    "updatedAt": "2026-11-22T06:18:16.547Z",
-    "id": "6b01e3be5093473a07607bcc"
+    "updatedAt": "2026-11-22T10:21:06.854Z",
+    "buttonText": "Shop God Frames",
+    "group": "god-wall-art",
+    "id": "cat-god-photo-frames",
+    "lightingType": "normal"
   },
   {
     "slug": "family-baby-frames",
@@ -68,8 +83,11 @@
     "itemCount": 1,
     "name": "Family & Baby Frames",
     "parentType": "custom-frames",
-    "updatedAt": "2026-11-22T06:18:16.751Z",
-    "id": "6b01e3be5093473a07607bcd"
+    "updatedAt": "2026-11-22T10:21:07.079Z",
+    "buttonText": "Shop Family Frames",
+    "group": "custom-frames",
+    "id": "cat-family-baby-frames",
+    "lightingType": "normal"
   },
   {
     "slug": "couple-wedding-frames",
@@ -80,8 +98,11 @@
     "itemCount": 1,
     "name": "Couple & Wedding Frames",
     "parentType": "custom-frames",
-    "updatedAt": "2026-11-22T06:18:16.957Z",
-    "id": "6b01e3be5093473a07607bce"
+    "updatedAt": "2026-11-22T10:21:07.297Z",
+    "buttonText": "Shop Couple Frames",
+    "group": "custom-frames",
+    "id": "cat-couple-wedding-frames",
+    "lightingType": "normal"
   },
   {
     "slug": "personalized-gifts",
@@ -92,7 +113,10 @@
     "itemCount": 1,
     "name": "Personalized Gifts",
     "parentType": "custom-frames",
-    "updatedAt": "2026-11-22T06:18:17.162Z",
-    "id": "6b01e3be5093473a07607bcf"
+    "updatedAt": "2026-11-22T10:21:07.515Z",
+    "buttonText": "Shop Custom Gifts",
+    "group": "custom-frames",
+    "id": "cat-personalized-gifts",
+    "lightingType": "normal"
   }
 ]

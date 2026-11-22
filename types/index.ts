@@ -220,6 +220,25 @@ export interface AdminUser {
   avatar?: string;
 }
 
+export interface PromotionalOfferSettings {
+  isActive: boolean;
+  tag: string;
+  title: string;
+  highlightedText: string;
+  description: string;
+  discountBadge: string;
+  productTitle: string;
+  productCategory: string;
+  price: string;
+  originalPrice: string;
+  buttonText: string;
+  buttonLink: string;
+  whatsappCtaText: string;
+  whatsappMessage: string;
+  imageUrl: string;
+  features?: string[];
+}
+
 export interface SiteSettings {
   storeName: string;
   tagline: string;
@@ -237,6 +256,7 @@ export interface SiteSettings {
   gstNumber?: string;
   instagramUrl?: string;
   youtubeUrl?: string;
+  promotionalOffer?: PromotionalOfferSettings;
 }
 
 export interface ContactEnquiry {

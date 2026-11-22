@@ -33,7 +33,8 @@ const NAV_ITEMS = [
   { label: 'Customers', href: '/admin/customers', icon: Users },
   { label: 'Team & Staff', href: '/admin/team', icon: ShieldCheck },
   { label: 'Promotions & Coupons', href: '/admin/coupons', icon: Tag },
-  { label: 'Store Settings', href: '/admin/settings', icon: Settings },
+  { label: 'Product Catalog', href: '/admin/products', icon: Package },
+  { label: 'Store Settings & Offer Banner', href: '/admin/settings', icon: Settings },
 ];
 
 export default function AdminLayout({ children }: AdminLayoutProps) {
