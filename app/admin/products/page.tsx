@@ -1558,7 +1558,21 @@ export default function AdminProductsPage() {
                         type="text"
                         required
                         value={formData.title}
-                        onChange={(e) => setFormData({ ...formData, title: e.target.value })}
+                        onChange={(e) => {
+                          const newTitle = e.target.value;
+                          const toSlug = (s: string) =>
+                            s
+                              .toLowerCase()
+                              .trim()
+                              .replace(/[^\w\s-]/g, '')
+                              .replace(/[\s_-]+/g, '-')
+                              .replace(/^-+|-+$/g, '');
+                          setFormData((prev) => ({
+                            ...prev,
+                            title: newTitle,
+                            slug: !editingSlug && (!prev.slug || prev.slug === toSlug(prev.title)) ? toSlug(newTitle) : prev.slug,
+                          }));
+                        }}
                         className="w-full px-3 py-2 bg-white border border-stone-300 rounded-xl outline-none focus:border-amber-500 text-xs text-stone-900 placeholder-stone-400"
                         placeholder="e.g. Tirupati Balaji Divine Blessings"
                       />
@@ -1570,7 +1584,13 @@ export default function AdminProductsPage() {
                         type="text"
                         required
                         value={formData.slug}
-                        onChange={(e) => setFormData({ ...formData, slug: e.target.value })}
+                        onChange={(e) => {
+                          const sanitized = e.target.value
+                            .toLowerCase()
+                            .replace(/[\s_-]+/g, '-')
+                            .replace(/[^\w-]/g, '');
+                          setFormData({ ...formData, slug: sanitized });
+                        }}
                         className="w-full px-3 py-2 bg-white border border-stone-300 rounded-xl outline-none font-mono text-xs text-stone-900 placeholder-stone-400"
                         placeholder="e.g. tirupati-balaji-divine-blessings"
                       />

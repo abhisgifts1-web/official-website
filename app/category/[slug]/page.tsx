@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound, redirect } from 'next/navigation';
 import { Sparkles, Home, MapPin, Truck, ShieldCheck, CheckCircle2, ChevronRight } from 'lucide-react';
-import { getCategoryBySlug, getAllCategories, getAllProducts } from '@/lib/store';
+import { getCategoryBySlug, getAllCategories, getAllProducts, fetchLiveProducts } from '@/lib/store';
 import { CATEGORY_SLUG_ALIASES } from '@/lib/data/categories';
 import { filterProductsByCategory } from '@/lib/categoryRules';
 import CategoryClientView from '@/components/category/CategoryClientView';
@@ -12,6 +12,7 @@ import { getBreadcrumbSchema } from '@/lib/seo/schema';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 0;
+export const dynamicParams = true;
 
 interface CategoryPageProps {
   params: {
@@ -144,7 +145,7 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
   };
 }
 
-export default function CategoryPage({ params }: CategoryPageProps) {
+export default async function CategoryPage({ params }: CategoryPageProps) {
   if (params.slug === 'devotional-wall-art' || params.slug === 'normal-acrylic-art' || params.slug === 'acrylic-wall-decor') {
     redirect('/shop?lighting=none');
   }
@@ -157,7 +158,7 @@ export default function CategoryPage({ params }: CategoryPageProps) {
     notFound();
   }
 
-  const allProducts = getAllProducts();
+  const allProducts = await fetchLiveProducts();
   const slug = category.slug;
   const seoOverride = LOCAL_SEO_CATEGORY_OVERRIDES[slug];
 

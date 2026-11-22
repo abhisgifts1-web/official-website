@@ -1,11 +1,12 @@
 import React from 'react';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { getProductBySlug, getAllProducts } from '@/lib/store';
+import { fetchProductBySlug, fetchLiveProducts, getAllProducts } from '@/lib/store';
 import ProductDetailClient from './ProductDetailClient';
 import { getBreadcrumbSchema } from '@/lib/seo/schema';
 
 export const dynamic = 'force-dynamic';
+export const dynamicParams = true;
 export const revalidate = 0;
 
 interface Props {
@@ -22,7 +23,8 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const product = getProductBySlug(params.slug);
+  const cleanSlug = params.slug ? decodeURIComponent(params.slug).trim() : '';
+  const product = await fetchProductBySlug(cleanSlug);
   if (!product) {
     return { title: 'Artwork Not Found' };
   }
@@ -34,7 +36,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const description = isAcrylic
     ? `${product.title} — 5MM Premium Crystal Clear Acrylic Wall Art. Advanced Direct UV printing, precision square-cut edges, and metal installation studs included. Handcrafted in Hyderabad.`
     : `${product.shortDescription} Handcrafted in Hyderabad with premium acrylic. Safe transit packaging guarantee.`;
-  const canonicalUrl = `https://abhigifts.com/product/${params.slug}`;
+  const canonicalUrl = `https://abhigifts.com/product/${product.slug}`;
 
   return {
     title,
@@ -56,14 +58,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default function ProductDetailPage({ params }: Props) {
-  const product = getProductBySlug(params.slug);
+export default async function ProductDetailPage({ params }: Props) {
+  const cleanSlug = params.slug ? decodeURIComponent(params.slug).trim() : '';
+  const product = await fetchProductBySlug(cleanSlug);
 
   if (!product) {
     notFound();
   }
 
-  const allProducts = getAllProducts();
+  const allProducts = await fetchLiveProducts();
   const sameCategory = allProducts.filter((p) => p.id !== product.id && (p.categorySlug === product.categorySlug || p.deity === product.deity));
   const related = sameCategory.length > 0 ? sameCategory : allProducts.filter((p) => p.id !== product.id).slice(0, 4);
 

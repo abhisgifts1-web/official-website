@@ -504,8 +504,75 @@ export function getAllProducts(filterOptions?: ProductFilterOptions): Product[] 
 }
 
 export function getProductBySlug(slug: string): Product | null {
-  const product = store.products.find((p) => p.slug === slug);
+  const clean = slug ? slug.trim().toLowerCase() : '';
+  const product = store.products.find(
+    (p) => p.slug === slug || p.slug.toLowerCase() === clean || p.id === slug
+  );
   return product || null;
+}
+
+export async function fetchProductBySlug(slug: string): Promise<Product | null> {
+  const clean = slug ? decodeURIComponent(slug).trim().toLowerCase() : '';
+  if (!clean) return null;
+
+  // 1. Check in-memory store
+  const inMem = store.products.find(
+    (p) => p.slug === slug || p.slug.toLowerCase() === clean || p.id === slug
+  );
+
+  // 2. Query MongoDB Atlas directly for live real-time data
+  try {
+    const conn = await connectToDatabase();
+    if (conn) {
+      const doc = await ProductModel.findOne({
+        $or: [
+          { slug },
+          { slug: clean },
+          { id: slug },
+          { id: clean },
+        ],
+      }).lean();
+
+      if (doc) {
+        const { _id, __v, ...rest } = doc as any;
+        const product = { ...rest, id: rest.id || String(_id) } as Product;
+        // Keep in-memory store synchronized
+        const idx = store.products.findIndex((p) => p.slug === product.slug);
+        if (idx >= 0) {
+          store.products[idx] = product;
+        } else {
+          store.products.unshift(product);
+        }
+        savePersistedProducts(store.products);
+        return product;
+      }
+    }
+  } catch (err) {
+    console.warn('MongoDB fetchProductBySlug error:', err);
+  }
+
+  return inMem || null;
+}
+
+export async function fetchLiveProducts(): Promise<Product[]> {
+  try {
+    const conn = await connectToDatabase();
+    if (conn) {
+      const dbDocs = await ProductModel.find({}).sort({ createdAt: -1 }).lean();
+      if (dbDocs && dbDocs.length > 0) {
+        const formatted: Product[] = dbDocs.map((doc: any) => {
+          const { _id, __v, ...p } = doc;
+          return { ...p, id: p.id || String(_id) } as Product;
+        });
+        store.products = formatted;
+        savePersistedProducts(formatted);
+        return formatted;
+      }
+    }
+  } catch (err) {
+    console.warn('MongoDB fetchLiveProducts error:', err);
+  }
+  return [...store.products];
 }
 
 export function createProduct(productData: Omit<Product, 'id' | 'createdAt'>): Product {
