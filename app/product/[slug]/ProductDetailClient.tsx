@@ -1028,11 +1028,11 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
     <div className="w-full bg-white text-stone-900 transition-colors duration-300">
       <div className="w-full max-w-[1720px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-14 py-4 sm:py-6 space-y-8 sm:space-y-12">
         {/* Main 2-Column Showcase */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 xl:gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 xl:gap-10 items-start">
           {/* LEFT COLUMN: Main Sticky Artwork Frame & Mockups Gallery */}
-          <div className="lg:col-span-7 xl:col-span-7 lg:sticky lg:top-24 self-start space-y-5">
+          <div className="lg:col-span-6 xl:col-span-6 lg:sticky lg:top-20 self-start space-y-3 sm:space-y-3.5">
             {/* Main Display Container */}
-            <div className="relative w-full aspect-square rounded-2xl overflow-hidden bg-stone-100/80 border border-stone-200 transition-all duration-300 flex items-center justify-center group shadow-xs">
+            <div className="relative w-full max-w-[540px] xl:max-w-[580px] mx-auto h-[320px] sm:h-[400px] lg:h-[calc(100vh-210px)] max-h-[500px] xl:max-h-[540px] aspect-square rounded-2xl overflow-hidden bg-[#18181B] border border-stone-200 transition-all duration-300 flex items-center justify-center group shadow-sm">
               {/* Top Floating Zoom Control (Badge removed as requested) */}
               <div className="absolute top-3 right-3 z-20 pointer-events-none">
                 <button
@@ -1069,7 +1069,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                     />
                   )}
 
-                  <div className="relative w-full h-full overflow-hidden rounded-2xl bg-stone-50 z-10 transition-all flex items-center justify-center">
+                  <div className="relative w-full h-full overflow-hidden rounded-2xl bg-[#141416] z-10 transition-all flex items-center justify-center">
                     {/* Main Artwork Image with Smooth Zoom tracking */}
                     <img
                       src={activeImage}
@@ -1189,7 +1189,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                           key={i}
                           type="button"
                           onClick={() => setActiveImageIndex(i)}
-                          className={`w-20 h-24 sm:w-24 sm:h-28 shrink-0 rounded-xl overflow-hidden border-2 bg-stone-50 cursor-pointer relative group transition-all flex flex-col ${
+                          className={`w-14 h-14 sm:w-16 sm:h-16 shrink-0 rounded-xl overflow-hidden border-2 bg-stone-50 cursor-pointer relative group transition-all flex flex-col ${
                             isSelected
                               ? 'border-amber-500 ring-2 ring-amber-400/40 shadow-xs scale-[1.03]'
                               : 'border-stone-200 opacity-80 hover:opacity-100 hover:border-amber-300'
