@@ -1394,7 +1394,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                   </strong>
                 </span>
                 <span className="text-[11px] text-stone-500 font-normal">
-                  Tap to preview design
+                  Tap to preview models
                 </span>
               </div>
 
