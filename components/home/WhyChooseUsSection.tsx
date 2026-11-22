@@ -8,6 +8,7 @@ import {
   Sun,
   Wand2,
   CheckCircle2,
+  Lock,
 } from 'lucide-react';
 
 export default function WhyChooseUsSection() {
@@ -41,6 +42,13 @@ export default function WhyChooseUsSection() {
         'Concealed perimeter LED lightguide casting a radiant Cool White ambient halo with external 12V power adapter and wall studs.',
     },
     {
+      icon: Lock,
+      title: '100% Secure Payments',
+      tag: 'Razorpay 256-Bit SSL',
+      description:
+        'Encrypted payment gateway powered by Razorpay. Seamlessly pay via all UPI apps (GPay, PhonePe, Paytm), Credit/Debit cards & NetBanking with instant confirmation.',
+    },
+    {
       icon: MessageCircle,
       title: 'Free WhatsApp Proof Approval',
       tag: '1:1 Sign-Off First',
@@ -71,7 +79,7 @@ export default function WhyChooseUsSection() {
         </div>
 
         {/* 5 Feature Columns */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5 relative z-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-4 sm:gap-5 relative z-10">
           {features.map((feat, idx) => {
             const Icon = feat.icon;
             return (
