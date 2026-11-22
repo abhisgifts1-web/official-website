@@ -1032,30 +1032,13 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
           {/* LEFT COLUMN: Main Sticky Artwork Frame & Mockups Gallery */}
           <div className="lg:col-span-7 xl:col-span-7 lg:sticky lg:top-24 self-start space-y-5">
             {/* Main Display Container */}
-            <div className="relative w-full min-h-[420px] sm:min-h-[560px] max-h-[720px] aspect-[4/4.5] sm:aspect-[4/4.2] rounded-2xl overflow-hidden bg-stone-100/50 border border-stone-200 transition-all duration-300 flex items-center justify-center p-1 sm:p-2 group">
-              {/* Top Floating Controls: Cool White LED Glow Toggle + Fullscreen Zoom */}
-              <div className="absolute top-3 left-3 right-3 z-20 flex items-center justify-between pointer-events-none">
-                {isLedFrame ? (
-                  <button
-                    type="button"
-                    onClick={() => setIsAartiGlow(!isAartiGlow)}
-                    className={`pointer-events-auto flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold transition-all shadow-md border cursor-pointer ${
-                      isAartiGlow
-                        ? 'bg-stone-900 text-white border-cyan-400 shadow-[0_0_20px_rgba(255,255,255,0.7)]'
-                        : 'bg-white/95 text-stone-700 border-stone-200 hover:bg-white'
-                    }`}
-                  >
-                    <Sun className={`w-3.5 h-3.5 ${isAartiGlow ? 'text-cyan-300 animate-spin' : 'text-stone-400'}`} />
-                    <span>Cool White LED Glow: {isAartiGlow ? 'ON' : 'OFF'}</span>
-                  </button>
-                ) : (
-                  <div />
-                )}
-
+            <div className="relative w-full aspect-square rounded-2xl overflow-hidden bg-stone-100/80 border border-stone-200 transition-all duration-300 flex items-center justify-center group shadow-xs">
+              {/* Top Floating Zoom Control (Badge removed as requested) */}
+              <div className="absolute top-3 right-3 z-20 pointer-events-none">
                 <button
                   type="button"
                   onClick={() => setLightboxOpen(true)}
-                  className="pointer-events-auto p-2 rounded-full bg-white/90 hover:bg-white text-stone-800 shadow-sm border border-stone-200 transition-all hover:scale-105 cursor-pointer ml-auto"
+                  className="pointer-events-auto p-2 rounded-full bg-white/90 hover:bg-white text-stone-800 shadow-sm border border-stone-200 transition-all hover:scale-105 cursor-pointer backdrop-blur-xs"
                   aria-label="Fullscreen view"
                   title="Full Screen View"
                 >
@@ -1086,7 +1069,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                     />
                   )}
 
-                  <div className="relative w-full h-full overflow-hidden rounded-xl shadow-xs bg-stone-50 z-10 transition-all flex items-center justify-center">
+                  <div className="relative w-full h-full overflow-hidden rounded-2xl bg-stone-50 z-10 transition-all flex items-center justify-center">
                     {/* Main Artwork Image with Smooth Zoom tracking */}
                     <img
                       src={activeImage}
@@ -1104,7 +1087,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                             }
                           : undefined
                       }
-                      className="w-full h-full object-cover transition-transform duration-150"
+                      className="w-full h-full object-contain transition-transform duration-150"
                     />
                   </div>
                 </div>
