@@ -109,6 +109,37 @@ export default function AddPhotoModal({
       .catch(() => {});
   }, []);
 
+  const isGoldOutOfStock = Boolean(!frameStock.gold?.inStock || (frameStock.gold?.stockCount ?? 0) <= 0);
+  const isBlackOutOfStock = Boolean(!frameStock.black?.inStock || (frameStock.black?.stockCount ?? 0) <= 0);
+  const hasOutOfStockFrame = photos.length > 0
+    ? photos.some((p) => {
+        const frame = p.specs?.frame || selectedFrame;
+        return (frame === 'gold' && isGoldOutOfStock) || (frame === 'black' && isBlackOutOfStock);
+      })
+    : (selectedFrame === 'gold' && isGoldOutOfStock) || (selectedFrame === 'black' && isBlackOutOfStock);
+
+  // Auto-switch to in-stock frame if active frame is out of stock
+  useEffect(() => {
+    if (selectedFrame === 'gold' && isGoldOutOfStock && !isBlackOutOfStock) {
+      setSelectedFrame('black');
+      setPhotos((prev) =>
+        prev.map((p) => ({
+          ...p,
+          specs: { ...p.specs, frame: 'black' },
+        }))
+      );
+    } else if (selectedFrame === 'black' && isBlackOutOfStock && !isGoldOutOfStock) {
+      setSelectedFrame('gold');
+      setPhotos((prev) =>
+        prev.map((p) => ({
+          ...p,
+          specs: { ...p.specs, frame: 'gold' },
+        }))
+      );
+    }
+  }, [frameStock, isGoldOutOfStock, isBlackOutOfStock]);
+
+
 
   React.useEffect(() => {
     if (initialFrame) {
@@ -317,6 +348,14 @@ export default function AddPhotoModal({
   };
 
   const handleSelectFrameColor = (f: 'gold' | 'black') => {
+    if (f === 'gold' && isGoldOutOfStock) {
+      alert('Royal Gold Frame is currently Out of Stock. Please select an available in-stock frame.');
+      return;
+    }
+    if (f === 'black' && isBlackOutOfStock) {
+      alert('Luxury Black Frame is currently Out of Stock. Please select an available in-stock frame.');
+      return;
+    }
     setSelectedFrame(f);
     if (photos.length > 0) {
       setPhotos((prev) =>
@@ -532,6 +571,10 @@ export default function AddPhotoModal({
 
   // Add each photo and its specifications SEPARATELY to cart
   const handleAddToCartWithPhoto = async (redirectCheckout = false) => {
+    if (hasOutOfStockFrame) {
+      alert('The selected frame finish is currently Out of Stock. Please choose an in-stock frame before proceeding.');
+      return;
+    }
     if (photos.length > 0) {
       // SEPARATELY ADD EACH PHOTO AND ITS SPECIFICATIONS TO CART
       const itemsToAdd = photos.map((photo, idx) => {
@@ -1053,62 +1096,76 @@ export default function AddPhotoModal({
               {/* Black Frame */}
               <button
                 type="button"
-                onClick={() => handleSelectFrameColor('black')}
-                className={`p-2.5 rounded-xl border text-left transition-all cursor-pointer flex items-center justify-between gap-2 ${
-                  (currentSpecs.frame || selectedFrame) === 'black'
-                    ? 'border-2 border-stone-900 bg-stone-900 text-white shadow-xs ring-1 ring-stone-700'
-                    : 'border-stone-200 bg-white text-stone-800 hover:border-stone-400'
+                onClick={() => !isBlackOutOfStock && handleSelectFrameColor('black')}
+                disabled={isBlackOutOfStock}
+                className={`p-2.5 rounded-xl border text-left transition-all flex items-center justify-between gap-2 ${
+                  isBlackOutOfStock
+                    ? 'border-stone-200 bg-stone-100/70 text-stone-400 opacity-50 cursor-not-allowed'
+                    : (currentSpecs.frame || selectedFrame) === 'black'
+                    ? 'border-2 border-stone-900 bg-stone-900 text-white shadow-xs ring-1 ring-stone-700 cursor-pointer'
+                    : 'border-stone-200 bg-white text-stone-800 hover:border-stone-400 cursor-pointer'
                 }`}
               >
                 <div className="flex items-center gap-2.5 min-w-0">
-                  <span className="w-5 h-5 rounded-full bg-stone-950 border border-stone-700 flex items-center justify-center shrink-0">
-                    {(currentSpecs.frame || selectedFrame) === 'black' && <Check className="w-3 h-3 text-amber-400" />}
+                  <span className={`w-5 h-5 rounded-full border flex items-center justify-center shrink-0 ${
+                    isBlackOutOfStock
+                      ? 'bg-stone-300 border-stone-400'
+                      : 'bg-stone-950 border-stone-700'
+                  }`}>
+                    {(currentSpecs.frame || selectedFrame) === 'black' && !isBlackOutOfStock && <Check className="w-3 h-3 text-amber-400" />}
                   </span>
                   <div>
-                    <div className="font-bold text-xs">Black Frame</div>
-                    <div className={`text-[9.5px] ${(currentSpecs.frame || selectedFrame) === 'black' ? 'text-stone-300' : 'text-stone-500'}`}>Matte Obsidian</div>
+                    <div className={`font-bold text-xs ${isBlackOutOfStock ? 'line-through text-stone-400' : ''}`}>Black Frame</div>
+                    <div className={`text-[9.5px] ${isBlackOutOfStock ? 'text-stone-400' : (currentSpecs.frame || selectedFrame) === 'black' ? 'text-stone-300' : 'text-stone-500'}`}>
+                      {isBlackOutOfStock ? 'Out of Stock' : 'Matte Obsidian'}
+                    </div>
                   </div>
                 </div>
                 <span className={`text-[8.5px] font-bold px-1.5 py-0.5 rounded-full whitespace-nowrap shrink-0 border ${
-                  frameStock.black?.inStock && (frameStock.black?.stockCount ?? 1) > 0
+                  !isBlackOutOfStock
                     ? ((currentSpecs.frame || selectedFrame) === 'black'
                         ? 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40'
                         : 'bg-emerald-50 text-emerald-700 border-emerald-300')
                     : 'bg-rose-100 text-rose-700 border-rose-300'
                 }`}>
-                  {frameStock.black?.inStock && (frameStock.black?.stockCount ?? 1) > 0
-                    ? 'In Stock'
-                    : 'Out of Stock'}
+                  {!isBlackOutOfStock ? 'In Stock' : 'Out of Stock'}
                 </span>
               </button>
 
               {/* Gold Frame */}
               <button
                 type="button"
-                onClick={() => handleSelectFrameColor('gold')}
-                className={`p-2.5 rounded-xl border text-left transition-all cursor-pointer flex items-center justify-between gap-2 ${
-                  (currentSpecs.frame || selectedFrame) === 'gold'
-                    ? 'border-2 border-amber-500 bg-amber-50 text-stone-950 shadow-xs ring-1 ring-amber-400'
-                    : 'border-stone-200 bg-white text-stone-800 hover:border-amber-400'
+                onClick={() => !isGoldOutOfStock && handleSelectFrameColor('gold')}
+                disabled={isGoldOutOfStock}
+                className={`p-2.5 rounded-xl border text-left transition-all flex items-center justify-between gap-2 ${
+                  isGoldOutOfStock
+                    ? 'border-stone-200 bg-stone-100/70 text-stone-400 opacity-50 cursor-not-allowed'
+                    : (currentSpecs.frame || selectedFrame) === 'gold'
+                    ? 'border-2 border-amber-500 bg-amber-50 text-stone-950 shadow-xs ring-1 ring-amber-400 cursor-pointer'
+                    : 'border-stone-200 bg-white text-stone-800 hover:border-amber-400 cursor-pointer'
                 }`}
               >
                 <div className="flex items-center gap-2.5 min-w-0">
-                  <span className="w-5 h-5 rounded-full bg-gradient-to-tr from-[#99772B] via-[#E6CA65] to-[#D4AF37] border border-[#FEE815] flex items-center justify-center shrink-0">
-                    {(currentSpecs.frame || selectedFrame) === 'gold' && <Check className="w-3 h-3 text-stone-950" />}
+                  <span className={`w-5 h-5 rounded-full border flex items-center justify-center shrink-0 ${
+                    isGoldOutOfStock
+                      ? 'bg-stone-300 border-stone-400'
+                      : 'bg-gradient-to-tr from-[#99772B] via-[#E6CA65] to-[#D4AF37] border-[#FEE815]'
+                  }`}>
+                    {(currentSpecs.frame || selectedFrame) === 'gold' && !isGoldOutOfStock && <Check className="w-3 h-3 text-stone-950" />}
                   </span>
                   <div>
-                    <div className="font-bold text-xs text-stone-900">Gold Frame</div>
-                    <div className="text-[9.5px] text-amber-800 font-medium">24K Royal Gold</div>
+                    <div className={`font-bold text-xs ${isGoldOutOfStock ? 'line-through text-stone-400' : 'text-stone-900'}`}>Gold Frame</div>
+                    <div className={`text-[9.5px] ${isGoldOutOfStock ? 'text-stone-400' : 'text-amber-800 font-medium'}`}>
+                      {isGoldOutOfStock ? 'Out of Stock' : '24K Royal Gold'}
+                    </div>
                   </div>
                 </div>
                 <span className={`text-[8.5px] font-bold px-1.5 py-0.5 rounded-full whitespace-nowrap shrink-0 border ${
-                  frameStock.gold?.inStock && (frameStock.gold?.stockCount ?? 1) > 0
+                  !isGoldOutOfStock
                     ? 'bg-emerald-100 text-emerald-800 border-emerald-300'
                     : 'bg-rose-100 text-rose-700 border-rose-300'
-                }`}>
-                  {frameStock.gold?.inStock && (frameStock.gold?.stockCount ?? 1) > 0
-                    ? 'In Stock'
-                    : 'Out of Stock'}
+                  }`}>
+                  {!isGoldOutOfStock ? 'In Stock' : 'Out of Stock'}
                 </span>
               </button>
             </div>
@@ -1176,6 +1233,13 @@ export default function AddPhotoModal({
 
         {/* Footer Actions */}
         <div className="p-4 sm:p-5 bg-stone-50 border-t border-stone-200 space-y-2 shrink-0">
+          {hasOutOfStockFrame && (
+            <div className="p-2.5 rounded-xl bg-rose-50 border border-rose-200 text-rose-800 text-xs font-semibold flex items-center gap-2">
+              <AlertCircle className="w-4 h-4 text-rose-600 shrink-0" />
+              <span>The selected frame finish is Out of Stock. Please select an in-stock frame before proceeding to checkout.</span>
+            </div>
+          )}
+
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
             <button
               type="button"
@@ -1204,7 +1268,7 @@ export default function AddPhotoModal({
               onClick={() => handleAddToCartWithPhoto(true)}
               className="w-full py-2.5 px-4 rounded-xl font-bold text-xs flex items-center justify-center gap-2 bg-stone-900 hover:bg-stone-800 text-white border border-stone-900 transition-all cursor-pointer shadow-xs"
             >
-              <span>Proceed to Checkout {photos.length > 1 ? `(${photos.length} Frames)` : ''}</span>
+              <span>{hasOutOfStockFrame ? 'Frame Out of Stock' : `Proceed to Checkout ${photos.length > 1 ? `(${photos.length} Frames)` : ''}`}</span>
               <ArrowRight className="w-4 h-4 text-amber-400" />
             </button>
           </div>

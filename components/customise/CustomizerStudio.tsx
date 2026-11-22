@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useRef, useMemo } from 'react';
+import React, { useState, useRef, useMemo, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { calculateCustomDimensions } from '@/lib/utils/customSize';
@@ -22,6 +22,7 @@ import {
   Heart,
   Image as ImageIcon,
   CheckCircle2,
+  AlertCircle,
   PhoneCall,
   Clock,
   Palette,
@@ -30,7 +31,7 @@ import {
   Sparkle,
 } from 'lucide-react';
 import { useCart } from '@/context/CartContext';
-import { ProductOrientation } from '@/types';
+import { ProductOrientation, FrameStockSettings } from '@/types';
 import { INITIAL_SETTINGS } from '@/lib/data/settings';
 import { compressImageToDataUrl } from '@/lib/utils/imageCompress';
 
@@ -460,6 +461,40 @@ export default function CustomizerStudio() {
   const [customWidth, setCustomWidth] = useState<number>(24);
   const [customHeight, setCustomHeight] = useState<number>(18);
   const [finish, setFinish] = useState<FrameFinish>('floating-standoff');
+  const [frameStock, setFrameStock] = useState<FrameStockSettings>(
+    INITIAL_SETTINGS.frameStock || {
+      gold: { name: 'Royal Gold Frame', inStock: true, stockCount: 850 },
+      black: { name: 'Luxury Black Frame', inStock: true, stockCount: 720 },
+    }
+  );
+
+  useEffect(() => {
+    fetch('/api/settings')
+      .then((r) => r.json())
+      .then((d) => {
+        if (d.success && d.settings?.frameStock) {
+          setFrameStock(d.settings.frameStock);
+        }
+      })
+      .catch(() => {});
+  }, []);
+
+  const isGoldOutOfStock = Boolean(!frameStock.gold?.inStock || (frameStock.gold?.stockCount ?? 0) <= 0);
+  const isBlackOutOfStock = Boolean(!frameStock.black?.inStock || (frameStock.black?.stockCount ?? 0) <= 0);
+  const isSelectedFinishOutOfStock = Boolean(
+    (finish === 'gold-frame' && isGoldOutOfStock) ||
+    (finish === 'black-frame' && isBlackOutOfStock)
+  );
+
+  // Auto-switch finish if out of stock
+  useEffect(() => {
+    if (finish === 'gold-frame' && isGoldOutOfStock) {
+      setFinish(isBlackOutOfStock ? 'floating-standoff' : 'black-frame');
+    } else if (finish === 'black-frame' && isBlackOutOfStock) {
+      setFinish(isGoldOutOfStock ? 'floating-standoff' : 'gold-frame');
+    }
+  }, [finish, isGoldOutOfStock, isBlackOutOfStock]);
+
   const [led, setLed] = useState<LedOption>('warm-white');
   const [customText, setCustomText] = useState<string>('Forever & Always • Manoj & Pooja');
   const [specialInstructions, setSpecialInstructions] = useState<string>('');
@@ -708,6 +743,10 @@ export default function CustomizerStudio() {
 
   // Add To Cart & Checkout
   const handleOrderNow = async () => {
+    if (isSelectedFinishOutOfStock) {
+      alert('The selected frame finish is currently Out of Stock. Please select an in-stock finish to proceed.');
+      return;
+    }
     let finalPreview = uploadedPhotoUrl || previewImage;
     if (!uploadedPhotoUrl && previewImage && previewImage.startsWith('data:')) {
       try {
@@ -1386,6 +1425,13 @@ export default function CustomizerStudio() {
                 </div>
               </div>
 
+              
+              {isSelectedFinishOutOfStock && (
+                <div className="p-3 rounded-xl bg-rose-50 border border-rose-200 text-rose-800 text-xs font-semibold flex items-center gap-2">
+                  <AlertCircle className="w-4 h-4 text-rose-600 shrink-0" />
+                  <span>The selected frame finish is Out of Stock. Please choose an in-stock finish to proceed.</span>
+                </div>
+              )}
               {/* Action Buttons */}
               <div className="space-y-2 pt-2">
                 <button
@@ -1393,7 +1439,7 @@ export default function CustomizerStudio() {
                   onClick={handleOrderNow}
                   className="w-full bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 hover:from-amber-300 hover:to-amber-500 text-stone-950 font-bold py-3.5 rounded-xl text-sm shadow-md transition-all cursor-pointer flex items-center justify-center gap-2 uppercase tracking-wider"
                 >
-                  <span>Order Now • ₹{pricing.price.toLocaleString('en-IN')}</span>
+                  <span>{isSelectedFinishOutOfStock ? 'Frame Finish Out of Stock' : `Order Now • ₹${pricing.price.toLocaleString('en-IN')}`}</span>
                   <ArrowRight className="w-4 h-4 text-stone-950" />
                 </button>
 

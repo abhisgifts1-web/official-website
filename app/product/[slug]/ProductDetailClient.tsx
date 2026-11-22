@@ -24,6 +24,7 @@ import {
   ShoppingBag,
   MapPin,
   HelpCircle,
+  AlertCircle,
   Layers,
   Eye,
   Flame,
@@ -585,6 +586,9 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
       .catch(() => {});
   }, []);
 
+
+
+
   const [selectedFrame, setSelectedFrame] = useState<FrameType>(() => {
     if (isLedFrame || product.categorySlug === 'led-acrylic-photo-frames' || product.categorySlugs?.includes('led-acrylic-photo-frames')) {
       return 'gold';
@@ -596,6 +600,22 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
       ? 'without'
       : 'gold';
   });
+
+  const isGoldOutOfStock = Boolean(!frameStock.gold?.inStock || (frameStock.gold?.stockCount ?? 0) <= 0);
+  const isBlackOutOfStock = Boolean(!frameStock.black?.inStock || (frameStock.black?.stockCount ?? 0) <= 0);
+  const isSelectedFrameOutOfStock = Boolean(
+    (selectedFrame === 'gold' && isGoldOutOfStock) ||
+    (selectedFrame === 'black' && isBlackOutOfStock)
+  );
+
+  // Auto-fallback if currently selected frame is out of stock
+  useEffect(() => {
+    if (selectedFrame === 'gold' && isGoldOutOfStock && !isBlackOutOfStock) {
+      setSelectedFrame('black');
+    } else if (selectedFrame === 'black' && isBlackOutOfStock && !isGoldOutOfStock) {
+      setSelectedFrame('gold');
+    }
+  }, [selectedFrame, isGoldOutOfStock, isBlackOutOfStock]);
   const [selectedSizeId, setSelectedSizeId] = useState<string | null>(() => {
     if (product.categorySlug === 'glitter-photo-frames' || product.categorySlugs?.includes('glitter-photo-frames') || product.slug?.includes('glitter')) {
       return product.variants?.[0]?.id || 'var-glit-1';
@@ -939,6 +959,14 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
 
   // Handle frame selection
   const handleSelectFrame = (frame: FrameType) => {
+    if (frame === 'gold' && isGoldOutOfStock) {
+      alert('Royal Gold Frame is currently Out of Stock. Please select an available frame.');
+      return;
+    }
+    if (frame === 'black' && isBlackOutOfStock) {
+      alert('Luxury Black Frame is currently Out of Stock. Please select an available frame.');
+      return;
+    }
     setSelectedFrame(frame);
     if (selectedSizeId) {
       const sizeObj = availableSizes.find((s) => s.id === selectedSizeId);
@@ -1000,6 +1028,10 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
 
   // Add to cart
   const handleAddToCart = () => {
+    if (isSelectedFrameOutOfStock) {
+      alert('The selected frame finish is currently Out of Stock. Please select an in-stock frame.');
+      return;
+    }
     const frameLabel = isLedFrame
       ? 'Rose Gold Aluminium Side Frame (Wall Plugs & Screws Included)'
       : isGlitterFrame
@@ -1047,6 +1079,10 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
 
   // Instant Buy Now
   const handleBuyNow = () => {
+    if (isSelectedFrameOutOfStock) {
+      alert('The selected frame finish is currently Out of Stock. Please select an in-stock frame.');
+      return;
+    }
     const frameLabel = isLedFrame
       ? 'Rose Gold Aluminium Side Frame (Wall Plugs & Screws Included)'
       : isGlitterFrame
@@ -1595,72 +1631,89 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                 {/* Black Frame */}
                 <button
                   type="button"
-                  onClick={() => handleSelectFrame('black')}
-                  className={`p-2.5 sm:p-3 rounded-xl sm:rounded-2xl border text-left transition-all cursor-pointer flex items-center justify-between gap-2 ${
-                    selectedFrame === 'black'
-                      ? 'border-2 border-stone-900 bg-stone-900 text-white shadow-md ring-2 ring-stone-700/50 scale-[1.01]'
-                      : 'border-stone-200 bg-stone-50 text-stone-800 hover:border-stone-400'
+                  onClick={() => !isBlackOutOfStock && handleSelectFrame('black')}
+                  disabled={isBlackOutOfStock}
+                  className={`p-2.5 sm:p-3 rounded-xl sm:rounded-2xl border text-left transition-all flex items-center justify-between gap-2 ${
+                    isBlackOutOfStock
+                      ? 'border-stone-200 bg-stone-100/70 text-stone-400 opacity-50 cursor-not-allowed'
+                      : selectedFrame === 'black'
+                      ? 'border-2 border-stone-900 bg-stone-900 text-white shadow-md ring-2 ring-stone-700/50 scale-[1.01] cursor-pointer'
+                      : 'border-stone-200 bg-stone-50 text-stone-800 hover:border-stone-400 cursor-pointer'
                   }`}
                 >
                   <div className="flex items-center gap-2.5 min-w-0">
-                    <span className="w-6 h-6 rounded-full bg-gradient-to-br from-stone-900 via-stone-950 to-black border-2 border-stone-700 shadow-inner flex items-center justify-center shrink-0">
-                      {selectedFrame === 'black' && <Check className="w-3.5 h-3.5 text-amber-400" />}
+                    <span className={`w-6 h-6 rounded-full border-2 flex items-center justify-center shrink-0 ${
+                      isBlackOutOfStock
+                        ? 'bg-stone-300 border-stone-400'
+                        : 'bg-gradient-to-br from-stone-900 via-stone-950 to-black border-stone-700 shadow-inner'
+                    }`}>
+                      {selectedFrame === 'black' && !isBlackOutOfStock && <Check className="w-3.5 h-3.5 text-amber-400" />}
                     </span>
                     <div className="min-w-0">
-                      <div className="font-bold text-xs sm:text-sm">Black Frame</div>
-                      <div className={`text-[10px] ${selectedFrame === 'black' ? 'text-stone-300' : 'text-stone-500'}`}>
-                        Matte Obsidian
+                      <div className={`font-bold text-xs sm:text-sm ${isBlackOutOfStock ? 'line-through text-stone-400' : ''}`}>Black Frame</div>
+                      <div className={`text-[10px] ${isBlackOutOfStock ? 'text-stone-400' : selectedFrame === 'black' ? 'text-stone-300' : 'text-stone-500'}`}>
+                        {isBlackOutOfStock ? 'Currently Sold Out' : 'Matte Obsidian'}
                       </div>
                     </div>
                   </div>
                   <span className={`text-[9px] font-bold px-2 py-0.5 rounded-full whitespace-nowrap shrink-0 border ${
-                    frameStock.black?.inStock && (frameStock.black?.stockCount ?? 1) > 0
+                    !isBlackOutOfStock
                       ? (selectedFrame === 'black'
                           ? 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40'
                           : 'bg-emerald-50 text-emerald-700 border-emerald-300')
                       : 'bg-rose-100 text-rose-700 border-rose-300'
                   }`}>
-                    {frameStock.black?.inStock && (frameStock.black?.stockCount ?? 1) > 0
-                      ? 'In Stock'
-                      : 'Out of Stock'}
+                    {!isBlackOutOfStock ? 'In Stock' : 'Out of Stock'}
                   </span>
                 </button>
 
                 {/* Gold Frame */}
                 <button
                   type="button"
-                  onClick={() => handleSelectFrame('gold')}
-                  className={`p-2.5 sm:p-3 rounded-xl sm:rounded-2xl border text-left transition-all cursor-pointer flex items-center justify-between gap-2 ${
-                    selectedFrame === 'gold'
-                      ? 'border-2 border-amber-500 bg-amber-50/90 text-stone-950 shadow-md ring-2 ring-amber-400/50 scale-[1.01]'
-                      : 'border-stone-200 bg-stone-50 text-stone-800 hover:border-amber-400'
+                  onClick={() => !isGoldOutOfStock && handleSelectFrame('gold')}
+                  disabled={isGoldOutOfStock}
+                  className={`p-2.5 sm:p-3 rounded-xl sm:rounded-2xl border text-left transition-all flex items-center justify-between gap-2 ${
+                    isGoldOutOfStock
+                      ? 'border-stone-200 bg-stone-100/70 text-stone-400 opacity-50 cursor-not-allowed'
+                      : selectedFrame === 'gold'
+                      ? 'border-2 border-amber-500 bg-amber-50/90 text-stone-950 shadow-md ring-2 ring-amber-400/50 scale-[1.01] cursor-pointer'
+                      : 'border-stone-200 bg-stone-50 text-stone-800 hover:border-amber-400 cursor-pointer'
                   }`}
                 >
                   <div className="flex items-center gap-2.5 min-w-0">
-                    <span className="w-6 h-6 rounded-full bg-gradient-to-br from-[#E6CA65] via-[#D4AF37] to-[#99772B] border-2 border-[#FEE815] shadow-inner flex items-center justify-center shrink-0">
-                      {selectedFrame === 'gold' && <Check className="w-3.5 h-3.5 text-stone-950" />}
+                    <span className={`w-6 h-6 rounded-full border-2 flex items-center justify-center shrink-0 ${
+                      isGoldOutOfStock
+                        ? 'bg-stone-300 border-stone-400'
+                        : 'bg-gradient-to-br from-[#E6CA65] via-[#D4AF37] to-[#99772B] border-[#FEE815] shadow-inner'
+                    }`}>
+                      {selectedFrame === 'gold' && !isGoldOutOfStock && <Check className="w-3.5 h-3.5 text-stone-950" />}
                     </span>
                     <div className="min-w-0">
-                      <div className="font-bold text-xs sm:text-sm text-stone-900">Gold Frame</div>
-                      <div className="text-[10px] text-amber-800 font-medium">
-                        24K Royal Metallic
+                      <div className={`font-bold text-xs sm:text-sm ${isGoldOutOfStock ? 'line-through text-stone-400' : 'text-stone-900'}`}>Gold Frame</div>
+                      <div className={`text-[10px] ${isGoldOutOfStock ? 'text-stone-400' : 'text-amber-800 font-medium'}`}>
+                        {isGoldOutOfStock ? 'Currently Sold Out' : '24K Royal Metallic'}
                       </div>
                     </div>
                   </div>
                   <span className={`text-[9px] font-bold px-2 py-0.5 rounded-full whitespace-nowrap shrink-0 border ${
-                    frameStock.gold?.inStock && (frameStock.gold?.stockCount ?? 1) > 0
+                    !isGoldOutOfStock
                       ? 'bg-emerald-100 text-emerald-800 border-emerald-300'
                       : 'bg-rose-100 text-rose-700 border-rose-300'
                   }`}>
-                    {frameStock.gold?.inStock && (frameStock.gold?.stockCount ?? 1) > 0
-                      ? 'In Stock'
-                      : 'Out of Stock'}
+                    {!isGoldOutOfStock ? 'In Stock' : 'Out of Stock'}
                   </span>
                 </button>
               </div>
             </div>
 
-                        {/* Quantity Selector + Action Buttons */}
+                        
+              {isSelectedFrameOutOfStock && (
+                <div className="p-3 rounded-xl bg-rose-50 border border-rose-200 text-rose-800 text-xs font-semibold flex items-center gap-2">
+                  <AlertCircle className="w-4 h-4 text-rose-600 shrink-0" />
+                  <span>The selected frame finish ({selectedFrame === 'gold' ? 'Royal Gold Frame' : 'Luxury Black Frame'}) is currently Out of Stock. Please choose an in-stock frame to proceed.</span>
+                </div>
+              )}
+              {/* Quantity Selector + Action Buttons */}
             <div className="space-y-3.5 pt-4 border-t border-stone-200">
               {/* Customise / Add Photo Button */}
               <button
@@ -1703,7 +1756,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                   className="flex-1 h-12 rounded-xl bg-stone-900 hover:bg-stone-800 active:bg-stone-950 text-white font-bold text-xs sm:text-sm transition-all flex items-center justify-center gap-2 cursor-pointer shadow-xs"
                 >
                   <ShoppingBag className="w-4 h-4 text-amber-400" />
-                  <span>Add to Cart</span>
+                  <span>{isSelectedFrameOutOfStock ? 'Frame Out of Stock' : 'Add to Cart'}</span>
                 </button>
 
                 {/* Instant Buy Now Button */}
@@ -1712,7 +1765,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                   onClick={handleBuyNow}
                   className="flex-1 h-12 rounded-xl bg-gradient-to-r from-[#FEE815] via-[#FFF04B] to-[#FEE815] hover:from-[#FFF04B] hover:to-[#FEE815] text-stone-950 font-bold text-xs sm:text-sm transition-all flex items-center justify-center gap-2 cursor-pointer shadow-xs"
                 >
-                  <span>Proceed to Checkout</span>
+                  <span>{isSelectedFrameOutOfStock ? 'Sold Out' : 'Proceed to Checkout'}</span>
                   <ArrowRight className="w-4 h-4 text-stone-900" />
                 </button>
               </div>

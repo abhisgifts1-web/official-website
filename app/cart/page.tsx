@@ -1,6 +1,8 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { FrameStockSettings } from '@/types';
+import { INITIAL_SETTINGS } from '@/lib/data/settings';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import {
@@ -13,6 +15,7 @@ import {
   ShieldCheck,
   Tag,
   ArrowLeft,
+  AlertCircle,
 } from 'lucide-react';
 import { useCart } from '@/context/CartContext';
 
@@ -37,6 +40,35 @@ export default function CartPage() {
   const [couponInput, setCouponInput] = useState('');
   const [applying, setApplying] = useState(false);
   const [statusMessage, setStatusMessage] = useState<string | null>(null);
+  const [frameStock, setFrameStock] = useState<FrameStockSettings>(
+    INITIAL_SETTINGS.frameStock || {
+      gold: { name: 'Royal Gold Frame', inStock: true, stockCount: 850 },
+      black: { name: 'Luxury Black Frame', inStock: true, stockCount: 720 },
+    }
+  );
+
+  useEffect(() => {
+    fetch('/api/settings')
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success && data.settings?.frameStock) {
+          setFrameStock(data.settings.frameStock);
+        }
+      })
+      .catch(() => {});
+  }, []);
+
+  const outOfStockCartItems = items.filter((item) => {
+    const text = `${item.finish || ''} ${item.customization?.frameType || ''}`.toLowerCase();
+    const isGold = text.includes('gold');
+    const isBlack = text.includes('black');
+    if (isGold && (!frameStock.gold?.inStock || (frameStock.gold?.stockCount ?? 0) <= 0)) return true;
+    if (isBlack && (!frameStock.black?.inStock || (frameStock.black?.stockCount ?? 0) <= 0)) return true;
+    return false;
+  });
+
+  const hasOutOfStockFrame = outOfStockCartItems.length > 0;
+
 
   const handleApplyCoupon = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -259,12 +291,34 @@ export default function CartPage() {
           </div>
 
           <div className="space-y-2 pt-2">
+            {hasOutOfStockFrame && (
+              <div className="p-3 rounded-xl bg-rose-50 border border-rose-200 text-rose-800 text-xs font-semibold flex items-center gap-2">
+                <AlertCircle className="w-4 h-4 text-rose-600 shrink-0" />
+                <span>
+                  {outOfStockCartItems.length === 1
+                    ? `An item in your cart has an Out of Stock frame finish (${outOfStockCartItems[0].title}). Please remove it to proceed.`
+                    : 'Some items in your cart have an Out of Stock frame finish. Please remove them to proceed to checkout.'}
+                </span>
+              </div>
+            )}
+
             <button
               type="button"
-              onClick={() => router.push('/checkout')}
-              className="w-full bg-[#FEE815] hover:bg-[#FFF04B] text-stone-950 border border-amber-500 py-3.5 rounded-xl font-bold text-sm shadow-md flex items-center justify-center gap-2 transition-all hover:scale-[1.01] cursor-pointer uppercase tracking-wider"
+              disabled={hasOutOfStockFrame}
+              onClick={() => {
+                if (hasOutOfStockFrame) {
+                  alert('Some items in your cart have an Out of Stock frame finish. Please remove them to proceed.');
+                  return;
+                }
+                router.push('/checkout');
+              }}
+              className={`w-full py-3.5 rounded-xl font-bold text-sm shadow-md flex items-center justify-center gap-2 transition-all uppercase tracking-wider ${
+                hasOutOfStockFrame
+                  ? 'bg-stone-200 text-stone-400 border border-stone-300 cursor-not-allowed shadow-none'
+                  : 'bg-[#FEE815] hover:bg-[#FFF04B] text-stone-950 border border-amber-500 hover:scale-[1.01] cursor-pointer'
+              }`}
             >
-              <span>Proceed to Checkout</span>
+              <span>{hasOutOfStockFrame ? 'Cannot Checkout (Out of Stock Frame)' : 'Proceed to Checkout'}</span>
               <ArrowRight className="w-4 h-4 text-stone-950" />
             </button>
 

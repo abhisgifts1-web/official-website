@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import {
@@ -25,7 +25,7 @@ import {
   Check,
 } from 'lucide-react';
 import { useCart } from '@/context/CartContext';
-import { ShippingAddress } from '@/types';
+import { ShippingAddress, FrameStockSettings } from '@/types';
 import { INITIAL_SETTINGS } from '@/lib/data/settings';
 import { compressImageToDataUrl } from '@/lib/utils/imageCompress';
 
@@ -62,6 +62,33 @@ export default function CheckoutPage() {
   const [paymentMethod, setPaymentMethod] = useState<PaymentOption>('razorpay');
   const [orderNotes, setOrderNotes] = useState('');
   const [submitting, setSubmitting] = useState(false);
+  const [frameStock, setFrameStock] = useState<FrameStockSettings>(
+    INITIAL_SETTINGS.frameStock || {
+      gold: { name: 'Royal Gold Frame', inStock: true, stockCount: 850 },
+      black: { name: 'Luxury Black Frame', inStock: true, stockCount: 720 },
+    }
+  );
+
+  useEffect(() => {
+    fetch('/api/settings')
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success && data.settings?.frameStock) {
+          setFrameStock(data.settings.frameStock);
+        }
+      })
+      .catch(() => {});
+  }, []);
+
+  const hasOutOfStockFrame = items.some((item) => {
+    const text = `${item.finish || ''} ${item.customization?.frameType || ''}`.toLowerCase();
+    const isGold = text.includes('gold');
+    const isBlack = text.includes('black');
+    if (isGold && (!frameStock.gold?.inStock || (frameStock.gold?.stockCount ?? 0) <= 0)) return true;
+    if (isBlack && (!frameStock.black?.inStock || (frameStock.black?.stockCount ?? 0) <= 0)) return true;
+    return false;
+  });
+
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   // Razorpay Simulator Modal State (for smooth testing before user inputs live API keys)
@@ -156,6 +183,11 @@ export default function CheckoutPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setErrorMessage(null);
+    if (hasOutOfStockFrame) {
+      setErrorMessage('One or more items in your order has an Out of Stock frame finish. Please remove it from cart to proceed.');
+      return;
+    }
+
 
     // Validation
     if (
