@@ -152,23 +152,14 @@ export default function AdminCategoriesPage() {
                       </span>
                     </div>
 
-                    <div className="grid grid-cols-2 gap-2 text-xs">
+                    <div className="text-xs">
                       <Link
                         href={`/admin/products?cat=${cat.slug}`}
-                        className="inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-stone-900 hover:bg-stone-800 text-white font-bold transition-all shadow-xs"
+                        className="w-full inline-flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-xl bg-stone-900 hover:bg-stone-800 text-white font-bold transition-all shadow-xs"
                       >
                         <Edit3 className="w-3.5 h-3.5 text-[#FEE815]" />
                         <span>Edit Items</span>
                       </Link>
-                      <a
-                        href={`/category/${cat.slug}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-stone-950 bg-[#FEE815] hover:bg-[#FFF04B] font-bold px-3 py-2 rounded-xl flex items-center justify-center gap-1.5 transition-all shadow-xs"
-                      >
-                        <span>Storefront</span>
-                        <ExternalLink className="w-3.5 h-3.5 text-stone-900" />
-                      </a>
                     </div>
                   </div>
                 </div>
