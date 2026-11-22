@@ -5,8 +5,6 @@ import Link from 'next/link';
 import {
   Sparkles,
   ArrowRight,
-  ChevronLeft,
-  ChevronRight,
   Gem,
   Palette,
   ShieldCheck,
@@ -123,16 +121,6 @@ export default function HeroShowcase() {
 
     return () => clearInterval(interval);
   }, []);
-
-  const handlePrev = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    setSelectedArtworkIndex((prev) => (prev - 1 + FEATURED_ARTWORKS.length) % FEATURED_ARTWORKS.length);
-  };
-
-  const handleNext = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    setSelectedArtworkIndex((prev) => (prev + 1) % FEATURED_ARTWORKS.length);
-  };
 
   // Preload primary high-resolution imagery
   useEffect(() => {
@@ -275,23 +263,7 @@ export default function HeroShowcase() {
                   {/* Realistic Acrylic Specular Reflection Highlight */}
                   <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-transparent pointer-events-none z-20" />
 
-                  {/* Previous & Next interactive floating navigation buttons */}
-                  <button
-                    type="button"
-                    onClick={handlePrev}
-                    aria-label="Previous artwork"
-                    className="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/65 hover:bg-black/90 text-amber-300 border border-amber-400/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 z-30 cursor-pointer shadow-md hover:scale-110"
-                  >
-                    <ChevronLeft className="w-4 h-4" />
-                  </button>
-                  <button
-                    type="button"
-                    onClick={handleNext}
-                    aria-label="Next artwork"
-                    className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/65 hover:bg-black/90 text-amber-300 border border-amber-400/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 z-30 cursor-pointer shadow-md hover:scale-110"
-                  >
-                    <ChevronRight className="w-4 h-4" />
-                  </button>
+
                 </div>
 
               </div>
