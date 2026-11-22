@@ -30,9 +30,11 @@ import {
   Package,
   ChevronDown,
   ChevronUp,
+  Minus,
 } from 'lucide-react';
 import AdminLayout from '@/components/admin/AdminLayout';
-import { Product, ProductOrientation, OrientationShape, ProductModel } from '@/types';
+import { Product, ProductOrientation, OrientationShape, ProductModel, FrameStockSettings } from '@/types';
+import { INITIAL_SETTINGS } from '@/lib/data/settings';
 import { getProductModels, STANDARD_MODEL_ORDER } from '@/lib/data/productModels';
 import { INITIAL_CATEGORIES } from '@/lib/data/categories';
 import { formatSizeWithSqFt, getSqFt } from '@/lib/utils/sizeFormat';
@@ -103,6 +105,84 @@ export default function AdminProductsPage() {
   const [viewMode, setViewMode] = useState<'table' | 'grid'>('table');
   const [filterTab, setFilterTab] = useState<'all' | 'led' | 'acrylic' | 'trending' | 'low-stock'>('all');
   const [expandedSizesSlug, setExpandedSizesSlug] = useState<string | null>(null);
+  // Frame Stock Availability Settings
+  const [frameStock, setFrameStock] = useState<FrameStockSettings>(
+    INITIAL_SETTINGS.frameStock || {
+      gold: { name: 'Royal Gold Frame', inStock: true, stockCount: 850 },
+      black: { name: 'Luxury Black Frame', inStock: true, stockCount: 720 },
+    }
+  );
+  const [savingFrameStock, setSavingFrameStock] = useState(false);
+  const [frameStockSavedSuccess, setFrameStockSavedSuccess] = useState(false);
+
+  const fetchFrameStock = async () => {
+    try {
+      const res = await fetch('/api/settings');
+      const data = await res.json();
+      if (res.ok && data.success && data.settings?.frameStock) {
+        setFrameStock(data.settings.frameStock);
+      }
+    } catch (err) {
+      console.warn('Error fetching frame stock settings:', err);
+    }
+  };
+
+  const handleSaveFrameStock = async (overrideStock?: FrameStockSettings) => {
+    const payload = overrideStock || frameStock;
+    try {
+      setSavingFrameStock(true);
+      const res = await fetch('/api/settings', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ frameStock: payload }),
+      });
+      const data = await res.json();
+      if (res.ok && data.success) {
+        if (data.settings?.frameStock) {
+          setFrameStock(data.settings.frameStock);
+        }
+        setFrameStockSavedSuccess(true);
+        setTimeout(() => setFrameStockSavedSuccess(false), 3000);
+      } else {
+        alert(data.error || 'Failed to update frame stock');
+      }
+    } catch (err: any) {
+      alert('Error saving frame stock: ' + (err.message || 'Network error'));
+    } finally {
+      setSavingFrameStock(false);
+    }
+  };
+
+  const toggleGoldStock = () => {
+    setFrameStock((prev) => ({
+      ...prev,
+      gold: { ...prev.gold, inStock: !prev.gold.inStock },
+    }));
+  };
+
+  const updateGoldCount = (count: number) => {
+    const validCount = Math.max(0, count);
+    setFrameStock((prev) => ({
+      ...prev,
+      gold: { ...prev.gold, stockCount: validCount },
+    }));
+  };
+
+  const toggleBlackStock = () => {
+    setFrameStock((prev) => ({
+      ...prev,
+      black: { ...prev.black, inStock: !prev.black.inStock },
+    }));
+  };
+
+  const updateBlackCount = (count: number) => {
+    const validCount = Math.max(0, count);
+    setFrameStock((prev) => ({
+      ...prev,
+      black: { ...prev.black, stockCount: validCount },
+    }));
+  };
+
 
   // Artwork Image Upload & Format States (Support up to 30 images per product)
   const MAX_PRODUCT_IMAGES = 30;
@@ -591,6 +671,7 @@ export default function AdminProductsPage() {
 
   useEffect(() => {
     fetchProducts();
+    fetchFrameStock();
     if (typeof window !== 'undefined') {
       const urlParams = new URLSearchParams(window.location.search);
       const cat = urlParams.get('cat');
@@ -1069,6 +1150,220 @@ export default function AdminProductsPage() {
             <div>
               <p className="text-[10px] font-semibold text-stone-400 uppercase tracking-wider">Inventory Stock</p>
               <p className="text-lg font-extrabold text-stone-900 font-serif leading-none mt-0.5">{totalCatalogStock.toLocaleString()} In Stock</p>
+            </div>
+          </div>
+        </div>
+
+
+        {/* Frame Options & Stock Availability Card (Gold, Black & Stock Count) */}
+        <div className="bg-white border border-stone-200 rounded-2xl p-4 sm:p-5 shadow-xs space-y-4">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-stone-100">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center shrink-0">
+                <Sparkles className="w-5 h-5 text-amber-600" />
+              </div>
+              <div>
+                <div className="flex items-center gap-2">
+                  <h3 className="text-sm sm:text-base font-bold text-stone-900 font-serif">
+                    Frame Options & Stock Availability
+                  </h3>
+                  <span className="text-[10px] font-sans font-semibold px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 border border-amber-200">
+                    Live Storefront Sync
+                  </span>
+                </div>
+                <p className="text-xs text-stone-500 mt-0.5">
+                  Configure live customer availability and real-time inventory counts for Gold and Black frame choices.
+                </p>
+              </div>
+            </div>
+
+            <button
+              onClick={() => handleSaveFrameStock()}
+              disabled={savingFrameStock}
+              className={`px-4 py-2 rounded-xl text-xs font-bold transition-all shadow-xs flex items-center justify-center gap-2 cursor-pointer ${
+                frameStockSavedSuccess
+                  ? 'bg-emerald-600 text-white shadow-emerald-500/20'
+                  : 'bg-stone-900 text-amber-400 hover:bg-stone-800 active:scale-98'
+              }`}
+            >
+              {savingFrameStock ? (
+                <Loader2 className="w-3.5 h-3.5 animate-spin" />
+              ) : frameStockSavedSuccess ? (
+                <Check className="w-3.5 h-3.5 text-white" />
+              ) : (
+                <CheckCircle2 className="w-3.5 h-3.5 text-amber-400" />
+              )}
+              <span>
+                {savingFrameStock ? 'Saving Stock...' : frameStockSavedSuccess ? 'Stock Changes Saved!' : 'Save Frame Stock'}
+              </span>
+            </button>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {/* 1. Royal Gold Frame */}
+            <div className={`p-4 rounded-xl border transition-all ${
+              frameStock.gold.inStock
+                ? 'border-amber-300 bg-amber-50/40 shadow-xs'
+                : 'border-stone-200 bg-stone-50/60 opacity-80'
+            }`}>
+              <div className="flex items-start justify-between gap-3">
+                <div className="flex items-center gap-3">
+                  <div className="relative w-12 h-12 rounded-xl bg-gradient-to-tr from-[#99772B] via-[#E6CA65] to-[#FEE815] border-2 border-amber-400 shadow-md flex items-center justify-center shrink-0">
+                    <span className="w-5 h-5 rounded-md bg-stone-900/20 border border-white/40 shadow-inner" />
+                  </div>
+                  <div>
+                    <div className="flex items-center gap-2">
+                      <h4 className="font-bold text-sm text-stone-900">{frameStock.gold.name || 'Royal Gold Frame'}</h4>
+                      <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full border ${
+                        frameStock.gold.inStock && frameStock.gold.stockCount > 0
+                          ? 'bg-emerald-100 text-emerald-800 border-emerald-300'
+                          : 'bg-rose-100 text-rose-800 border-rose-300'
+                      }`}>
+                        {frameStock.gold.inStock && frameStock.gold.stockCount > 0
+                          ? `In Stock • ${frameStock.gold.stockCount.toLocaleString()} units`
+                          : 'Out of Stock'}
+                      </span>
+                    </div>
+                    <p className="text-[11px] text-stone-500 mt-0.5">
+                      24K Royal Metallic finish • Customer option across all products
+                    </p>
+                  </div>
+                </div>
+
+                {/* Stock Status Toggle */}
+                <button
+                  type="button"
+                  onClick={toggleGoldStock}
+                  className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer border ${
+                    frameStock.gold.inStock
+                      ? 'bg-emerald-500 text-white border-emerald-600 shadow-2xs'
+                      : 'bg-stone-200 text-stone-600 border-stone-300 hover:bg-stone-300'
+                  }`}
+                >
+                  {frameStock.gold.inStock ? '✓ In Stock' : '✕ Out of Stock'}
+                </button>
+              </div>
+
+              {/* Stock Quantity Controls */}
+              <div className="mt-4 pt-3 border-t border-stone-200/80 flex items-center justify-between gap-3">
+                <span className="text-xs font-semibold text-stone-700">Stock Availability Count:</span>
+                <div className="flex items-center gap-2">
+                  <button
+                    type="button"
+                    onClick={() => updateGoldCount(frameStock.gold.stockCount - 10)}
+                    disabled={frameStock.gold.stockCount <= 0}
+                    className="w-8 h-8 rounded-lg bg-white border border-stone-200 text-stone-700 font-bold hover:bg-stone-100 flex items-center justify-center disabled:opacity-40 cursor-pointer shadow-2xs"
+                  >
+                    -
+                  </button>
+                  <input
+                    type="number"
+                    min="0"
+                    value={frameStock.gold.stockCount}
+                    onChange={(e) => updateGoldCount(parseInt(e.target.value) || 0)}
+                    className="w-24 px-2 py-1.5 bg-white border border-stone-300 rounded-lg text-center font-bold text-xs text-stone-900 outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => updateGoldCount(frameStock.gold.stockCount + 10)}
+                    className="w-8 h-8 rounded-lg bg-white border border-stone-200 text-stone-700 font-bold hover:bg-stone-100 flex items-center justify-center cursor-pointer shadow-2xs"
+                  >
+                    +
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* 2. Luxury Black Frame */}
+            <div className={`p-4 rounded-xl border transition-all ${
+              frameStock.black.inStock
+                ? 'border-stone-800 bg-stone-900 text-white shadow-xs'
+                : 'border-stone-200 bg-stone-50/60 opacity-80'
+            }`}>
+              <div className="flex items-start justify-between gap-3">
+                <div className="flex items-center gap-3">
+                  <div className="relative w-12 h-12 rounded-xl bg-gradient-to-tr from-black via-stone-900 to-stone-800 border-2 border-stone-700 shadow-md flex items-center justify-center shrink-0">
+                    <span className="w-5 h-5 rounded-md bg-stone-800 border border-stone-600 shadow-inner" />
+                  </div>
+                  <div>
+                    <div className="flex items-center gap-2">
+                      <h4 className={`font-bold text-sm ${frameStock.black.inStock ? 'text-white' : 'text-stone-900'}`}>
+                        {frameStock.black.name || 'Luxury Black Frame'}
+                      </h4>
+                      <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full border ${
+                        frameStock.black.inStock && frameStock.black.stockCount > 0
+                          ? 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40'
+                          : 'bg-rose-500/20 text-rose-300 border-rose-500/40'
+                      }`}>
+                        {frameStock.black.inStock && frameStock.black.stockCount > 0
+                          ? `In Stock • ${frameStock.black.stockCount.toLocaleString()} units`
+                          : 'Out of Stock'}
+                      </span>
+                    </div>
+                    <p className={`text-[11px] mt-0.5 ${frameStock.black.inStock ? 'text-stone-400' : 'text-stone-500'}`}>
+                      Matte Obsidian Profile • Customer option across all products
+                    </p>
+                  </div>
+                </div>
+
+                {/* Stock Status Toggle */}
+                <button
+                  type="button"
+                  onClick={toggleBlackStock}
+                  className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer border ${
+                    frameStock.black.inStock
+                      ? 'bg-emerald-500 text-white border-emerald-600 shadow-2xs'
+                      : 'bg-stone-700 text-stone-300 border-stone-600 hover:bg-stone-600'
+                  }`}
+                >
+                  {frameStock.black.inStock ? '✓ In Stock' : '✕ Out of Stock'}
+                </button>
+              </div>
+
+              {/* Stock Quantity Controls */}
+              <div className={`mt-4 pt-3 border-t flex items-center justify-between gap-3 ${
+                frameStock.black.inStock ? 'border-stone-800' : 'border-stone-200/80'
+              }`}>
+                <span className={`text-xs font-semibold ${frameStock.black.inStock ? 'text-stone-300' : 'text-stone-700'}`}>
+                  Stock Availability Count:
+                </span>
+                <div className="flex items-center gap-2">
+                  <button
+                    type="button"
+                    onClick={() => updateBlackCount(frameStock.black.stockCount - 10)}
+                    disabled={frameStock.black.stockCount <= 0}
+                    className={`w-8 h-8 rounded-lg border font-bold flex items-center justify-center disabled:opacity-40 cursor-pointer shadow-2xs ${
+                      frameStock.black.inStock
+                        ? 'bg-stone-800 border-stone-700 text-white hover:bg-stone-700'
+                        : 'bg-white border-stone-200 text-stone-700 hover:bg-stone-100'
+                    }`}
+                  >
+                    -
+                  </button>
+                  <input
+                    type="number"
+                    min="0"
+                    value={frameStock.black.stockCount}
+                    onChange={(e) => updateBlackCount(parseInt(e.target.value) || 0)}
+                    className={`w-24 px-2 py-1.5 border rounded-lg text-center font-bold text-xs outline-none focus:ring-1 ${
+                      frameStock.black.inStock
+                        ? 'bg-stone-800 border-stone-700 text-white focus:border-amber-400 focus:ring-amber-400'
+                        : 'bg-white border-stone-300 text-stone-900 focus:border-amber-500 focus:ring-amber-500'
+                    }`}
+                  />
+                  <button
+                    type="button"
+                    onClick={() => updateBlackCount(frameStock.black.stockCount + 10)}
+                    className={`w-8 h-8 rounded-lg border font-bold flex items-center justify-center cursor-pointer shadow-2xs ${
+                      frameStock.black.inStock
+                        ? 'bg-stone-800 border-stone-700 text-white hover:bg-stone-700'
+                        : 'bg-white border-stone-200 text-stone-700 hover:bg-stone-100'
+                    }`}
+                  >
+                    +
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>

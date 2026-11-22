@@ -36,7 +36,7 @@ import AddPhotoModal from '@/components/product/AddPhotoModal';
 import CustomSizeInput from '@/components/product/CustomSizeInput';
 import { getProductModels } from '@/lib/data/productModels';
 import { calculateCustomDimensions } from '@/lib/utils/customSize';
-import { Product } from '@/types';
+import { Product, FrameStockSettings } from '@/types';
 import { useCart } from '@/context/CartContext';
 import { INITIAL_SETTINGS } from '@/lib/data/settings';
 import ProductCard from '@/components/product/ProductCard';
@@ -566,6 +566,25 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
   }, [selectedShape, liveProduct.orientationVariants, liveProduct.variants, isGlitterFrame, isAcrylicFrame]);
 
   // Selected frame & size state
+  
+  const [frameStock, setFrameStock] = useState<FrameStockSettings>(
+    INITIAL_SETTINGS.frameStock || {
+      gold: { name: 'Royal Gold Frame', inStock: true, stockCount: 850 },
+      black: { name: 'Luxury Black Frame', inStock: true, stockCount: 720 },
+    }
+  );
+
+  useEffect(() => {
+    fetch('/api/settings')
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success && data.settings?.frameStock) {
+          setFrameStock(data.settings.frameStock);
+        }
+      })
+      .catch(() => {});
+  }, []);
+
   const [selectedFrame, setSelectedFrame] = useState<FrameType>(() => {
     if (isLedFrame || product.categorySlug === 'led-acrylic-photo-frames' || product.categorySlugs?.includes('led-acrylic-photo-frames')) {
       return 'gold';
@@ -1573,42 +1592,66 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                 <button
                   type="button"
                   onClick={() => handleSelectFrame('black')}
-                  className={`p-2.5 sm:p-3 rounded-xl sm:rounded-2xl border text-left transition-all cursor-pointer flex items-center gap-3 ${
+                  className={`p-2.5 sm:p-3 rounded-xl sm:rounded-2xl border text-left transition-all cursor-pointer flex items-center justify-between gap-2 ${
                     selectedFrame === 'black'
                       ? 'border-2 border-stone-900 bg-stone-900 text-white shadow-md ring-2 ring-stone-700/50 scale-[1.01]'
                       : 'border-stone-200 bg-stone-50 text-stone-800 hover:border-stone-400'
                   }`}
                 >
-                  <span className="w-6 h-6 rounded-full bg-gradient-to-br from-stone-900 via-stone-950 to-black border-2 border-stone-700 shadow-inner flex items-center justify-center shrink-0">
-                    {selectedFrame === 'black' && <Check className="w-3.5 h-3.5 text-amber-400" />}
-                  </span>
-                  <div className="min-w-0">
-                    <div className="font-bold text-xs sm:text-sm">Black Frame</div>
-                    <div className={`text-[10px] ${selectedFrame === 'black' ? 'text-stone-300' : 'text-stone-500'}`}>
-                      Matte Luxury Obsidian
+                  <div className="flex items-center gap-2.5 min-w-0">
+                    <span className="w-6 h-6 rounded-full bg-gradient-to-br from-stone-900 via-stone-950 to-black border-2 border-stone-700 shadow-inner flex items-center justify-center shrink-0">
+                      {selectedFrame === 'black' && <Check className="w-3.5 h-3.5 text-amber-400" />}
+                    </span>
+                    <div className="min-w-0">
+                      <div className="font-bold text-xs sm:text-sm">Black Frame</div>
+                      <div className={`text-[10px] ${selectedFrame === 'black' ? 'text-stone-300' : 'text-stone-500'}`}>
+                        Matte Obsidian
+                      </div>
                     </div>
                   </div>
+                  <span className={`text-[9px] font-bold px-2 py-0.5 rounded-full whitespace-nowrap shrink-0 border ${
+                    frameStock.black?.inStock && (frameStock.black?.stockCount ?? 1) > 0
+                      ? (selectedFrame === 'black'
+                          ? 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40'
+                          : 'bg-emerald-50 text-emerald-700 border-emerald-300')
+                      : 'bg-rose-100 text-rose-700 border-rose-300'
+                  }`}>
+                    {frameStock.black?.inStock && (frameStock.black?.stockCount ?? 1) > 0
+                      ? 'In Stock'
+                      : 'Out of Stock'}
+                  </span>
                 </button>
 
                 {/* Gold Frame */}
                 <button
                   type="button"
                   onClick={() => handleSelectFrame('gold')}
-                  className={`p-2.5 sm:p-3 rounded-xl sm:rounded-2xl border text-left transition-all cursor-pointer flex items-center gap-3 ${
+                  className={`p-2.5 sm:p-3 rounded-xl sm:rounded-2xl border text-left transition-all cursor-pointer flex items-center justify-between gap-2 ${
                     selectedFrame === 'gold'
                       ? 'border-2 border-amber-500 bg-amber-50/90 text-stone-950 shadow-md ring-2 ring-amber-400/50 scale-[1.01]'
                       : 'border-stone-200 bg-stone-50 text-stone-800 hover:border-amber-400'
                   }`}
                 >
-                  <span className="w-6 h-6 rounded-full bg-gradient-to-br from-[#E6CA65] via-[#D4AF37] to-[#99772B] border-2 border-[#FEE815] shadow-inner flex items-center justify-center shrink-0">
-                    {selectedFrame === 'gold' && <Check className="w-3.5 h-3.5 text-stone-950" />}
-                  </span>
-                  <div className="min-w-0">
-                    <div className="font-bold text-xs sm:text-sm text-stone-900">Gold Frame</div>
-                    <div className="text-[10px] text-amber-800 font-medium">
-                      24K Royal Metallic
+                  <div className="flex items-center gap-2.5 min-w-0">
+                    <span className="w-6 h-6 rounded-full bg-gradient-to-br from-[#E6CA65] via-[#D4AF37] to-[#99772B] border-2 border-[#FEE815] shadow-inner flex items-center justify-center shrink-0">
+                      {selectedFrame === 'gold' && <Check className="w-3.5 h-3.5 text-stone-950" />}
+                    </span>
+                    <div className="min-w-0">
+                      <div className="font-bold text-xs sm:text-sm text-stone-900">Gold Frame</div>
+                      <div className="text-[10px] text-amber-800 font-medium">
+                        24K Royal Metallic
+                      </div>
                     </div>
                   </div>
+                  <span className={`text-[9px] font-bold px-2 py-0.5 rounded-full whitespace-nowrap shrink-0 border ${
+                    frameStock.gold?.inStock && (frameStock.gold?.stockCount ?? 1) > 0
+                      ? 'bg-emerald-100 text-emerald-800 border-emerald-300'
+                      : 'bg-rose-100 text-rose-700 border-rose-300'
+                  }`}>
+                    {frameStock.gold?.inStock && (frameStock.gold?.stockCount ?? 1) > 0
+                      ? 'In Stock'
+                      : 'Out of Stock'}
+                  </span>
                 </button>
               </div>
             </div>

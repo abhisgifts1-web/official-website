@@ -241,6 +241,17 @@ export interface PromotionalOfferSettings {
   features?: string[];
 }
 
+export interface FrameStockOption {
+  name: string;
+  inStock: boolean;
+  stockCount: number;
+}
+
+export interface FrameStockSettings {
+  gold: FrameStockOption;
+  black: FrameStockOption;
+}
+
 export interface SiteSettings {
   storeName: string;
   tagline: string;
@@ -259,6 +270,7 @@ export interface SiteSettings {
   instagramUrl?: string;
   youtubeUrl?: string;
   promotionalOffer?: PromotionalOfferSettings;
+  frameStock?: FrameStockSettings;
 }
 
 export interface ContactEnquiry {

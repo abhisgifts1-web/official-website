@@ -44,4 +44,8 @@ export const INITIAL_SETTINGS: SiteSettings = {
   instagramUrl: 'https://www.instagram.com/abhis_gifts_?cplk=MWtkNTJla2s3NTQw',
   youtubeUrl: 'https://youtube.com/@abhis_gifts?si=Ap98aZU7b21rJA_8',
   promotionalOffer: DEFAULT_PROMOTIONAL_OFFER,
+  frameStock: {
+    gold: { name: 'Royal Gold Frame', inStock: true, stockCount: 850 },
+    black: { name: 'Luxury Black Frame', inStock: true, stockCount: 720 },
+  },
 };

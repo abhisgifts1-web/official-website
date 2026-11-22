@@ -1106,6 +1106,12 @@ export function updateSiteSettings(updates: Partial<SiteSettings>): SiteSettings
     promotionalOffer: updates.promotionalOffer
       ? { ...(store.settings.promotionalOffer || {}), ...updates.promotionalOffer }
       : store.settings.promotionalOffer,
+    frameStock: updates.frameStock
+      ? {
+          gold: { ...(store.settings.frameStock?.gold || { name: 'Royal Gold Frame', inStock: true, stockCount: 850 }), ...(updates.frameStock.gold || {}) },
+          black: { ...(store.settings.frameStock?.black || { name: 'Luxury Black Frame', inStock: true, stockCount: 720 }), ...(updates.frameStock.black || {}) },
+        }
+      : store.settings.frameStock,
   };
   savePersistedSettings(store.settings);
   syncSettingsToDatabase(store.settings).catch(() => {});
