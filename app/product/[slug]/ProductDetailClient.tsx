@@ -576,7 +576,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
   );
 
   useEffect(() => {
-    fetch('/api/settings')
+    fetch('/api/settings?t=' + Date.now(), { cache: 'no-store' })
       .then((res) => res.json())
       .then((data) => {
         if (data.success && data.settings?.frameStock) {

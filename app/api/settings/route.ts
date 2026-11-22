@@ -61,6 +61,8 @@ export async function PUT(req: NextRequest) {
       revalidatePath('/');
       revalidatePath('/shop');
       revalidatePath('/admin/settings');
+      revalidatePath('/admin/products');
+      revalidatePath('/customise');
     } catch (revalErr) {
       console.warn('Revalidation warning:', revalErr);
     }
@@ -77,3 +79,5 @@ export async function PUT(req: NextRequest) {
     return NextResponse.json({ success: false, error: err.message }, { status: 500 });
   }
 }
+
+export const POST = PUT;

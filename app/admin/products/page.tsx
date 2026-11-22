@@ -114,10 +114,12 @@ export default function AdminProductsPage() {
   );
   const [savingFrameStock, setSavingFrameStock] = useState(false);
   const [frameStockSavedSuccess, setFrameStockSavedSuccess] = useState(false);
+  const [togglingGold, setTogglingGold] = useState(false);
+  const [togglingBlack, setTogglingBlack] = useState(false);
 
   const fetchFrameStock = async () => {
     try {
-      const res = await fetch('/api/settings');
+      const res = await fetch('/api/settings?t=' + Date.now(), { cache: 'no-store' });
       const data = await res.json();
       if (res.ok && data.success && data.settings?.frameStock) {
         setFrameStock(data.settings.frameStock);
@@ -153,34 +155,78 @@ export default function AdminProductsPage() {
     }
   };
 
-  const toggleGoldStock = () => {
-    setFrameStock((prev) => ({
-      ...prev,
-      gold: { ...prev.gold, inStock: !prev.gold.inStock },
-    }));
+  const toggleGoldStock = async () => {
+    try {
+      setTogglingGold(true);
+      const isCurrentlyInStock = Boolean(frameStock.gold.inStock && frameStock.gold.stockCount > 0);
+      const nextInStock = !isCurrentlyInStock;
+      const nextCount = nextInStock ? (frameStock.gold.stockCount > 0 ? frameStock.gold.stockCount : 500) : 0;
+      const nextStock: FrameStockSettings = {
+        ...frameStock,
+        gold: {
+          ...frameStock.gold,
+          inStock: nextInStock,
+          stockCount: nextCount,
+        },
+      };
+      setFrameStock(nextStock);
+      await handleSaveFrameStock(nextStock);
+    } finally {
+      setTogglingGold(false);
+    }
   };
 
-  const updateGoldCount = (count: number) => {
+  const updateGoldCount = async (count: number, autoSave = false) => {
     const validCount = Math.max(0, count);
-    setFrameStock((prev) => ({
-      ...prev,
-      gold: { ...prev.gold, stockCount: validCount },
-    }));
+    const nextStock: FrameStockSettings = {
+      ...frameStock,
+      gold: {
+        ...frameStock.gold,
+        stockCount: validCount,
+        inStock: validCount > 0,
+      },
+    };
+    setFrameStock(nextStock);
+    if (autoSave) {
+      await handleSaveFrameStock(nextStock);
+    }
   };
 
-  const toggleBlackStock = () => {
-    setFrameStock((prev) => ({
-      ...prev,
-      black: { ...prev.black, inStock: !prev.black.inStock },
-    }));
+  const toggleBlackStock = async () => {
+    try {
+      setTogglingBlack(true);
+      const isCurrentlyInStock = Boolean(frameStock.black.inStock && frameStock.black.stockCount > 0);
+      const nextInStock = !isCurrentlyInStock;
+      const nextCount = nextInStock ? (frameStock.black.stockCount > 0 ? frameStock.black.stockCount : 500) : 0;
+      const nextStock: FrameStockSettings = {
+        ...frameStock,
+        black: {
+          ...frameStock.black,
+          inStock: nextInStock,
+          stockCount: nextCount,
+        },
+      };
+      setFrameStock(nextStock);
+      await handleSaveFrameStock(nextStock);
+    } finally {
+      setTogglingBlack(false);
+    }
   };
 
-  const updateBlackCount = (count: number) => {
+  const updateBlackCount = async (count: number, autoSave = false) => {
     const validCount = Math.max(0, count);
-    setFrameStock((prev) => ({
-      ...prev,
-      black: { ...prev.black, stockCount: validCount },
-    }));
+    const nextStock: FrameStockSettings = {
+      ...frameStock,
+      black: {
+        ...frameStock.black,
+        stockCount: validCount,
+        inStock: validCount > 0,
+      },
+    };
+    setFrameStock(nextStock);
+    if (autoSave) {
+      await handleSaveFrameStock(nextStock);
+    }
   };
 
 
@@ -1201,170 +1247,204 @@ export default function AdminProductsPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {/* 1. Royal Gold Frame */}
-            <div className={`p-4 rounded-xl border transition-all ${
-              frameStock.gold.inStock
-                ? 'border-amber-300 bg-amber-50/40 shadow-xs'
-                : 'border-stone-200 bg-stone-50/60 opacity-80'
-            }`}>
-              <div className="flex items-start justify-between gap-3">
-                <div className="flex items-center gap-3">
-                  <div className="relative w-12 h-12 rounded-xl bg-gradient-to-tr from-[#99772B] via-[#E6CA65] to-[#FEE815] border-2 border-amber-400 shadow-md flex items-center justify-center shrink-0">
-                    <span className="w-5 h-5 rounded-md bg-stone-900/20 border border-white/40 shadow-inner" />
-                  </div>
-                  <div>
-                    <div className="flex items-center gap-2">
-                      <h4 className="font-bold text-sm text-stone-900">{frameStock.gold.name || 'Royal Gold Frame'}</h4>
-                      <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full border ${
-                        frameStock.gold.inStock && frameStock.gold.stockCount > 0
-                          ? 'bg-emerald-100 text-emerald-800 border-emerald-300'
-                          : 'bg-rose-100 text-rose-800 border-rose-300'
-                      }`}>
-                        {frameStock.gold.inStock && frameStock.gold.stockCount > 0
-                          ? `In Stock • ${frameStock.gold.stockCount.toLocaleString()} units`
-                          : 'Out of Stock'}
-                      </span>
+            {(() => {
+              const isGoldInStock = Boolean(frameStock.gold.inStock && frameStock.gold.stockCount > 0);
+              return (
+                <div className={`p-4 rounded-xl border transition-all ${
+                  isGoldInStock
+                    ? 'border-amber-300 bg-amber-50/40 shadow-xs'
+                    : 'border-stone-200 bg-stone-50/60 opacity-80'
+                }`}>
+                  <div className="flex items-start justify-between gap-3">
+                    <div className="flex items-center gap-3">
+                      <div className="relative w-12 h-12 rounded-xl bg-gradient-to-tr from-[#99772B] via-[#E6CA65] to-[#FEE815] border-2 border-amber-400 shadow-md flex items-center justify-center shrink-0">
+                        <span className="w-5 h-5 rounded-md bg-stone-900/20 border border-white/40 shadow-inner" />
+                      </div>
+                      <div>
+                        <div className="flex items-center gap-2">
+                          <h4 className="font-bold text-sm text-stone-900">{frameStock.gold.name || 'Royal Gold Frame'}</h4>
+                          <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full border ${
+                            isGoldInStock
+                              ? 'bg-emerald-100 text-emerald-800 border-emerald-300'
+                              : 'bg-rose-100 text-rose-800 border-rose-300'
+                          }`}>
+                            {isGoldInStock
+                              ? `In Stock • ${frameStock.gold.stockCount.toLocaleString()} units`
+                              : 'Out of Stock'}
+                          </span>
+                        </div>
+                        <p className="text-[11px] text-stone-500 mt-0.5">
+                          24K Royal Metallic finish • Customer option across all products
+                        </p>
+                      </div>
                     </div>
-                    <p className="text-[11px] text-stone-500 mt-0.5">
-                      24K Royal Metallic finish • Customer option across all products
-                    </p>
+
+                    {/* Stock Status Toggle */}
+                    <button
+                      type="button"
+                      onClick={toggleGoldStock}
+                      disabled={togglingGold || savingFrameStock}
+                      className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer border flex items-center gap-1.5 ${
+                        isGoldInStock
+                          ? 'bg-emerald-500 hover:bg-emerald-600 text-white border-emerald-600 shadow-2xs'
+                          : 'bg-stone-200 text-stone-600 border-stone-300 hover:bg-stone-300'
+                      }`}
+                    >
+                      {togglingGold ? (
+                        <>
+                          <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                          <span>Saving...</span>
+                        </>
+                      ) : isGoldInStock ? (
+                        '✓ In Stock'
+                      ) : (
+                        '✕ Out of Stock'
+                      )}
+                    </button>
+                  </div>
+
+                  {/* Stock Quantity Controls */}
+                  <div className="mt-4 pt-3 border-t border-stone-200/80 flex items-center justify-between gap-3">
+                    <span className="text-xs font-semibold text-stone-700">Stock Availability Count:</span>
+                    <div className="flex items-center gap-2">
+                      <button
+                        type="button"
+                        onClick={() => updateGoldCount(frameStock.gold.stockCount - 10, true)}
+                        disabled={frameStock.gold.stockCount <= 0 || savingFrameStock}
+                        className="w-8 h-8 rounded-lg bg-white border border-stone-200 text-stone-700 font-bold hover:bg-stone-100 flex items-center justify-center disabled:opacity-40 cursor-pointer shadow-2xs"
+                      >
+                        -
+                      </button>
+                      <input
+                        type="number"
+                        min="0"
+                        value={frameStock.gold.stockCount}
+                        onChange={(e) => updateGoldCount(parseInt(e.target.value) || 0, false)}
+                        onBlur={() => handleSaveFrameStock()}
+                        className="w-24 px-2 py-1.5 bg-white border border-stone-300 rounded-lg text-center font-bold text-xs text-stone-900 outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500"
+                      />
+                      <button
+                        type="button"
+                        onClick={() => updateGoldCount(frameStock.gold.stockCount + 10, true)}
+                        disabled={savingFrameStock}
+                        className="w-8 h-8 rounded-lg bg-white border border-stone-200 text-stone-700 font-bold hover:bg-stone-100 flex items-center justify-center cursor-pointer shadow-2xs"
+                      >
+                        +
+                      </button>
+                    </div>
                   </div>
                 </div>
-
-                {/* Stock Status Toggle */}
-                <button
-                  type="button"
-                  onClick={toggleGoldStock}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer border ${
-                    frameStock.gold.inStock
-                      ? 'bg-emerald-500 text-white border-emerald-600 shadow-2xs'
-                      : 'bg-stone-200 text-stone-600 border-stone-300 hover:bg-stone-300'
-                  }`}
-                >
-                  {frameStock.gold.inStock ? '✓ In Stock' : '✕ Out of Stock'}
-                </button>
-              </div>
-
-              {/* Stock Quantity Controls */}
-              <div className="mt-4 pt-3 border-t border-stone-200/80 flex items-center justify-between gap-3">
-                <span className="text-xs font-semibold text-stone-700">Stock Availability Count:</span>
-                <div className="flex items-center gap-2">
-                  <button
-                    type="button"
-                    onClick={() => updateGoldCount(frameStock.gold.stockCount - 10)}
-                    disabled={frameStock.gold.stockCount <= 0}
-                    className="w-8 h-8 rounded-lg bg-white border border-stone-200 text-stone-700 font-bold hover:bg-stone-100 flex items-center justify-center disabled:opacity-40 cursor-pointer shadow-2xs"
-                  >
-                    -
-                  </button>
-                  <input
-                    type="number"
-                    min="0"
-                    value={frameStock.gold.stockCount}
-                    onChange={(e) => updateGoldCount(parseInt(e.target.value) || 0)}
-                    className="w-24 px-2 py-1.5 bg-white border border-stone-300 rounded-lg text-center font-bold text-xs text-stone-900 outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500"
-                  />
-                  <button
-                    type="button"
-                    onClick={() => updateGoldCount(frameStock.gold.stockCount + 10)}
-                    className="w-8 h-8 rounded-lg bg-white border border-stone-200 text-stone-700 font-bold hover:bg-stone-100 flex items-center justify-center cursor-pointer shadow-2xs"
-                  >
-                    +
-                  </button>
-                </div>
-              </div>
-            </div>
+              );
+            })()}
 
             {/* 2. Luxury Black Frame */}
-            <div className={`p-4 rounded-xl border transition-all ${
-              frameStock.black.inStock
-                ? 'border-stone-800 bg-stone-900 text-white shadow-xs'
-                : 'border-stone-200 bg-stone-50/60 opacity-80'
-            }`}>
-              <div className="flex items-start justify-between gap-3">
-                <div className="flex items-center gap-3">
-                  <div className="relative w-12 h-12 rounded-xl bg-gradient-to-tr from-black via-stone-900 to-stone-800 border-2 border-stone-700 shadow-md flex items-center justify-center shrink-0">
-                    <span className="w-5 h-5 rounded-md bg-stone-800 border border-stone-600 shadow-inner" />
-                  </div>
-                  <div>
-                    <div className="flex items-center gap-2">
-                      <h4 className={`font-bold text-sm ${frameStock.black.inStock ? 'text-white' : 'text-stone-900'}`}>
-                        {frameStock.black.name || 'Luxury Black Frame'}
-                      </h4>
-                      <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full border ${
-                        frameStock.black.inStock && frameStock.black.stockCount > 0
-                          ? 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40'
-                          : 'bg-rose-500/20 text-rose-300 border-rose-500/40'
-                      }`}>
-                        {frameStock.black.inStock && frameStock.black.stockCount > 0
-                          ? `In Stock • ${frameStock.black.stockCount.toLocaleString()} units`
-                          : 'Out of Stock'}
-                      </span>
+            {(() => {
+              const isBlackInStock = Boolean(frameStock.black.inStock && frameStock.black.stockCount > 0);
+              return (
+                <div className={`p-4 rounded-xl border transition-all ${
+                  isBlackInStock
+                    ? 'border-stone-800 bg-stone-900 text-white shadow-xs'
+                    : 'border-stone-200 bg-stone-50/60 opacity-80'
+                }`}>
+                  <div className="flex items-start justify-between gap-3">
+                    <div className="flex items-center gap-3">
+                      <div className="relative w-12 h-12 rounded-xl bg-gradient-to-tr from-black via-stone-900 to-stone-800 border-2 border-stone-700 shadow-md flex items-center justify-center shrink-0">
+                        <span className="w-5 h-5 rounded-md bg-stone-800 border border-stone-600 shadow-inner" />
+                      </div>
+                      <div>
+                        <div className="flex items-center gap-2">
+                          <h4 className={`font-bold text-sm ${isBlackInStock ? 'text-white' : 'text-stone-900'}`}>
+                            {frameStock.black.name || 'Luxury Black Frame'}
+                          </h4>
+                          <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full border ${
+                            isBlackInStock
+                              ? 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40'
+                              : 'bg-rose-500/20 text-rose-300 border-rose-500/40'
+                          }`}>
+                            {isBlackInStock
+                              ? `In Stock • ${frameStock.black.stockCount.toLocaleString()} units`
+                              : 'Out of Stock'}
+                          </span>
+                        </div>
+                        <p className={`text-[11px] mt-0.5 ${isBlackInStock ? 'text-stone-400' : 'text-stone-500'}`}>
+                          Matte Obsidian Profile • Customer option across all products
+                        </p>
+                      </div>
                     </div>
-                    <p className={`text-[11px] mt-0.5 ${frameStock.black.inStock ? 'text-stone-400' : 'text-stone-500'}`}>
-                      Matte Obsidian Profile • Customer option across all products
-                    </p>
+
+                    {/* Stock Status Toggle */}
+                    <button
+                      type="button"
+                      onClick={toggleBlackStock}
+                      disabled={togglingBlack || savingFrameStock}
+                      className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer border flex items-center gap-1.5 ${
+                        isBlackInStock
+                          ? 'bg-emerald-500 hover:bg-emerald-600 text-white border-emerald-600 shadow-2xs'
+                          : 'bg-stone-700 text-stone-300 border-stone-600 hover:bg-stone-600'
+                      }`}
+                    >
+                      {togglingBlack ? (
+                        <>
+                          <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                          <span>Saving...</span>
+                        </>
+                      ) : isBlackInStock ? (
+                        '✓ In Stock'
+                      ) : (
+                        '✕ Out of Stock'
+                      )}
+                    </button>
+                  </div>
+
+                  {/* Stock Quantity Controls */}
+                  <div className={`mt-4 pt-3 border-t flex items-center justify-between gap-3 ${
+                    isBlackInStock ? 'border-stone-800' : 'border-stone-200/80'
+                  }`}>
+                    <span className={`text-xs font-semibold ${isBlackInStock ? 'text-stone-300' : 'text-stone-700'}`}>
+                      Stock Availability Count:
+                    </span>
+                    <div className="flex items-center gap-2">
+                      <button
+                        type="button"
+                        onClick={() => updateBlackCount(frameStock.black.stockCount - 10, true)}
+                        disabled={frameStock.black.stockCount <= 0 || savingFrameStock}
+                        className={`w-8 h-8 rounded-lg border font-bold flex items-center justify-center disabled:opacity-40 cursor-pointer shadow-2xs ${
+                          isBlackInStock
+                            ? 'bg-stone-800 border-stone-700 text-white hover:bg-stone-700'
+                            : 'bg-white border-stone-200 text-stone-700 hover:bg-stone-100'
+                        }`}
+                      >
+                        -
+                      </button>
+                      <input
+                        type="number"
+                        min="0"
+                        value={frameStock.black.stockCount}
+                        onChange={(e) => updateBlackCount(parseInt(e.target.value) || 0, false)}
+                        onBlur={() => handleSaveFrameStock()}
+                        className={`w-24 px-2 py-1.5 border rounded-lg text-center font-bold text-xs outline-none focus:ring-1 ${
+                          isBlackInStock
+                            ? 'bg-stone-800 border-stone-700 text-white focus:border-amber-400 focus:ring-amber-400'
+                            : 'bg-white border-stone-300 text-stone-900 focus:border-amber-500 focus:ring-amber-500'
+                        }`}
+                      />
+                      <button
+                        type="button"
+                        onClick={() => updateBlackCount(frameStock.black.stockCount + 10, true)}
+                        disabled={savingFrameStock}
+                        className={`w-8 h-8 rounded-lg border font-bold flex items-center justify-center cursor-pointer shadow-2xs ${
+                          isBlackInStock
+                            ? 'bg-stone-800 border-stone-700 text-white hover:bg-stone-700'
+                            : 'bg-white border-stone-200 text-stone-700 hover:bg-stone-100'
+                        }`}
+                      >
+                        +
+                      </button>
+                    </div>
                   </div>
                 </div>
-
-                {/* Stock Status Toggle */}
-                <button
-                  type="button"
-                  onClick={toggleBlackStock}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer border ${
-                    frameStock.black.inStock
-                      ? 'bg-emerald-500 text-white border-emerald-600 shadow-2xs'
-                      : 'bg-stone-700 text-stone-300 border-stone-600 hover:bg-stone-600'
-                  }`}
-                >
-                  {frameStock.black.inStock ? '✓ In Stock' : '✕ Out of Stock'}
-                </button>
-              </div>
-
-              {/* Stock Quantity Controls */}
-              <div className={`mt-4 pt-3 border-t flex items-center justify-between gap-3 ${
-                frameStock.black.inStock ? 'border-stone-800' : 'border-stone-200/80'
-              }`}>
-                <span className={`text-xs font-semibold ${frameStock.black.inStock ? 'text-stone-300' : 'text-stone-700'}`}>
-                  Stock Availability Count:
-                </span>
-                <div className="flex items-center gap-2">
-                  <button
-                    type="button"
-                    onClick={() => updateBlackCount(frameStock.black.stockCount - 10)}
-                    disabled={frameStock.black.stockCount <= 0}
-                    className={`w-8 h-8 rounded-lg border font-bold flex items-center justify-center disabled:opacity-40 cursor-pointer shadow-2xs ${
-                      frameStock.black.inStock
-                        ? 'bg-stone-800 border-stone-700 text-white hover:bg-stone-700'
-                        : 'bg-white border-stone-200 text-stone-700 hover:bg-stone-100'
-                    }`}
-                  >
-                    -
-                  </button>
-                  <input
-                    type="number"
-                    min="0"
-                    value={frameStock.black.stockCount}
-                    onChange={(e) => updateBlackCount(parseInt(e.target.value) || 0)}
-                    className={`w-24 px-2 py-1.5 border rounded-lg text-center font-bold text-xs outline-none focus:ring-1 ${
-                      frameStock.black.inStock
-                        ? 'bg-stone-800 border-stone-700 text-white focus:border-amber-400 focus:ring-amber-400'
-                        : 'bg-white border-stone-300 text-stone-900 focus:border-amber-500 focus:ring-amber-500'
-                    }`}
-                  />
-                  <button
-                    type="button"
-                    onClick={() => updateBlackCount(frameStock.black.stockCount + 10)}
-                    className={`w-8 h-8 rounded-lg border font-bold flex items-center justify-center cursor-pointer shadow-2xs ${
-                      frameStock.black.inStock
-                        ? 'bg-stone-800 border-stone-700 text-white hover:bg-stone-700'
-                        : 'bg-white border-stone-200 text-stone-700 hover:bg-stone-100'
-                    }`}
-                  >
-                    +
-                  </button>
-                </div>
-              </div>
-            </div>
+              );
+            })()}
           </div>
         </div>
 
