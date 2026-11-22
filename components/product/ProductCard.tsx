@@ -230,18 +230,17 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
             </div>
           </div>
 
-          {/* Action Button */}
+          {/* Action Button: View */}
           <div className="pt-2.5">
-            <button
-              type="button"
-              onClick={handleInstantBuyNow}
+            <Link
+              href={`/product/${product.slug}`}
               className="w-full min-h-[38px] py-2 px-3 rounded-xl font-sans text-xs font-bold flex items-center justify-center gap-1.5 transition-all duration-200 shadow-2xs active:scale-[0.98] bg-[#FEE815] hover:bg-[#FFF04B] text-black hover:shadow-xs border border-[#FEE815] cursor-pointer"
-              aria-label={`Buy ${product.title} now`}
-              title="Buy It Now"
+              aria-label={`View ${product.title}`}
+              title="View"
             >
-              <span>Buy Now</span>
+              <span>View</span>
               <ArrowRight className="w-3.5 h-3.5 text-black shrink-0" />
-            </button>
+            </Link>
           </div>
         </div>
       </div>

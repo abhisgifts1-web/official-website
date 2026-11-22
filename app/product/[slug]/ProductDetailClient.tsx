@@ -1577,7 +1577,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                   onClick={handleBuyNow}
                   className="flex-1 h-12 rounded-xl bg-gradient-to-r from-[#FEE815] via-[#FFF04B] to-[#FEE815] hover:from-[#FFF04B] hover:to-[#FEE815] text-stone-950 font-bold text-xs sm:text-sm transition-all flex items-center justify-center gap-2 cursor-pointer shadow-xs"
                 >
-                  <span>Buy Now</span>
+                  <span>Proceed to Checkout</span>
                   <ArrowRight className="w-4 h-4 text-stone-900" />
                 </button>
               </div>
@@ -2792,7 +2792,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
               onClick={handleBuyNow}
               className="flex items-center justify-center gap-1.5 px-5 py-2.5 min-h-[44px] rounded-xl bg-[#FEE815] hover:bg-[#FFF04B] text-stone-950 font-bold text-xs sm:text-sm shadow-md transition-colors cursor-pointer"
             >
-              <span>Buy Now</span>
+              <span>Proceed to Checkout</span>
               <ArrowRight className="w-3.5 h-3.5 text-stone-900" />
             </button>
           </div>

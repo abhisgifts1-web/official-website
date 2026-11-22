@@ -827,7 +827,7 @@ export default function CheckoutPage() {
               ) : (
                 <>
                   <Lock className="w-4 h-4 text-stone-950" />
-                  <span>Pay ₹{finalPayable.toLocaleString('en-IN')} with Razorpay</span>
+                  <span>Buy Now • ₹{finalPayable.toLocaleString('en-IN')}</span>
                 </>
               )}
             </button>

@@ -258,16 +258,16 @@ export default function QuickViewModal({ product, isOpen, onClose }: QuickViewMo
                 </div>
               </div>
 
-              {/* Action Button: Direct Buy Now */}
+              {/* Action Button: View Details */}
               <div className="space-y-2 pt-4">
-                <button
-                  type="button"
-                  onClick={handleBuyNow}
+                <Link
+                  href={`/product/${product.slug}`}
+                  onClick={onClose}
                   className="w-full bg-[#FEE815] hover:bg-[#FFF04B] text-stone-950 py-3 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-md border border-[#FEE815] transition-all cursor-pointer uppercase tracking-wider"
                 >
-                  <span>Buy Now • ₹{(activePrice * quantity).toLocaleString('en-IN')}</span>
+                  <span>View Details</span>
                   <ArrowRight className="w-4 h-4 text-stone-950" />
-                </button>
+                </Link>
 
                 <div className="flex items-center justify-between text-xs pt-1">
                   <span className="flex items-center gap-1 text-stone-500">

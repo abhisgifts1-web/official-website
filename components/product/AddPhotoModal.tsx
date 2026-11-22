@@ -514,7 +514,7 @@ export default function AddPhotoModal({
               onClick={() => handleAddToCartWithPhoto(true)}
               className="w-full py-2.5 px-4 rounded-xl font-bold text-xs flex items-center justify-center gap-2 bg-stone-900 hover:bg-stone-800 text-white border border-stone-900 transition-all cursor-pointer shadow-xs"
             >
-              <span>Instant Buy Now</span>
+              <span>Proceed to Checkout</span>
               <ArrowRight className="w-4 h-4 text-amber-400" />
             </button>
           </div>
