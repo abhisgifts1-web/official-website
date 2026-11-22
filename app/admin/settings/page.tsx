@@ -6,6 +6,7 @@ import {
   Settings,
   Save,
   CheckCircle2,
+  AlertCircle,
   Sparkles,
   MapPin,
   Phone,
@@ -21,6 +22,7 @@ import {
   ShieldCheck,
   ArrowRight,
   MessageCircle,
+  Loader2,
 } from 'lucide-react';
 import AdminLayout from '@/components/admin/AdminLayout';
 import { SiteSettings, PromotionalOfferSettings } from '@/types';
@@ -52,10 +54,12 @@ const PRESET_BANNER_IMAGES = [
 export default function AdminSettingsPage() {
   const [settings, setSettings] = useState<SiteSettings>(INITIAL_SETTINGS);
   const [saving, setSaving] = useState(false);
-  const [saved, setSaved] = useState(false);
+  const [toggling, setToggling] = useState(false);
+  const [savedMessage, setSavedMessage] = useState<string | null>(null);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   useEffect(() => {
-    fetch('/api/settings')
+    fetch(`/api/settings?t=${Date.now()}`, { cache: 'no-store' })
       .then((r) => r.json())
       .then((d) => {
         if (d.success && d.settings) {
@@ -85,10 +89,68 @@ export default function AdminSettingsPage() {
     }));
   };
 
+  // INSTANT AUTO-SAVE ON TOGGLE CLICK
+  const handleToggleOffer = async () => {
+    if (toggling) return;
+    const nextActive = !offer.isActive;
+    const updatedOffer: PromotionalOfferSettings = {
+      ...offer,
+      isActive: nextActive,
+    };
+
+    // 1. Optimistic UI update
+    setSettings((prev) => ({
+      ...prev,
+      promotionalOffer: updatedOffer,
+    }));
+
+    // 2. Immediate persist to server
+    setToggling(true);
+    setErrorMessage(null);
+    try {
+      const payload: SiteSettings = {
+        ...settings,
+        promotionalOffer: updatedOffer,
+      };
+
+      const res = await fetch('/api/settings', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+
+      const data = await res.json();
+      if (res.ok && data.success) {
+        setSavedMessage(
+          nextActive
+            ? '🟢 Offer banner is now LIVE on homepage!'
+            : '⚪ Offer banner is now DISABLED & HIDDEN from homepage!'
+        );
+        setTimeout(() => setSavedMessage(null), 4000);
+      } else {
+        // Revert on failure
+        setSettings((prev) => ({
+          ...prev,
+          promotionalOffer: { ...offer },
+        }));
+        setErrorMessage(data.error || 'Failed to update offer status. Please ensure you are logged in.');
+      }
+    } catch (err: any) {
+      setSettings((prev) => ({
+        ...prev,
+        promotionalOffer: { ...offer },
+      }));
+      setErrorMessage('Network connection error: ' + (err.message || 'Could not reach server'));
+    } finally {
+      setToggling(false);
+    }
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSaving(true);
-    setSaved(false);
+    setSavedMessage(null);
+    setErrorMessage(null);
 
     try {
       const res = await fetch('/api/settings', {
@@ -99,11 +161,13 @@ export default function AdminSettingsPage() {
 
       const data = await res.json();
       if (res.ok && data.success) {
-        setSaved(true);
-        setTimeout(() => setSaved(false), 3500);
+        setSavedMessage('Settings and Promotional Offer updated successfully!');
+        setTimeout(() => setSavedMessage(null), 4000);
+      } else {
+        setErrorMessage(data.error || 'Failed to save settings. Please verify login credentials.');
       }
-    } catch {
-      // ignore
+    } catch (err: any) {
+      setErrorMessage('Network error: ' + (err.message || 'Could not connect'));
     } finally {
       setSaving(false);
     }
@@ -128,6 +192,21 @@ export default function AdminSettingsPage() {
           </p>
         </div>
 
+        {/* Global Alert Notification */}
+        {savedMessage && (
+          <div className="p-4 rounded-2xl bg-emerald-50 border border-emerald-300 text-emerald-900 text-xs font-semibold flex items-center gap-2 shadow-xs animate-fadeIn">
+            <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+            <span>{savedMessage}</span>
+          </div>
+        )}
+
+        {errorMessage && (
+          <div className="p-4 rounded-2xl bg-rose-50 border border-rose-300 text-rose-900 text-xs font-semibold flex items-center gap-2 shadow-xs animate-fadeIn">
+            <AlertCircle className="w-4 h-4 text-rose-600 shrink-0" />
+            <span>{errorMessage}</span>
+          </div>
+        )}
+
         <form onSubmit={handleSubmit} className="space-y-6 text-xs text-stone-900">
           {/* ======================================================== */}
           {/* SECTION 1: HOMEPAGE PROMOTIONAL OFFER BANNER (SECTION 8) */}
@@ -143,58 +222,88 @@ export default function AdminSettingsPage() {
                   Promotional Offer Banner Settings
                 </h3>
                 <p className="text-xs text-stone-500 mt-0.5">
-                  Control whether the promotional banner is displayed on the homepage and customize its offer details.
+                  Click the toggle below to instantly enable or disable Section 8 on the homepage.
                 </p>
               </div>
 
-              {/* Master Offer Toggle */}
+              {/* Master Offer Toggle with Instant Auto-Save */}
               <div className="flex items-center gap-3 shrink-0">
                 <span
-                  className={`px-3 py-1 rounded-full text-xs font-bold border transition-all ${
+                  className={`px-3 py-1.5 rounded-full text-xs font-bold border transition-all flex items-center gap-1.5 ${
                     offer.isActive
                       ? 'bg-emerald-50 text-emerald-800 border-emerald-300 shadow-2xs'
-                      : 'bg-stone-100 text-stone-500 border-stone-300'
+                      : 'bg-stone-100 text-stone-600 border-stone-300'
                   }`}
                 >
-                  {offer.isActive ? '🟢 Live on Homepage' : '⚪ Hidden on Homepage'}
+                  {toggling ? (
+                    <>
+                      <Loader2 className="w-3 h-3 animate-spin text-amber-600" />
+                      <span>Saving...</span>
+                    </>
+                  ) : offer.isActive ? (
+                    '🟢 Live on Homepage'
+                  ) : (
+                    '⚪ Hidden on Homepage'
+                  )}
                 </span>
 
                 <button
                   type="button"
-                  onClick={() => updateOffer({ isActive: !offer.isActive })}
-                  className="cursor-pointer transition-transform hover:scale-105"
-                  title={offer.isActive ? 'Disable Offer Banner' : 'Enable Offer Banner'}
+                  onClick={handleToggleOffer}
+                  disabled={toggling}
+                  className="cursor-pointer transition-transform hover:scale-105 disabled:opacity-50"
+                  title={offer.isActive ? 'Click to Disable & Hide from Homepage' : 'Click to Enable & Show on Homepage'}
                   aria-label="Toggle promotional banner on homepage"
                 >
                   {offer.isActive ? (
-                    <ToggleRight className="w-10 h-10 text-emerald-600" />
+                    <ToggleRight className="w-11 h-11 text-emerald-600" />
                   ) : (
-                    <ToggleLeft className="w-10 h-10 text-stone-400" />
+                    <ToggleLeft className="w-11 h-11 text-stone-400 hover:text-stone-600" />
                   )}
                 </button>
               </div>
             </div>
 
-            {/* Toggle Status Explanation */}
+            {/* Toggle Status Explanation Card */}
             <div
-              className={`p-3.5 rounded-2xl border text-xs flex items-center justify-between ${
+              className={`p-4 rounded-2xl border text-xs flex items-center justify-between transition-colors ${
                 offer.isActive
-                  ? 'bg-emerald-50/60 border-emerald-200 text-emerald-900'
-                  : 'bg-stone-50 border-stone-200 text-stone-600'
+                  ? 'bg-emerald-50/70 border-emerald-200 text-emerald-950'
+                  : 'bg-amber-50/60 border-amber-200 text-amber-950'
               }`}
             >
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2.5">
                 {offer.isActive ? (
-                  <Eye className="w-4 h-4 text-emerald-600 shrink-0" />
+                  <Eye className="w-5 h-5 text-emerald-600 shrink-0" />
                 ) : (
-                  <EyeOff className="w-4 h-4 text-stone-500 shrink-0" />
+                  <EyeOff className="w-5 h-5 text-amber-700 shrink-0" />
                 )}
-                <span>
-                  {offer.isActive
-                    ? 'The promotional banner is currently ACTIVE and visible on the homepage between New Arrivals and All Products.'
-                    : 'The promotional banner is currently HIDDEN. Customers will not see Section 8 on the homepage.'}
-                </span>
+                <div>
+                  <p className="font-bold">
+                    {offer.isActive
+                      ? 'Banner is currently ACTIVE on the homepage.'
+                      : 'Banner is currently DISABLED (Hidden).'}
+                  </p>
+                  <p className="text-[11px] opacity-80 mt-0.5">
+                    {offer.isActive
+                      ? 'Visitors can see Section 8 on the live website between New Arrivals and All Products.'
+                      : 'Section 8 is completely hidden from the live website without any empty gaps.'}
+                  </p>
+                </div>
               </div>
+
+              <button
+                type="button"
+                onClick={handleToggleOffer}
+                disabled={toggling}
+                className={`px-3 py-1.5 rounded-xl font-bold text-xs border transition-all cursor-pointer ${
+                  offer.isActive
+                    ? 'bg-white hover:bg-stone-50 text-stone-800 border-stone-300 shadow-2xs'
+                    : 'bg-[#FEE815] hover:bg-[#FFF04B] text-black border-amber-300 shadow-xs'
+                }`}
+              >
+                {toggling ? 'Saving...' : offer.isActive ? 'Disable Now' : 'Enable Now'}
+              </button>
             </div>
 
             {/* Offer Form Fields */}
@@ -419,7 +528,7 @@ export default function AdminSettingsPage() {
                         : 'bg-stone-800 text-stone-400'
                     }`}
                   >
-                    {offer.isActive ? 'Active' : 'Disabled'}
+                    {offer.isActive ? 'Active on Homepage' : 'Disabled (Hidden)'}
                   </span>
                 </div>
 
@@ -585,13 +694,17 @@ export default function AdminSettingsPage() {
 
           {/* Sticky Save Bar */}
           <div className="sticky bottom-6 z-20 bg-white p-4 rounded-2xl border border-stone-200 shadow-lg flex items-center justify-between">
-            {saved ? (
+            {savedMessage ? (
               <span className="text-xs text-emerald-700 font-semibold flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-emerald-600" /> Settings &amp; Offer Banner updated successfully!
+                <CheckCircle2 className="w-4 h-4 text-emerald-600" /> {savedMessage}
+              </span>
+            ) : errorMessage ? (
+              <span className="text-xs text-rose-700 font-semibold flex items-center gap-1.5">
+                <AlertCircle className="w-4 h-4 text-rose-600" /> {errorMessage}
               </span>
             ) : (
               <span className="text-xs text-stone-500">
-                Click save to publish your changes live to the website.
+                Changes to the toggle are auto-saved instantly. Use the button to save text edits.
               </span>
             )}
 

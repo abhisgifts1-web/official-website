@@ -966,7 +966,13 @@ export function getSiteSettings(): SiteSettings {
 }
 
 export function updateSiteSettings(updates: Partial<SiteSettings>): SiteSettings {
-  store.settings = { ...store.settings, ...updates };
+  store.settings = {
+    ...store.settings,
+    ...updates,
+    promotionalOffer: updates.promotionalOffer
+      ? { ...(store.settings.promotionalOffer || {}), ...updates.promotionalOffer }
+      : store.settings.promotionalOffer,
+  };
   savePersistedSettings(store.settings);
   return { ...store.settings };
 }

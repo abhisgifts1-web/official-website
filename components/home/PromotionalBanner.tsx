@@ -4,39 +4,49 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Sparkles, ArrowRight, MessageCircle, ShieldCheck, Zap, Truck, CheckCircle2 } from 'lucide-react';
-import { INITIAL_SETTINGS, DEFAULT_PROMOTIONAL_OFFER } from '@/lib/data/settings';
 import { SiteSettings, PromotionalOfferSettings } from '@/types';
 
 export default function PromotionalBanner() {
-  const [settings, setSettings] = useState<SiteSettings>(INITIAL_SETTINGS);
+  const [settings, setSettings] = useState<SiteSettings | null>(null);
+  const [isLoaded, setIsLoaded] = useState<boolean>(false);
 
   useEffect(() => {
-    fetch('/api/settings')
+    // Fetch fresh settings with cache busting so admin changes are seen immediately
+    fetch(`/api/settings?t=${Date.now()}`, { cache: 'no-store' })
       .then((r) => r.json())
       .then((d) => {
         if (d.success && d.settings) {
           setSettings(d.settings);
         }
       })
-      .catch(() => {});
+      .catch(() => {})
+      .finally(() => {
+        setIsLoaded(true);
+      });
   }, []);
 
-  const offer: PromotionalOfferSettings = settings.promotionalOffer || DEFAULT_PROMOTIONAL_OFFER;
+  // Do not render anything while loading or if settings are not loaded yet
+  if (!isLoaded || !settings) {
+    return null;
+  }
 
-  // If the admin has not given/enabled an offer, do not display this section on the homepage
-  if (!offer.isActive) {
+  const offer: PromotionalOfferSettings | undefined = settings.promotionalOffer;
+
+  // STRICT REQUIREMENT: Only display when the admin has explicitly enabled/given an offer in the dashboard
+  if (!offer || offer.isActive !== true) {
     return null;
   }
 
   const cleanWaNumber = (settings.whatsappNumber || '919032372782').replace(/[^0-9]/g, '');
   const waUrl = `https://wa.me/${cleanWaNumber}?text=${encodeURIComponent(
     offer.whatsappMessage ||
-      `Hello Abhi's Gifts, I saw the ${offer.discountBadge} offer on your website and would like to place an order!`
+      `Hello Abhi's Gifts, I saw the ${offer.discountBadge || 'special'} offer on your website and would like to place an order!`
   )}`;
 
-  const features = offer.features && offer.features.length > 0
-    ? offer.features
-    : ['Free WhatsApp Proof', '5MM Crystal Acrylic', '24-48h Dispatch', 'Zero-Breakage Transit'];
+  const features =
+    offer.features && offer.features.length > 0
+      ? offer.features
+      : ['Free WhatsApp Proof', '5MM Crystal Acrylic', '24-48h Dispatch', 'Zero-Breakage Transit'];
 
   return (
     <section id="promotional-banner" className="w-full max-w-[1760px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 py-6 sm:py-8 lg:py-10">
@@ -54,7 +64,7 @@ export default function PromotionalBanner() {
             </div>
 
             <h2 className="font-serif font-bold text-2xl sm:text-4xl lg:text-5xl text-white tracking-tight leading-tight">
-              {offer.title.includes(offer.highlightedText) ? (
+              {offer.highlightedText && offer.title.includes(offer.highlightedText) ? (
                 <>
                   {offer.title.split(offer.highlightedText)[0]}
                   <span className="text-[#FEE815] underline decoration-amber-400 decoration-wavy underline-offset-6">

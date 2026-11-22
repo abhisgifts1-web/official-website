@@ -1,7 +1,7 @@
 import { SiteSettings, PromotionalOfferSettings } from '@/types';
 
 export const DEFAULT_PROMOTIONAL_OFFER: PromotionalOfferSettings = {
-  isActive: true,
+  isActive: false, // Inactive by default until admin enables it in dashboard
   tag: 'Direct Hyderabad Workshop Special',
   title: 'Flat 50% OFF on Handcrafted Acrylic Photo Frames',
   highlightedText: '50% OFF',
