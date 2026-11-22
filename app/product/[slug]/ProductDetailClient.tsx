@@ -606,7 +606,17 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
 
   const handleSelectModel = (modelId: string) => {
     setSelectedModelId(modelId);
-    setActiveImageIndex(0);
+    const modelIndex = availableModels.findIndex((m) => m.id === modelId);
+    if (modelIndex !== -1) {
+      setActiveImageIndex(modelIndex);
+    }
+  };
+
+  const handleSelectThumbnail = (index: number) => {
+    setActiveImageIndex(index);
+    if (availableModels[index]) {
+      setSelectedModelId(availableModels[index].id);
+    }
   };
 
   // Category fallback mockups guaranteeing every product in every category has 5-6 model images
@@ -662,33 +672,14 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
     ];
   }, [product.categorySlug, liveProduct?.categorySlug]);
 
-  // Gallery state - guarantees exactly 5-6 model images for every product and category
+  // Gallery state - directly displays ALL model images for every product and category
   const galleryImages = useMemo(() => {
-    let sourceList: string[] = [];
-
-    if (currentModel && Array.isArray(currentModel.mockups) && currentModel.mockups.length > 0) {
-      sourceList = currentModel.mockups.filter(Boolean);
-    } else if (liveProduct?.images && liveProduct.images.length > 0) {
-      sourceList = liveProduct.images.filter(Boolean);
-    } else if (product.images && product.images.length > 0) {
-      sourceList = product.images.filter(Boolean);
+    if (availableModels && availableModels.length > 0) {
+      return availableModels.map((m) => m.image);
     }
-
-    const unique = Array.from(new Set(sourceList));
-
-    if (unique.length >= 5) {
-      return unique.slice(0, 6);
-    }
-
-    const combined = [...unique];
-    for (const fallback of categoryFallbackMockups) {
-      if (combined.length >= 5) break;
-      if (!combined.includes(fallback)) {
-        combined.push(fallback);
-      }
-    }
-    return combined.slice(0, 6);
-  }, [currentModel, liveProduct?.images, product.images, categoryFallbackMockups]);
+    const raw = (liveProduct?.images?.length ? liveProduct.images : product.images) || [];
+    return raw.slice(0, 6);
+  }, [availableModels, liveProduct?.images, product.images]);
 
   const thumbnailContainerRef = useRef<HTMLDivElement>(null);
   const [activeImageIndex, setActiveImageIndex] = useState<number>(0);
@@ -1206,8 +1197,13 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                   <span className="flex items-center gap-1.5">
                     <Eye className="w-3.5 h-3.5 text-amber-600" />
                     <span className="font-bold text-stone-900">
-                      {getImagePerspectiveLabel(activeImage, activeImageIndex)}
+                      Model: {availableModels[activeImageIndex]?.name || `Model ${activeImageIndex + 1}`}
                     </span>
+                    {availableModels[activeImageIndex]?.isPopular && (
+                      <span className="text-[10px] bg-amber-100 text-amber-900 font-bold px-1.5 py-0.5 rounded border border-amber-300">
+                        🔥 Popular
+                      </span>
+                    )}
                     <span className="text-[11px] text-stone-500 font-normal">
                       ({activeImageIndex + 1} of {galleryImages.length})
                     </span>
@@ -1251,24 +1247,25 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                     className="flex items-center gap-2 sm:gap-2.5 overflow-x-auto pb-2 pt-0.5 scrollbar-thin scroll-smooth px-1"
                   >
                     {galleryImages.map((img, i) => {
-                      const label = getImagePerspectiveLabel(img, i);
+                      const modelItem = availableModels[i];
+                      const modelLabel = `Model ${modelItem?.name || i + 1}`;
                       const isSelected = activeImageIndex === i;
                       return (
                         <button
                           key={i}
                           type="button"
-                          onClick={() => setActiveImageIndex(i)}
+                          onClick={() => handleSelectThumbnail(i)}
                           className={`w-14 h-14 sm:w-16 sm:h-16 shrink-0 rounded-xl overflow-hidden border-2 bg-stone-50 cursor-pointer relative group transition-all flex flex-col ${
                             isSelected
                               ? 'border-amber-500 ring-2 ring-amber-400/40 shadow-xs scale-[1.03]'
                               : 'border-stone-200 opacity-80 hover:opacity-100 hover:border-amber-300'
                           }`}
-                          title={label}
-                          aria-label={label}
+                          title={modelLabel}
+                          aria-label={modelLabel}
                         >
                           <img
                             src={img}
-                            alt={label}
+                            alt={modelLabel}
                             onError={(e) => {
                               if (product.images?.[0]) {
                                 (e.target as HTMLImageElement).src = product.images[0];
@@ -1276,11 +1273,11 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                             }}
                             className="w-full h-full object-cover"
                           />
-                          {/* Number badge */}
+                          {/* Model name badge */}
                           <span className={`absolute bottom-0.5 right-0.5 text-[8.5px] font-bold px-1 py-0.2 rounded ${
-                            isSelected ? 'bg-amber-500 text-stone-950' : 'bg-black/60 text-white'
+                            isSelected ? 'bg-amber-500 text-stone-950 font-extrabold' : 'bg-black/60 text-white'
                           }`}>
-                            {i + 1}
+                            {modelItem?.name || `${i + 1}`}
                           </span>
                         </button>
                       );

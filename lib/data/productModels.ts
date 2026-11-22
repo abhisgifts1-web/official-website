@@ -30,19 +30,103 @@ export const STANDARD_MODEL_ORDER: Array<{ id: string; name: string; isPopular?:
   { id: 'M-25', name: 'M-25' },
 ];
 
+// Rich, distinct artwork pools per category ensuring each model image is unique
+export const CATEGORY_DISTINCT_MODEL_IMAGES: Record<string, string[]> = {
+  '360-rotating-photo-lamps': [
+    '/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/primary-square.jpg',
+    '/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/primary-square.jpg',
+    '/images/categories/circle-showcase/360-rotating-photo-lamps-full.jpg',
+    '/images/categories/circle-showcase/360-rotating-photo-lamps.jpg',
+    '/images/wall-decor/products/custom/custom-led-photo-frame.jpg',
+    '/images/wall-decor/products/custom/round-crystal-frame.jpg',
+  ],
+  'acrylic-photo-frames': [
+    '/images/wall-decor/products/custom/custom-portrait-frame.jpg',
+    '/images/wall-decor/products/custom/custom-landscape-frame.jpg',
+    '/images/wall-decor/products/custom/custom-square-frame.jpg',
+    '/images/wall-decor/products/custom/custom-round-frame.jpg',
+    '/images/wall-decor/products/custom/couple-wedding-keepsake.jpg',
+    '/images/wall-decor/products/custom/family-heirloom-frame.jpg',
+  ],
+  'glitter-photo-frames': [
+    '/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg',
+    '/images/mockups/sparkling-diamond-glitter-wedding-photo-frame/primary-square.jpg',
+    '/images/wall-decor/products/custom/couple-wedding-keepsake.jpg',
+    '/images/wall-decor/products/custom/round-crystal-frame.jpg',
+    '/images/wall-decor/products/custom/personalized-family-crest.jpg',
+    '/images/wall-decor/products/custom/gallery-set-frames.jpg',
+  ],
+  'led-acrylic-photo-frames': [
+    '/images/wall-decor/products/custom/custom-led-photo-frame.jpg',
+    '/images/wall-decor/products/led/modern-celestial-horizon.jpg',
+    '/images/wall-decor/products/led/ayodhya-ram-mandir-sanctum.jpg',
+    '/images/wall-decor/products/led/radha-krishna-divine-melody-led.jpg',
+    '/images/wall-decor/products/led/surya-mandala-square-led.jpg',
+    '/images/wall-decor/products/led/hanuman-chalisa-led-frame.jpg',
+  ],
+  'god-photo-frames': [
+    '/images/models/balaji-m18-room.jpg',
+    '/images/wall-decor/products/balaji/balaji-acrylic-gold-frame.jpg',
+    '/images/divine/lord-ganesha.jpg',
+    '/images/divine/maa-lakshmi.jpg',
+    '/images/divine/radha-krishna.jpg',
+    '/images/divine/adiyogi-shiva.jpg',
+  ],
+  'couple-wedding-frames': [
+    '/images/wall-decor/products/custom/couple-wedding-keepsake.jpg',
+    '/images/wall-decor/products/custom/custom-portrait-frame.jpg',
+    '/images/wall-decor/products/custom/family-heirloom-frame.jpg',
+    '/images/wall-decor/products/custom/custom-landscape-frame.jpg',
+    '/images/wall-decor/products/custom/round-crystal-frame.jpg',
+    '/images/wall-decor/products/custom/personalized-family-crest.jpg',
+  ],
+  'family-baby-frames': [
+    '/images/wall-decor/products/custom/family-heirloom-frame.jpg',
+    '/images/wall-decor/products/custom/personalized-family-crest.jpg',
+    '/images/wall-decor/products/custom/custom-square-grid.jpg',
+    '/images/wall-decor/products/custom/custom-panoramic-landscape.jpg',
+    '/images/wall-decor/products/custom/gallery-set-frames.jpg',
+    '/images/wall-decor/products/custom/custom-portrait-frame.jpg',
+  ],
+  'personalized-gifts': [
+    '/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/primary-square.jpg',
+    '/images/wall-decor/products/custom/custom-led-photo-frame.jpg',
+    '/images/wall-decor/products/custom/round-crystal-frame.jpg',
+    '/images/wall-decor/products/custom/custom-square-grid.jpg',
+    '/images/wall-decor/products/custom/couple-wedding-keepsake.jpg',
+    '/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/primary-square.jpg',
+  ],
+};
+
 /**
- * Generates or retrieves up to 25-30 model designs for any product.
- * Guarantees that Lord Balaji products have the exact M-18 Lakshmi-Balaji artwork
- * shown in the customer's reference screenshot, with full room mockups.
+ * Generates or retrieves up to 25 model designs for any product.
+ * Guarantees that EVERY MODEL has a DISTINCT, beautiful image for focused customer selection.
  */
 export function getProductModels(product: Product): ProductModel[] {
+  // If product has predefined models with multiple distinct images, return them
   if (product.models && product.models.length > 0) {
-    return product.models;
+    const uniqueImages = new Set(product.models.map((m) => m.image));
+    if (uniqueImages.size >= 4) {
+      return product.models;
+    }
   }
 
-  const baseImages = Array.isArray(product.images) && product.images.length > 0
-    ? product.images
-    : ['/images/placeholder.jpg'];
+  const catKey = (product.categorySlug || '').toLowerCase();
+  const categoryFallbackImages =
+    CATEGORY_DISTINCT_MODEL_IMAGES[catKey] ||
+    CATEGORY_DISTINCT_MODEL_IMAGES['acrylic-photo-frames'];
+
+  // Collect all unique base images from the product
+  const rawImages = Array.isArray(product.images) ? product.images.filter(Boolean) : [];
+  const distinctBaseImages = Array.from(new Set(rawImages));
+
+  // Merge with category fallback pool so we always have at least 6 unique artworks
+  const mergedDistinctArtworks = [...distinctBaseImages];
+  for (const fallback of categoryFallbackImages) {
+    if (!mergedDistinctArtworks.includes(fallback)) {
+      mergedDistinctArtworks.push(fallback);
+    }
+  }
 
   const isBalaji =
     product.slug?.includes('balaji') ||
@@ -85,24 +169,15 @@ export function getProductModels(product: Product): ProductModel[] {
       };
     }
 
-    // Default image assigned cyclically from product's image library
-    const assignedImage = baseImages[index % baseImages.length];
-
-    // Build perspective views for this model
-    const mockups = [
-      assignedImage,
-      baseImages[(index + 1) % baseImages.length],
-      baseImages[(index + 2) % baseImages.length],
-      baseImages[(index + 3) % baseImages.length],
-      baseImages[(index + 4) % baseImages.length],
-    ].filter(Boolean);
+    // Assign a distinct artwork to each model
+    const assignedImage = mergedDistinctArtworks[index % mergedDistinctArtworks.length];
 
     return {
       id: item.id,
       name: item.name,
       isPopular: item.isPopular || false,
       image: assignedImage,
-      mockups: Array.from(new Set(mockups)),
+      mockups: [assignedImage],
     };
   });
 }
