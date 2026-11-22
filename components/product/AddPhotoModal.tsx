@@ -761,15 +761,10 @@ export default function AddPhotoModal({
                 {/* Active Photo Mockup */}
                 <div className="relative rounded-2xl overflow-hidden border-2 border-amber-400 bg-stone-100 p-3 sm:p-4 flex flex-col items-center">
                   <div
-                    className={`relative max-w-sm w-full aspect-[4/3] rounded-2xl transition-all duration-500 flex items-center justify-center ${
-                      (currentSpecs.frame || selectedFrame) === 'gold'
-                        ? 'p-2.5 sm:p-3.5 bg-gradient-to-tr from-[#8C6D23] via-[#E8CE6B] to-[#9E7B28] border-2 border-[#D4AF37] shadow-[0_12px_35px_rgba(212,175,55,0.45)] ring-2 ring-[#F7E089]/70'
-                        : 'p-2.5 sm:p-3.5 bg-gradient-to-b from-[#252528] via-[#141416] to-[#08080A] border-2 border-[#38383F] shadow-[0_12px_35px_rgba(0,0,0,0.85)] ring-1 ring-white/10'
-                    } ${
+                    className={`relative max-w-sm w-full aspect-[4/3] rounded-xl overflow-hidden border border-stone-300 shadow-md bg-stone-900 transition-all ${
                       ledEnabled ? 'ring-4 ring-amber-400/40 shadow-[0_0_35px_rgba(254,232,21,0.35)]' : ''
                     }`}
                   >
-                    <div className="relative w-full h-full overflow-hidden rounded-xl bg-stone-900 border border-black/50 shadow-inner flex items-center justify-center">
                     {activePhoto && (
                       <img
                         src={activePhoto.preview}
@@ -819,10 +814,7 @@ export default function AddPhotoModal({
                       </>
                     )}
 
-                      {/* Acrylic Specular Reflection */}
-                      <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-transparent pointer-events-none" />
-                    </div>
-
+                      
                     {/* Frame Badge */}
                     <div className="absolute bottom-2 left-2 bg-stone-900/90 border border-amber-400/60 px-2 py-0.5 rounded text-[10px] text-amber-300 font-bold flex items-center gap-1.5 max-w-[90%] truncate z-20">
                       <span className="truncate">{photos.length > 1 ? `Frame #${activePhotoIndex + 1}:` : ''} {product.title}</span>

@@ -1129,14 +1129,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                     />
                   )}
 
-                  <div
-                    className={`relative w-full h-full rounded-2xl transition-all duration-500 flex items-center justify-center z-10 ${
-                      selectedFrame === 'gold'
-                        ? 'p-2.5 sm:p-3.5 bg-gradient-to-tr from-[#8C6D23] via-[#E8CE6B] to-[#9E7B28] border-2 border-[#D4AF37] shadow-[0_12px_35px_rgba(212,175,55,0.45)] ring-2 ring-[#F7E089]/70'
-                        : 'p-2.5 sm:p-3.5 bg-gradient-to-b from-[#252528] via-[#141416] to-[#08080A] border-2 border-[#38383F] shadow-[0_12px_35px_rgba(0,0,0,0.85)] ring-1 ring-white/10'
-                    }`}
-                  >
-                    <div className="relative w-full h-full overflow-hidden rounded-xl bg-stone-900 border border-black/40 shadow-inner flex items-center justify-center">
+                  <div className="relative w-full h-full overflow-hidden rounded-2xl bg-stone-900 z-10 transition-all flex items-center justify-center">
                       {/* Main Artwork Image - object-cover ensures edge-to-edge fit without black space */}
                       <img
                         src={activeImage}
@@ -1157,10 +1150,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                         className="w-full h-full object-cover object-center transition-transform duration-150 select-none"
                       />
 
-                      {/* Acrylic specular gloss sheen */}
-                      <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-transparent pointer-events-none" />
-                    </div>
-                  </div>
+                                          </div>
                 </div>
 
                 {/* Floating Left / Right Navigation Overlays */}
