@@ -55,6 +55,8 @@ export interface FrameCategoryOption {
 }
 
 export type FrameFinish =
+  | 'gold-frame'
+  | 'black-frame'
   | 'floating-standoff'
   | 'crystal-gloss'
   | 'transparent'
@@ -143,6 +145,20 @@ export const FRAME_CATEGORIES: FrameCategoryOption[] = [
 ];
 
 export const FRAME_FINISHES: FrameFinishOption[] = [
+  {
+    id: 'gold-frame',
+    name: 'Royal Brushed Gold Frame',
+    subtitle: '24K Metallic Bevel',
+    description: 'Opulent gold metallic frame border precision-machined with brushed royal bevel depth.',
+    priceAddition: 350,
+  },
+  {
+    id: 'black-frame',
+    name: 'Luxury Matte Black Frame',
+    subtitle: 'Matte Obsidian Profile',
+    description: 'Deep obsidian architectural frame profile with rich museum-grade depth and satin finish.',
+    priceAddition: 350,
+  },
   {
     id: 'floating-standoff',
     name: 'Floating Standoff Finish',
@@ -911,8 +927,12 @@ export default function CustomizerStudio() {
                 >
                   {/* Outer Frame Finish Container */}
                   <div
-                    className={`relative w-full h-full overflow-hidden bg-stone-950 rounded-2xl ${
-                      finish === 'wooden-box'
+                    className={`relative w-full h-full overflow-hidden bg-stone-950 rounded-2xl transition-all duration-300 ${
+                      finish === 'gold-frame'
+                        ? 'border-[12px] sm:border-[16px] bg-gradient-to-tr from-[#8C6D23] via-[#E8CE6B] to-[#9E7B28] border-[#D4AF37] shadow-[0_16px_50px_rgba(212,175,55,0.45)] ring-2 ring-[#F7E089]/70'
+                        : finish === 'black-frame'
+                        ? 'border-[12px] sm:border-[16px] bg-gradient-to-b from-[#252528] via-[#141416] to-[#08080A] border-[#38383F] shadow-[0_16px_50px_rgba(0,0,0,0.85)] ring-1 ring-white/10'
+                        : finish === 'wooden-box'
                         ? 'border-[12px] sm:border-[16px] border-[#3D2614] shadow-2xl ring-2 ring-[#24160B]'
                         : finish === 'transparent'
                         ? 'border-[10px] sm:border-[14px] border-white/40 backdrop-blur-md ring-1 ring-white/60'

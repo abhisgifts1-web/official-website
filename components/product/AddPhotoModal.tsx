@@ -33,6 +33,7 @@ const MAX_PHOTOS = 10;
 
 export interface PhotoSpecification {
   variant: ProductVariant;
+  frame?: 'gold' | 'black';
   isCustomSize: boolean;
   customWidth: number;
   customHeight: number;
@@ -51,6 +52,7 @@ export interface UploadedPhoto {
 interface AddPhotoModalProps {
   product: Product;
   selectedVariant?: ProductVariant;
+  initialFrame?: 'gold' | 'black';
   isOpen: boolean;
   onClose: () => void;
 }
@@ -58,6 +60,7 @@ interface AddPhotoModalProps {
 export default function AddPhotoModal({
   product,
   selectedVariant: initialVariant,
+  initialFrame = 'gold',
   isOpen,
   onClose,
 }: AddPhotoModalProps) {
@@ -86,6 +89,13 @@ export default function AddPhotoModal({
   const [limitWarning, setLimitWarning] = useState<string | null>(null);
   const [appliedAllNotice, setAppliedAllNotice] = useState(false);
   const [customText, setCustomText] = useState('');
+  const [selectedFrame, setSelectedFrame] = useState<'gold' | 'black'>(initialFrame || 'gold');
+
+  React.useEffect(() => {
+    if (initialFrame) {
+      setSelectedFrame(initialFrame);
+    }
+  }, [initialFrame]);
   const [ledEnabled] = useState(product.hasLedBacklight);
   const [isDragging, setIsDragging] = useState(false);
   const [addedSuccess, setAddedSuccess] = useState(false);
@@ -130,6 +140,7 @@ export default function AddPhotoModal({
   const getPhotoDetails = (photo: UploadedPhoto) => {
     const specs = photo.specs || {
       variant: activeVariant,
+      frame: selectedFrame,
       isCustomSize,
       customWidth,
       customHeight,
@@ -174,6 +185,7 @@ export default function AddPhotoModal({
   const currentPhoto = photos[activePhotoIndex] || null;
   const currentSpecs = currentPhoto?.specs || {
     variant: activeVariant,
+    frame: selectedFrame,
     isCustomSize,
     customWidth,
     customHeight,
@@ -285,6 +297,25 @@ export default function AddPhotoModal({
     }
   };
 
+  const handleSelectFrameColor = (f: 'gold' | 'black') => {
+    setSelectedFrame(f);
+    if (photos.length > 0) {
+      setPhotos((prev) =>
+        prev.map((p, idx) =>
+          idx === activePhotoIndex
+            ? {
+                ...p,
+                specs: {
+                  ...p.specs,
+                  frame: f,
+                },
+              }
+            : p
+        )
+      );
+    }
+  };
+
   const handleCustomTextChange = (text: string) => {
     setCustomText(text);
     if (photos.length > 0) {
@@ -314,6 +345,7 @@ export default function AddPhotoModal({
         specs: {
           ...p.specs,
           variant: current.variant,
+          frame: current.frame || selectedFrame,
           isCustomSize: current.isCustomSize,
           customWidth: current.customWidth,
           customHeight: current.customHeight,
@@ -357,6 +389,7 @@ export default function AddPhotoModal({
           isUploading: true,
           specs: {
             variant: activeVariant,
+            frame: selectedFrame,
             isCustomSize: isCustomSize,
             customWidth: customWidth,
             customHeight: customHeight,
@@ -453,6 +486,7 @@ export default function AddPhotoModal({
       const s = photos[nextIdx]?.specs;
       if (s) {
         setActiveVariant(s.variant);
+        if (s.frame) setSelectedFrame(s.frame);
         setIsCustomSize(s.isCustomSize);
         setCustomWidth(s.customWidth);
         setCustomHeight(s.customHeight);
@@ -468,6 +502,7 @@ export default function AddPhotoModal({
       const s = photos[prevIdx]?.specs;
       if (s) {
         setActiveVariant(s.variant);
+        if (s.frame) setSelectedFrame(s.frame);
         setIsCustomSize(s.isCustomSize);
         setCustomWidth(s.customWidth);
         setCustomHeight(s.customHeight);
@@ -499,7 +534,7 @@ export default function AddPhotoModal({
           image: photoImg,
           variantId: `${details.variantId}-${photo.id}`,
           size: details.sizeLabel,
-          finish: specs.variant.finish,
+          finish: `${specs.variant.finish || 'Acrylic'} (${(specs.frame || selectedFrame) === 'gold' ? 'Royal Gold Frame' : 'Luxury Black Frame'})`,
           lighting: ledEnabled ? 'LED Backlit (12V Adapter)' : 'No Lighting (Pure Art)',
           shape: (product.shape === 'portrait' || product.shape === 'landscape' || product.shape === 'square' || product.shape === 'round')
             ? product.shape
@@ -516,9 +551,9 @@ export default function AddPhotoModal({
             photoUrls: [photoImg],
             photoCount: 1,
             customText: specs.customText?.trim() || undefined,
-            frameType: specs.variant.finish,
+            frameType: (specs.frame || selectedFrame) === 'gold' ? 'Royal Gold Frame' : 'Luxury Black Frame',
             orientation: product.orientation,
-            specialInstructions: `Product: ${product.title} | Frame #${idx + 1} of ${photos.length} | Size: ${details.sizeLabel}${specs.customText?.trim() ? ` | Inscription: "${specs.customText.trim()}"` : ''}`,
+            specialInstructions: `Product: ${product.title} | Frame #${idx + 1} of ${photos.length} | Frame: ${(specs.frame || selectedFrame) === 'gold' ? 'Royal Gold Frame' : 'Luxury Black Frame'} | Size: ${details.sizeLabel}${specs.customText?.trim() ? ` | Inscription: "${specs.customText.trim()}"` : ''}`,
           },
         };
       });
@@ -726,10 +761,15 @@ export default function AddPhotoModal({
                 {/* Active Photo Mockup */}
                 <div className="relative rounded-2xl overflow-hidden border-2 border-amber-400 bg-stone-100 p-3 sm:p-4 flex flex-col items-center">
                   <div
-                    className={`relative max-w-sm w-full aspect-[4/3] rounded-xl overflow-hidden border border-stone-300 shadow-md bg-stone-900 transition-all ${
+                    className={`relative max-w-sm w-full aspect-[4/3] rounded-2xl transition-all duration-500 flex items-center justify-center ${
+                      (currentSpecs.frame || selectedFrame) === 'gold'
+                        ? 'p-2.5 sm:p-3.5 bg-gradient-to-tr from-[#8C6D23] via-[#E8CE6B] to-[#9E7B28] border-2 border-[#D4AF37] shadow-[0_12px_35px_rgba(212,175,55,0.45)] ring-2 ring-[#F7E089]/70'
+                        : 'p-2.5 sm:p-3.5 bg-gradient-to-b from-[#252528] via-[#141416] to-[#08080A] border-2 border-[#38383F] shadow-[0_12px_35px_rgba(0,0,0,0.85)] ring-1 ring-white/10'
+                    } ${
                       ledEnabled ? 'ring-4 ring-amber-400/40 shadow-[0_0_35px_rgba(254,232,21,0.35)]' : ''
                     }`}
                   >
+                    <div className="relative w-full h-full overflow-hidden rounded-xl bg-stone-900 border border-black/50 shadow-inner flex items-center justify-center">
                     {activePhoto && (
                       <img
                         src={activePhoto.preview}
@@ -779,8 +819,12 @@ export default function AddPhotoModal({
                       </>
                     )}
 
+                      {/* Acrylic Specular Reflection */}
+                      <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-transparent pointer-events-none" />
+                    </div>
+
                     {/* Frame Badge */}
-                    <div className="absolute bottom-2 left-2 bg-stone-900/90 border border-amber-400/60 px-2 py-0.5 rounded text-[10px] text-amber-300 font-bold flex items-center gap-1.5 max-w-[90%] truncate">
+                    <div className="absolute bottom-2 left-2 bg-stone-900/90 border border-amber-400/60 px-2 py-0.5 rounded text-[10px] text-amber-300 font-bold flex items-center gap-1.5 max-w-[90%] truncate z-20">
                       <span className="truncate">{photos.length > 1 ? `Frame #${activePhotoIndex + 1}:` : ''} {product.title}</span>
                       <span>•</span>
                       <span className="text-white shrink-0">{activePhotoDetails.shortSizeLabel}</span>
@@ -832,6 +876,7 @@ export default function AddPhotoModal({
                             const s = photo.specs;
                             if (s) {
                               setActiveVariant(s.variant);
+                              if (s.frame) setSelectedFrame(s.frame);
                               setIsCustomSize(s.isCustomSize);
                               setCustomWidth(s.customWidth);
                               setCustomHeight(s.customHeight);
@@ -979,11 +1024,66 @@ export default function AddPhotoModal({
             )}
           </div>
 
-          {/* Optional Inscription / Custom Text */}
+          {/* 3. Frame Option (Black & Gold) */}
           <div className="space-y-1.5">
             <label className="text-xs font-bold text-stone-900 uppercase tracking-wider flex items-center justify-between">
               <span>
-                3. Custom Inscription / Text {photos.length > 1 ? `(Photo #${activePhotoIndex + 1})` : ''}{' '}
+                3. Frame Option {photos.length > 1 ? `(Photo #${activePhotoIndex + 1})` : ''}:{' '}
+                <strong className="text-amber-800 font-serif normal-case">
+                  {(currentSpecs.frame || selectedFrame) === 'gold' ? 'Royal Gold Frame' : 'Luxury Black Frame'}
+                </strong>
+              </span>
+              <span className="text-[10px] text-stone-500 font-normal">
+                {(currentSpecs.frame || selectedFrame) === 'gold' ? '24K Metallic Bevel' : 'Matte Obsidian Profile'}
+              </span>
+            </label>
+
+            <div className="grid grid-cols-2 gap-2.5">
+              {/* Black Frame */}
+              <button
+                type="button"
+                onClick={() => handleSelectFrameColor('black')}
+                className={`p-2.5 rounded-xl border text-left transition-all cursor-pointer flex items-center gap-2.5 ${
+                  (currentSpecs.frame || selectedFrame) === 'black'
+                    ? 'border-2 border-stone-900 bg-stone-900 text-white shadow-xs ring-1 ring-stone-700'
+                    : 'border-stone-200 bg-white text-stone-800 hover:border-stone-400'
+                }`}
+              >
+                <span className="w-5 h-5 rounded-full bg-stone-950 border border-stone-700 flex items-center justify-center shrink-0">
+                  {(currentSpecs.frame || selectedFrame) === 'black' && <Check className="w-3 h-3 text-amber-400" />}
+                </span>
+                <div>
+                  <div className="font-bold text-xs">Black Frame</div>
+                  <div className={`text-[9.5px] ${(currentSpecs.frame || selectedFrame) === 'black' ? 'text-stone-300' : 'text-stone-500'}`}>Matte Obsidian</div>
+                </div>
+              </button>
+
+              {/* Gold Frame */}
+              <button
+                type="button"
+                onClick={() => handleSelectFrameColor('gold')}
+                className={`p-2.5 rounded-xl border text-left transition-all cursor-pointer flex items-center gap-2.5 ${
+                  (currentSpecs.frame || selectedFrame) === 'gold'
+                    ? 'border-2 border-amber-500 bg-amber-50 text-stone-950 shadow-xs ring-1 ring-amber-400'
+                    : 'border-stone-200 bg-white text-stone-800 hover:border-amber-400'
+                }`}
+              >
+                <span className="w-5 h-5 rounded-full bg-gradient-to-tr from-[#99772B] via-[#E6CA65] to-[#D4AF37] border border-[#FEE815] flex items-center justify-center shrink-0">
+                  {(currentSpecs.frame || selectedFrame) === 'gold' && <Check className="w-3 h-3 text-stone-950" />}
+                </span>
+                <div>
+                  <div className="font-bold text-xs text-stone-900">Gold Frame</div>
+                  <div className="text-[9.5px] text-amber-800 font-medium">24K Royal Gold</div>
+                </div>
+              </button>
+            </div>
+          </div>
+
+          {/* 4. Optional Inscription / Custom Text */}
+          <div className="space-y-1.5">
+            <label className="text-xs font-bold text-stone-900 uppercase tracking-wider flex items-center justify-between">
+              <span>
+                4. Custom Inscription / Text {photos.length > 1 ? `(Photo #${activePhotoIndex + 1})` : ''}{' '}
                 <span className="text-stone-400 font-normal normal-case">(Optional)</span>
               </span>
             </label>

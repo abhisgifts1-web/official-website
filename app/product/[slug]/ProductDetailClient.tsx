@@ -1129,26 +1129,37 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                     />
                   )}
 
-                  <div className="relative w-full h-full overflow-hidden rounded-2xl bg-stone-900 z-10 transition-all flex items-center justify-center">
-                    {/* Main Artwork Image - object-cover ensures edge-to-edge fit without black space */}
-                    <img
-                      src={activeImage}
-                      alt={product.title}
-                      onError={(e) => {
-                        if (product.images?.[0]) {
-                          (e.target as HTMLImageElement).src = product.images[0];
+                  <div
+                    className={`relative w-full h-full rounded-2xl transition-all duration-500 flex items-center justify-center z-10 ${
+                      selectedFrame === 'gold'
+                        ? 'p-2.5 sm:p-3.5 bg-gradient-to-tr from-[#8C6D23] via-[#E8CE6B] to-[#9E7B28] border-2 border-[#D4AF37] shadow-[0_12px_35px_rgba(212,175,55,0.45)] ring-2 ring-[#F7E089]/70'
+                        : 'p-2.5 sm:p-3.5 bg-gradient-to-b from-[#252528] via-[#141416] to-[#08080A] border-2 border-[#38383F] shadow-[0_12px_35px_rgba(0,0,0,0.85)] ring-1 ring-white/10'
+                    }`}
+                  >
+                    <div className="relative w-full h-full overflow-hidden rounded-xl bg-stone-900 border border-black/40 shadow-inner flex items-center justify-center">
+                      {/* Main Artwork Image - object-cover ensures edge-to-edge fit without black space */}
+                      <img
+                        src={activeImage}
+                        alt={product.title}
+                        onError={(e) => {
+                          if (product.images?.[0]) {
+                            (e.target as HTMLImageElement).src = product.images[0];
+                          }
+                        }}
+                        style={
+                          zoomCoords
+                            ? {
+                                transformOrigin: `${zoomCoords.x}% ${zoomCoords.y}%`,
+                                transform: 'scale(1.85)',
+                              }
+                            : undefined
                         }
-                      }}
-                      style={
-                        zoomCoords
-                          ? {
-                              transformOrigin: `${zoomCoords.x}% ${zoomCoords.y}%`,
-                              transform: 'scale(1.85)',
-                            }
-                          : undefined
-                      }
-                      className="w-full h-full object-cover object-center transition-transform duration-150 select-none"
-                    />
+                        className="w-full h-full object-cover object-center transition-transform duration-150 select-none"
+                      />
+
+                      {/* Acrylic specular gloss sheen */}
+                      <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-transparent pointer-events-none" />
+                    </div>
                   </div>
                 </div>
 
@@ -1553,7 +1564,66 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
               </div>
             ) : null}
 
-            {/* Quantity Selector + Action Buttons */}
+{/* Frame Option (Black & Gold) */}
+            <div className="space-y-2 pt-1">
+              <div className="flex items-center justify-between text-xs">
+                <span className="font-bold text-stone-900 flex items-center gap-1.5">
+                  <span>Frame Option:</span>
+                  <strong className="text-amber-800 font-serif normal-case">
+                    {selectedFrame === 'gold' ? 'Royal Gold Frame' : 'Luxury Black Frame'}
+                  </strong>
+                </span>
+                <span className="text-[11px] text-stone-500 font-normal">
+                  {selectedFrame === 'gold' ? '24K Metallic Bevel' : 'Matte Obsidian Profile'}
+                </span>
+              </div>
+
+              <div className="grid grid-cols-2 gap-2.5">
+                {/* Black Frame */}
+                <button
+                  type="button"
+                  onClick={() => handleSelectFrame('black')}
+                  className={`p-2.5 sm:p-3 rounded-xl sm:rounded-2xl border text-left transition-all cursor-pointer flex items-center gap-3 ${
+                    selectedFrame === 'black'
+                      ? 'border-2 border-stone-900 bg-stone-900 text-white shadow-md ring-2 ring-stone-700/50 scale-[1.01]'
+                      : 'border-stone-200 bg-stone-50 text-stone-800 hover:border-stone-400'
+                  }`}
+                >
+                  <span className="w-6 h-6 rounded-full bg-gradient-to-br from-stone-900 via-stone-950 to-black border-2 border-stone-700 shadow-inner flex items-center justify-center shrink-0">
+                    {selectedFrame === 'black' && <Check className="w-3.5 h-3.5 text-amber-400" />}
+                  </span>
+                  <div className="min-w-0">
+                    <div className="font-bold text-xs sm:text-sm">Black Frame</div>
+                    <div className={`text-[10px] ${selectedFrame === 'black' ? 'text-stone-300' : 'text-stone-500'}`}>
+                      Matte Luxury Obsidian
+                    </div>
+                  </div>
+                </button>
+
+                {/* Gold Frame */}
+                <button
+                  type="button"
+                  onClick={() => handleSelectFrame('gold')}
+                  className={`p-2.5 sm:p-3 rounded-xl sm:rounded-2xl border text-left transition-all cursor-pointer flex items-center gap-3 ${
+                    selectedFrame === 'gold'
+                      ? 'border-2 border-amber-500 bg-amber-50/90 text-stone-950 shadow-md ring-2 ring-amber-400/50 scale-[1.01]'
+                      : 'border-stone-200 bg-stone-50 text-stone-800 hover:border-amber-400'
+                  }`}
+                >
+                  <span className="w-6 h-6 rounded-full bg-gradient-to-br from-[#E6CA65] via-[#D4AF37] to-[#99772B] border-2 border-[#FEE815] shadow-inner flex items-center justify-center shrink-0">
+                    {selectedFrame === 'gold' && <Check className="w-3.5 h-3.5 text-stone-950" />}
+                  </span>
+                  <div className="min-w-0">
+                    <div className="font-bold text-xs sm:text-sm text-stone-900">Gold Frame</div>
+                    <div className="text-[10px] text-amber-800 font-medium">
+                      24K Royal Metallic
+                    </div>
+                  </div>
+                </button>
+              </div>
+            </div>
+
+                        {/* Quantity Selector + Action Buttons */}
             <div className="space-y-3.5 pt-4 border-t border-stone-200">
               {/* Customise / Add Photo Button */}
               <button
@@ -1745,6 +1815,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
       <AddPhotoModal
         product={product}
         selectedVariant={product.variants[0]}
+        initialFrame={selectedFrame === 'black' ? 'black' : 'gold'}
         isOpen={isCustomizerOpen}
         onClose={() => setIsCustomizerOpen(false)}
       />
