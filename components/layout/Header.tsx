@@ -212,7 +212,7 @@ export default function Header() {
               <Link href="/" className="flex items-center group shrink-0" aria-label="Abhi's Gifts Home">
                 <Image
                   src="/images/brand/logo-gold-v2.png"
-                  alt="Abhi's Gifts - We Create Memorable Moments"
+                  alt="Abhi's Gifts - Frame Your Memories"
                   width={240}
                   height={50}
                   priority
@@ -517,7 +517,7 @@ export default function Header() {
               <Link href="/" onClick={() => setMobileMenuOpen(false)} className="flex items-center">
                 <Image
                   src="/images/brand/logo-gold-v2.png"
-                  alt="Abhi's Gifts - We Create Memorable Moments"
+                  alt="Abhi's Gifts - Frame Your Memories"
                   width={210}
                   height={44}
                   className="h-9 sm:h-10 w-auto object-contain"
