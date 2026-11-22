@@ -1119,6 +1119,44 @@ export function updateSiteSettings(updates: Partial<SiteSettings>): SiteSettings
 }
 
 
+
+export function deleteCustomerData(mobile: string, email?: string): number {
+  const cleanMobile = (mobile || '').replace(/[^0-9]/g, '');
+  const cleanEmail = (email || '').trim().toLowerCase();
+
+  const prevOrderCount = store.orders.length;
+  store.orders = store.orders.filter((o) => {
+    const oMobile = (o.customer?.mobile || '').replace(/[^0-9]/g, '');
+    const oEmail = (o.customer?.email || '').trim().toLowerCase();
+    const matchMobile = cleanMobile && (
+      oMobile === cleanMobile ||
+      (oMobile.length >= 10 && cleanMobile.length >= 10 && (
+        oMobile.endsWith(cleanMobile.slice(-10)) || cleanMobile.endsWith(oMobile.slice(-10))
+      ))
+    );
+    const matchEmail = cleanEmail && oEmail === cleanEmail;
+    return !(matchMobile || matchEmail);
+  });
+  savePersistedOrders(store.orders);
+
+  // Filter enquiries
+  store.enquiries = store.enquiries.filter((e) => {
+    const eMobile = (e.phone || '').replace(/[^0-9]/g, '');
+    const eEmail = (e.email || '').trim().toLowerCase();
+    const matchMobile = cleanMobile && (
+      eMobile === cleanMobile ||
+      (eMobile.length >= 10 && cleanMobile.length >= 10 && (
+        eMobile.endsWith(cleanMobile.slice(-10)) || cleanMobile.endsWith(eMobile.slice(-10))
+      ))
+    );
+    const matchEmail = cleanEmail && eEmail === cleanEmail;
+    return !(matchMobile || matchEmail);
+  });
+  savePersistedEnquiries(store.enquiries);
+
+  return prevOrderCount - store.orders.length;
+}
+
 export function resetCustomerActivity() {
   store.orders = [];
   savePersistedOrders([]);

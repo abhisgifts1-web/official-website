@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { getAuthenticatedAdmin } from '@/lib/auth';
 import { connectToDatabase } from '@/lib/db/mongodb';
 import { OrderModel } from '@/lib/db/models/Order';
-import { getAllOrders, resetCustomerActivity } from '@/lib/store';
+import { getAllOrders, resetCustomerActivity, deleteCustomerData } from '@/lib/store';
 import { CouponModel } from '@/lib/db/models/Coupon';
 import { Order } from '@/types';
 
@@ -188,6 +188,43 @@ export async function DELETE(req: NextRequest) {
       return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
     }
 
+    const { searchParams } = new URL(req.url);
+    const mobile = searchParams.get('mobile');
+    const email = searchParams.get('email');
+
+    // Individual customer deletion
+    if (mobile || email) {
+      const cleanMobile = (mobile || '').replace(/[^0-9]/g, '');
+      const cleanEmail = (email || '').trim().toLowerCase();
+
+      try {
+        const conn = await connectToDatabase();
+        if (conn) {
+          const orConditions: any[] = [];
+          if (cleanMobile) {
+            const tenDigits = cleanMobile.slice(-10);
+            orConditions.push({ 'customer.mobile': new RegExp(tenDigits, 'i') });
+          }
+          if (cleanEmail) {
+            orConditions.push({ 'customer.email': cleanEmail });
+          }
+          if (orConditions.length > 0) {
+            await OrderModel.deleteMany({ $or: orConditions });
+          }
+        }
+      } catch (dbErr) {
+        console.warn('MongoDB delete customer notice:', dbErr);
+      }
+
+      const deletedCount = deleteCustomerData(mobile || '', email || '');
+
+      return NextResponse.json({
+        success: true,
+        message: `Customer data deleted successfully (${deletedCount} orders removed).`,
+      });
+    }
+
+    // Reset all customers
     try {
       const conn = await connectToDatabase();
       if (conn) {

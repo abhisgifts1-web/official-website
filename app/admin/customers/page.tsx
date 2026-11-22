@@ -9,6 +9,9 @@ import {
   Mail,
   MapPin,
   ExternalLink,
+  Trash2,
+  Loader2,
+  AlertTriangle,
   Sparkles,
   TrendingUp,
   Download,
@@ -55,11 +58,41 @@ export default function AdminCustomersPage() {
   const [search, setSearch] = useState('');
   const [tierFilter, setTierFilter] = useState<'All' | 'VIP' | 'Repeat' | 'New'>('All');
   const [selectedCustomer, setSelectedCustomer] = useState<CustomerAggregated | null>(null);
+  const [customerToDelete, setCustomerToDelete] = useState<CustomerAggregated | null>(null);
+  const [deletingCustomer, setDeletingCustomer] = useState(false);
+
+  const handleConfirmDeleteCustomer = async () => {
+    if (!customerToDelete) return;
+    try {
+      setDeletingCustomer(true);
+      const res = await fetch(
+        `/api/admin/customers?mobile=${encodeURIComponent(customerToDelete.mobile)}&email=${encodeURIComponent(customerToDelete.email)}`,
+        { method: 'DELETE' }
+      );
+      const data = await res.json();
+      if (res.ok && data.success) {
+        setCustomers((prev) => prev.filter((cust) => cust.mobile !== customerToDelete.mobile));
+        if (selectedCustomer?.mobile === customerToDelete.mobile) {
+          setSelectedCustomer(null);
+        }
+        setCustomerToDelete(null);
+        loadCustomers();
+    
+      } else {
+        alert(data.error || 'Failed to delete customer data');
+      }
+    } catch (err: any) {
+      alert('Error deleting customer: ' + (err.message || 'Network error'));
+    } finally {
+      setDeletingCustomer(false);
+    }
+  };
+
   const [copiedText, setCopiedText] = useState(false);
   const [resetting, setResetting] = useState(false);
   const [showResetModal, setShowResetModal] = useState(false);
 
-  useEffect(() => {
+
     const loadCustomers = async () => {
       try {
         setLoading(true);
@@ -156,6 +189,8 @@ export default function AdminCustomersPage() {
       }
     };
 
+
+  useEffect(() => {
     loadCustomers();
   }, []);
 
@@ -570,13 +605,15 @@ export default function AdminCustomersPage() {
                               <span>View Profile</span>
                               <ChevronRight className="w-3 h-3 text-amber-700" />
                             </button>
-                            <Link
-                              href={`/admin/orders?search=${c.mobile}`}
-                              className="p-1.5 rounded-xl hover:bg-stone-100 text-stone-500 hover:text-stone-900 transition-colors"
-                              title="View all orders in orders manager"
+                            <button
+                              type="button"
+                              onClick={() => setCustomerToDelete(c)}
+                              className="p-1.5 rounded-xl hover:bg-rose-50 text-stone-400 hover:text-rose-600 transition-colors cursor-pointer"
+                              title={`Delete customer data for ${c.fullName}`}
+                              aria-label={`Delete customer data for ${c.fullName}`}
                             >
-                              <ExternalLink className="w-3.5 h-3.5" />
-                            </Link>
+                              <Trash2 className="w-3.5 h-3.5" />
+                            </button>
                           </div>
                         </td>
                       </tr>
