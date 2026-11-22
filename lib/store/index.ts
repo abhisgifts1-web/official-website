@@ -20,6 +20,8 @@ import { connectToDatabase } from '@/lib/db/mongodb';
 import { ProductModel } from '@/lib/db/models/Product';
 import { OrderModel } from '@/lib/db/models/Order';
 import { CategoryModel } from '@/lib/db/models/Category';
+import { CouponModel } from '@/lib/db/models/Coupon';
+import { SettingsModel } from '@/lib/db/models/Settings';
 
 const PERSISTENCE_FILE = path.join(process.cwd(), 'lib', 'data', 'persistedProducts.json');
 const PERSISTENCE_ORDERS_FILE = path.join(process.cwd(), 'lib', 'data', 'persistedOrders.json');
@@ -363,6 +365,45 @@ async function initDbSync() {
     } catch (catErr) {
       console.warn('Database category sync:', catErr);
     }
+
+    // 4. Load coupons from MongoDB if available
+    try {
+      const dbCoupons = await CouponModel.find({}).lean();
+      if (dbCoupons && dbCoupons.length > 0) {
+        const formattedCoupons: Coupon[] = dbCoupons.map((doc: any) => {
+          const { _id, __v, ...c } = doc;
+          return { ...c, id: c.id || String(_id) };
+        });
+        store.coupons = formattedCoupons;
+        savePersistedCoupons(formattedCoupons);
+      } else if (store.coupons.length > 0) {
+        for (const c of store.coupons) {
+          const { _id, ...cleanC } = c as any;
+          await CouponModel.findOneAndUpdate({ code: c.code }, cleanC, { upsert: true });
+        }
+      }
+    } catch (coupErr) {
+      console.warn('Database coupons sync:', coupErr);
+    }
+
+    // 5. Load settings from MongoDB if available
+    try {
+      const dbSettings = await SettingsModel.findOne({ settingKey: 'global_site_settings' }).lean();
+      if (dbSettings) {
+        const { _id, __v, settingKey, ...settings } = dbSettings as any;
+        store.settings = { ...store.settings, ...settings };
+        savePersistedSettings(store.settings);
+      } else if (store.settings) {
+        await SettingsModel.findOneAndUpdate(
+          { settingKey: 'global_site_settings' },
+          { ...store.settings, settingKey: 'global_site_settings' },
+          { upsert: true }
+        );
+      }
+    } catch (setErr) {
+      console.warn('Database settings sync:', setErr);
+    }
+
   } catch (err) {
     console.warn('Database background initialization:', err);
   }
@@ -626,6 +667,51 @@ export function addProductReview(productSlug: string, review: Omit<ProductReview
 }
 
 // CATEGORY METHODS
+
+export async function fetchLiveCategories(): Promise<Category[]> {
+  try {
+    const conn = await connectToDatabase();
+    if (conn) {
+      const docs = await CategoryModel.find({}).lean();
+      if (docs && docs.length > 0) {
+        const formattedCats: Category[] = docs.map((doc: any) => {
+          const { _id, __v, ...c } = doc;
+          return { ...c, id: c.id || String(_id) };
+        });
+        store.categories = formattedCats;
+        savePersistedCategories(formattedCats);
+        return formattedCats;
+      }
+    }
+  } catch (err) {
+    console.warn('MongoDB fetchLiveCategories error:', err);
+  }
+  return [...store.categories];
+}
+
+export async function fetchCategoryBySlug(slug: string): Promise<Category | null> {
+  const direct = store.categories.find((c) => c.slug === slug);
+  if (direct) return direct;
+  const alias = CATEGORY_SLUG_ALIASES[slug];
+  if (alias) {
+    const aliasCat = store.categories.find((c) => c.slug === alias);
+    if (aliasCat) return aliasCat;
+  }
+  try {
+    const conn = await connectToDatabase();
+    if (conn) {
+      const doc = await CategoryModel.findOne({ $or: [{ slug }, { slug: alias }] }).lean();
+      if (doc) {
+        const { _id, __v, ...c } = doc as any;
+        return { ...c, id: c.id || String(_id) } as Category;
+      }
+    }
+  } catch (err) {
+    console.warn('MongoDB category fetch error:', err);
+  }
+  return null;
+}
+
 export function getAllCategories(): Category[] {
   return [...store.categories];
 }
@@ -671,6 +757,34 @@ export function getAllOrders(filterStatus?: string, search?: string): Order[] {
   }
 
   return list.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+}
+
+
+export async function fetchOrderById(id: string): Promise<Order | null> {
+  const inMem = store.orders.find((o) => o.id === id);
+  try {
+    const conn = await connectToDatabase();
+    if (conn) {
+      const doc = await OrderModel.findOne({
+        $or: [{ orderId: id }, { id: id }],
+      }).lean();
+      if (doc) {
+        const { _id, __v, ...rest } = doc as any;
+        const formatted = { ...rest, id: rest.orderId || rest.id || String(_id) } as Order;
+        const existingIdx = store.orders.findIndex((o) => o.id === formatted.id);
+        if (existingIdx >= 0) {
+          store.orders[existingIdx] = formatted;
+        } else {
+          store.orders.unshift(formatted);
+        }
+        savePersistedOrders(store.orders);
+        return formatted;
+      }
+    }
+  } catch (err) {
+    console.warn('MongoDB fetchOrderById error:', err);
+  }
+  return inMem || null;
 }
 
 export function getOrderById(id: string): Order | null {
@@ -960,6 +1074,40 @@ export function deleteCoupon(code: string): boolean {
   return true;
 }
 
+
+export async function syncSettingsToDatabase(settings: SiteSettings) {
+  try {
+    const conn = await connectToDatabase();
+    if (conn) {
+      await SettingsModel.findOneAndUpdate(
+        { settingKey: 'global_site_settings' },
+        { ...settings, settingKey: 'global_site_settings' },
+        { upsert: true, new: true }
+      );
+    }
+  } catch (err) {
+    console.warn('MongoDB sync settings error:', err);
+  }
+}
+
+export async function fetchLiveSettings(): Promise<SiteSettings> {
+  try {
+    const conn = await connectToDatabase();
+    if (conn) {
+      const doc = await SettingsModel.findOne({ settingKey: 'global_site_settings' }).lean();
+      if (doc) {
+        const { _id, __v, settingKey, ...settings } = doc as any;
+        store.settings = { ...store.settings, ...settings };
+        savePersistedSettings(store.settings);
+        return { ...store.settings };
+      }
+    }
+  } catch (err) {
+    console.warn('MongoDB fetchLiveSettings error:', err);
+  }
+  return { ...store.settings };
+}
+
 // SETTINGS METHODS
 export function getSiteSettings(): SiteSettings {
   return { ...store.settings };
@@ -974,6 +1122,7 @@ export function updateSiteSettings(updates: Partial<SiteSettings>): SiteSettings
       : store.settings.promotionalOffer,
   };
   savePersistedSettings(store.settings);
+  syncSettingsToDatabase(store.settings).catch(() => {});
   return { ...store.settings };
 }
 

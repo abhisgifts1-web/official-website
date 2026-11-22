@@ -1,8 +1,11 @@
 import React from 'react';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { getOrderById } from '@/lib/store';
+import { fetchOrderById } from '@/lib/store';
 import ConfirmationClient from './ConfirmationClient';
+
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
 
 interface Props {
   params: {
@@ -17,8 +20,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default function OrderConfirmationPage({ params }: Props) {
-  const order = getOrderById(params.orderId);
+export default async function OrderConfirmationPage({ params }: Props) {
+  const order = await fetchOrderById(params.orderId);
 
   if (!order) {
     notFound();

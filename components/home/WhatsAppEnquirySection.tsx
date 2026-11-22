@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import {
   MessageCircle,
@@ -29,8 +29,20 @@ export default function WhatsAppEnquirySection() {
   const [selectedTopic, setSelectedTopic] = useState('custom-acrylic');
   const [userNote, setUserNote] = useState('');
   const [customDimensions, setCustomDimensions] = useState('');
+  const [waNumber, setWaNumber] = useState(INITIAL_SETTINGS.whatsappNumber || '919121997791');
 
-  const cleanWaNumber = (INITIAL_SETTINGS.whatsappNumber || '919032372782').replace(/[^0-9]/g, '');
+  useEffect(() => {
+    fetch('/api/settings')
+      .then((r) => r.json())
+      .then((d) => {
+        if (d.success && d.settings?.whatsappNumber) {
+          setWaNumber(d.settings.whatsappNumber);
+        }
+      })
+      .catch(() => {});
+  }, []);
+
+  const cleanWaNumber = waNumber.replace(/[^0-9]/g, '');
 
   const getWhatsAppUrl = () => {
     const topicObj = QUICK_ENQUIRY_TOPICS.find((t) => t.id === selectedTopic);

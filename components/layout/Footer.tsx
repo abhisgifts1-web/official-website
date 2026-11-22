@@ -1,6 +1,7 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { SiteSettings } from '@/types';
 import Link from 'next/link';
 import Image from 'next/image';
 import {
@@ -18,8 +19,20 @@ import { WhatsAppIcon, InstagramIcon, YouTubeIcon } from '@/components/icons/Soc
 import { INITIAL_SETTINGS } from '@/lib/data/settings';
 
 export default function Footer() {
+  const [settings, setSettings] = useState<SiteSettings>(INITIAL_SETTINGS);
   const [newsletterEmail, setNewsletterEmail] = useState('');
   const [subscribed, setSubscribed] = useState(false);
+
+  useEffect(() => {
+    fetch('/api/settings')
+      .then((r) => r.json())
+      .then((d) => {
+        if (d.success && d.settings) {
+          setSettings(d.settings);
+        }
+      })
+      .catch(() => {});
+  }, []);
 
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();
@@ -30,11 +43,11 @@ export default function Footer() {
     }
   };
 
-  const whatsappUrl = `https://wa.me/${INITIAL_SETTINGS.whatsappNumber.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(
+  const whatsappUrl = `https://wa.me/${(settings.whatsappNumber || INITIAL_SETTINGS.whatsappNumber).replace(/[^0-9]/g, '')}?text=${encodeURIComponent(
     'Hi Abhi Gifts! I would like to inquire about custom photo frames and gifts.'
   )}`;
-  const instagramUrl = INITIAL_SETTINGS.instagramUrl || 'https://www.instagram.com/abhis_gifts_?cplk=MWtkNTJla2s3NTQw';
-  const youtubeUrl = INITIAL_SETTINGS.youtubeUrl || 'https://youtube.com/@abhis_gifts?si=Ap98aZU7b21rJA_8';
+  const instagramUrl = settings.instagramUrl || INITIAL_SETTINGS.instagramUrl || 'https://www.instagram.com/abhis_gifts_?cplk=MWtkNTJla2s3NTQw';
+  const youtubeUrl = settings.youtubeUrl || INITIAL_SETTINGS.youtubeUrl || 'https://youtube.com/@abhis_gifts?si=Ap98aZU7b21rJA_8';
 
   return (
     <footer className="bg-black text-stone-300 border-t border-stone-800 relative overflow-hidden select-none">
@@ -117,12 +130,12 @@ export default function Footer() {
                   <MapPin className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
                   <div>
                     <a
-                      href={INITIAL_SETTINGS.googleMapsUrl || 'https://maps.app.goo.gl/fmGv35KsGabFna9E6?g_st=ac'}
+                      href={settings.googleMapsUrl || INITIAL_SETTINGS.googleMapsUrl || 'https://maps.app.goo.gl/fmGv35KsGabFna9E6?g_st=ac'}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="leading-snug hover:text-amber-300 transition-colors block"
                     >
-                      {INITIAL_SETTINGS.businessAddress}
+                      {settings.businessAddress || INITIAL_SETTINGS.businessAddress}
                     </a>
                     <a
                       href={INITIAL_SETTINGS.googleMapsUrl || 'https://maps.app.goo.gl/fmGv35KsGabFna9E6?g_st=ac'}
@@ -137,14 +150,14 @@ export default function Footer() {
                 </div>
                 <div className="flex items-center gap-2.5">
                   <Phone className="w-4 h-4 text-amber-400 shrink-0" />
-                  <a href={`tel:${INITIAL_SETTINGS.supportPhone}`} className="hover:text-amber-300 transition-colors truncate font-semibold">
-                    {INITIAL_SETTINGS.supportPhone}
+                  <a href={`tel:${settings.supportPhone || INITIAL_SETTINGS.supportPhone}`} className="hover:text-amber-300 transition-colors truncate font-semibold">
+                    {settings.supportPhone || INITIAL_SETTINGS.supportPhone}
                   </a>
                 </div>
                 <div className="flex items-center gap-2.5">
                   <Mail className="w-4 h-4 text-amber-400 shrink-0" />
-                  <a href={`mailto:${INITIAL_SETTINGS.supportEmail}`} className="hover:text-amber-300 transition-colors truncate font-semibold">
-                    {INITIAL_SETTINGS.supportEmail}
+                  <a href={`mailto:${settings.supportEmail || INITIAL_SETTINGS.supportEmail}`} className="hover:text-amber-300 transition-colors truncate font-semibold">
+                    {settings.supportEmail || INITIAL_SETTINGS.supportEmail}
                   </a>
                 </div>
                 <div className="pt-2 space-y-2">

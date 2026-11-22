@@ -1,6 +1,7 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { SiteSettings } from '@/types';
 import {
   Phone,
   Mail,
@@ -16,6 +17,7 @@ import { INITIAL_SETTINGS } from '@/lib/data/settings';
 import ContactSupportSection from '@/components/support/ContactSupportSection';
 
 export default function ContactPage() {
+  const [settings, setSettings] = useState<SiteSettings>(INITIAL_SETTINGS);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -25,6 +27,17 @@ export default function ContactPage() {
   });
 
   const [submitting, setSubmitting] = useState(false);
+
+  useEffect(() => {
+    fetch('/api/settings')
+      .then((r) => r.json())
+      .then((d) => {
+        if (d.success && d.settings) {
+          setSettings(d.settings);
+        }
+      })
+      .catch(() => {});
+  }, []);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -84,9 +97,9 @@ export default function ContactPage() {
               <MapPin className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
               <div className="space-y-1.5">
                 <strong className="text-stone-900 block font-bold">Dilsukhnagar Workshop &amp; Store Address:</strong>
-                <span className="block leading-relaxed">{INITIAL_SETTINGS.businessAddress}</span>
+                <span className="block leading-relaxed">{settings.businessAddress || INITIAL_SETTINGS.businessAddress}</span>
                 <a
-                  href="https://maps.app.goo.gl/fmGv35KsGabFna9E6?g_st=ac"
+                  href={settings.googleMapsUrl || INITIAL_SETTINGS.googleMapsUrl || "https://maps.app.goo.gl/fmGv35KsGabFna9E6?g_st=ac"}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-amber-100 hover:bg-amber-200 text-stone-950 font-bold text-xs transition-colors border border-amber-300 shadow-2xs mt-1"
@@ -102,8 +115,8 @@ export default function ContactPage() {
               <Phone className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
               <div>
                 <strong className="text-stone-900 block">Customer Care Hotline:</strong>
-                <a href={`tel:${INITIAL_SETTINGS.supportPhone}`} className="hover:text-amber-700 font-semibold">
-                  {INITIAL_SETTINGS.supportPhone}
+                <a href={`tel:${settings.supportPhone || INITIAL_SETTINGS.supportPhone}`} className="hover:text-amber-700 font-semibold">
+                  {settings.supportPhone || INITIAL_SETTINGS.supportPhone}
                 </a>
               </div>
             </div>
@@ -112,8 +125,8 @@ export default function ContactPage() {
               <Mail className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
               <div>
                 <strong className="text-stone-900 block">Email Desk:</strong>
-                <a href={`mailto:${INITIAL_SETTINGS.supportEmail}`} className="hover:text-amber-700 font-semibold">
-                  {INITIAL_SETTINGS.supportEmail}
+                <a href={`mailto:${settings.supportEmail || INITIAL_SETTINGS.supportEmail}`} className="hover:text-amber-700 font-semibold">
+                  {settings.supportEmail || INITIAL_SETTINGS.supportEmail}
                 </a>
               </div>
             </div>
@@ -129,7 +142,7 @@ export default function ContactPage() {
 
           <div className="pt-4 border-t border-stone-200">
             <a
-              href={`https://wa.me/${INITIAL_SETTINGS.whatsappNumber.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(
+              href={`https://wa.me/${(settings.whatsappNumber || INITIAL_SETTINGS.whatsappNumber).replace(/[^0-9]/g, '')}?text=${encodeURIComponent(
                 'Hi Abhi Gifts! I would like to inquire about your artworks.'
               )}`}
               target="_blank"

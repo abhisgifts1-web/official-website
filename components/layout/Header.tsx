@@ -31,6 +31,7 @@ export default function Header() {
   const { cartCount, openCart } = useCart();
   const { wishlistCount } = useWishlist();
 
+  const [categories, setCategories] = useState(INITIAL_CATEGORIES);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [megaMenuOpen, setMegaMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -327,7 +328,7 @@ export default function Header() {
 
                             <div className="space-y-4">
                               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
-                                {INITIAL_CATEGORIES.map((cat) => (
+                                {categories.map((cat) => (
                                   <Link
                                     key={cat.id}
                                     href={`/category/${cat.slug}`}
@@ -648,7 +649,7 @@ export default function Header() {
                 <p className="text-[10px] font-bold uppercase text-[#FEE815] px-3 py-1 tracking-wider">
                   Categories
                 </p>
-                {INITIAL_CATEGORIES.map((c) => (
+                {categories.map((c) => (
                   <Link
                     key={c.id}
                     href={`/category/${c.slug}`}

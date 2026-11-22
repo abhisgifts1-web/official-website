@@ -1,0 +1,97 @@
+[
+  {
+    "code": "ABHIS10",
+    "active": true,
+    "applicableProducts": [
+      "all"
+    ],
+    "createdAt": "2026-11-22T18:52:03.198Z",
+    "description": "Instagram Special: 10% discount on handcrafted acrylic photo frames and sacred art",
+    "discountType": "percentage",
+    "discountValue": 10,
+    "expiresAt": "2027-12-31",
+    "expiryDate": "2027-12-31",
+    "maxDiscount": 300,
+    "minOrderValue": 499,
+    "perCustomerLimit": 2,
+    "startDate": "2026-01-01",
+    "totalDiscountGiven": 3450,
+    "updatedAt": "2026-11-22T18:52:03.198Z",
+    "usageCount": 18,
+    "usageLimit": 500,
+    "usedBy": [],
+    "validFrom": "2026-01-01",
+    "id": "6b0339d35093473a07609b27"
+  },
+  {
+    "code": "WELCOME10",
+    "active": true,
+    "applicableProducts": [
+      "all"
+    ],
+    "createdAt": "2026-11-22T18:52:03.240Z",
+    "description": "Get 10% instant discount on your first sacred art purchase (min. ₹1,999)",
+    "discountType": "percentage",
+    "discountValue": 10,
+    "expiresAt": "2027-12-31",
+    "expiryDate": "2027-12-31",
+    "maxDiscount": 1000,
+    "minOrderValue": 1999,
+    "perCustomerLimit": 1,
+    "startDate": "2026-01-01",
+    "totalDiscountGiven": 8400,
+    "updatedAt": "2026-11-22T18:52:03.240Z",
+    "usageCount": 42,
+    "usageLimit": 200,
+    "usedBy": [],
+    "validFrom": "2026-01-01",
+    "id": "6b0339d35093473a07609b28"
+  },
+  {
+    "code": "ABHI500",
+    "active": true,
+    "applicableProducts": [
+      "all"
+    ],
+    "createdAt": "2026-11-22T18:52:03.266Z",
+    "description": "Flat ₹500 off on LED Backlit Wall Art orders above ₹3,999",
+    "discountType": "fixed",
+    "discountValue": 500,
+    "expiresAt": "2027-12-31",
+    "expiryDate": "2027-12-31",
+    "minOrderValue": 3999,
+    "perCustomerLimit": 1,
+    "startDate": "2026-01-01",
+    "totalDiscountGiven": 13000,
+    "updatedAt": "2026-11-22T18:52:03.266Z",
+    "usageCount": 26,
+    "usageLimit": 100,
+    "usedBy": [],
+    "validFrom": "2026-01-01",
+    "id": "6b0339d35093473a07609b29"
+  },
+  {
+    "code": "FESTIVE15",
+    "active": true,
+    "applicableProducts": [
+      "all"
+    ],
+    "createdAt": "2026-11-22T18:52:03.291Z",
+    "description": "Special 15% festive discount for orders above ₹4,999",
+    "discountType": "percentage",
+    "discountValue": 15,
+    "expiresAt": "2027-12-31",
+    "expiryDate": "2027-12-31",
+    "maxDiscount": 1500,
+    "minOrderValue": 4999,
+    "perCustomerLimit": 2,
+    "startDate": "2026-01-01",
+    "totalDiscountGiven": 19500,
+    "updatedAt": "2026-11-22T18:52:03.291Z",
+    "usageCount": 31,
+    "usageLimit": 150,
+    "usedBy": [],
+    "validFrom": "2026-01-01",
+    "id": "6b0339d45093473a07609b2b"
+  }
+]

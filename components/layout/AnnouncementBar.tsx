@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import {
@@ -14,9 +14,26 @@ import { INITIAL_SETTINGS } from '@/lib/data/settings';
 
 export default function AnnouncementBar() {
   const pathname = usePathname();
+  const [settings, setSettings] = useState(INITIAL_SETTINGS);
+  const [isVisible, setIsVisible] = useState(true);
 
-  // Hide announcement ticker entirely on admin dashboard & portal routes
-  if (pathname?.startsWith('/admin')) {
+  useEffect(() => {
+    fetch('/api/settings')
+      .then((r) => r.json())
+      .then((d) => {
+        if (d.success && d.settings) {
+          setSettings(d.settings);
+          if (d.settings.promotionalOffer?.announcementBarActive === false) {
+            setIsVisible(false);
+          } else {
+            setIsVisible(true);
+          }
+        }
+      })
+      .catch(() => {});
+  }, []);
+
+  if (pathname?.startsWith('/admin') || !isVisible) {
     return null;
   }
     const tickerItems = (
@@ -64,11 +81,11 @@ export default function AnnouncementBar() {
 
       {/* 5. Phone Support */}
       <a
-        href={`tel:${INITIAL_SETTINGS.supportPhone}`}
+        href={`tel:${settings.supportPhone || INITIAL_SETTINGS.supportPhone}`}
         className="flex items-center gap-1.5 shrink-0 text-[#E5E7EB] hover:text-[#FFF04B] transition-colors cursor-pointer"
       >
         <Phone className="w-3 h-3 text-[#FFF04B] shrink-0" />
-        <span>{INITIAL_SETTINGS.supportPhone}</span>
+        <span>{settings.supportPhone || INITIAL_SETTINGS.supportPhone}</span>
       </a>
 
       <span className="w-1.5 h-1.5 rounded-full bg-[#FFF04B]/50 shrink-0" />

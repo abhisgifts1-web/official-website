@@ -109,16 +109,42 @@ export const FEATURED_ARTWORKS: FeaturedArtwork[] = [
 ];
 
 export default function HeroShowcase() {
+  const [artworks, setArtworks] = useState<FeaturedArtwork[]>(FEATURED_ARTWORKS);
   const [selectedArtworkIndex, setSelectedArtworkIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
-  const activeArtwork = FEATURED_ARTWORKS[selectedArtworkIndex];
+  const activeArtwork = artworks[selectedArtworkIndex] || FEATURED_ARTWORKS[0];
+
+  useEffect(() => {
+    fetch('/api/products')
+      .then((r) => r.json())
+      .then((d) => {
+        if (d.success && Array.isArray(d.products)) {
+          const liveProds: any[] = d.products;
+          setArtworks((prev) =>
+            prev.map((art) => {
+              const match = liveProds.find((p) => p.slug === art.slug || p.id === art.id);
+              if (!match) return art;
+              return {
+                ...art,
+                name: match.title || art.name,
+                price: `₹${match.basePrice.toLocaleString('en-IN')}`,
+                originalPrice: `₹${match.baseMrp.toLocaleString('en-IN')}`,
+                image: match.images?.[0] || art.image,
+                frameMockup: match.images?.[1] || match.images?.[0] || art.frameMockup,
+              };
+            })
+          );
+        }
+      })
+      .catch(() => {});
+  }, []);
 
   // Auto-rotate through artworks continuously
   useEffect(() => {
     if (isPaused) return;
 
     const interval = setInterval(() => {
-      setSelectedArtworkIndex((prev) => (prev + 1) % FEATURED_ARTWORKS.length);
+      setSelectedArtworkIndex((prev) => (prev + 1) % artworks.length);
     }, 3500);
 
     return () => clearInterval(interval);
@@ -126,7 +152,7 @@ export default function HeroShowcase() {
 
   const handlePrev = (e: React.MouseEvent) => {
     e.stopPropagation();
-    setSelectedArtworkIndex((prev) => (prev - 1 + FEATURED_ARTWORKS.length) % FEATURED_ARTWORKS.length);
+    setSelectedArtworkIndex((prev) => (prev - 1 + artworks.length) % artworks.length);
   };
 
   const handleNext = (e: React.MouseEvent) => {
@@ -137,7 +163,7 @@ export default function HeroShowcase() {
   // Preload primary high-resolution imagery
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      FEATURED_ARTWORKS.forEach((artwork) => {
+      artworks.forEach((artwork) => {
         const img = new window.Image();
         img.src = artwork.image;
         if (artwork.frameMockup && artwork.frameMockup !== artwork.image) {
@@ -250,7 +276,7 @@ export default function HeroShowcase() {
                 <div className="relative rounded-xl sm:rounded-2xl overflow-hidden aspect-[3/2] bg-stone-900 border border-amber-500/30 shadow-inner">
                   
                   {/* Master Framed Artwork Images with smooth cross-fade animation */}
-                  {FEATURED_ARTWORKS.map((artwork, idx) => (
+                  {artworks.map((artwork, idx) => (
                     <div
                       key={artwork.id}
                       className={`absolute inset-0 transition-all duration-700 ease-in-out ${
@@ -299,7 +325,7 @@ export default function HeroShowcase() {
               {/* Artwork Image Thumbnails - Larger & Cleaner */}
               <div className="mt-3 sm:mt-4 w-full">
                 <div className="grid grid-cols-6 gap-2 sm:gap-2.5">
-                  {FEATURED_ARTWORKS.map((artwork, idx) => {
+                  {artworks.map((artwork, idx) => {
                     const isActive = selectedArtworkIndex === idx;
                     return (
                       <button
