@@ -64,9 +64,8 @@ export default function ProductDetailPage({ params }: Props) {
   }
 
   const allProducts = getAllProducts();
-  const related = allProducts.filter(
-    (p) => p.id !== product.id && (p.categorySlug === product.categorySlug || p.deity === product.deity)
-  );
+  const sameCategory = allProducts.filter((p) => p.id !== product.id && (p.categorySlug === product.categorySlug || p.deity === product.deity));
+  const related = sameCategory.length > 0 ? sameCategory : allProducts.filter((p) => p.id !== product.id).slice(0, 4);
 
   const breadcrumbs = [
     { name: 'Home', url: '/' },

@@ -189,8 +189,33 @@ export function isAcrylicPhotoFrame(p: Product): boolean {
  * Resolves whether product belongs to categorySlug (handles canonical 8 categories + aliases).
  */
 export function matchesCategory(p: Product, categorySlug: string): boolean {
+  if (!categorySlug || categorySlug === 'all') return true;
   const normalized = CATEGORY_SLUG_ALIASES[categorySlug] || categorySlug;
 
+  // 1. Direct canonical slug match
+  if (p.categorySlug === categorySlug || p.categorySlug === normalized) {
+    return true;
+  }
+  if (p.categorySlugs?.includes(categorySlug) || p.categorySlugs?.includes(normalized)) {
+    return true;
+  }
+
+  // 2. If product belongs strictly to another canonical category, prevent cross-matching
+  const canonicalSlugs = [
+    'acrylic-photo-frames',
+    'led-acrylic-photo-frames',
+    'glitter-photo-frames',
+    '360-rotating-photo-lamps',
+    'god-photo-frames',
+    'family-baby-frames',
+    'couple-wedding-frames',
+    'personalized-gifts',
+  ];
+  if (canonicalSlugs.includes(p.categorySlug) && p.categorySlug !== normalized) {
+    return false;
+  }
+
+  // 3. Fallback semantic classifiers for any legacy items
   switch (normalized) {
     case 'god-photo-frames':
       return isGodProduct(p);
@@ -209,9 +234,6 @@ export function matchesCategory(p: Product, categorySlug: string): boolean {
     case 'acrylic-photo-frames':
       return isAcrylicPhotoFrame(p);
     default:
-      // Direct category or multi-category fallback
-      if (p.categorySlug === categorySlug || p.categorySlug === normalized) return true;
-      if (p.categorySlugs?.includes(categorySlug) || p.categorySlugs?.includes(normalized)) return true;
       return false;
   }
 }

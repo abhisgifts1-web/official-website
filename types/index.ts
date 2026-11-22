@@ -11,6 +11,7 @@ export type ArtworkFinish = 'Acrylic Ultra-Gloss' | 'Floating Framed Canvas' | '
 export type LightingType = 'LED Backlit (12V Adapter)' | 'Warm LED Backlit (12V Adapter)' | 'RGB Multi-Color Remote' | 'No Lighting (Pure Art)' | 'Non-LED' | 'Cool White LED Backlighting';
 
 export interface ProductModel {
+  _id?: string;
   id: string; // e.g. "M-1", "M-18"
   name: string; // e.g. "M-1", "M-18"
   image: string;

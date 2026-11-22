@@ -127,7 +127,7 @@ export default function AdminCategoriesPage() {
                   </div>
                   <span className="absolute bottom-2.5 right-2.5 bg-stone-900/80 backdrop-blur-xs text-white text-[10.5px] font-mono font-bold px-2.5 py-0.5 rounded-md border border-stone-700 flex items-center gap-1">
                     <Package className="w-3 h-3 text-amber-400" />
-                    {liveCount} Items
+                    {liveCount} {liveCount === 1 ? 'Item' : 'Items'}
                   </span>
                 </div>
 

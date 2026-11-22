@@ -11,7 +11,7 @@ export const INITIAL_CATEGORIES: Category[] = [
     group: 'custom-frames',
     lightingType: 'normal',
     featured: true,
-    itemCount: 12,
+    itemCount: 1,
     buttonText: 'Shop Acrylic Frames',
   },
   {
@@ -24,7 +24,7 @@ export const INITIAL_CATEGORIES: Category[] = [
     group: 'led-backlight',
     lightingType: 'backlight',
     featured: true,
-    itemCount: 4,
+    itemCount: 1,
     buttonText: 'Shop LED Frames',
   },
   {
@@ -37,7 +37,7 @@ export const INITIAL_CATEGORIES: Category[] = [
     group: 'custom-frames',
     lightingType: 'normal',
     featured: true,
-    itemCount: 2,
+    itemCount: 1,
     buttonText: 'Shop Glitter Frames',
   },
   {
@@ -50,7 +50,7 @@ export const INITIAL_CATEGORIES: Category[] = [
     group: 'led-backlight',
     lightingType: 'backlight',
     featured: true,
-    itemCount: 2,
+    itemCount: 1,
     buttonText: 'Shop Rotating Lamps',
   },
   {
@@ -63,7 +63,7 @@ export const INITIAL_CATEGORIES: Category[] = [
     group: 'god-wall-art',
     lightingType: 'normal',
     featured: true,
-    itemCount: 17,
+    itemCount: 1,
     buttonText: 'Shop God Frames',
   },
   {
@@ -76,7 +76,7 @@ export const INITIAL_CATEGORIES: Category[] = [
     group: 'custom-frames',
     lightingType: 'normal',
     featured: true,
-    itemCount: 5,
+    itemCount: 1,
     buttonText: 'Shop Family Frames',
   },
   {
@@ -89,7 +89,7 @@ export const INITIAL_CATEGORIES: Category[] = [
     group: 'custom-frames',
     lightingType: 'normal',
     featured: true,
-    itemCount: 3,
+    itemCount: 1,
     buttonText: 'Shop Couple Frames',
   },
   {
@@ -102,7 +102,7 @@ export const INITIAL_CATEGORIES: Category[] = [
     group: 'custom-frames',
     lightingType: 'normal',
     featured: true,
-    itemCount: 8,
+    itemCount: 1,
     buttonText: 'Shop Custom Gifts',
   },
 ];

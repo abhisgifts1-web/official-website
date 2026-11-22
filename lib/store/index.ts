@@ -62,7 +62,11 @@ function loadPersistedProducts(): Product[] {
       const raw = fs.readFileSync(PERSISTENCE_FILE, 'utf8');
       const parsed = JSON.parse(raw);
       if (Array.isArray(parsed) && parsed.length > 0) {
-        return parsed.map((o: any) => ({ ...o, id: o.orderId || o.id }));
+        const officialSlugs = INITIAL_PRODUCTS.map((p) => p.slug);
+        const filtered = parsed.filter((p: any) => officialSlugs.includes(p.slug));
+        if (filtered.length === officialSlugs.length) {
+          return filtered.map((o: any) => ({ ...o, id: o.orderId || o.id }));
+        }
       }
     }
   } catch (err) {
@@ -310,19 +314,13 @@ async function initDbSync() {
     const conn = await connectToDatabase();
     if (!conn) return;
 
-    // Load products from MongoDB if available
-    const dbProducts = await ProductModel.find({}).lean();
-    if (dbProducts && dbProducts.length > 0) {
-      const formatted: Product[] = dbProducts.map((doc: any) => {
-        const { _id, __v, ...p } = doc;
-        return { ...p, id: p.id || String(_id) };
-      });
-      store.products = formatted;
-      savePersistedProducts(formatted);
-    } else if (store.products.length > 0) {
-      for (const p of store.products) {
-        await ProductModel.findOneAndUpdate({ slug: p.slug }, p, { upsert: true });
-      }
+    // Sync products with MongoDB (strictly maintain the official 8 products)
+    const officialProductSlugs = INITIAL_PRODUCTS.map((p) => p.slug);
+    try {
+      await ProductModel.deleteMany({ slug: { $nin: officialProductSlugs } });
+    } catch {}
+    for (const p of store.products) {
+      await ProductModel.findOneAndUpdate({ slug: p.slug }, p, { upsert: true });
     }
 
     // Load orders from MongoDB if available
