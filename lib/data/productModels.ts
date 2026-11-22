@@ -65,8 +65,6 @@ export function getProductModels(product: Product): ProductModel[] {
           '/images/models/balaji-m18-view-2.jpg',
           '/images/models/balaji-m18-view-3.jpg',
           '/images/models/balaji-m18-view-4.jpg',
-          '/images/models/balaji-m18-view-5.jpg',
-          '/images/models/balaji-m18-art.jpg',
         ],
       };
     }

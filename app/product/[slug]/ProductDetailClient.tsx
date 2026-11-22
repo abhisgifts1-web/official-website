@@ -591,9 +591,9 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
   const [customWidth, setCustomWidth] = useState<number>(24);
   const [customHeight, setCustomHeight] = useState<number>(36);
 
-  // Models state (M-1 to M-25 with popular highlights like M-18 🔥)
+  // Models state - streamlined to top 5-6 models for focused selection across all categories
   const availableModels = useMemo(() => {
-    return getProductModels(liveProduct || product);
+    return getProductModels(liveProduct || product).slice(0, 6);
   }, [liveProduct, product]);
 
   const [selectedModelId, setSelectedModelId] = useState<string>(() => {
@@ -609,17 +609,86 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
     setActiveImageIndex(0);
   };
 
-  // Gallery state - prioritizes current model mockups, then liveProduct images
-  const galleryImages = useMemo(() => {
-    if (currentModel && Array.isArray(currentModel.mockups) && currentModel.mockups.length > 0) {
-      return Array.from(new Set(currentModel.mockups.filter(Boolean)));
+  // Category fallback mockups guaranteeing every product in every category has 5-6 model images
+  const categoryFallbackMockups = useMemo(() => {
+    const cat = (product.categorySlug || liveProduct?.categorySlug || '').toLowerCase();
+    if (cat === 'acrylic-photo-frames' || cat.includes('acrylic')) {
+      return [
+        '/images/mockups/custom-personalised-photo-acrylic-wall-frame/primary-square.jpg',
+        '/images/mockups/custom-personalised-photo-acrylic-wall-frame/mockup-living-room.jpg',
+        '/images/mockups/custom-personalised-photo-acrylic-wall-frame/mockup-foyer.jpg',
+        '/images/mockups/custom-personalised-photo-acrylic-wall-frame/mockup-interior.jpg',
+        '/images/mockups/custom-personalised-photo-acrylic-wall-frame/mockup-detail.jpg',
+        '/images/mockups/custom-personalised-photo-acrylic-wall-frame/mockup-artistic.jpg',
+      ];
     }
-    const list =
-      liveProduct?.images && liveProduct.images.length > 0
-        ? liveProduct.images
-        : product.images || [];
-    return Array.from(new Set(list.filter(Boolean)));
-  }, [currentModel, liveProduct?.images, product.images]);
+    if (cat === 'glitter-photo-frames' || cat.includes('glitter')) {
+      return [
+        '/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg',
+        '/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg',
+        '/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-foyer.jpg',
+        '/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg',
+        '/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-detail.jpg',
+        '/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-artistic.jpg',
+      ];
+    }
+    if (cat === 'god-photo-frames' || cat.includes('god') || cat.includes('balaji')) {
+      return [
+        '/images/mockups/tirupati-balaji-divine-led-backlit-acrylic-wall-art/primary-square.jpg',
+        '/images/mockups/tirupati-balaji-divine-led-backlit-acrylic-wall-art/mockup-living-room.jpg',
+        '/images/mockups/tirupati-balaji-divine-led-backlit-acrylic-wall-art/mockup-foyer.jpg',
+        '/images/mockups/tirupati-balaji-divine-led-backlit-acrylic-wall-art/mockup-interior.jpg',
+        '/images/mockups/tirupati-balaji-divine-led-backlit-acrylic-wall-art/mockup-detail.jpg',
+        '/images/mockups/tirupati-balaji-divine-led-backlit-acrylic-wall-art/mockup-artistic.jpg',
+      ];
+    }
+    if (cat === '360-rotating-photo-lamps' || cat.includes('lamp') || cat.includes('rotating')) {
+      return [
+        '/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/primary-square.jpg',
+        '/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/mockup-living-room.jpg',
+        '/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/mockup-foyer.jpg',
+        '/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/mockup-interior.jpg',
+        '/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/mockup-detail.jpg',
+        '/images/mockups/crystal-tower-hexagonal-rotating-photo-lamp/mockup-artistic.jpg',
+      ];
+    }
+    return [
+      '/images/mockups/custom-led-backlit-acrylic-photo-frame/primary-square.jpg',
+      '/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-living-room.jpg',
+      '/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-foyer.jpg',
+      '/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-interior.jpg',
+      '/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-detail.jpg',
+      '/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-artistic.jpg',
+    ];
+  }, [product.categorySlug, liveProduct?.categorySlug]);
+
+  // Gallery state - guarantees exactly 5-6 model images for every product and category
+  const galleryImages = useMemo(() => {
+    let sourceList: string[] = [];
+
+    if (currentModel && Array.isArray(currentModel.mockups) && currentModel.mockups.length > 0) {
+      sourceList = currentModel.mockups.filter(Boolean);
+    } else if (liveProduct?.images && liveProduct.images.length > 0) {
+      sourceList = liveProduct.images.filter(Boolean);
+    } else if (product.images && product.images.length > 0) {
+      sourceList = product.images.filter(Boolean);
+    }
+
+    const unique = Array.from(new Set(sourceList));
+
+    if (unique.length >= 5) {
+      return unique.slice(0, 6);
+    }
+
+    const combined = [...unique];
+    for (const fallback of categoryFallbackMockups) {
+      if (combined.length >= 5) break;
+      if (!combined.includes(fallback)) {
+        combined.push(fallback);
+      }
+    }
+    return combined.slice(0, 6);
+  }, [currentModel, liveProduct?.images, product.images, categoryFallbackMockups]);
 
   const thumbnailContainerRef = useRef<HTMLDivElement>(null);
   const [activeImageIndex, setActiveImageIndex] = useState<number>(0);
@@ -1031,8 +1100,8 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 xl:gap-10 items-start">
           {/* LEFT COLUMN: Main Sticky Artwork Frame & Mockups Gallery */}
           <div className="lg:col-span-6 xl:col-span-6 lg:sticky lg:top-20 self-start space-y-3 sm:space-y-3.5">
-            {/* Main Display Container */}
-            <div className="relative w-full max-w-[540px] xl:max-w-[580px] mx-auto h-[320px] sm:h-[400px] lg:h-[calc(100vh-210px)] max-h-[500px] xl:max-h-[540px] aspect-square rounded-2xl overflow-hidden bg-[#18181B] border border-stone-200 transition-all duration-300 flex items-center justify-center group shadow-sm">
+            {/* Main Display Container - calibrated aspect ratio and object-cover to guarantee zero black space */}
+            <div className="relative w-full max-w-[560px] xl:max-w-[620px] mx-auto aspect-[4/3] rounded-2xl overflow-hidden bg-stone-900 border border-stone-200 transition-all duration-300 flex items-center justify-center group shadow-md">
               {/* Top Floating Zoom Control (Badge removed as requested) */}
               <div className="absolute top-3 right-3 z-20 pointer-events-none">
                 <button
@@ -1069,8 +1138,8 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                     />
                   )}
 
-                  <div className="relative w-full h-full overflow-hidden rounded-2xl bg-[#141416] z-10 transition-all flex items-center justify-center">
-                    {/* Main Artwork Image with Smooth Zoom tracking */}
+                  <div className="relative w-full h-full overflow-hidden rounded-2xl bg-stone-900 z-10 transition-all flex items-center justify-center">
+                    {/* Main Artwork Image - object-cover ensures edge-to-edge fit without black space */}
                     <img
                       src={activeImage}
                       alt={product.title}
@@ -1087,7 +1156,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                             }
                           : undefined
                       }
-                      className="w-full h-full object-contain transition-transform duration-150"
+                      className="w-full h-full object-cover object-center transition-transform duration-150 select-none"
                     />
                   </div>
                 </div>
@@ -1297,7 +1366,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
               )}
             </div>
 
-            {/* Models Selector (M-1 to M-25 with Trending Highlights matching customer reference) */}
+            {/* Models Selector (Top 5-6 Models with Trending Highlights) */}
             <div className="space-y-2.5 pt-1">
               <div className="flex items-center justify-between text-xs font-bold text-stone-900">
                 <span className="flex items-center gap-1.5">
