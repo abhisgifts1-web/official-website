@@ -64,7 +64,7 @@ function ShopContent() {
 
   useEffect(() => {
     if (initialSearch) setSearch(initialSearch);
-    if (initialCategory) setSelectedCategory(initialCategory === 'all' ? '' : initialCategory);
+    setSelectedCategory(initialCategory === 'all' ? '' : initialCategory);
     
   }, [initialSearch, initialCategory, initialShape]);
 
