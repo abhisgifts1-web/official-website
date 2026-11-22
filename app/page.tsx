@@ -6,7 +6,6 @@ import CategoryShowcase from '@/components/home/CategoryShowcase';
 import BestsellersShowcase from '@/components/home/BestsellersShowcase';
 import NewArrivalsShowcase from '@/components/home/NewArrivalsShowcase';
 import PromotionalBanner from '@/components/home/PromotionalBanner';
-import AllProductsShowcase from '@/components/home/AllProductsShowcase';
 import WhyChooseUsSection from '@/components/home/WhyChooseUsSection';
 import CustomerReviewsSection from '@/components/home/CustomerReviewsSection';
 
@@ -27,9 +26,6 @@ export default function HomePage() {
 
       {/* 8. Promotional banner */}
       <PromotionalBanner />
-
-      {/* 9. All products */}
-      <AllProductsShowcase />
 
       {/* 10. Why choose us */}
       <WhyChooseUsSection />
