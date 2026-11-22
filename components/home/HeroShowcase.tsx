@@ -106,6 +106,32 @@ export const FEATURED_ARTWORKS: FeaturedArtwork[] = [
     dimensions: '20" × 14"',
     isBestseller: false,
   },
+  {
+    id: 'lord-hanuman',
+    name: 'Lord Hanuman — Sankat Mochan',
+    subtitle: 'Chiranjeevi Veer • 24K Gold Sacred Protection',
+    tagline: 'Shields household with invincible courage, cosmic vitality & divine strength.',
+    image: '/images/mockups/sankat-mochan-lord-hanuman-24k-gold-acrylic-wall-art/mockup-interior.jpg',
+    frameMockup: '/images/mockups/sankat-mochan-lord-hanuman-24k-gold-acrylic-wall-art/primary-square.jpg',
+    slug: 'sankat-mochan-lord-hanuman-24k-gold-acrylic-wall-art',
+    price: '₹3,199',
+    originalPrice: '₹4,899',
+    dimensions: '24" × 16"',
+    isBestseller: true,
+  },
+  {
+    id: 'seven-horses',
+    name: 'Seven Running Horses — Vastu Abundance',
+    subtitle: 'Surya Ashwa • Cosmic Speed & Financial Elevation',
+    tagline: 'Attracts unprecedented prosperity, rapid progress & career victory into your sanctum.',
+    image: '/images/mockups/seven-running-horses-vastu-gold-acrylic-wall-art/mockup-interior.jpg',
+    frameMockup: '/images/mockups/seven-running-horses-vastu-gold-acrylic-wall-art/primary-square.jpg',
+    slug: 'seven-running-horses-vastu-gold-acrylic-wall-art',
+    price: '₹3,499',
+    originalPrice: '₹5,299',
+    dimensions: '30" × 18"',
+    isBestseller: true,
+  },
 ];
 
 export default function HeroShowcase() {
@@ -298,9 +324,24 @@ export default function HeroShowcase() {
 
               </div>
 
-              {/* Artwork Image Thumbnails */}
-              <div className="mt-3 sm:mt-4 w-full">
-                <div className="grid grid-cols-6 gap-2">
+              {/* Artwork Image Thumbnails Strip with 8 Masterpieces & Number Badges */}
+              <div className="mt-3 sm:mt-4 w-full space-y-1.5">
+                <div className="flex items-center justify-between text-xs font-semibold px-0.5">
+                  <span className="flex items-center gap-1.5 text-stone-300">
+                    <Sparkles className="w-3.5 h-3.5 text-[#FEE815] shrink-0" />
+                    <span className="font-bold text-white text-[11px] sm:text-xs">
+                      Featured Masterpieces
+                    </span>
+                    <span className="text-[10px] sm:text-[11px] text-amber-300/80 font-mono">
+                      ({selectedArtworkIndex + 1} of {FEATURED_ARTWORKS.length})
+                    </span>
+                  </span>
+                  <span className="text-[10px] text-stone-400 font-mono hidden sm:inline-block">
+                    Auto-Rotating
+                  </span>
+                </div>
+
+                <div className="grid grid-cols-8 gap-1 sm:gap-1.5 md:gap-2">
                   {FEATURED_ARTWORKS.map((artwork, idx) => {
                     const isActive = selectedArtworkIndex === idx;
                     return (
@@ -323,6 +364,16 @@ export default function HeroShowcase() {
                         {isActive && (
                           <div className="absolute inset-0 bg-amber-500/15 pointer-events-none" />
                         )}
+                        {/* Clean Number Badge in corner (1 to 8) */}
+                        <span
+                          className={`absolute bottom-0.5 right-0.5 font-mono text-[8px] sm:text-[9.5px] font-bold px-1 py-0.2 rounded leading-none transition-colors ${
+                            isActive
+                              ? 'bg-[#FEE815] text-stone-950 font-black shadow-xs'
+                              : 'bg-black/75 text-stone-300'
+                          }`}
+                        >
+                          {idx + 1}
+                        </span>
                       </button>
                     );
                   })}
