@@ -1,134 +1,15 @@
 [
   {
-    "slug": "custom-personalised-photo-acrylic-wall-frame",
-    "title": "Custom Personalised High-Definition Acrylic Photo Frame",
-    "subtitle": "5MM Ultra-Gloss Crystal Clear Acrylic with Direct UV Printing",
-    "shortDescription": "Turn your wedding, family, or travel memories into crystal-clear frameless acrylic wall art.",
-    "description": "Transform your special moments into heirloom wall art. Upload your favorite high-resolution photo and let our studio print it directly onto diamond-polished crystal cast acrylic. The frameless design creates a clean, modern floating aesthetic where your memories look vibrant and lifelike from every angle.",
-    "categorySlug": "acrylic-photo-frames",
-    "categoryName": "Acrylic Photo Frames",
-    "artStyle": "Custom Photo Frames",
-    "orientation": "vertical",
-    "images": [
-      "/images/mockups/custom-personalised-photo-acrylic-wall-frame/primary-square.jpg",
-      "/images/mockups/custom-personalised-photo-acrylic-wall-frame/mockup-living-room.jpg",
-      "/images/mockups/custom-personalised-photo-acrylic-wall-frame/mockup-foyer.jpg",
-      "/images/mockups/custom-personalised-photo-acrylic-wall-frame/mockup-interior.jpg",
-      "/images/mockups/custom-personalised-photo-acrylic-wall-frame/mockup-detail.jpg",
-      "/images/mockups/custom-personalised-photo-acrylic-wall-frame/mockup-artistic.jpg"
-    ],
-    "tags": [
-      "Acrylic Photo Frame",
-      "5MM Acrylic",
-      "Custom Photo",
-      "Direct UV Printing",
-      "Wall Decor"
-    ],
-    "isFeatured": true,
-    "isBestseller": true,
-    "isNewArrival": true,
-    "hasLedBacklight": false,
-    "basePrice": 699,
-    "baseMrp": 1499,
-    "discountPercentage": 53,
-    "rating": 4.9,
-    "reviewCount": 48,
-    "variants": [
-      {
-        "id": "var-cp1",
-        "size": "8 x 12 inches",
-        "dimensionsCm": "20 x 30 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "No Lighting (Pure Art)",
-        "price": 1499,
-        "mrp": 2999,
-        "sku": "AG-CUSTOM-812",
-        "inStock": true,
-        "stockCount": 150,
-        "_id": "6ae89187382113ccb9a54218"
-      },
-      {
-        "id": "var-cp2",
-        "size": "12 x 18 inches",
-        "dimensionsCm": "30 x 45 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "No Lighting (Pure Art)",
-        "price": 2199,
-        "mrp": 4199,
-        "sku": "AG-CUSTOM-1218",
-        "inStock": true,
-        "stockCount": 120,
-        "_id": "6ae89187382113ccb9a54219"
-      },
-      {
-        "id": "var-cp3",
-        "size": "16 x 24 inches",
-        "dimensionsCm": "40 x 60 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "No Lighting (Pure Art)",
-        "price": 3299,
-        "mrp": 5999,
-        "sku": "AG-CUSTOM-1624",
-        "inStock": true,
-        "stockCount": 90,
-        "_id": "6ae89187382113ccb9a5421a"
-      },
-      {
-        "id": "var-cp4",
-        "size": "20 x 30 inches",
-        "dimensionsCm": "50 x 75 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "No Lighting (Pure Art)",
-        "price": 4499,
-        "mrp": 7999,
-        "sku": "AG-CUSTOM-2030",
-        "inStock": true,
-        "stockCount": 45,
-        "_id": "6ae89187382113ccb9a5421b"
-      }
-    ],
-    "specifications": [
-      {
-        "label": "Photo Enhancement",
-        "value": "Complimentary professional studio color correction & sharpness check",
-        "_id": "6ae89187382113ccb9a5421c"
-      },
-      {
-        "label": "Acrylic Thickness",
-        "value": "3mm / 5mm High Clarity Cast Acrylic",
-        "_id": "6ae89187382113ccb9a5421d"
-      },
-      {
-        "label": "Hanging Mount",
-        "value": "Floating standoff wall studs or concealed rear hook bracket",
-        "_id": "6ae89187382113ccb9a5421e"
-      }
-    ],
-    "materialAndCare": [
-      "Microfiber wipe",
-      "UV protected print that never yellows"
-    ],
-    "shippingHighlights": [
-      "Dispatched in 48 hours after customer preview confirmation"
-    ],
-    "reviews": [],
-    "createdAt": "2026-08-05T00:00:00.000Z",
-    "updatedAt": "2026-11-02T13:35:03.400Z",
-    "id": "6ae89187382113ccb9a54217",
-    "categorySlugs": [
-      "acrylic-photo-frames"
-    ]
-  },
-  {
     "slug": "custom-led-backlit-acrylic-photo-frame",
-    "title": "Custom LED Backlit Night-Glow Acrylic Photo Frame",
-    "subtitle": "Cool White LED Halo Glow & Rose Gold Aluminium Side Frame",
-    "shortDescription": "Turn your cherished memory into a lighted nocturnal work of art with our warm perimeter LED glow frame.",
-    "description": "A magical gift for anniversaries, birthdays, and milestones. Your uploaded photo is printed on optical grade acrylic and illuminated from behind with precision LED diodes. At night, it casts a soothing, romantic ambient light that illuminates your memories with warmth and clarity.",
-    "categorySlug": "led-acrylic-photo-frames",
-    "categoryName": "LED Photo Frames",
     "artStyle": "Custom Photo Frames",
-    "orientation": "vertical",
+    "baseMrp": 2399,
+    "basePrice": 1199,
+    "categoryName": "LED Photo Frames",
+    "categorySlug": "led-acrylic-photo-frames",
+    "createdAt": "2026-11-22T05:32:30.417Z",
+    "description": "A magical gift for anniversaries, birthdays, and milestones. Your uploaded photo is printed on optical grade acrylic and illuminated from behind with precision LED diodes. At night, it casts a soothing, romantic ambient light that illuminates your memories with warmth and clarity.",
+    "discountPercentage": 50,
+    "hasLedBacklight": true,
     "images": [
       "/images/mockups/custom-led-backlit-acrylic-photo-frame/primary-square.jpg",
       "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-living-room.jpg",
@@ -137,6 +18,41 @@
       "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-detail.jpg",
       "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-artistic.jpg"
     ],
+    "isBestseller": true,
+    "isFeatured": true,
+    "isNewArrival": true,
+    "materialAndCare": [
+      "Indoor use",
+      "Keep cord dry"
+    ],
+    "models": [],
+    "orientation": "vertical",
+    "orientationVariants": {
+      "landscape": [],
+      "portrait": [],
+      "round": [],
+      "square": []
+    },
+    "rating": 4.9,
+    "reviewCount": 48,
+    "reviews": [],
+    "shippingHighlights": [
+      "Dispatched in 2 days with safe foam packaging"
+    ],
+    "shortDescription": "Turn your cherished memory into a lighted nocturnal work of art with our warm perimeter LED glow frame.",
+    "specifications": [
+      {
+        "label": "Lighting Technology",
+        "value": "Edge-lit diffused LED warm array",
+        "_id": "6ae89187382113ccb9a54223"
+      },
+      {
+        "label": "Power",
+        "value": "12V safe low-voltage adapter included",
+        "_id": "6ae89187382113ccb9a54224"
+      }
+    ],
+    "subtitle": "Cool White LED Halo Glow & Rose Gold Aluminium Side Frame",
     "tags": [
       "LED Photo Frame",
       "Backlit Acrylic",
@@ -144,15 +60,8 @@
       "Rose Gold Border",
       "Night Light"
     ],
-    "isFeatured": true,
-    "isBestseller": true,
-    "isNewArrival": true,
-    "hasLedBacklight": true,
-    "basePrice": 1199,
-    "baseMrp": 2399,
-    "discountPercentage": 50,
-    "rating": 4.9,
-    "reviewCount": 48,
+    "title": "Custom LED Backlit Night-Glow Acrylic Photo Frame",
+    "updatedAt": "2026-11-22T07:38:05.164Z",
     "variants": [
       {
         "id": "var-cled1",
@@ -194,33 +103,7 @@
         "_id": "6ae89187382113ccb9a54222"
       }
     ],
-    "specifications": [
-      {
-        "label": "Lighting Technology",
-        "value": "Edge-lit diffused LED warm array",
-        "_id": "6ae89187382113ccb9a54223"
-      },
-      {
-        "label": "Power",
-        "value": "12V safe low-voltage adapter included",
-        "_id": "6ae89187382113ccb9a54224"
-      }
-    ],
-    "materialAndCare": [
-      "Indoor use",
-      "Keep cord dry"
-    ],
-    "shippingHighlights": [
-      "Dispatched in 2 days with safe foam packaging"
-    ],
-    "reviews": [],
-    "createdAt": "2026-09-15T00:00:00.000Z",
-    "updatedAt": "2026-11-02T13:35:03.400Z",
-    "id": "6ae89187382113ccb9a5421f",
-    "categorySlugs": [
-      "led-acrylic-photo-frames",
-      "led-photo-frames"
-    ]
+    "id": "6b027e6e5093473a07608a10"
   },
   {
     "slug": "enchanted-liquid-gold-glitter-acrylic-photo-frame",
@@ -331,7 +214,7 @@
     ],
     "reviews": [],
     "createdAt": "2026-11-01T00:00:00.000Z",
-    "updatedAt": "2026-11-21T15:58:21.701Z",
+    "updatedAt": "2026-11-22T07:38:05.375Z",
     "models": [
       {
         "id": "M-18",
@@ -342,7 +225,8 @@
           "https://res.cloudinary.com/pwjyb57h/image/upload/v1795275935/abhi-gifts/uploads/gbboh9y7ila74vzqwnzi.jpg",
           "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg",
           "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg"
-        ]
+        ],
+        "_id": "6b029bdda5436e76103c3b7b"
       },
       {
         "id": "M-10",
@@ -353,7 +237,8 @@
           "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg",
           "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg",
           "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg"
-        ]
+        ],
+        "_id": "6b029bdda5436e76103c3b7c"
       },
       {
         "id": "M-1",
@@ -364,7 +249,8 @@
           "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg",
           "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg",
           "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg"
-        ]
+        ],
+        "_id": "6b029bdda5436e76103c3b7d"
       },
       {
         "id": "M-2",
@@ -375,7 +261,8 @@
           "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg",
           "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg",
           "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg"
-        ]
+        ],
+        "_id": "6b029bdda5436e76103c3b7e"
       },
       {
         "id": "M-3",
@@ -386,7 +273,8 @@
           "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg",
           "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg",
           "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg"
-        ]
+        ],
+        "_id": "6b029bdda5436e76103c3b7f"
       },
       {
         "id": "M-4",
@@ -397,7 +285,8 @@
           "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg",
           "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg",
           "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg"
-        ]
+        ],
+        "_id": "6b029bdda5436e76103c3b80"
       },
       {
         "id": "M-5",
@@ -408,7 +297,8 @@
           "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg",
           "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg",
           "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg"
-        ]
+        ],
+        "_id": "6b029bdda5436e76103c3b81"
       },
       {
         "id": "M-6",
@@ -419,7 +309,8 @@
           "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg",
           "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg",
           "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg"
-        ]
+        ],
+        "_id": "6b029bdda5436e76103c3b82"
       },
       {
         "id": "M-7",
@@ -430,7 +321,8 @@
           "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg",
           "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg",
           "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg"
-        ]
+        ],
+        "_id": "6b029bdda5436e76103c3b83"
       },
       {
         "id": "M-8",
@@ -441,7 +333,8 @@
           "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg",
           "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg",
           "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg"
-        ]
+        ],
+        "_id": "6b029bdda5436e76103c3b84"
       },
       {
         "id": "M-9",
@@ -452,7 +345,8 @@
           "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg",
           "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg",
           "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg"
-        ]
+        ],
+        "_id": "6b029bdda5436e76103c3b85"
       },
       {
         "id": "M-11",
@@ -463,7 +357,8 @@
           "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg",
           "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg",
           "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg"
-        ]
+        ],
+        "_id": "6b029bdda5436e76103c3b86"
       },
       {
         "id": "M-12",
@@ -474,7 +369,8 @@
           "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg",
           "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg",
           "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg"
-        ]
+        ],
+        "_id": "6b029bdda5436e76103c3b87"
       },
       {
         "id": "M-13",
@@ -485,7 +381,8 @@
           "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg",
           "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg",
           "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg"
-        ]
+        ],
+        "_id": "6b029bdda5436e76103c3b88"
       },
       {
         "id": "M-14",
@@ -496,7 +393,8 @@
           "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg",
           "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg",
           "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg"
-        ]
+        ],
+        "_id": "6b029bdda5436e76103c3b89"
       },
       {
         "id": "M-15",
@@ -507,7 +405,8 @@
           "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg",
           "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg",
           "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg"
-        ]
+        ],
+        "_id": "6b029bdda5436e76103c3b8a"
       },
       {
         "id": "M-16",
@@ -518,7 +417,8 @@
           "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg",
           "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg",
           "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg"
-        ]
+        ],
+        "_id": "6b029bdda5436e76103c3b8b"
       },
       {
         "id": "M-17",
@@ -529,7 +429,8 @@
           "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg",
           "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg",
           "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg"
-        ]
+        ],
+        "_id": "6b029bdda5436e76103c3b8c"
       },
       {
         "id": "M-19",
@@ -540,7 +441,8 @@
           "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg",
           "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg",
           "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg"
-        ]
+        ],
+        "_id": "6b029bdda5436e76103c3b8d"
       },
       {
         "id": "M-20",
@@ -551,7 +453,8 @@
           "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg",
           "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg",
           "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg"
-        ]
+        ],
+        "_id": "6b029bdda5436e76103c3b8e"
       },
       {
         "id": "M-21",
@@ -562,7 +465,8 @@
           "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg",
           "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg",
           "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg"
-        ]
+        ],
+        "_id": "6b029bdda5436e76103c3b8f"
       },
       {
         "id": "M-22",
@@ -573,7 +477,8 @@
           "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg",
           "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg",
           "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg"
-        ]
+        ],
+        "_id": "6b029bdda5436e76103c3b90"
       },
       {
         "id": "M-23",
@@ -584,7 +489,8 @@
           "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg",
           "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg",
           "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg"
-        ]
+        ],
+        "_id": "6b029bdda5436e76103c3b91"
       },
       {
         "id": "M-24",
@@ -595,7 +501,8 @@
           "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg",
           "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg",
           "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg"
-        ]
+        ],
+        "_id": "6b029bdda5436e76103c3b92"
       },
       {
         "id": "M-25",
@@ -606,7 +513,8 @@
           "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/primary-square.jpg",
           "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-living-room.jpg",
           "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-interior.jpg"
-        ]
+        ],
+        "_id": "6b029bdda5436e76103c3b93"
       }
     ],
     "orientationVariants": {
@@ -773,10 +681,7 @@
         }
       ]
     },
-    "id": "6ae89187382113ccb9a542bc",
-    "categorySlugs": [
-      "glitter-photo-frames"
-    ]
+    "id": "6ae89187382113ccb9a542bc"
   },
   {
     "slug": "motorized-360-rotating-led-cylinder-photo-lamp",
@@ -884,12 +789,399 @@
     ],
     "reviews": [],
     "createdAt": "2026-11-01T00:00:00.000Z",
-    "updatedAt": "2026-11-02T13:35:03.409Z",
-    "id": "6ae89187382113ccb9a542ca",
-    "categorySlugs": [
-      "360-rotating-photo-lamps",
-      "rotating-photo-lamps"
-    ]
+    "updatedAt": "2026-11-22T07:38:06.040Z",
+    "id": "6ae89187382113ccb9a542ca"
+  },
+  {
+    "slug": "luxury-beveled-floating-border-acrylic-masterpiece-frame",
+    "title": "Personalized Luxury Milestone Keepsake & Acrylic Gift Plaque",
+    "subtitle": "Bespoke Milestone Dedication & Laser-Faceted Floating Bevels in Luxury Box",
+    "shortDescription": "Museum-standard frameless floating acrylic design engineered for prestige family & sacred photography.",
+    "description": "Elevate your interiors with our flagship premium framing profile. Featuring optical-grade 4mm cast acrylic with diamond-cut 45-degree chamfered edges, an integrated floating wall-offset suspension system, and subtle gold-embossed accent liners that transform any photograph or artwork into a gallery centerpiece.",
+    "categorySlug": "personalized-gifts",
+    "categoryName": "Personalized Gifts",
+    "artStyle": "Museum Gallery Framing",
+    "orientation": "vertical",
+    "images": [
+      "/images/mockups/luxury-beveled-floating-border-acrylic-masterpiece-frame/primary-square.jpg",
+      "/images/mockups/luxury-beveled-floating-border-acrylic-masterpiece-frame/mockup-living-room.jpg",
+      "/images/mockups/luxury-beveled-floating-border-acrylic-masterpiece-frame/mockup-foyer.jpg",
+      "/images/mockups/luxury-beveled-floating-border-acrylic-masterpiece-frame/mockup-interior.jpg",
+      "/images/mockups/luxury-beveled-floating-border-acrylic-masterpiece-frame/mockup-detail.jpg",
+      "/images/mockups/luxury-beveled-floating-border-acrylic-masterpiece-frame/mockup-artistic.jpg"
+    ],
+    "tags": [
+      "Personalized Gifts",
+      "Milestone Keepsake",
+      "Gift Plaque",
+      "Luxury Acrylic",
+      "Custom Gift"
+    ],
+    "isFeatured": true,
+    "isBestseller": true,
+    "isNewArrival": true,
+    "hasLedBacklight": false,
+    "basePrice": 999,
+    "baseMrp": 1999,
+    "discountPercentage": 50,
+    "rating": 4.9,
+    "reviewCount": 48,
+    "variants": [
+      {
+        "id": "var-prem-frame1",
+        "size": "14 x 20 inches",
+        "dimensionsCm": "35 x 50 cm",
+        "finish": "Acrylic Ultra-Gloss",
+        "lighting": "No Lighting (Pure Art)",
+        "price": 2699,
+        "mrp": 5299,
+        "sku": "AG-PREM-1420",
+        "inStock": true,
+        "stockCount": 30,
+        "_id": "6ae89187382113ccb9a542b4"
+      },
+      {
+        "id": "var-prem-frame2",
+        "size": "20 x 28 inches",
+        "dimensionsCm": "50 x 70 cm",
+        "finish": "Acrylic Ultra-Gloss",
+        "lighting": "No Lighting (Pure Art)",
+        "price": 3999,
+        "mrp": 7699,
+        "sku": "AG-PREM-2028",
+        "inStock": true,
+        "stockCount": 22,
+        "_id": "6ae89187382113ccb9a542b5"
+      }
+    ],
+    "specifications": [
+      {
+        "label": "Finish",
+        "value": "Diamond Chamfered Cast Acrylic with Gold Perimeter Inlay",
+        "_id": "6ae89187382113ccb9a542b6"
+      },
+      {
+        "label": "Mounting",
+        "value": "Engineered Floating Standoff System",
+        "_id": "6ae89187382113ccb9a542b7"
+      }
+    ],
+    "materialAndCare": [
+      "Microfiber wipe only."
+    ],
+    "shippingHighlights": [
+      "Transit Safe Guarantee"
+    ],
+    "reviews": [],
+    "createdAt": "2026-10-01T00:00:00.000Z",
+    "updatedAt": "2026-11-22T07:38:06.893Z",
+    "id": "6ae89187382113ccb9a542b3"
+  },
+  {
+    "slug": "custom-couple-wedding-vows-acrylic-keepsake-frame",
+    "title": "Customized Wedding Vows & Couple Acrylic Keepsake Frame",
+    "subtitle": "Couple Names, Wedding Date & Vows Rendered in Crystal Optical Depth",
+    "shortDescription": "Immortalize your most cherished vows and bridal portraits on diamond-polished acrylic.",
+    "description": "Turn your sacred marriage ceremonies and romantic milestones into museum-quality heirlooms. We print your high-res photography with Swiss UV inks directly on 4mm cast acrylic with personalized gold script names and wedding dates.",
+    "categorySlug": "couple-wedding-frames",
+    "categoryName": "Couple & Wedding Frames",
+    "artStyle": "Custom Wedding Acrylic",
+    "orientation": "vertical",
+    "images": [
+      "/images/mockups/custom-couple-wedding-vows-acrylic-keepsake-frame/primary-square.jpg",
+      "/images/mockups/custom-couple-wedding-vows-acrylic-keepsake-frame/mockup-living-room.jpg",
+      "/images/mockups/custom-couple-wedding-vows-acrylic-keepsake-frame/mockup-foyer.jpg",
+      "/images/mockups/custom-couple-wedding-vows-acrylic-keepsake-frame/mockup-interior.jpg",
+      "/images/mockups/custom-couple-wedding-vows-acrylic-keepsake-frame/mockup-detail.jpg",
+      "/images/mockups/custom-couple-wedding-vows-acrylic-keepsake-frame/mockup-artistic.jpg"
+    ],
+    "tags": [
+      "Couple Frame",
+      "Wedding Keepsake",
+      "Anniversary Gift",
+      "Wedding Vows",
+      "Acrylic Frame"
+    ],
+    "isFeatured": true,
+    "isBestseller": true,
+    "isNewArrival": true,
+    "hasLedBacklight": false,
+    "basePrice": 899,
+    "baseMrp": 1799,
+    "discountPercentage": 50,
+    "rating": 4.9,
+    "reviewCount": 48,
+    "variants": [
+      {
+        "id": "var-wed1",
+        "size": "12 x 18 inches",
+        "dimensionsCm": "30 x 45 cm",
+        "finish": "Acrylic Ultra-Gloss",
+        "lighting": "Warm LED Backlit (12V Adapter)",
+        "price": 2499,
+        "mrp": 4999,
+        "sku": "AG-WED-1218",
+        "inStock": true,
+        "stockCount": 40,
+        "_id": "6ae89187382113ccb9a54291"
+      },
+      {
+        "id": "var-wed2",
+        "size": "18 x 24 inches",
+        "dimensionsCm": "45 x 60 cm",
+        "finish": "Acrylic Ultra-Gloss",
+        "lighting": "Warm LED Backlit (12V Adapter)",
+        "price": 3699,
+        "mrp": 6999,
+        "sku": "AG-WED-1824",
+        "inStock": true,
+        "stockCount": 30,
+        "_id": "6ae89187382113ccb9a54292"
+      }
+    ],
+    "specifications": [
+      {
+        "label": "Customization",
+        "value": "WhatsApp Proof Approval Before Print",
+        "_id": "6ae89187382113ccb9a54293"
+      },
+      {
+        "label": "Lighting",
+        "value": "3000K Epistar Warm SMD LED with 12V 2A Adapter",
+        "_id": "6ae89187382113ccb9a54294"
+      }
+    ],
+    "materialAndCare": [
+      "Microfiber wipe only"
+    ],
+    "shippingHighlights": [
+      "Insured 5-layer crate packaging"
+    ],
+    "reviews": [],
+    "createdAt": "2026-09-22T00:00:00.000Z",
+    "updatedAt": "2026-11-22T07:38:06.688Z",
+    "id": "6ae89187382113ccb9a54290"
+  },
+  {
+    "slug": "personalized-family-heirloom-gold-script-acrylic-frame",
+    "title": "Personalized Family Heirloom Acrylic Wall Frame with Gold Foil Script",
+    "subtitle": "Custom Surname, Established Year & Multi-Photo Collage on 5MM Acrylic",
+    "shortDescription": "Cherished family heirlooms printed with high-gloss depth and custom 24K gold foil surname inscriptions.",
+    "description": "Celebrate family heritage with our mastercrafted heirloom acrylic frame. Personalize with your family name or wedding vow in shining 24K gold foil script across the bottom of the crystal acrylic.",
+    "categorySlug": "family-baby-frames",
+    "categoryName": "Family & Baby Frames",
+    "artStyle": "Custom Photo Frames",
+    "orientation": "horizontal",
+    "images": [
+      "/images/mockups/personalized-family-heirloom-gold-script-acrylic-frame/primary-square.jpg",
+      "/images/mockups/personalized-family-heirloom-gold-script-acrylic-frame/mockup-living-room.jpg",
+      "/images/mockups/personalized-family-heirloom-gold-script-acrylic-frame/mockup-foyer.jpg",
+      "/images/mockups/personalized-family-heirloom-gold-script-acrylic-frame/mockup-interior.jpg",
+      "/images/mockups/personalized-family-heirloom-gold-script-acrylic-frame/mockup-detail.jpg",
+      "/images/mockups/personalized-family-heirloom-gold-script-acrylic-frame/mockup-artistic.jpg"
+    ],
+    "tags": [
+      "Family Photo Frame",
+      "Baby Frame",
+      "Gold Script",
+      "Heirloom",
+      "Wall Decor"
+    ],
+    "isFeatured": true,
+    "isBestseller": true,
+    "isNewArrival": true,
+    "hasLedBacklight": false,
+    "basePrice": 899,
+    "baseMrp": 1799,
+    "discountPercentage": 50,
+    "rating": 4.9,
+    "reviewCount": 48,
+    "variants": [
+      {
+        "id": "var-fh1",
+        "size": "20 x 14 inches",
+        "dimensionsCm": "50 x 35 cm",
+        "finish": "Acrylic Ultra-Gloss",
+        "lighting": "No Lighting (Pure Art)",
+        "price": 2299,
+        "mrp": 4599,
+        "sku": "AG-FAM-2014",
+        "inStock": true,
+        "stockCount": 95,
+        "_id": "6ae89187382113ccb9a5423b"
+      },
+      {
+        "id": "var-fh2",
+        "size": "30 x 20 inches",
+        "dimensionsCm": "75 x 50 cm",
+        "finish": "Acrylic Ultra-Gloss",
+        "lighting": "No Lighting (Pure Art)",
+        "price": 3899,
+        "mrp": 7299,
+        "sku": "AG-FAM-3020",
+        "inStock": true,
+        "stockCount": 50,
+        "_id": "6ae89187382113ccb9a5423c"
+      },
+      {
+        "id": "var-fh3",
+        "size": "40 x 26 inches",
+        "dimensionsCm": "100 x 65 cm",
+        "finish": "Acrylic Ultra-Gloss",
+        "lighting": "No Lighting (Pure Art)",
+        "price": 5999,
+        "mrp": 10999,
+        "sku": "AG-FAM-4026",
+        "inStock": true,
+        "stockCount": 30,
+        "_id": "6ae89187382113ccb9a5423d"
+      }
+    ],
+    "specifications": [
+      {
+        "label": "Personalization",
+        "value": "Custom Gold Foil Name & Established Year Script",
+        "_id": "6ae89187382113ccb9a5423e"
+      },
+      {
+        "label": "Clarity Rating",
+        "value": "99.2% Museum Optical Transparency",
+        "_id": "6ae89187382113ccb9a5423f"
+      },
+      {
+        "label": "Mounting Style",
+        "value": "Brushed gold standoff corner studs included",
+        "_id": "6ae89187382113ccb9a54240"
+      }
+    ],
+    "materialAndCare": [
+      "Protected from UV and ambient humidity",
+      "Never fades or yellows"
+    ],
+    "shippingHighlights": [
+      "Dispatched in 48h after digital WhatsApp proof approval"
+    ],
+    "reviews": [],
+    "createdAt": "2026-09-05T00:00:00.000Z",
+    "updatedAt": "2026-11-22T07:38:06.475Z",
+    "id": "6ae89187382113ccb9a5423a"
+  },
+  {
+    "slug": "custom-personalised-photo-acrylic-wall-frame",
+    "title": "Custom Personalised High-Definition Acrylic Photo Frame",
+    "subtitle": "5MM Ultra-Gloss Crystal Clear Acrylic with Direct UV Printing",
+    "shortDescription": "Turn your wedding, family, or travel memories into crystal-clear frameless acrylic wall art.",
+    "description": "Transform your special moments into heirloom wall art. Upload your favorite high-resolution photo and let our studio print it directly onto diamond-polished crystal cast acrylic. The frameless design creates a clean, modern floating aesthetic where your memories look vibrant and lifelike from every angle.",
+    "categorySlug": "acrylic-photo-frames",
+    "categoryName": "Acrylic Photo Frames",
+    "artStyle": "Custom Photo Frames",
+    "orientation": "vertical",
+    "images": [
+      "/images/mockups/custom-personalised-photo-acrylic-wall-frame/primary-square.jpg",
+      "/images/mockups/custom-personalised-photo-acrylic-wall-frame/mockup-living-room.jpg",
+      "/images/mockups/custom-personalised-photo-acrylic-wall-frame/mockup-foyer.jpg",
+      "/images/mockups/custom-personalised-photo-acrylic-wall-frame/mockup-interior.jpg",
+      "/images/mockups/custom-personalised-photo-acrylic-wall-frame/mockup-detail.jpg",
+      "/images/mockups/custom-personalised-photo-acrylic-wall-frame/mockup-artistic.jpg"
+    ],
+    "tags": [
+      "Acrylic Photo Frame",
+      "5MM Acrylic",
+      "Custom Photo",
+      "Direct UV Printing",
+      "Wall Decor"
+    ],
+    "isFeatured": true,
+    "isBestseller": true,
+    "isNewArrival": true,
+    "hasLedBacklight": false,
+    "basePrice": 699,
+    "baseMrp": 1499,
+    "discountPercentage": 53,
+    "rating": 4.9,
+    "reviewCount": 48,
+    "variants": [
+      {
+        "id": "var-cp1",
+        "size": "8 x 12 inches",
+        "dimensionsCm": "20 x 30 cm",
+        "finish": "Acrylic Ultra-Gloss",
+        "lighting": "No Lighting (Pure Art)",
+        "price": 1499,
+        "mrp": 2999,
+        "sku": "AG-CUSTOM-812",
+        "inStock": true,
+        "stockCount": 150,
+        "_id": "6ae89187382113ccb9a54218"
+      },
+      {
+        "id": "var-cp2",
+        "size": "12 x 18 inches",
+        "dimensionsCm": "30 x 45 cm",
+        "finish": "Acrylic Ultra-Gloss",
+        "lighting": "No Lighting (Pure Art)",
+        "price": 2199,
+        "mrp": 4199,
+        "sku": "AG-CUSTOM-1218",
+        "inStock": true,
+        "stockCount": 120,
+        "_id": "6ae89187382113ccb9a54219"
+      },
+      {
+        "id": "var-cp3",
+        "size": "16 x 24 inches",
+        "dimensionsCm": "40 x 60 cm",
+        "finish": "Acrylic Ultra-Gloss",
+        "lighting": "No Lighting (Pure Art)",
+        "price": 3299,
+        "mrp": 5999,
+        "sku": "AG-CUSTOM-1624",
+        "inStock": true,
+        "stockCount": 90,
+        "_id": "6ae89187382113ccb9a5421a"
+      },
+      {
+        "id": "var-cp4",
+        "size": "20 x 30 inches",
+        "dimensionsCm": "50 x 75 cm",
+        "finish": "Acrylic Ultra-Gloss",
+        "lighting": "No Lighting (Pure Art)",
+        "price": 4499,
+        "mrp": 7999,
+        "sku": "AG-CUSTOM-2030",
+        "inStock": true,
+        "stockCount": 45,
+        "_id": "6ae89187382113ccb9a5421b"
+      }
+    ],
+    "specifications": [
+      {
+        "label": "Photo Enhancement",
+        "value": "Complimentary professional studio color correction & sharpness check",
+        "_id": "6ae89187382113ccb9a5421c"
+      },
+      {
+        "label": "Acrylic Thickness",
+        "value": "3mm / 5mm High Clarity Cast Acrylic",
+        "_id": "6ae89187382113ccb9a5421d"
+      },
+      {
+        "label": "Hanging Mount",
+        "value": "Floating standoff wall studs or concealed rear hook bracket",
+        "_id": "6ae89187382113ccb9a5421e"
+      }
+    ],
+    "materialAndCare": [
+      "Microfiber wipe",
+      "UV protected print that never yellows"
+    ],
+    "shippingHighlights": [
+      "Dispatched in 48 hours after customer preview confirmation"
+    ],
+    "reviews": [],
+    "createdAt": "2026-08-05T00:00:00.000Z",
+    "updatedAt": "2026-11-22T07:38:04.722Z",
+    "id": "6ae89187382113ccb9a54217"
   },
   {
     "slug": "tirupati-balaji-divine-led-backlit-acrylic-wall-art",
@@ -1003,7 +1295,7 @@
     ],
     "reviews": [],
     "createdAt": "2026-08-01T00:00:00.000Z",
-    "updatedAt": "2026-11-19T16:53:41.036Z",
+    "updatedAt": "2026-11-22T07:38:06.249Z",
     "orientationVariants": {
       "portrait": [
         {
@@ -1169,296 +1461,6 @@
       ]
     },
     "couponCode": "WELCOME10",
-    "id": "6ae89187382113ccb9a541d3",
-    "categorySlugs": [
-      "god-photo-frames",
-      "devotional-led-frames"
-    ]
-  },
-  {
-    "slug": "personalized-family-heirloom-gold-script-acrylic-frame",
-    "title": "Personalized Family Heirloom Acrylic Wall Frame with Gold Foil Script",
-    "subtitle": "Custom Surname, Established Year & Multi-Photo Collage on 5MM Acrylic",
-    "shortDescription": "Cherished family heirlooms printed with high-gloss depth and custom 24K gold foil surname inscriptions.",
-    "description": "Celebrate family heritage with our mastercrafted heirloom acrylic frame. Personalize with your family name or wedding vow in shining 24K gold foil script across the bottom of the crystal acrylic.",
-    "categorySlug": "family-baby-frames",
-    "categoryName": "Family & Baby Frames",
-    "artStyle": "Custom Photo Frames",
-    "orientation": "horizontal",
-    "images": [
-      "/images/mockups/personalized-family-heirloom-gold-script-acrylic-frame/primary-square.jpg",
-      "/images/mockups/personalized-family-heirloom-gold-script-acrylic-frame/mockup-living-room.jpg",
-      "/images/mockups/personalized-family-heirloom-gold-script-acrylic-frame/mockup-foyer.jpg",
-      "/images/mockups/personalized-family-heirloom-gold-script-acrylic-frame/mockup-interior.jpg",
-      "/images/mockups/personalized-family-heirloom-gold-script-acrylic-frame/mockup-detail.jpg",
-      "/images/mockups/personalized-family-heirloom-gold-script-acrylic-frame/mockup-artistic.jpg"
-    ],
-    "tags": [
-      "Family Photo Frame",
-      "Baby Frame",
-      "Gold Script",
-      "Heirloom",
-      "Wall Decor"
-    ],
-    "isFeatured": true,
-    "isBestseller": true,
-    "isNewArrival": true,
-    "hasLedBacklight": false,
-    "basePrice": 899,
-    "baseMrp": 1799,
-    "discountPercentage": 50,
-    "rating": 4.9,
-    "reviewCount": 48,
-    "variants": [
-      {
-        "id": "var-fh1",
-        "size": "20 x 14 inches",
-        "dimensionsCm": "50 x 35 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "No Lighting (Pure Art)",
-        "price": 2299,
-        "mrp": 4599,
-        "sku": "AG-FAM-2014",
-        "inStock": true,
-        "stockCount": 95,
-        "_id": "6ae89187382113ccb9a5423b"
-      },
-      {
-        "id": "var-fh2",
-        "size": "30 x 20 inches",
-        "dimensionsCm": "75 x 50 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "No Lighting (Pure Art)",
-        "price": 3899,
-        "mrp": 7299,
-        "sku": "AG-FAM-3020",
-        "inStock": true,
-        "stockCount": 50,
-        "_id": "6ae89187382113ccb9a5423c"
-      },
-      {
-        "id": "var-fh3",
-        "size": "40 x 26 inches",
-        "dimensionsCm": "100 x 65 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "No Lighting (Pure Art)",
-        "price": 5999,
-        "mrp": 10999,
-        "sku": "AG-FAM-4026",
-        "inStock": true,
-        "stockCount": 30,
-        "_id": "6ae89187382113ccb9a5423d"
-      }
-    ],
-    "specifications": [
-      {
-        "label": "Personalization",
-        "value": "Custom Gold Foil Name & Established Year Script",
-        "_id": "6ae89187382113ccb9a5423e"
-      },
-      {
-        "label": "Clarity Rating",
-        "value": "99.2% Museum Optical Transparency",
-        "_id": "6ae89187382113ccb9a5423f"
-      },
-      {
-        "label": "Mounting Style",
-        "value": "Brushed gold standoff corner studs included",
-        "_id": "6ae89187382113ccb9a54240"
-      }
-    ],
-    "materialAndCare": [
-      "Protected from UV and ambient humidity",
-      "Never fades or yellows"
-    ],
-    "shippingHighlights": [
-      "Dispatched in 48h after digital WhatsApp proof approval"
-    ],
-    "reviews": [],
-    "createdAt": "2026-09-05T00:00:00.000Z",
-    "updatedAt": "2026-11-02T13:35:03.402Z",
-    "id": "6ae89187382113ccb9a5423a",
-    "categorySlugs": [
-      "family-baby-frames",
-      "personalized-family-photo-frames"
-    ]
-  },
-  {
-    "slug": "custom-couple-wedding-vows-acrylic-keepsake-frame",
-    "title": "Customized Wedding Vows & Couple Acrylic Keepsake Frame",
-    "subtitle": "Couple Names, Wedding Date & Vows Rendered in Crystal Optical Depth",
-    "shortDescription": "Immortalize your most cherished vows and bridal portraits on diamond-polished acrylic.",
-    "description": "Turn your sacred marriage ceremonies and romantic milestones into museum-quality heirlooms. We print your high-res photography with Swiss UV inks directly on 4mm cast acrylic with personalized gold script names and wedding dates.",
-    "categorySlug": "couple-wedding-frames",
-    "categoryName": "Couple & Wedding Frames",
-    "artStyle": "Custom Wedding Acrylic",
-    "orientation": "vertical",
-    "images": [
-      "/images/mockups/custom-couple-wedding-vows-acrylic-keepsake-frame/primary-square.jpg",
-      "/images/mockups/custom-couple-wedding-vows-acrylic-keepsake-frame/mockup-living-room.jpg",
-      "/images/mockups/custom-couple-wedding-vows-acrylic-keepsake-frame/mockup-foyer.jpg",
-      "/images/mockups/custom-couple-wedding-vows-acrylic-keepsake-frame/mockup-interior.jpg",
-      "/images/mockups/custom-couple-wedding-vows-acrylic-keepsake-frame/mockup-detail.jpg",
-      "/images/mockups/custom-couple-wedding-vows-acrylic-keepsake-frame/mockup-artistic.jpg"
-    ],
-    "tags": [
-      "Couple Frame",
-      "Wedding Keepsake",
-      "Anniversary Gift",
-      "Wedding Vows",
-      "Acrylic Frame"
-    ],
-    "isFeatured": true,
-    "isBestseller": true,
-    "isNewArrival": true,
-    "hasLedBacklight": false,
-    "basePrice": 899,
-    "baseMrp": 1799,
-    "discountPercentage": 50,
-    "rating": 4.9,
-    "reviewCount": 48,
-    "variants": [
-      {
-        "id": "var-wed1",
-        "size": "12 x 18 inches",
-        "dimensionsCm": "30 x 45 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "Warm LED Backlit (12V Adapter)",
-        "price": 2499,
-        "mrp": 4999,
-        "sku": "AG-WED-1218",
-        "inStock": true,
-        "stockCount": 40,
-        "_id": "6ae89187382113ccb9a54291"
-      },
-      {
-        "id": "var-wed2",
-        "size": "18 x 24 inches",
-        "dimensionsCm": "45 x 60 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "Warm LED Backlit (12V Adapter)",
-        "price": 3699,
-        "mrp": 6999,
-        "sku": "AG-WED-1824",
-        "inStock": true,
-        "stockCount": 30,
-        "_id": "6ae89187382113ccb9a54292"
-      }
-    ],
-    "specifications": [
-      {
-        "label": "Customization",
-        "value": "WhatsApp Proof Approval Before Print",
-        "_id": "6ae89187382113ccb9a54293"
-      },
-      {
-        "label": "Lighting",
-        "value": "3000K Epistar Warm SMD LED with 12V 2A Adapter",
-        "_id": "6ae89187382113ccb9a54294"
-      }
-    ],
-    "materialAndCare": [
-      "Microfiber wipe only"
-    ],
-    "shippingHighlights": [
-      "Insured 5-layer crate packaging"
-    ],
-    "reviews": [],
-    "createdAt": "2026-09-22T00:00:00.000Z",
-    "updatedAt": "2026-11-02T13:35:03.408Z",
-    "id": "6ae89187382113ccb9a54290",
-    "categorySlugs": [
-      "couple-wedding-frames",
-      "couple-wedding-photos"
-    ]
-  },
-  {
-    "slug": "luxury-beveled-floating-border-acrylic-masterpiece-frame",
-    "title": "Personalized Luxury Milestone Keepsake & Acrylic Gift Plaque",
-    "subtitle": "Bespoke Milestone Dedication & Laser-Faceted Floating Bevels in Luxury Box",
-    "shortDescription": "Museum-standard frameless floating acrylic design engineered for prestige family & sacred photography.",
-    "description": "Elevate your interiors with our flagship premium framing profile. Featuring optical-grade 4mm cast acrylic with diamond-cut 45-degree chamfered edges, an integrated floating wall-offset suspension system, and subtle gold-embossed accent liners that transform any photograph or artwork into a gallery centerpiece.",
-    "categorySlug": "personalized-gifts",
-    "categoryName": "Personalized Gifts",
-    "artStyle": "Museum Gallery Framing",
-    "orientation": "vertical",
-    "images": [
-      "/images/mockups/luxury-beveled-floating-border-acrylic-masterpiece-frame/primary-square.jpg",
-      "/images/mockups/luxury-beveled-floating-border-acrylic-masterpiece-frame/mockup-living-room.jpg",
-      "/images/mockups/luxury-beveled-floating-border-acrylic-masterpiece-frame/mockup-foyer.jpg",
-      "/images/mockups/luxury-beveled-floating-border-acrylic-masterpiece-frame/mockup-interior.jpg",
-      "/images/mockups/luxury-beveled-floating-border-acrylic-masterpiece-frame/mockup-detail.jpg",
-      "/images/mockups/luxury-beveled-floating-border-acrylic-masterpiece-frame/mockup-artistic.jpg"
-    ],
-    "tags": [
-      "Personalized Gifts",
-      "Milestone Keepsake",
-      "Gift Plaque",
-      "Luxury Acrylic",
-      "Custom Gift"
-    ],
-    "isFeatured": true,
-    "isBestseller": true,
-    "isNewArrival": true,
-    "hasLedBacklight": false,
-    "basePrice": 999,
-    "baseMrp": 1999,
-    "discountPercentage": 50,
-    "rating": 4.9,
-    "reviewCount": 48,
-    "variants": [
-      {
-        "id": "var-prem-frame1",
-        "size": "14 x 20 inches",
-        "dimensionsCm": "35 x 50 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "No Lighting (Pure Art)",
-        "price": 2699,
-        "mrp": 5299,
-        "sku": "AG-PREM-1420",
-        "inStock": true,
-        "stockCount": 30,
-        "_id": "6ae89187382113ccb9a542b4"
-      },
-      {
-        "id": "var-prem-frame2",
-        "size": "20 x 28 inches",
-        "dimensionsCm": "50 x 70 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "No Lighting (Pure Art)",
-        "price": 3999,
-        "mrp": 7699,
-        "sku": "AG-PREM-2028",
-        "inStock": true,
-        "stockCount": 22,
-        "_id": "6ae89187382113ccb9a542b5"
-      }
-    ],
-    "specifications": [
-      {
-        "label": "Finish",
-        "value": "Diamond Chamfered Cast Acrylic with Gold Perimeter Inlay",
-        "_id": "6ae89187382113ccb9a542b6"
-      },
-      {
-        "label": "Mounting",
-        "value": "Engineered Floating Standoff System",
-        "_id": "6ae89187382113ccb9a542b7"
-      }
-    ],
-    "materialAndCare": [
-      "Microfiber wipe only."
-    ],
-    "shippingHighlights": [
-      "Transit Safe Guarantee"
-    ],
-    "reviews": [],
-    "createdAt": "2026-10-01T00:00:00.000Z",
-    "updatedAt": "2026-11-02T13:35:03.409Z",
-    "id": "6ae89187382113ccb9a542b3",
-    "categorySlugs": [
-      "personalized-gifts",
-      "custom-frames"
-    ]
+    "id": "6ae89187382113ccb9a541d3"
   }
 ]

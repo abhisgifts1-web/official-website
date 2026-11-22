@@ -61,12 +61,8 @@ function loadPersistedProducts(): Product[] {
     if (fs.existsSync(PERSISTENCE_FILE)) {
       const raw = fs.readFileSync(PERSISTENCE_FILE, 'utf8');
       const parsed = JSON.parse(raw);
-      if (Array.isArray(parsed) && parsed.length > 0) {
-        const officialSlugs = INITIAL_PRODUCTS.map((p) => p.slug);
-        const filtered = parsed.filter((p: any) => officialSlugs.includes(p.slug));
-        if (filtered.length === officialSlugs.length) {
-          return filtered.map((o: any) => ({ ...o, id: o.orderId || o.id }));
-        }
+      if (Array.isArray(parsed)) {
+        return parsed.map((o: any) => ({ ...o, id: o.orderId || o.id }));
       }
     }
   } catch (err) {
@@ -146,12 +142,8 @@ function loadPersistedCategories(): Category[] {
     if (fs.existsSync(PERSISTENCE_CATEGORIES_FILE)) {
       const raw = fs.readFileSync(PERSISTENCE_CATEGORIES_FILE, 'utf8');
       const parsed = JSON.parse(raw);
-      if (Array.isArray(parsed) && parsed.length > 0) {
-        const officialSlugs = INITIAL_CATEGORIES.map((c) => c.slug);
-        const filtered = parsed.filter((c: any) => officialSlugs.includes(c.slug));
-        if (filtered.length === officialSlugs.length) {
-          return filtered;
-        }
+      if (Array.isArray(parsed)) {
+        return parsed;
       }
     }
   } catch (err) {
@@ -282,10 +274,17 @@ export async function deleteProductFromDatabase(idOrSlug: string) {
   try {
     const conn = await connectToDatabase();
     if (conn) {
-      await ProductModel.findOneAndDelete({ $or: [{ slug: idOrSlug }, { id: idOrSlug }] });
+      await ProductModel.deleteMany({ $or: [{ slug: idOrSlug }, { id: idOrSlug }] });
     }
   } catch (err) {
     console.warn('MongoDB delete product error:', err);
+  }
+}
+
+export function syncStoreProducts(products: Product[]) {
+  if (Array.isArray(products) && products.length > 0) {
+    store.products = products;
+    savePersistedProducts(products);
   }
 }
 
@@ -314,16 +313,23 @@ async function initDbSync() {
     const conn = await connectToDatabase();
     if (!conn) return;
 
-    // Sync products with MongoDB (strictly maintain the official 8 products)
-    const officialProductSlugs = INITIAL_PRODUCTS.map((p) => p.slug);
-    try {
-      await ProductModel.deleteMany({ slug: { $nin: officialProductSlugs } });
-    } catch {}
-    for (const p of store.products) {
-      await ProductModel.findOneAndUpdate({ slug: p.slug }, p, { upsert: true });
+    // 1. Sync products with MongoDB Atlas (load live database products or seed initial)
+    const dbProducts = await ProductModel.find({}).sort({ createdAt: -1 }).lean();
+    if (dbProducts && dbProducts.length > 0) {
+      const formattedProducts: Product[] = dbProducts.map((doc: any) => {
+        const { _id, __v, ...p } = doc;
+        return { ...p, id: p.id || String(_id) };
+      });
+      store.products = formattedProducts;
+      savePersistedProducts(formattedProducts);
+    } else if (store.products.length > 0) {
+      for (const p of store.products) {
+        const { _id, ...cleanProduct } = p as any;
+        await ProductModel.findOneAndUpdate({ slug: p.slug }, cleanProduct, { upsert: true });
+      }
     }
 
-    // Load orders from MongoDB if available
+    // 2. Load orders from MongoDB if available
     const dbOrders = await OrderModel.find({}).sort({ createdAt: -1 }).lean();
     if (dbOrders && dbOrders.length > 0) {
       const formattedOrders: Order[] = dbOrders.map((doc: any) => {
@@ -336,6 +342,26 @@ async function initDbSync() {
       for (const o of store.orders) {
         await OrderModel.findOneAndUpdate({ orderId: o.id }, { ...o, orderId: o.id }, { upsert: true });
       }
+    }
+
+    // 3. Load categories from MongoDB if available
+    try {
+      const dbCategories = await CategoryModel.find({}).lean();
+      if (dbCategories && dbCategories.length > 0) {
+        const formattedCats: Category[] = dbCategories.map((doc: any) => {
+          const { _id, __v, ...c } = doc;
+          return { ...c, id: c.id || String(_id) };
+        });
+        store.categories = formattedCats;
+        savePersistedCategories(formattedCats);
+      } else if (store.categories.length > 0) {
+        for (const c of store.categories) {
+          const { _id, ...cleanCat } = c as any;
+          await CategoryModel.findOneAndUpdate({ slug: c.slug }, cleanCat, { upsert: true });
+        }
+      }
+    } catch (catErr) {
+      console.warn('Database category sync:', catErr);
     }
   } catch (err) {
     console.warn('Database background initialization:', err);
@@ -507,14 +533,10 @@ export function deleteProduct(id: string): boolean {
   const target = store.products.find((p) => p.id === id || p.slug === id);
   const initialLen = store.products.length;
   store.products = store.products.filter((p) => p.id !== id && p.slug !== id);
-  if (store.products.length < initialLen) {
-    savePersistedProducts(store.products);
-    if (target) {
-      deleteProductFromDatabase(target.slug || target.id).catch(() => {});
-    }
-    return true;
-  }
-  return false;
+  savePersistedProducts(store.products);
+  const targetSlugOrId = (target && (target.slug || target.id)) || id;
+  deleteProductFromDatabase(targetSlugOrId).catch(() => {});
+  return store.products.length < initialLen;
 }
 
 export function addProductReview(productSlug: string, review: Omit<ProductReview, 'id' | 'createdAt'>): ProductReview | null {
@@ -538,11 +560,7 @@ export function addProductReview(productSlug: string, review: Omit<ProductReview
 
 // CATEGORY METHODS
 export function getAllCategories(): Category[] {
-  const officialSlugs = INITIAL_CATEGORIES.map((c) => c.slug);
-  const slugOrder = new Map(INITIAL_CATEGORIES.map((c, i) => [c.slug, i]));
-  return store.categories
-    .filter((c) => officialSlugs.includes(c.slug))
-    .sort((a, b) => (slugOrder.get(a.slug) ?? 99) - (slugOrder.get(b.slug) ?? 99));
+  return [...store.categories];
 }
 
 export function getCategoryBySlug(slug: string): Category | null {

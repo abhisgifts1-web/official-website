@@ -17,7 +17,7 @@ export default function BestsellersShowcase() {
     fetch('/api/products')
       .then((r) => r.json())
       .then((d) => {
-        if (d.success && d.products?.length) {
+        if (d.success && Array.isArray(d.products)) {
           setAllProducts(d.products);
         }
       })

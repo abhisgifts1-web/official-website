@@ -60,6 +60,8 @@ export async function PUT(
     let updated: Product | null = null;
     if (currentProduct) {
       updated = updateProduct(currentProduct.id, updates);
+    } else {
+      updated = updateProduct(params.slug, updates);
     }
 
     // 2. Persist directly to MongoDB Atlas
@@ -68,7 +70,7 @@ export async function PUT(
       if (conn) {
         const { _id, ...cleanUpdates } = updates as any;
         const dbDoc = await ProductModel.findOneAndUpdate(
-          { slug: params.slug },
+          { $or: [{ slug: params.slug }, { id: params.slug }, ...(currentProduct ? [{ id: currentProduct.id }] : [])] },
           cleanUpdates,
           { new: true, upsert: true }
         ).lean();
@@ -87,6 +89,7 @@ export async function PUT(
       revalidatePath(`/product/${params.slug}`);
       revalidatePath('/shop');
       revalidatePath('/');
+      revalidatePath('/admin/products');
       if (updates.categorySlug || currentProduct?.categorySlug) {
         revalidatePath(`/category/${updates.categorySlug || currentProduct?.categorySlug}`);
       }
@@ -111,7 +114,8 @@ export async function DELETE(
     }
 
     const currentProduct = getProductBySlug(params.slug);
-    if (currentProduct) {
+    deleteProduct(params.slug);
+    if (currentProduct && currentProduct.id !== params.slug) {
       deleteProduct(currentProduct.id);
     }
 
@@ -119,7 +123,9 @@ export async function DELETE(
     try {
       const conn = await connectToDatabase();
       if (conn) {
-        await ProductModel.findOneAndDelete({ slug: params.slug });
+        await ProductModel.deleteMany({
+          $or: [{ slug: params.slug }, { id: params.slug }, ...(currentProduct ? [{ id: currentProduct.id }] : [])],
+        });
       }
     } catch (dbErr) {
       console.warn('MongoDB delete error:', dbErr);
@@ -130,6 +136,7 @@ export async function DELETE(
       revalidatePath(`/product/${params.slug}`);
       revalidatePath('/shop');
       revalidatePath('/');
+      revalidatePath('/admin/products');
       if (currentProduct?.categorySlug) {
         revalidatePath(`/category/${currentProduct.categorySlug}`);
       }

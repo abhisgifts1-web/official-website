@@ -15,7 +15,7 @@ const CategorySchema = new Schema(
     metaTitle: String,
     metaDescription: String,
   },
-  { timestamps: true }
+  { timestamps: true, strict: false }
 );
 
 export const CategoryModel =

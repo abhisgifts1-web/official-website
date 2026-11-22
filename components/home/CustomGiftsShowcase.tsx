@@ -53,7 +53,7 @@ export default function CustomGiftsShowcase() {
     fetch('/api/products')
       .then((r) => r.json())
       .then((d) => {
-        if (d.success && d.products?.length) {
+        if (d.success && Array.isArray(d.products)) {
           const mapped = customGiftSlugs
             .map((slug) => d.products.find((p: any) => p.slug === slug))
             .filter(Boolean);

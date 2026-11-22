@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { revalidatePath } from 'next/cache';
-import { getAllProducts, createProduct } from '@/lib/store';
+import { getAllProducts, createProduct, syncStoreProducts } from '@/lib/store';
 import { getAuthenticatedAdmin } from '@/lib/auth';
 import { connectToDatabase } from '@/lib/db/mongodb';
 import { ProductModel } from '@/lib/db/models/Product';
@@ -34,6 +34,7 @@ export async function GET(req: NextRequest) {
             const { _id, __v, ...p } = doc;
             return { ...p, id: p.id || String(_id) } as Product;
           });
+          syncStoreProducts(products);
         }
       }
     } catch (dbErr) {
@@ -154,6 +155,7 @@ export async function POST(req: NextRequest) {
     try {
       revalidatePath('/shop');
       revalidatePath('/');
+      revalidatePath('/admin/products');
       revalidatePath(`/category/${newProduct.categorySlug}`);
     } catch (revalErr) {
       console.warn('Cache revalidation notice:', revalErr);

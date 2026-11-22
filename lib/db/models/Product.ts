@@ -39,7 +39,7 @@ const ProductSchema = new Schema(
     categoryName: { type: String, required: true },
     deity: { type: String },
     artStyle: { type: String, required: true },
-    orientation: { type: String, enum: ['vertical', 'horizontal', 'square', 'round'], required: true },
+    orientation: { type: String, required: true },
     images: [{ type: String }],
     models: [{
       id: { type: String },
@@ -71,7 +71,7 @@ const ProductSchema = new Schema(
     shippingHighlights: [{ type: String }],
     reviews: [ReviewSchema],
   },
-  { timestamps: true }
+  { timestamps: true, strict: false }
 );
 
 export const ProductModel =

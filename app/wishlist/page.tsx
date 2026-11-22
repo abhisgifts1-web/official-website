@@ -6,11 +6,24 @@ import { Heart } from 'lucide-react';
 import { useWishlist } from '@/context/WishlistContext';
 import { INITIAL_PRODUCTS } from '@/lib/data/mockProducts';
 import ProductGrid from '@/components/product/ProductGrid';
+import { Product } from '@/types';
 
 export default function WishlistPage() {
   const { wishlistSlugs } = useWishlist();
+  const [allProducts, setAllProducts] = useState<Product[]>(INITIAL_PRODUCTS);
 
-  const wishlistedProducts = INITIAL_PRODUCTS.filter((p) =>
+  useEffect(() => {
+    fetch('/api/products')
+      .then((r) => r.json())
+      .then((d) => {
+        if (d.success && Array.isArray(d.products)) {
+          setAllProducts(d.products);
+        }
+      })
+      .catch(() => {});
+  }, []);
+
+  const wishlistedProducts = allProducts.filter((p) =>
     wishlistSlugs.includes(p.slug)
   );
 
@@ -38,14 +51,14 @@ export default function WishlistPage() {
           <div>
             <h3 className="font-serif font-bold text-lg text-stone-900">Your wishlist is empty</h3>
             <p className="text-xs text-stone-500 mt-1">
-              Click the heart icon on any sacred artwork to save it here for later.
+              Click the heart icon on any artwork to save it here for later.
             </p>
           </div>
           <Link
             href="/shop"
             className="inline-block bg-stone-900 hover:bg-amber-800 text-white text-xs font-semibold px-6 py-2.5 rounded-full transition-colors"
           >
-            Browse Sacred Collection →
+            Browse Collections →
           </Link>
         </div>
       ) : (
