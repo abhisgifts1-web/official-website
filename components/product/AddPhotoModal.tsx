@@ -21,22 +21,31 @@ import {
   Plus,
   AlertCircle,
   Images,
+  Layers,
 } from 'lucide-react';
 import { Product, ProductVariant } from '@/types';
 import CustomSizeInput from './CustomSizeInput';
 import { calculateCustomDimensions } from '@/lib/utils/customSize';
 import { useCart } from '@/context/CartContext';
-import { INITIAL_SETTINGS } from '@/lib/data/settings';
 import { compressImageToDataUrl } from '@/lib/utils/imageCompress';
 
 const MAX_PHOTOS = 10;
 
-interface UploadedPhoto {
+export interface PhotoSpecification {
+  variant: ProductVariant;
+  isCustomSize: boolean;
+  customWidth: number;
+  customHeight: number;
+  customText: string;
+}
+
+export interface UploadedPhoto {
   id: string;
   preview: string;
   cdnUrl: string | null;
   name: string;
   isUploading?: boolean;
+  specs: PhotoSpecification;
 }
 
 interface AddPhotoModalProps {
@@ -53,7 +62,7 @@ export default function AddPhotoModal({
   onClose,
 }: AddPhotoModalProps) {
   const router = useRouter();
-  const { addToCart, openCart } = useCart();
+  const { addToCart, addMultipleToCart, openCart } = useCart();
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const defaultVariant = product.variants[0] || {
@@ -75,8 +84,9 @@ export default function AddPhotoModal({
   const [photos, setPhotos] = useState<UploadedPhoto[]>([]);
   const [activePhotoIndex, setActivePhotoIndex] = useState<number>(0);
   const [limitWarning, setLimitWarning] = useState<string | null>(null);
+  const [appliedAllNotice, setAppliedAllNotice] = useState(false);
   const [customText, setCustomText] = useState('');
-  const [ledEnabled, setLedEnabled] = useState(product.hasLedBacklight);
+  const [ledEnabled] = useState(product.hasLedBacklight);
   const [isDragging, setIsDragging] = useState(false);
   const [addedSuccess, setAddedSuccess] = useState(false);
   const [isCustomSize, setIsCustomSize] = useState(false);
@@ -99,7 +109,7 @@ export default function AddPhotoModal({
     }
   }, [photos.length, activePhotoIndex]);
 
-  // ⚠️ ALL hooks MUST be called before any conditional early return (Rules of Hooks)
+  // Global fallback custom size calculation
   const customSizeCalc = React.useMemo(() => {
     return calculateCustomDimensions(customWidth, customHeight, {
       hasLed: ledEnabled,
@@ -116,13 +126,203 @@ export default function AddPhotoModal({
     ? `${customSizeCalc.widthInches}" × ${customSizeCalc.heightInches}" (${customSizeCalc.dimensionsCm}) [Custom Size]`
     : activeVariant.size;
 
-  const hasRealDiscount = activeMrp > activePrice;
-  const discountPercent = hasRealDiscount
-    ? Math.round(((activeMrp - activePrice) / activeMrp) * 100)
-    : 0;
+  // Helper function to extract specs & calculate pricing for any photo
+  const getPhotoDetails = (photo: UploadedPhoto) => {
+    const specs = photo.specs || {
+      variant: activeVariant,
+      isCustomSize,
+      customWidth,
+      customHeight,
+      customText,
+    };
+
+    if (specs.isCustomSize) {
+      const calc = calculateCustomDimensions(specs.customWidth, specs.customHeight, {
+        hasLed: ledEnabled,
+        frameType: specs.variant.finish,
+        variants: product.variants,
+        basePrice: product.basePrice,
+        baseMrp: product.baseMrp,
+      });
+      return {
+        sizeLabel: `${calc.widthInches}" × ${calc.heightInches}" (${calc.dimensionsCm}) [Custom Size]`,
+        shortSizeLabel: `${calc.widthInches}"×${calc.heightInches}" Custom`,
+        price: calc.price,
+        mrp: calc.mrp,
+        variantId: `custom-size-${calc.widthInches}x${calc.heightInches}`,
+        isCustomSize: true,
+        customWidth: calc.widthInches,
+        customHeight: calc.heightInches,
+        calc,
+      };
+    } else {
+      return {
+        sizeLabel: specs.variant.size,
+        shortSizeLabel: specs.variant.size.split('(')[0].trim(),
+        price: specs.variant.price || product.basePrice,
+        mrp: specs.variant.mrp || product.baseMrp,
+        variantId: specs.variant.id,
+        isCustomSize: false,
+        customWidth: 24,
+        customHeight: 36,
+        calc: null,
+      };
+    }
+  };
+
+  // Active photo specifications & pricing
+  const currentPhoto = photos[activePhotoIndex] || null;
+  const currentSpecs = currentPhoto?.specs || {
+    variant: activeVariant,
+    isCustomSize,
+    customWidth,
+    customHeight,
+    customText,
+  };
+
+  const activePhotoDetails = currentPhoto
+    ? getPhotoDetails(currentPhoto)
+    : {
+        sizeLabel: activeSizeLabel,
+        shortSizeLabel: isCustomSize ? `${customWidth}"×${customHeight}" Custom` : activeVariant.size.split('(')[0].trim(),
+        price: activePrice,
+        mrp: activeMrp,
+        variantId: activeVariant.id,
+        isCustomSize,
+        customWidth,
+        customHeight,
+        calc: customSizeCalc,
+      };
+
+  // Combined total for all uploaded photos (each added separately to cart)
+  const totalCombinedPrice = photos.length > 0
+    ? photos.reduce((acc, p) => acc + getPhotoDetails(p).price, 0)
+    : activePrice;
+
+  const totalCombinedMrp = photos.length > 0
+    ? photos.reduce((acc, p) => acc + getPhotoDetails(p).mrp, 0)
+    : activeMrp;
 
   // Early return AFTER all hooks
   if (!isOpen) return null;
+
+  // Handlers for modifying specifications of active photo
+  const handleSelectVariant = (v: ProductVariant) => {
+    setActiveVariant(v);
+    setIsCustomSize(false);
+    if (photos.length > 0) {
+      setPhotos((prev) =>
+        prev.map((p, idx) =>
+          idx === activePhotoIndex
+            ? {
+                ...p,
+                specs: {
+                  ...p.specs,
+                  variant: v,
+                  isCustomSize: false,
+                },
+              }
+            : p
+        )
+      );
+    }
+  };
+
+  const handleToggleCustomSize = (custom: boolean) => {
+    setIsCustomSize(custom);
+    if (photos.length > 0) {
+      setPhotos((prev) =>
+        prev.map((p, idx) =>
+          idx === activePhotoIndex
+            ? {
+                ...p,
+                specs: {
+                  ...p.specs,
+                  isCustomSize: custom,
+                },
+              }
+            : p
+        )
+      );
+    }
+  };
+
+  const handleCustomWidthChange = (w: number) => {
+    setCustomWidth(w);
+    if (photos.length > 0) {
+      setPhotos((prev) =>
+        prev.map((p, idx) =>
+          idx === activePhotoIndex
+            ? {
+                ...p,
+                specs: {
+                  ...p.specs,
+                  customWidth: w,
+                },
+              }
+            : p
+        )
+      );
+    }
+  };
+
+  const handleCustomHeightChange = (h: number) => {
+    setCustomHeight(h);
+    if (photos.length > 0) {
+      setPhotos((prev) =>
+        prev.map((p, idx) =>
+          idx === activePhotoIndex
+            ? {
+                ...p,
+                specs: {
+                  ...p.specs,
+                  customHeight: h,
+                },
+              }
+            : p
+        )
+      );
+    }
+  };
+
+  const handleCustomTextChange = (text: string) => {
+    setCustomText(text);
+    if (photos.length > 0) {
+      setPhotos((prev) =>
+        prev.map((p, idx) =>
+          idx === activePhotoIndex
+            ? {
+                ...p,
+                specs: {
+                  ...p.specs,
+                  customText: text,
+                },
+              }
+            : p
+        )
+      );
+    }
+  };
+
+  // Apply active photo's size specifications to ALL uploaded photos with 1 click
+  const handleApplyCurrentSizeToAll = () => {
+    if (photos.length <= 1) return;
+    const current = currentSpecs;
+    setPhotos((prev) =>
+      prev.map((p) => ({
+        ...p,
+        specs: {
+          ...p.specs,
+          variant: current.variant,
+          isCustomSize: current.isCustomSize,
+          customWidth: current.customWidth,
+          customHeight: current.customHeight,
+        },
+      }))
+    );
+    setAppliedAllNotice(true);
+    setTimeout(() => setAppliedAllNotice(false), 3500);
+  };
 
   // Process selected or dropped files up to MAX_PHOTOS
   const handleFiles = async (selectedFiles: FileList | File[]) => {
@@ -155,6 +355,13 @@ export default function AddPhotoModal({
           cdnUrl: null,
           name: file.name,
           isUploading: true,
+          specs: {
+            variant: activeVariant,
+            isCustomSize: isCustomSize,
+            customWidth: customWidth,
+            customHeight: customHeight,
+            customText: customText,
+          },
         };
 
         setPhotos((prev) => [...prev, newPhotoItem]);
@@ -241,65 +448,112 @@ export default function AddPhotoModal({
 
   const handleNextPhoto = () => {
     if (photos.length > 1) {
-      setActivePhotoIndex((prev) => (prev + 1) % photos.length);
+      const nextIdx = (activePhotoIndex + 1) % photos.length;
+      setActivePhotoIndex(nextIdx);
+      const s = photos[nextIdx]?.specs;
+      if (s) {
+        setActiveVariant(s.variant);
+        setIsCustomSize(s.isCustomSize);
+        setCustomWidth(s.customWidth);
+        setCustomHeight(s.customHeight);
+        setCustomText(s.customText);
+      }
     }
   };
 
   const handlePrevPhoto = () => {
     if (photos.length > 1) {
-      setActivePhotoIndex((prev) => (prev - 1 + photos.length) % photos.length);
+      const prevIdx = (activePhotoIndex - 1 + photos.length) % photos.length;
+      setActivePhotoIndex(prevIdx);
+      const s = photos[prevIdx]?.specs;
+      if (s) {
+        setActiveVariant(s.variant);
+        setIsCustomSize(s.isCustomSize);
+        setCustomWidth(s.customWidth);
+        setCustomHeight(s.customHeight);
+        setCustomText(s.customText);
+      }
     }
   };
 
+  // Add each photo and its specifications SEPARATELY to cart
   const handleAddToCartWithPhoto = async (redirectCheckout = false) => {
-    const hasPhotos = photos.length > 0;
-    const allPhotoUrls = photos.map((p) => p.cdnUrl || p.preview);
-    const primaryImage = allPhotoUrls[0] || product.images[0];
+    if (photos.length > 0) {
+      // SEPARATELY ADD EACH PHOTO AND ITS SPECIFICATIONS TO CART
+      const itemsToAdd = photos.map((photo, idx) => {
+        const details = getPhotoDetails(photo);
+        const photoImg = photo.cdnUrl || photo.preview;
+        const specs = photo.specs || {
+          variant: activeVariant,
+          customText: '',
+        };
+        const title =
+          photos.length === 1
+            ? `${product.title} (With Custom Photo)`
+            : `${product.title} (Custom Frame #${idx + 1} of ${photos.length})`;
 
-    let itemTitle = product.title;
-    if (hasPhotos) {
-      itemTitle =
-        photos.length === 1
-          ? `${product.title} (With 1 Custom Photo${isCustomSize ? ` • ${customWidth}"×${customHeight}"` : ''})`
-          : `${product.title} (With ${photos.length} Custom Photos${isCustomSize ? ` • ${customWidth}"×${customHeight}"` : ''})`;
-    } else if (isCustomSize) {
-      itemTitle = `${product.title} (Custom Size: ${customWidth}" × ${customHeight}")`;
-    }
+        return {
+          productId: product.id,
+          slug: product.slug,
+          title,
+          image: photoImg,
+          variantId: `${details.variantId}-${photo.id}`,
+          size: details.sizeLabel,
+          finish: specs.variant.finish,
+          lighting: ledEnabled ? 'LED Backlit (12V Adapter)' : 'No Lighting (Pure Art)',
+          shape: (product.shape === 'portrait' || product.shape === 'landscape' || product.shape === 'square' || product.shape === 'round')
+            ? product.shape
+            : product.orientation === 'vertical'
+            ? 'portrait'
+            : product.orientation === 'horizontal'
+            ? 'landscape'
+            : 'portrait',
+          unitPrice: details.price,
+          unitMrp: details.mrp,
+          quantity: 1,
+          customization: {
+            previewUrl: photoImg,
+            photoUrls: [photoImg],
+            photoCount: 1,
+            customText: specs.customText?.trim() || undefined,
+            frameType: specs.variant.finish,
+            orientation: product.orientation,
+            specialInstructions: `Product: ${product.title} | Frame #${idx + 1} of ${photos.length} | Size: ${details.sizeLabel}${specs.customText?.trim() ? ` | Inscription: "${specs.customText.trim()}"` : ''}`,
+          },
+        };
+      });
 
-    addToCart(
-      {
-        productId: product.id,
-        slug: product.slug,
-        title: itemTitle,
-        image: primaryImage,
-        variantId: isCustomSize ? `custom-size-${customWidth}x${customHeight}-photo` : `${activeVariant.id}-custom-photo`,
-        size: activeSizeLabel,
-        finish: activeVariant.finish,
-        lighting: ledEnabled ? 'LED Backlit (12V Adapter)' : 'No Lighting (Pure Art)',
-        shape: (product.shape === 'portrait' || product.shape === 'landscape' || product.shape === 'square' || product.shape === 'round')
-          ? product.shape
-          : product.orientation === 'vertical'
-          ? 'portrait'
-          : product.orientation === 'horizontal'
-          ? 'landscape'
-          : 'portrait',
-        unitPrice: activePrice,
-        unitMrp: activeMrp,
-        quantity: 1,
-        customization: {
-          previewUrl: primaryImage,
-          photoUrls: allPhotoUrls,
-          photoCount: photos.length,
-          customText: customText.trim() || undefined,
-          frameType: activeVariant.finish,
-          orientation: product.orientation,
-          specialInstructions: `Product: ${product.title} | ${
-            hasPhotos ? `${photos.length} Custom Photo(s) Attached (Up to 10)` : 'Original Artwork'
-          } | Size: ${activeSizeLabel}${customText.trim() ? ` | Text: ${customText.trim()}` : ''}`,
+      addMultipleToCart(itemsToAdd, !redirectCheckout);
+    } else {
+      // Standard product or custom size without photo
+      addToCart(
+        {
+          productId: product.id,
+          slug: product.slug,
+          title: isCustomSize ? `${product.title} (Custom Size: ${customWidth}" × ${customHeight}")` : product.title,
+          image: product.images[0],
+          variantId: isCustomSize ? `custom-size-${customWidth}x${customHeight}` : activeVariant.id,
+          size: activeSizeLabel,
+          finish: activeVariant.finish,
+          lighting: ledEnabled ? 'LED Backlit (12V Adapter)' : 'No Lighting (Pure Art)',
+          shape: (product.shape === 'portrait' || product.shape === 'landscape' || product.shape === 'square' || product.shape === 'round')
+            ? product.shape
+            : product.orientation === 'vertical'
+            ? 'portrait'
+            : product.orientation === 'horizontal'
+            ? 'landscape'
+            : 'portrait',
+          unitPrice: activePrice,
+          unitMrp: activeMrp,
+          quantity: 1,
+          customization: {
+            previewUrl: product.images[0],
+            specialInstructions: `Product: ${product.title} | Size: ${activeSizeLabel}`,
+          },
         },
-      },
-      !redirectCheckout
-    );
+        !redirectCheckout
+      );
+    }
 
     if (redirectCheckout) {
       onClose();
@@ -338,7 +592,7 @@ export default function AddPhotoModal({
             <span className="w-2.5 h-2.5 rounded-full bg-amber-500 animate-pulse shrink-0" />
             <div className="min-w-0">
               <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-amber-700 block truncate">
-                Customise: Add Up to 10 Photos &amp; Custom Size
+                Customise: Add Up to 10 Photos &amp; Custom Specifications
               </span>
               <h2 className="font-serif font-bold text-sm sm:text-base text-stone-900 truncate">
                 {product.title}
@@ -365,6 +619,14 @@ export default function AddPhotoModal({
             </div>
           )}
 
+          {/* Applied All Notice banner */}
+          {appliedAllNotice && (
+            <div className="bg-emerald-50 border border-emerald-300 text-emerald-900 px-3.5 py-2.5 rounded-xl text-xs flex items-center gap-2 animate-fade-in">
+              <Check className="w-4 h-4 text-emerald-600 shrink-0" />
+              <span>Size applied to all {photos.length} uploaded photos! Each will be added separately to cart.</span>
+            </div>
+          )}
+
           {/* Product context pill */}
           <div className="bg-stone-50 border border-stone-200 rounded-xl p-3 flex items-center gap-3">
             <img
@@ -377,7 +639,7 @@ export default function AddPhotoModal({
                 Personalized {product.title}
               </p>
               <p className="text-stone-600 text-[11px] mt-0.5">
-                Upload <strong>up to 10 photos at a time</strong> for custom collage or single display, with custom width &amp; height dimensions. Handcrafted with museum-grade acrylic in Hyderabad.
+                Upload <strong>up to 10 photos</strong>. Each photo and its specifications will be added <strong>separately to cart</strong>. Handcrafted with museum-grade acrylic in Hyderabad.
               </p>
             </div>
           </div>
@@ -443,7 +705,7 @@ export default function AddPhotoModal({
                       Click or Drag &amp; Drop Up to 10 Photos Here
                     </p>
                     <p className="text-xs text-stone-500 mt-1 max-w-md mx-auto">
-                      Select 1 to 10 photos simultaneously for your personalized frame order (Family, Wedding, Birthday, Portraits, or Devotional)
+                      Select 1 to 10 photos simultaneously for your personalized frame order. Each photo adds separately to cart with its own size and specifications!
                     </p>
                   </div>
                   <button
@@ -518,8 +780,12 @@ export default function AddPhotoModal({
                     )}
 
                     {/* Frame Badge */}
-                    <div className="absolute bottom-2 left-2 bg-stone-900/90 border border-amber-400/60 px-2 py-0.5 rounded text-[10px] text-amber-300 font-bold">
-                      {product.title} • {activeSizeLabel}
+                    <div className="absolute bottom-2 left-2 bg-stone-900/90 border border-amber-400/60 px-2 py-0.5 rounded text-[10px] text-amber-300 font-bold flex items-center gap-1.5 max-w-[90%] truncate">
+                      <span className="truncate">{photos.length > 1 ? `Frame #${activePhotoIndex + 1}:` : ''} {product.title}</span>
+                      <span>•</span>
+                      <span className="text-white shrink-0">{activePhotoDetails.shortSizeLabel}</span>
+                      <span>•</span>
+                      <span className="text-[#FEE815] shrink-0">₹{activePhotoDetails.price.toLocaleString('en-IN')}</span>
                     </div>
                   </div>
 
@@ -527,11 +793,11 @@ export default function AddPhotoModal({
                     <span className="text-stone-700 text-[11px] flex items-center gap-1 font-medium">
                       <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
                       {photos.length === 1
-                        ? '1 Photo Ready for Acrylic Printing'
-                        : `${photos.length} Photos Ready for Print & Design Proof`}
+                        ? '1 Custom Frame Ready • Will be added to Cart'
+                        : `${photos.length} Custom Frames • Each will be added SEPARATELY to Cart with its photo & size`}
                     </span>
                     <span className="text-stone-500 text-[10px]">
-                      Click any thumbnail below to view
+                      Click any thumbnail below to select &amp; set size
                     </span>
                   </div>
                 </div>
@@ -540,7 +806,7 @@ export default function AddPhotoModal({
                 <div className="bg-stone-50 border border-stone-200 rounded-xl p-2.5">
                   <div className="flex items-center justify-between mb-2">
                     <span className="text-[11px] font-bold text-stone-700">
-                      Uploaded Photos ({photos.length} of {MAX_PHOTOS}):
+                      Uploaded Photos ({photos.length} of {MAX_PHOTOS}) — Click to configure size:
                     </span>
                     {photos.length < MAX_PHOTOS && (
                       <span className="text-[10px] text-amber-700 font-medium">
@@ -552,40 +818,56 @@ export default function AddPhotoModal({
                   <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-thin">
                     {photos.map((photo, index) => {
                       const isActive = index === activePhotoIndex;
+                      const pDetails = getPhotoDetails(photo);
                       return (
                         <div
                           key={photo.id}
-                          className={`relative group shrink-0 w-16 h-16 rounded-lg overflow-hidden border-2 cursor-pointer transition-all ${
+                          className={`relative group shrink-0 w-20 h-20 rounded-xl overflow-hidden border-2 cursor-pointer transition-all flex flex-col justify-between ${
                             isActive
-                              ? 'border-amber-500 ring-2 ring-amber-400 shadow-xs scale-105'
-                              : 'border-stone-300 hover:border-amber-400 opacity-80 hover:opacity-100'
+                              ? 'border-amber-500 ring-2 ring-amber-400 shadow-md scale-105'
+                              : 'border-stone-300 hover:border-amber-400 opacity-85 hover:opacity-100'
                           }`}
-                          onClick={() => setActivePhotoIndex(index)}
+                          onClick={() => {
+                            setActivePhotoIndex(index);
+                            const s = photo.specs;
+                            if (s) {
+                              setActiveVariant(s.variant);
+                              setIsCustomSize(s.isCustomSize);
+                              setCustomWidth(s.customWidth);
+                              setCustomHeight(s.customHeight);
+                              setCustomText(s.customText);
+                            }
+                          }}
                         >
                           <img
                             src={photo.preview}
                             alt={`Thumb ${index + 1}`}
-                            className="w-full h-full object-cover"
+                            className="w-full h-full object-cover absolute inset-0"
                           />
 
-                          {/* Index badge */}
-                          <span className="absolute bottom-0.5 left-0.5 bg-stone-900/85 text-white font-mono text-[9px] font-bold px-1 rounded">
-                            #{index + 1}
-                          </span>
+                          {/* Top index badge & remove button */}
+                          <div className="relative z-10 flex items-center justify-between p-1">
+                            <span className="bg-stone-900/85 text-[#FEE815] font-mono text-[9px] font-bold px-1.5 py-0.2 rounded shadow-2xs">
+                              #{index + 1}
+                            </span>
+                            <button
+                              type="button"
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                handleRemovePhoto(index);
+                              }}
+                              className="w-4 h-4 rounded-full bg-stone-900/90 text-white hover:bg-red-600 flex items-center justify-center transition-colors cursor-pointer"
+                              title="Remove"
+                              aria-label={`Remove photo ${index + 1}`}
+                            >
+                              <X className="w-2.5 h-2.5" />
+                            </button>
+                          </div>
 
-                          {/* Remove button */}
-                          <button
-                            type="button"
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              handleRemovePhoto(index);
-                            }}
-                            className="absolute top-0.5 right-0.5 w-4 h-4 rounded-full bg-stone-900/90 text-white hover:bg-red-600 flex items-center justify-center transition-colors cursor-pointer"
-                            title="Remove"
-                            aria-label={`Remove photo ${index + 1}`}
-                          >
-                            <X className="w-2.5 h-2.5" />
-                          </button>
+                          {/* Bottom size badge */}
+                          <div className="relative z-10 bg-stone-900/90 text-white text-[9px] font-medium px-1 py-0.5 text-center truncate backdrop-blur-xs">
+                            {pDetails.shortSizeLabel}
+                          </div>
                         </div>
                       );
                     })}
@@ -595,11 +877,11 @@ export default function AddPhotoModal({
                       <button
                         type="button"
                         onClick={() => fileInputRef.current?.click()}
-                        className="shrink-0 w-16 h-16 rounded-lg border-2 border-dashed border-amber-300 hover:border-amber-500 bg-amber-50/50 hover:bg-amber-100/60 flex flex-col items-center justify-center text-amber-800 transition-colors cursor-pointer p-1"
+                        className="shrink-0 w-20 h-20 rounded-xl border-2 border-dashed border-amber-300 hover:border-amber-500 bg-amber-50/50 hover:bg-amber-100/60 flex flex-col items-center justify-center text-amber-800 transition-colors cursor-pointer p-1"
                         title="Add more photos"
                       >
                         <Plus className="w-5 h-5" />
-                        <span className="text-[9px] font-bold mt-0.5">Add</span>
+                        <span className="text-[10px] font-bold mt-0.5">Add Photo</span>
                       </button>
                     )}
                   </div>
@@ -610,35 +892,47 @@ export default function AddPhotoModal({
 
           {/* Size / Variant Selector with Custom Size */}
           <div className="space-y-2">
-            <div className="flex items-center justify-between">
+            <div className="flex items-center justify-between flex-wrap gap-1.5">
               <label className="text-xs font-bold text-stone-900 uppercase tracking-wider block">
-                2. Frame Size:{' '}
+                2. Frame Size for {photos.length > 1 ? `Photo #${activePhotoIndex + 1}` : 'Frame'}:{' '}
                 <span className="text-amber-800 font-serif font-bold normal-case">
-                  {isCustomSize ? `${customWidth}" × ${customHeight}" Custom Size` : activeVariant.size}
+                  {activePhotoDetails.shortSizeLabel}
                 </span>
               </label>
-              {isCustomSize && (
-                <button
-                  type="button"
-                  onClick={() => setIsCustomSize(false)}
-                  className="text-[10px] font-bold text-amber-700 hover:underline uppercase tracking-wider cursor-pointer"
-                >
-                  Standard Sizes
-                </button>
-              )}
+
+              <div className="flex items-center gap-2">
+                {photos.length > 1 && (
+                  <button
+                    type="button"
+                    onClick={handleApplyCurrentSizeToAll}
+                    className="text-[10px] font-bold text-amber-900 bg-amber-100 hover:bg-amber-200 border border-amber-300 px-2 py-0.5 rounded cursor-pointer transition-colors flex items-center gap-1 shadow-2xs"
+                    title="Apply this size to all uploaded photos"
+                  >
+                    <Layers className="w-3 h-3 text-amber-700" />
+                    <span>Apply size to all {photos.length} photos</span>
+                  </button>
+                )}
+                {currentSpecs.isCustomSize && (
+                  <button
+                    type="button"
+                    onClick={() => handleToggleCustomSize(false)}
+                    className="text-[10px] font-bold text-amber-700 hover:underline uppercase tracking-wider cursor-pointer"
+                  >
+                    Standard Sizes
+                  </button>
+                )}
+              </div>
             </div>
+
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
               {product.variants.map((v) => {
-                const isSelected = !isCustomSize && activeVariant.id === v.id;
+                const isSelected = !currentSpecs.isCustomSize && currentSpecs.variant.id === v.id;
                 const cleanSize = v.size.split('(')[0].trim();
                 return (
                   <button
                     key={v.id}
                     type="button"
-                    onClick={() => {
-                      setIsCustomSize(false);
-                      setActiveVariant(v);
-                    }}
+                    onClick={() => handleSelectVariant(v)}
                     className={`p-2.5 rounded-xl border text-left transition-all cursor-pointer ${
                       isSelected
                         ? 'border-amber-500 bg-amber-50 text-stone-950 ring-2 ring-amber-300 shadow-xs'
@@ -656,9 +950,9 @@ export default function AddPhotoModal({
               {/* Custom Size Option */}
               <button
                 type="button"
-                onClick={() => setIsCustomSize(true)}
+                onClick={() => handleToggleCustomSize(true)}
                 className={`p-2.5 rounded-xl border text-left transition-all cursor-pointer ${
-                  isCustomSize
+                  currentSpecs.isCustomSize
                     ? 'border-amber-500 bg-amber-50 text-stone-950 ring-2 ring-amber-300 shadow-xs'
                     : 'border-amber-300 bg-amber-50/50 text-stone-800 hover:border-amber-400'
                 }`}
@@ -667,50 +961,80 @@ export default function AddPhotoModal({
                   <Ruler className="w-3.5 h-3.5 text-amber-600" /> Custom Size
                 </div>
                 <div className="text-[11px] text-emerald-700 font-medium mt-0.5">
-                  Price in WhatsApp
+                  Calibrated Inches
                 </div>
               </button>
             </div>
 
             {/* Custom Size Interactive Input */}
-            {isCustomSize && (
+            {currentSpecs.isCustomSize && (
               <CustomSizeInput
-                width={customWidth}
-                height={customHeight}
-                onChangeWidth={setCustomWidth}
-                onChangeHeight={setCustomHeight}
-                calc={customSizeCalc}
+                width={currentSpecs.customWidth}
+                height={currentSpecs.customHeight}
+                onChangeWidth={handleCustomWidthChange}
+                onChangeHeight={handleCustomHeightChange}
+                calc={activePhotoDetails.calc || customSizeCalc}
                 compact={true}
               />
             )}
           </div>
 
-          {/* Price Summary */}
-          <div className="bg-stone-50 border border-stone-200 rounded-xl p-3.5 flex items-center justify-between">
-            <div>
-              <span className="text-[11px] text-stone-500 block">
-                {isCustomSize ? 'Custom Size Price' : 'Total Frame Price'}
+          {/* Optional Inscription / Custom Text */}
+          <div className="space-y-1.5">
+            <label className="text-xs font-bold text-stone-900 uppercase tracking-wider flex items-center justify-between">
+              <span>
+                3. Custom Inscription / Text {photos.length > 1 ? `(Photo #${activePhotoIndex + 1})` : ''}{' '}
+                <span className="text-stone-400 font-normal normal-case">(Optional)</span>
               </span>
-              <div className="flex items-baseline gap-2 mt-0.5">
-                <span className="text-lg font-bold text-stone-900 font-serif">
-                  ₹{activePrice.toLocaleString('en-IN')}
-                </span>
-                {hasRealDiscount && (
-                  <span className="text-xs text-stone-400 line-through">
-                    ₹{activeMrp.toLocaleString('en-IN')}
-                  </span>
-                )}
-                {hasRealDiscount && discountPercent > 0 && (
-                  <span className="text-[10px] font-bold text-amber-900 bg-amber-100 px-1.5 py-0.5 rounded border border-amber-300">
-                    Save {discountPercent}%
-                  </span>
-                )}
-              </div>
-            </div>
+            </label>
+            <input
+              type="text"
+              value={currentSpecs.customText || ''}
+              onChange={(e) => handleCustomTextChange(e.target.value)}
+              placeholder='e.g. "Happy Anniversary Mom & Dad" or "24.11.2024"'
+              className="w-full text-xs px-3 py-2 rounded-xl border border-stone-300 focus:outline-none focus:border-amber-500 bg-white text-stone-900 placeholder:text-stone-400"
+              maxLength={100}
+            />
+          </div>
 
-            <div className="text-right text-[11px] text-stone-500">
-              <span className="text-stone-900 font-semibold block">{activeSizeLabel}</span>
-              <span>1:1 WhatsApp proof before print</span>
+          {/* Price & Cart Items Summary */}
+          <div className="bg-stone-50 border border-stone-200 rounded-xl p-3.5 space-y-2">
+            <div className="flex items-center justify-between">
+              <div>
+                <span className="text-[11px] text-stone-500 block">
+                  {photos.length > 1
+                    ? `Total for All ${photos.length} Custom Frames (Added Separately to Cart)`
+                    : currentSpecs.isCustomSize
+                    ? 'Custom Size Price'
+                    : 'Total Frame Price'}
+                </span>
+                <div className="flex items-baseline gap-2 mt-0.5">
+                  <span className="text-lg font-bold text-stone-900 font-serif">
+                    ₹{totalCombinedPrice.toLocaleString('en-IN')}
+                  </span>
+                  {totalCombinedMrp > totalCombinedPrice && (
+                    <span className="text-xs text-stone-400 line-through">
+                      ₹{totalCombinedMrp.toLocaleString('en-IN')}
+                    </span>
+                  )}
+                  {totalCombinedMrp > totalCombinedPrice && (
+                    <span className="text-[10px] font-bold text-amber-900 bg-amber-100 px-1.5 py-0.5 rounded border border-amber-300">
+                      Save {Math.round(((totalCombinedMrp - totalCombinedPrice) / totalCombinedMrp) * 100)}%
+                    </span>
+                  )}
+                </div>
+              </div>
+
+              <div className="text-right text-[11px] text-stone-600">
+                {photos.length > 1 ? (
+                  <span className="font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
+                    ✓ {photos.length} Separate Cart Items
+                  </span>
+                ) : (
+                  <span className="text-stone-900 font-semibold block">{activePhotoDetails.shortSizeLabel}</span>
+                )}
+                <span className="text-[10px] text-stone-500 block mt-0.5">1:1 WhatsApp proof before print</span>
+              </div>
             </div>
           </div>
         </div>
@@ -726,14 +1050,15 @@ export default function AddPhotoModal({
               {addedSuccess ? (
                 <>
                   <Check className="w-4 h-4 text-stone-950" />
-                  <span>Added to Cart!</span>
+                  <span>Added {photos.length > 1 ? `${photos.length} Items` : 'to Cart'}!</span>
                 </>
               ) : (
                 <>
                   <ShoppingBag className="w-4 h-4 text-stone-950" />
                   <span>
-                    Add to Cart {photos.length > 0 ? `(${photos.length} Photo${photos.length > 1 ? 's' : ''})` : ''} • ₹
-                    {activePrice.toLocaleString('en-IN')}
+                    {photos.length > 1
+                      ? `Add All ${photos.length} Frames Separately • ₹${totalCombinedPrice.toLocaleString('en-IN')}`
+                      : `Add to Cart • ₹${activePrice.toLocaleString('en-IN')}`}
                   </span>
                 </>
               )}
@@ -744,7 +1069,7 @@ export default function AddPhotoModal({
               onClick={() => handleAddToCartWithPhoto(true)}
               className="w-full py-2.5 px-4 rounded-xl font-bold text-xs flex items-center justify-center gap-2 bg-stone-900 hover:bg-stone-800 text-white border border-stone-900 transition-all cursor-pointer shadow-xs"
             >
-              <span>Proceed to Checkout</span>
+              <span>Proceed to Checkout {photos.length > 1 ? `(${photos.length} Frames)` : ''}</span>
               <ArrowRight className="w-4 h-4 text-amber-400" />
             </button>
           </div>
@@ -770,7 +1095,7 @@ export default function AddPhotoModal({
             <div className="mt-2 bg-[#FEE815]/10 border border-[#FEE815]/40 rounded-xl px-3 py-2 flex items-center gap-2">
               <Check className="w-3.5 h-3.5 text-[#FEE815] shrink-0" />
               <p className="text-[11px] text-[#D1D5DB]">
-                <strong className="text-[#FEE815]">{photos.length} photo(s)</strong> attached to your order. Proceed to checkout to finalize your custom acrylic print!
+                <strong className="text-[#FEE815]">{photos.length} photo(s)</strong> attached. Clicking Add to Cart will add each photo as a separate cart item with its individual size and specifications!
               </p>
             </div>
           )}

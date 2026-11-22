@@ -19,6 +19,7 @@ interface CartContextType {
   openCart: () => void;
   closeCart: () => void;
   addToCart: (item: Omit<CartItem, 'id'>, openDrawer?: boolean) => void;
+  addMultipleToCart: (items: Omit<CartItem, 'id'>[], openDrawer?: boolean) => void;
   removeFromCart: (itemId: string) => void;
   updateQuantity: (itemId: string, quantity: number) => void;
   applyCoupon: (
@@ -138,6 +139,34 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     }
   };
 
+  const addMultipleToCart = (newItems: Omit<CartItem, 'id'>[], openDrawer: boolean = false) => {
+    if (!newItems || newItems.length === 0) return;
+    setItems((prev) => {
+      const currentItems = [...prev];
+      for (const newItemData of newItems) {
+        const isCustom = Boolean(newItemData.customization);
+        const existingIdx = currentItems.findIndex(
+          (it) =>
+            !isCustom &&
+            it.productId === newItemData.productId &&
+            it.variantId === newItemData.variantId
+        );
+
+        if (existingIdx > -1) {
+          currentItems[existingIdx].quantity += newItemData.quantity;
+        } else {
+          const uniqueId = `item-${Date.now()}-${Math.random().toString(36).substring(2, 9)}`;
+          currentItems.push({ ...newItemData, id: uniqueId });
+        }
+      }
+      return currentItems;
+    });
+
+    if (openDrawer) {
+      setIsCartOpen(true);
+    }
+  };
+
   const removeFromCart = (itemId: string) => {
     setItems((prev) => prev.filter((it) => it.id !== itemId));
   };
@@ -217,6 +246,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
         openCart,
         closeCart,
         addToCart,
+        addMultipleToCart,
         removeFromCart,
         updateQuantity,
         applyCoupon,
