@@ -7,6 +7,7 @@ import { getCategoryBySlug, getAllCategories, getAllProducts } from '@/lib/store
 import { CATEGORY_SLUG_ALIASES } from '@/lib/data/categories';
 import { filterProductsByCategory } from '@/lib/categoryRules';
 import CategoryClientView from '@/components/category/CategoryClientView';
+import CategorySpecificationsSection from '@/components/category/CategorySpecificationsSection';
 import { getBreadcrumbSchema } from '@/lib/seo/schema';
 
 export const dynamic = 'force-dynamic';
@@ -290,6 +291,11 @@ export default function CategoryPage({ params }: CategoryPageProps) {
 
       {/* Interactive Filter Bar & Product Grid */}
       <CategoryClientView category={category} products={categoryProducts} />
+
+      {/* Confirmed Category Technical Specifications & 5-Tab Showcase */}
+      <div className="mt-14">
+        <CategorySpecificationsSection categorySlug={category.slug} categoryName={category.name} />
+      </div>
 
       {/* Customization Callout */}
       <div className="bg-gradient-to-r from-amber-50/70 via-stone-50 to-amber-50/70 p-6 sm:p-8 rounded-3xl border border-amber-200 flex flex-col sm:flex-row items-center justify-between gap-6 mt-12 shadow-xs">
