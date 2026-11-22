@@ -38,16 +38,16 @@ import { INITIAL_CATEGORIES } from '@/lib/data/categories';
 import { formatSizeWithSqFt, getSqFt } from '@/lib/utils/sizeFormat';
 
 const POPULAR_FRAME_SIZES = [
-  { size: '8 x 12 inches', dimensionsCm: '20 x 30 cm', label: '8x12"' },
-  { size: '10 x 15 inches', dimensionsCm: '25 x 38 cm', label: '10x15"' },
-  { size: '12 x 18 inches', dimensionsCm: '30 x 45 cm', label: '12x18"' },
-  { size: '16 x 20 inches', dimensionsCm: '40 x 50 cm', label: '16x20"' },
-  { size: '16 x 24 inches', dimensionsCm: '40 x 60 cm', label: '16x24"' },
-  { size: '18 x 24 inches', dimensionsCm: '45 x 60 cm', label: '18x24"' },
-  { size: '20 x 30 inches', dimensionsCm: '50 x 75 cm', label: '20x30"' },
-  { size: '24 x 36 inches', dimensionsCm: '60 x 90 cm', label: '24x36"' },
-  { size: '30 x 48 inches (Grand Wall Size)', dimensionsCm: '75 x 120 cm', label: '30x48"' },
-  { size: '36 x 48 inches (Palace Size)', dimensionsCm: '90 x 120 cm', label: '36x48"' },
+  { size: '8 x 12 inches', dimensionsCm: '0.7 sq.ft', label: '8x12"' },
+  { size: '10 x 15 inches', dimensionsCm: '1.0 sq.ft', label: '10x15"' },
+  { size: '12 x 18 inches', dimensionsCm: '1.5 sq.ft', label: '12x18"' },
+  { size: '16 x 20 inches', dimensionsCm: '2.2 sq.ft', label: '16x20"' },
+  { size: '16 x 24 inches', dimensionsCm: '2.7 sq.ft', label: '16x24"' },
+  { size: '18 x 24 inches', dimensionsCm: '3.0 sq.ft', label: '18x24"' },
+  { size: '20 x 30 inches', dimensionsCm: '4.2 sq.ft', label: '20x30"' },
+  { size: '24 x 36 inches', dimensionsCm: '6.0 sq.ft', label: '24x36"' },
+  { size: '30 x 48 inches (Grand Wall Size)', dimensionsCm: '10.0 sq.ft', label: '30x48"' },
+  { size: '36 x 48 inches (Palace Size)', dimensionsCm: '12.0 sq.ft', label: '36x48"' },
 ];
 
 interface AdminFormVariant {
@@ -68,10 +68,10 @@ const getDefault4Variants = (
   const p1 = basePrice || 2499;
   const m1 = baseMrp || 4999;
   return [
-    { id: 'size-1', size: '12 x 18 inches', dimensionsCm: '30 x 45 cm', price: p1, mrp: m1, inStock: true, stockCount: 45 },
-    { id: 'size-2', size: '18 x 24 inches', dimensionsCm: '45 x 60 cm', price: Math.round(p1 * 1.38), mrp: Math.round(m1 * 1.36), inStock: true, stockCount: 60 },
-    { id: 'size-3', size: '24 x 36 inches', dimensionsCm: '60 x 90 cm', price: Math.round(p1 * 2.07), mrp: Math.round(m1 * 2.0), inStock: true, stockCount: 30 },
-    { id: 'size-4', size: '30 x 48 inches (Grand Wall Size)', dimensionsCm: '75 x 120 cm', price: Math.round(p1 * 3.1), mrp: Math.round(m1 * 3.0), inStock: true, stockCount: 15 },
+    { id: 'size-1', size: '12 x 18 inches', dimensionsCm: '1.5 sq.ft', price: p1, mrp: m1, inStock: true, stockCount: 45 },
+    { id: 'size-2', size: '18 x 24 inches', dimensionsCm: '3.0 sq.ft', price: Math.round(p1 * 1.38), mrp: Math.round(m1 * 1.36), inStock: true, stockCount: 60 },
+    { id: 'size-3', size: '24 x 36 inches', dimensionsCm: '6.0 sq.ft', price: Math.round(p1 * 2.07), mrp: Math.round(m1 * 2.0), inStock: true, stockCount: 30 },
+    { id: 'size-4', size: '30 x 48 inches (Grand Wall Size)', dimensionsCm: '10.0 sq.ft', price: Math.round(p1 * 3.1), mrp: Math.round(m1 * 3.0), inStock: true, stockCount: 15 },
   ];
 };
 
@@ -191,7 +191,7 @@ export default function AdminProductsPage() {
 
     // Supports pasting single or multiple URLs (comma, newline, or space separated)
     const urls = raw
-      .split(/[\n,\s]+/)
+      .split(/[\r\n,\s]+/)
       .map((u) => u.trim())
       .filter(Boolean)
       .map(ensureJpgExtension);
@@ -631,15 +631,21 @@ export default function AdminProductsPage() {
 
     const existingVariants: AdminFormVariant[] =
       prod.variants && prod.variants.length > 0
-        ? prod.variants.map((v, i) => ({
-            id: v.id || `var-${i + 1}`,
-            size: v.size,
-            dimensionsCm: v.dimensionsCm,
-            price: v.price,
-            mrp: v.mrp,
-            inStock: v.inStock !== false,
-            stockCount: v.stockCount || 25,
-          }))
+        ? prod.variants.map((v, i) => {
+            const sqFromSize = v.size ? getSqFt(v.size) : '';
+            const dimSq = v.dimensionsCm && !v.dimensionsCm.toLowerCase().includes('cm')
+              ? v.dimensionsCm
+              : (sqFromSize || (v.dimensionsCm ? getSqFt(v.dimensionsCm) : '') || '1.5 sq.ft');
+            return {
+              id: v.id || `var-${i + 1}`,
+              size: v.size,
+              dimensionsCm: dimSq,
+              price: v.price,
+              mrp: v.mrp,
+              inStock: v.inStock !== false,
+              stockCount: v.stockCount || 25,
+            };
+          })
         : getDefault4Variants(baseP, baseM);
 
     setFormData({
@@ -684,6 +690,13 @@ export default function AdminProductsPage() {
         [field]: value,
       };
 
+      if (field === 'size') {
+        const sq = getSqFt(String(value));
+        if (sq) {
+          updated[index].dimensionsCm = sq;
+        }
+      }
+
       let baseP = prev.basePrice;
       let baseM = prev.baseMrp;
 
@@ -719,10 +732,12 @@ export default function AdminProductsPage() {
     const suggestedPrice = Math.max(999, Math.round((baseP * multiplier) / 100) * 100 - 1);
     const suggestedMrp = Math.max(1999, Math.round((baseM * multiplier) / 100) * 100 - 1);
 
+    const prefillSq = prefill?.dimensionsCm || (prefill?.size ? getSqFt(prefill.size) : '') || '';
+
     const newVariant: AdminFormVariant = {
       id: `size-${Date.now()}-${currentCount + 1}`,
       size: prefill?.size || '',
-      dimensionsCm: prefill?.dimensionsCm || '',
+      dimensionsCm: prefillSq,
       price: suggestedPrice,
       mrp: suggestedMrp,
       inStock: true,
@@ -780,7 +795,7 @@ export default function AdminProductsPage() {
       const newVar = {
         id: `var-${Date.now()}`,
         size: quickSizeName.trim(),
-        dimensionsCm: quickSizeCm.trim() || 'Custom cm',
+        dimensionsCm: quickSizeCm.trim() || getSqFt(quickSizeName.trim()) || '1.5 sq.ft',
         finish: 'Acrylic Ultra-Gloss' as const,
         lighting: quickSizeProduct.hasLedBacklight
           ? ('LED Backlit (12V Adapter)' as const)
@@ -834,7 +849,7 @@ export default function AdminProductsPage() {
       const formattedVariants = formData.variants.map((v, idx) => ({
         id: v.id || `var-${idx + 1}`,
         size: v.size.trim(),
-        dimensionsCm: v.dimensionsCm.trim(),
+        dimensionsCm: v.dimensionsCm.trim() || getSqFt(v.size.trim()) || '1.5 sq.ft',
         finish: 'Acrylic Ultra-Gloss' as const,
         lighting: formData.hasLedBacklight
           ? ('LED Backlit (12V Adapter)' as const)
@@ -2181,11 +2196,11 @@ export default function AdminProductsPage() {
 
                             <div>
                               <label className="text-[11px] font-semibold text-stone-700 block mb-1">
-                                Dimensions (cm)
+                                Dimensions (sq.ft)
                               </label>
                               <input
                                 type="text"
-                                placeholder="e.g. 30 x 45 cm"
+                                placeholder="e.g. 1.5 sq.ft"
                                 value={v.dimensionsCm}
                                 onChange={(e) => handleVariantChange(i, 'dimensionsCm', e.target.value)}
                                 className="w-full px-2.5 py-1.5 bg-white border border-stone-300 rounded-lg text-xs text-stone-900 focus:border-amber-500"
@@ -2431,18 +2446,18 @@ export default function AdminProductsPage() {
                       required
                       placeholder="e.g. 14 x 20 inches"
                       value={quickSizeName}
-                      onChange={(e) => setQuickSizeName(e.target.value)}
+                      onChange={(e) => { const val = e.target.value; setQuickSizeName(val); const sq = getSqFt(val); if (sq) setQuickSizeCm(sq); }}
                       className="w-full px-3 py-2 bg-white border border-stone-300 rounded-xl text-xs font-medium text-stone-900 focus:border-amber-500 outline-none"
                     />
                   </div>
 
                   <div>
                     <label className="text-[11px] font-semibold text-stone-700 block mb-1">
-                      Dimensions (cm)
+                      Dimensions (sq.ft)
                     </label>
                     <input
                       type="text"
-                      placeholder="e.g. 35 x 50 cm"
+                      placeholder="e.g. 1.5 sq.ft"
                       value={quickSizeCm}
                       onChange={(e) => setQuickSizeCm(e.target.value)}
                       className="w-full px-3 py-2 bg-white border border-stone-300 rounded-xl text-xs text-stone-900 focus:border-amber-500 outline-none"

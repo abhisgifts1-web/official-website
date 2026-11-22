@@ -40,7 +40,7 @@ export const INITIAL_PRODUCTS: Product[] = [
       {
         "id": "var-cp1",
         "size": "0.7 sq.ft (8 x 12 inches)",
-        "dimensionsCm": "20 x 30 cm",
+        "dimensionsCm": "0.7 sq.ft",
         "finish": "Acrylic Ultra-Gloss",
         "lighting": "No Lighting (Pure Art)",
         "price": 1499,
@@ -53,7 +53,7 @@ export const INITIAL_PRODUCTS: Product[] = [
       {
         "id": "var-cp2",
         "size": "1.5 sq.ft (12 x 18 inches)",
-        "dimensionsCm": "30 x 45 cm",
+        "dimensionsCm": "1.5 sq.ft",
         "finish": "Acrylic Ultra-Gloss",
         "lighting": "No Lighting (Pure Art)",
         "price": 2199,
@@ -66,7 +66,7 @@ export const INITIAL_PRODUCTS: Product[] = [
       {
         "id": "var-cp3",
         "size": "2.7 sq.ft (16 x 24 inches)",
-        "dimensionsCm": "40 x 60 cm",
+        "dimensionsCm": "2.7 sq.ft",
         "finish": "Acrylic Ultra-Gloss",
         "lighting": "No Lighting (Pure Art)",
         "price": 3299,
@@ -79,7 +79,7 @@ export const INITIAL_PRODUCTS: Product[] = [
       {
         "id": "var-cp4",
         "size": "4.2 sq.ft (20 x 30 inches)",
-        "dimensionsCm": "50 x 75 cm",
+        "dimensionsCm": "4.2 sq.ft",
         "finish": "Acrylic Ultra-Gloss",
         "lighting": "No Lighting (Pure Art)",
         "price": 4499,
@@ -160,7 +160,7 @@ export const INITIAL_PRODUCTS: Product[] = [
       {
         "id": "var-cled1",
         "size": "1.0 sq.ft (10 x 14 inches)",
-        "dimensionsCm": "25 x 35 cm",
+        "dimensionsCm": "1 sq.ft",
         "finish": "Acrylic Ultra-Gloss",
         "lighting": "Warm LED Backlit (12V Adapter)",
         "price": 2499,
@@ -173,7 +173,7 @@ export const INITIAL_PRODUCTS: Product[] = [
       {
         "id": "var-cled2",
         "size": "1.9 sq.ft (14 x 20 inches)",
-        "dimensionsCm": "35 x 50 cm",
+        "dimensionsCm": "1.9 sq.ft",
         "finish": "Acrylic Ultra-Gloss",
         "lighting": "Warm LED Backlit (12V Adapter)",
         "price": 3499,
@@ -186,7 +186,7 @@ export const INITIAL_PRODUCTS: Product[] = [
       {
         "id": "var-cled3",
         "size": "3.3 sq.ft (18 x 26 inches)",
-        "dimensionsCm": "45 x 65 cm",
+        "dimensionsCm": "3.3 sq.ft",
         "finish": "Acrylic Ultra-Gloss",
         "lighting": "Warm LED Backlit (12V Adapter)",
         "price": 4999,
@@ -262,7 +262,7 @@ export const INITIAL_PRODUCTS: Product[] = [
       {
         "id": "var-glit-1",
         "size": "0.3 sq.ft (6 x 8 inches)",
-        "dimensionsCm": "15 x 20 cm",
+        "dimensionsCm": "0.3 sq.ft",
         "finish": "Acrylic Ultra-Gloss",
         "lighting": "No Lighting (Pure Art)",
         "price": 1299,
@@ -275,7 +275,7 @@ export const INITIAL_PRODUCTS: Product[] = [
       {
         "id": "var-glit-2",
         "size": "0.6 sq.ft (8 x 10 inches)",
-        "dimensionsCm": "20 x 25 cm",
+        "dimensionsCm": "0.6 sq.ft",
         "finish": "Acrylic Ultra-Gloss",
         "lighting": "No Lighting (Pure Art)",
         "price": 1699,
@@ -288,7 +288,7 @@ export const INITIAL_PRODUCTS: Product[] = [
       {
         "id": "var-glit-3",
         "size": "0.8 sq.ft (10 x 12 inches)",
-        "dimensionsCm": "25 x 30 cm",
+        "dimensionsCm": "0.8 sq.ft",
         "finish": "Acrylic Ultra-Gloss",
         "lighting": "No Lighting (Pure Art)",
         "price": 2199,
@@ -301,7 +301,7 @@ export const INITIAL_PRODUCTS: Product[] = [
       {
         "id": "var-glit-4",
         "size": "1.5 sq.ft (12 x 18 inches)",
-        "dimensionsCm": "30 x 45 cm",
+        "dimensionsCm": "1.5 sq.ft",
         "finish": "Acrylic Ultra-Gloss",
         "lighting": "No Lighting (Pure Art)",
         "price": 2999,
@@ -617,7 +617,7 @@ export const INITIAL_PRODUCTS: Product[] = [
         {
           "id": "var-glit-1",
           "size": "0.3 sq.ft (6 x 8 inches)",
-          "dimensionsCm": "15 x 20 cm",
+        "dimensionsCm": "0.3 sq.ft",
           "finish": "Acrylic Ultra-Gloss",
           "lighting": "No Lighting (Pure Art)",
           "price": 1299,
@@ -630,7 +630,7 @@ export const INITIAL_PRODUCTS: Product[] = [
         {
           "id": "var-glit-2",
           "size": "0.6 sq.ft (8 x 10 inches)",
-          "dimensionsCm": "20 x 25 cm",
+        "dimensionsCm": "0.6 sq.ft",
           "finish": "Acrylic Ultra-Gloss",
           "lighting": "No Lighting (Pure Art)",
           "price": 1699,
@@ -643,7 +643,7 @@ export const INITIAL_PRODUCTS: Product[] = [
         {
           "id": "var-glit-3",
           "size": "0.8 sq.ft (10 x 12 inches)",
-          "dimensionsCm": "25 x 30 cm",
+        "dimensionsCm": "0.8 sq.ft",
           "finish": "Acrylic Ultra-Gloss",
           "lighting": "No Lighting (Pure Art)",
           "price": 2199,
@@ -656,7 +656,7 @@ export const INITIAL_PRODUCTS: Product[] = [
         {
           "id": "var-glit-4",
           "size": "1.5 sq.ft (12 x 18 inches)",
-          "dimensionsCm": "30 x 45 cm",
+        "dimensionsCm": "1.5 sq.ft",
           "finish": "Acrylic Ultra-Gloss",
           "lighting": "No Lighting (Pure Art)",
           "price": 2999,
@@ -671,7 +671,7 @@ export const INITIAL_PRODUCTS: Product[] = [
         {
           "id": "var-glit-1",
           "size": "0.3 sq.ft (6 x 8 inches)",
-          "dimensionsCm": "15 x 20 cm",
+        "dimensionsCm": "0.3 sq.ft",
           "finish": "Acrylic Ultra-Gloss",
           "lighting": "No Lighting (Pure Art)",
           "price": 1299,
@@ -684,7 +684,7 @@ export const INITIAL_PRODUCTS: Product[] = [
         {
           "id": "var-glit-2",
           "size": "0.6 sq.ft (8 x 10 inches)",
-          "dimensionsCm": "20 x 25 cm",
+        "dimensionsCm": "0.6 sq.ft",
           "finish": "Acrylic Ultra-Gloss",
           "lighting": "No Lighting (Pure Art)",
           "price": 1699,
@@ -697,7 +697,7 @@ export const INITIAL_PRODUCTS: Product[] = [
         {
           "id": "var-glit-3",
           "size": "0.8 sq.ft (10 x 12 inches)",
-          "dimensionsCm": "25 x 30 cm",
+        "dimensionsCm": "0.8 sq.ft",
           "finish": "Acrylic Ultra-Gloss",
           "lighting": "No Lighting (Pure Art)",
           "price": 2199,
@@ -710,7 +710,7 @@ export const INITIAL_PRODUCTS: Product[] = [
         {
           "id": "var-glit-4",
           "size": "1.5 sq.ft (12 x 18 inches)",
-          "dimensionsCm": "30 x 45 cm",
+        "dimensionsCm": "1.5 sq.ft",
           "finish": "Acrylic Ultra-Gloss",
           "lighting": "No Lighting (Pure Art)",
           "price": 2999,
@@ -725,7 +725,7 @@ export const INITIAL_PRODUCTS: Product[] = [
         {
           "id": "var-glit-1",
           "size": "0.3 sq.ft (6 x 8 inches)",
-          "dimensionsCm": "15 x 20 cm",
+        "dimensionsCm": "0.3 sq.ft",
           "finish": "Acrylic Ultra-Gloss",
           "lighting": "No Lighting (Pure Art)",
           "price": 1299,
@@ -738,7 +738,7 @@ export const INITIAL_PRODUCTS: Product[] = [
         {
           "id": "var-glit-2",
           "size": "0.6 sq.ft (8 x 10 inches)",
-          "dimensionsCm": "20 x 25 cm",
+        "dimensionsCm": "0.6 sq.ft",
           "finish": "Acrylic Ultra-Gloss",
           "lighting": "No Lighting (Pure Art)",
           "price": 1699,
@@ -751,7 +751,7 @@ export const INITIAL_PRODUCTS: Product[] = [
         {
           "id": "var-glit-3",
           "size": "0.8 sq.ft (10 x 12 inches)",
-          "dimensionsCm": "25 x 30 cm",
+        "dimensionsCm": "0.8 sq.ft",
           "finish": "Acrylic Ultra-Gloss",
           "lighting": "No Lighting (Pure Art)",
           "price": 2199,
@@ -764,7 +764,7 @@ export const INITIAL_PRODUCTS: Product[] = [
         {
           "id": "var-glit-4",
           "size": "1.5 sq.ft (12 x 18 inches)",
-          "dimensionsCm": "30 x 45 cm",
+        "dimensionsCm": "1.5 sq.ft",
           "finish": "Acrylic Ultra-Gloss",
           "lighting": "No Lighting (Pure Art)",
           "price": 2999,
@@ -818,7 +818,7 @@ export const INITIAL_PRODUCTS: Product[] = [
       {
         "id": "var-rot-1",
         "size": "0.3 sq.ft (5 x 8 inches Cylinder)",
-        "dimensionsCm": "13 x 20 cm",
+        "dimensionsCm": "0.3 sq.ft",
         "finish": "Acrylic Ultra-Gloss",
         "lighting": "Warm LED Backlit (12V Adapter)",
         "price": 2499,
@@ -831,7 +831,7 @@ export const INITIAL_PRODUCTS: Product[] = [
       {
         "id": "var-rot-2",
         "size": "0.4 sq.ft (6 x 10 inches Grand Cylinder)",
-        "dimensionsCm": "15 x 25 cm",
+        "dimensionsCm": "0.4 sq.ft",
         "finish": "Acrylic Ultra-Gloss",
         "lighting": "Warm LED Backlit (12V Adapter)",
         "price": 3299,
@@ -844,7 +844,7 @@ export const INITIAL_PRODUCTS: Product[] = [
       {
         "id": "var-rot-3",
         "size": "0.7 sq.ft (8 x 12 inches Master Bedroom Cylinder)",
-        "dimensionsCm": "20 x 30 cm",
+        "dimensionsCm": "0.7 sq.ft",
         "finish": "Acrylic Ultra-Gloss",
         "lighting": "Warm LED Backlit (12V Adapter)",
         "price": 4199,
@@ -934,7 +934,7 @@ export const INITIAL_PRODUCTS: Product[] = [
       {
         "id": "var-pt-1",
         "size": "1.5 sq.ft (12 x 18 inches)",
-        "dimensionsCm": "30 x 45 cm",
+        "dimensionsCm": "1.5 sq.ft",
         "finish": "Acrylic Ultra-Gloss",
         "lighting": "LED Backlit (12V Adapter)",
         "price": 2499,
@@ -947,7 +947,7 @@ export const INITIAL_PRODUCTS: Product[] = [
       {
         "id": "var-pt-2",
         "size": "3 sq.ft (18 x 24 inches)",
-        "dimensionsCm": "45 x 60 cm",
+        "dimensionsCm": "3 sq.ft",
         "finish": "Acrylic Ultra-Gloss",
         "lighting": "LED Backlit (12V Adapter)",
         "price": 3499,
@@ -960,7 +960,7 @@ export const INITIAL_PRODUCTS: Product[] = [
       {
         "id": "var-pt-3",
         "size": "6 sq.ft (24 x 36 inches)",
-        "dimensionsCm": "60 x 90 cm",
+        "dimensionsCm": "6 sq.ft",
         "finish": "Acrylic Ultra-Gloss",
         "lighting": "LED Backlit (12V Adapter)",
         "price": 5499,
@@ -973,7 +973,7 @@ export const INITIAL_PRODUCTS: Product[] = [
       {
         "id": "var-pt-4",
         "size": "10 sq.ft (30 x 48 inches (Grand Wall Size))",
-        "dimensionsCm": "75 x 120 cm",
+        "dimensionsCm": "10 sq.ft",
         "finish": "Acrylic Ultra-Gloss",
         "lighting": "LED Backlit (12V Adapter)",
         "price": 7999,
@@ -1012,7 +1012,7 @@ export const INITIAL_PRODUCTS: Product[] = [
         {
           "id": "var-pt-1",
           "size": "1.5 sq.ft (12 x 18 inches)",
-          "dimensionsCm": "30 x 45 cm",
+        "dimensionsCm": "1.5 sq.ft",
           "finish": "Acrylic Ultra-Gloss",
           "lighting": "LED Backlit (12V Adapter)",
           "price": 2499,
@@ -1025,7 +1025,7 @@ export const INITIAL_PRODUCTS: Product[] = [
         {
           "id": "var-pt-2",
           "size": "3 sq.ft (18 x 24 inches)",
-          "dimensionsCm": "45 x 60 cm",
+        "dimensionsCm": "3 sq.ft",
           "finish": "Acrylic Ultra-Gloss",
           "lighting": "LED Backlit (12V Adapter)",
           "price": 3499,
@@ -1038,7 +1038,7 @@ export const INITIAL_PRODUCTS: Product[] = [
         {
           "id": "var-pt-3",
           "size": "6 sq.ft (24 x 36 inches)",
-          "dimensionsCm": "60 x 90 cm",
+        "dimensionsCm": "6 sq.ft",
           "finish": "Acrylic Ultra-Gloss",
           "lighting": "LED Backlit (12V Adapter)",
           "price": 5499,
@@ -1051,7 +1051,7 @@ export const INITIAL_PRODUCTS: Product[] = [
         {
           "id": "var-pt-4",
           "size": "10 sq.ft (30 x 48 inches (Grand Wall Size))",
-          "dimensionsCm": "75 x 120 cm",
+        "dimensionsCm": "10 sq.ft",
           "finish": "Acrylic Ultra-Gloss",
           "lighting": "LED Backlit (12V Adapter)",
           "price": 7999,
@@ -1066,7 +1066,7 @@ export const INITIAL_PRODUCTS: Product[] = [
         {
           "id": "var-pt-1",
           "size": "1.5 sq.ft (12 x 18 inches)",
-          "dimensionsCm": "30 x 45 cm",
+        "dimensionsCm": "1.5 sq.ft",
           "finish": "Acrylic Ultra-Gloss",
           "lighting": "LED Backlit (12V Adapter)",
           "price": 2499,
@@ -1079,7 +1079,7 @@ export const INITIAL_PRODUCTS: Product[] = [
         {
           "id": "var-pt-2",
           "size": "3 sq.ft (18 x 24 inches)",
-          "dimensionsCm": "45 x 60 cm",
+        "dimensionsCm": "3 sq.ft",
           "finish": "Acrylic Ultra-Gloss",
           "lighting": "LED Backlit (12V Adapter)",
           "price": 3499,
@@ -1092,7 +1092,7 @@ export const INITIAL_PRODUCTS: Product[] = [
         {
           "id": "var-pt-3",
           "size": "6 sq.ft (24 x 36 inches)",
-          "dimensionsCm": "60 x 90 cm",
+        "dimensionsCm": "6 sq.ft",
           "finish": "Acrylic Ultra-Gloss",
           "lighting": "LED Backlit (12V Adapter)",
           "price": 5499,
@@ -1105,7 +1105,7 @@ export const INITIAL_PRODUCTS: Product[] = [
         {
           "id": "var-pt-4",
           "size": "10 sq.ft (30 x 48 inches (Grand Wall Size))",
-          "dimensionsCm": "75 x 120 cm",
+        "dimensionsCm": "10 sq.ft",
           "finish": "Acrylic Ultra-Gloss",
           "lighting": "LED Backlit (12V Adapter)",
           "price": 7999,
@@ -1120,7 +1120,7 @@ export const INITIAL_PRODUCTS: Product[] = [
         {
           "id": "var-pt-1",
           "size": "1.5 sq.ft (12 x 18 inches)",
-          "dimensionsCm": "30 x 45 cm",
+        "dimensionsCm": "1.5 sq.ft",
           "finish": "Acrylic Ultra-Gloss",
           "lighting": "LED Backlit (12V Adapter)",
           "price": 2499,
@@ -1133,7 +1133,7 @@ export const INITIAL_PRODUCTS: Product[] = [
         {
           "id": "var-pt-2",
           "size": "3 sq.ft (18 x 24 inches)",
-          "dimensionsCm": "45 x 60 cm",
+        "dimensionsCm": "3 sq.ft",
           "finish": "Acrylic Ultra-Gloss",
           "lighting": "LED Backlit (12V Adapter)",
           "price": 3499,
@@ -1146,7 +1146,7 @@ export const INITIAL_PRODUCTS: Product[] = [
         {
           "id": "var-pt-3",
           "size": "6 sq.ft (24 x 36 inches)",
-          "dimensionsCm": "60 x 90 cm",
+        "dimensionsCm": "6 sq.ft",
           "finish": "Acrylic Ultra-Gloss",
           "lighting": "LED Backlit (12V Adapter)",
           "price": 5499,
@@ -1159,7 +1159,7 @@ export const INITIAL_PRODUCTS: Product[] = [
         {
           "id": "var-pt-4",
           "size": "10 sq.ft (30 x 48 inches (Grand Wall Size))",
-          "dimensionsCm": "75 x 120 cm",
+        "dimensionsCm": "10 sq.ft",
           "finish": "Acrylic Ultra-Gloss",
           "lighting": "LED Backlit (12V Adapter)",
           "price": 7999,
@@ -1216,7 +1216,7 @@ export const INITIAL_PRODUCTS: Product[] = [
       {
         "id": "var-fh1",
         "size": "1.9 sq.ft (20 x 14 inches)",
-        "dimensionsCm": "50 x 35 cm",
+        "dimensionsCm": "1.9 sq.ft",
         "finish": "Acrylic Ultra-Gloss",
         "lighting": "No Lighting (Pure Art)",
         "price": 2299,
@@ -1229,7 +1229,7 @@ export const INITIAL_PRODUCTS: Product[] = [
       {
         "id": "var-fh2",
         "size": "4.2 sq.ft (30 x 20 inches)",
-        "dimensionsCm": "75 x 50 cm",
+        "dimensionsCm": "4.2 sq.ft",
         "finish": "Acrylic Ultra-Gloss",
         "lighting": "No Lighting (Pure Art)",
         "price": 3899,
@@ -1242,7 +1242,7 @@ export const INITIAL_PRODUCTS: Product[] = [
       {
         "id": "var-fh3",
         "size": "7.2 sq.ft (40 x 26 inches)",
-        "dimensionsCm": "100 x 65 cm",
+        "dimensionsCm": "7.2 sq.ft",
         "finish": "Acrylic Ultra-Gloss",
         "lighting": "No Lighting (Pure Art)",
         "price": 5999,
@@ -1324,7 +1324,7 @@ export const INITIAL_PRODUCTS: Product[] = [
       {
         "id": "var-wed1",
         "size": "1.5 sq.ft (12 x 18 inches)",
-        "dimensionsCm": "30 x 45 cm",
+        "dimensionsCm": "1.5 sq.ft",
         "finish": "Acrylic Ultra-Gloss",
         "lighting": "Warm LED Backlit (12V Adapter)",
         "price": 2499,
@@ -1337,7 +1337,7 @@ export const INITIAL_PRODUCTS: Product[] = [
       {
         "id": "var-wed2",
         "size": "3 sq.ft (18 x 24 inches)",
-        "dimensionsCm": "45 x 60 cm",
+        "dimensionsCm": "3 sq.ft",
         "finish": "Acrylic Ultra-Gloss",
         "lighting": "Warm LED Backlit (12V Adapter)",
         "price": 3699,
@@ -1413,7 +1413,7 @@ export const INITIAL_PRODUCTS: Product[] = [
       {
         "id": "var-prem-frame1",
         "size": "1.9 sq.ft (14 x 20 inches)",
-        "dimensionsCm": "35 x 50 cm",
+        "dimensionsCm": "1.9 sq.ft",
         "finish": "Acrylic Ultra-Gloss",
         "lighting": "No Lighting (Pure Art)",
         "price": 2699,
@@ -1426,7 +1426,7 @@ export const INITIAL_PRODUCTS: Product[] = [
       {
         "id": "var-prem-frame2",
         "size": "3.9 sq.ft (20 x 28 inches)",
-        "dimensionsCm": "50 x 70 cm",
+        "dimensionsCm": "3.9 sq.ft",
         "finish": "Acrylic Ultra-Gloss",
         "lighting": "No Lighting (Pure Art)",
         "price": 3999,

@@ -1,5 +1,636 @@
 [
   {
+    "slug": "bikkkkee",
+    "artStyle": "High-Definition Cast Acrylic",
+    "baseMrp": 4999,
+    "basePrice": 2499,
+    "categoryName": "Personalized Gifts",
+    "categorySlug": "personalized-gifts",
+    "categorySlugs": [
+      "personalized-gifts",
+      "acrylic-photo-frames"
+    ],
+    "createdAt": "2026-11-22T08:06:31.873Z",
+    "description": "",
+    "discountPercentage": 50,
+    "hasLedBacklight": false,
+    "id": "prod-1795334791869-wrme",
+    "images": [
+      "https://res.cloudinary.com/pwjyb57h/image/upload/v1795334629/abhi-gifts/uploads/eu8bzw9nhjrsojrssqsu.jpg"
+    ],
+    "isBestseller": false,
+    "isFeatured": true,
+    "isNewArrival": true,
+    "materialAndCare": [
+      "Clean gently with dry microfiber cloth",
+      "Keep away from abrasive chemical cleaners"
+    ],
+    "models": [
+      {
+        "id": "M-18",
+        "name": "M-18",
+        "image": "https://res.cloudinary.com/pwjyb57h/image/upload/v1795334682/abhi-gifts/uploads/tsmwvehszyd2g0ng4djh.jpg",
+        "isPopular": true,
+        "mockups": [
+          "https://res.cloudinary.com/pwjyb57h/image/upload/v1795334682/abhi-gifts/uploads/tsmwvehszyd2g0ng4djh.jpg"
+        ],
+        "_id": "6b02a2872774ea0af8ce47b4"
+      },
+      {
+        "id": "M-10",
+        "name": "M-10",
+        "image": "https://res.cloudinary.com/pwjyb57h/image/upload/v1795334688/abhi-gifts/uploads/etdgeyfehndirtinugsd.jpg",
+        "isPopular": true,
+        "mockups": [
+          "https://res.cloudinary.com/pwjyb57h/image/upload/v1795334688/abhi-gifts/uploads/etdgeyfehndirtinugsd.jpg"
+        ],
+        "_id": "6b02a2872774ea0af8ce47b5"
+      },
+      {
+        "id": "M-1",
+        "name": "M-1",
+        "image": "https://res.cloudinary.com/pwjyb57h/image/upload/v1795334692/abhi-gifts/uploads/meuv8re3eixmurnc0jwr.jpg",
+        "isPopular": true,
+        "mockups": [
+          "https://res.cloudinary.com/pwjyb57h/image/upload/v1795334692/abhi-gifts/uploads/meuv8re3eixmurnc0jwr.jpg"
+        ],
+        "_id": "6b02a2872774ea0af8ce47b6"
+      },
+      {
+        "id": "M-2",
+        "name": "M-2",
+        "image": "https://res.cloudinary.com/pwjyb57h/image/upload/v1795334629/abhi-gifts/uploads/eu8bzw9nhjrsojrssqsu.jpg",
+        "isPopular": false,
+        "mockups": [
+          "https://res.cloudinary.com/pwjyb57h/image/upload/v1795334629/abhi-gifts/uploads/eu8bzw9nhjrsojrssqsu.jpg"
+        ],
+        "_id": "6b02a2872774ea0af8ce47b7"
+      },
+      {
+        "id": "M-3",
+        "name": "M-3",
+        "image": "https://res.cloudinary.com/pwjyb57h/image/upload/v1795334629/abhi-gifts/uploads/eu8bzw9nhjrsojrssqsu.jpg",
+        "isPopular": false,
+        "mockups": [
+          "https://res.cloudinary.com/pwjyb57h/image/upload/v1795334629/abhi-gifts/uploads/eu8bzw9nhjrsojrssqsu.jpg"
+        ],
+        "_id": "6b02a2872774ea0af8ce47b8"
+      },
+      {
+        "id": "M-4",
+        "name": "M-4",
+        "image": "https://res.cloudinary.com/pwjyb57h/image/upload/v1795334629/abhi-gifts/uploads/eu8bzw9nhjrsojrssqsu.jpg",
+        "isPopular": false,
+        "mockups": [
+          "https://res.cloudinary.com/pwjyb57h/image/upload/v1795334629/abhi-gifts/uploads/eu8bzw9nhjrsojrssqsu.jpg"
+        ],
+        "_id": "6b02a2872774ea0af8ce47b9"
+      },
+      {
+        "id": "M-5",
+        "name": "M-5",
+        "image": "https://res.cloudinary.com/pwjyb57h/image/upload/v1795334629/abhi-gifts/uploads/eu8bzw9nhjrsojrssqsu.jpg",
+        "isPopular": false,
+        "mockups": [
+          "https://res.cloudinary.com/pwjyb57h/image/upload/v1795334629/abhi-gifts/uploads/eu8bzw9nhjrsojrssqsu.jpg"
+        ],
+        "_id": "6b02a2872774ea0af8ce47ba"
+      },
+      {
+        "id": "M-6",
+        "name": "M-6",
+        "image": "https://res.cloudinary.com/pwjyb57h/image/upload/v1795334629/abhi-gifts/uploads/eu8bzw9nhjrsojrssqsu.jpg",
+        "isPopular": false,
+        "mockups": [
+          "https://res.cloudinary.com/pwjyb57h/image/upload/v1795334629/abhi-gifts/uploads/eu8bzw9nhjrsojrssqsu.jpg"
+        ],
+        "_id": "6b02a2872774ea0af8ce47bb"
+      },
+      {
+        "id": "M-7",
+        "name": "M-7",
+        "image": "https://res.cloudinary.com/pwjyb57h/image/upload/v1795334629/abhi-gifts/uploads/eu8bzw9nhjrsojrssqsu.jpg",
+        "isPopular": false,
+        "mockups": [
+          "https://res.cloudinary.com/pwjyb57h/image/upload/v1795334629/abhi-gifts/uploads/eu8bzw9nhjrsojrssqsu.jpg"
+        ],
+        "_id": "6b02a2872774ea0af8ce47bc"
+      },
+      {
+        "id": "M-8",
+        "name": "M-8",
+        "image": "https://res.cloudinary.com/pwjyb57h/image/upload/v1795334629/abhi-gifts/uploads/eu8bzw9nhjrsojrssqsu.jpg",
+        "isPopular": false,
+        "mockups": [
+          "https://res.cloudinary.com/pwjyb57h/image/upload/v1795334629/abhi-gifts/uploads/eu8bzw9nhjrsojrssqsu.jpg"
+        ],
+        "_id": "6b02a2872774ea0af8ce47bd"
+      },
+      {
+        "id": "M-9",
+        "name": "M-9",
+        "image": "https://res.cloudinary.com/pwjyb57h/image/upload/v1795334629/abhi-gifts/uploads/eu8bzw9nhjrsojrssqsu.jpg",
+        "isPopular": false,
+        "mockups": [
+          "https://res.cloudinary.com/pwjyb57h/image/upload/v1795334629/abhi-gifts/uploads/eu8bzw9nhjrsojrssqsu.jpg"
+        ],
+        "_id": "6b02a2872774ea0af8ce47be"
+      },
+      {
+        "id": "M-11",
+        "name": "M-11",
+        "image": "https://res.cloudinary.com/pwjyb57h/image/upload/v1795334629/abhi-gifts/uploads/eu8bzw9nhjrsojrssqsu.jpg",
+        "isPopular": false,
+        "mockups": [
+          "https://res.cloudinary.com/pwjyb57h/image/upload/v1795334629/abhi-gifts/uploads/eu8bzw9nhjrsojrssqsu.jpg"
+        ],
+        "_id": "6b02a2872774ea0af8ce47bf"
+      },
+      {
+        "id": "M-12",
+        "name": "M-12",
+        "image": "https://res.cloudinary.com/pwjyb57h/image/upload/v1795334629/abhi-gifts/uploads/eu8bzw9nhjrsojrssqsu.jpg",
+        "isPopular": false,
+        "mockups": [
+          "https://res.cloudinary.com/pwjyb57h/image/upload/v1795334629/abhi-gifts/uploads/eu8bzw9nhjrsojrssqsu.jpg"
+        ],
+        "_id": "6b02a2872774ea0af8ce47c0"
+      },
+      {
+        "id": "M-13",
+        "name": "M-13",
+        "image": "https://res.cloudinary.com/pwjyb57h/image/upload/v1795334629/abhi-gifts/uploads/eu8bzw9nhjrsojrssqsu.jpg",
+        "isPopular": false,
+        "mockups": [
+          "https://res.cloudinary.com/pwjyb57h/image/upload/v1795334629/abhi-gifts/uploads/eu8bzw9nhjrsojrssqsu.jpg"
+        ],
+        "_id": "6b02a2872774ea0af8ce47c1"
+      },
+      {
+        "id": "M-14",
+        "name": "M-14",
+        "image": "https://res.cloudinary.com/pwjyb57h/image/upload/v1795334629/abhi-gifts/uploads/eu8bzw9nhjrsojrssqsu.jpg",
+        "isPopular": false,
+        "mockups": [
+          "https://res.cloudinary.com/pwjyb57h/image/upload/v1795334629/abhi-gifts/uploads/eu8bzw9nhjrsojrssqsu.jpg"
+        ],
+        "_id": "6b02a2872774ea0af8ce47c2"
+      },
+      {
+        "id": "M-15",
+        "name": "M-15",
+        "image": "https://res.cloudinary.com/pwjyb57h/image/upload/v1795334629/abhi-gifts/uploads/eu8bzw9nhjrsojrssqsu.jpg",
+        "isPopular": false,
+        "mockups": [
+          "https://res.cloudinary.com/pwjyb57h/image/upload/v1795334629/abhi-gifts/uploads/eu8bzw9nhjrsojrssqsu.jpg"
+        ],
+        "_id": "6b02a2872774ea0af8ce47c3"
+      },
+      {
+        "id": "M-16",
+        "name": "M-16",
+        "image": "https://res.cloudinary.com/pwjyb57h/image/upload/v1795334629/abhi-gifts/uploads/eu8bzw9nhjrsojrssqsu.jpg",
+        "isPopular": false,
+        "mockups": [
+          "https://res.cloudinary.com/pwjyb57h/image/upload/v1795334629/abhi-gifts/uploads/eu8bzw9nhjrsojrssqsu.jpg"
+        ],
+        "_id": "6b02a2872774ea0af8ce47c4"
+      },
+      {
+        "id": "M-17",
+        "name": "M-17",
+        "image": "https://res.cloudinary.com/pwjyb57h/image/upload/v1795334629/abhi-gifts/uploads/eu8bzw9nhjrsojrssqsu.jpg",
+        "isPopular": false,
+        "mockups": [
+          "https://res.cloudinary.com/pwjyb57h/image/upload/v1795334629/abhi-gifts/uploads/eu8bzw9nhjrsojrssqsu.jpg"
+        ],
+        "_id": "6b02a2872774ea0af8ce47c5"
+      },
+      {
+        "id": "M-19",
+        "name": "M-19",
+        "image": "https://res.cloudinary.com/pwjyb57h/image/upload/v1795334629/abhi-gifts/uploads/eu8bzw9nhjrsojrssqsu.jpg",
+        "isPopular": false,
+        "mockups": [
+          "https://res.cloudinary.com/pwjyb57h/image/upload/v1795334629/abhi-gifts/uploads/eu8bzw9nhjrsojrssqsu.jpg"
+        ],
+        "_id": "6b02a2872774ea0af8ce47c6"
+      },
+      {
+        "id": "M-20",
+        "name": "M-20",
+        "image": "https://res.cloudinary.com/pwjyb57h/image/upload/v1795334629/abhi-gifts/uploads/eu8bzw9nhjrsojrssqsu.jpg",
+        "isPopular": false,
+        "mockups": [
+          "https://res.cloudinary.com/pwjyb57h/image/upload/v1795334629/abhi-gifts/uploads/eu8bzw9nhjrsojrssqsu.jpg"
+        ],
+        "_id": "6b02a2872774ea0af8ce47c7"
+      },
+      {
+        "id": "M-21",
+        "name": "M-21",
+        "image": "https://res.cloudinary.com/pwjyb57h/image/upload/v1795334629/abhi-gifts/uploads/eu8bzw9nhjrsojrssqsu.jpg",
+        "isPopular": false,
+        "mockups": [
+          "https://res.cloudinary.com/pwjyb57h/image/upload/v1795334629/abhi-gifts/uploads/eu8bzw9nhjrsojrssqsu.jpg"
+        ],
+        "_id": "6b02a2872774ea0af8ce47c8"
+      },
+      {
+        "id": "M-22",
+        "name": "M-22",
+        "image": "https://res.cloudinary.com/pwjyb57h/image/upload/v1795334629/abhi-gifts/uploads/eu8bzw9nhjrsojrssqsu.jpg",
+        "isPopular": false,
+        "mockups": [
+          "https://res.cloudinary.com/pwjyb57h/image/upload/v1795334629/abhi-gifts/uploads/eu8bzw9nhjrsojrssqsu.jpg"
+        ],
+        "_id": "6b02a2872774ea0af8ce47c9"
+      },
+      {
+        "id": "M-23",
+        "name": "M-23",
+        "image": "https://res.cloudinary.com/pwjyb57h/image/upload/v1795334629/abhi-gifts/uploads/eu8bzw9nhjrsojrssqsu.jpg",
+        "isPopular": false,
+        "mockups": [
+          "https://res.cloudinary.com/pwjyb57h/image/upload/v1795334629/abhi-gifts/uploads/eu8bzw9nhjrsojrssqsu.jpg"
+        ],
+        "_id": "6b02a2872774ea0af8ce47ca"
+      },
+      {
+        "id": "M-24",
+        "name": "M-24",
+        "image": "https://res.cloudinary.com/pwjyb57h/image/upload/v1795334629/abhi-gifts/uploads/eu8bzw9nhjrsojrssqsu.jpg",
+        "isPopular": false,
+        "mockups": [
+          "https://res.cloudinary.com/pwjyb57h/image/upload/v1795334629/abhi-gifts/uploads/eu8bzw9nhjrsojrssqsu.jpg"
+        ],
+        "_id": "6b02a2872774ea0af8ce47cb"
+      },
+      {
+        "id": "M-25",
+        "name": "M-25",
+        "image": "https://res.cloudinary.com/pwjyb57h/image/upload/v1795334629/abhi-gifts/uploads/eu8bzw9nhjrsojrssqsu.jpg",
+        "isPopular": false,
+        "mockups": [
+          "https://res.cloudinary.com/pwjyb57h/image/upload/v1795334629/abhi-gifts/uploads/eu8bzw9nhjrsojrssqsu.jpg"
+        ],
+        "_id": "6b02a2872774ea0af8ce47cc"
+      }
+    ],
+    "orientation": "vertical",
+    "orientationVariants": {
+      "portrait": [
+        {
+          "id": "size-1",
+          "size": "12 x 18 inches",
+          "dimensionsCm": "30 x 45 cm",
+          "finish": "Acrylic Ultra-Gloss",
+          "lighting": "No Lighting (Pure Art)",
+          "price": 2499,
+          "mrp": 4999,
+          "sku": "AG-BIKKKK-1",
+          "inStock": true,
+          "stockCount": 45,
+          "_id": "6b02a2872774ea0af8ce47d9"
+        },
+        {
+          "id": "size-2",
+          "size": "18 x 24 inches",
+          "dimensionsCm": "45 x 60 cm",
+          "finish": "Acrylic Ultra-Gloss",
+          "lighting": "No Lighting (Pure Art)",
+          "price": 3449,
+          "mrp": 6799,
+          "sku": "AG-BIKKKK-2",
+          "inStock": true,
+          "stockCount": 60,
+          "_id": "6b02a2872774ea0af8ce47da"
+        },
+        {
+          "id": "size-3",
+          "size": "24 x 36 inches",
+          "dimensionsCm": "60 x 90 cm",
+          "finish": "Acrylic Ultra-Gloss",
+          "lighting": "No Lighting (Pure Art)",
+          "price": 5173,
+          "mrp": 9998,
+          "sku": "AG-BIKKKK-3",
+          "inStock": true,
+          "stockCount": 30,
+          "_id": "6b02a2872774ea0af8ce47db"
+        },
+        {
+          "id": "size-4",
+          "size": "30 x 48 inches (Grand Wall Size)",
+          "dimensionsCm": "75 x 120 cm",
+          "finish": "Acrylic Ultra-Gloss",
+          "lighting": "No Lighting (Pure Art)",
+          "price": 7747,
+          "mrp": 14997,
+          "sku": "AG-BIKKKK-4",
+          "inStock": true,
+          "stockCount": 15,
+          "_id": "6b02a2872774ea0af8ce47dc"
+        },
+        {
+          "id": "size-1795334721039-5",
+          "size": "8 x 12 inches",
+          "dimensionsCm": "20 x 30 cm",
+          "finish": "Acrylic Ultra-Gloss",
+          "lighting": "No Lighting (Pure Art)",
+          "price": 5999,
+          "mrp": 11999,
+          "sku": "AG-BIKKKK-5",
+          "inStock": true,
+          "stockCount": 25,
+          "_id": "6b02a2872774ea0af8ce47dd"
+        },
+        {
+          "id": "size-1795334726539-6",
+          "size": "30 x 48 inches (Grand Wall Size)",
+          "dimensionsCm": "75 x 120 cm",
+          "finish": "Acrylic Ultra-Gloss",
+          "lighting": "No Lighting (Pure Art)",
+          "price": 6899,
+          "mrp": 13699,
+          "sku": "AG-BIKKKK-6",
+          "inStock": true,
+          "stockCount": 25,
+          "_id": "6b02a2872774ea0af8ce47de"
+        }
+      ],
+      "landscape": [
+        {
+          "id": "size-1",
+          "size": "12 x 18 inches",
+          "dimensionsCm": "30 x 45 cm",
+          "finish": "Acrylic Ultra-Gloss",
+          "lighting": "No Lighting (Pure Art)",
+          "price": 2499,
+          "mrp": 4999,
+          "sku": "AG-BIKKKK-1",
+          "inStock": true,
+          "stockCount": 45,
+          "_id": "6b02a2872774ea0af8ce47d3"
+        },
+        {
+          "id": "size-2",
+          "size": "18 x 24 inches",
+          "dimensionsCm": "45 x 60 cm",
+          "finish": "Acrylic Ultra-Gloss",
+          "lighting": "No Lighting (Pure Art)",
+          "price": 3449,
+          "mrp": 6799,
+          "sku": "AG-BIKKKK-2",
+          "inStock": true,
+          "stockCount": 60,
+          "_id": "6b02a2872774ea0af8ce47d4"
+        },
+        {
+          "id": "size-3",
+          "size": "24 x 36 inches",
+          "dimensionsCm": "60 x 90 cm",
+          "finish": "Acrylic Ultra-Gloss",
+          "lighting": "No Lighting (Pure Art)",
+          "price": 5173,
+          "mrp": 9998,
+          "sku": "AG-BIKKKK-3",
+          "inStock": true,
+          "stockCount": 30,
+          "_id": "6b02a2872774ea0af8ce47d5"
+        },
+        {
+          "id": "size-4",
+          "size": "30 x 48 inches (Grand Wall Size)",
+          "dimensionsCm": "75 x 120 cm",
+          "finish": "Acrylic Ultra-Gloss",
+          "lighting": "No Lighting (Pure Art)",
+          "price": 7747,
+          "mrp": 14997,
+          "sku": "AG-BIKKKK-4",
+          "inStock": true,
+          "stockCount": 15,
+          "_id": "6b02a2872774ea0af8ce47d6"
+        },
+        {
+          "id": "size-1795334721039-5",
+          "size": "8 x 12 inches",
+          "dimensionsCm": "20 x 30 cm",
+          "finish": "Acrylic Ultra-Gloss",
+          "lighting": "No Lighting (Pure Art)",
+          "price": 5999,
+          "mrp": 11999,
+          "sku": "AG-BIKKKK-5",
+          "inStock": true,
+          "stockCount": 25,
+          "_id": "6b02a2872774ea0af8ce47d7"
+        },
+        {
+          "id": "size-1795334726539-6",
+          "size": "30 x 48 inches (Grand Wall Size)",
+          "dimensionsCm": "75 x 120 cm",
+          "finish": "Acrylic Ultra-Gloss",
+          "lighting": "No Lighting (Pure Art)",
+          "price": 6899,
+          "mrp": 13699,
+          "sku": "AG-BIKKKK-6",
+          "inStock": true,
+          "stockCount": 25,
+          "_id": "6b02a2872774ea0af8ce47d8"
+        }
+      ],
+      "square": [
+        {
+          "id": "size-1",
+          "size": "12 x 18 inches",
+          "dimensionsCm": "30 x 45 cm",
+          "finish": "Acrylic Ultra-Gloss",
+          "lighting": "No Lighting (Pure Art)",
+          "price": 2499,
+          "mrp": 4999,
+          "sku": "AG-BIKKKK-1",
+          "inStock": true,
+          "stockCount": 45,
+          "_id": "6b02a2872774ea0af8ce47cd"
+        },
+        {
+          "id": "size-2",
+          "size": "18 x 24 inches",
+          "dimensionsCm": "45 x 60 cm",
+          "finish": "Acrylic Ultra-Gloss",
+          "lighting": "No Lighting (Pure Art)",
+          "price": 3449,
+          "mrp": 6799,
+          "sku": "AG-BIKKKK-2",
+          "inStock": true,
+          "stockCount": 60,
+          "_id": "6b02a2872774ea0af8ce47ce"
+        },
+        {
+          "id": "size-3",
+          "size": "24 x 36 inches",
+          "dimensionsCm": "60 x 90 cm",
+          "finish": "Acrylic Ultra-Gloss",
+          "lighting": "No Lighting (Pure Art)",
+          "price": 5173,
+          "mrp": 9998,
+          "sku": "AG-BIKKKK-3",
+          "inStock": true,
+          "stockCount": 30,
+          "_id": "6b02a2872774ea0af8ce47cf"
+        },
+        {
+          "id": "size-4",
+          "size": "30 x 48 inches (Grand Wall Size)",
+          "dimensionsCm": "75 x 120 cm",
+          "finish": "Acrylic Ultra-Gloss",
+          "lighting": "No Lighting (Pure Art)",
+          "price": 7747,
+          "mrp": 14997,
+          "sku": "AG-BIKKKK-4",
+          "inStock": true,
+          "stockCount": 15,
+          "_id": "6b02a2872774ea0af8ce47d0"
+        },
+        {
+          "id": "size-1795334721039-5",
+          "size": "8 x 12 inches",
+          "dimensionsCm": "20 x 30 cm",
+          "finish": "Acrylic Ultra-Gloss",
+          "lighting": "No Lighting (Pure Art)",
+          "price": 5999,
+          "mrp": 11999,
+          "sku": "AG-BIKKKK-5",
+          "inStock": true,
+          "stockCount": 25,
+          "_id": "6b02a2872774ea0af8ce47d1"
+        },
+        {
+          "id": "size-1795334726539-6",
+          "size": "30 x 48 inches (Grand Wall Size)",
+          "dimensionsCm": "75 x 120 cm",
+          "finish": "Acrylic Ultra-Gloss",
+          "lighting": "No Lighting (Pure Art)",
+          "price": 6899,
+          "mrp": 13699,
+          "sku": "AG-BIKKKK-6",
+          "inStock": true,
+          "stockCount": 25,
+          "_id": "6b02a2872774ea0af8ce47d2"
+        }
+      ]
+    },
+    "rating": 0,
+    "reviewCount": 0,
+    "reviews": [],
+    "shape": "portrait",
+    "shippingHighlights": [
+      "Safe multi-layer packaging standard",
+      "Zero transit damage guarantee"
+    ],
+    "shortDescription": "bikekek",
+    "specifications": [
+      {
+        "label": "Art Material",
+        "value": "Premium Acrylic with CNC Beveled Edges",
+        "_id": "6b02a2872774ea0af8ce47df"
+      },
+      {
+        "label": "Lighting Technology",
+        "value": "Non-Lit Museum Art",
+        "_id": "6b02a2872774ea0af8ce47e0"
+      }
+    ],
+    "subtitle": "Handcrafted Museum Grade Cast Acrylic",
+    "tags": [
+      "Acrylic Photo Frame",
+      "Hyderabad",
+      "Wall Decor"
+    ],
+    "title": "bikekek",
+    "updatedAt": "2026-11-22T08:06:31.872Z",
+    "variants": [
+      {
+        "id": "size-1",
+        "size": "12 x 18 inches",
+        "dimensionsCm": "30 x 45 cm",
+        "finish": "Acrylic Ultra-Gloss",
+        "lighting": "No Lighting (Pure Art)",
+        "price": 2499,
+        "mrp": 4999,
+        "sku": "AG-BIKKKK-1",
+        "inStock": true,
+        "stockCount": 45,
+        "_id": "6b02a2872774ea0af8ce47ae"
+      },
+      {
+        "id": "size-2",
+        "size": "18 x 24 inches",
+        "dimensionsCm": "45 x 60 cm",
+        "finish": "Acrylic Ultra-Gloss",
+        "lighting": "No Lighting (Pure Art)",
+        "price": 3449,
+        "mrp": 6799,
+        "sku": "AG-BIKKKK-2",
+        "inStock": true,
+        "stockCount": 60,
+        "_id": "6b02a2872774ea0af8ce47af"
+      },
+      {
+        "id": "size-3",
+        "size": "24 x 36 inches",
+        "dimensionsCm": "60 x 90 cm",
+        "finish": "Acrylic Ultra-Gloss",
+        "lighting": "No Lighting (Pure Art)",
+        "price": 5173,
+        "mrp": 9998,
+        "sku": "AG-BIKKKK-3",
+        "inStock": true,
+        "stockCount": 30,
+        "_id": "6b02a2872774ea0af8ce47b0"
+      },
+      {
+        "id": "size-4",
+        "size": "30 x 48 inches (Grand Wall Size)",
+        "dimensionsCm": "75 x 120 cm",
+        "finish": "Acrylic Ultra-Gloss",
+        "lighting": "No Lighting (Pure Art)",
+        "price": 7747,
+        "mrp": 14997,
+        "sku": "AG-BIKKKK-4",
+        "inStock": true,
+        "stockCount": 15,
+        "_id": "6b02a2872774ea0af8ce47b1"
+      },
+      {
+        "id": "size-1795334721039-5",
+        "size": "8 x 12 inches",
+        "dimensionsCm": "20 x 30 cm",
+        "finish": "Acrylic Ultra-Gloss",
+        "lighting": "No Lighting (Pure Art)",
+        "price": 5999,
+        "mrp": 11999,
+        "sku": "AG-BIKKKK-5",
+        "inStock": true,
+        "stockCount": 25,
+        "_id": "6b02a2872774ea0af8ce47b2"
+      },
+      {
+        "id": "size-1795334726539-6",
+        "size": "30 x 48 inches (Grand Wall Size)",
+        "dimensionsCm": "75 x 120 cm",
+        "finish": "Acrylic Ultra-Gloss",
+        "lighting": "No Lighting (Pure Art)",
+        "price": 6899,
+        "mrp": 13699,
+        "sku": "AG-BIKKKK-6",
+        "inStock": true,
+        "stockCount": 25,
+        "_id": "6b02a2872774ea0af8ce47b3"
+      }
+    ]
+  },
+  {
     "slug": "custom-led-backlit-acrylic-photo-frame",
     "artStyle": "Custom Photo Frames",
     "baseMrp": 2399,
