@@ -382,11 +382,11 @@ export default function Footer() {
               className="group inline-flex items-center transition-all duration-200"
             >
               <Image
-                src="/images/slrj/slrj-logo-white.png"
+                src="/images/slrj/slrj-footer-logo.png"
                 alt="SLRJ Digital"
-                width={130}
-                height={16}
-                className="h-3.5 sm:h-4 w-auto object-contain opacity-90 group-hover:opacity-100 group-hover:scale-[1.03] transition-all duration-200"
+                width={140}
+                height={60}
+                className="h-6 sm:h-7 w-auto object-contain rounded-md shadow-xs opacity-95 group-hover:opacity-100 group-hover:scale-[1.03] transition-all duration-200"
               />
               <span className="sr-only">SLRJ Digital</span>
             </a>
