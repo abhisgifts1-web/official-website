@@ -1,37 +1,51 @@
 'use client';
 
 import React from 'react';
-import { ShieldCheck, Sparkles, MessageCircle, Sun, CheckCircle2 } from 'lucide-react';
+import {
+  ShieldCheck,
+  Sparkles,
+  MessageCircle,
+  Sun,
+  Wand2,
+  CheckCircle2,
+} from 'lucide-react';
 
 export default function WhyChooseUsSection() {
   const features = [
     {
       icon: Sparkles,
       title: 'Direct Workshop Fabrication',
-      tag: 'In-House Hyderabad',
+      tag: 'Hyderabad In-House',
       description:
-        'Crafted in-house at our Dilsukhnagar, Hyderabad workshop. No middlemen, ensuring authentic quality and direct workshop pricing.',
+        'Crafted directly in our Dilsukhnagar workshop with zero middlemen, offering direct artisan pricing and strict quality oversight.',
     },
     {
       icon: ShieldCheck,
       title: 'Premium Virgin Cast Acrylic',
-      tag: 'Square-Cut Edges',
+      tag: '5MM Crystal Beveled',
       description:
-        'Imported clear virgin cast acrylic and 5MM premium crystal acrylic featuring precision square-cut edges for maximum optical clarity.',
+        'Imported 5MM clear virgin cast acrylic with diamond-polished beveled edges for glass-like optical brilliance without breakage risk.',
+    },
+    {
+      icon: Wand2,
+      title: 'Custom 1200 DPI Personalization',
+      tag: 'Archival Depth',
+      description:
+        'Direct UV-curable archival inks penetrate the acrylic shield for lifelong color saturation, sharp contrast, and zero fading.',
     },
     {
       icon: Sun,
       title: 'Cool White LED Backlighting',
-      tag: 'Cool White Halo Glow',
+      tag: 'External Adapter Included',
       description:
-        'Hidden perimeter LED illumination producing an elegant Cool White halo glow with external power adapter included.',
+        'Concealed perimeter LED lightguide casting a radiant Cool White ambient halo with external 12V power adapter and wall studs.',
     },
     {
       icon: MessageCircle,
-      title: 'WhatsApp Proof Preview',
-      tag: 'Approval Before Craft',
+      title: 'Free WhatsApp Proof Approval',
+      tag: '1:1 Sign-Off First',
       description:
-        'Review a 1:1 digital proof of your custom frame directly on WhatsApp for your approval before production.',
+        'Our Hyderabad graphic designers share an exact 1:1 digital layout on WhatsApp for your sign-off before manufacturing.',
     },
   ];
 
@@ -56,27 +70,27 @@ export default function WhyChooseUsSection() {
           </p>
         </div>
 
-        {/* 4 Feature Columns */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 relative z-10">
+        {/* 5 Feature Columns */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5 relative z-10">
           {features.map((feat, idx) => {
             const Icon = feat.icon;
             return (
               <div
                 key={idx}
-                className="group bg-white rounded-2xl p-6 sm:p-7 border border-stone-200/90 hover:border-amber-400/80 shadow-2xs hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
+                className="group bg-white rounded-2xl p-5 sm:p-6 border border-stone-200/90 hover:border-amber-400/80 shadow-2xs hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
               >
                 <div className="space-y-4">
                   <div className="flex items-center justify-between gap-2">
-                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-500/10 via-amber-400/15 to-amber-500/10 border border-amber-400/30 flex items-center justify-center text-amber-700 group-hover:scale-105 group-hover:border-amber-500/50 transition-all duration-300 shrink-0 shadow-2xs">
+                    <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-amber-500/10 via-amber-400/15 to-amber-500/10 border border-amber-400/30 flex items-center justify-center text-amber-700 group-hover:scale-105 group-hover:border-amber-500/50 transition-all duration-300 shrink-0 shadow-2xs">
                       <Icon className="w-5 h-5 text-amber-700" />
                     </div>
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-amber-800 bg-amber-50 px-2.5 py-0.5 rounded-full border border-amber-200/80">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full border border-amber-200/80">
                       {feat.tag}
                     </span>
                   </div>
 
                   <div>
-                    <h3 className="font-serif font-bold text-base text-stone-900 group-hover:text-amber-900 transition-colors">
+                    <h3 className="font-serif font-bold text-sm sm:text-base text-stone-900 group-hover:text-amber-900 transition-colors leading-snug">
                       {feat.title}
                     </h3>
                     <p className="text-xs text-stone-600 mt-2 leading-relaxed font-sans">
