@@ -112,76 +112,51 @@ export default function AdminProductsPage() {
   const [imagePreviewError, setImagePreviewError] = useState(false);
   const [newImageUrl, setNewImageUrl] = useState('');
 
-  const handleImageFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    const fileList = e.target.files;
-    if (!fileList || fileList.length === 0) return;
-
-    const files = Array.from(fileList);
-    const currentList = Array.isArray(formData.images) && formData.images.length > 0
-      ? formData.images
-      : [formData.imageUrl].filter(Boolean);
-
-    const availableSlots = MAX_PRODUCT_IMAGES - currentList.length;
-    if (availableSlots <= 0) {
-      alert(`Maximum ${MAX_PRODUCT_IMAGES} images limit reached. Please delete some existing images before adding more.`);
-      return;
-    }
-
-    const filesToUpload = files.slice(0, availableSlots);
-    if (files.length > availableSlots) {
-      alert(`Only the first ${availableSlots} files will be uploaded to stay within the maximum ${MAX_PRODUCT_IMAGES} images limit.`);
-    }
+  const handleMainCoverImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
 
     try {
       setUploadingImage(true);
-      const uploadedUrls: string[] = [];
+      setUploadProgressText('Uploading cover image...');
 
-      for (let i = 0; i < filesToUpload.length; i++) {
-        const file = filesToUpload[i];
-        setUploadProgressText(`Uploading ${i + 1} of ${filesToUpload.length}...`);
+      const rawDataUrl = await new Promise<string>((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result as string);
+        reader.onerror = reject;
+        reader.readAsDataURL(file);
+      });
 
-        const rawDataUrl = await new Promise<string>((resolve, reject) => {
-          const reader = new FileReader();
-          reader.onload = () => resolve(reader.result as string);
-          reader.onerror = reject;
-          reader.readAsDataURL(file);
-        });
-
-        if (rawDataUrl) {
-          try {
-            const res = await fetch('/api/upload-photo', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({ image: rawDataUrl }),
-            });
-            const data = await res.json();
-            const finalUrl = data && data.success && (data.cdnUrl || data.url) ? (data.cdnUrl || data.url) : rawDataUrl;
-            uploadedUrls.push(finalUrl);
-          } catch {
-            uploadedUrls.push(rawDataUrl);
+      if (rawDataUrl) {
+        let finalUrl = rawDataUrl;
+        try {
+          const res = await fetch('/api/upload-photo', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ image: rawDataUrl }),
+          });
+          const data = await res.json();
+          if (data && data.success && (data.cdnUrl || data.url)) {
+            finalUrl = data.cdnUrl || data.url;
           }
+        } catch (e) {
+          console.warn('API upload error, using local data URL', e);
         }
-      }
 
-      if (uploadedUrls.length > 0) {
-        setFormData((prev) => {
-          const prevList = Array.isArray(prev.images) && prev.images.length > 0
-            ? prev.images
-            : [prev.imageUrl].filter(Boolean);
-          const combined = Array.from(new Set([...prevList, ...uploadedUrls])).slice(0, MAX_PRODUCT_IMAGES);
-          return {
-            ...prev,
-            images: combined,
-            imageUrl: combined[0] || prev.imageUrl,
-          };
-        });
+        setFormData((prev) => ({
+          ...prev,
+          images: [finalUrl],
+          imageUrl: finalUrl,
+        }));
       }
     } catch (err: any) {
-      alert('Failed to upload image(s): ' + (err.message || 'Unknown error'));
+      alert('Failed to upload image: ' + (err.message || 'Unknown error'));
     } finally {
       setUploadingImage(false);
       setUploadProgressText('');
-      if (fileInputRef.current) fileInputRef.current.value = '';
+      if (fileInputRef.current) {
+        fileInputRef.current.value = '';
+      }
     }
   };
 
@@ -1622,8 +1597,8 @@ export default function AdminProductsPage() {
                       </select>
                     </div>
 
-                    {/* Product Media & Image Gallery Manager */}
-                    <div className="md:col-span-2 border border-stone-200 rounded-2xl p-4 bg-stone-50/70 space-y-3.5">
+                    {/* Main Product Cover Image */}
+                    <div className="md:col-span-2 border border-stone-200 rounded-2xl p-4 bg-stone-50/70 space-y-3">
                       <div className="flex items-center justify-between flex-wrap gap-2">
                         <div className="flex items-center gap-2">
                           <div className="w-8 h-8 rounded-lg bg-amber-100 text-amber-800 flex items-center justify-center">
@@ -1631,38 +1606,27 @@ export default function AdminProductsPage() {
                           </div>
                           <div>
                             <label className="font-bold text-stone-900 text-sm block">
-                              Product Images &amp; Mockup Gallery ({formData.images.length} / {MAX_PRODUCT_IMAGES})
+                              Main Product Cover Image
                             </label>
                             <p className="text-[11px] text-stone-500">
-                              Support up to 30 images per product. Upload multiple files at once, reorder, or delete anytime.
+                              Primary product cover image. (Model variations and their artwork images are managed below).
                             </p>
                           </div>
                         </div>
 
-                        <div className="flex items-center gap-2">
-                          {formData.images.length > 1 && (
-                            <button
-                              type="button"
-                              onClick={handleClearExtraImages}
-                              className="text-[11px] font-bold text-stone-600 hover:text-rose-700 bg-white hover:bg-rose-50 border border-stone-200 px-2.5 py-1.5 rounded-xl transition-colors cursor-pointer"
-                              title="Keep only the cover image"
-                            >
-                              Clear Extra
-                            </button>
-                          )}
+                        <div>
                           <input
                             ref={fileInputRef}
                             type="file"
-                            multiple
-                            accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp"
+                            accept="image/*"
                             className="hidden"
-                            onChange={handleImageFileUpload}
+                            onChange={handleMainCoverImageUpload}
                           />
                           <button
                             type="button"
                             onClick={() => fileInputRef.current?.click()}
-                            disabled={uploadingImage || formData.images.length >= MAX_PRODUCT_IMAGES}
-                            className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold bg-stone-900 hover:bg-stone-800 text-white rounded-xl shadow-xs transition-colors disabled:opacity-50 cursor-pointer"
+                            disabled={uploadingImage}
+                            className="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-bold bg-stone-900 hover:bg-stone-800 text-white rounded-xl shadow-xs transition-colors disabled:opacity-50 cursor-pointer"
                           >
                             {uploadingImage ? (
                               <>
@@ -1671,167 +1635,55 @@ export default function AdminProductsPage() {
                               </>
                             ) : (
                               <>
-                                <Upload className="w-3.5 h-3.5" />
-                                <span>+ Upload Images (Multi-Select)</span>
+                                <Upload className="w-3.5 h-3.5 text-amber-400" />
+                                <span>Upload Main Cover Image</span>
                               </>
                             )}
                           </button>
                         </div>
                       </div>
 
-                      {/* Image Cards Grid */}
-                      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2.5 pt-1">
-                        {formData.images.map((imgUrl, idx) => {
-                          const isPrimary = idx === 0;
-                          return (
-                            <div
-                              key={idx}
-                              className={`group relative rounded-xl border-2 overflow-hidden bg-white shadow-2xs transition-all flex flex-col ${
-                                isPrimary
-                                  ? 'border-amber-500 ring-2 ring-amber-400/30'
-                                  : 'border-stone-200 hover:border-stone-300'
-                              }`}
-                            >
-                              {/* Preview Thumbnail */}
-                              <div className="w-full aspect-square bg-stone-100 overflow-hidden relative">
-                                <img
-                                  src={imgUrl}
-                                  alt={`Gallery image ${idx + 1}`}
-                                  className="w-full h-full object-cover transition-transform duration-200 group-hover:scale-105"
-                                  onError={(e) => {
-                                    (e.target as HTMLImageElement).src = '/images/brand/logo-badge-icon.png';
-                                  }}
-                                />
-
-                                {/* Index & Primary Badge */}
-                                <div className="absolute top-1 left-1 flex items-center gap-1">
-                                  <span className={`text-[9px] font-bold px-1.5 py-0.2 rounded shadow-xs ${
-                                    isPrimary
-                                      ? 'bg-amber-500 text-stone-950 font-bold'
-                                      : 'bg-stone-900/80 text-white'
-                                  }`}>
-                                    #{idx + 1}
-                                  </span>
-                                  {isPrimary && (
-                                    <span className="text-[8.5px] font-bold px-1 py-0.2 rounded bg-amber-500 text-stone-950 shadow-xs flex items-center gap-0.5">
-                                      <Star className="w-2.5 h-2.5 fill-stone-950" /> Cover
-                                    </span>
-                                  )}
-                                </div>
-
-                                {/* Delete Action Button */}
-                                <button
-                                  type="button"
-                                  onClick={() => handleRemoveImage(idx)}
-                                  className="absolute top-1 right-1 w-5 h-5 rounded bg-rose-600/90 hover:bg-rose-700 text-white flex items-center justify-center shadow-xs cursor-pointer transition-colors"
-                                  title="Remove image"
-                                >
-                                  <X className="w-3 h-3" />
-                                </button>
-                              </div>
-
-                              {/* Card Controls */}
-                              <div className="p-1.5 bg-stone-50 border-t border-stone-200/80 flex items-center justify-between gap-1 text-[10px]">
-                                {!isPrimary ? (
-                                  <button
-                                    type="button"
-                                    onClick={() => handleSetPrimaryImage(idx)}
-                                    className="text-[9.5px] font-bold text-amber-800 hover:text-amber-950 flex items-center gap-0.5 transition-colors cursor-pointer"
-                                    title="Set as primary cover image"
-                                  >
-                                    <Star className="w-2.5 h-2.5 text-amber-600" />
-                                    <span>Cover</span>
-                                  </button>
-                                ) : (
-                                  <span className="text-[9.5px] font-bold text-emerald-700 flex items-center gap-0.5">
-                                    <Check className="w-2.5 h-2.5" /> Cover
-                                  </span>
-                                )}
-
-                                <div className="flex items-center gap-0.5 ml-auto">
-                                  <button
-                                    type="button"
-                                    disabled={idx === 0}
-                                    onClick={() => handleMoveImage(idx, 'left')}
-                                    className="p-0.5 rounded bg-white hover:bg-stone-200 text-stone-700 border border-stone-200 disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer transition-colors"
-                                    title="Move Left"
-                                  >
-                                    <ArrowLeft className="w-2.5 h-2.5" />
-                                  </button>
-                                  <button
-                                    type="button"
-                                    disabled={idx === formData.images.length - 1}
-                                    onClick={() => handleMoveImage(idx, 'right')}
-                                    className="p-0.5 rounded bg-white hover:bg-stone-200 text-stone-700 border border-stone-200 disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer transition-colors"
-                                    title="Move Right"
-                                  >
-                                    <ArrowRight className="w-2.5 h-2.5" />
-                                  </button>
-                                </div>
-                              </div>
-                            </div>
-                          );
-                        })}
-                      </div>
-
-                      {/* Add Image by URL Bar */}
-                      <div className="pt-2 border-t border-stone-200">
-                        <label className="text-[11px] font-bold text-stone-700 block mb-1">
-                          + Add Image by URL or Path:
-                        </label>
-                        <div className="flex gap-2">
-                          <input
-                            type="text"
-                            value={newImageUrl}
-                            onChange={(e) => setNewImageUrl(e.target.value)}
-                            onKeyDown={(e) => {
-                              if (e.key === 'Enter') {
-                                e.preventDefault();
-                                handleAddImage();
-                              }
+                      <div className="flex flex-col sm:flex-row items-center gap-4 bg-white p-3.5 rounded-xl border border-stone-200">
+                        <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-xl overflow-hidden bg-stone-100 border-2 border-amber-400 shadow-sm shrink-0">
+                          <img
+                            src={formData.images[0] || formData.imageUrl || '/images/placeholder.jpg'}
+                            alt="Main product cover"
+                            className="w-full h-full object-cover"
+                            onError={(e) => {
+                              (e.target as HTMLImageElement).src = '/images/placeholder.jpg';
                             }}
-                            placeholder="/images/mockups/... or https://..."
-                            className="flex-1 px-3 py-2 bg-white border border-stone-300 rounded-xl outline-none font-mono text-xs text-stone-900 placeholder-stone-400 focus:border-amber-500"
                           />
-                          <button
-                            type="button"
-                            onClick={() => handleAddImage()}
-                            disabled={!newImageUrl.trim()}
-                            className="px-4 py-2 bg-amber-500 hover:bg-amber-600 disabled:opacity-50 text-stone-950 font-bold text-xs rounded-xl shadow-xs transition-colors cursor-pointer"
-                          >
-                            + Add Image
-                          </button>
+                          <span className="absolute bottom-1 right-1 bg-amber-500 text-stone-950 text-[9px] font-bold px-1.5 py-0.5 rounded shadow-xs">
+                            ★ Main Cover
+                          </span>
                         </div>
 
-                        <div className="mt-2 flex items-center justify-between flex-wrap gap-2 text-[11px]">
-                          <div className="flex items-center gap-3 flex-wrap">
-                            <button
-                              type="button"
-                              onClick={handleAutoAddStandardMockups}
-                              className="text-amber-800 hover:text-amber-950 font-bold inline-flex items-center gap-1.5 transition-colors cursor-pointer"
-                            >
-                              <Sparkles className="w-3.5 h-3.5 text-amber-600" />
-                              <span>Auto-Load Standard Mockups (Living Room, Foyer, Detail, Artistic)</span>
-                            </button>
-                            <button
-                              type="button"
-                              onClick={handleAddCraftAndSpecs}
-                              className="text-stone-700 hover:text-stone-950 font-bold inline-flex items-center gap-1.5 transition-colors cursor-pointer"
-                            >
-                              <Layers className="w-3.5 h-3.5 text-stone-600" />
-                              <span>+ Add Size &amp; Frame Specs</span>
-                            </button>
-                          </div>
-
-                          <span className="text-stone-400 text-[10px]">
-                            Max 30 images • Accepts .jpg, .jpeg, .png, .webp or URLs
-                          </span>
+                        <div className="flex-1 w-full space-y-1.5">
+                          <label className="text-[11px] font-bold text-stone-700 block">
+                            Main Image URL or Path:
+                          </label>
+                          <input
+                            type="text"
+                            value={formData.images[0] || formData.imageUrl || ''}
+                            onChange={(e) => {
+                              const val = e.target.value;
+                              setFormData((prev) => ({
+                                ...prev,
+                                images: [val],
+                                imageUrl: val,
+                              }));
+                            }}
+                            placeholder="/images/... or https://..."
+                            className="w-full px-3 py-2 bg-stone-50 border border-stone-300 rounded-xl outline-none font-mono text-xs text-stone-900 focus:border-amber-500 focus:bg-white transition-colors"
+                          />
+                          <p className="text-[10px] text-stone-500">
+                            Enter an image path or click &quot;Upload Main Cover Image&quot; to pick from your computer.
+                          </p>
                         </div>
                       </div>
                     </div>
-                  </div>
 
-                  <div>
+                  <div className="sm:col-span-2">
                     <label className="font-semibold text-stone-800 block mb-1">Art Style / Finish</label>
                     <input
                       type="text"
@@ -1842,6 +1694,7 @@ export default function AdminProductsPage() {
                     />
                   </div>
                 </div>
+              </div>
 
                 {/* 2. Models & Design Variations Manager (M-1 to M-25 / M-30) */}
                 <div className="space-y-4 pt-5 border-t border-stone-200">
