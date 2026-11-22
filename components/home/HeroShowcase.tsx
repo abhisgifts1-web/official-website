@@ -106,32 +106,6 @@ export const FEATURED_ARTWORKS: FeaturedArtwork[] = [
     dimensions: '20" × 14"',
     isBestseller: false,
   },
-  {
-    id: 'lord-hanuman',
-    name: 'Lord Hanuman — Sankat Mochan',
-    subtitle: 'Chiranjeevi Veer • 24K Gold Sacred Protection',
-    tagline: 'Shields household with invincible courage, cosmic vitality & divine strength.',
-    image: '/images/mockups/sankat-mochan-lord-hanuman-24k-gold-acrylic-wall-art/mockup-interior.jpg',
-    frameMockup: '/images/mockups/sankat-mochan-lord-hanuman-24k-gold-acrylic-wall-art/primary-square.jpg',
-    slug: 'sankat-mochan-lord-hanuman-24k-gold-acrylic-wall-art',
-    price: '₹3,199',
-    originalPrice: '₹4,899',
-    dimensions: '24" × 16"',
-    isBestseller: true,
-  },
-  {
-    id: 'seven-horses',
-    name: 'Seven Running Horses — Vastu Abundance',
-    subtitle: 'Surya Ashwa • Cosmic Speed & Financial Elevation',
-    tagline: 'Attracts unprecedented prosperity, rapid progress & career victory into your sanctum.',
-    image: '/images/mockups/seven-running-horses-vastu-gold-acrylic-wall-art/mockup-interior.jpg',
-    frameMockup: '/images/mockups/seven-running-horses-vastu-gold-acrylic-wall-art/primary-square.jpg',
-    slug: 'seven-running-horses-vastu-gold-acrylic-wall-art',
-    price: '₹3,499',
-    originalPrice: '₹5,299',
-    dimensions: '30" × 18"',
-    isBestseller: true,
-  },
 ];
 
 export default function HeroShowcase() {
@@ -207,7 +181,7 @@ export default function HeroShowcase() {
           {/* ─────────────────────────────────────────────────────────────
               LEFT CONTENT SECTION: Typography & Conversion Hierarchy
              ───────────────────────────────────────────────────────────── */}
-          <div className="lg:col-span-7 flex flex-col items-start space-y-5 sm:space-y-6">
+          <div className="lg:col-span-5 flex flex-col items-start space-y-5 sm:space-y-6">
             
             {/* Small Premium Badge with smooth shimmer & breathing pulse */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-amber-500/20 via-amber-400/10 to-amber-500/20 border border-amber-400/50 text-amber-300 text-[10px] sm:text-xs font-semibold tracking-widest uppercase shadow-sm backdrop-blur-md animate-hero-badge-shine">
@@ -259,11 +233,11 @@ export default function HeroShowcase() {
           {/* ─────────────────────────────────────────────────────────────
               RIGHT CONTENT SECTION: Floating Visual Product Showcase
              ───────────────────────────────────────────────────────────── */}
-          <div className="lg:col-span-5 flex flex-col items-center justify-center pt-4 lg:pt-0">
+          <div className="lg:col-span-7 flex flex-col items-center justify-center pt-4 lg:pt-0">
             
             {/* Realistic Floating Master Frame Container */}
             <div
-              className="relative w-full max-w-sm sm:max-w-md lg:max-w-lg xl:max-w-[540px] group"
+              className="relative w-full max-w-md sm:max-w-xl lg:max-w-2xl xl:max-w-[660px] group"
               onMouseEnter={() => setIsPaused(true)}
               onMouseLeave={() => setIsPaused(false)}
             >
@@ -324,24 +298,9 @@ export default function HeroShowcase() {
 
               </div>
 
-              {/* Artwork Image Thumbnails Strip with 8 Masterpieces & Number Badges */}
-              <div className="mt-3 sm:mt-4 w-full space-y-1.5">
-                <div className="flex items-center justify-between text-xs font-semibold px-0.5">
-                  <span className="flex items-center gap-1.5 text-stone-300">
-                    <Sparkles className="w-3.5 h-3.5 text-[#FEE815] shrink-0" />
-                    <span className="font-bold text-white text-[11px] sm:text-xs">
-                      Featured Masterpieces
-                    </span>
-                    <span className="text-[10px] sm:text-[11px] text-amber-300/80 font-mono">
-                      ({selectedArtworkIndex + 1} of {FEATURED_ARTWORKS.length})
-                    </span>
-                  </span>
-                  <span className="text-[10px] text-stone-400 font-mono hidden sm:inline-block">
-                    Auto-Rotating
-                  </span>
-                </div>
-
-                <div className="grid grid-cols-8 gap-1 sm:gap-1.5 md:gap-2">
+              {/* Artwork Image Thumbnails - Larger & Cleaner */}
+              <div className="mt-3.5 sm:mt-4.5 w-full">
+                <div className="grid grid-cols-6 gap-2 sm:gap-2.5 md:gap-3.5">
                   {FEATURED_ARTWORKS.map((artwork, idx) => {
                     const isActive = selectedArtworkIndex === idx;
                     return (
@@ -350,7 +309,7 @@ export default function HeroShowcase() {
                         type="button"
                         onClick={() => setSelectedArtworkIndex(idx)}
                         aria-label={`Select ${artwork.name}`}
-                        className={`relative aspect-square rounded-lg sm:rounded-xl overflow-hidden transition-all duration-300 border cursor-pointer hover:scale-105 active:scale-95 ${
+                        className={`relative aspect-square rounded-xl sm:rounded-2xl overflow-hidden transition-all duration-300 border cursor-pointer hover:scale-105 active:scale-95 ${
                           isActive
                             ? 'border-amber-400 ring-2 ring-amber-400/70 scale-105 shadow-md shadow-amber-500/25'
                             : 'border-stone-700/60 opacity-60 hover:opacity-100 hover:border-amber-400/50'
@@ -364,16 +323,6 @@ export default function HeroShowcase() {
                         {isActive && (
                           <div className="absolute inset-0 bg-amber-500/15 pointer-events-none" />
                         )}
-                        {/* Clean Number Badge in corner (1 to 8) */}
-                        <span
-                          className={`absolute bottom-0.5 right-0.5 font-mono text-[8px] sm:text-[9.5px] font-bold px-1 py-0.2 rounded leading-none transition-colors ${
-                            isActive
-                              ? 'bg-[#FEE815] text-stone-950 font-black shadow-xs'
-                              : 'bg-black/75 text-stone-300'
-                          }`}
-                        >
-                          {idx + 1}
-                        </span>
                       </button>
                     );
                   })}
