@@ -5,14 +5,12 @@ import Link from 'next/link';
 import {
   Sparkles,
   ArrowRight,
-  ShieldCheck,
-  Gem,
-  Palette,
-  Truck,
-  Eye,
-  CheckCircle2,
   ChevronLeft,
   ChevronRight,
+  Gem,
+  Palette,
+  ShieldCheck,
+  Truck,
 } from 'lucide-react';
 
 export interface FeaturedArtwork {
@@ -115,16 +113,16 @@ export default function HeroShowcase() {
   const [isPaused, setIsPaused] = useState(false);
   const activeArtwork = FEATURED_ARTWORKS[selectedArtworkIndex];
 
-  // Auto-rotate through artworks every 5 seconds (pauses on hover)
+  // Auto-rotate through artworks continuously
   useEffect(() => {
     if (isPaused) return;
 
     const interval = setInterval(() => {
       setSelectedArtworkIndex((prev) => (prev + 1) % FEATURED_ARTWORKS.length);
-    }, 5000);
+    }, 3500);
 
     return () => clearInterval(interval);
-  }, [isPaused, selectedArtworkIndex]);
+  }, [isPaused]);
 
   const handlePrev = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -209,55 +207,6 @@ export default function HeroShowcase() {
               Discover beautifully crafted LED photo frames, divine acrylic artwork, and personalized gifts designed to make every moment unforgettable.
             </p>
 
-            {/* Premium Featured Product Information Component with Synchronized Cross-fade */}
-            <div className="w-full max-w-lg p-3 sm:p-3.5 rounded-2xl bg-[#121216]/85 hover:bg-[#15151B]/95 border border-amber-400/35 backdrop-blur-md shadow-lg transition-all duration-300 group">
-              <div key={activeArtwork.id} className="flex items-center justify-between gap-3 sm:gap-4 animate-in fade-in slide-in-from-bottom-1 duration-500">
-                {/* Product Thumbnail */}
-                <div className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-xl overflow-hidden shrink-0 border border-amber-400/50 shadow-md">
-                  <img
-                    src={activeArtwork.frameMockup || activeArtwork.image}
-                    alt={activeArtwork.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-tr from-black/20 via-transparent to-white/10 pointer-events-none" />
-                </div>
-
-                {/* Product Meta */}
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-center gap-2 flex-wrap mb-0.5">
-                    <span className="text-white font-bold text-xs sm:text-sm truncate">
-                      {activeArtwork.name}
-                    </span>
-                    {activeArtwork.isBestseller && (
-                      <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[9px] sm:text-[10px] font-bold uppercase tracking-wider bg-amber-500/25 text-amber-300 border border-amber-400/40">
-                        Bestseller
-                      </span>
-                    )}
-                  </div>
-                  <p className="text-stone-400 text-[11px] sm:text-xs truncate">
-                    {activeArtwork.subtitle}
-                  </p>
-                  <div className="flex items-center gap-2 mt-1">
-                    <span className="text-amber-300 font-extrabold text-xs sm:text-sm">
-                      Starting from {activeArtwork.price}
-                    </span>
-                    <span className="text-stone-400 line-through text-[11px]">
-                      {activeArtwork.originalPrice}
-                    </span>
-                  </div>
-                </div>
-
-                {/* Quick Link Arrow */}
-                <Link
-                  href={`/product/${activeArtwork.slug}`}
-                  aria-label={`View details for ${activeArtwork.name}`}
-                  className="p-2 sm:p-2.5 rounded-xl bg-amber-500/10 hover:bg-amber-500/25 text-amber-300 border border-amber-400/30 transition-all shrink-0 group-hover:translate-x-0.5"
-                >
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-              </div>
-            </div>
-
             {/* Call-to-Action Buttons */}
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-1 w-full sm:w-auto">
               {/* Primary CTA */}
@@ -328,17 +277,6 @@ export default function HeroShowcase() {
                   {/* Realistic Acrylic Specular Reflection Highlight */}
                   <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-transparent pointer-events-none z-20" />
 
-                  {/* Realistic Top Corner Acrylic Floating Pill */}
-                  <div className="absolute top-2.5 left-2.5 sm:top-3 sm:left-3 px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-md border border-amber-400/40 text-[10px] sm:text-[11px] font-semibold text-amber-300 flex items-center gap-1.5 shadow-sm z-30">
-                    <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-ping" />
-                    <span>3D LED Acrylic Frame</span>
-                  </div>
-
-                  {/* Dimension Tag */}
-                  <div className="absolute top-2.5 right-2.5 sm:top-3 sm:right-3 px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-md border border-white/20 text-[10px] font-medium text-stone-200 z-30">
-                    {activeArtwork.dimensions}
-                  </div>
-
                   {/* Previous & Next interactive floating navigation buttons */}
                   <button
                     type="button"
@@ -355,58 +293,13 @@ export default function HeroShowcase() {
                     className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/65 hover:bg-black/90 text-amber-300 border border-amber-400/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 z-30 cursor-pointer shadow-md hover:scale-110"
                   >
                     <ChevronRight className="w-4 h-4" />
-                  </button>
-
-                  {/* Bottom Integrated Floating Info Vignette - Translucent & Compact */}
-                  <div className="absolute bottom-0 inset-x-0 p-3 sm:p-3.5 bg-gradient-to-t from-black/95 via-black/60 to-transparent flex items-end justify-between gap-3 z-30 pt-8 rounded-b-xl sm:rounded-b-2xl">
-                    <div className="min-w-0">
-                      <p className="text-white font-bold text-xs sm:text-sm truncate drop-shadow-sm">
-                        {activeArtwork.name}
-                      </p>
-                      <p className="text-amber-300 text-[11px] truncate drop-shadow-xs">
-                        {activeArtwork.subtitle}
-                      </p>
-                    </div>
-                    <Link
-                      href={`/product/${activeArtwork.slug}`}
-                      className="px-3.5 py-1.5 rounded-lg bg-amber-500 hover:bg-amber-400 active:bg-amber-600 text-stone-950 font-bold text-xs shrink-0 flex items-center gap-1.5 transition-all shadow-md hover:scale-105 cursor-pointer"
-                    >
-                      <Eye className="w-3.5 h-3.5" />
-                      <span>View</span>
-                    </Link>
-                  </div>
+                  </button>
                 </div>
 
               </div>
 
-              {/* Secondary Product Thumbnails Carousel Switcher */}
-              <div className="mt-4 sm:mt-5 w-full">
-                <div className="flex items-center justify-between mb-2 px-1">
-                  <div className="flex items-center gap-2">
-                    <span className="text-[11px] sm:text-xs font-semibold text-stone-400 tracking-wider uppercase">
-                      Featured Masterpieces
-                    </span>
-                    <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-[9px] font-bold uppercase tracking-wider bg-amber-500/15 text-amber-300 border border-amber-400/30">
-                      <span className="w-1 h-1 rounded-full bg-amber-400 animate-pulse" />
-                      Auto-Playing
-                    </span>
-                  </div>
-                  <span className="text-[11px] text-amber-400 font-medium">
-                    {selectedArtworkIndex + 1} of {FEATURED_ARTWORKS.length}
-                  </span>
-                </div>
-
-                {/* Animated 5s Progress Bar */}
-                <div className="w-full h-1 bg-stone-800 rounded-full overflow-hidden mb-2.5">
-                  <div
-                    key={selectedArtworkIndex}
-                    className={`h-full bg-gradient-to-r from-amber-400 to-amber-500 rounded-full animate-hero-progress ${
-                      isPaused ? 'opacity-50' : ''
-                    }`}
-                    style={{ animationPlayState: isPaused ? 'paused' : 'running' }}
-                  />
-                </div>
-
+              {/* Artwork Image Thumbnails */}
+              <div className="mt-3 sm:mt-4 w-full">
                 <div className="grid grid-cols-6 gap-2">
                   {FEATURED_ARTWORKS.map((artwork, idx) => {
                     const isActive = selectedArtworkIndex === idx;
