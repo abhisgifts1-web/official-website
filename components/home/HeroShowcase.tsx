@@ -122,7 +122,7 @@ export default function HeroShowcase() {
     }, 3500);
 
     return () => clearInterval(interval);
-  }, [isPaused]);
+  }, []);
 
   const handlePrev = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -181,7 +181,7 @@ export default function HeroShowcase() {
           {/* ─────────────────────────────────────────────────────────────
               LEFT CONTENT SECTION: Typography & Conversion Hierarchy
              ───────────────────────────────────────────────────────────── */}
-          <div className="lg:col-span-5 flex flex-col items-start space-y-5 sm:space-y-6">
+          <div className="lg:col-span-7 flex flex-col items-start space-y-5 sm:space-y-6">
             
             {/* Small Premium Badge with smooth shimmer & breathing pulse */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-amber-500/20 via-amber-400/10 to-amber-500/20 border border-amber-400/50 text-amber-300 text-[10px] sm:text-xs font-semibold tracking-widest uppercase shadow-sm backdrop-blur-md animate-hero-badge-shine">
@@ -233,13 +233,11 @@ export default function HeroShowcase() {
           {/* ─────────────────────────────────────────────────────────────
               RIGHT CONTENT SECTION: Floating Visual Product Showcase
              ───────────────────────────────────────────────────────────── */}
-          <div className="lg:col-span-7 flex flex-col items-center justify-center pt-4 lg:pt-0">
+          <div className="lg:col-span-5 flex flex-col items-center justify-center pt-4 lg:pt-0">
             
             {/* Realistic Floating Master Frame Container */}
             <div
-              className="relative w-full max-w-md sm:max-w-xl lg:max-w-2xl xl:max-w-[660px] group"
-              onMouseEnter={() => setIsPaused(true)}
-              onMouseLeave={() => setIsPaused(false)}
+              className="relative w-full max-w-sm sm:max-w-md lg:max-w-lg xl:max-w-[540px] group"
             >
               
               {/* Soft Ambient Golden LED Halo (3000K Pulse Aura) with Breathing Animation */}
@@ -299,8 +297,8 @@ export default function HeroShowcase() {
               </div>
 
               {/* Artwork Image Thumbnails - Larger & Cleaner */}
-              <div className="mt-3.5 sm:mt-4.5 w-full">
-                <div className="grid grid-cols-6 gap-2 sm:gap-2.5 md:gap-3.5">
+              <div className="mt-3 sm:mt-4 w-full">
+                <div className="grid grid-cols-6 gap-2 sm:gap-2.5">
                   {FEATURED_ARTWORKS.map((artwork, idx) => {
                     const isActive = selectedArtworkIndex === idx;
                     return (
