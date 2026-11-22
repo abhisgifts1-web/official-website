@@ -113,7 +113,7 @@ export default function AdminDashboardPage() {
             <div className="space-y-3 max-w-2xl">
               <div className="flex items-center gap-3 pb-0.5">
                 <Image
-                  src="/images/brand/logo-gold-v2.png"
+                  src="/images/brand/logo-brand.png"
                   alt="Abhi's Gifts - Frame Your Memories"
                   width={220}
                   height={48}

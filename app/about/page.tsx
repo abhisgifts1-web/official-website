@@ -232,7 +232,7 @@ export default function AboutPage() {
           <div className="inline-flex flex-col items-center gap-2.5">
             <div className="p-3.5 sm:p-4 rounded-2xl bg-black/60 border border-amber-400/40 shadow-2xl backdrop-blur-md">
               <Image
-                src="/images/brand/logo-gold-v2.png"
+                src="/images/brand/logo-brand.png"
                 alt="Abhi's Gifts - Frame Your Memories"
                 width={260}
                 height={55}

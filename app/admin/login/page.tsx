@@ -45,7 +45,7 @@ export default function AdminLoginPage() {
         <div className="text-center space-y-2">
           <div className="inline-flex items-center justify-center p-3 rounded-2xl bg-stone-900 border border-amber-400 shadow-md mx-auto">
             <Image
-              src="/images/brand/logo-gold-v2.png"
+              src="/images/brand/logo-brand.png"
               alt="Abhi's Gifts"
               width={180}
               height={36}
