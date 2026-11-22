@@ -5,7 +5,7 @@ import HeroShowcase from '@/components/home/HeroShowcase';
 import CategoryShowcase from '@/components/home/CategoryShowcase';
 import BestsellersShowcase from '@/components/home/BestsellersShowcase';
 import WhyChooseUsSection from '@/components/home/WhyChooseUsSection';
-import CustomizationProcessSection from '@/components/home/CustomizationProcessSection';
+import RealHomesGallery from '@/components/home/RealHomesGallery';
 import ContactCtaSection from '@/components/home/ContactCtaSection';
 
 export default function HomePage() {
@@ -23,8 +23,8 @@ export default function HomePage() {
       {/* 3. Why Choose Us Section */}
       <WhyChooseUsSection />
 
-      {/* 4. Customization Process Section */}
-      <CustomizationProcessSection />
+      {/* 4. Real Homes & Customer Spotlight Gallery */}
+      <RealHomesGallery />
 
       {/* 5. Contact and WhatsApp CTA Section */}
       <ContactCtaSection />
