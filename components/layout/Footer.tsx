@@ -273,18 +273,8 @@ export default function Footer() {
                     </Link>
                   </li>
                   <li>
-                    <Link href="/customise" className="hover:text-amber-300 font-semibold text-amber-400 transition-colors block py-0.5">
-                      ✨ Customise Photo Frame
-                    </Link>
-                  </li>
-                  <li>
                     <Link href="/shipping-policy" className="hover:text-amber-300 transition-colors block py-0.5">
                       Shipping Policy
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/return-refund-policy" className="hover:text-amber-300 transition-colors block py-0.5">
-                      Returns &amp; Refunds
                     </Link>
                   </li>
                   <li>
@@ -377,10 +367,7 @@ export default function Footer() {
             <Link href="/shipping-policy" className="hover:text-amber-300 transition-colors py-0.5">
               Shipping Policy
             </Link>
-            <span className="w-1 h-1 rounded-full bg-stone-700" />
-            <Link href="/return-refund-policy" className="hover:text-amber-300 transition-colors py-0.5">
-              Return &amp; Refund
-            </Link>
+
             <span className="w-1 h-1 rounded-full bg-stone-700" />
             <Link href="/privacy-policy" className="hover:text-amber-300 transition-colors py-0.5">
               Privacy Policy
