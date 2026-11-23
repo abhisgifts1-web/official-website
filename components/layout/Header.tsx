@@ -576,21 +576,21 @@ export default function Header() {
               </div>
             </div>
 
-            {/* Customise Banner CTA */}
+            {/* Featured Collections Banner CTA */}
             <div className="p-3.5 bg-gradient-to-br from-[#181818] to-[#0A0A0A] text-[#FFFFFF] m-3 rounded-2xl shadow-sm border border-[#FEE815]/50">
               <div className="flex items-center gap-2 font-bold text-xs">
-                <Sparkles className="w-3.5 h-3.5 text-[#FFF04B]" />
-                <span>Personalise Photo Frames</span>
+                <Flame className="w-3.5 h-3.5 text-[#FFF04B]" />
+                <span>Handcrafted Luxury Artworks</span>
               </div>
               <p className="text-[11px] text-[#E5E7EB]/90 mt-1 leading-snug">
-                Upload family photos &amp; turn them into illuminated crystal acrylic heirlooms.
+                Explore premium LED backlit series, divine wall decor, and gold glitter frames.
               </p>
               <Link
-                href="/customise"
+                href="/collections"
                 onClick={() => setMobileMenuOpen(false)}
-                className="mt-2.5 inline-block bg-gradient-to-r from-[#FEE815] to-[#FFF04B] text-black font-extrabold px-3.5 py-1.5 rounded-lg text-xs shadow-xs transition-all active:scale-95"
+                className="mt-2.5 inline-block bg-gradient-to-r from-[#FEE815] to-[#FFF04B] text-black font-extrabold px-3.5 py-1.5 rounded-lg text-xs shadow-xs transition-all active:scale-95 uppercase tracking-wider"
               >
-                Customise Now →
+                Explore Collections →
               </Link>
             </div>
 

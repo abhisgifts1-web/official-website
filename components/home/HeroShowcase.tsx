@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import {
   Sparkles,
+  Flame,
   ArrowRight,
   Gem,
   Palette,
@@ -208,11 +209,11 @@ export default function HeroShowcase() {
 
               {/* Secondary CTA */}
               <Link
-                href="/customise"
+                href="/shop"
                 className="inline-flex items-center justify-center gap-2 px-7 py-3.5 sm:px-8 sm:py-4 rounded-full bg-white/[0.06] hover:bg-white/[0.12] text-white hover:text-amber-200 font-semibold text-sm sm:text-base border border-amber-400/40 hover:border-amber-300/80 backdrop-blur-md hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 cursor-pointer text-center shadow-xs"
               >
-                <Sparkles className="w-4 h-4 text-amber-400 shrink-0" />
-                <span>Create Your Custom Frame</span>
+                <Flame className="w-4 h-4 text-amber-400 shrink-0" />
+                <span>Trending Bestsellers</span>
               </Link>
             </div>
 

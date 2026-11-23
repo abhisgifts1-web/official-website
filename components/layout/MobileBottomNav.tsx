@@ -3,7 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Home, Store, Sparkles, Heart, ShoppingBag } from 'lucide-react';
+import { Home, Store, Layers, Heart, ShoppingBag } from 'lucide-react';
 import { useCart } from '@/context/CartContext';
 import { useWishlist } from '@/context/WishlistContext';
 
@@ -19,7 +19,7 @@ export default function MobileBottomNav() {
 
   const isHome = pathname === '/';
   const isShop = pathname?.startsWith('/shop') || pathname?.startsWith('/category');
-  const isCustomise = pathname?.startsWith('/customise');
+  const isCollections = pathname?.startsWith('/collections');
   const isWishlist = pathname?.startsWith('/wishlist');
 
   return (
@@ -55,21 +55,21 @@ export default function MobileBottomNav() {
           <span className="text-[10px] font-medium tracking-tight mt-0.5">Shop</span>
         </Link>
 
-        {/* 3. Central Elevated Customise CTA */}
+        {/* 3. Central Elevated Collections CTA */}
         <div className="flex flex-col items-center justify-center -mt-4">
           <Link
-            href="/customise"
+            href="/collections"
             className="group relative flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-r from-[#FEE815] via-[#FFF04B] to-[#FEE815] text-stone-950 shadow-[0_2px_14px_rgba(254,232,21,0.5)] border-2 border-[#121212] transition-transform active:scale-95"
-            aria-label="Customise Photo Frame"
+            aria-label="Explore Art Collections"
           >
-            <Sparkles className="w-5 h-5 text-stone-950 animate-pulse" />
+            <Layers className="w-5 h-5 text-stone-950" />
           </Link>
           <span
             className={`text-[9.5px] font-bold tracking-tight mt-0.5 ${
-              isCustomise ? 'text-[#FEE815]' : 'text-stone-300'
+              isCollections ? 'text-[#FEE815]' : 'text-stone-300'
             }`}
           >
-            Customise
+            Collections
           </span>
         </div>
 
