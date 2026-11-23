@@ -1713,43 +1713,46 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
               </button>
 
               {/* Quantity + Add to Cart & Buy Now Row */}
-              <div className="flex items-center gap-2.5 sm:gap-3">
-                {/* Quantity */}
-                <div className="flex items-center border border-stone-200 rounded-xl bg-stone-50 overflow-hidden shadow-2xs shrink-0 h-12">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3">
+                {/* On mobile: row with Quantity + Add to Cart */}
+                <div className="flex items-center gap-2.5 flex-1">
+                  {/* Quantity */}
+                  <div className="flex items-center border border-stone-200 rounded-xl bg-stone-50 overflow-hidden shadow-2xs shrink-0 h-11 sm:h-12">
+                    <button
+                      type="button"
+                      onClick={() => setQuantity(Math.max(1, quantity - 1))}
+                      className="px-3 sm:px-3.5 text-stone-600 hover:bg-stone-200 font-bold text-sm transition-colors cursor-pointer h-full"
+                      aria-label="Decrease quantity"
+                    >
+                      -
+                    </button>
+                    <span className="px-2 sm:px-2.5 text-xs font-bold text-stone-900 min-w-7 sm:min-w-8 text-center">{quantity}</span>
+                    <button
+                      type="button"
+                      onClick={() => setQuantity(Math.min(10, quantity + 1))}
+                      className="px-3 sm:px-3.5 text-stone-600 hover:bg-stone-200 font-bold text-sm transition-colors cursor-pointer h-full"
+                      aria-label="Increase quantity"
+                    >
+                      +
+                    </button>
+                  </div>
+
+                  {/* Add to Cart Button */}
                   <button
                     type="button"
-                    onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                    className="px-3.5 text-stone-600 hover:bg-stone-200 font-bold text-sm transition-colors cursor-pointer h-full"
-                    aria-label="Decrease quantity"
+                    onClick={handleAddToCart}
+                    className="flex-1 h-11 sm:h-12 rounded-xl bg-stone-900 hover:bg-stone-800 active:bg-stone-950 text-white font-bold text-xs sm:text-sm transition-all flex items-center justify-center gap-2 cursor-pointer shadow-xs"
                   >
-                    -
-                  </button>
-                  <span className="px-2.5 text-xs font-bold text-stone-900 min-w-8 text-center">{quantity}</span>
-                  <button
-                    type="button"
-                    onClick={() => setQuantity(Math.min(10, quantity + 1))}
-                    className="px-3.5 text-stone-600 hover:bg-stone-200 font-bold text-sm transition-colors cursor-pointer h-full"
-                    aria-label="Increase quantity"
-                  >
-                    +
+                    <ShoppingBag className="w-4 h-4 text-amber-400" />
+                    <span>{isSelectedFrameOutOfStock ? 'Frame Out of Stock' : 'Add to Cart'}</span>
                   </button>
                 </div>
-
-                {/* Add to Cart Button */}
-                <button
-                  type="button"
-                  onClick={handleAddToCart}
-                  className="flex-1 h-12 rounded-xl bg-stone-900 hover:bg-stone-800 active:bg-stone-950 text-white font-bold text-xs sm:text-sm transition-all flex items-center justify-center gap-2 cursor-pointer shadow-xs"
-                >
-                  <ShoppingBag className="w-4 h-4 text-amber-400" />
-                  <span>{isSelectedFrameOutOfStock ? 'Frame Out of Stock' : 'Add to Cart'}</span>
-                </button>
 
                 {/* Instant Buy Now Button */}
                 <button
                   type="button"
                   onClick={handleBuyNow}
-                  className="flex-1 h-12 rounded-xl bg-gradient-to-r from-[#FEE815] via-[#FFF04B] to-[#FEE815] hover:from-[#FFF04B] hover:to-[#FEE815] text-stone-950 font-bold text-xs sm:text-sm transition-all flex items-center justify-center gap-2 cursor-pointer shadow-xs"
+                  className="w-full sm:flex-1 h-11 sm:h-12 rounded-xl bg-gradient-to-r from-[#FEE815] via-[#FFF04B] to-[#FEE815] hover:from-[#FFF04B] hover:to-[#FEE815] text-stone-950 font-bold text-xs sm:text-sm transition-all flex items-center justify-center gap-2 cursor-pointer shadow-xs"
                 >
                   <span>{isSelectedFrameOutOfStock ? 'Sold Out' : 'Proceed to Checkout'}</span>
                   <ArrowRight className="w-4 h-4 text-stone-900" />

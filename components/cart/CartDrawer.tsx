@@ -70,8 +70,8 @@ export default function CartDrawer() {
         onClick={closeCart}
       />
 
-      <div className="fixed inset-y-0 right-0 max-w-full flex pl-4 sm:pl-10">
-        <div className="w-screen max-w-md bg-white shadow-2xl border-l border-stone-200 flex flex-col animate-in slide-in-from-right duration-250 text-stone-900">
+      <div className="fixed inset-y-0 right-0 max-w-full flex pl-0 sm:pl-10">
+        <div className="w-screen max-w-full sm:max-w-md bg-white shadow-2xl border-l border-stone-200 flex flex-col animate-in slide-in-from-right duration-250 text-stone-900">
           {/* Header */}
           <div className="p-4 sm:p-5 border-b border-stone-200 flex items-center justify-between bg-stone-50">
             <div className="flex items-center gap-2.5">
@@ -230,7 +230,7 @@ export default function CartDrawer() {
 
           {/* Footer (Pricing Breakdown & Checkout) */}
           {items.length > 0 && (
-            <div className="p-4 sm:p-5 border-t border-stone-200 bg-stone-50 space-y-3">
+            <div className="p-4 sm:p-5 border-t border-stone-200 bg-stone-50 space-y-3 pb-[calc(env(safe-area-inset-bottom,0px)+1rem)]">
               {/* Coupon Form */}
               <div>
                 {appliedCoupon ? (

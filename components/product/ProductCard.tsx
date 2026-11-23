@@ -142,24 +142,24 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
           </div>
 
           {/* Genuine Badges Overlay — Clean Horizontal Layout */}
-          <div className="absolute top-2.5 left-2.5 flex items-center gap-1.5 pointer-events-none z-10">
+          <div className="absolute top-2 left-2 flex flex-col sm:flex-row items-start sm:items-center gap-1 sm:gap-1.5 pointer-events-none z-10 max-w-[calc(100%-2.5rem)]">
             {hasRealDiscount && discountPercent > 0 && (
-              <span className="bg-[#FEE815] text-black font-bold text-[9px] sm:text-[10px] tracking-wider uppercase px-2 py-0.5 rounded-full shadow-sm border border-[#FEE815]/50 backdrop-blur-sm">
+              <span className="bg-[#FEE815] text-black font-bold text-[8px] min-[360px]:text-[9px] sm:text-[10px] tracking-wider uppercase px-1.5 sm:px-2 py-0.5 rounded-full shadow-sm border border-[#FEE815]/50 backdrop-blur-sm">
                 {discountPercent}% OFF
               </span>
             )}
             {product.hasLedBacklight ? (
-              <span className="bg-amber-50 text-amber-900 font-bold text-[9px] sm:text-[10px] tracking-wider uppercase px-2 py-0.5 rounded-full shadow-sm border border-amber-300 backdrop-blur-sm flex items-center gap-1">
+              <span className="bg-amber-50 text-amber-900 font-bold text-[8px] min-[360px]:text-[9px] sm:text-[10px] tracking-wider uppercase px-1.5 sm:px-2 py-0.5 rounded-full shadow-sm border border-amber-300 backdrop-blur-sm flex items-center gap-1">
                 <Sparkles className="w-2.5 h-2.5 text-amber-600 animate-pulse" />
                 <span>LED Backlit</span>
               </span>
             ) : (
-              <span className="bg-stone-100 text-stone-800 font-bold text-[9px] sm:text-[10px] tracking-wider uppercase px-2 py-0.5 rounded-full shadow-sm border border-stone-300 backdrop-blur-sm flex items-center gap-1">
+              <span className="bg-stone-100 text-stone-800 font-bold text-[8px] min-[360px]:text-[9px] sm:text-[10px] tracking-wider uppercase px-1.5 sm:px-2 py-0.5 rounded-full shadow-sm border border-stone-300 backdrop-blur-sm flex items-center gap-1">
                 <span>Normal Acrylic</span>
               </span>
             )}
             {!hasRealDiscount && product.isBestseller && (
-              <span className="bg-amber-50 text-amber-900 font-bold text-[9px] sm:text-[10px] tracking-wider uppercase px-2 py-0.5 rounded-full shadow-sm border border-amber-300 backdrop-blur-sm">
+              <span className="bg-amber-50 text-amber-900 font-bold text-[8px] min-[360px]:text-[9px] sm:text-[10px] tracking-wider uppercase px-1.5 sm:px-2 py-0.5 rounded-full shadow-sm border border-amber-300 backdrop-blur-sm">
                 ★ Best
               </span>
             )}
@@ -169,7 +169,7 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
           <button
             type="button"
             onClick={handleWishlistToggle}
-            className={`absolute top-2.5 right-2.5 w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center p-2 rounded-full transition-all duration-200 z-10 shadow-sm outline-none focus-visible:ring-2 focus-visible:ring-[#FEE815] cursor-pointer ${
+            className={`absolute top-2 right-2 w-7 h-7 sm:w-9 sm:h-9 flex items-center justify-center p-1.5 sm:p-2 rounded-full transition-all duration-200 z-10 shadow-sm outline-none focus-visible:ring-2 focus-visible:ring-[#FEE815] cursor-pointer ${
               wishlisted
                 ? 'bg-[#FEE815] text-black border border-[#FEE815] scale-105 shadow-sm'
                 : 'bg-white/90 backdrop-blur-sm text-stone-700 hover:text-black hover:bg-[#FEE815] hover:scale-105 border border-stone-200'
@@ -196,7 +196,7 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
         </div>
 
         {/* Content Details */}
-        <div className="p-3 sm:p-3.5 flex-1 flex flex-col justify-between">
+        <div className="p-2.5 sm:p-3.5 flex-1 flex flex-col justify-between">
           <div className="space-y-1">
             {/* Category Tag */}
             <p className="text-[10px] sm:text-[11px] font-bold text-stone-700 uppercase tracking-wider truncate">
@@ -211,19 +211,19 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
             </Link>
 
             {/* Pricing */}
-            <div className="flex items-baseline justify-between pt-1">
-              <div className="flex items-baseline gap-1.5">
-                <span className="font-serif text-sm sm:text-base font-bold text-stone-900 whitespace-nowrap">
+            <div className="flex flex-wrap items-baseline justify-between gap-1 pt-1">
+              <div className="flex items-baseline gap-1 sm:gap-1.5 flex-wrap">
+                <span className="font-serif text-xs min-[360px]:text-sm sm:text-base font-bold text-stone-900 whitespace-nowrap">
                   ₹{activePrice.toLocaleString('en-IN')}
                 </span>
                 {hasRealDiscount && (
-                  <span className="text-[11px] text-stone-500 line-through whitespace-nowrap">
+                  <span className="text-[10px] sm:text-[11px] text-stone-500 line-through whitespace-nowrap">
                     ₹{activeMrp.toLocaleString('en-IN')}
                   </span>
                 )}
               </div>
               {hasRealDiscount && discountPercent > 0 && (
-                <span className="text-[10px] font-bold text-black bg-[#FEE815] px-1.5 py-0.5 rounded border border-[#FEE815]/60 shrink-0">
+                <span className="text-[9px] min-[360px]:text-[10px] font-bold text-black bg-[#FEE815] px-1.5 py-0.2 sm:py-0.5 rounded border border-[#FEE815]/60 shrink-0">
                   Save {discountPercent}%
                 </span>
               )}
@@ -234,7 +234,7 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
           <div className="pt-2.5">
             <Link
               href={`/product/${product.slug}`}
-              className="w-full min-h-[38px] py-2 px-3 rounded-xl font-sans text-xs font-bold flex items-center justify-center gap-1.5 transition-all duration-200 shadow-2xs active:scale-[0.98] bg-[#FEE815] hover:bg-[#FFF04B] text-black hover:shadow-xs border border-[#FEE815] cursor-pointer"
+              className="w-full min-h-[32px] sm:min-h-[38px] py-1.5 sm:py-2 px-2 sm:px-3 rounded-lg sm:rounded-xl font-sans text-[11px] sm:text-xs font-bold flex items-center justify-center gap-1 sm:gap-1.5 transition-all duration-200 shadow-2xs active:scale-[0.98] bg-[#FEE815] hover:bg-[#FFF04B] text-black hover:shadow-xs border border-[#FEE815] cursor-pointer"
               aria-label={`View ${product.title}`}
               title="View"
             >

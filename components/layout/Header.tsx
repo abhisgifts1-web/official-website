@@ -216,7 +216,7 @@ export default function Header() {
               <button
                 type="button"
                 onClick={() => setMobileMenuOpen(true)}
-                className="lg:hidden w-10 h-10 sm:w-11 sm:h-11 flex items-center justify-center p-2 text-[#FFFFFF] hover:text-[#FEE815] hover:bg-[#1A1A1A] rounded-xl focus:outline-none transition-colors cursor-pointer"
+                className="lg:hidden w-9 h-9 sm:w-11 sm:h-11 flex items-center justify-center p-1.5 sm:p-2 text-[#FFFFFF] hover:text-[#FEE815] hover:bg-[#1A1A1A] rounded-xl focus:outline-none transition-colors cursor-pointer"
                 aria-label="Open mobile menu"
               >
                 <Menu className="w-5 h-5" />
@@ -229,7 +229,7 @@ export default function Header() {
                   width={240}
                   height={50}
                   priority
-                  className="h-8 sm:h-9.5 md:h-11 lg:h-12 xl:h-13 2xl:h-14 w-auto object-contain transition-transform group-hover:scale-[1.03]"
+                  className="h-7 sm:h-9.5 md:h-11 lg:h-12 xl:h-13 2xl:h-14 w-auto object-contain transition-transform group-hover:scale-[1.03]"
                 />
               </Link>
             </div>
@@ -444,7 +444,7 @@ export default function Header() {
                 href="https://www.instagram.com/abhis_gifts_?cplk=MWtkNTJla2s3NTQw"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-8 h-8 min-[360px]:w-9 min-[360px]:h-9 sm:w-10 sm:h-10 p-1.5 text-white bg-gradient-to-tr from-[#fd5949] via-[#d6249f] to-[#285AEB] hover:opacity-90 border border-pink-400/50 rounded-full transition-all shadow-2xs hover:scale-110 active:scale-95 flex items-center justify-center cursor-pointer"
+                className="hidden sm:flex w-8 h-8 min-[360px]:w-9 min-[360px]:h-9 sm:w-10 sm:h-10 p-1.5 text-white bg-gradient-to-tr from-[#fd5949] via-[#d6249f] to-[#285AEB] hover:opacity-90 border border-pink-400/50 rounded-full transition-all shadow-2xs hover:scale-110 active:scale-95 items-center justify-center cursor-pointer"
                 title="Follow us on Instagram (@abhis_gifts_)"
                 aria-label="Follow us on Instagram"
               >
@@ -456,7 +456,7 @@ export default function Header() {
                 href="https://youtube.com/@abhis_gifts?si=Ap98aZU7b21rJA_8"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-8 h-8 min-[360px]:w-9 min-[360px]:h-9 sm:w-10 sm:h-10 p-1.5 text-white bg-[#CC0000] hover:bg-[#FF0000] border border-red-500/60 rounded-full transition-all shadow-2xs hover:scale-110 active:scale-95 flex items-center justify-center cursor-pointer"
+                className="hidden sm:flex w-8 h-8 min-[360px]:w-9 min-[360px]:h-9 sm:w-10 sm:h-10 p-1.5 text-white bg-[#CC0000] hover:bg-[#FF0000] border border-red-500/60 rounded-full transition-all shadow-2xs hover:scale-110 active:scale-95 items-center justify-center cursor-pointer"
                 title="Watch on YouTube (@abhis_gifts)"
                 aria-label="Watch on YouTube"
               >
@@ -694,7 +694,7 @@ export default function Header() {
               >
                 Staff Portal
               </Link>
-              <span className="text-[11px] font-semibold">Tirupati, AP</span>
+              <span className="text-[11px] font-semibold">Hyderabad, Telangana</span>
             </div>
           </div>
         </div>
