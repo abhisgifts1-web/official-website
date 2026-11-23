@@ -135,8 +135,8 @@ function AdminProductsContent() {
   // Frame Stock Availability Settings
   const [frameStock, setFrameStock] = useState<FrameStockSettings>(
     INITIAL_SETTINGS.frameStock || {
-      gold: { name: 'Royal Gold Frame', inStock: true, stockCount: 850 },
-      black: { name: 'Luxury Black Frame', inStock: true, stockCount: 720 },
+      gold: { name: 'Rose Gold', inStock: true, stockCount: 850 },
+      black: { name: 'Black', inStock: true, stockCount: 720 },
     }
   );
   const [savingFrameStock, setSavingFrameStock] = useState(false);
@@ -1357,7 +1357,7 @@ function AdminProductsContent() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {/* 1. Royal Gold Frame */}
+            {/* 1. Rose Gold */}
             {(() => {
               const isGoldInStock = Boolean(frameStock.gold.inStock && frameStock.gold.stockCount > 0);
               return (
@@ -1373,7 +1373,7 @@ function AdminProductsContent() {
                       </div>
                       <div>
                         <div className="flex items-center gap-2">
-                          <h4 className="font-bold text-sm text-stone-900">{frameStock.gold.name || 'Royal Gold Frame'}</h4>
+                          <h4 className="font-bold text-sm text-stone-900">{frameStock.gold.name || 'Rose Gold'}</h4>
                           <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full border ${
                             isGoldInStock
                               ? 'bg-emerald-100 text-emerald-800 border-emerald-300'
@@ -1385,7 +1385,7 @@ function AdminProductsContent() {
                           </span>
                         </div>
                         <p className="text-[11px] text-stone-500 mt-0.5">
-                          24K Royal Metallic finish • Unified warehouse stock (Single update for entire store)
+                          Rose Gold metallic finish • Unified warehouse stock (Single update for entire store)
                         </p>
                       </div>
                     </div>
@@ -1448,7 +1448,7 @@ function AdminProductsContent() {
               );
             })()}
 
-            {/* 2. Luxury Black Frame */}
+            {/* 2. Black */}
             {(() => {
               const isBlackInStock = Boolean(frameStock.black.inStock && frameStock.black.stockCount > 0);
               return (
@@ -1465,7 +1465,7 @@ function AdminProductsContent() {
                       <div>
                         <div className="flex items-center gap-2">
                           <h4 className={`font-bold text-sm ${isBlackInStock ? 'text-white' : 'text-stone-900'}`}>
-                            {frameStock.black.name || 'Luxury Black Frame'}
+                            {frameStock.black.name || 'Black'}
                           </h4>
                           <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full border ${
                             isBlackInStock

@@ -40,14 +40,14 @@
   },
   "frameStock": {
     "gold": {
-      "name": "Royal Gold Frame",
+      "name": "Rose Gold",
       "inStock": true,
-      "stockCount": 100
+      "stockCount": 850
     },
     "black": {
-      "name": "Luxury Black Frame",
-      "inStock": false,
-      "stockCount": 0
+      "name": "Black",
+      "inStock": true,
+      "stockCount": 720
     },
     "categoryVisibility": {
       "acrylic-photo-frames": true,

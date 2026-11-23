@@ -1174,8 +1174,8 @@ export function updateSiteSettings(updates: Partial<SiteSettings>): SiteSettings
       : store.settings.promotionalOffer,
     frameStock: updates.frameStock
       ? {
-          gold: { ...(store.settings.frameStock?.gold || { name: 'Royal Gold Frame', inStock: true, stockCount: 850 }), ...(updates.frameStock.gold || {}) },
-          black: { ...(store.settings.frameStock?.black || { name: 'Luxury Black Frame', inStock: true, stockCount: 720 }), ...(updates.frameStock.black || {}) },
+          gold: { ...(store.settings.frameStock?.gold || { name: 'Rose Gold', inStock: true, stockCount: 850 }), ...(updates.frameStock.gold || {}) },
+          black: { ...(store.settings.frameStock?.black || { name: 'Black', inStock: true, stockCount: 720 }), ...(updates.frameStock.black || {}) },
           categoryVisibility: updates.frameStock.categoryVisibility !== undefined
             ? { ...(store.settings.frameStock?.categoryVisibility || {}), ...(updates.frameStock.categoryVisibility || {}) }
             : store.settings.frameStock?.categoryVisibility,

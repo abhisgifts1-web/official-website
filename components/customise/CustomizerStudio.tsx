@@ -148,15 +148,15 @@ export const FRAME_CATEGORIES: FrameCategoryOption[] = [
 export const FRAME_FINISHES: FrameFinishOption[] = [
   {
     id: 'gold-frame',
-    name: 'Royal Brushed Gold Frame',
-    subtitle: '24K Metallic Bevel',
+    name: 'Rose Gold',
+    subtitle: 'Rose Gold',
     description: 'Opulent gold metallic frame border precision-machined with brushed royal bevel depth.',
     priceAddition: 350,
   },
   {
     id: 'black-frame',
-    name: 'Luxury Matte Black Frame',
-    subtitle: 'Matte Obsidian Profile',
+    name: 'Black',
+    subtitle: 'Matte Black',
     description: 'Deep obsidian architectural frame profile with rich museum-grade depth and satin finish.',
     priceAddition: 350,
   },
@@ -463,8 +463,8 @@ export default function CustomizerStudio() {
   const [finish, setFinish] = useState<FrameFinish>('floating-standoff');
   const [frameStock, setFrameStock] = useState<FrameStockSettings>(
     INITIAL_SETTINGS.frameStock || {
-      gold: { name: 'Royal Gold Frame', inStock: true, stockCount: 850 },
-      black: { name: 'Luxury Black Frame', inStock: true, stockCount: 720 },
+      gold: { name: 'Rose Gold', inStock: true, stockCount: 850 },
+      black: { name: 'Black', inStock: true, stockCount: 720 },
     }
   );
 

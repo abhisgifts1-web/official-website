@@ -74,8 +74,8 @@ export default function CheckoutPage() {
   const [submitting, setSubmitting] = useState(false);
   const [frameStock, setFrameStock] = useState<FrameStockSettings>(
     INITIAL_SETTINGS.frameStock || {
-      gold: { name: 'Royal Gold Frame', inStock: true, stockCount: 850 },
-      black: { name: 'Luxury Black Frame', inStock: true, stockCount: 720 },
+      gold: { name: 'Rose Gold', inStock: true, stockCount: 850 },
+      black: { name: 'Black', inStock: true, stockCount: 720 },
     }
   );
 
