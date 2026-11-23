@@ -14,7 +14,6 @@ import {
   Sparkles,
   ArrowRight,
   Info,
-  ShieldCheck,
   Sun,
   Zap,
   ChevronRight,
@@ -1395,21 +1394,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
               </div>
             )}
 
-            {/* Clean Craft Assurance */}
-            <div className="grid grid-cols-3 gap-2.5 pt-1 text-center">
-              <div className="py-2.5 px-2 rounded-xl bg-stone-50 border border-stone-200/80 text-[11px] font-medium text-stone-700 flex items-center justify-center gap-1.5">
-                <Sparkles className="w-3.5 h-3.5 text-amber-600 shrink-0" />
-                <span className="truncate">{isAcrylicFrame ? '5MM Acrylic' : 'Cast Acrylic'}</span>
-              </div>
-              <div className="py-2.5 px-2 rounded-xl bg-stone-50 border border-stone-200/80 text-[11px] font-medium text-stone-700 flex items-center justify-center gap-1.5">
-                <ShieldCheck className="w-3.5 h-3.5 text-amber-600 shrink-0" />
-                <span className="truncate">{isAcrylicFrame ? 'Direct UV Print' : 'Moisture Proof'}</span>
-              </div>
-              <div className="py-2.5 px-2 rounded-xl bg-stone-50 border border-stone-200/80 text-[11px] font-medium text-stone-700 flex items-center justify-center gap-1.5">
-                <CheckCircle2 className="w-3.5 h-3.5 text-amber-600 shrink-0" />
-                <span className="truncate">{isAcrylicFrame ? 'Studs Included' : 'Mounting Included'}</span>
-              </div>
-            </div>
+
           </div>
 
           {/* RIGHT COLUMN: Variation Controls & Purchase Actions */}
@@ -1418,18 +1403,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
           >
             {/* Header Block: Stock, Title & Clean Direct Pricing */}
             <div className="space-y-3 pb-4 border-b border-stone-200">
-              <div className="flex items-center justify-start gap-2 flex-wrap">
-                <span className="text-[11px] font-semibold text-emerald-800 flex items-center gap-1.5 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200">
-                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                  <span>In Stock • Ships in 24-48 Hours</span>
-                </span>
-                {isAcrylicFrame && (
-                  <span className="text-[11px] font-semibold text-amber-800 flex items-center gap-1 bg-amber-50 px-2.5 py-0.5 rounded-full border border-amber-200">
-                    <Sparkles className="w-3 h-3 text-amber-600" />
-                    <span>5MM Crystal Acrylic</span>
-                  </span>
-                )}
-              </div>
+
 
               <h1 className="text-2xl sm:text-3xl lg:text-[32px] font-serif font-bold text-stone-900 leading-tight tracking-tight break-words [text-wrap:balance]">
                 {product.title}
@@ -1836,21 +1810,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
               </p>
             </div>
 
-            {/* Streamlined Trust Assurance */}
-            <div className="pt-4 border-t border-stone-200 grid grid-cols-3 gap-2 text-center text-[11px] text-stone-600 font-medium">
-              <div className="flex items-center justify-center gap-1.5">
-                <ShieldCheck className="w-4 h-4 text-amber-600 shrink-0" />
-                <span className="truncate">Safe Transit</span>
-              </div>
-              <div className="flex items-center justify-center gap-1.5">
-                <Sparkles className="w-4 h-4 text-amber-600 shrink-0" />
-                <span className="truncate">1:1 Proof Approval</span>
-              </div>
-              <div className="flex items-center justify-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-amber-600 shrink-0" />
-                <span className="truncate">Moisture Proof</span>
-              </div>
-            </div>
+
           </div>
         </div>
 

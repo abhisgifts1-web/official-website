@@ -51,13 +51,8 @@
     },
     "categoryVisibility": {
       "acrylic-photo-frames": true,
-      "led-acrylic-photo-frames": true,
-      "glitter-photo-frames": false,
-      "360-rotating-photo-lamps": false,
-      "god-photo-frames": true,
-      "family-baby-frames": true,
-      "couple-wedding-frames": true,
-      "personalized-gifts": true
+      "personalized-gifts": false,
+      "360-rotating-photo-lamps": false
     },
     "categoryConfigs": {
       "acrylic-photo-frames": {
@@ -65,43 +60,18 @@
         "showGold": true,
         "showBlack": true
       },
-      "led-acrylic-photo-frames": {
-        "enabled": true,
+      "personalized-gifts": {
         "showGold": true,
-        "showBlack": true
-      },
-      "glitter-photo-frames": {
-        "enabled": false,
-        "showGold": false,
-        "showBlack": false
+        "showBlack": true,
+        "enabled": false
       },
       "360-rotating-photo-lamps": {
-        "enabled": false,
-        "showGold": false,
-        "showBlack": false
-      },
-      "god-photo-frames": {
-        "enabled": true,
         "showGold": true,
-        "showBlack": true
-      },
-      "family-baby-frames": {
-        "enabled": true,
-        "showGold": true,
-        "showBlack": true
-      },
-      "couple-wedding-frames": {
-        "enabled": true,
-        "showGold": true,
-        "showBlack": true
-      },
-      "personalized-gifts": {
-        "enabled": true,
-        "showGold": true,
-        "showBlack": true
+        "showBlack": true,
+        "enabled": false
       }
     }
   },
   "createdAt": "2026-11-22T18:52:03.264Z",
-  "updatedAt": "2026-11-23T05:06:02.424Z"
+  "updatedAt": "2026-11-23T08:33:43.476Z"
 }
