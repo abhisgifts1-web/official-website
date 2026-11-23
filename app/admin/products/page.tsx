@@ -2382,6 +2382,14 @@ export default function AdminProductsPage() {
                     </div>
                   </div>
 
+                  {/* Automated Custom Size Pricing Engine Notice */}
+                  <div className="p-3 bg-emerald-50/80 border border-emerald-200/90 rounded-2xl flex items-start gap-2.5 text-xs text-emerald-950 shadow-2xs">
+                    <Sparkles className="w-4 h-4 text-emerald-700 shrink-0 mt-0.5" />
+                    <p className="leading-relaxed">
+                      <strong>Automated Custom Size Pricing Engine:</strong> When customers select &ldquo;Custom Size&rdquo; on the storefront and enter custom width &amp; height dimensions, their price is automatically calculated and proportionally calibrated based on these sizes and prices you configure.
+                    </p>
+                  </div>
+
                   {/* Size Cards Grid */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
                     {formData.variants.map((v, i) => {

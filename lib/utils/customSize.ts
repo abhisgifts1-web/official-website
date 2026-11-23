@@ -45,13 +45,14 @@ export interface CustomSizeCalculation {
 
 /**
  * Extracts width, height, and area in square inches from a size string or dimensionsCm string.
+ * Supports "12 x 18 inches", "18x24", "14 × 20", "1.5 sq.ft", "30x48", etc.
  */
 export function parseDimensionsInches(
   sizeStr?: string,
   dimensionsCmStr?: string
 ): { width: number; height: number; area: number } | null {
   if (sizeStr) {
-    // Matches "12 x 18 inches", "18x24", "24 × 36", "30*48", etc.
+    // Matches "12 x 18 inches", "18x24", "24 × 36", "30*48", "14\" x 20\"", etc.
     const match = sizeStr.match(/(\d+(?:\.\d+)?)\s*(?:x|×|\*)\s*(\d+(?:\.\d+)?)/i);
     if (match) {
       const w = parseFloat(match[1]);
@@ -61,7 +62,7 @@ export function parseDimensionsInches(
       }
     }
 
-    // Diameter circle e.g. "18 inch Diameter"
+    // Circular frames e.g. "18 inch Diameter"
     const diaMatch = sizeStr.match(/(\d+(?:\.\d+)?)\s*(?:in|inch|inches)?\s*dia/i);
     if (diaMatch) {
       const d = parseFloat(diaMatch[1]);
@@ -69,9 +70,20 @@ export function parseDimensionsInches(
         return { width: d, height: d, area: Math.PI * Math.pow(d / 2, 2) };
       }
     }
+
+    // Square feet format e.g. "1.5 sq.ft" or "1.5 sqft"
+    const sqFtMatch = sizeStr.match(/(\d+(?:\.\d+)?)\s*(?:sq\.?ft|sqft)/i);
+    if (sqFtMatch) {
+      const sqFt = parseFloat(sqFtMatch[1]);
+      if (sqFt > 0) {
+        const area = sqFt * 144;
+        const side = Math.round(Math.sqrt(area));
+        return { width: side, height: Math.round(area / side), area };
+      }
+    }
   }
 
-  // Fallback to dimensionsCm e.g. "30 x 45 cm"
+  // Fallback to dimensionsCm e.g. "30 x 45 cm" or "1.5 sq.ft"
   if (dimensionsCmStr) {
     const cmMatch = dimensionsCmStr.match(/(\d+(?:\.\d+)?)\s*(?:x|×|\*)\s*(\d+(?:\.\d+)?)/i);
     if (cmMatch) {
@@ -83,6 +95,16 @@ export function parseDimensionsInches(
         return { width: Math.round(wIn), height: Math.round(hIn), area: (wCm * hCm) / 6.4516 };
       }
     }
+
+    const sqFtMatch = dimensionsCmStr.match(/(\d+(?:\.\d+)?)\s*(?:sq\.?ft|sqft)/i);
+    if (sqFtMatch) {
+      const sqFt = parseFloat(sqFtMatch[1]);
+      if (sqFt > 0) {
+        const area = sqFt * 144;
+        const side = Math.round(Math.sqrt(area));
+        return { width: side, height: Math.round(area / side), area };
+      }
+    }
   }
 
   return null;
@@ -90,12 +112,21 @@ export function parseDimensionsInches(
 
 /**
  * Resolves the relevant price and MRP for a variant given the selected frameType and thickness.
+ * Prioritizes the exact price configured by admin on the variant.
  */
 function getVariantPriceAndMrp(
   v: CustomSizeVariantReference,
   frameType?: string,
   thickness?: string
 ): { price: number; mrp: number } | null {
+  // 1. Direct variant price configured by Admin
+  if (typeof v.price === 'number' && v.price > 0) {
+    const p = Number(v.price);
+    const m = typeof v.mrp === 'number' && v.mrp > 0 ? Number(v.mrp) : Math.round(p * 1.85);
+    return { price: p, mrp: m };
+  }
+
+  // 2. Multi-finish prices object fallback if present
   if (v.prices) {
     if (frameType === 'gold' && v.prices.gold && v.prices.gold.price > 0) {
       return { price: Number(v.prices.gold.price), mrp: Number(v.prices.gold.mrp) };
@@ -122,12 +153,6 @@ function getVariantPriceAndMrp(
     if (fallback && fallback.price > 0) {
       return { price: Number(fallback.price), mrp: Number(fallback.mrp) };
     }
-  }
-
-  if (v.price && Number(v.price) > 0) {
-    const p = Number(v.price);
-    const m = Number(v.mrp) || Math.round(p * 1.85);
-    return { price: p, mrp: m };
   }
 
   return null;
@@ -238,7 +263,6 @@ export function calculateCustomDimensions(
   }
 
   // 3. Aesthetically pleasing rounding to standard e-commerce prices ending in 99
-  // e.g. 2499, 2999, 3499, etc.
   const price = Math.max(699, Math.round(rawPrice / 100) * 100 - 1);
   const mrp = Math.max(price + 200, Math.round(Math.max(rawMrp, price * 1.6) / 100) * 100 - 1);
   const discountPercent = Math.max(10, Math.round(((mrp - price) / mrp) * 100));

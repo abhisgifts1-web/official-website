@@ -506,51 +506,35 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
         : null;
 
     if (sourceVariants && sourceVariants.length > 0) {
-      if (isGlitterFrame) {
-        return sourceVariants.map((v, idx) => {
-          const vPrice = Number(v.price) || 1299;
-          const vMrp = Number(v.mrp) || Math.round(vPrice * 1.8);
-          const cleanLabel = v.size ? v.size.replace(' inches', '').replace(' (Grand Wall Size)', '') : `Size ${idx + 1}`;
-          return {
-            id: v.id || `glit-${idx}`,
-            label: cleanLabel,
-            dimensionsCm: v.dimensionsCm || '',
-            allowedFrames: ['gold', 'black', 'without'] as FrameType[],
-            allowedThickness: ['5mm'] as ThicknessType[],
-            mountingHardware: {
-              framed: '',
-              without3mm: 'Tabletop acrylic block or floating standoffs included',
-              without5mm: 'Tabletop acrylic block or floating standoffs included',
-            },
-            prices: {
-              gold: { price: vPrice, mrp: vMrp },
-              black: { price: vPrice, mrp: vMrp },
-              without_3mm: { price: vPrice, mrp: vMrp },
-              without_5mm: { price: vPrice, mrp: vMrp },
-            },
-          };
-        });
-      }
-
-      return defaultList.map((sizeObj, idx) => {
-        const v = sourceVariants[idx];
-        if (!v || !v.price) return {
-          ...sizeObj,
-          allowedThickness: isAcrylicFrame ? (['5mm'] as ThicknessType[]) : sizeObj.allowedThickness,
-        };
-        const vPrice = Number(v.price);
+      return sourceVariants.map((v, idx) => {
+        const vPrice = Number(v.price) || 1299;
         const vMrp = Number(v.mrp) || Math.round(vPrice * 1.8);
+        const cleanLabel = v.size
+          ? v.size
+              .replace(' (Grand Wall Size)', '')
+              .replace(' (Grand Sanctum)', '')
+              .replace(' (Palace Size)', '')
+          : `Size ${idx + 1}`;
+        const sqFt = v.dimensionsCm || (v.size ? getSqFtFromLabel(v.size) : '') || '';
+
         return {
-          ...sizeObj,
-          label: v.size.replace(' (Grand Wall Size)', '').replace(' (Grand Sanctum)', ''),
-          dimensionsCm: v.dimensionsCm || sizeObj.dimensionsCm,
-          allowedThickness: isAcrylicFrame ? (['5mm'] as ThicknessType[]) : sizeObj.allowedThickness,
+          id: v.id || `size-${idx + 1}`,
+          label: cleanLabel,
+          dimensionsCm: sqFt,
+          price: vPrice,
+          mrp: vMrp,
+          allowedFrames: (isAcrylicFrame ? ['without'] : isGlitterFrame ? ['without'] : ['gold', 'black', 'without']) as FrameType[],
+          allowedThickness: (isAcrylicFrame ? ['5mm'] : ['3mm', '5mm']) as ThicknessType[],
+          mountingHardware: {
+            framed: 'Heavy-duty wall mounting brackets included',
+            without3mm: 'Tabletop acrylic block or floating standoffs included',
+            without5mm: 'Premium stainless-steel floating wall standoffs included',
+          },
           prices: {
-            ...sizeObj.prices,
             gold: { price: vPrice, mrp: vMrp },
             black: { price: vPrice, mrp: vMrp },
-            without_5mm: { price: Math.max(999, vPrice - 300), mrp: vMrp },
-            without_3mm: { price: Math.max(799, vPrice - 500), mrp: vMrp },
+            without_3mm: { price: vPrice, mrp: vMrp },
+            without_5mm: { price: vPrice, mrp: vMrp },
           },
         };
       });
@@ -870,7 +854,14 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
       return { price: customSizeCalc.price, mrp: customSizeCalc.mrp, isRange: false };
     }
     if (!currentSizeObj) {
-      return { price: liveProduct.basePrice, mrp: liveProduct.baseMrp, isRange: true };
+      return { price: liveProduct.basePrice || product.basePrice, mrp: liveProduct.baseMrp || product.baseMrp, isRange: true };
+    }
+    if (typeof (currentSizeObj as any).price === 'number' && (currentSizeObj as any).price > 0) {
+      return {
+        price: (currentSizeObj as any).price,
+        mrp: (currentSizeObj as any).mrp || Math.round((currentSizeObj as any).price * 1.8),
+        isRange: false,
+      };
     }
 
     if (isGlitterFrame) {

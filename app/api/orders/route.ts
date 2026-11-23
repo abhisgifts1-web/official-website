@@ -4,6 +4,7 @@ import { getAuthenticatedAdmin } from '@/lib/auth';
 import { connectToDatabase } from '@/lib/db/mongodb';
 import { OrderModel } from '@/lib/db/models/Order';
 import { Order } from '@/types';
+import { calculateCustomDimensions } from '@/lib/utils/customSize';
 
 export const dynamic = 'force-dynamic';
 
@@ -139,17 +140,56 @@ export async function POST(req: NextRequest) {
 
     for (const clientItem of items) {
       const catalogProduct = catalog.find((p) => p.id === clientItem.productId || p.slug === clientItem.slug);
-      let variant = catalogProduct?.variants?.find((v) => v.id === clientItem.variantId);
-      if (!variant && clientItem.size && catalogProduct?.variants) {
-        variant = catalogProduct.variants.find((v) => v.size?.toLowerCase() === clientItem.size?.toLowerCase());
-      }
-      const trueUnitPrice = variant ? variant.price : (catalogProduct?.basePrice || 1299);
-      const trueUnitMrp = variant ? variant.mrp : (catalogProduct?.baseMrp || 2499);
-      const qty = Math.max(1, Math.min(10, Number(clientItem.quantity) || 1));
 
-      // Security: Server-authoritative catalog pricing prevents client-side price tampering
-      const effectiveUnitPrice = catalogProduct ? trueUnitPrice : (typeof clientItem.unitPrice === 'number' && clientItem.unitPrice > 0 ? clientItem.unitPrice : 1299);
-      const effectiveUnitMrp = catalogProduct ? trueUnitMrp : (typeof clientItem.unitMrp === 'number' && clientItem.unitMrp > 0 ? clientItem.unitMrp : 2499);
+      // Check if item is a custom size order
+      const isCustomSize = Boolean(
+        clientItem.variantId?.toLowerCase().includes('custom') ||
+        clientItem.size?.toLowerCase().includes('custom') ||
+        clientItem.customization?.specialInstructions?.toLowerCase().includes('custom dimension')
+      );
+
+      let trueUnitPrice: number;
+      let variant: any = null;
+      let trueUnitMrp: number;
+
+      if (isCustomSize && catalogProduct) {
+        // Automatically calculate authentic price according to admin-set sizes & prices
+        const dimMatch =
+          (clientItem.variantId || '').match(/(\d+(?:\.\d+)?)\s*(?:x|×|\*)\s*(\d+(?:\.\d+)?)/i) ||
+          (clientItem.size || '').match(/(\d+(?:\.\d+)?)\s*(?:x|×|\*|"|″)\s*(\d+(?:\.\d+)?)/i) ||
+          (clientItem.customization?.specialInstructions || '').match(/(\d+(?:\.\d+)?)\s*(?:x|×|\*)\s*(\d+(?:\.\d+)?)/i);
+
+        if (dimMatch) {
+          const w = parseFloat(dimMatch[1]);
+          const h = parseFloat(dimMatch[2]);
+          const customCalc = calculateCustomDimensions(w, h, {
+            variants: catalogProduct.variants,
+            basePrice: catalogProduct.basePrice,
+            baseMrp: catalogProduct.baseMrp,
+          });
+          trueUnitPrice = customCalc.price;
+          trueUnitMrp = customCalc.mrp;
+        } else {
+          trueUnitPrice = typeof clientItem.unitPrice === 'number' && clientItem.unitPrice > 0
+            ? clientItem.unitPrice
+            : (catalogProduct.basePrice || 1299);
+          trueUnitMrp = typeof clientItem.unitMrp === 'number' && clientItem.unitMrp > 0
+            ? clientItem.unitMrp
+            : (catalogProduct.baseMrp || 2499);
+        }
+      } else {
+        // Standard variant lookup
+        variant = catalogProduct?.variants?.find((v) => v.id === clientItem.variantId);
+        if (!variant && clientItem.size && catalogProduct?.variants) {
+          variant = catalogProduct.variants.find((v) => v.size?.toLowerCase() === clientItem.size?.toLowerCase());
+        }
+        trueUnitPrice = variant ? variant.price : (catalogProduct?.basePrice || 1299);
+        trueUnitMrp = variant ? variant.mrp : (catalogProduct?.baseMrp || 2499);
+      }
+
+      const qty = Math.max(1, Math.min(10, Number(clientItem.quantity) || 1));
+      const effectiveUnitPrice = catalogProduct ? trueUnitPrice : (Number(clientItem.unitPrice) || 1299);
+      const effectiveUnitMrp = catalogProduct ? trueUnitMrp : (Number(clientItem.unitMrp) || 2499);
 
       computedSubtotal += effectiveUnitPrice * qty;
 
