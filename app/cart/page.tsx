@@ -312,14 +312,14 @@ export default function CartPage() {
                 }
                 router.push('/checkout');
               }}
-              className={`w-full py-3.5 rounded-xl font-bold text-sm shadow-md flex items-center justify-center gap-2 transition-all uppercase tracking-wider ${
+              className={`w-full py-3.5 rounded-xl text-sm flex items-center justify-center gap-2 uppercase tracking-wider ${
                 hasOutOfStockFrame
-                  ? 'bg-stone-200 text-stone-400 border border-stone-300 cursor-not-allowed shadow-none'
-                  : 'bg-[#FEE815] hover:bg-[#FFF04B] text-stone-950 border border-amber-500 hover:scale-[1.01] cursor-pointer'
+                  ? 'bg-stone-200 text-stone-400 border border-stone-300 cursor-not-allowed shadow-none font-bold'
+                  : 'btn-luxury-primary btn-shimmer-sweep group cursor-pointer'
               }`}
             >
               <span>{hasOutOfStockFrame ? 'Cannot Checkout (Out of Stock Frame)' : 'Proceed to Checkout'}</span>
-              <ArrowRight className="w-4 h-4 text-stone-950" />
+              <ArrowRight className="w-4 h-4 text-stone-950 group-hover:translate-x-1.5 transition-transform duration-300 shrink-0" />
             </button>
 
             <div className="flex items-center justify-center gap-1.5 text-[11px] text-stone-500 text-center">

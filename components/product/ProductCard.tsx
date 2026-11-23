@@ -234,12 +234,12 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
           <div className="pt-2.5">
             <Link
               href={`/product/${product.slug}`}
-              className="w-full min-h-[32px] sm:min-h-[38px] py-1.5 sm:py-2 px-2 sm:px-3 rounded-lg sm:rounded-xl font-sans text-[11px] sm:text-xs font-bold flex items-center justify-center gap-1 sm:gap-1.5 transition-all duration-200 shadow-2xs active:scale-[0.98] bg-[#FEE815] hover:bg-[#FFF04B] text-black hover:shadow-xs border border-[#FEE815] cursor-pointer"
+              className="btn-luxury-primary btn-shimmer-sweep group w-full min-h-[32px] sm:min-h-[38px] py-1.5 sm:py-2 px-2 sm:px-3 rounded-lg sm:rounded-xl font-sans text-[11px] sm:text-xs font-bold flex items-center justify-center gap-1 sm:gap-1.5 cursor-pointer uppercase tracking-wider"
               aria-label={`View ${product.title}`}
               title="View"
             >
               <span>View</span>
-              <ArrowRight className="w-3.5 h-3.5 text-black shrink-0" />
+              <ArrowRight className="w-3.5 h-3.5 text-black group-hover:translate-x-1 transition-transform duration-200 shrink-0" />
             </Link>
           </div>
         </div>

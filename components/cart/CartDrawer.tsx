@@ -296,10 +296,10 @@ export default function CartDrawer() {
                 <button
                   type="button"
                   onClick={handleProceedCheckout}
-                  className="w-full bg-[#FEE815] hover:bg-[#FFF04B] text-stone-950 border border-[#FEE815] py-3 rounded-xl font-bold text-sm shadow-md flex items-center justify-center gap-2 transition-all hover:scale-[1.01] cursor-pointer uppercase tracking-wider"
+                  className="btn-luxury-primary btn-shimmer-sweep group w-full py-3.5 rounded-xl text-sm flex items-center justify-center gap-2 cursor-pointer uppercase tracking-wider"
                 >
                   <span>Proceed to Checkout</span>
-                  <ArrowRight className="w-4 h-4 text-stone-950" />
+                  <ArrowRight className="w-4 h-4 text-stone-950 group-hover:translate-x-1.5 transition-transform duration-300 shrink-0" />
                 </button>
 
                 <div className="flex items-center justify-center gap-1.5 text-[11px] text-stone-500 text-center">

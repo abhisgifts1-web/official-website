@@ -873,10 +873,10 @@ export default function CheckoutPage() {
             <button
               type="submit"
               disabled={submitting}
-              className={`w-full py-4 rounded-2xl font-black text-sm sm:text-base shadow-md transition-all flex items-center justify-center gap-2.5 cursor-pointer uppercase tracking-wider ${
+              className={`w-full py-4 rounded-2xl text-sm sm:text-base flex items-center justify-center gap-2.5 uppercase tracking-wider ${
                 submitting
-                  ? 'bg-stone-300 text-stone-500 cursor-not-allowed'
-                  : 'bg-[#FEE815] hover:bg-[#FFF04B] text-stone-950 shadow-lg shadow-[#FEE815]/30 hover:scale-[1.01]'
+                  ? 'bg-stone-300 text-stone-500 cursor-not-allowed font-black'
+                  : 'btn-luxury-primary btn-shimmer-sweep group cursor-pointer'
               }`}
             >
               {submitting ? (
@@ -886,7 +886,7 @@ export default function CheckoutPage() {
                 </div>
               ) : (
                 <>
-                  <Lock className="w-4 h-4 text-stone-950" />
+                  <Lock className="w-4 h-4 text-stone-950 group-hover:scale-110 transition-transform duration-200" />
                   <span>Buy Now • ₹{finalPayable.toLocaleString('en-IN')}</span>
                 </>
               )}

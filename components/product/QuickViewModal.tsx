@@ -264,10 +264,10 @@ export default function QuickViewModal({ product, isOpen, onClose }: QuickViewMo
                 <Link
                   href={`/product/${product.slug}`}
                   onClick={onClose}
-                  className="w-full bg-[#FEE815] hover:bg-[#FFF04B] text-stone-950 py-3 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-md border border-[#FEE815] transition-all cursor-pointer uppercase tracking-wider"
+                  className="btn-luxury-primary btn-shimmer-sweep group w-full py-3.5 rounded-xl text-xs sm:text-sm flex items-center justify-center gap-2 cursor-pointer uppercase tracking-wider"
                 >
                   <span>View Details</span>
-                  <ArrowRight className="w-4 h-4 text-stone-950" />
+                  <ArrowRight className="w-4 h-4 text-stone-950 group-hover:translate-x-1.5 transition-transform duration-300 shrink-0" />
                 </Link>
 
                 <div className="flex items-center justify-between text-xs pt-1">

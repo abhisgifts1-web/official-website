@@ -903,3 +903,134 @@ h1, h2, h3, h4, h5, h6, .font-serif {
   animation: goldBorderShimmer 4s ease infinite;
 }
 
+/* ==========================================================================
+   23. ULTRA-LUXURY ATTRACTIVE BUTTONS & MICRO-INTERACTION ANIMATIONS
+   ========================================================================== */
+
+@keyframes buttonShineBeam {
+  0% {
+    transform: translateX(-180%) skewX(-20deg);
+  }
+  45%, 100% {
+    transform: translateX(300%) skewX(-20deg);
+  }
+}
+
+@keyframes buttonGlowPulse {
+  0%, 100% {
+    box-shadow: 0 4px 15px rgba(254, 232, 21, 0.35), 0 0 0 1px rgba(254, 232, 21, 0.4);
+  }
+  50% {
+    box-shadow: 0 8px 30px rgba(254, 232, 21, 0.6), 0 0 15px rgba(255, 240, 75, 0.5), 0 0 0 2px rgba(254, 232, 21, 0.7);
+  }
+}
+
+/* Luxury Primary Brand Yellow Button */
+.btn-luxury-primary {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #FFF04B 0%, #FEE815 45%, #E0CC04 100%);
+  color: #0A0A0A;
+  font-weight: 800;
+  border: 1px solid rgba(224, 204, 4, 0.8);
+  box-shadow: 0 4px 14px rgba(254, 232, 21, 0.38), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, box-shadow;
+}
+
+.btn-luxury-primary:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #FFF370 0%, #FFF04B 40%, #FEE815 100%);
+  box-shadow: 0 8px 28px rgba(254, 232, 21, 0.55), 0 0 15px rgba(254, 232, 21, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  border-color: #FEE815;
+}
+
+.btn-luxury-primary:active {
+  transform: translateY(1px) scale(0.98);
+  box-shadow: 0 2px 8px rgba(254, 232, 21, 0.4);
+}
+
+/* Luxury Dark Obsidian Button */
+.btn-luxury-dark {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, #242428 0%, #111113 100%);
+  color: #FFFFFF;
+  font-weight: 700;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, box-shadow;
+}
+
+.btn-luxury-dark:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(180deg, #2D2D32 0%, #17171A 100%);
+  border-color: rgba(254, 232, 21, 0.5);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.45), 0 0 16px rgba(254, 232, 21, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.btn-luxury-dark:active {
+  transform: translateY(1px) scale(0.98);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Luxury Studio / Outline Customizer Button */
+.btn-luxury-studio {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(254, 232, 21, 0.08) 0%, rgba(255, 255, 255, 0.95) 50%, rgba(254, 232, 21, 0.06) 100%);
+  color: #121212;
+  font-weight: 700;
+  border: 2px dashed rgba(254, 232, 21, 0.85);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04), 0 0 0 1px rgba(254, 232, 21, 0.2);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, box-shadow;
+}
+
+.btn-luxury-studio:hover {
+  transform: translateY(-2px);
+  border-color: #E0CC04;
+  border-style: solid;
+  background: linear-gradient(135deg, rgba(254, 232, 21, 0.2) 0%, #FFFFFF 50%, rgba(254, 232, 21, 0.15) 100%);
+  box-shadow: 0 8px 24px rgba(254, 232, 21, 0.32), 0 0 12px rgba(254, 232, 21, 0.2);
+}
+
+.btn-luxury-studio:active {
+  transform: translateY(1px) scale(0.985);
+}
+
+/* Dynamic Interactive Shimmer Sheen Beam */
+.btn-shimmer-sweep::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.45) 50%,
+    transparent 100%
+  );
+  transform: translateX(-200%) skewX(-20deg);
+  pointer-events: none;
+}
+
+.btn-shimmer-sweep:hover::after {
+  animation: buttonShineBeam 1.8s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
+/* Ambient Pulsing Glow for High-Impact CTAs */
+.btn-ambient-pulse {
+  animation: buttonGlowPulse 2.8s ease-in-out infinite;
+}
+
+/* Micro-Haptic Click Effect */
+.btn-press-bounce {
+  transition: transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.btn-press-bounce:active {
+  transform: scale(0.94);
+}

@@ -1456,10 +1456,10 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                       key={m.id}
                       type="button"
                       onClick={() => handleSelectModel(m.id)}
-                      className={`px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-lg text-xs font-bold transition-all cursor-pointer flex items-center gap-1 ${
+                      className={`px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-xl text-xs font-bold transition-all duration-200 cursor-pointer flex items-center gap-1 active:scale-95 ${
                         isSelected
-                          ? 'bg-[#262626] text-white shadow-xs scale-105 ring-2 ring-stone-900/40'
-                          : 'border border-stone-300 text-stone-800 bg-white hover:border-stone-500 hover:bg-stone-50'
+                          ? 'bg-[#181818] text-white shadow-xs scale-105 ring-2 ring-amber-400 border border-amber-400/50'
+                          : 'border border-stone-300 text-stone-800 bg-white hover:border-amber-400 hover:bg-amber-50/30 hover:-translate-y-0.5 shadow-2xs'
                       }`}
                       title={`Model ${m.name}${m.isPopular ? ' (Trending / Bestseller)' : ''}`}
                     >
@@ -1561,10 +1561,10 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                       key={s.id}
                       type="button"
                       onClick={() => { setIsCustomSize(false); handleSelectSize(s.id); }}
-                      className={`py-2 px-1 sm:py-2.5 sm:px-1.5 min-h-[50px] rounded-xl sm:rounded-2xl text-xs transition-all flex flex-col items-center justify-center cursor-pointer ${
+                      className={`py-2 px-1 sm:py-2.5 sm:px-1.5 min-h-[50px] rounded-xl sm:rounded-2xl text-xs transition-all duration-200 flex flex-col items-center justify-center cursor-pointer ${
                         isSelected
-                          ? 'border-2 border-amber-500 text-stone-950 font-bold bg-amber-50 shadow-xs ring-1 ring-amber-400'
-                          : 'border border-stone-200 text-stone-700 bg-stone-50 hover:border-amber-400 font-medium'
+                          ? 'border-2 border-amber-500 text-stone-950 font-bold bg-amber-50 shadow-xs ring-2 ring-amber-400/50 scale-[1.03]'
+                          : 'border border-stone-200 text-stone-700 bg-stone-50/90 hover:border-amber-400 hover:bg-white hover:-translate-y-0.5 font-medium shadow-2xs active:scale-95'
                       }`}
                     >
                       <span className="font-bold text-xs sm:text-[13px] text-stone-900">{sqFtText || cleanDisplayLabel}</span>
@@ -1645,12 +1645,12 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                       type="button"
                       onClick={() => !isBlackOutOfStock && handleSelectFrame('black')}
                       disabled={isBlackOutOfStock}
-                      className={`p-2.5 sm:p-3 rounded-xl sm:rounded-2xl border text-left transition-all flex items-center justify-between gap-2 ${
+                      className={`btn-shimmer-sweep group p-2.5 sm:p-3 rounded-xl sm:rounded-2xl border text-left transition-all duration-300 flex items-center justify-between gap-2 ${
                         isBlackOutOfStock
                           ? 'border-stone-200 bg-stone-100/70 text-stone-400 opacity-50 cursor-not-allowed'
                           : selectedFrame === 'black'
-                          ? 'border-2 border-stone-900 bg-stone-900 text-white shadow-md ring-2 ring-stone-700/50 scale-[1.01] cursor-pointer'
-                          : 'border-stone-200 bg-stone-50 text-stone-800 hover:border-stone-400 cursor-pointer'
+                          ? 'border-2 border-stone-950 bg-stone-950 text-white shadow-md ring-2 ring-stone-800 scale-[1.02] cursor-pointer'
+                          : 'border-stone-200 bg-stone-50/90 text-stone-800 hover:border-stone-400 hover:bg-white hover:-translate-y-0.5 hover:shadow-xs active:scale-98 cursor-pointer'
                       }`}
                     >
                       <div className="flex items-center gap-2.5 min-w-0">
@@ -1686,12 +1686,12 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                       type="button"
                       onClick={() => !isGoldOutOfStock && handleSelectFrame('gold')}
                       disabled={isGoldOutOfStock}
-                      className={`p-2.5 sm:p-3 rounded-xl sm:rounded-2xl border text-left transition-all flex items-center justify-between gap-2 ${
+                      className={`btn-shimmer-sweep group p-2.5 sm:p-3 rounded-xl sm:rounded-2xl border text-left transition-all duration-300 flex items-center justify-between gap-2 ${
                         isGoldOutOfStock
                           ? 'border-stone-200 bg-stone-100/70 text-stone-400 opacity-50 cursor-not-allowed'
                           : selectedFrame === 'gold'
-                          ? 'border-2 border-amber-500 bg-amber-50/90 text-stone-950 shadow-md ring-2 ring-amber-400/50 scale-[1.01] cursor-pointer'
-                          : 'border-stone-200 bg-stone-50 text-stone-800 hover:border-amber-400 cursor-pointer'
+                          ? 'border-2 border-amber-500 bg-amber-50/90 text-stone-950 shadow-md ring-2 ring-amber-400/50 scale-[1.02] cursor-pointer'
+                          : 'border-stone-200 bg-stone-50/90 text-stone-800 hover:border-amber-400 hover:bg-white hover:-translate-y-0.5 hover:shadow-xs active:scale-98 cursor-pointer'
                       }`}
                     >
                       <div className="flex items-center gap-2.5 min-w-0">
@@ -1734,11 +1734,17 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
               <button
                 type="button"
                 onClick={() => setIsCustomizerOpen(true)}
-                className="w-full py-3 px-4 rounded-xl border border-stone-300 hover:border-stone-900 bg-stone-50 hover:bg-stone-100 text-stone-900 font-semibold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all cursor-pointer shadow-2xs"
+                className="btn-luxury-studio btn-shimmer-sweep group w-full py-3.5 px-4 rounded-2xl font-bold text-xs sm:text-sm flex items-center justify-center gap-2.5 cursor-pointer shadow-xs hover:shadow-md"
                 title={`Customise photo and size for ${product.title}`}
               >
-                <Camera className="w-4 h-4 text-amber-600" />
-                <span>Customise: Add Your Photo &amp; Custom Size</span>
+                <div className="w-7 h-7 rounded-xl bg-gradient-to-tr from-[#FFF04B] to-[#FEE815] border border-amber-300 flex items-center justify-center shadow-xs shrink-0 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+                  <Camera className="w-4 h-4 text-stone-950" />
+                </div>
+                <span className="text-stone-950 tracking-tight font-extrabold">Customise: Add Your Photo &amp; Custom Size</span>
+                <span className="hidden sm:inline-flex items-center gap-1 text-[10px] font-extrabold uppercase px-2 py-0.5 rounded-full bg-[#FEE815] text-stone-950 border border-amber-400 shadow-2xs group-hover:bg-[#FFF04B] transition-colors">
+                  <Sparkles className="w-2.5 h-2.5 text-stone-950 animate-pulse" />
+                  Live Studio
+                </span>
               </button>
 
               {/* Quantity + Add to Cart & Buy Now Row */}
@@ -1746,20 +1752,20 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                 {/* On mobile: row with Quantity + Add to Cart */}
                 <div className="flex items-center gap-2.5 flex-1">
                   {/* Quantity */}
-                  <div className="flex items-center border border-stone-200 rounded-xl bg-stone-50 overflow-hidden shadow-2xs shrink-0 h-11 sm:h-12">
+                  <div className="flex items-center border border-stone-300 rounded-xl bg-white overflow-hidden shadow-xs shrink-0 h-11 sm:h-12">
                     <button
                       type="button"
                       onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                      className="px-3 sm:px-3.5 text-stone-600 hover:bg-stone-200 font-bold text-sm transition-colors cursor-pointer h-full"
+                      className="px-3 sm:px-3.5 text-stone-700 hover:text-stone-950 hover:bg-stone-100 active:bg-amber-100 font-extrabold text-sm transition-all duration-150 cursor-pointer h-full active:scale-90"
                       aria-label="Decrease quantity"
                     >
                       -
                     </button>
-                    <span className="px-2 sm:px-2.5 text-xs font-bold text-stone-900 min-w-7 sm:min-w-8 text-center">{quantity}</span>
+                    <span className="px-2 sm:px-2.5 text-xs font-black text-stone-950 min-w-7 sm:min-w-8 text-center select-none">{quantity}</span>
                     <button
                       type="button"
                       onClick={() => setQuantity(Math.min(10, quantity + 1))}
-                      className="px-3 sm:px-3.5 text-stone-600 hover:bg-stone-200 font-bold text-sm transition-colors cursor-pointer h-full"
+                      className="px-3 sm:px-3.5 text-stone-700 hover:text-stone-950 hover:bg-stone-100 active:bg-amber-100 font-extrabold text-sm transition-all duration-150 cursor-pointer h-full active:scale-90"
                       aria-label="Increase quantity"
                     >
                       +
@@ -1770,10 +1776,10 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                   <button
                     type="button"
                     onClick={handleAddToCart}
-                    className="flex-1 h-11 sm:h-12 rounded-xl bg-stone-900 hover:bg-stone-800 active:bg-stone-950 text-white font-bold text-xs sm:text-sm transition-all flex items-center justify-center gap-2 cursor-pointer shadow-xs"
+                    className="btn-luxury-dark btn-shimmer-sweep group flex-1 h-11 sm:h-12 rounded-xl text-xs sm:text-sm flex items-center justify-center gap-2 cursor-pointer"
                   >
-                    <ShoppingBag className="w-4 h-4 text-amber-400" />
-                    <span>{isSelectedFrameOutOfStock ? 'Frame Out of Stock' : 'Add to Cart'}</span>
+                    <ShoppingBag className="w-4 h-4 text-[#FEE815] group-hover:scale-115 group-hover:-rotate-12 transition-transform duration-300 shrink-0" />
+                    <span className="tracking-wide">{isSelectedFrameOutOfStock ? 'Frame Out of Stock' : 'Add to Cart'}</span>
                   </button>
                 </div>
 
@@ -1781,22 +1787,22 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                 <button
                   type="button"
                   onClick={handleBuyNow}
-                  className="w-full sm:flex-1 h-11 sm:h-12 rounded-xl bg-gradient-to-r from-[#FEE815] via-[#FFF04B] to-[#FEE815] hover:from-[#FFF04B] hover:to-[#FEE815] text-stone-950 font-bold text-xs sm:text-sm transition-all flex items-center justify-center gap-2 cursor-pointer shadow-xs"
+                  className="btn-luxury-primary btn-shimmer-sweep group w-full sm:flex-1 h-11 sm:h-12 rounded-xl text-xs sm:text-sm flex items-center justify-center gap-2 cursor-pointer uppercase tracking-wider"
                 >
                   <span>{isSelectedFrameOutOfStock ? 'Sold Out' : 'Proceed to Checkout'}</span>
-                  <ArrowRight className="w-4 h-4 text-stone-900" />
+                  <ArrowRight className="w-4 h-4 text-stone-950 group-hover:translate-x-1.5 transition-transform duration-300 shrink-0" />
                 </button>
               </div>
 
               {/* WhatsApp Enquiry & Support */}
-              <div className="text-center pt-0.5">
+              <div className="text-center pt-1">
                 <a
                   href={whatsappCustomSizeUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-xs text-stone-600 hover:text-emerald-700 transition-colors"
+                  className="inline-flex items-center gap-2 text-xs font-semibold text-stone-700 hover:text-emerald-800 bg-emerald-50/80 hover:bg-emerald-100 border border-emerald-200/90 hover:border-emerald-300 py-2 px-4 rounded-full shadow-2xs hover:shadow-xs transition-all duration-300 hover:-translate-y-0.5 active:scale-95 group"
                 >
-                  <MessageCircle className="w-3.5 h-3.5 text-[#25D366] fill-[#25D366]" />
+                  <MessageCircle className="w-4 h-4 text-[#25D366] fill-[#25D366] group-hover:scale-110 transition-transform duration-200" />
                   <span>
                     {isCustomSize
                       ? 'Need custom sizing advice? Chat with Us on WhatsApp'

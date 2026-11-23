@@ -1273,17 +1273,17 @@ export default function AddPhotoModal({
             <button
               type="button"
               onClick={() => handleAddToCartWithPhoto(false)}
-              className="w-full py-2.5 px-4 rounded-xl font-bold text-xs flex items-center justify-center gap-2 bg-[#FEE815] hover:bg-[#FFF04B] text-stone-950 shadow-md border border-[#FEE815] transition-all cursor-pointer"
+              className="btn-luxury-primary btn-shimmer-sweep group w-full py-3 px-4 rounded-xl text-xs flex items-center justify-center gap-2 cursor-pointer shadow-md"
             >
               {addedSuccess ? (
                 <>
-                  <Check className="w-4 h-4 text-stone-950" />
-                  <span>Added {photos.length > 1 ? `${photos.length} Items` : 'to Cart'}!</span>
+                  <Check className="w-4 h-4 text-stone-950 animate-bounce" />
+                  <span className="font-bold">Added {photos.length > 1 ? `${photos.length} Items` : 'to Cart'}!</span>
                 </>
               ) : (
                 <>
-                  <ShoppingBag className="w-4 h-4 text-stone-950" />
-                  <span>
+                  <ShoppingBag className="w-4 h-4 text-stone-950 group-hover:scale-115 group-hover:-rotate-12 transition-transform duration-300 shrink-0" />
+                  <span className="font-bold">
                     {photos.length > 1
                       ? `Add All ${photos.length} Frames Separately • ₹${totalCombinedPrice.toLocaleString('en-IN')}`
                       : `Add to Cart • ₹${activePrice.toLocaleString('en-IN')}`}
@@ -1295,10 +1295,13 @@ export default function AddPhotoModal({
             <button
               type="button"
               onClick={() => handleAddToCartWithPhoto(true)}
-              className="w-full py-2.5 px-4 rounded-xl font-bold text-xs flex items-center justify-center gap-2 bg-stone-900 hover:bg-stone-800 text-white border border-stone-900 transition-all cursor-pointer shadow-xs"
+              disabled={hasOutOfStockFrame}
+              className={`btn-luxury-dark btn-shimmer-sweep group w-full py-3 px-4 rounded-xl text-xs flex items-center justify-center gap-2 cursor-pointer shadow-sm ${
+                hasOutOfStockFrame ? 'opacity-50 cursor-not-allowed' : ''
+              }`}
             >
-              <span>{hasOutOfStockFrame ? 'Frame Out of Stock' : `Proceed to Checkout ${photos.length > 1 ? `(${photos.length} Frames)` : ''}`}</span>
-              <ArrowRight className="w-4 h-4 text-amber-400" />
+              <span className="font-bold">{hasOutOfStockFrame ? 'Frame Out of Stock' : `Proceed to Checkout ${photos.length > 1 ? `(${photos.length} Frames)` : ''}`}</span>
+              <ArrowRight className="w-4 h-4 text-[#FEE815] group-hover:translate-x-1.5 transition-transform duration-300 shrink-0" />
             </button>
           </div>
 
