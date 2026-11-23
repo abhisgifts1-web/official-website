@@ -72,28 +72,11 @@ export async function POST(req: NextRequest) {
       // Ignored on read-only serverless environments
     }
 
-    // 4. Fallback backup upload to public CDN (tmpfiles) if Cloudinary wasn't available
-    let cdnUrl: string | null = cloudinaryUrl;
-    if (!cdnUrl) {
-      try {
-        const form = new FormData();
-        form.append('file', new Blob([buffer], { type: mimeType }), filename);
-        const tmpRes = await fetch('https://tmpfiles.org/api/v1/upload', {
-          method: 'POST',
-          body: form,
-        });
-        if (tmpRes.ok) {
-          const tmpJson = await tmpRes.json();
-          if (tmpJson?.data?.url) {
-            cdnUrl = tmpJson.data.url.replace('tmpfiles.org/', 'tmpfiles.org/dl/');
-          }
-        }
-      } catch (cdnErr) {
-        console.warn('CDN backup upload notice:', cdnErr);
-      }
-    }
+    // 4. Secure internal URL fallback when Cloudinary is unavailable
+    const internalUrl = `/api/uploads/${filename}`;
+    const finalUrl = cloudinaryUrl || internalUrl;
 
-    // 5. Save metadata to MongoDB Atlas (store URL reference rather than bulky base64 if Cloudinary succeeded)
+    // 5. Save metadata to MongoDB Atlas (store URL reference or local buffer)
     try {
       await connectToDatabase();
       await CustomPhoto.create({
@@ -102,15 +85,11 @@ export async function POST(req: NextRequest) {
         // Only keep base64 in MongoDB as a fallback if Cloudinary failed, to avoid exceeding 512MB MongoDB limit
         data: cloudinaryUrl ? undefined : base64Data,
         size: buffer.length,
-        cdnUrl: cloudinaryUrl || cdnUrl || undefined,
+        cdnUrl: cloudinaryUrl || undefined,
       });
     } catch (dbErr) {
       console.warn('MongoDB Atlas photo save notice:', dbErr);
     }
-
-    // Primary URL to return: Cloudinary CDN URL, or fallback to internal route
-    const internalUrl = `/api/uploads/${filename}`;
-    const finalUrl = cloudinaryUrl || cdnUrl || internalUrl;
 
     return NextResponse.json({
       success: true,

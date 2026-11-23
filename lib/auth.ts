@@ -7,14 +7,17 @@ const JWT_SECRET_STRING = process.env.ADMIN_JWT_SECRET || 'abhi-gifts-super-secr
 const secretKey = new TextEncoder().encode(JWT_SECRET_STRING);
 const COOKIE_NAME = 'abhi_gifts_admin_token';
 
-// In-memory admin credentials fallback
+// Admin credentials configuration with environment overrides
+const defaultAdminPassword = process.env.ADMIN_DEFAULT_PASSWORD || 'AbhiGifts@2026!Admin';
+const defaultAdminEmail = process.env.ADMIN_EMAIL || 'admin@abhigifts.com';
+
 export const DEFAULT_ADMIN: AdminUser & { passwordHash: string } = {
   id: 'admin-1',
-  email: 'admin@abhigifts.com',
+  email: defaultAdminEmail,
   name: 'Abhi Gifts Administrator',
   role: 'superadmin',
   avatar: '',
-  passwordHash: bcrypt.hashSync('AbhiGifts@2026!Admin', 10),
+  passwordHash: bcrypt.hashSync(defaultAdminPassword, 10),
 };
 
 export async function hashPassword(password: string): Promise<string> {

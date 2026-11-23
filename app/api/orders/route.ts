@@ -54,21 +54,57 @@ export async function GET(req: NextRequest) {
       return NextResponse.json({ success: true, count: filtered.length, orders: filtered });
     }
 
-    // Customer can view their own orders if email or mobile param is passed
+    // Customer tracking: lookup by Order ID, phone, or email
+    const orderId = searchParams.get('id') || searchParams.get('orderId');
     const customerPhone = searchParams.get('phone');
     const customerEmail = searchParams.get('email');
 
-    if (!customerPhone && !customerEmail) {
-      return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
+    if (!orderId && !customerPhone && !customerEmail) {
+      return NextResponse.json({ success: false, error: 'Please provide an Order ID or phone number.' }, { status: 400 });
     }
 
     const customerOrders = allOrders.filter(
       (o) =>
-        (customerPhone && o.customer?.mobile === customerPhone) ||
+        (orderId && (o.id === orderId || o.id?.toLowerCase() === orderId.toLowerCase())) ||
+        (customerPhone && (
+          o.customer?.mobile === customerPhone || 
+          o.customer?.mobile?.replace(/[^0-9]/g, '') === customerPhone.replace(/[^0-9]/g, '')
+        )) ||
         (customerEmail && o.customer?.email?.toLowerCase() === customerEmail.toLowerCase())
     );
 
-    return NextResponse.json({ success: true, count: customerOrders.length, orders: customerOrders });
+    // Sanitize sensitive PII for public customer lookup
+    const safeOrders = customerOrders.map((o) => {
+      const mobile = o.customer?.mobile || '';
+      const maskedMobile = mobile.length >= 4 ? `******${mobile.slice(-4)}` : '******';
+      return {
+        id: o.id,
+        createdAt: o.createdAt,
+        orderStatus: o.orderStatus,
+        paymentStatus: o.paymentStatus,
+        paymentMethod: o.paymentMethod,
+        totalAmount: o.totalAmount,
+        trackingNumber: (o as any).trackingNumber || (o as any).courierAwb || `EXP-${o.id?.slice(-6) || 'IND'}`,
+        courierPartner: (o as any).courierPartner || 'DTDC / Blue Dart Express',
+        items: o.items.map((i) => ({
+          id: i.id,
+          title: i.title,
+          image: i.image,
+          size: i.size,
+          quantity: i.quantity,
+          unitPrice: i.unitPrice,
+        })),
+        destination: {
+          city: o.customer?.city || 'Hyderabad',
+          state: o.customer?.state || 'Telangana',
+          pincode: o.customer?.pincode ? `***${o.customer.pincode.slice(-3)}` : '******',
+          recipientName: o.customer?.fullName ? `${o.customer.fullName.split(' ')[0]} ***` : 'Customer',
+          mobileMasked: maskedMobile,
+        },
+      };
+    });
+
+    return NextResponse.json({ success: true, count: safeOrders.length, orders: safeOrders });
   } catch (err: any) {
     return NextResponse.json({ success: false, error: err.message }, { status: 500 });
   }
@@ -97,19 +133,17 @@ export async function POST(req: NextRequest) {
 
     for (const clientItem of items) {
       const catalogProduct = catalog.find((p) => p.id === clientItem.productId || p.slug === clientItem.slug);
-      const variant = catalogProduct?.variants?.find((v) => v.id === clientItem.variantId);
+      let variant = catalogProduct?.variants?.find((v) => v.id === clientItem.variantId);
+      if (!variant && clientItem.size && catalogProduct?.variants) {
+        variant = catalogProduct.variants.find((v) => v.size?.toLowerCase() === clientItem.size?.toLowerCase());
+      }
       const trueUnitPrice = variant ? variant.price : (catalogProduct?.basePrice || 1299);
       const trueUnitMrp = variant ? variant.mrp : (catalogProduct?.baseMrp || 2499);
       const qty = Math.max(1, Math.min(10, Number(clientItem.quantity) || 1));
 
-      const effectiveUnitPrice =
-        typeof clientItem.unitPrice === 'number' && clientItem.unitPrice > 0
-          ? clientItem.unitPrice
-          : trueUnitPrice;
-      const effectiveUnitMrp =
-        typeof clientItem.unitMrp === 'number' && clientItem.unitMrp > 0
-          ? clientItem.unitMrp
-          : trueUnitMrp;
+      // Security: Server-authoritative catalog pricing prevents client-side price tampering
+      const effectiveUnitPrice = catalogProduct ? trueUnitPrice : (typeof clientItem.unitPrice === 'number' && clientItem.unitPrice > 0 ? clientItem.unitPrice : 1299);
+      const effectiveUnitMrp = catalogProduct ? trueUnitMrp : (typeof clientItem.unitMrp === 'number' && clientItem.unitMrp > 0 ? clientItem.unitMrp : 2499);
 
       computedSubtotal += effectiveUnitPrice * qty;
 

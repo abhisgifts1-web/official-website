@@ -268,6 +268,11 @@ export default function Footer() {
                 </h4>
                 <ul className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-1 gap-2 text-xs sm:text-[13px] text-stone-300 pt-1">
                   <li>
+                    <Link href="/track-order" className="hover:text-amber-300 font-semibold text-amber-400 transition-colors block py-0.5">
+                      📦 Track Your Order
+                    </Link>
+                  </li>
+                  <li>
                     <Link href="/enquiry" className="hover:text-[#25D366] font-semibold text-[#25D366] transition-colors block py-0.5">
                       💬 WhatsApp Enquiry
                     </Link>
@@ -275,6 +280,16 @@ export default function Footer() {
                   <li>
                     <Link href="/customise" className="hover:text-amber-300 font-semibold text-amber-400 transition-colors block py-0.5">
                       ✨ Customise Photo Frame
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/shipping-policy" className="hover:text-amber-300 transition-colors block py-0.5">
+                      Shipping Policy
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/return-refund-policy" className="hover:text-amber-300 transition-colors block py-0.5">
+                      Returns &amp; Refunds
                     </Link>
                   </li>
                   <li>
@@ -364,6 +379,14 @@ export default function Footer() {
           </p>
 
           <div className="flex items-center gap-3 sm:gap-4 flex-wrap justify-center text-[11px]">
+            <Link href="/shipping-policy" className="hover:text-amber-300 transition-colors py-0.5">
+              Shipping Policy
+            </Link>
+            <span className="w-1 h-1 rounded-full bg-stone-700" />
+            <Link href="/return-refund-policy" className="hover:text-amber-300 transition-colors py-0.5">
+              Return &amp; Refund
+            </Link>
+            <span className="w-1 h-1 rounded-full bg-stone-700" />
             <Link href="/privacy-policy" className="hover:text-amber-300 transition-colors py-0.5">
               Privacy Policy
             </Link>

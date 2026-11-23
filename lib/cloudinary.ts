@@ -1,12 +1,18 @@
 import { v2 as cloudinary } from 'cloudinary';
 
-// Configure Cloudinary once globally
-cloudinary.config({
-  cloud_name: process.env.CLOUDINARY_CLOUD_NAME || 'pwjyb57h',
-  api_key: process.env.CLOUDINARY_API_KEY || '283621376386371',
-  api_secret: process.env.CLOUDINARY_API_SECRET || 'Dx_8igxSSBkim76Sw-8su7XDPnY',
-  secure: true,
-});
+// Configure Cloudinary safely without hardcoded fallback credentials
+const cloudName = process.env.CLOUDINARY_CLOUD_NAME || '';
+const apiKey = process.env.CLOUDINARY_API_KEY || '';
+const apiSecret = process.env.CLOUDINARY_API_SECRET || '';
+
+if (cloudName && apiKey && apiSecret) {
+  cloudinary.config({
+    cloud_name: cloudName,
+    api_key: apiKey,
+    api_secret: apiSecret,
+    secure: true,
+  });
+}
 
 export interface CloudinaryUploadResult {
   url: string;
@@ -30,6 +36,10 @@ export async function uploadToCloudinary(
   folder: string = 'abhi-gifts/uploads',
   publicId?: string
 ): Promise<CloudinaryUploadResult> {
+  if (!process.env.CLOUDINARY_CLOUD_NAME || !process.env.CLOUDINARY_API_KEY || !process.env.CLOUDINARY_API_SECRET) {
+    throw new Error('Cloudinary environment variables (CLOUDINARY_CLOUD_NAME, CLOUDINARY_API_KEY, CLOUDINARY_API_SECRET) are not configured.');
+  }
+
   // Ensure imageString is formatted properly as a data URI if it's pure base64
   let dataUri = imageString;
   if (!imageString.startsWith('data:') && !imageString.startsWith('http://') && !imageString.startsWith('https://')) {

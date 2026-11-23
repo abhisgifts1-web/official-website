@@ -1,9 +1,10 @@
 import { MetadataRoute } from 'next';
+import { getAllProducts, getAllCategories } from '@/lib/store';
 import { INITIAL_PRODUCTS } from '@/lib/data/mockProducts';
 import { INITIAL_CATEGORIES } from '@/lib/data/categories';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://abhigifts.com';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://official-website-drab.vercel.app';
 
   const staticRoutes: MetadataRoute.Sitemap = [
     { url: `${baseUrl}`, lastModified: new Date(), changeFrequency: 'daily', priority: 1.0 },
@@ -11,9 +12,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/customise`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
     { url: `${baseUrl}/collections`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
     { url: `${baseUrl}/collections/devotional-wall-art`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
+    { url: `${baseUrl}/track-order`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.7 },
     { url: `${baseUrl}/about`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.6 },
     { url: `${baseUrl}/contact`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.6 },
     { url: `${baseUrl}/faq`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.6 },
+    { url: `${baseUrl}/shipping-policy`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.5 },
+    { url: `${baseUrl}/return-refund-policy`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.5 },
     { url: `${baseUrl}/privacy-policy`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.4 },
     { url: `${baseUrl}/terms-and-conditions`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.4 },
   ];
@@ -87,16 +91,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  const categoryRoutes: MetadataRoute.Sitemap = INITIAL_CATEGORIES.map((cat) => ({
+  // Categories
+  const categories = getAllCategories() || INITIAL_CATEGORIES;
+  const categoryRoutes: MetadataRoute.Sitemap = categories.map((cat) => ({
     url: `${baseUrl}/category/${cat.slug}`,
     lastModified: new Date(),
     changeFrequency: 'weekly',
     priority: 0.85,
   }));
 
-  const productRoutes: MetadataRoute.Sitemap = INITIAL_PRODUCTS.map((prod) => ({
+  // Dynamic Products
+  const allProducts = getAllProducts();
+  const products = allProducts && allProducts.length > 0 ? allProducts : INITIAL_PRODUCTS;
+  const productRoutes: MetadataRoute.Sitemap = products.map((prod) => ({
     url: `${baseUrl}/product/${prod.slug}`,
-    lastModified: new Date(),
+    lastModified: new Date(prod.updatedAt || prod.createdAt || Date.now()),
     changeFrequency: 'daily',
     priority: 0.9,
   }));

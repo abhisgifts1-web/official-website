@@ -1,13 +1,15 @@
 import { Product } from '@/types';
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://official-website-drab.vercel.app';
+
 export const BUSINESS_INFO = {
   name: "Abhi's Gifts",
   legalName: "Abhi's Gifts",
-  url: 'https://abhigifts.com',
-  logo: 'https://abhigifts.com/favicon.ico',
-  image: 'https://abhigifts.com/images/mockups/tirupati-balaji-divine-led-backlit-acrylic-wall-art/primary-square.jpg',
-  telephone: '+91-9032372782',
-  whatsapp: '+919032372782',
+  url: SITE_URL,
+  logo: `${SITE_URL}/favicon.ico`,
+  image: `${SITE_URL}/images/mockups/tirupati-balaji-divine-led-backlit-acrylic-wall-art/primary-square.jpg`,
+  telephone: '+91-8688174900',
+  whatsapp: '+918688174900',
   email: 'support@abhigifts.com',
   priceRange: '₹₹',
   hasMap: 'https://maps.app.goo.gl/fmGv35KsGabFna9E6?g_st=ac',
@@ -31,7 +33,7 @@ export const BUSINESS_INFO = {
       '@type': 'OpeningHoursSpecification',
       dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
       opens: '10:00',
-      closes: '20:00',
+      closes: '20:30',
     },
   ],
   areaServed: [
@@ -75,7 +77,7 @@ export function getLocalBusinessSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': ['Store', 'HomeGoodsStore', 'LocalBusiness'],
-    '@id': 'https://abhigifts.com/#localbusiness',
+    '@id': `${SITE_URL}/#localbusiness`,
     name: BUSINESS_INFO.name,
     legalName: BUSINESS_INFO.legalName,
     alternateName: ["Abhi's Gifts", 'Abhi Gifts Hyderabad', 'Photo Frame Shop Dilsukhnagar'],
@@ -103,14 +105,14 @@ export function getBreadcrumbSchema(items: { name: string; url: string }[]) {
       '@type': 'ListItem',
       position: index + 1,
       name: item.name,
-      item: item.url.startsWith('http') ? item.url : `https://abhigifts.com${item.url}`,
+      item: item.url.startsWith('http') ? item.url : `${SITE_URL}${item.url}`,
     })),
   };
 }
 
 export function getProductSchema(product: Product) {
   const images = product.images && product.images.length > 0
-    ? product.images.map((img) => (img.startsWith('http') ? img : `https://abhigifts.com${img}`))
+    ? product.images.map((img) => (img.startsWith('http') ? img : `${SITE_URL}${img}`))
     : [];
 
   const isInStock = product.variants && product.variants.length > 0
@@ -120,7 +122,7 @@ export function getProductSchema(product: Product) {
   const schema: Record<string, unknown> = {
     '@context': 'https://schema.org',
     '@type': 'Product',
-    '@id': `https://abhigifts.com/product/${product.slug}#product`,
+    '@id': `${SITE_URL}/product/${product.slug}#product`,
     name: product.title,
     description: product.shortDescription || product.subtitle || product.title,
     image: images,
@@ -132,7 +134,7 @@ export function getProductSchema(product: Product) {
     },
     offers: {
       '@type': 'Offer',
-      url: `https://abhigifts.com/product/${product.slug}`,
+      url: `${SITE_URL}/product/${product.slug}`,
       priceCurrency: 'INR',
       price: product.basePrice,
       priceValidUntil: '2028-12-31',

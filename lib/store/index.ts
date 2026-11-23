@@ -305,10 +305,12 @@ async function initDbSync() {
     // 1. Sync products with MongoDB Atlas (load live database products or seed initial)
     const dbProducts = await ProductModel.find({}).sort({ createdAt: -1 }).lean();
     if (dbProducts && dbProducts.length > 0) {
-      const formattedProducts: Product[] = dbProducts.map((doc: any) => {
-        const { _id, __v, ...p } = doc;
-        return { ...p, id: p.id || String(_id) };
-      });
+      const formattedProducts: Product[] = dbProducts
+        .map((doc: any) => {
+          const { _id, __v, ...p } = doc;
+          return { ...p, id: p.id || String(_id) };
+        })
+        .filter((p) => p.slug !== 'bikkkkee' && p.title !== 'bikekek');
       store.products = formattedProducts;
       savePersistedProducts(formattedProducts);
     } else if (store.products.length > 0) {
@@ -587,10 +589,12 @@ export async function fetchLiveProducts(): Promise<Product[]> {
     if (conn) {
       const dbDocs = await ProductModel.find({}).sort({ createdAt: -1 }).lean();
       if (dbDocs && dbDocs.length > 0) {
-        const formatted: Product[] = dbDocs.map((doc: any) => {
-          const { _id, __v, ...p } = doc;
-          return { ...p, id: p.id || String(_id) } as Product;
-        });
+        const formatted: Product[] = dbDocs
+          .map((doc: any) => {
+            const { _id, __v, ...p } = doc;
+            return { ...p, id: p.id || String(_id) } as Product;
+          })
+          .filter((p) => p.slug !== 'bikkkkee' && p.title !== 'bikekek');
         store.products = formatted;
         savePersistedProducts(formatted);
         return formatted;

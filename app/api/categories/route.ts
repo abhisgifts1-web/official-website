@@ -18,16 +18,18 @@ export async function GET() {
     try {
       const conn = await connectToDatabase();
       if (conn) {
-        // Enforce removal of all non-official categories from MongoDB
+        // Lazy seed official categories only if database collection is empty
         try {
-          await CategoryModel.deleteMany({ slug: { $nin: officialSlugs } });
-          for (const cat of INITIAL_CATEGORIES) {
-            const { id, ...data } = cat;
-            await CategoryModel.findOneAndUpdate(
-              { slug: cat.slug },
-              { ...data, id: id || cat.id },
-              { upsert: true }
-            );
+          const count = await CategoryModel.countDocuments();
+          if (count === 0) {
+            for (const cat of INITIAL_CATEGORIES) {
+              const { id, ...data } = cat;
+              await CategoryModel.findOneAndUpdate(
+                { slug: cat.slug },
+                { ...data, id: id || cat.id },
+                { upsert: true }
+              );
+            }
           }
         } catch (syncErr) {
           console.warn('MongoDB category sync warning:', syncErr);

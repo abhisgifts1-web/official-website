@@ -33,7 +33,10 @@ export interface CustomerAggregated {
 export async function GET(req: NextRequest) {
   try {
     const admin = await getAuthenticatedAdmin();
-    // Allow admin access
+    if (!admin) {
+      return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
+    }
+
     const { searchParams } = new URL(req.url);
     const search = searchParams.get('search')?.toLowerCase() || '';
     const tier = searchParams.get('tier') || '';
