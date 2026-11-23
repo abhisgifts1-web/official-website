@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getAllOrders, createOrder, validateCoupon, recordCouponUsage, getAllProducts } from '@/lib/store';
+import { getAllOrders, createOrder, validateCoupon, recordCouponUsage, getAllProducts, deleteOrder, resetCustomerActivity, loadDeletedOrderIds, recordDeletedOrderId } from '@/lib/store';
 import { getAuthenticatedAdmin } from '@/lib/auth';
 import { connectToDatabase } from '@/lib/db/mongodb';
 import { OrderModel } from '@/lib/db/models/Order';
@@ -14,11 +14,13 @@ export async function GET(req: NextRequest) {
     const status = searchParams.get('status') || undefined;
     const search = searchParams.get('search') || undefined;
 
-    // 1. Fetch live orders from MongoDB Atlas
+    // 1. Fetch live orders from MongoDB Atlas or fallback store
     let allOrders: Order[] = [];
+    let dbConnected = false;
     try {
       const conn = await connectToDatabase();
       if (conn) {
+        dbConnected = true;
         const dbOrders = await OrderModel.find({}).sort({ createdAt: -1 }).lean();
         if (dbOrders && dbOrders.length > 0) {
           allOrders = dbOrders.map((doc: any) => {
@@ -31,9 +33,13 @@ export async function GET(req: NextRequest) {
       console.warn('MongoDB orders fetch notice, falling back to cache:', dbErr);
     }
 
-    if (!allOrders || allOrders.length === 0) {
+    if (!dbConnected) {
       allOrders = getAllOrders();
     }
+
+    // Always filter out any permanently deleted orders
+    const deletedOrderIdsSet = new Set(loadDeletedOrderIds());
+    allOrders = allOrders.filter((o) => !deletedOrderIdsSet.has(o.id));
 
     // Admin can view all orders
     if (admin) {
@@ -236,6 +242,59 @@ export async function POST(req: NextRequest) {
     }
 
     return NextResponse.json({ success: true, order: createdOrder }, { status: 201 });
+  } catch (err: any) {
+    return NextResponse.json({ success: false, error: err.message }, { status: 500 });
+  }
+}
+
+
+export async function DELETE(req: NextRequest) {
+  try {
+    const admin = await getAuthenticatedAdmin();
+    if (!admin) {
+      return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
+    }
+
+    const { searchParams } = new URL(req.url);
+    const orderId = searchParams.get('id') || searchParams.get('orderId');
+    const action = searchParams.get('action');
+
+    if (action === 'reset') {
+      try {
+        const conn = await connectToDatabase();
+        if (conn) {
+          const allDocs = await OrderModel.find({}).select('orderId id').lean();
+          allDocs.forEach((d: any) => recordDeletedOrderId(d.orderId || d.id || String(d._id)));
+          await OrderModel.deleteMany({});
+          if (conn.connection?.db) {
+            await conn.connection.db.collection('orders').deleteMany({});
+          }
+        }
+      } catch (e) {
+        console.warn('Reset orders notice:', e);
+      }
+      resetCustomerActivity();
+      return NextResponse.json({ success: true, message: 'All orders permanently reset' });
+    }
+
+    if (!orderId) {
+      return NextResponse.json({ success: false, error: 'Order ID is required' }, { status: 400 });
+    }
+
+    try {
+      const conn = await connectToDatabase();
+      if (conn) {
+        await OrderModel.deleteMany({ $or: [{ orderId }, { id: orderId }] });
+        if (conn.connection?.db) {
+          await conn.connection.db.collection('orders').deleteMany({ $or: [{ orderId }, { id: orderId }] });
+        }
+      }
+    } catch (e) {
+      console.warn('Delete order notice:', e);
+    }
+
+    deleteOrder(orderId);
+    return NextResponse.json({ success: true, message: `Order #${orderId} permanently deleted.` });
   } catch (err: any) {
     return NextResponse.json({ success: false, error: err.message }, { status: 500 });
   }

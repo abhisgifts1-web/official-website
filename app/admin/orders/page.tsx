@@ -14,6 +14,8 @@ import {
   CheckCircle2,
   Clock,
   Sparkles,
+  Trash2,
+  AlertTriangle,
 } from 'lucide-react';
 import AdminLayout from '@/components/admin/AdminLayout';
 import { Order, OrderStatus } from '@/types';
@@ -30,6 +32,34 @@ export default function AdminOrdersPage() {
   const [courierPartner, setCourierPartner] = useState('');
   const [trackingNumber, setTrackingNumber] = useState('');
   const [savingStatus, setSavingStatus] = useState(false);
+
+  // Order deletion states
+  const [orderToDelete, setOrderToDelete] = useState<Order | null>(null);
+  const [deletingOrder, setDeletingOrder] = useState(false);
+
+  const handleConfirmDeleteOrder = async () => {
+    if (!orderToDelete) return;
+    setDeletingOrder(true);
+    try {
+      const res = await fetch(`/api/orders/${orderToDelete.id}`, {
+        method: 'DELETE',
+      });
+      const data = await res.json();
+      if (res.ok && data.success) {
+        setOrders((prev) => prev.filter((o) => o.id !== orderToDelete.id));
+        if (selectedOrder?.id === orderToDelete.id) {
+          setSelectedOrder(null);
+        }
+        setOrderToDelete(null);
+      } else {
+        alert(data.error || 'Failed to delete order');
+      }
+    } catch (err: any) {
+      alert('Error deleting order: ' + (err.message || 'Network error'));
+    } finally {
+      setDeletingOrder(false);
+    }
+  };
 
   const fetchOrders = async () => {
     try {
@@ -280,6 +310,15 @@ export default function AdminOrdersPage() {
                               className="bg-[#FEE815] hover:bg-[#FFF04B] text-black px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer"
                             >
                               Manage
+                            </button>
+                            <button
+                              type="button"
+                              onClick={() => setOrderToDelete(order)}
+                              className="p-1.5 bg-rose-950/40 hover:bg-rose-900/70 border border-rose-500/30 text-rose-400 hover:text-rose-200 rounded-lg transition-colors cursor-pointer"
+                              title={`Delete Order #${order.id} Permanently`}
+                              aria-label={`Delete Order #${order.id}`}
+                            >
+                              <Trash2 className="w-3.5 h-3.5" />
                             </button>
                           </div>
                         </td>
@@ -616,6 +655,100 @@ export default function AdminOrdersPage() {
                     );
                   })}
                 </div>
+
+                {/* Modal Footer with Permanent Deletion Action */}
+                <div className="flex items-center justify-between pt-4 border-t border-[#2D2D2D]">
+                  <button
+                    type="button"
+                    onClick={() => setOrderToDelete(selectedOrder)}
+                    className="inline-flex items-center gap-1.5 px-3.5 py-2 bg-rose-950/50 hover:bg-rose-900/80 border border-rose-500/40 text-rose-300 text-xs font-bold rounded-xl transition-colors cursor-pointer"
+                  >
+                    <Trash2 className="w-3.5 h-3.5 text-rose-400" />
+                    <span>Delete Order Permanently</span>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setSelectedOrder(null)}
+                    className="px-4 py-2 bg-stone-800 hover:bg-stone-700 text-stone-300 text-xs font-bold rounded-xl transition-colors cursor-pointer"
+                  >
+                    Close
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Delete Confirmation Modal */}
+      {orderToDelete && (
+        <div className="fixed inset-0 z-50 overflow-y-auto">
+          <div className="fixed inset-0 bg-black/80 backdrop-blur-sm" onClick={() => !deletingOrder && setOrderToDelete(null)} />
+          <div className="flex min-h-full items-center justify-center p-4">
+            <div className="relative w-full max-w-md bg-[#141414] border border-[#2D2D2D] rounded-3xl p-6 sm:p-7 text-white shadow-2xl z-10 space-y-5">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-2xl bg-rose-950/70 border border-rose-500/40 flex items-center justify-center shrink-0">
+                  <Trash2 className="w-5 h-5 text-rose-400" />
+                </div>
+                <div>
+                  <h3 className="font-serif font-bold text-base text-white">Permanently Delete Order?</h3>
+                  <p className="text-xs text-stone-400 font-mono">Order #{orderToDelete.id}</p>
+                </div>
+              </div>
+
+              <div className="bg-[#1A1A1A] p-3.5 rounded-2xl border border-[#2D2D2D] space-y-1.5 text-xs text-stone-300">
+                <div className="flex justify-between">
+                  <span className="text-stone-500">Customer:</span>
+                  <span className="font-semibold text-white">{orderToDelete.customer?.fullName || 'Guest'}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-stone-500">Phone:</span>
+                  <span className="font-mono text-stone-200">{orderToDelete.customer?.mobile}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-stone-500">Amount:</span>
+                  <span className="font-bold text-[#FFF04B]">₹{Number(orderToDelete.totalAmount).toLocaleString('en-IN')}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-stone-500">Status:</span>
+                  <span className="font-semibold text-stone-200">{orderToDelete.orderStatus}</span>
+                </div>
+              </div>
+
+              <div className="bg-rose-950/30 border border-rose-500/30 rounded-xl p-3 flex items-start gap-2">
+                <AlertTriangle className="w-4 h-4 text-rose-400 shrink-0 mt-0.5" />
+                <p className="text-[11px] text-rose-300 leading-relaxed">
+                  This will permanently delete this order and customer record from MongoDB Atlas and server storage. This action cannot be undone.
+                </p>
+              </div>
+
+              <div className="flex items-center justify-end gap-3 pt-2">
+                <button
+                  type="button"
+                  disabled={deletingOrder}
+                  onClick={() => setOrderToDelete(null)}
+                  className="px-4 py-2 text-xs font-semibold text-stone-300 hover:text-white bg-stone-800 hover:bg-stone-700 rounded-xl transition cursor-pointer disabled:opacity-50"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="button"
+                  disabled={deletingOrder}
+                  onClick={handleConfirmDeleteOrder}
+                  className="px-5 py-2 text-xs font-bold text-white bg-rose-600 hover:bg-rose-700 rounded-xl transition shadow-sm flex items-center gap-1.5 cursor-pointer disabled:opacity-50"
+                >
+                  {deletingOrder ? (
+                    <>
+                      <div className="w-3.5 h-3.5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                      <span>Deleting...</span>
+                    </>
+                  ) : (
+                    <>
+                      <Trash2 className="w-3.5 h-3.5" />
+                      <span>Yes, Delete Permanently</span>
+                    </>
+                  )}
+                </button>
               </div>
             </div>
           </div>

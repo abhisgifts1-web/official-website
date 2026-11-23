@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getOrderById, updateOrderStatus } from '@/lib/store';
+import { getOrderById, updateOrderStatus, deleteOrder } from '@/lib/store';
 import { getAuthenticatedAdmin } from '@/lib/auth';
 import { connectToDatabase } from '@/lib/db/mongodb';
 import { OrderModel } from '@/lib/db/models/Order';
@@ -90,6 +90,50 @@ export async function PUT(
     }
 
     return NextResponse.json({ success: true, order: finalOrder });
+  } catch (err: any) {
+    return NextResponse.json({ success: false, error: err.message }, { status: 500 });
+  }
+}
+
+export async function DELETE(
+  req: NextRequest,
+  { params }: { params: { id: string } }
+) {
+  try {
+    const admin = await getAuthenticatedAdmin();
+    if (!admin) {
+      return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
+    }
+
+    const orderId = params.id;
+    if (!orderId) {
+      return NextResponse.json({ success: false, error: 'Order ID is required' }, { status: 400 });
+    }
+
+    // 1. Permanently delete from MongoDB Atlas
+    try {
+      const conn = await connectToDatabase();
+      if (conn) {
+        await OrderModel.deleteMany({
+          $or: [{ orderId }, { id: orderId }]
+        });
+        if (conn.connection?.db) {
+          await conn.connection.db.collection('orders').deleteMany({
+            $or: [{ orderId }, { id: orderId }]
+          });
+        }
+      }
+    } catch (dbErr) {
+      console.warn('MongoDB order delete notice:', dbErr);
+    }
+
+    // 2. Permanently delete from store and record in deleted blacklist
+    deleteOrder(orderId);
+
+    return NextResponse.json({
+      success: true,
+      message: `Order #${orderId} permanently deleted.`,
+    });
   } catch (err: any) {
     return NextResponse.json({ success: false, error: err.message }, { status: 500 });
   }

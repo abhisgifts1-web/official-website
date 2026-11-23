@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { getAuthenticatedAdmin } from '@/lib/auth';
 import { connectToDatabase } from '@/lib/db/mongodb';
 import { OrderModel } from '@/lib/db/models/Order';
-import { getAllOrders, resetCustomerActivity, deleteCustomerData } from '@/lib/store';
+import { getAllOrders, resetCustomerActivity, deleteCustomerData, loadDeletedOrderIds, recordDeletedOrderId } from '@/lib/store';
 import { CouponModel } from '@/lib/db/models/Coupon';
 import { Order } from '@/types';
 
@@ -41,11 +41,13 @@ export async function GET(req: NextRequest) {
     const search = searchParams.get('search')?.toLowerCase() || '';
     const tier = searchParams.get('tier') || '';
 
-    // 1. Gather all orders from MongoDB Atlas and fallback store
+    // 1. Gather all orders from MongoDB Atlas or fallback store
     let allOrders: Order[] = [];
+    let dbConnected = false;
     try {
       const conn = await connectToDatabase();
       if (conn) {
+        dbConnected = true;
         const dbOrders = await OrderModel.find({}).sort({ createdAt: -1 }).lean();
         if (dbOrders && dbOrders.length > 0) {
           allOrders = dbOrders.map((doc: any) => {
@@ -58,14 +60,14 @@ export async function GET(req: NextRequest) {
       console.warn('MongoDB orders fetch notice in customers API:', dbErr);
     }
 
-    // Merge with in-memory store orders (avoid duplicates)
-    const storeOrders = getAllOrders();
-    const orderIdSet = new Set(allOrders.map((o) => o.id));
-    storeOrders.forEach((so) => {
-      if (!orderIdSet.has(so.id)) {
-        allOrders.push(so);
-      }
-    });
+    // Only fallback to local in-memory store if database is offline
+    if (!dbConnected) {
+      allOrders = getAllOrders();
+    }
+
+    // Filter out any permanently deleted order IDs
+    const deletedOrderIdsSet = new Set(loadDeletedOrderIds());
+    allOrders = allOrders.filter((o) => !deletedOrderIdsSet.has(o.id));
 
     // 2. Aggregate customers by normalized phone number (fallback to email)
     const customerMap = new Map<string, CustomerAggregated>();
@@ -206,13 +208,25 @@ export async function DELETE(req: NextRequest) {
           const orConditions: any[] = [];
           if (cleanMobile) {
             const tenDigits = cleanMobile.slice(-10);
-            orConditions.push({ 'customer.mobile': new RegExp(tenDigits, 'i') });
+            orConditions.push(
+              { 'customer.mobile': new RegExp(tenDigits, 'i') },
+              { 'customer.mobile': cleanMobile },
+              { 'customer.mobile': mobile }
+            );
           }
           if (cleanEmail) {
-            orConditions.push({ 'customer.email': cleanEmail });
+            orConditions.push({ 'customer.email': new RegExp(`^${cleanEmail}$`, 'i') });
           }
           if (orConditions.length > 0) {
+            const matchingDocs = await OrderModel.find({ $or: orConditions }).select('orderId id').lean();
+            matchingDocs.forEach((d: any) => {
+              recordDeletedOrderId(d.orderId || d.id || String(d._id));
+            });
+
             await OrderModel.deleteMany({ $or: orConditions });
+            if (conn.connection?.db) {
+              await conn.connection.db.collection('orders').deleteMany({ $or: orConditions });
+            }
           }
         }
       } catch (dbErr) {
@@ -223,7 +237,7 @@ export async function DELETE(req: NextRequest) {
 
       return NextResponse.json({
         success: true,
-        message: `Customer data deleted successfully (${deletedCount} orders removed).`,
+        message: `Customer and associated orders permanently deleted (${deletedCount} orders removed).`,
       });
     }
 
@@ -231,10 +245,16 @@ export async function DELETE(req: NextRequest) {
     try {
       const conn = await connectToDatabase();
       if (conn) {
+        const allDbOrders = await OrderModel.find({}).select('orderId id').lean();
+        allDbOrders.forEach((d: any) => {
+          recordDeletedOrderId(d.orderId || d.id || String(d._id));
+        });
+
         await OrderModel.deleteMany({});
         await CouponModel.updateMany({}, { $set: { usageCount: 0, totalDiscountGiven: 0, usedBy: [] } });
         if (conn.connection?.db) {
           try {
+            await conn.connection.db.collection('orders').deleteMany({});
             await conn.connection.db.collection('customphotos').deleteMany({});
           } catch (e) {}
         }

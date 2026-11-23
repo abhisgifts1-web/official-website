@@ -40,13 +40,15 @@
         "_id": "6b0346c34e4bbb1c3757a6e1"
       }
     ],
-    "orderStatus": "Pending",
+    "orderStatus": "Out for Delivery",
     "paymentMethod": "Razorpay",
     "paymentStatus": "Pending",
     "shippingFee": 0,
     "subtotal": 2499,
     "totalAmount": 2499,
-    "updatedAt": "2026-11-22T19:47:15.495Z",
+    "updatedAt": "2026-11-23T05:59:09.231Z",
+    "courierPartner": "Direct Workshop Dispatch",
+    "trackingNumber": "#AG-2026-60247",
     "id": "AG-2026-60247"
   },
   {

@@ -58,6 +58,42 @@ function saveDeletedCouponCodes(codes: string[]) {
   }
 }
 
+const PERSISTENCE_DELETED_ORDERS_FILE = path.join(process.cwd(), 'lib', 'data', 'deletedOrders.json');
+
+export function loadDeletedOrderIds(): string[] {
+  try {
+    if (fs.existsSync(PERSISTENCE_DELETED_ORDERS_FILE)) {
+      const raw = fs.readFileSync(PERSISTENCE_DELETED_ORDERS_FILE, 'utf8');
+      const parsed = JSON.parse(raw);
+      if (Array.isArray(parsed)) {
+        return parsed.map((id: string) => String(id).trim());
+      }
+    }
+  } catch (err) {
+    console.warn('Error reading deletedOrders.json:', err);
+  }
+  return [];
+}
+
+export function saveDeletedOrderIds(ids: string[]) {
+  try {
+    const dir = path.dirname(PERSISTENCE_DELETED_ORDERS_FILE);
+    if (!fs.existsSync(dir)) {
+      fs.mkdirSync(dir, { recursive: true });
+    }
+    fs.writeFileSync(PERSISTENCE_DELETED_ORDERS_FILE, JSON.stringify(ids, null, 2), 'utf8');
+  } catch (err) {
+    console.warn('Error saving deletedOrders.json:', err);
+  }
+}
+
+export function recordDeletedOrderId(orderId: string) {
+  if (!orderId) return;
+  const current = new Set(loadDeletedOrderIds());
+  current.add(orderId);
+  saveDeletedOrderIds(Array.from(current));
+}
+
 function loadPersistedProducts(): Product[] {
   try {
     if (fs.existsSync(PERSISTENCE_FILE)) {
@@ -91,7 +127,8 @@ function loadPersistedOrders(): Order[] {
       const raw = fs.readFileSync(PERSISTENCE_ORDERS_FILE, 'utf8');
       const parsed = JSON.parse(raw);
       if (Array.isArray(parsed)) {
-        return parsed;
+        const deletedIds = new Set(loadDeletedOrderIds());
+        return parsed.filter((o: any) => !deletedIds.has(o.id || o.orderId));
       }
     }
   } catch (err) {
@@ -858,6 +895,31 @@ export function updateOrderPayment(
   return order;
 }
 
+export function deleteOrder(orderId: string): boolean {
+  if (!orderId) return false;
+  recordDeletedOrderId(orderId);
+
+  const prevLen = store.orders.length;
+  store.orders = store.orders.filter((o) => o.id !== orderId && (o as any).orderId !== orderId);
+  savePersistedOrders(store.orders);
+
+  // Permanently delete from MongoDB Atlas if connected
+  connectToDatabase()
+    .then(async (conn) => {
+      if (conn) {
+        await OrderModel.deleteMany({ $or: [{ id: orderId }, { orderId: orderId }] });
+        if (conn.connection?.db) {
+          await conn.connection.db.collection('orders').deleteMany({
+            $or: [{ id: orderId }, { orderId: orderId }]
+          });
+        }
+      }
+    })
+    .catch((e) => console.warn('MongoDB order delete error:', e));
+
+  return store.orders.length < prevLen;
+}
+
 // COUPON METHODS
 export function getAllCoupons(): Coupon[] {
   return [...store.coupons];
@@ -1129,6 +1191,8 @@ export function deleteCustomerData(mobile: string, email?: string): number {
   const cleanEmail = (email || '').trim().toLowerCase();
 
   const prevOrderCount = store.orders.length;
+  const deletedOrders: Order[] = [];
+
   store.orders = store.orders.filter((o) => {
     const oMobile = (o.customer?.mobile || '').replace(/[^0-9]/g, '');
     const oEmail = (o.customer?.email || '').trim().toLowerCase();
@@ -1139,8 +1203,15 @@ export function deleteCustomerData(mobile: string, email?: string): number {
       ))
     );
     const matchEmail = cleanEmail && oEmail === cleanEmail;
-    return !(matchMobile || matchEmail);
+    const shouldDelete = matchMobile || matchEmail;
+    if (shouldDelete) {
+      deletedOrders.push(o);
+    }
+    return !shouldDelete;
   });
+
+  // Permanently blacklist deleted order IDs so they never revive
+  deletedOrders.forEach((o) => recordDeletedOrderId(o.id));
   savePersistedOrders(store.orders);
 
   // Filter enquiries
@@ -1162,6 +1233,7 @@ export function deleteCustomerData(mobile: string, email?: string): number {
 }
 
 export function resetCustomerActivity() {
+  store.orders.forEach((o) => recordDeletedOrderId(o.id));
   store.orders = [];
   savePersistedOrders([]);
   store.enquiries = [];
