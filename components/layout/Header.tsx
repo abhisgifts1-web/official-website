@@ -203,7 +203,7 @@ export default function Header() {
   return (
     <>
       <header
-        className={`sticky top-0 z-50 w-full transition-all duration-300 border-b select-none ${
+        className={`sticky top-0 z-50 w-full transition-all duration-300 border-b select-none print:hidden ${
           scrolled
             ? 'bg-[#121212]/95 backdrop-blur-md shadow-xs border-[#FEE815]/40 py-2'
             : 'bg-[#121212] border-[#FEE815]/30 py-2 sm:py-2.5'

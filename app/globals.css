@@ -1034,3 +1034,58 @@ h1, h2, h3, h4, h5, h6, .font-serif {
 .btn-press-bounce:active {
   transform: scale(0.94);
 }
+
+
+/* ==========================================================================
+   24. PROFESSIONAL PRINT STYLESHEET (TAX INVOICE & RECEIPTS)
+   ========================================================================== */
+
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 8mm 10mm;
+  }
+
+  *,
+  *::before,
+  *::after {
+    text-shadow: none !important;
+    box-shadow: none !important;
+  }
+
+  html,
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    font-size: 11pt !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  /* Completely hide all website chrome, footers and navigation */
+  header,
+  footer,
+  nav,
+  aside,
+  .fixed,
+  .print\:hidden,
+  [data-print-hide="true"] {
+    display: none !important;
+  }
+
+  /* Ensure invoice container displays cleanly */
+  #invoice-printable,
+  .print\:block {
+    display: block !important;
+    visibility: visible !important;
+  }
+
+  /* Prevent awkward page breaks */
+  tr,
+  .no-break {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+}

@@ -25,7 +25,7 @@ export default function MobileBottomNav() {
   return (
     <nav
       aria-label="Mobile Bottom Navigation"
-      className="fixed bottom-0 inset-x-0 z-40 lg:hidden bg-[#121212]/95 backdrop-blur-md border-t border-[#FEE815]/30 text-white shadow-[0_-4px_20px_rgba(0,0,0,0.5)] select-none"
+      className="fixed bottom-0 inset-x-0 z-40 lg:hidden bg-[#121212]/95 backdrop-blur-md border-t border-[#FEE815]/30 text-white shadow-[0_-4px_20px_rgba(0,0,0,0.5)] select-none print:hidden"
       style={{
         paddingBottom: 'max(0.35rem, calc(env(safe-area-inset-bottom, 0px) + 0.2rem))',
       }}

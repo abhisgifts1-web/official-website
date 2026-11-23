@@ -50,7 +50,7 @@ export default function Footer() {
   const youtubeUrl = settings.youtubeUrl || INITIAL_SETTINGS.youtubeUrl || 'https://youtube.com/@abhis_gifts?si=Ap98aZU7b21rJA_8';
 
   return (
-    <footer className="bg-black text-stone-300 border-t border-stone-800 relative overflow-hidden select-none">
+    <footer className="bg-black text-stone-300 border-t border-stone-800 relative overflow-hidden select-none print:hidden">
       {/* 1. TOP VALUE PROPOSITION STRIP */}
       <div className="border-b border-stone-800/80 bg-[#0F0F0F] py-4 sm:py-5 px-4 sm:px-6 md:px-8 lg:px-12">
         <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6 lg:gap-8">

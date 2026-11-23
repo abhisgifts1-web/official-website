@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import {
   Search,
+  Printer,
   Download,
   Camera,
   Eye,
@@ -343,13 +344,25 @@ export default function AdminOrdersPage() {
                   <span className="font-mono font-bold text-lg text-white">Order #{selectedOrder.id}</span>
                   <p className="text-xs text-[#A1A1AA]">Placed on {new Date(selectedOrder.createdAt).toLocaleString('en-IN')}</p>
                 </div>
-                <button
-                  type="button"
-                  onClick={() => setSelectedOrder(null)}
-                  className="p-1 text-[#A1A1AA] hover:text-white transition-colors cursor-pointer"
-                >
-                  <X className="w-5 h-5" />
-                </button>
+                <div className="flex items-center gap-2">
+                  <a
+                    href={`/invoice/${selectedOrder.id}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#242424] hover:bg-[#2F2F2F] text-[#FEE815] border border-[#FEE815]/30 text-xs font-bold transition-all shadow-xs cursor-pointer"
+                    title="Print Professional Tax Invoice"
+                  >
+                    <Printer className="w-3.5 h-3.5" />
+                    <span>Print Invoice</span>
+                  </a>
+                  <button
+                    type="button"
+                    onClick={() => setSelectedOrder(null)}
+                    className="p-1 text-[#A1A1AA] hover:text-white transition-colors cursor-pointer"
+                  >
+                    <X className="w-5 h-5" />
+                  </button>
+                </div>
               </div>
 
               {/* Status Update Form */}
