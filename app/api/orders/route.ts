@@ -236,6 +236,7 @@ export async function POST(req: NextRequest) {
       customer: {
         fullName: customer.fullName.trim(),
         mobile: customer.mobile.trim(),
+        secondaryMobile: (customer.secondaryMobile || '').trim() || undefined,
         email: (customer.email || '').trim().toLowerCase(),
         streetAddress: customer.streetAddress.trim(),
         apartment: customer.apartment?.trim(),

@@ -148,6 +148,9 @@ export default function ProfessionalInvoice({ order, showPrintButton = false }: 
             <div className="pt-2 text-[11px] text-stone-600 border-t border-stone-200 mt-2 space-y-0.5">
               <p>
                 <strong className="text-stone-800">Phone / WhatsApp:</strong> {order.customer.mobile}
+                {order.customer.secondaryMobile && (
+                  <span className="text-stone-600"> • <strong className="text-stone-800">Alt:</strong> {order.customer.secondaryMobile}</span>
+                )}
               </p>
               {order.customer.email && (
                 <p>

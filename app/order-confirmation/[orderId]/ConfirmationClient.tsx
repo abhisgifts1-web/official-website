@@ -152,6 +152,9 @@ export default function ConfirmationClient({ order }: Props) {
             </p>
             <p className="text-stone-600 pt-1">
               <strong>Mobile:</strong> {order.customer.mobile}
+              {order.customer.secondaryMobile && (
+                <span className="text-stone-500 font-medium"> • <strong>Alt:</strong> {order.customer.secondaryMobile}</span>
+              )}
             </p>
             {order.customer.email && (
               <p className="text-stone-600">

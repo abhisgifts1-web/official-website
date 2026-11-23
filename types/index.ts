@@ -171,6 +171,7 @@ export interface Coupon {
 export interface ShippingAddress {
   fullName: string;
   mobile: string;
+  secondaryMobile?: string;
   email: string;
   streetAddress: string;
   apartment?: string;

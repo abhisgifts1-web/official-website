@@ -23,6 +23,8 @@ import {
   Lock,
   ArrowRight,
   Check,
+  LocateFixed,
+  Navigation,
 } from 'lucide-react';
 import { useCart } from '@/context/CartContext';
 import { ShippingAddress, FrameStockSettings } from '@/types';
@@ -50,6 +52,7 @@ export default function CheckoutPage() {
   const [formData, setFormData] = useState<ShippingAddress>({
     fullName: '',
     mobile: '',
+    secondaryMobile: '',
     email: '',
     streetAddress: '',
     apartment: '',
@@ -58,6 +61,13 @@ export default function CheckoutPage() {
     state: '',
     pincode: '',
   });
+
+  const [isDetectingLocation, setIsDetectingLocation] = useState(false);
+  const [isLookingUpPin, setIsLookingUpPin] = useState(false);
+  const [locationStatus, setLocationStatus] = useState<{
+    type: 'success' | 'error' | 'info';
+    message: string;
+  } | null>(null);
 
   const [paymentMethod, setPaymentMethod] = useState<PaymentOption>('razorpay');
   const [orderNotes, setOrderNotes] = useState('');
@@ -100,6 +110,7 @@ export default function CheckoutPage() {
   const cartSectionRef = useRef<HTMLDivElement>(null);
   const fullNameRef = useRef<HTMLInputElement>(null);
   const mobileRef = useRef<HTMLInputElement>(null);
+  const secondaryMobileRef = useRef<HTMLInputElement>(null);
   const streetAddressRef = useRef<HTMLInputElement>(null);
   const pincodeRef = useRef<HTMLInputElement>(null);
   const cityRef = useRef<HTMLInputElement>(null);
@@ -187,6 +198,133 @@ export default function CheckoutPage() {
     );
   }
 
+
+  // Reverse geocode device GPS location to auto-populate address
+  const handleFetchCurrentLocation = () => {
+    if (typeof window === 'undefined' || !navigator.geolocation) {
+      setLocationStatus({
+        type: 'error',
+        message: 'GPS location is not supported by your browser.',
+      });
+      return;
+    }
+
+    setIsDetectingLocation(true);
+    setLocationStatus({
+      type: 'info',
+      message: 'Accessing device GPS coordinates...',
+    });
+
+    navigator.geolocation.getCurrentPosition(
+      async (pos) => {
+        try {
+          const { latitude, longitude } = pos.coords;
+          const res = await fetch(`/api/geocode?lat=${latitude}&lng=${longitude}`);
+          const json = await res.json();
+
+          if (json.success && json.data) {
+            const { pincode, city, state, streetAddress, landmark } = json.data;
+            setFormData((prev) => ({
+              ...prev,
+              pincode: pincode || prev.pincode,
+              city: city || prev.city,
+              state: state || prev.state,
+              streetAddress: prev.streetAddress?.trim() ? prev.streetAddress : (streetAddress || prev.streetAddress),
+              landmark: prev.landmark?.trim() ? prev.landmark : (landmark || prev.landmark || ''),
+            }));
+
+            // Clear any field errors for fields that got populated
+            setFieldErrors((prev) => {
+              const next = { ...prev };
+              if (pincode) delete next.pincode;
+              if (city) delete next.city;
+              if (state) delete next.state;
+              return next;
+            });
+
+            if (addressError) setAddressError(null);
+
+            const displayLoc = [city, state].filter(Boolean).join(', ');
+            setLocationStatus({
+              type: 'success',
+              message: `✓ Current location detected: ${displayLoc || 'Area'} ${pincode ? `(${pincode})` : ''}`,
+            });
+          } else {
+            setLocationStatus({
+              type: 'error',
+              message: 'Could not resolve exact postal address from GPS. Please enter details manually.',
+            });
+          }
+        } catch (err: any) {
+          console.warn('Geocoding error:', err);
+          setLocationStatus({
+            type: 'error',
+            message: 'Unable to connect to location service. Please enter details manually.',
+          });
+        } finally {
+          setIsDetectingLocation(false);
+        }
+      },
+      (err) => {
+        setIsDetectingLocation(false);
+        let msg = 'Could not retrieve your location. Please enter address manually.';
+        if (err.code === err.PERMISSION_DENIED) {
+          msg = 'Location permission was denied. Please allow location access or type your address manually.';
+        } else if (err.code === err.TIMEOUT) {
+          msg = 'Location request timed out. Please enter address manually.';
+        }
+        setLocationStatus({
+          type: 'error',
+          message: msg,
+        });
+      },
+      {
+        enableHighAccuracy: true,
+        timeout: 10000,
+        maximumAge: 30000,
+      }
+    );
+  };
+
+  // Auto-fill City & State when 6-digit Pincode is entered
+  const handlePincodeChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const val = e.target.value.replace(/\D/g, '').slice(0, 6);
+    setFormData((prev) => ({ ...prev, pincode: val }));
+
+    if (fieldErrors.pincode) {
+      setFieldErrors((prev) => {
+        const next = { ...prev };
+        delete next.pincode;
+        return next;
+      });
+    }
+
+    if (val.length === 6) {
+      setIsLookingUpPin(true);
+      try {
+        const res = await fetch(`/api/geocode?pincode=${val}`);
+        const json = await res.json();
+        if (json.success && json.data) {
+          setFormData((prev) => ({
+            ...prev,
+            city: prev.city.trim() ? prev.city : (json.data.city || prev.city),
+            state: prev.state.trim() ? prev.state : (json.data.state || prev.state),
+          }));
+          setFieldErrors((prev) => {
+            const next = { ...prev };
+            if (json.data.city) delete next.city;
+            if (json.data.state) delete next.state;
+            return next;
+          });
+        }
+      } catch {
+        // ignore
+      } finally {
+        setIsLookingUpPin(false);
+      }
+    }
+  };
+
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
@@ -236,6 +374,14 @@ export default function CheckoutPage() {
       errors.mobile = 'Mobile number is required.';
     } else if (cleanMobile.length !== 10) {
       errors.mobile = 'Please enter a valid 10-digit mobile number for order updates.';
+    }
+
+    // Optional second mobile number validation
+    if (formData.secondaryMobile && formData.secondaryMobile.trim()) {
+      const cleanSecMobile = formData.secondaryMobile.replace(/\D/g, '');
+      if (cleanSecMobile.length !== 10) {
+        errors.secondaryMobile = 'Please enter a valid 10-digit alternate mobile number or leave blank.';
+      }
     }
 
     if (!formData.streetAddress.trim()) {
@@ -549,12 +695,65 @@ export default function CheckoutPage() {
         <div className="lg:col-span-7 space-y-6">
           {/* 1. Shipping Address Card */}
           <div ref={addressSectionRef} className="bg-white p-6 sm:p-7 rounded-3xl border border-stone-200 shadow-sm space-y-4">
-            <div className="flex items-center justify-between">
+            <div className="flex items-center justify-between flex-wrap gap-2.5">
               <h3 className="font-serif font-bold text-lg text-stone-900 flex items-center gap-2">
                 <Truck className="w-5 h-5 text-amber-600" />
                 <span>1. Delivery Address</span>
               </h3>
+
+              {/* GPS Current Location Detection CTA */}
+              <button
+                type="button"
+                onClick={handleFetchCurrentLocation}
+                disabled={isDetectingLocation}
+                className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-amber-50 hover:bg-amber-100 active:bg-amber-200/80 border border-amber-300 text-stone-950 text-xs font-bold transition-all shadow-2xs hover:shadow-xs hover:-translate-y-0.5 cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed group select-none"
+                title="Detect device GPS coordinates to auto-populate City, State, Pincode & Locality"
+              >
+                {isDetectingLocation ? (
+                  <>
+                    <div className="w-3.5 h-3.5 border-2 border-stone-900 border-t-transparent rounded-full animate-spin" />
+                    <span>Detecting GPS Location...</span>
+                  </>
+                ) : (
+                  <>
+                    <LocateFixed className="w-4 h-4 text-amber-600 group-hover:scale-115 transition-transform" />
+                    <span>Use Current Location</span>
+                  </>
+                )}
+              </button>
             </div>
+
+            {/* GPS Location Status Feedback */}
+            {locationStatus && (
+              <div
+                className={`p-3 rounded-2xl text-xs font-medium flex items-center justify-between gap-2 animate-in fade-in duration-200 ${
+                  locationStatus.type === 'success'
+                    ? 'bg-emerald-50 text-emerald-900 border border-emerald-200'
+                    : locationStatus.type === 'info'
+                    ? 'bg-blue-50 text-blue-900 border border-blue-200'
+                    : 'bg-amber-50 text-amber-900 border border-amber-200'
+                }`}
+              >
+                <div className="flex items-center gap-2">
+                  {locationStatus.type === 'success' ? (
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                  ) : locationStatus.type === 'info' ? (
+                    <div className="w-4 h-4 border-2 border-blue-600 border-t-transparent rounded-full animate-spin shrink-0" />
+                  ) : (
+                    <AlertCircle className="w-4 h-4 text-amber-600 shrink-0" />
+                  )}
+                  <span>{locationStatus.message}</span>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setLocationStatus(null)}
+                  className="text-stone-400 hover:text-stone-700 p-0.5 text-xs font-bold"
+                  aria-label="Dismiss message"
+                >
+                  ✕
+                </button>
+              </div>
+            )}
 
             {/* Error Banner displayed in its specific section */}
             {addressError && (
@@ -616,6 +815,33 @@ export default function CheckoutPage() {
                 )}
               </div>
 
+              {/* Second Mobile Number (Optional) */}
+              <div>
+                <label className="text-xs font-semibold text-stone-900 block mb-1">
+                  Second Mobile Number (Optional)
+                </label>
+                <input
+                  ref={secondaryMobileRef}
+                  type="tel"
+                  name="secondaryMobile"
+                  placeholder="Alternate 10-digit number (Optional)"
+                  maxLength={10}
+                  value={formData.secondaryMobile || ''}
+                  onChange={handleInputChange}
+                  className={`w-full px-3.5 py-2.5 text-xs min-h-[44px] bg-white border rounded-xl outline-none text-stone-900 font-mono transition-colors ${
+                    fieldErrors.secondaryMobile
+                      ? 'border-rose-400 focus:border-rose-500 bg-rose-50/20 ring-1 ring-rose-400'
+                      : 'border-stone-300 focus:border-amber-500'
+                  }`}
+                />
+                {fieldErrors.secondaryMobile && (
+                  <p className="text-[11px] text-rose-600 font-medium mt-1 flex items-center gap-1">
+                    <AlertCircle className="w-3 h-3 text-rose-500 shrink-0" />
+                    <span>{fieldErrors.secondaryMobile}</span>
+                  </p>
+                )}
+              </div>
+
               <div>
                 <label className="text-xs font-semibold text-stone-900 block mb-1">
                   Email Address (Optional)
@@ -670,9 +896,17 @@ export default function CheckoutPage() {
               </div>
 
               <div>
-                <label className="text-xs font-semibold text-stone-900 block mb-1">
-                  Pincode *
-                </label>
+                <div className="flex items-center justify-between mb-1">
+                  <label className="text-xs font-semibold text-stone-900 block">
+                    Pincode *
+                  </label>
+                  {isLookingUpPin && (
+                    <span className="text-[10px] text-amber-700 font-medium flex items-center gap-1">
+                      <div className="w-2.5 h-2.5 border border-amber-600 border-t-transparent rounded-full animate-spin" />
+                      Checking area...
+                    </span>
+                  )}
+                </div>
                 <input
                   ref={pincodeRef}
                   type="text"
@@ -680,7 +914,7 @@ export default function CheckoutPage() {
                   placeholder="6-digit pincode"
                   maxLength={6}
                   value={formData.pincode}
-                  onChange={handleInputChange}
+                  onChange={handlePincodeChange}
                   className={`w-full px-3.5 py-2.5 text-xs min-h-[44px] bg-white border rounded-xl outline-none text-stone-900 font-mono transition-colors ${
                     fieldErrors.pincode
                       ? 'border-rose-400 focus:border-rose-500 bg-rose-50/20 ring-1 ring-rose-400'
@@ -720,7 +954,7 @@ export default function CheckoutPage() {
                 )}
               </div>
 
-              <div>
+              <div className="sm:col-span-2">
                 <label className="text-xs font-semibold text-stone-900 block mb-1">
                   State *
                 </label>

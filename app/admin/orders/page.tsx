@@ -436,7 +436,12 @@ export default function AdminOrdersPage() {
                     {selectedOrder.customer.city}, {selectedOrder.customer.state} - {selectedOrder.customer.pincode}
                   </p>
                   <div className="flex items-center gap-2 mt-3 pt-2 border-t border-[#2D2D2D]">
-                    <span className="text-[#A1A1AA] font-mono text-[11px]">Phone: {selectedOrder.customer.mobile}</span>
+                    <div className="text-[#A1A1AA] font-mono text-[11px] leading-snug">
+                      <span>Phone: {selectedOrder.customer.mobile}</span>
+                      {selectedOrder.customer.secondaryMobile && (
+                        <span className="block text-[#888888] text-[10px]">Alt: {selectedOrder.customer.secondaryMobile}</span>
+                      )}
+                    </div>
                     <a
                       href={`https://wa.me/91${selectedOrder.customer.mobile.replace(/[^0-9]/g, '').slice(-10)}?text=${encodeURIComponent(
                         `Hi ${selectedOrder.customer.fullName}, update regarding your Abhi's Gifts order #${selectedOrder.id}: Status is ${selectedOrder.orderStatus}.`
