@@ -542,6 +542,30 @@ export default function CustomizerStudio() {
     return FRAME_FINISHES.find((f) => f.id === finish) || FRAME_FINISHES[0];
   }, [finish]);
 
+  // Available Finishes filtered by Category Frame Display Settings
+  const availableFinishes = useMemo(() => {
+    const catSlug = activeCategoryObj.id === 'normal-acrylic'
+      ? 'acrylic-photo-frames'
+      : activeCategoryObj.id === 'led-backlit'
+      ? 'led-acrylic-photo-frames'
+      : 'family-baby-frames';
+
+    const visibility = frameStock?.categoryVisibility;
+    const isEnabled = visibility ? (visibility[catSlug] !== undefined ? visibility[catSlug] : true) : true;
+
+    if (!isEnabled) {
+      return FRAME_FINISHES.filter((f) => f.id !== 'gold-frame' && f.id !== 'black-frame');
+    }
+    return FRAME_FINISHES;
+  }, [activeCategoryObj, frameStock]);
+
+  // Fallback if current finish is not available
+  useEffect(() => {
+    if (availableFinishes.length > 0 && !availableFinishes.some((f) => f.id === finish)) {
+      setFinish(availableFinishes[0].id);
+    }
+  }, [availableFinishes, finish]);
+
   // Active LED Object
   const activeLedObj = useMemo(() => {
     return LED_OPTIONS.find((l) => l.id === led) || LED_OPTIONS[0];
@@ -1295,7 +1319,7 @@ export default function CustomizerStudio() {
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                {FRAME_FINISHES.map((f) => {
+                {availableFinishes.map((f) => {
                   const isSelected = finish === f.id;
                   return (
                     <button

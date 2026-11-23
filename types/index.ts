@@ -241,6 +241,12 @@ export interface PromotionalOfferSettings {
   features?: string[];
 }
 
+export interface CategoryFrameOptionConfig {
+  enabled: boolean;
+  showGold?: boolean;
+  showBlack?: boolean;
+}
+
 export interface FrameStockOption {
   name: string;
   inStock: boolean;
@@ -250,6 +256,8 @@ export interface FrameStockOption {
 export interface FrameStockSettings {
   gold: FrameStockOption;
   black: FrameStockOption;
+  categoryVisibility?: Record<string, boolean>; // categorySlug -> boolean
+  categoryConfigs?: Record<string, CategoryFrameOptionConfig>;
 }
 
 export interface SiteSettings {

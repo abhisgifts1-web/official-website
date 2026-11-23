@@ -4,18 +4,21 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { ExternalLink, Sparkles, Zap, Package, Edit3 } from 'lucide-react';
 import AdminLayout from '@/components/admin/AdminLayout';
-import { Category, Product } from '@/types';
+import { Category, Product, FrameStockSettings } from '@/types';
 import { INITIAL_CATEGORIES } from '@/lib/data/categories';
 
 export default function AdminCategoriesPage() {
   const [categories, setCategories] = useState<Category[]>(INITIAL_CATEGORIES);
   const [products, setProducts] = useState<Product[]>([]);
+  const [frameStock, setFrameStock] = useState<FrameStockSettings | null>(null);
+  const [savingCategorySlug, setSavingCategorySlug] = useState<string | null>(null);
 
   const fetchCategoriesAndProducts = async () => {
     try {
-      const [catRes, prodRes] = await Promise.all([
+      const [catRes, prodRes, settingsRes] = await Promise.all([
         fetch('/api/categories'),
         fetch('/api/products'),
+        fetch('/api/settings?t=' + Date.now(), { cache: 'no-store' }),
       ]);
 
       if (catRes.ok) {
@@ -36,6 +39,13 @@ export default function AdminCategoriesPage() {
           setProducts(prodData.products);
         }
       }
+
+      if (settingsRes.ok) {
+        const settingsData = await settingsRes.json();
+        if (settingsData.success && settingsData.settings?.frameStock) {
+          setFrameStock(settingsData.settings.frameStock);
+        }
+      }
     } catch {
       // ignore
     }
@@ -44,6 +54,43 @@ export default function AdminCategoriesPage() {
   useEffect(() => {
     fetchCategoriesAndProducts();
   }, []);
+
+
+  const handleToggleFrameDisplay = async (catSlug: string) => {
+    if (!frameStock) return;
+    try {
+      setSavingCategorySlug(catSlug);
+      const currentVis = frameStock.categoryVisibility || {};
+      const currentVal = currentVis[catSlug] !== undefined ? currentVis[catSlug] : true;
+      const nextVal = !currentVal;
+      const nextVis = { ...currentVis, [catSlug]: nextVal };
+      const nextConfigs = {
+        ...(frameStock.categoryConfigs || {}),
+        [catSlug]: {
+          ...(frameStock.categoryConfigs?.[catSlug] || { showGold: true, showBlack: true }),
+          enabled: nextVal,
+        },
+      };
+
+      const updatedStock: FrameStockSettings = {
+        ...frameStock,
+        categoryVisibility: nextVis,
+        categoryConfigs: nextConfigs,
+      };
+
+      setFrameStock(updatedStock);
+
+      await fetch('/api/settings', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ frameStock: updatedStock }),
+      });
+    } catch (err) {
+      console.warn('Failed to update category frame visibility:', err);
+    } finally {
+      setSavingCategorySlug(null);
+    }
+  };
 
   // Live item count calculation
   const getProductCount = (catSlug: string) => {
@@ -151,6 +198,40 @@ export default function AdminCategoriesPage() {
                         {liveCount} Items
                       </span>
                     </div>
+
+                    {/* Frame Options Storefront Display Toggle */}
+                    {(() => {
+                      const visibility = frameStock?.categoryVisibility || {};
+                      const isFrameEnabled = visibility[cat.slug] !== undefined ? visibility[cat.slug] : true;
+                      const isToggling = savingCategorySlug === cat.slug;
+
+                      return (
+                        <div className="p-2.5 rounded-xl bg-stone-50 border border-stone-200/80 flex items-center justify-between gap-2">
+                          <div>
+                            <div className="text-[10.5px] font-bold text-stone-900 flex items-center gap-1">
+                              <Sparkles className="w-3 h-3 text-amber-600" />
+                              <span>Frame Options</span>
+                            </div>
+                            <span className="text-[9.5px] text-stone-500">
+                              {isFrameEnabled ? 'Gold & Black enabled' : 'Hidden on live site'}
+                            </span>
+                          </div>
+
+                          <button
+                            type="button"
+                            onClick={() => handleToggleFrameDisplay(cat.slug)}
+                            disabled={isToggling}
+                            className={`px-2.5 py-1 rounded-lg text-[10px] font-bold border transition-all cursor-pointer ${
+                              isFrameEnabled
+                                ? 'bg-emerald-100 text-emerald-800 border-emerald-300 hover:bg-emerald-200'
+                                : 'bg-stone-200 text-stone-600 border-stone-300 hover:bg-stone-300'
+                            }`}
+                          >
+                            {isToggling ? 'Saving...' : isFrameEnabled ? '✓ Live ON' : '✕ Live OFF'}
+                          </button>
+                        </div>
+                      );
+                    })()}
 
                     <div className="text-xs">
                       <Link

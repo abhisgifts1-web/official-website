@@ -1176,6 +1176,12 @@ export function updateSiteSettings(updates: Partial<SiteSettings>): SiteSettings
       ? {
           gold: { ...(store.settings.frameStock?.gold || { name: 'Royal Gold Frame', inStock: true, stockCount: 850 }), ...(updates.frameStock.gold || {}) },
           black: { ...(store.settings.frameStock?.black || { name: 'Luxury Black Frame', inStock: true, stockCount: 720 }), ...(updates.frameStock.black || {}) },
+          categoryVisibility: updates.frameStock.categoryVisibility !== undefined
+            ? { ...(store.settings.frameStock?.categoryVisibility || {}), ...(updates.frameStock.categoryVisibility || {}) }
+            : store.settings.frameStock?.categoryVisibility,
+          categoryConfigs: updates.frameStock.categoryConfigs !== undefined
+            ? { ...(store.settings.frameStock?.categoryConfigs || {}), ...(updates.frameStock.categoryConfigs || {}) }
+            : store.settings.frameStock?.categoryConfigs,
         }
       : store.settings.frameStock,
   };

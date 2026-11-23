@@ -585,21 +585,80 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
       : 'gold';
   });
 
+  const isCategoryFrameEnabled = useMemo(() => {
+    const catSlug = liveProduct.categorySlug || product.categorySlug;
+    const catSlugs = liveProduct.categorySlugs || product.categorySlugs || [];
+
+    const visibility = frameStock?.categoryVisibility;
+    if (visibility) {
+      if (catSlug && visibility[catSlug] !== undefined) return Boolean(visibility[catSlug]);
+      for (const s of catSlugs) {
+        if (visibility[s] !== undefined) return Boolean(visibility[s]);
+      }
+    }
+
+    const configs = frameStock?.categoryConfigs;
+    if (configs) {
+      if (catSlug && configs[catSlug] !== undefined) return Boolean(configs[catSlug]?.enabled);
+      for (const s of catSlugs) {
+        if (configs[s] !== undefined) return Boolean(configs[s]?.enabled);
+      }
+    }
+
+    if (catSlug === '360-rotating-photo-lamps' || catSlugs.includes('360-rotating-photo-lamps')) return false;
+    if (catSlug === 'glitter-photo-frames' || catSlugs.includes('glitter-photo-frames')) return false;
+    return true;
+  }, [frameStock, liveProduct.categorySlug, liveProduct.categorySlugs, product.categorySlug, product.categorySlugs]);
+
+  const isCategoryGoldAllowed = useMemo(() => {
+    if (!isCategoryFrameEnabled) return false;
+    const catSlug = liveProduct.categorySlug || product.categorySlug;
+    const config = frameStock?.categoryConfigs?.[catSlug];
+    if (config && config.showGold !== undefined) return Boolean(config.showGold);
+    return true;
+  }, [isCategoryFrameEnabled, frameStock, liveProduct.categorySlug, product.categorySlug]);
+
+  const isCategoryBlackAllowed = useMemo(() => {
+    if (!isCategoryFrameEnabled) return false;
+    const catSlug = liveProduct.categorySlug || product.categorySlug;
+    const config = frameStock?.categoryConfigs?.[catSlug];
+    if (config && config.showBlack !== undefined) return Boolean(config.showBlack);
+    return true;
+  }, [isCategoryFrameEnabled, frameStock, liveProduct.categorySlug, product.categorySlug]);
+
   const isGoldOutOfStock = Boolean(!frameStock.gold?.inStock || (frameStock.gold?.stockCount ?? 0) <= 0);
   const isBlackOutOfStock = Boolean(!frameStock.black?.inStock || (frameStock.black?.stockCount ?? 0) <= 0);
   const isSelectedFrameOutOfStock = Boolean(
-    (selectedFrame === 'gold' && isGoldOutOfStock) ||
-    (selectedFrame === 'black' && isBlackOutOfStock)
+    isCategoryFrameEnabled && (
+      (selectedFrame === 'gold' && isGoldOutOfStock) ||
+      (selectedFrame === 'black' && isBlackOutOfStock)
+    )
   );
 
-  // Auto-fallback if currently selected frame is out of stock
+  // Auto-fallback if category frame options are disabled or finish out of stock
   useEffect(() => {
-    if (selectedFrame === 'gold' && isGoldOutOfStock && !isBlackOutOfStock) {
-      setSelectedFrame('black');
-    } else if (selectedFrame === 'black' && isBlackOutOfStock && !isGoldOutOfStock) {
-      setSelectedFrame('gold');
+    if (!isCategoryFrameEnabled) {
+      if (selectedFrame !== 'without') {
+        setSelectedFrame('without');
+      }
+      return;
     }
-  }, [selectedFrame, isGoldOutOfStock, isBlackOutOfStock]);
+    if (selectedFrame === 'gold' && (!isCategoryGoldAllowed || isGoldOutOfStock)) {
+      if (isCategoryBlackAllowed && !isBlackOutOfStock) {
+        setSelectedFrame('black');
+      }
+    } else if (selectedFrame === 'black' && (!isCategoryBlackAllowed || isBlackOutOfStock)) {
+      if (isCategoryGoldAllowed && !isGoldOutOfStock) {
+        setSelectedFrame('gold');
+      }
+    } else if (selectedFrame === 'without' && isCategoryFrameEnabled) {
+      if (isCategoryGoldAllowed && !isGoldOutOfStock) {
+        setSelectedFrame('gold');
+      } else if (isCategoryBlackAllowed && !isBlackOutOfStock) {
+        setSelectedFrame('black');
+      }
+    }
+  }, [isCategoryFrameEnabled, isCategoryGoldAllowed, isCategoryBlackAllowed, selectedFrame, isGoldOutOfStock, isBlackOutOfStock]);
   const [selectedSizeId, setSelectedSizeId] = useState<string | null>(() => {
     if (product.categorySlug === 'glitter-photo-frames' || product.categorySlugs?.includes('glitter-photo-frames') || product.slug?.includes('glitter')) {
       return product.variants?.[0]?.id || 'var-glit-1';
@@ -1590,106 +1649,111 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
               </div>
             ) : null}
 
-{/* Frame Option (Black & Gold) */}
-            <div className="space-y-2 pt-1">
-              <div className="flex items-center justify-between text-xs">
-                <span className="font-bold text-stone-900 flex items-center gap-1.5">
-                  <span>Frame Option:</span>
-                  <strong className="text-amber-800 font-serif normal-case">
-                    {selectedFrame === 'gold' ? 'Royal Gold Frame' : 'Luxury Black Frame'}
-                  </strong>
-                </span>
-                <span className="text-[11px] text-stone-500 font-normal">
-                  {selectedFrame === 'gold' ? '24K Metallic Bevel' : 'Matte Obsidian Profile'}
-                </span>
-              </div>
-
-              <div className="grid grid-cols-2 gap-2.5">
-                {/* Black Frame */}
-                <button
-                  type="button"
-                  onClick={() => !isBlackOutOfStock && handleSelectFrame('black')}
-                  disabled={isBlackOutOfStock}
-                  className={`p-2.5 sm:p-3 rounded-xl sm:rounded-2xl border text-left transition-all flex items-center justify-between gap-2 ${
-                    isBlackOutOfStock
-                      ? 'border-stone-200 bg-stone-100/70 text-stone-400 opacity-50 cursor-not-allowed'
-                      : selectedFrame === 'black'
-                      ? 'border-2 border-stone-900 bg-stone-900 text-white shadow-md ring-2 ring-stone-700/50 scale-[1.01] cursor-pointer'
-                      : 'border-stone-200 bg-stone-50 text-stone-800 hover:border-stone-400 cursor-pointer'
-                  }`}
-                >
-                  <div className="flex items-center gap-2.5 min-w-0">
-                    <span className={`w-6 h-6 rounded-full border-2 flex items-center justify-center shrink-0 ${
-                      isBlackOutOfStock
-                        ? 'bg-stone-300 border-stone-400'
-                        : 'bg-gradient-to-br from-stone-900 via-stone-950 to-black border-stone-700 shadow-inner'
-                    }`}>
-                      {selectedFrame === 'black' && !isBlackOutOfStock && <Check className="w-3.5 h-3.5 text-amber-400" />}
-                    </span>
-                    <div className="min-w-0">
-                      <div className={`font-bold text-xs sm:text-sm ${isBlackOutOfStock ? 'line-through text-stone-400' : ''}`}>Black Frame</div>
-                      <div className={`text-[10px] ${isBlackOutOfStock ? 'text-stone-400' : selectedFrame === 'black' ? 'text-stone-300' : 'text-stone-500'}`}>
-                        {isBlackOutOfStock ? 'Currently Sold Out' : 'Matte Obsidian'}
-                      </div>
-                    </div>
-                  </div>
-                  <span className={`text-[9px] font-bold px-2 py-0.5 rounded-full whitespace-nowrap shrink-0 border ${
-                    !isBlackOutOfStock
-                      ? (selectedFrame === 'black'
-                          ? 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40'
-                          : 'bg-emerald-50 text-emerald-700 border-emerald-300')
-                      : 'bg-rose-100 text-rose-700 border-rose-300'
-                  }`}>
-                    {!isBlackOutOfStock ? 'In Stock' : 'Out of Stock'}
+{/* Frame Option (Black & Gold) - Controlled by Category Settings */}
+            {isCategoryFrameEnabled && (
+              <div className="space-y-2 pt-1">
+                <div className="flex items-center justify-between text-xs">
+                  <span className="font-bold text-stone-900 flex items-center gap-1.5">
+                    <span>Frame Option:</span>
+                    <strong className="text-amber-800 font-serif normal-case">
+                      {selectedFrame === 'gold' ? 'Royal Gold Frame' : 'Luxury Black Frame'}
+                    </strong>
                   </span>
-                </button>
-
-                {/* Gold Frame */}
-                <button
-                  type="button"
-                  onClick={() => !isGoldOutOfStock && handleSelectFrame('gold')}
-                  disabled={isGoldOutOfStock}
-                  className={`p-2.5 sm:p-3 rounded-xl sm:rounded-2xl border text-left transition-all flex items-center justify-between gap-2 ${
-                    isGoldOutOfStock
-                      ? 'border-stone-200 bg-stone-100/70 text-stone-400 opacity-50 cursor-not-allowed'
-                      : selectedFrame === 'gold'
-                      ? 'border-2 border-amber-500 bg-amber-50/90 text-stone-950 shadow-md ring-2 ring-amber-400/50 scale-[1.01] cursor-pointer'
-                      : 'border-stone-200 bg-stone-50 text-stone-800 hover:border-amber-400 cursor-pointer'
-                  }`}
-                >
-                  <div className="flex items-center gap-2.5 min-w-0">
-                    <span className={`w-6 h-6 rounded-full border-2 flex items-center justify-center shrink-0 ${
-                      isGoldOutOfStock
-                        ? 'bg-stone-300 border-stone-400'
-                        : 'bg-gradient-to-br from-[#E6CA65] via-[#D4AF37] to-[#99772B] border-[#FEE815] shadow-inner'
-                    }`}>
-                      {selectedFrame === 'gold' && !isGoldOutOfStock && <Check className="w-3.5 h-3.5 text-stone-950" />}
-                    </span>
-                    <div className="min-w-0">
-                      <div className={`font-bold text-xs sm:text-sm ${isGoldOutOfStock ? 'line-through text-stone-400' : 'text-stone-900'}`}>Gold Frame</div>
-                      <div className={`text-[10px] ${isGoldOutOfStock ? 'text-stone-400' : 'text-amber-800 font-medium'}`}>
-                        {isGoldOutOfStock ? 'Currently Sold Out' : '24K Royal Metallic'}
-                      </div>
-                    </div>
-                  </div>
-                  <span className={`text-[9px] font-bold px-2 py-0.5 rounded-full whitespace-nowrap shrink-0 border ${
-                    !isGoldOutOfStock
-                      ? 'bg-emerald-100 text-emerald-800 border-emerald-300'
-                      : 'bg-rose-100 text-rose-700 border-rose-300'
-                  }`}>
-                    {!isGoldOutOfStock ? 'In Stock' : 'Out of Stock'}
+                  <span className="text-[11px] text-stone-500 font-normal">
+                    {selectedFrame === 'gold' ? '24K Metallic Bevel' : 'Matte Obsidian Profile'}
                   </span>
-                </button>
-              </div>
-            </div>
-
-                        
-              {isSelectedFrameOutOfStock && (
-                <div className="p-3 rounded-xl bg-rose-50 border border-rose-200 text-rose-800 text-xs font-semibold flex items-center gap-2">
-                  <AlertCircle className="w-4 h-4 text-rose-600 shrink-0" />
-                  <span>The selected frame finish ({selectedFrame === 'gold' ? 'Royal Gold Frame' : 'Luxury Black Frame'}) is currently Out of Stock. Please choose an in-stock frame to proceed.</span>
                 </div>
-              )}
+
+                <div className={`grid ${isCategoryBlackAllowed && isCategoryGoldAllowed ? 'grid-cols-2' : 'grid-cols-1'} gap-2.5`}>
+                  {/* Black Frame */}
+                  {isCategoryBlackAllowed && (
+                    <button
+                      type="button"
+                      onClick={() => !isBlackOutOfStock && handleSelectFrame('black')}
+                      disabled={isBlackOutOfStock}
+                      className={`p-2.5 sm:p-3 rounded-xl sm:rounded-2xl border text-left transition-all flex items-center justify-between gap-2 ${
+                        isBlackOutOfStock
+                          ? 'border-stone-200 bg-stone-100/70 text-stone-400 opacity-50 cursor-not-allowed'
+                          : selectedFrame === 'black'
+                          ? 'border-2 border-stone-900 bg-stone-900 text-white shadow-md ring-2 ring-stone-700/50 scale-[1.01] cursor-pointer'
+                          : 'border-stone-200 bg-stone-50 text-stone-800 hover:border-stone-400 cursor-pointer'
+                      }`}
+                    >
+                      <div className="flex items-center gap-2.5 min-w-0">
+                        <span className={`w-6 h-6 rounded-full border-2 flex items-center justify-center shrink-0 ${
+                          isBlackOutOfStock
+                            ? 'bg-stone-300 border-stone-400'
+                            : 'bg-gradient-to-br from-stone-900 via-stone-950 to-black border-stone-700 shadow-inner'
+                        }`}>
+                          {selectedFrame === 'black' && !isBlackOutOfStock && <Check className="w-3.5 h-3.5 text-amber-400" />}
+                        </span>
+                        <div className="min-w-0">
+                          <div className={`font-bold text-xs sm:text-sm ${isBlackOutOfStock ? 'line-through text-stone-400' : ''}`}>Black Frame</div>
+                          <div className={`text-[10px] ${isBlackOutOfStock ? 'text-stone-400' : selectedFrame === 'black' ? 'text-stone-300' : 'text-stone-500'}`}>
+                            {isBlackOutOfStock ? 'Currently Sold Out' : 'Matte Obsidian'}
+                          </div>
+                        </div>
+                      </div>
+                      <span className={`text-[9px] font-bold px-2 py-0.5 rounded-full whitespace-nowrap shrink-0 border ${
+                        !isBlackOutOfStock
+                          ? (selectedFrame === 'black'
+                              ? 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40'
+                              : 'bg-emerald-50 text-emerald-700 border-emerald-300')
+                          : 'bg-rose-100 text-rose-700 border-rose-300'
+                      }`}>
+                        {!isBlackOutOfStock ? 'In Stock' : 'Out of Stock'}
+                      </span>
+                    </button>
+                  )}
+
+                  {/* Gold Frame */}
+                  {isCategoryGoldAllowed && (
+                    <button
+                      type="button"
+                      onClick={() => !isGoldOutOfStock && handleSelectFrame('gold')}
+                      disabled={isGoldOutOfStock}
+                      className={`p-2.5 sm:p-3 rounded-xl sm:rounded-2xl border text-left transition-all flex items-center justify-between gap-2 ${
+                        isGoldOutOfStock
+                          ? 'border-stone-200 bg-stone-100/70 text-stone-400 opacity-50 cursor-not-allowed'
+                          : selectedFrame === 'gold'
+                          ? 'border-2 border-amber-500 bg-amber-50/90 text-stone-950 shadow-md ring-2 ring-amber-400/50 scale-[1.01] cursor-pointer'
+                          : 'border-stone-200 bg-stone-50 text-stone-800 hover:border-amber-400 cursor-pointer'
+                      }`}
+                    >
+                      <div className="flex items-center gap-2.5 min-w-0">
+                        <span className={`w-6 h-6 rounded-full border-2 flex items-center justify-center shrink-0 ${
+                          isGoldOutOfStock
+                            ? 'bg-stone-300 border-stone-400'
+                            : 'bg-gradient-to-br from-[#E6CA65] via-[#D4AF37] to-[#99772B] border-[#FEE815] shadow-inner'
+                        }`}>
+                          {selectedFrame === 'gold' && !isGoldOutOfStock && <Check className="w-3.5 h-3.5 text-stone-950" />}
+                        </span>
+                        <div className="min-w-0">
+                          <div className={`font-bold text-xs sm:text-sm ${isGoldOutOfStock ? 'line-through text-stone-400' : 'text-stone-900'}`}>Gold Frame</div>
+                          <div className={`text-[10px] ${isGoldOutOfStock ? 'text-stone-400' : 'text-amber-800 font-medium'}`}>
+                            {isGoldOutOfStock ? 'Currently Sold Out' : '24K Royal Metallic'}
+                          </div>
+                        </div>
+                      </div>
+                      <span className={`text-[9px] font-bold px-2 py-0.5 rounded-full whitespace-nowrap shrink-0 border ${
+                        !isGoldOutOfStock
+                          ? 'bg-emerald-100 text-emerald-800 border-emerald-300'
+                          : 'bg-rose-100 text-rose-700 border-rose-300'
+                      }`}>
+                        {!isGoldOutOfStock ? 'In Stock' : 'Out of Stock'}
+                      </span>
+                    </button>
+                  )}
+                </div>
+              </div>
+            )}
+
+            {isCategoryFrameEnabled && isSelectedFrameOutOfStock && (
+              <div className="p-3 rounded-xl bg-rose-50 border border-rose-200 text-rose-800 text-xs font-semibold flex items-center gap-2">
+                <AlertCircle className="w-4 h-4 text-rose-600 shrink-0" />
+                <span>The selected frame finish ({selectedFrame === 'gold' ? 'Royal Gold Frame' : 'Luxury Black Frame'}) is currently Out of Stock. Please choose an in-stock frame to proceed.</span>
+              </div>
+            )}
               {/* Quantity Selector + Action Buttons */}
             <div className="space-y-3.5 pt-4 border-t border-stone-200">
               {/* Customise / Add Photo Button */}
@@ -1828,7 +1892,8 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
       <AddPhotoModal
         product={product}
         selectedVariant={product.variants[0]}
-        initialFrame={selectedFrame === 'black' ? 'black' : 'gold'}
+        initialFrame={!isCategoryFrameEnabled ? 'without' : selectedFrame === 'black' ? 'black' : 'gold'}
+        showFrameOption={isCategoryFrameEnabled}
         isOpen={isCustomizerOpen}
         onClose={() => setIsCustomizerOpen(false)}
       />

@@ -47,5 +47,25 @@ export const INITIAL_SETTINGS: SiteSettings = {
   frameStock: {
     gold: { name: 'Royal Gold Frame', inStock: true, stockCount: 850 },
     black: { name: 'Luxury Black Frame', inStock: true, stockCount: 720 },
+    categoryVisibility: {
+      'acrylic-photo-frames': true,
+      'led-acrylic-photo-frames': true,
+      'glitter-photo-frames': false,
+      '360-rotating-photo-lamps': false,
+      'god-photo-frames': true,
+      'family-baby-frames': true,
+      'couple-wedding-frames': true,
+      'personalized-gifts': true,
+    },
+    categoryConfigs: {
+      'acrylic-photo-frames': { enabled: true, showGold: true, showBlack: true },
+      'led-acrylic-photo-frames': { enabled: true, showGold: true, showBlack: true },
+      'glitter-photo-frames': { enabled: false, showGold: false, showBlack: false },
+      '360-rotating-photo-lamps': { enabled: false, showGold: false, showBlack: false },
+      'god-photo-frames': { enabled: true, showGold: true, showBlack: true },
+      'family-baby-frames': { enabled: true, showGold: true, showBlack: true },
+      'couple-wedding-frames': { enabled: true, showGold: true, showBlack: true },
+      'personalized-gifts': { enabled: true, showGold: true, showBlack: true },
+    },
   },
 };

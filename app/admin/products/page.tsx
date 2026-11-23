@@ -219,6 +219,72 @@ function AdminProductsContent() {
     }
   };
 
+  const toggleCategoryVisibility = async (catSlug: string) => {
+    const currentVis = frameStock.categoryVisibility || {};
+    const currentVal = currentVis[catSlug] !== undefined ? currentVis[catSlug] : true;
+    const nextVal = !currentVal;
+    const nextVis = { ...currentVis, [catSlug]: nextVal };
+    const nextConfigs = {
+      ...(frameStock.categoryConfigs || {}),
+      [catSlug]: {
+        ...(frameStock.categoryConfigs?.[catSlug] || { showGold: true, showBlack: true }),
+        enabled: nextVal,
+      },
+    };
+    const nextStock: FrameStockSettings = {
+      ...frameStock,
+      categoryVisibility: nextVis,
+      categoryConfigs: nextConfigs,
+    };
+    setFrameStock(nextStock);
+    await handleSaveFrameStock(nextStock);
+  };
+
+  const toggleCategoryFrameOption = async (catSlug: string, frameType: 'gold' | 'black') => {
+    const currentConfigs = frameStock.categoryConfigs || {};
+    const currentCfg = currentConfigs[catSlug] || { enabled: true, showGold: true, showBlack: true };
+    const nextCfg = {
+      ...currentCfg,
+      [frameType === 'gold' ? 'showGold' : 'showBlack']: !(frameType === 'gold' ? (currentCfg.showGold !== false) : (currentCfg.showBlack !== false)),
+    };
+    const nextEnabled = Boolean((nextCfg.showGold ?? true) || (nextCfg.showBlack ?? true));
+    nextCfg.enabled = nextEnabled;
+
+    const nextConfigs = { ...currentConfigs, [catSlug]: nextCfg };
+    const nextVis = { ...(frameStock.categoryVisibility || {}), [catSlug]: nextEnabled };
+
+    const nextStock: FrameStockSettings = {
+      ...frameStock,
+      categoryVisibility: nextVis,
+      categoryConfigs: nextConfigs,
+    };
+    setFrameStock(nextStock);
+    await handleSaveFrameStock(nextStock);
+  };
+
+  const setAllCategoriesVisibility = async (enable: boolean) => {
+    const officialSlugs = INITIAL_CATEGORIES.map((c) => c.slug);
+    const nextVis: Record<string, boolean> = {};
+    const nextConfigs: Record<string, any> = {};
+
+    officialSlugs.forEach((slug) => {
+      nextVis[slug] = enable;
+      nextConfigs[slug] = {
+        enabled: enable,
+        showGold: enable,
+        showBlack: enable,
+      };
+    });
+
+    const nextStock: FrameStockSettings = {
+      ...frameStock,
+      categoryVisibility: nextVis,
+      categoryConfigs: nextConfigs,
+    };
+    setFrameStock(nextStock);
+    await handleSaveFrameStock(nextStock);
+  };
+
   const toggleBlackStock = async () => {
     try {
       setTogglingBlack(true);
@@ -1319,7 +1385,7 @@ function AdminProductsContent() {
                           </span>
                         </div>
                         <p className="text-[11px] text-stone-500 mt-0.5">
-                          24K Royal Metallic finish • Customer option across all products
+                          24K Royal Metallic finish • Unified warehouse stock (Single update for entire store)
                         </p>
                       </div>
                     </div>
@@ -1412,7 +1478,7 @@ function AdminProductsContent() {
                           </span>
                         </div>
                         <p className={`text-[11px] mt-0.5 ${isBlackInStock ? 'text-stone-400' : 'text-stone-500'}`}>
-                          Matte Obsidian Profile • Customer option across all products
+                          Matte Obsidian Profile • Unified warehouse stock (Single update for entire store)
                         </p>
                       </div>
                     </div>
@@ -1491,6 +1557,161 @@ function AdminProductsContent() {
               );
             })()}
           </div>
+
+          {/* Category Display Settings (Display in Live Website or Not) */}
+          <div className="mt-6 pt-5 border-t border-stone-200 space-y-4">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              <div className="space-y-0.5">
+                <div className="flex items-center gap-2">
+                  <Layers className="w-4 h-4 text-amber-600" />
+                  <h4 className="text-sm font-bold text-stone-900 font-serif">
+                    Category Live Website Display
+                  </h4>
+                  <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-amber-100 text-amber-900 border border-amber-300">
+                    Per-Category Display Toggle
+                  </span>
+                </div>
+                <p className="text-xs text-stone-500">
+                  Choose separately for each category whether to display Frame Options (Gold &amp; Black) on the live website. Stock counts above remain unified for the entire store.
+                </p>
+              </div>
+
+              <div className="flex items-center gap-2 self-start sm:self-auto">
+                <button
+                  type="button"
+                  onClick={() => setAllCategoriesVisibility(true)}
+                  disabled={savingFrameStock}
+                  className="px-2.5 py-1 text-[11px] font-bold rounded-lg border border-emerald-300 bg-emerald-50 text-emerald-800 hover:bg-emerald-100 transition-colors cursor-pointer shadow-2xs"
+                >
+                  ✓ Enable All
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setAllCategoriesVisibility(false)}
+                  disabled={savingFrameStock}
+                  className="px-2.5 py-1 text-[11px] font-bold rounded-lg border border-stone-300 bg-stone-50 text-stone-700 hover:bg-stone-100 transition-colors cursor-pointer shadow-2xs"
+                >
+                  ✕ Disable All
+                </button>
+              </div>
+            </div>
+
+            {/* Category Cards Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+              {INITIAL_CATEGORIES.map((cat) => {
+                const isSelectedCat = selectedCat === cat.slug;
+                const visibility = frameStock.categoryVisibility || {};
+                const isEnabled = visibility[cat.slug] !== undefined ? visibility[cat.slug] : true;
+                const config = frameStock.categoryConfigs?.[cat.slug];
+                const showGold = config?.showGold ?? true;
+                const showBlack = config?.showBlack ?? true;
+                const catProductsCount = products.filter(
+                  (p) => p.categorySlug === cat.slug || p.categorySlugs?.includes(cat.slug)
+                ).length;
+
+                return (
+                  <div
+                    key={cat.id || cat.slug}
+                    className={`relative p-3 rounded-xl border transition-all flex flex-col justify-between gap-2.5 ${
+                      isSelectedCat
+                        ? 'border-amber-400 bg-amber-50/60 shadow-xs ring-2 ring-amber-400/40'
+                        : isEnabled
+                        ? 'border-emerald-200 bg-white hover:border-emerald-300 shadow-2xs'
+                        : 'border-stone-200 bg-stone-50/70 opacity-75'
+                    }`}
+                  >
+                    <div className="flex items-start justify-between gap-2">
+                      <div className="flex items-center gap-2.5 min-w-0">
+                        <img
+                          src={cat.image}
+                          alt={cat.name}
+                          className="w-10 h-10 rounded-lg object-cover border border-stone-200 shrink-0"
+                        />
+                        <div className="min-w-0">
+                          <h5 className="font-bold text-xs text-stone-900 truncate" title={cat.name}>
+                            {cat.name}
+                          </h5>
+                          <span className="text-[10px] text-stone-500 font-mono">
+                            {catProductsCount} {catProductsCount === 1 ? 'artwork' : 'artworks'}
+                          </span>
+                        </div>
+                      </div>
+
+                      {/* Master Category Display Toggle Switch */}
+                      <button
+                        type="button"
+                        onClick={() => toggleCategoryVisibility(cat.slug)}
+                        disabled={savingFrameStock}
+                        title={isEnabled ? `Disable frame options for ${cat.name}` : `Enable frame options for ${cat.name}`}
+                        className={`relative inline-flex h-5 w-9 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-hidden ${
+                          isEnabled ? 'bg-emerald-600' : 'bg-stone-300'
+                        }`}
+                      >
+                        <span
+                          className={`pointer-events-none inline-block h-4 w-4 transform rounded-full bg-white shadow-sm ring-0 transition duration-200 ease-in-out ${
+                            isEnabled ? 'translate-x-4' : 'translate-x-0'
+                          }`}
+                        />
+                      </button>
+                    </div>
+
+                    {/* Status Pill & Frame Color Sub-toggles */}
+                    <div className="pt-2 border-t border-stone-100 flex items-center justify-between text-[11px] gap-1">
+                      <span className={`font-semibold px-2 py-0.5 rounded-md border text-[9.5px] flex items-center gap-1 ${
+                        isEnabled
+                          ? 'bg-emerald-50 text-emerald-800 border-emerald-200'
+                          : 'bg-stone-100 text-stone-600 border-stone-200'
+                      }`}>
+                        {isEnabled ? (
+                          <>
+                            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                            <span>Live: ON</span>
+                          </>
+                        ) : (
+                          <>
+                            <span className="w-1.5 h-1.5 rounded-full bg-stone-400" />
+                            <span>Live: OFF</span>
+                          </>
+                        )}
+                      </span>
+
+                      {/* Sub-toggles for Gold and Black when Category is Enabled */}
+                      {isEnabled ? (
+                        <div className="flex items-center gap-1">
+                          <button
+                            type="button"
+                            onClick={() => toggleCategoryFrameOption(cat.slug, 'gold')}
+                            title={showGold ? 'Gold frame displayed in live store' : 'Gold frame hidden for this category'}
+                            className={`px-1.5 py-0.5 rounded text-[9px] font-bold border transition-colors cursor-pointer ${
+                              showGold
+                                ? 'bg-amber-100 text-amber-900 border-amber-300'
+                                : 'bg-stone-100 text-stone-400 border-stone-200 line-through'
+                            }`}
+                          >
+                            Gold
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => toggleCategoryFrameOption(cat.slug, 'black')}
+                            title={showBlack ? 'Black frame displayed in live store' : 'Black frame hidden for this category'}
+                            className={`px-1.5 py-0.5 rounded text-[9px] font-bold border transition-colors cursor-pointer ${
+                              showBlack
+                                ? 'bg-stone-900 text-white border-stone-700'
+                                : 'bg-stone-100 text-stone-400 border-stone-200 line-through'
+                            }`}
+                          >
+                            Black
+                          </button>
+                        </div>
+                      ) : (
+                        <span className="text-[10px] text-stone-400 italic">Hidden on live site</span>
+                      )}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
         </div>
 
         {/* Clear Workspace Banner: When a specific category is selected */}
@@ -1523,6 +1744,27 @@ function AdminProductsContent() {
                     {activeCategoryObj?.description ||
                       'You are currently viewing and modifying artworks in this specific collection. All size additions, live prices, and inventory stock changes apply directly to this collection.'}
                   </p>
+
+                  <div className="mt-2.5 flex items-center gap-2 flex-wrap">
+                    <span className="text-xs font-semibold text-stone-700">Live Website Frame Option:</span>
+                    <button
+                      type="button"
+                      onClick={() => toggleCategoryVisibility(selectedCat)}
+                      disabled={savingFrameStock}
+                      className={`px-3 py-1 rounded-lg text-xs font-bold border transition-all cursor-pointer flex items-center gap-1.5 ${
+                        (frameStock.categoryVisibility?.[selectedCat] !== undefined ? frameStock.categoryVisibility[selectedCat] : true)
+                          ? 'bg-emerald-600 text-white border-emerald-600 shadow-2xs'
+                          : 'bg-stone-200 text-stone-700 border-stone-300 hover:bg-stone-300'
+                      }`}
+                    >
+                      {(frameStock.categoryVisibility?.[selectedCat] !== undefined ? frameStock.categoryVisibility[selectedCat] : true)
+                        ? '✓ Displayed in Live Store'
+                        : '✕ Hidden in Live Store'}
+                    </button>
+                    <span className="text-[11px] text-stone-500">
+                      (Unified frame stock applies storewide)
+                    </span>
+                  </div>
                 </div>
               </div>
 
