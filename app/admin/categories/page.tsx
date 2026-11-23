@@ -158,7 +158,7 @@ export default function AdminCategoriesPage() {
                         className="w-full inline-flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-xl bg-stone-900 hover:bg-stone-800 text-white font-bold transition-all shadow-xs"
                       >
                         <Edit3 className="w-3.5 h-3.5 text-[#FEE815]" />
-                        <span>Edit Items</span>
+                        <span>Edit {cat.name} ({liveCount})</span>
                       </Link>
                     </div>
                   </div>

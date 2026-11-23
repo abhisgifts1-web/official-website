@@ -1,7 +1,8 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, Suspense } from 'react';
 import Link from 'next/link';
+import { useSearchParams, useRouter } from 'next/navigation';
 import {
   Plus,
   Search,
@@ -94,11 +95,37 @@ const ensureJpgExtension = (url: string): string => {
   return `${trimmed}.jpg`;
 };
 
-export default function AdminProductsPage() {
+function AdminProductsContent() {
+  const searchParams = useSearchParams();
+  const router = useRouter();
+
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState('');
-  const [selectedCat, setSelectedCat] = useState('');
+
+  // Read ?cat= or ?category= from URL query params
+  const initialCat = searchParams.get('cat') || searchParams.get('category') || '';
+  const [selectedCat, setSelectedCat] = useState(initialCat);
+
+  // Sync state if URL query changes
+  useEffect(() => {
+    const urlCat = searchParams.get('cat') || searchParams.get('category') || '';
+    if (urlCat !== selectedCat) {
+      setSelectedCat(urlCat);
+    }
+  }, [searchParams]);
+
+  // Handle category filter change and update URL
+  const handleCategoryFilterChange = (catSlug: string) => {
+    setSelectedCat(catSlug);
+    if (catSlug) {
+      router.replace(`/admin/products?cat=${encodeURIComponent(catSlug)}`, { scroll: false });
+    } else {
+      router.replace('/admin/products', { scroll: false });
+    }
+  };
+
+  const activeCategoryObj = INITIAL_CATEGORIES.find((c) => c.slug === selectedCat);
   const [modalOpen, setModalOpen] = useState(false);
   const [editingSlug, setEditingSlug] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
@@ -725,6 +752,19 @@ export default function AdminProductsPage() {
     }
   }, []);
 
+  const handleNewProduct = (categorySlugToUse?: string) => {
+    const catSlug = categorySlugToUse || selectedCat || 'acrylic-photo-frames';
+    const catObj = INITIAL_CATEGORIES.find((c) => c.slug === catSlug);
+    setEditingSlug(null);
+    setFormData({
+      ...initialForm,
+      categorySlug: catSlug,
+      categoryName: catObj ? catObj.name : 'Acrylic Photo Frames',
+      categorySlugs: [catSlug],
+    });
+    setModalOpen(true);
+  };
+
   const handleEditProduct = (prod: Product) => {
     setEditingSlug(prod.slug);
 
@@ -1123,13 +1163,22 @@ export default function AdminProductsPage() {
         {/* Page Header */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white border border-stone-200 p-5 sm:p-6 rounded-3xl shadow-sm text-stone-900">
           <div>
-            <div className="flex items-center gap-2 mb-1">
+            <div className="flex items-center gap-2 mb-1 flex-wrap">
               <Link
                 href="/admin/categories"
                 className="inline-flex items-center gap-1 text-[11px] font-semibold text-stone-500 hover:text-stone-950 transition-colors"
               >
                 <span>← 8 Store Collections</span>
               </Link>
+              {selectedCat && (
+                <>
+                  <span className="text-stone-300">•</span>
+                  <span className="px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-950 border border-amber-300 font-black text-[10.5px] uppercase tracking-wider flex items-center gap-1.5 shadow-2xs">
+                    <Tag className="w-3 h-3 text-amber-800" />
+                    Category: {activeCategoryObj?.name || selectedCat}
+                  </span>
+                </>
+              )}
               <span className="text-stone-300">•</span>
               <span className="px-2.5 py-0.5 rounded-full bg-amber-50 border border-amber-300 text-amber-800 font-bold text-[10px] tracking-wider uppercase flex items-center gap-1 shadow-2xs">
                 <Sparkles className="w-3 h-3 text-amber-700" />
@@ -1145,11 +1194,7 @@ export default function AdminProductsPage() {
           </div>
 
           <button
-            onClick={() => {
-              setEditingSlug(null);
-              setFormData(initialForm);
-              setModalOpen(true);
-            }}
+            onClick={() => handleNewProduct()} 
             className="inline-flex items-center gap-2 bg-[#FEE815] hover:bg-[#FFF04B] text-stone-950 px-5 py-2.5 rounded-xl font-extrabold text-xs transition-all shadow-sm hover:scale-[1.02] self-start sm:self-auto cursor-pointer"
           >
             <Plus className="w-4 h-4 text-stone-950" />
@@ -1448,6 +1493,62 @@ export default function AdminProductsPage() {
           </div>
         </div>
 
+        {/* Clear Workspace Banner: When a specific category is selected */}
+        {selectedCat && (
+          <div className="bg-gradient-to-r from-amber-500/15 via-amber-400/5 to-white border-2 border-amber-400 rounded-3xl p-5 sm:p-6 shadow-sm space-y-3">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+              <div className="flex items-start sm:items-center gap-3.5">
+                <div className="w-12 h-12 rounded-2xl bg-[#FEE815] text-stone-950 font-bold flex items-center justify-center shrink-0 shadow-xs border border-amber-400">
+                  <Layers className="w-6 h-6 text-stone-900" />
+                </div>
+                <div>
+                  <div className="flex items-center gap-2 flex-wrap">
+                    <span className="px-2.5 py-0.5 rounded-full bg-amber-400 text-stone-950 font-black text-[10px] tracking-wider uppercase shadow-2xs">
+                      Category Workspace Active
+                    </span>
+                    <span className="text-xs font-semibold text-stone-600">
+                      Catalog Filter
+                    </span>
+                    <span className="text-xs font-mono font-bold px-2 py-0.5 rounded-md bg-stone-100 text-stone-800 border border-stone-200">
+                      {filteredProducts.length} {filteredProducts.length === 1 ? 'Artwork' : 'Artworks'} in this category
+                    </span>
+                  </div>
+                  <h2 className="text-xl sm:text-2xl font-serif font-black text-stone-950 mt-1 flex items-center gap-2 flex-wrap">
+                    <span>Currently Editing Category:</span>
+                    <span className="text-amber-900 bg-amber-100/70 px-2.5 py-0.5 rounded-lg border border-amber-300 underline decoration-amber-500 underline-offset-4">
+                      {activeCategoryObj?.name || selectedCat}
+                    </span>
+                  </h2>
+                  <p className="text-xs text-stone-600 mt-1 max-w-2xl leading-relaxed font-medium">
+                    {activeCategoryObj?.description ||
+                      'You are currently viewing and modifying artworks in this specific collection. All size additions, live prices, and inventory stock changes apply directly to this collection.'}
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-2.5 shrink-0 self-stretch sm:self-auto flex-wrap">
+                <button
+                  type="button"
+                  onClick={() => handleNewProduct(selectedCat)}
+                  className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl bg-stone-950 hover:bg-stone-800 text-white font-bold text-xs transition-all shadow-xs cursor-pointer"
+                >
+                  <Plus className="w-4 h-4 text-[#FEE815]" />
+                  <span>Add Product to {activeCategoryObj?.name ? activeCategoryObj.name.split(' ')[0] : 'Category'}</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => handleCategoryFilterChange('')}
+                  className="inline-flex items-center justify-center gap-1.5 px-3.5 py-2.5 rounded-xl bg-white hover:bg-stone-100 text-stone-700 border border-stone-300 font-bold text-xs transition-all cursor-pointer shadow-2xs"
+                  title="Show All Products Across All Categories"
+                >
+                  <X className="w-4 h-4 text-stone-500" />
+                  <span>Clear Category Filter</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+
         {/* Smart Toolbar: Search, Filters, Tabs & View Switcher */}
         <div className="bg-white p-3.5 sm:p-4 rounded-2xl border border-stone-200 shadow-xs space-y-3">
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
@@ -1465,18 +1566,34 @@ export default function AdminProductsPage() {
 
             {/* Category Dropdown & View Mode Switcher */}
             <div className="flex items-center gap-2">
-              <select
-                value={selectedCat}
-                onChange={(e) => setSelectedCat(e.target.value)}
-                className="px-3 py-2 bg-stone-50 border border-stone-200 rounded-xl outline-none text-xs text-stone-900 font-medium"
-              >
-                <option value="">All Categories ({INITIAL_CATEGORIES.length})</option>
-                {INITIAL_CATEGORIES.map((c) => (
-                  <option key={c.id} value={c.slug}>
-                    {c.name}
-                  </option>
-                ))}
-              </select>
+              <div className="relative">
+                <select
+                  value={selectedCat}
+                  onChange={(e) => handleCategoryFilterChange(e.target.value)}
+                  className={`px-3 py-2 rounded-xl outline-none text-xs transition-all cursor-pointer ${
+                    selectedCat
+                      ? 'bg-amber-100/90 border-2 border-amber-500 text-amber-950 font-bold shadow-2xs pr-7'
+                      : 'bg-stone-50 border border-stone-200 text-stone-900 font-medium'
+                  }`}
+                >
+                  <option value="">All Categories ({INITIAL_CATEGORIES.length})</option>
+                  {INITIAL_CATEGORIES.map((c) => (
+                    <option key={c.id} value={c.slug}>
+                      {c.name}
+                    </option>
+                  ))}
+                </select>
+                {selectedCat && (
+                  <button
+                    type="button"
+                    onClick={() => handleCategoryFilterChange('')}
+                    className="absolute right-1.5 top-1/2 -translate-y-1/2 p-0.5 hover:bg-amber-200 rounded-full text-amber-900 transition-colors cursor-pointer"
+                    title="Clear category filter"
+                  >
+                    <X className="w-3 h-3" />
+                  </button>
+                )}
+              </div>
 
               {/* View Switcher: Table vs Grid */}
               <div className="flex items-center bg-stone-100 p-0.5 rounded-xl border border-stone-200 shrink-0">
@@ -1542,9 +1659,36 @@ export default function AdminProductsPage() {
             <p>Loading artworks catalog...</p>
           </div>
         ) : filteredProducts.length === 0 ? (
-          <div className="bg-white rounded-2xl border border-stone-200 p-12 text-center text-xs text-stone-500">
-            <p className="font-bold text-stone-700 text-sm">No artworks found</p>
-            <p className="text-stone-400 mt-1">Try adjusting your search query or category filters.</p>
+          <div className="bg-white rounded-2xl border border-stone-200 p-12 text-center text-xs text-stone-500 space-y-3">
+            <p className="font-bold text-stone-800 text-base">
+              {selectedCat
+                ? `No artworks found in "${activeCategoryObj?.name || selectedCat}"`
+                : 'No artworks found'}
+            </p>
+            <p className="text-stone-500 max-w-md mx-auto">
+              {selectedCat
+                ? 'There are currently no artworks matching this category filter or search query.'
+                : 'Try adjusting your search query or category filters.'}
+            </p>
+            {selectedCat && (
+              <div className="flex items-center justify-center gap-2 pt-2">
+                <button
+                  type="button"
+                  onClick={() => handleNewProduct(selectedCat)}
+                  className="px-4 py-2 bg-stone-900 hover:bg-stone-800 text-white rounded-xl font-bold text-xs inline-flex items-center gap-1.5 transition-all shadow-xs cursor-pointer"
+                >
+                  <Plus className="w-3.5 h-3.5 text-[#FEE815]" />
+                  <span>Add First Product to {activeCategoryObj?.name || 'Category'}</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => handleCategoryFilterChange('')}
+                  className="px-4 py-2 bg-stone-100 hover:bg-stone-200 text-stone-700 rounded-xl font-bold text-xs transition-all cursor-pointer"
+                >
+                  View All Products
+                </button>
+              </div>
+            )}
           </div>
         ) : viewMode === 'table' ? (
           /* 1. Sleek Modern Table View */
@@ -1874,23 +2018,67 @@ export default function AdminProductsPage() {
         {modalOpen && (
           <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs overflow-y-auto">
             <div className="bg-white rounded-3xl max-w-4xl w-full p-6 sm:p-7 shadow-2xl border border-stone-200 my-8 max-h-[92vh] overflow-y-auto text-stone-900">
-              {/* Modal Header */}
-              <div className="flex items-center justify-between border-b border-stone-200 pb-4 mb-5">
-                <div>
-                  <h3 className="font-serif font-bold text-xl text-stone-900">
-                    {editingSlug ? 'Edit Artwork & Pricing' : 'Add New Masterpiece'}
-                  </h3>
-                  <p className="text-xs text-stone-600 mt-0.5">
-                    Configure title, category, 4 standard sizes, selling prices, and inventory stock.
-                  </p>
+              {/* Modal Header with Clear Category Display */}
+              <div className="border-b border-stone-200 pb-4 mb-5">
+                <div className="flex items-center justify-between mb-3">
+                  <div>
+                    <div className="flex items-center gap-2 flex-wrap mb-1">
+                      <span className="px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-950 border border-amber-300 font-black text-[10.5px] uppercase tracking-wider flex items-center gap-1.5 shadow-2xs">
+                        <Tag className="w-3 h-3 text-amber-800" />
+                        Category: {formData.categoryName || 'Acrylic Photo Frames'}
+                      </span>
+                      {selectedCat && selectedCat !== formData.categorySlug && (
+                        <span className="px-2.5 py-0.5 rounded-full bg-stone-100 text-stone-600 border border-stone-200 text-[10px] font-medium">
+                          Workspace Filter: {activeCategoryObj?.name || selectedCat}
+                        </span>
+                      )}
+                    </div>
+                    <h3 className="font-serif font-bold text-xl sm:text-2xl text-stone-900">
+                      {editingSlug ? (
+                        <span>
+                          Editing Artwork in &ldquo;<span className="text-amber-800">{formData.categoryName}</span>&rdquo;
+                        </span>
+                      ) : (
+                        <span>
+                          Add New Artwork to &ldquo;<span className="text-amber-800">{formData.categoryName}</span>&rdquo;
+                        </span>
+                      )}
+                    </h3>
+                    <p className="text-xs text-stone-600 mt-0.5">
+                      Configure artwork details, assign categories, manage 4 standard sizes, selling prices, and inventory stock.
+                    </p>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => setModalOpen(false)}
+                    className="p-2 text-stone-500 hover:text-stone-900 hover:bg-stone-100 rounded-full transition-colors cursor-pointer shrink-0"
+                  >
+                    <X className="w-5 h-5" />
+                  </button>
                 </div>
-                <button
-                  type="button"
-                  onClick={() => setModalOpen(false)}
-                  className="p-2 text-stone-500 hover:text-stone-900 hover:bg-stone-100 rounded-full transition-colors cursor-pointer"
-                >
-                  <X className="w-5 h-5" />
-                </button>
+
+                {/* Category Confirmation Card */}
+                <div className="bg-gradient-to-r from-amber-50 via-amber-100/40 to-stone-50 border border-amber-200/90 rounded-2xl p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 rounded-xl bg-amber-400 text-stone-950 flex items-center justify-center font-bold shrink-0">
+                      <Layers className="w-4 h-4 text-stone-900" />
+                    </div>
+                    <div>
+                      <p className="text-[10px] uppercase font-bold text-amber-800 tracking-wider">
+                        Assigned Storefront Collection
+                      </p>
+                      <p className="text-xs font-bold text-stone-900">
+                        {formData.categoryName} <span className="font-mono text-[11px] font-normal text-stone-500">({formData.categorySlug})</span>
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-[10.5px] font-semibold text-emerald-800 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-md flex items-center gap-1">
+                      <CheckCircle2 className="w-3 h-3 text-emerald-600" />
+                      Live Store Collection Mapped
+                    </span>
+                  </div>
+                </div>
               </div>
 
               <form onSubmit={handleSaveProduct} className="space-y-6 text-xs">
@@ -1949,7 +2137,12 @@ export default function AdminProductsPage() {
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <div>
-                      <label className="font-semibold text-stone-800 block mb-1">Primary Category *</label>
+                      <div className="flex items-center justify-between mb-1">
+                        <label className="font-semibold text-stone-800 block">Primary Category *</label>
+                        <span className="text-[10px] font-bold text-amber-900 bg-amber-100 border border-amber-300 px-2 py-0.5 rounded-md">
+                          Selected: {formData.categoryName}
+                        </span>
+                      </div>
                       <select
                         value={formData.categorySlug}
                         onChange={(e) => {
@@ -1962,7 +2155,7 @@ export default function AdminProductsPage() {
                             categorySlugs: Array.from(new Set([val, ...formData.categorySlugs])),
                           });
                         }}
-                        className="w-full px-3 py-2 bg-white border border-stone-300 rounded-xl outline-none text-xs text-stone-900"
+                        className="w-full px-3 py-2 bg-white border-2 border-stone-300 focus:border-amber-500 rounded-xl outline-none text-xs text-stone-900 font-medium"
                       >
                         {INITIAL_CATEGORIES.map((c) => (
                           <option key={c.id} value={c.slug} className="bg-white text-stone-900">
@@ -1970,6 +2163,9 @@ export default function AdminProductsPage() {
                           </option>
                         ))}
                       </select>
+                      <p className="text-[11px] text-stone-500 mt-1">
+                        This product is published under the <strong className="text-stone-900 font-bold">{formData.categoryName}</strong> collection on the website.
+                      </p>
                     </div>
 
                     {/* Main Product Cover Image */}
@@ -2646,6 +2842,11 @@ export default function AdminProductsPage() {
                   className="w-12 h-12 rounded-xl object-cover border border-stone-200 shrink-0"
                 />
                 <div className="min-w-0">
+                  <div className="flex items-center gap-1.5 mb-0.5">
+                    <span className="text-[9.5px] font-bold uppercase text-amber-900 bg-amber-100 border border-amber-300 px-1.5 py-0.2 rounded">
+                      {quickSizeProduct.categoryName}
+                    </span>
+                  </div>
                   <h4 className="font-bold text-xs text-stone-900 truncate">{quickSizeProduct.title}</h4>
                   <p className="text-[11px] text-stone-500">
                     Currently has <span className="font-semibold text-amber-800">{quickSizeProduct.variants?.length || 4}</span> configured sizes
@@ -2788,5 +2989,22 @@ export default function AdminProductsPage() {
         )}
       </div>
     </AdminLayout>
+  );
+}
+
+export default function AdminProductsPage() {
+  return (
+    <Suspense
+      fallback={
+        <AdminLayout>
+          <div className="bg-white rounded-3xl border border-stone-200 p-12 text-center text-xs text-stone-500 max-w-7xl mx-auto mt-6">
+            <Loader2 className="w-6 h-6 animate-spin text-amber-500 mx-auto mb-2" />
+            <p>Loading Product Management Catalog...</p>
+          </div>
+        </AdminLayout>
+      }
+    >
+      <AdminProductsContent />
+    </Suspense>
   );
 }
