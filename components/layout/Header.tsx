@@ -437,20 +437,8 @@ export default function Header() {
               </div>
             </nav>
 
-            {/* Right: Social Channels (WhatsApp, Instagram, YouTube), Search, Wishlist, Cart */}
+            {/* Right: Social Channels (Instagram, YouTube), Search, Wishlist, Cart */}
             <div className="flex items-center gap-1 sm:gap-2 shrink-0">
-              {/* WhatsApp Quick Chat */}
-              <a
-                href="https://wa.me/919032372782?text=Hi%20Abhi%27s%20Gifts%2C%20I%20would%20like%20to%20inquire%20about%20ordering%20a%20personalized%20photo%20frame"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-8 h-8 min-[360px]:w-9 min-[360px]:h-9 sm:w-10 sm:h-10 p-1.5 text-stone-950 bg-[#FEE815] hover:bg-[#FFF04B] border border-[#FEE815] rounded-full transition-all shadow-2xs hover:scale-110 active:scale-95 flex items-center justify-center cursor-pointer"
-                title="Chat on WhatsApp"
-                aria-label="Chat on WhatsApp"
-              >
-                <WhatsAppIcon className="w-4 h-4 sm:w-5 sm:h-5 fill-current shrink-0" />
-              </a>
-
               {/* Instagram Option */}
               <a
                 href="https://www.instagram.com/abhis_gifts_?cplk=MWtkNTJla2s3NTQw"

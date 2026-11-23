@@ -1,5 +1,55 @@
 [
   {
+    "orderId": "AG-2026-60247",
+    "createdAt": "2026-11-22T19:47:15.495Z",
+    "customer": {
+      "fullName": "Sunny Kasani",
+      "mobile": "8548854165",
+      "email": "kasanisunny866@gmail.com",
+      "streetAddress": "1-109\\A,society road,Devinanivari gudem",
+      "apartment": "",
+      "landmark": "ejfg",
+      "city": "Dwaraka Tirumala",
+      "state": "Andhra Pradesh",
+      "pincode": "534426",
+      "_id": "6b0346c34e4bbb1c3757a6e0"
+    },
+    "discountAmount": 0,
+    "items": [
+      {
+        "id": "item-1795376727682-gfl2u",
+        "productId": "6ae89187382113ccb9a542ca",
+        "slug": "motorized-360-rotating-led-cylinder-photo-lamp",
+        "title": "Motorized 360° Rotating Cylindrical LED Photo Lamp",
+        "image": "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/primary-square.jpg",
+        "variantId": "motorized-360-rotating-led-cylinder-photo-lamp-portrait-gold-0.3 sq.ft (5\" × 8\")-5mm",
+        "size": "0.3 sq.ft (5\" × 8\") (PORTRAIT)",
+        "finish": "Gold Frame",
+        "lighting": "Cool White LED Backlighting",
+        "unitPrice": 2499,
+        "unitMrp": 4999,
+        "quantity": 1,
+        "customization": {
+          "selectedModel": "M-18",
+          "previewUrl": "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/primary-square.jpg",
+          "frameType": "gold",
+          "orientation": "vertical",
+          "aspectRatio": "Vertical (2:3)",
+          "specialInstructions": "Shape: PORTRAIT | Finish: Gold Frame | Size: 0.3 sq.ft (5\" × 8\")"
+        },
+        "_id": "6b0346c34e4bbb1c3757a6e1"
+      }
+    ],
+    "orderStatus": "Pending",
+    "paymentMethod": "Razorpay",
+    "paymentStatus": "Pending",
+    "shippingFee": 0,
+    "subtotal": 2499,
+    "totalAmount": 2499,
+    "updatedAt": "2026-11-22T19:47:15.495Z",
+    "id": "AG-2026-60247"
+  },
+  {
     "orderId": "AG-2026-78403",
     "couponCode": "ABHI500",
     "courierPartner": "BlueDart Express",
