@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import {
@@ -89,7 +89,21 @@ export default function CheckoutPage() {
     return false;
   });
 
-  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
+  const [addressError, setAddressError] = useState<string | null>(null);
+  const [paymentError, setPaymentError] = useState<string | null>(null);
+  const [cartError, setCartError] = useState<string | null>(null);
+  const [generalError, setGeneralError] = useState<string | null>(null);
+
+  const addressSectionRef = useRef<HTMLDivElement>(null);
+  const paymentSectionRef = useRef<HTMLDivElement>(null);
+  const cartSectionRef = useRef<HTMLDivElement>(null);
+  const fullNameRef = useRef<HTMLInputElement>(null);
+  const mobileRef = useRef<HTMLInputElement>(null);
+  const streetAddressRef = useRef<HTMLInputElement>(null);
+  const pincodeRef = useRef<HTMLInputElement>(null);
+  const cityRef = useRef<HTMLInputElement>(null);
+  const stateRef = useRef<HTMLInputElement>(null);
 
   // Razorpay Simulator Modal State (for smooth testing before user inputs live API keys)
   const [showSimModal, setShowSimModal] = useState(false);
@@ -178,39 +192,98 @@ export default function CheckoutPage() {
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+    if (fieldErrors[name]) {
+      setFieldErrors((prev) => {
+        const next = { ...prev };
+        delete next[name];
+        return next;
+      });
+    }
+    if (addressError) {
+      setAddressError(null);
+    }
+    if (generalError) {
+      setGeneralError(null);
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setErrorMessage(null);
+    setAddressError(null);
+    setPaymentError(null);
+    setCartError(null);
+    setGeneralError(null);
+    setFieldErrors({});
+
     if (hasOutOfStockFrame) {
-      setErrorMessage('One or more items in your order has an Out of Stock frame finish. Please remove it from cart to proceed.');
+      const msg = 'One or more items in your order has an Out of Stock frame finish. Please remove it from cart to proceed.';
+      setCartError(msg);
+      if (cartSectionRef.current) {
+        cartSectionRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
       return;
     }
 
+    // Comprehensive Delivery Address validation
+    const errors: Record<string, string> = {};
 
-    // Validation
-    if (
-      !formData.fullName.trim() ||
-      !formData.mobile.trim() ||
-      !formData.streetAddress.trim() ||
-      !formData.city.trim() ||
-      !formData.state.trim() ||
-      !formData.pincode.trim()
-    ) {
-      setErrorMessage('Please fill in all mandatory delivery fields marked with *');
-      return;
+    if (!formData.fullName.trim()) {
+      errors.fullName = 'Full Name is required.';
     }
 
     const cleanMobile = formData.mobile.replace(/\D/g, '');
-    if (cleanMobile.length !== 10) {
-      setErrorMessage('Please enter a valid 10-digit mobile number for order updates.');
-      return;
+    if (!formData.mobile.trim()) {
+      errors.mobile = 'Mobile number is required.';
+    } else if (cleanMobile.length !== 10) {
+      errors.mobile = 'Please enter a valid 10-digit mobile number for order updates.';
+    }
+
+    if (!formData.streetAddress.trim()) {
+      errors.streetAddress = 'Street Address is required.';
     }
 
     const cleanPin = formData.pincode.replace(/\D/g, '');
-    if (cleanPin.length !== 6) {
-      setErrorMessage('Please enter a valid 6-digit delivery pincode.');
+    if (!formData.pincode.trim()) {
+      errors.pincode = 'Pincode is required.';
+    } else if (cleanPin.length !== 6) {
+      errors.pincode = 'Please enter a valid 6-digit delivery pincode.';
+    }
+
+    if (!formData.city.trim()) {
+      errors.city = 'City is required.';
+    }
+
+    if (!formData.state.trim()) {
+      errors.state = 'State is required.';
+    }
+
+    if (Object.keys(errors).length > 0) {
+      setFieldErrors(errors);
+      let primaryMsg = 'Please complete all mandatory delivery fields marked with *.';
+      if (errors.pincode && Object.keys(errors).length === 1) {
+        primaryMsg = 'Please enter a valid 6-digit delivery pincode.';
+      } else if (errors.mobile && Object.keys(errors).length === 1) {
+        primaryMsg = 'Please enter a valid 10-digit mobile number for order updates.';
+      } else if (errors.pincode) {
+        primaryMsg = 'Please enter a valid 6-digit delivery pincode.';
+      } else if (errors.mobile) {
+        primaryMsg = 'Please enter a valid 10-digit mobile number for order updates.';
+      }
+      setAddressError(primaryMsg);
+
+      // Smooth scroll to the specific invalid field
+      if (errors.pincode && pincodeRef.current) {
+        pincodeRef.current.focus();
+        pincodeRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } else if (errors.mobile && mobileRef.current) {
+        mobileRef.current.focus();
+        mobileRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } else if (errors.fullName && fullNameRef.current) {
+        fullNameRef.current.focus();
+        fullNameRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } else if (addressSectionRef.current) {
+        addressSectionRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
       return;
     }
 
@@ -386,11 +459,11 @@ export default function CheckoutPage() {
                   clearCart();
                   router.push(`/order-confirmation/${createdOrderId}`);
                 } else {
-                  setErrorMessage('Payment verification error. Please contact store support.');
+                  setPaymentError('Payment verification error. Please contact store support.'); paymentSectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
                   setSubmitting(false);
                 }
               } catch (vErr: any) {
-                setErrorMessage('Error verifying payment: ' + vErr.message);
+                setPaymentError('Error verifying payment: ' + vErr.message); paymentSectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 setSubmitting(false);
               }
             },
@@ -398,7 +471,7 @@ export default function CheckoutPage() {
 
           const razorpay = new (window as any).Razorpay(options);
           razorpay.on('payment.failed', (resp: any) => {
-            setErrorMessage(resp.error?.description || 'Payment was unsuccessful. Please try again.');
+            setPaymentError(resp.error?.description || 'Payment was unsuccessful. Please try again.'); paymentSectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
             setSubmitting(false);
           });
           razorpay.open();
@@ -414,7 +487,7 @@ export default function CheckoutPage() {
         }
       }
     } catch (err: any) {
-      setErrorMessage(err.message || 'An error occurred while creating your order. Please try again.');
+      setGeneralError(err.message || 'An error occurred while creating your order. Please try again.');
       setSubmitting(false);
     }
   };
@@ -440,11 +513,11 @@ export default function CheckoutPage() {
         setShowSimModal(false);
         router.push(`/order-confirmation/${simOrderInfo.orderId}`);
       } else {
-        setErrorMessage(data.error || 'Payment confirmation error.');
+        setPaymentError(data.error || 'Payment confirmation error.'); paymentSectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
         setSubmitting(false);
       }
     } catch (err: any) {
-      setErrorMessage(err.message || 'Payment simulation error.');
+      setPaymentError(err.message || 'Payment simulation error.'); paymentSectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
       setSubmitting(false);
     }
   };
@@ -475,11 +548,21 @@ export default function CheckoutPage() {
         {/* LEFT COLUMN: Address & Payment Selection (7 Cols) */}
         <div className="lg:col-span-7 space-y-6">
           {/* 1. Shipping Address Card */}
-          <div className="bg-white p-6 sm:p-7 rounded-3xl border border-stone-200 shadow-sm space-y-4">
-            <h3 className="font-serif font-bold text-lg text-stone-900 flex items-center gap-2">
-              <Truck className="w-5 h-5 text-amber-600" />
-              <span>1. Delivery Address</span>
-            </h3>
+          <div ref={addressSectionRef} className="bg-white p-6 sm:p-7 rounded-3xl border border-stone-200 shadow-sm space-y-4">
+            <div className="flex items-center justify-between">
+              <h3 className="font-serif font-bold text-lg text-stone-900 flex items-center gap-2">
+                <Truck className="w-5 h-5 text-amber-600" />
+                <span>1. Delivery Address</span>
+              </h3>
+            </div>
+
+            {/* Error Banner displayed in its specific section */}
+            {addressError && (
+              <div className="p-4 bg-rose-50 text-rose-800 border border-rose-200 rounded-2xl text-xs font-medium flex items-center gap-2 animate-in fade-in duration-200">
+                <AlertCircle className="w-4 h-4 text-rose-600 shrink-0" />
+                <span>{addressError}</span>
+              </div>
+            )}
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="sm:col-span-2">
@@ -487,14 +570,24 @@ export default function CheckoutPage() {
                   Full Name *
                 </label>
                 <input
+                  ref={fullNameRef}
                   type="text"
                   name="fullName"
-                  required
                   placeholder="e.g. Vikramaditya Rao"
                   value={formData.fullName}
                   onChange={handleInputChange}
-                  className="w-full px-3.5 py-2.5 text-xs min-h-[44px] bg-white border border-stone-300 rounded-xl outline-none focus:border-amber-500 text-stone-900"
+                  className={`w-full px-3.5 py-2.5 text-xs min-h-[44px] bg-white border rounded-xl outline-none text-stone-900 transition-colors ${
+                    fieldErrors.fullName
+                      ? 'border-rose-400 focus:border-rose-500 bg-rose-50/20 ring-1 ring-rose-400'
+                      : 'border-stone-300 focus:border-amber-500'
+                  }`}
                 />
+                {fieldErrors.fullName && (
+                  <p className="text-[11px] text-rose-600 font-medium mt-1 flex items-center gap-1">
+                    <AlertCircle className="w-3 h-3 text-rose-500 shrink-0" />
+                    <span>{fieldErrors.fullName}</span>
+                  </p>
+                )}
               </div>
 
               <div>
@@ -502,15 +595,25 @@ export default function CheckoutPage() {
                   Mobile / WhatsApp Number *
                 </label>
                 <input
+                  ref={mobileRef}
                   type="tel"
                   name="mobile"
-                  required
                   placeholder="10-digit number (e.g. 9845012345)"
                   maxLength={10}
                   value={formData.mobile}
                   onChange={handleInputChange}
-                  className="w-full px-3.5 py-2.5 text-xs min-h-[44px] bg-white border border-stone-300 rounded-xl outline-none focus:border-amber-500 text-stone-900 font-mono"
+                  className={`w-full px-3.5 py-2.5 text-xs min-h-[44px] bg-white border rounded-xl outline-none text-stone-900 font-mono transition-colors ${
+                    fieldErrors.mobile
+                      ? 'border-rose-400 focus:border-rose-500 bg-rose-50/20 ring-1 ring-rose-400'
+                      : 'border-stone-300 focus:border-amber-500'
+                  }`}
                 />
+                {fieldErrors.mobile && (
+                  <p className="text-[11px] text-rose-600 font-medium mt-1 flex items-center gap-1">
+                    <AlertCircle className="w-3 h-3 text-rose-500 shrink-0" />
+                    <span>{fieldErrors.mobile}</span>
+                  </p>
+                )}
               </div>
 
               <div>
@@ -532,14 +635,24 @@ export default function CheckoutPage() {
                   Street Address (House No, Flat, Street) *
                 </label>
                 <input
+                  ref={streetAddressRef}
                   type="text"
                   name="streetAddress"
-                  required
                   placeholder="e.g. Flat 402, Sri Krishna Residency, Temple Road"
                   value={formData.streetAddress}
                   onChange={handleInputChange}
-                  className="w-full px-3.5 py-2.5 text-xs min-h-[44px] bg-white border border-stone-300 rounded-xl outline-none focus:border-amber-500 text-stone-900"
+                  className={`w-full px-3.5 py-2.5 text-xs min-h-[44px] bg-white border rounded-xl outline-none text-stone-900 transition-colors ${
+                    fieldErrors.streetAddress
+                      ? 'border-rose-400 focus:border-rose-500 bg-rose-50/20 ring-1 ring-rose-400'
+                      : 'border-stone-300 focus:border-amber-500'
+                  }`}
                 />
+                {fieldErrors.streetAddress && (
+                  <p className="text-[11px] text-rose-600 font-medium mt-1 flex items-center gap-1">
+                    <AlertCircle className="w-3 h-3 text-rose-500 shrink-0" />
+                    <span>{fieldErrors.streetAddress}</span>
+                  </p>
+                )}
               </div>
 
               <div>
@@ -561,15 +674,25 @@ export default function CheckoutPage() {
                   Pincode *
                 </label>
                 <input
+                  ref={pincodeRef}
                   type="text"
                   name="pincode"
-                  required
                   placeholder="6-digit pincode"
                   maxLength={6}
                   value={formData.pincode}
                   onChange={handleInputChange}
-                  className="w-full px-3.5 py-2.5 text-xs min-h-[44px] bg-white border border-stone-300 rounded-xl outline-none focus:border-amber-500 text-stone-900 font-mono"
+                  className={`w-full px-3.5 py-2.5 text-xs min-h-[44px] bg-white border rounded-xl outline-none text-stone-900 font-mono transition-colors ${
+                    fieldErrors.pincode
+                      ? 'border-rose-400 focus:border-rose-500 bg-rose-50/20 ring-1 ring-rose-400'
+                      : 'border-stone-300 focus:border-amber-500'
+                  }`}
                 />
+                {fieldErrors.pincode && (
+                  <p className="text-[11px] text-rose-600 font-medium mt-1 flex items-center gap-1">
+                    <AlertCircle className="w-3 h-3 text-rose-500 shrink-0" />
+                    <span>{fieldErrors.pincode}</span>
+                  </p>
+                )}
               </div>
 
               <div>
@@ -577,14 +700,24 @@ export default function CheckoutPage() {
                   City *
                 </label>
                 <input
+                  ref={cityRef}
                   type="text"
                   name="city"
-                  required
                   placeholder="e.g. Hyderabad / Bengaluru / Chennai"
                   value={formData.city}
                   onChange={handleInputChange}
-                  className="w-full px-3.5 py-2.5 text-xs min-h-[44px] bg-white border border-stone-300 rounded-xl outline-none focus:border-amber-500 text-stone-900"
+                  className={`w-full px-3.5 py-2.5 text-xs min-h-[44px] bg-white border rounded-xl outline-none text-stone-900 transition-colors ${
+                    fieldErrors.city
+                      ? 'border-rose-400 focus:border-rose-500 bg-rose-50/20 ring-1 ring-rose-400'
+                      : 'border-stone-300 focus:border-amber-500'
+                  }`}
                 />
+                {fieldErrors.city && (
+                  <p className="text-[11px] text-rose-600 font-medium mt-1 flex items-center gap-1">
+                    <AlertCircle className="w-3 h-3 text-rose-500 shrink-0" />
+                    <span>{fieldErrors.city}</span>
+                  </p>
+                )}
               </div>
 
               <div>
@@ -592,14 +725,24 @@ export default function CheckoutPage() {
                   State *
                 </label>
                 <input
+                  ref={stateRef}
                   type="text"
                   name="state"
-                  required
                   placeholder="e.g. Telangana / Andhra Pradesh / Karnataka"
                   value={formData.state}
                   onChange={handleInputChange}
-                  className="w-full px-3.5 py-2.5 text-xs min-h-[44px] bg-white border border-stone-300 rounded-xl outline-none focus:border-amber-500 text-stone-900"
+                  className={`w-full px-3.5 py-2.5 text-xs min-h-[44px] bg-white border rounded-xl outline-none text-stone-900 transition-colors ${
+                    fieldErrors.state
+                      ? 'border-rose-400 focus:border-rose-500 bg-rose-50/20 ring-1 ring-rose-400'
+                      : 'border-stone-300 focus:border-amber-500'
+                  }`}
                 />
+                {fieldErrors.state && (
+                  <p className="text-[11px] text-rose-600 font-medium mt-1 flex items-center gap-1">
+                    <AlertCircle className="w-3 h-3 text-rose-500 shrink-0" />
+                    <span>{fieldErrors.state}</span>
+                  </p>
+                )}
               </div>
             </div>
 
@@ -618,7 +761,7 @@ export default function CheckoutPage() {
           </div>
 
           {/* 2. Payment & Checkout Method */}
-          <div className="bg-white p-6 sm:p-7 rounded-3xl border border-stone-200 shadow-sm space-y-4">
+          <div ref={paymentSectionRef} className="bg-white p-6 sm:p-7 rounded-3xl border border-stone-200 shadow-sm space-y-4">
             <div className="flex items-center justify-between flex-wrap gap-2">
               <h3 className="font-serif font-bold text-lg text-stone-900 flex items-center gap-2">
                 <CreditCard className="w-5 h-5 text-amber-600" />
@@ -665,24 +808,33 @@ export default function CheckoutPage() {
                 </div>
               </div>
             </div>
-          </div>
 
-          {errorMessage && (
-            <div className="p-4 bg-rose-50 text-rose-800 border border-rose-200 rounded-2xl text-xs font-medium flex items-center gap-2">
-              <AlertCircle className="w-4 h-4 text-rose-600 shrink-0" />
-              <span>{errorMessage}</span>
-            </div>
-          )}
+            {/* Error Banner displayed specifically inside Payment Method section */}
+            {paymentError && (
+              <div className="p-4 bg-rose-50 text-rose-800 border border-rose-200 rounded-2xl text-xs font-medium flex items-center gap-2 animate-in fade-in duration-200">
+                <AlertCircle className="w-4 h-4 text-rose-600 shrink-0" />
+                <span>{paymentError}</span>
+              </div>
+            )}
+          </div>
         </div>
 
         {/* RIGHT COLUMN: Order Review & Instant Price Calculation (5 Cols) */}
-        <div className="lg:col-span-5 bg-white p-6 sm:p-7 rounded-3xl border border-stone-200 shadow-sm space-y-6">
+        <div ref={cartSectionRef} className="lg:col-span-5 bg-white p-6 sm:p-7 rounded-3xl border border-stone-200 shadow-sm space-y-6">
           <div className="flex items-center justify-between border-b border-stone-200 pb-3">
             <h3 className="font-serif font-bold text-lg text-stone-900">
               Review Your Cart ({items.length} items)
             </h3>
             <span className="text-[11px] text-amber-700 font-bold">100% Insured</span>
           </div>
+
+          {/* Cart Error displayed specifically inside Review Cart section */}
+          {cartError && (
+            <div className="p-4 bg-rose-50 text-rose-800 border border-rose-200 rounded-2xl text-xs font-medium flex items-center gap-2 animate-in fade-in duration-200">
+              <AlertCircle className="w-4 h-4 text-rose-600 shrink-0" />
+              <span>{cartError}</span>
+            </div>
+          )}
 
           {/* Cart Item Updates with Quantity Changer */}
           <div className="space-y-3 max-h-72 overflow-y-auto pr-1 divide-y divide-stone-100 text-xs">
@@ -870,6 +1022,31 @@ export default function CheckoutPage() {
 
           {/* Order Completion CTA Button */}
           <div className="space-y-3 pt-2">
+            {generalError && (
+              <div className="p-3.5 bg-rose-50 text-rose-800 border border-rose-200 rounded-2xl text-xs font-medium flex items-center gap-2 animate-in fade-in duration-200">
+                <AlertCircle className="w-4 h-4 text-rose-600 shrink-0" />
+                <span>{generalError}</span>
+              </div>
+            )}
+
+            {addressError && (
+              <div
+                onClick={() => {
+                  if (fieldErrors.pincode && pincodeRef.current) {
+                    pincodeRef.current.focus();
+                  }
+                  addressSectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }}
+                className="p-3 bg-amber-50 text-amber-900 border border-amber-200 rounded-xl text-xs font-medium flex items-center justify-between gap-2 cursor-pointer hover:bg-amber-100/60 transition-colors"
+              >
+                <div className="flex items-center gap-2">
+                  <AlertCircle className="w-4 h-4 text-amber-600 shrink-0" />
+                  <span>Action required in Delivery Address</span>
+                </div>
+                <span className="text-[11px] text-amber-700 font-bold underline">Fix Address ↑</span>
+              </div>
+            )}
+
             <button
               type="submit"
               disabled={submitting}
