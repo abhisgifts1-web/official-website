@@ -1077,7 +1077,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
       : (selectedFrame === 'gold' ? 'Rose Gold Frame' : selectedFrame === 'black' ? 'Black Frame' : `Without Frame (${selectedThickness})`);
     const sqFtVal = currentSizeObj ? getSqFtFromLabel(currentSizeObj.label) : '1.5 sq.ft';
     const cleanDims = currentSizeObj ? formatSizeDisplay(currentSizeObj.label) : '12" × 18"';
-    const sizeLabel = isCustomSize ? `${customSizeCalc.sqFeet} sq.ft (${customSizeCalc.widthInches}" × ${customSizeCalc.heightInches}")` : `${sqFtVal} (${cleanDims})`;
+    const sizeLabel = isCustomSize ? `${customSizeCalc.widthInches}" × ${customSizeCalc.heightInches}" (${customSizeCalc.sqFeet} sq.ft)` : `${cleanDims} (${sqFtVal})`;
 
     addToCart(
       {
@@ -1534,8 +1534,8 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                   Dimensions &amp; Size:{' '}
                   <strong className="text-amber-800 font-serif">
                     {isCustomSize
-                      ? `${customSizeCalc.sqFeet} sq.ft (${customSizeCalc.widthInches}" × ${customSizeCalc.heightInches}") [Custom Size]`
-                      : (currentSizeObj ? `${getSqFtFromLabel(currentSizeObj.label)} (${formatSizeDisplay(currentSizeObj.label)})` : 'Select Size')}
+                      ? `${customSizeCalc.widthInches}" × ${customSizeCalc.heightInches}" (${customSizeCalc.sqFeet} sq.ft) [Custom Size]`
+                      : (currentSizeObj ? `${formatSizeDisplay(currentSizeObj.label)} (${getSqFtFromLabel(currentSizeObj.label)})` : 'Select Size')}
                   </strong>
                 </span>
                 {selectedSizeId && (
@@ -1567,9 +1567,9 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                           : 'border border-stone-200 text-stone-700 bg-stone-50/90 hover:border-amber-400 hover:bg-white hover:-translate-y-0.5 font-medium shadow-2xs active:scale-95'
                       }`}
                     >
-                      <span className="font-bold text-xs sm:text-[13px] text-stone-900">{sqFtText || cleanDisplayLabel}</span>
+                      <span className="font-bold text-xs sm:text-[13px] text-stone-900">{cleanDisplayLabel || sqFtText}</span>
                       {sqFtText ? (
-                        <span className="text-[10px] text-stone-500 font-medium leading-none mt-0.5">{cleanDisplayLabel}</span>
+                        <span className="text-[10px] text-stone-500 font-medium leading-none mt-0.5">{sqFtText}</span>
                       ) : null}
                     </button>
                   );

@@ -1053,7 +1053,14 @@ export default function AddPhotoModal({
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
               {product.variants.map((v) => {
                 const isSelected = !currentSpecs.isCustomSize && currentSpecs.variant.id === v.id;
-                const cleanSize = v.size.split('(')[0].trim();
+                const inchesMatch = v.size.match(/(\d+(?:\.\d+)?)\s*(?:x|×|\*)\s*(\d+(?:\.\d+)?)/i);
+                const inchesDisplay = inchesMatch ? `${inchesMatch[1]}" × ${inchesMatch[2]}"` : v.size.split('(')[0].trim();
+                const sqFtDisplay = v.dimensionsCm?.includes('sq.ft')
+                  ? v.dimensionsCm
+                  : inchesMatch
+                  ? `${(((parseFloat(inchesMatch[1]) * parseFloat(inchesMatch[2])) / 144) % 1 === 0 ? ((parseFloat(inchesMatch[1]) * parseFloat(inchesMatch[2])) / 144).toFixed(0) : ((parseFloat(inchesMatch[1]) * parseFloat(inchesMatch[2])) / 144).toFixed(1))} sq.ft`
+                  : '';
+
                 return (
                   <button
                     key={v.id}
@@ -1065,9 +1072,14 @@ export default function AddPhotoModal({
                         : 'border-stone-200 bg-white text-stone-700 hover:border-amber-300'
                     }`}
                   >
-                    <div className="font-bold text-xs truncate">{cleanSize}</div>
-                    <div className="text-[11px] text-amber-800 font-bold mt-0.5">
-                      ₹{v.price.toLocaleString('en-IN')}
+                    <div className="font-bold text-xs truncate text-stone-900">{inchesDisplay}</div>
+                    <div className="flex items-center justify-between mt-0.5">
+                      {sqFtDisplay && (
+                        <span className="text-[10px] text-stone-500 font-medium">{sqFtDisplay}</span>
+                      )}
+                      <span className="text-[11px] text-amber-800 font-bold ml-auto">
+                        ₹{v.price.toLocaleString('en-IN')}
+                      </span>
                     </div>
                   </button>
                 );

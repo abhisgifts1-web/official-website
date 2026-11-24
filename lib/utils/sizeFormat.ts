@@ -58,7 +58,7 @@ export function formatSizeWithSqFt(sizeStr: string): string {
     return sizeStr.replace(/sq\s*ft/gi, 'sq.ft').replace(/sqft/gi, 'sq.ft');
   }
   const sqFtStr = formatSqFtNumber(dims.sqFt);
-  return `${sqFtStr} (${dims.width}" × ${dims.height}")`;
+  return `${dims.width}" × ${dims.height}" (${sqFtStr})`;
 }
 
 /**
