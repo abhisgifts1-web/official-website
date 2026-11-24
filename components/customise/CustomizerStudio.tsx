@@ -1461,17 +1461,17 @@ export default function CustomizerStudio() {
                 <button
                   type="button"
                   onClick={handleOrderNow}
-                  className="w-full bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 hover:from-amber-300 hover:to-amber-500 text-stone-950 font-bold py-3.5 rounded-xl text-sm shadow-md transition-all cursor-pointer flex items-center justify-center gap-2 uppercase tracking-wider"
+                  className="btn-luxury-primary btn-shimmer-sweep btn-press-bounce group w-full py-4 rounded-2xl text-sm font-black flex items-center justify-center gap-2.5 uppercase tracking-wider shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 cursor-pointer"
                 >
                   <span>{isSelectedFinishOutOfStock ? 'Frame Finish Out of Stock' : `Order Now • ₹${pricing.price.toLocaleString('en-IN')}`}</span>
-                  <ArrowRight className="w-4 h-4 text-stone-950" />
+                  <ArrowRight className="w-4 h-4 text-stone-950 group-hover:translate-x-1.5 transition-transform duration-300 shrink-0 icon-bounce-right" />
                 </button>
 
                 <button
                   type="button"
                   onClick={handleWhatsAppInquiry}
                   disabled={waUploading}
-                  className="w-full bg-[#FEE815]/20 hover:bg-[#FEE815]/35 text-stone-950 border border-[#FEE815] py-2.5 rounded-xl font-bold text-xs shadow-xs transition-all cursor-pointer flex items-center justify-center gap-2 disabled:opacity-60"
+                  className="btn-luxury-whatsapp btn-shimmer-sweep btn-press-bounce group w-full py-3.5 px-4 rounded-2xl font-bold text-xs shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer flex items-center justify-center gap-2 disabled:opacity-60"
                 >
                   {waUploading ? (
                     <>
@@ -1670,7 +1670,7 @@ export default function CustomizerStudio() {
               type="button"
               onClick={handleWhatsAppInquiry}
               disabled={waUploading}
-              className="bg-[#FEE815] hover:bg-[#FFF04B] text-black font-extrabold text-xs sm:text-sm px-7 py-3.5 rounded-full shadow-md hover:shadow-[#FEE815]/30 transition-all flex items-center gap-2 uppercase tracking-wider cursor-pointer disabled:opacity-60"
+              className="btn-luxury-whatsapp btn-shimmer-sweep btn-press-bounce group text-stone-950 font-black text-xs sm:text-sm px-8 py-3.5 rounded-full shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 flex items-center gap-2 uppercase tracking-wider cursor-pointer disabled:opacity-60"
             >
               {waUploading ? (
                 <>
@@ -1687,7 +1687,7 @@ export default function CustomizerStudio() {
 
             <a
               href="tel:919032372782"
-              className="bg-white hover:bg-stone-50 text-stone-900 border border-stone-300 font-bold text-xs sm:text-sm px-6 py-3.5 rounded-full transition-colors flex items-center gap-2 uppercase tracking-wider shadow-xs"
+              className="btn-luxury-dark btn-shimmer-sweep btn-press-bounce group text-white border border-stone-700 font-bold text-xs sm:text-sm px-7 py-3.5 rounded-full shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex items-center gap-2 uppercase tracking-wider cursor-pointer"
             >
               <PhoneCall className="w-4 h-4 text-amber-600" />
               <span>Call +91 90323 72782</span>

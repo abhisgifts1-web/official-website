@@ -750,18 +750,19 @@ export default function PersonalizedPhotoSection() {
             <div className="flex flex-wrap items-center gap-3 shrink-0">
               <Link
                 href="/customise"
-                className="bg-[#FEE815] hover:bg-[#FFF04B] text-[#FFFFFF] font-bold text-xs sm:text-sm px-6 py-3 rounded-full shadow-md transition-all hover:scale-105 uppercase tracking-wider"
+                className="btn-luxury-primary btn-shimmer-sweep btn-press-bounce group text-stone-950 font-black text-xs sm:text-sm px-7 py-3.5 rounded-full shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 uppercase tracking-wider inline-flex items-center gap-2 cursor-pointer"
               >
-                Launch Customizer →
+                <span>Launch Customizer</span>
+                <ArrowRight className="w-4 h-4 text-stone-950 group-hover:translate-x-1.5 transition-transform duration-300 shrink-0 icon-bounce-right" />
               </Link>
 
               <a
                 href={whatsappInquiryUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-white/10 hover:bg-white/20 text-[#FFFFFF] border border-white/30 font-bold text-xs sm:text-sm px-5 py-3 rounded-full transition-colors flex items-center gap-1.5 uppercase tracking-wider"
+                className="btn-luxury-whatsapp btn-shimmer-sweep btn-press-bounce group text-stone-950 font-bold text-xs sm:text-sm px-6 py-3.5 rounded-full shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex items-center gap-2 uppercase tracking-wider cursor-pointer"
               >
-                <MessageCircle className="w-4 h-4 text-[#FEE815]" />
+                <MessageCircle className="w-4 h-4 text-stone-950 fill-stone-950 group-hover:scale-115 transition-transform duration-200" />
                 <span>Chat on WhatsApp</span>
               </a>
             </div>

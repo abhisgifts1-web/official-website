@@ -201,18 +201,18 @@ export default function HeroShowcase() {
               {/* Primary CTA */}
               <Link
                 href="/shop"
-                className="group relative inline-flex items-center justify-center gap-2.5 px-7 py-3.5 sm:px-8 sm:py-4 rounded-full bg-gradient-to-r from-[#F5D061] via-[#FEE815] to-[#D97706] hover:from-[#FFF04B] hover:to-[#FEE815] text-stone-950 font-bold text-sm sm:text-base shadow-lg shadow-amber-500/25 hover:shadow-xl hover:shadow-amber-500/40 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 cursor-pointer text-center"
+                className="btn-luxury-primary btn-shimmer-sweep btn-press-bounce group relative inline-flex items-center justify-center gap-2.5 px-7 py-3.5 sm:px-8 sm:py-4 rounded-full font-bold text-sm sm:text-base shadow-xl shadow-amber-500/30 hover:shadow-2xl hover:shadow-amber-400/50 hover:-translate-y-1 transition-all duration-300 cursor-pointer text-center"
               >
                 <span>Explore Collections</span>
-                <ArrowRight className="w-4 h-4 text-stone-950 group-hover:translate-x-1.5 transition-transform duration-300 shrink-0" />
+                <ArrowRight className="w-4 h-4 text-stone-950 group-hover:translate-x-2 transition-transform duration-300 shrink-0 icon-bounce-right" />
               </Link>
 
               {/* Secondary CTA */}
               <Link
                 href="/shop"
-                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 sm:px-8 sm:py-4 rounded-full bg-white/[0.06] hover:bg-white/[0.12] text-white hover:text-amber-200 font-semibold text-sm sm:text-base border border-amber-400/40 hover:border-amber-300/80 backdrop-blur-md hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 cursor-pointer text-center shadow-xs"
+                className="btn-luxury-dark btn-shimmer-sweep btn-press-bounce group inline-flex items-center justify-center gap-2 px-7 py-3.5 sm:px-8 sm:py-4 rounded-full text-white hover:text-amber-200 font-semibold text-sm sm:text-base border border-amber-400/40 hover:border-amber-300/80 backdrop-blur-md hover:-translate-y-1 transition-all duration-300 cursor-pointer text-center shadow-md hover:shadow-xl"
               >
-                <Flame className="w-4 h-4 text-amber-400 shrink-0" />
+                <Flame className="w-4 h-4 text-amber-400 shrink-0 group-hover:scale-125 group-hover:rotate-12 transition-transform duration-300 icon-pulse-sparkle" />
                 <span>Trending Bestsellers</span>
               </Link>
             </div>

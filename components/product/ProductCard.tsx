@@ -110,7 +110,7 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
   return (
     <>
       <div
-        className="group relative flex flex-col h-full bg-white rounded-2xl overflow-hidden border border-stone-200 hover:border-[#FEE815] shadow-[0_2px_10px_rgba(0,0,0,0.06)] hover:shadow-[0_12px_28px_rgba(254,232,21,0.25)] transition-all duration-300 hover:-translate-y-1 focus-within:ring-2 focus-within:ring-[#FEE815]/50"
+        className="card-interactive-transform group relative flex flex-col h-full bg-white rounded-2xl overflow-hidden border border-stone-200 hover:border-[#FEE815] shadow-[0_2px_10px_rgba(0,0,0,0.06)] hover:shadow-[0_16px_36px_-8px_rgba(0,0,0,0.12),0_0_24px_rgba(254,232,21,0.28)] transition-all duration-300 hover:-translate-y-1.5 focus-within:ring-2 focus-within:ring-[#FEE815]/50"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
@@ -128,7 +128,7 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
                 src={displayImage}
                 alt={product.title}
                 onError={() => setImgError(true)}
-                className={`w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-106 ${
+                className={`w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-108 img-zoom-transform ${
                   product.hasLedBacklight ? 'led-glow-warm' : ''
                 }`}
                 loading={priority ? 'eager' : 'lazy'}
@@ -169,7 +169,7 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
           <button
             type="button"
             onClick={handleWishlistToggle}
-            className={`absolute top-2 right-2 w-7 h-7 sm:w-9 sm:h-9 flex items-center justify-center p-1.5 sm:p-2 rounded-full transition-all duration-200 z-10 shadow-sm outline-none focus-visible:ring-2 focus-visible:ring-[#FEE815] cursor-pointer ${
+            className={`btn-press-bounce absolute top-2 right-2 w-7 h-7 sm:w-9 sm:h-9 flex items-center justify-center p-1.5 sm:p-2 rounded-full transition-all duration-200 z-10 shadow-sm outline-none focus-visible:ring-2 focus-visible:ring-[#FEE815] cursor-pointer ${
               wishlisted
                 ? 'bg-[#FEE815] text-black border border-[#FEE815] scale-105 shadow-sm'
                 : 'bg-white/90 backdrop-blur-sm text-stone-700 hover:text-black hover:bg-[#FEE815] hover:scale-105 border border-stone-200'
@@ -188,7 +188,7 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
               setIsQuickViewOpen(true);
             }}
             aria-label={`Quick view ${product.title}`}
-            className="absolute bottom-2 left-1/2 -translate-x-1/2 hidden md:inline-flex items-center gap-1 px-3 py-1 rounded-full bg-white/95 hover:bg-[#FEE815] hover:text-black text-stone-900 font-semibold text-[11px] shadow-md backdrop-blur-md opacity-0 group-hover:opacity-100 transition-all duration-300 hover:scale-105 border border-stone-200 z-10 cursor-pointer"
+            className="btn-shimmer-sweep btn-press-bounce absolute bottom-2.5 left-1/2 -translate-x-1/2 hidden md:inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/95 hover:bg-[#FEE815] hover:text-black text-stone-900 font-bold text-[11px] shadow-lg backdrop-blur-md opacity-0 group-hover:opacity-100 transition-all duration-300 hover:scale-108 border border-stone-200 z-10 cursor-pointer translate-y-2 group-hover:translate-y-0"
           >
             <Eye className="w-3 h-3 text-stone-950" />
             <span>Quick View</span>
@@ -239,7 +239,7 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
               title="View"
             >
               <span>View</span>
-              <ArrowRight className="w-3.5 h-3.5 text-black group-hover:translate-x-1 transition-transform duration-200 shrink-0" />
+              <ArrowRight className="w-3.5 h-3.5 text-black group-hover:translate-x-1.5 transition-transform duration-300 shrink-0 icon-bounce-right" />
             </Link>
           </div>
         </div>

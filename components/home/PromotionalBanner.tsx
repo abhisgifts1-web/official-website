@@ -98,19 +98,19 @@ export default function PromotionalBanner() {
             <div className="pt-3 flex flex-wrap items-center gap-3">
               <Link
                 href={offer.buttonLink || '/shop'}
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[#FEE815] hover:bg-[#FFF04B] text-black font-bold text-xs sm:text-sm shadow-md transition-all hover:scale-105 active:scale-95"
+                className="btn-luxury-primary btn-shimmer-sweep btn-press-bounce group inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full text-stone-950 font-black text-xs sm:text-sm shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 cursor-pointer"
               >
                 <span>{offer.buttonText || 'Shop All Offers Now'}</span>
-                <ArrowRight className="w-4 h-4 text-black" />
+                <ArrowRight className="w-4 h-4 text-stone-950 group-hover:translate-x-1.5 transition-transform duration-300 icon-bounce-right" />
               </Link>
 
               <a
                 href={waUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-white font-semibold text-xs sm:text-sm border border-white/20 backdrop-blur-md transition-colors"
+                className="btn-luxury-whatsapp btn-shimmer-sweep btn-press-bounce group inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full text-stone-950 font-bold text-xs sm:text-sm shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer"
               >
-                <MessageCircle className="w-4 h-4 text-[#25D366]" />
+                <MessageCircle className="w-4 h-4 text-stone-950 fill-stone-950 group-hover:scale-115 transition-transform duration-200" />
                 <span>{offer.whatsappCtaText || 'Claim Offer on WhatsApp'}</span>
               </a>
             </div>

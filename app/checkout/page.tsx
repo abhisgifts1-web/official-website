@@ -1287,7 +1287,7 @@ export default function CheckoutPage() {
               className={`w-full py-4 rounded-2xl text-sm sm:text-base flex items-center justify-center gap-2.5 uppercase tracking-wider ${
                 submitting
                   ? 'bg-stone-300 text-stone-500 cursor-not-allowed font-black'
-                  : 'btn-luxury-primary btn-shimmer-sweep group cursor-pointer'
+                  : 'btn-luxury-primary btn-shimmer-sweep btn-press-bounce group cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-300'
               }`}
             >
               {submitting ? (

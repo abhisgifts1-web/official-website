@@ -466,11 +466,11 @@ export default function Header() {
               {/* Attractive Luxury Wishlist Button */}
               <Link
                 href="/wishlist"
-                className="group relative flex items-center justify-center w-9 h-9 min-[360px]:w-10 min-[360px]:h-10 sm:w-11 sm:h-11 rounded-2xl bg-gradient-to-b from-[#222222] to-[#121212] hover:from-[#2A2A2A] hover:to-[#181818] border border-[#333333] hover:border-[#FEE815]/60 text-[#FFFFFF] hover:text-[#FEE815] shadow-md shadow-black/40 transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer"
+                className="btn-press-bounce group relative flex items-center justify-center w-9 h-9 min-[360px]:w-10 min-[360px]:h-10 sm:w-11 sm:h-11 rounded-2xl bg-gradient-to-b from-[#222222] to-[#121212] hover:from-[#2A2A2A] hover:to-[#181818] border border-[#333333] hover:border-[#FEE815]/60 text-[#FFFFFF] hover:text-[#FEE815] shadow-md shadow-black/40 transition-all duration-300 hover:scale-108 active:scale-95 cursor-pointer"
                 aria-label="Wishlist"
                 title="View Saved Wishlist"
               >
-                <Heart className="w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-300 group-hover:scale-110 group-hover:fill-[#FEE815]/20" />
+                <Heart className="w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-300 group-hover:scale-120 group-hover:fill-[#FEE815]/30 icon-beat-heart" />
                 {wishlistCount > 0 && (
                   <span className="absolute -top-1.5 -right-1.5 bg-[#FEE815] text-stone-950 text-[10px] font-black min-w-[20px] h-[20px] px-1 rounded-full flex items-center justify-center ring-2 ring-[#0D0D0D] shadow-[0_2px_8px_rgba(254,232,21,0.5)] animate-in zoom-in-75">
                     {wishlistCount}
@@ -482,11 +482,11 @@ export default function Header() {
               <button
                 type="button"
                 onClick={openCart}
-                className="group relative flex items-center justify-center gap-2 h-9 min-[360px]:h-10 px-3 sm:h-11 sm:px-4 rounded-2xl bg-gradient-to-r from-[#FEE815] via-[#FFF04B] to-[#FEE815] hover:from-[#FFF04B] hover:to-[#FEE815] text-stone-950 font-extrabold shadow-[0_2px_14px_rgba(254,232,21,0.4)] hover:shadow-[0_4px_22px_rgba(254,232,21,0.6)] hover:scale-[1.04] active:scale-95 transition-all duration-300 cursor-pointer"
+                className="btn-shimmer-sweep btn-press-bounce group relative flex items-center justify-center gap-2 h-9 min-[360px]:h-10 px-3 sm:h-11 sm:px-4 rounded-2xl bg-gradient-to-r from-[#FEE815] via-[#FFF04B] to-[#FEE815] hover:from-[#FFF04B] hover:to-[#FEE815] text-stone-950 font-extrabold shadow-[0_2px_14px_rgba(254,232,21,0.45)] hover:shadow-[0_4px_24px_rgba(254,232,21,0.7)] hover:scale-[1.05] active:scale-95 transition-all duration-300 cursor-pointer"
                 aria-label="Shopping Cart"
                 title="View Shopping Bag"
               >
-                <ShoppingBag className="w-4 h-4 sm:w-[18px] sm:h-[18px] text-stone-950 shrink-0 transition-transform duration-300 group-hover:scale-110" />
+                <ShoppingBag className="w-4 h-4 sm:w-[18px] sm:h-[18px] text-stone-950 shrink-0 transition-transform duration-300 group-hover:scale-115 group-hover:-rotate-8 icon-tilt-bag" />
                 <span className="hidden sm:inline-block text-xs font-serif font-black tracking-wider uppercase text-stone-950">
                   Cart
                 </span>

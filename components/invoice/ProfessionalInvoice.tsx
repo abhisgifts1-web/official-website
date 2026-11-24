@@ -50,7 +50,7 @@ export default function ProfessionalInvoice({ order, showPrintButton = false }: 
           <button
             type="button"
             onClick={handlePrint}
-            className="btn-luxury-primary btn-shimmer-sweep group px-5 py-2.5 rounded-xl text-xs flex items-center gap-2 cursor-pointer shadow-sm uppercase tracking-wider"
+            className="btn-luxury-primary btn-shimmer-sweep btn-press-bounce group px-5 py-2.5 rounded-xl text-xs flex items-center gap-2 cursor-pointer shadow-sm hover:shadow-lg transition-all duration-300 uppercase tracking-wider"
           >
             <Printer className="w-4 h-4 text-stone-950 group-hover:scale-110 transition-transform" />
             <span>Print / Save PDF</span>

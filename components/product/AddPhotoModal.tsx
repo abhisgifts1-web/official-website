@@ -1126,7 +1126,7 @@ export default function AddPhotoModal({
                   type="button"
                   onClick={() => !isGoldOutOfStock && handleSelectFrameColor('gold')}
                   disabled={isGoldOutOfStock}
-                  className={`relative group p-3 sm:p-3.5 rounded-2xl text-center transition-all duration-200 flex flex-col items-center justify-center cursor-pointer ${
+                  className={`frame-card-hover btn-press-bounce relative group p-3 sm:p-3.5 rounded-2xl text-center transition-all duration-200 flex flex-col items-center justify-center cursor-pointer ${
                     isGoldOutOfStock
                       ? 'border border-stone-200 bg-stone-100/70 text-stone-400 opacity-50 cursor-not-allowed'
                       : (currentSpecs.frame || selectedFrame) === 'gold'
@@ -1155,7 +1155,7 @@ export default function AddPhotoModal({
                   type="button"
                   onClick={() => !isBlackOutOfStock && handleSelectFrameColor('black')}
                   disabled={isBlackOutOfStock}
-                  className={`relative group p-3 sm:p-3.5 rounded-2xl text-center transition-all duration-200 flex flex-col items-center justify-center cursor-pointer ${
+                  className={`frame-card-hover btn-press-bounce relative group p-3 sm:p-3.5 rounded-2xl text-center transition-all duration-200 flex flex-col items-center justify-center cursor-pointer ${
                     isBlackOutOfStock
                       ? 'border border-stone-200 bg-stone-100/70 text-stone-400 opacity-50 cursor-not-allowed'
                       : (currentSpecs.frame || selectedFrame) === 'black'
@@ -1255,7 +1255,7 @@ export default function AddPhotoModal({
             <button
               type="button"
               onClick={() => handleAddToCartWithPhoto(false)}
-              className="btn-luxury-primary btn-shimmer-sweep group w-full py-3 px-4 rounded-xl text-xs flex items-center justify-center gap-2 cursor-pointer shadow-md"
+              className="btn-luxury-primary btn-shimmer-sweep btn-press-bounce group w-full py-3 px-4 rounded-xl text-xs flex items-center justify-center gap-2 cursor-pointer shadow-md hover:shadow-xl transition-all duration-300"
             >
               {addedSuccess ? (
                 <>
@@ -1278,7 +1278,7 @@ export default function AddPhotoModal({
               type="button"
               onClick={() => handleAddToCartWithPhoto(true)}
               disabled={hasOutOfStockFrame}
-              className={`btn-luxury-dark btn-shimmer-sweep group w-full py-3 px-4 rounded-xl text-xs flex items-center justify-center gap-2 cursor-pointer shadow-sm ${
+              className={`btn-luxury-dark btn-shimmer-sweep btn-press-bounce group w-full py-3 px-4 rounded-xl text-xs flex items-center justify-center gap-2 cursor-pointer shadow-sm hover:shadow-lg transition-all duration-300 ${
                 hasOutOfStockFrame ? 'opacity-50 cursor-not-allowed' : ''
               }`}
             >

@@ -59,10 +59,10 @@ export default function MobileBottomNav() {
         <div className="flex flex-col items-center justify-center -mt-4">
           <Link
             href="/collections"
-            className="group relative flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-r from-[#FEE815] via-[#FFF04B] to-[#FEE815] text-stone-950 shadow-[0_2px_14px_rgba(254,232,21,0.5)] border-2 border-[#121212] transition-transform active:scale-95"
+            className="btn-shimmer-sweep btn-press-bounce animate-pill-glow group relative flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-r from-[#FEE815] via-[#FFF04B] to-[#FEE815] text-stone-950 shadow-[0_2px_14px_rgba(254,232,21,0.55)] border-2 border-[#121212] transition-all duration-200 active:scale-90 hover:scale-110"
             aria-label="Explore Art Collections"
           >
-            <Layers className="w-5 h-5 text-stone-950" />
+            <Layers className="w-5 h-5 text-stone-950 group-hover:scale-115 group-hover:rotate-6 transition-transform duration-200" />
           </Link>
           <span
             className={`text-[9.5px] font-bold tracking-tight mt-0.5 ${

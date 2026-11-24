@@ -315,7 +315,7 @@ export default function CartPage() {
               className={`w-full py-3.5 rounded-xl text-sm flex items-center justify-center gap-2 uppercase tracking-wider ${
                 hasOutOfStockFrame
                   ? 'bg-stone-200 text-stone-400 border border-stone-300 cursor-not-allowed shadow-none font-bold'
-                  : 'btn-luxury-primary btn-shimmer-sweep group cursor-pointer'
+                  : 'btn-luxury-primary btn-shimmer-sweep btn-press-bounce group cursor-pointer shadow-md hover:shadow-xl transition-all duration-300'
               }`}
             >
               <span>{hasOutOfStockFrame ? 'Cannot Checkout (Out of Stock Frame)' : 'Proceed to Checkout'}</span>

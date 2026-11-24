@@ -199,11 +199,11 @@ export default function WhatsAppEnquirySection() {
               href={getWhatsAppUrl()}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full py-3 px-4 rounded-xl bg-[#25D366] hover:bg-[#20ba59] active:bg-[#1da850] text-stone-950 font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-md hover:shadow-lg transition-all cursor-pointer"
+              className="btn-luxury-whatsapp btn-shimmer-sweep btn-press-bounce group w-full py-3.5 px-5 rounded-2xl text-stone-950 font-black text-xs sm:text-sm flex items-center justify-center gap-2.5 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 cursor-pointer"
             >
               <MessageCircle className="w-4 h-4 fill-stone-950 text-[#25D366]" />
               <span>Send Enquiry on WhatsApp (+91 90323 72782)</span>
-              <Send className="w-3.5 h-3.5" />
+              <Send className="w-4 h-4 group-hover:translate-x-1.5 group-hover:-translate-y-0.5 transition-transform duration-300 shrink-0 icon-bounce-right" />
             </a>
 
             <div className="flex items-center justify-between text-[11px] text-stone-400 pt-1">

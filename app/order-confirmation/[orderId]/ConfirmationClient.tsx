@@ -88,7 +88,7 @@ export default function ConfirmationClient({ order }: Props) {
           <div className="flex flex-wrap items-center justify-center gap-3 pt-4">
             <Link
               href="/shop"
-              className="bg-stone-900 hover:bg-stone-950 text-white text-xs font-semibold px-6 py-3 rounded-full flex items-center gap-2 shadow-sm transition-colors"
+              className="btn-luxury-dark btn-shimmer-sweep btn-press-bounce group text-white text-xs font-bold px-6 py-3 rounded-full flex items-center gap-2 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
             >
               <Package className="w-4 h-4 text-amber-400" />
               <span>Continue Shopping</span>
@@ -98,7 +98,7 @@ export default function ConfirmationClient({ order }: Props) {
               href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-[#FEE815] hover:bg-[#FFF04B] text-[#000000] text-xs font-bold px-6 py-3 rounded-full flex items-center gap-2 transition-colors shadow-sm"
+              className="btn-luxury-whatsapp btn-shimmer-sweep btn-press-bounce group text-stone-950 text-xs font-bold px-6 py-3 rounded-full flex items-center gap-2 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
             >
               <MessageCircle className="w-4 h-4" />
               <span>Chat on WhatsApp with this Order</span>
@@ -107,7 +107,7 @@ export default function ConfirmationClient({ order }: Props) {
             <button
               type="button"
               onClick={handlePrint}
-              className="btn-luxury-primary btn-shimmer-sweep group px-5 py-3 rounded-full text-xs flex items-center gap-2 cursor-pointer shadow-sm uppercase tracking-wider"
+              className="btn-luxury-primary btn-shimmer-sweep btn-press-bounce group px-5 py-3 rounded-full text-xs font-bold flex items-center gap-2 cursor-pointer shadow-md hover:shadow-xl uppercase tracking-wider transition-all duration-300 hover:-translate-y-0.5"
               title="Print Professional Tax Invoice"
             >
               <Printer className="w-4 h-4 text-stone-950 group-hover:scale-110 transition-transform" />
@@ -117,7 +117,7 @@ export default function ConfirmationClient({ order }: Props) {
             <button
               type="button"
               onClick={() => setShowInvoiceModal(true)}
-              className="bg-stone-100 hover:bg-stone-200 text-stone-800 text-xs font-semibold px-5 py-3 rounded-full flex items-center gap-2 transition-colors cursor-pointer"
+              className="btn-luxury-studio btn-shimmer-sweep btn-press-bounce group text-stone-900 text-xs font-bold px-5 py-3 rounded-full flex items-center gap-2 shadow-xs hover:shadow-md transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
             >
               <FileText className="w-4 h-4 text-stone-600" />
               <span>View Tax Invoice</span>

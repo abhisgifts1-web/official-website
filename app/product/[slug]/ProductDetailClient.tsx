@@ -1645,7 +1645,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                       type="button"
                       onClick={() => !isGoldOutOfStock && handleSelectFrame('gold')}
                       disabled={isGoldOutOfStock}
-                      className={`relative group p-3.5 sm:p-4 rounded-2xl text-center transition-all duration-200 flex flex-col items-center justify-center cursor-pointer ${
+                      className={`frame-card-hover btn-press-bounce relative group p-3.5 sm:p-4 rounded-2xl text-center transition-all duration-200 flex flex-col items-center justify-center cursor-pointer ${
                         isGoldOutOfStock
                           ? 'border border-stone-200 bg-stone-100/70 text-stone-400 opacity-50 cursor-not-allowed'
                           : selectedFrame === 'gold'
@@ -1676,7 +1676,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                       type="button"
                       onClick={() => !isBlackOutOfStock && handleSelectFrame('black')}
                       disabled={isBlackOutOfStock}
-                      className={`relative group p-3.5 sm:p-4 rounded-2xl text-center transition-all duration-200 flex flex-col items-center justify-center cursor-pointer ${
+                      className={`frame-card-hover btn-press-bounce relative group p-3.5 sm:p-4 rounded-2xl text-center transition-all duration-200 flex flex-col items-center justify-center cursor-pointer ${
                         isBlackOutOfStock
                           ? 'border border-stone-200 bg-stone-100/70 text-stone-400 opacity-50 cursor-not-allowed'
                           : selectedFrame === 'black'
@@ -1716,7 +1716,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
               <button
                 type="button"
                 onClick={() => setIsCustomizerOpen(true)}
-                className="btn-luxury-studio btn-shimmer-sweep group w-full py-3.5 px-4 rounded-2xl font-bold text-xs sm:text-sm flex items-center justify-center gap-2.5 cursor-pointer shadow-xs hover:shadow-md"
+                className="btn-luxury-studio btn-shimmer-sweep btn-press-bounce group w-full py-3.5 px-4 rounded-2xl font-bold text-xs sm:text-sm flex items-center justify-center gap-2.5 cursor-pointer shadow-xs hover:shadow-lg transition-all duration-300"
                 title={`Customise photo and size for ${product.title}`}
               >
                 <div className="w-7 h-7 rounded-xl bg-gradient-to-tr from-[#FFF04B] to-[#FEE815] border border-amber-300 flex items-center justify-center shadow-xs shrink-0 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
@@ -1758,7 +1758,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                   <button
                     type="button"
                     onClick={handleAddToCart}
-                    className="btn-luxury-dark btn-shimmer-sweep group flex-1 h-11 sm:h-12 rounded-xl text-xs sm:text-sm flex items-center justify-center gap-2 cursor-pointer"
+                    className="btn-luxury-dark btn-shimmer-sweep btn-press-bounce group flex-1 h-11 sm:h-12 rounded-xl text-xs sm:text-sm flex items-center justify-center gap-2 cursor-pointer transition-all duration-300 shadow-md hover:shadow-xl"
                   >
                     <ShoppingBag className="w-4 h-4 text-[#FEE815] group-hover:scale-115 group-hover:-rotate-12 transition-transform duration-300 shrink-0" />
                     <span className="tracking-wide">{isSelectedFrameOutOfStock ? 'Frame Out of Stock' : 'Add to Cart'}</span>
@@ -1769,7 +1769,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                 <button
                   type="button"
                   onClick={handleBuyNow}
-                  className="btn-luxury-primary btn-shimmer-sweep group w-full sm:flex-1 h-11 sm:h-12 rounded-xl text-xs sm:text-sm flex items-center justify-center gap-2 cursor-pointer uppercase tracking-wider"
+                  className="btn-luxury-primary btn-shimmer-sweep btn-press-bounce group w-full sm:flex-1 h-11 sm:h-12 rounded-xl text-xs sm:text-sm flex items-center justify-center gap-2 cursor-pointer uppercase tracking-wider transition-all duration-300 shadow-lg hover:shadow-2xl"
                 >
                   <span>{isSelectedFrameOutOfStock ? 'Sold Out' : 'Proceed to Checkout'}</span>
                   <ArrowRight className="w-4 h-4 text-stone-950 group-hover:translate-x-1.5 transition-transform duration-300 shrink-0" />
@@ -1782,9 +1782,9 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                   href={whatsappCustomSizeUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-xs font-semibold text-stone-700 hover:text-emerald-800 bg-emerald-50/80 hover:bg-emerald-100 border border-emerald-200/90 hover:border-emerald-300 py-2 px-4 rounded-full shadow-2xs hover:shadow-xs transition-all duration-300 hover:-translate-y-0.5 active:scale-95 group"
+                  className="btn-luxury-whatsapp btn-shimmer-sweep btn-press-bounce group inline-flex items-center gap-2 text-xs font-bold text-stone-950 py-2.5 px-5 rounded-full shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
                 >
-                  <MessageCircle className="w-4 h-4 text-[#25D366] fill-[#25D366] group-hover:scale-110 transition-transform duration-200" />
+                  <MessageCircle className="w-4 h-4 text-stone-950 fill-stone-950 group-hover:scale-115 transition-transform duration-200" />
                   <span>
                     {isCustomSize
                       ? 'Need custom sizing advice? Chat with Us on WhatsApp'
