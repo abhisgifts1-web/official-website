@@ -29,6 +29,7 @@ import {
 import AdminLayout from '@/components/admin/AdminLayout';
 import { formatSizeWithSqFt } from '@/lib/utils/sizeFormat';
 import { Order } from '@/types';
+import { getAdminOrderNotificationUrl } from '@/lib/whatsapp';
 
 export interface CustomerAggregated {
   id: string;
@@ -478,7 +479,7 @@ export default function AdminCustomersPage() {
                     const cleanPhone = c.mobile.replace(/[^0-9]/g, '');
                     const waPhone = cleanPhone.length === 10 ? `91${cleanPhone}` : cleanPhone;
                     const waUrl = `https://wa.me/${waPhone}?text=${encodeURIComponent(
-                      `Hello ${c.fullName}! Thank you for choosing Abhi's Gifts. Let us know if you need assistance with your order #${c.lastOrderId}.`
+                      `Namaste ${c.fullName}! 🙏 This is Abhi's Gifts (Dilsukhnagar, Hyderabad) regarding your order #${c.lastOrderId}. Please let us know if you need any assistance, digital preview approval, or artwork customization!`
                     )}`;
 
                     const initials = c.fullName
@@ -680,7 +681,7 @@ export default function AdminCustomersPage() {
                     const cleanPhone = selectedCustomer.mobile.replace(/[^0-9]/g, '');
                     const waPhone = cleanPhone.length === 10 ? `91${cleanPhone}` : cleanPhone;
                     const waUrl = `https://wa.me/${waPhone}?text=${encodeURIComponent(
-                      `Hello ${selectedCustomer.fullName}! Thank you for your orders with Abhi's Gifts. Let us know how we can assist you.`
+                      `Namaste ${selectedCustomer.fullName}! 🙏 Thank you for choosing Abhi's Gifts (Dilsukhnagar, Hyderabad). Please let us know how our master artisans can assist you with your orders or custom framing requests!`
                     )}`;
                     return (
                       <a
@@ -838,6 +839,16 @@ export default function AdminCustomersPage() {
                             <span className="font-serif font-bold text-xs text-stone-900">
                               ₹{(Number(order.totalAmount) || 0).toLocaleString('en-IN')}
                             </span>
+                            <a
+                              href={getAdminOrderNotificationUrl(order as any)}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-[10px] font-bold transition-colors cursor-pointer ml-1"
+                              title="Send Full Order Update on WhatsApp"
+                            >
+                              <MessageCircle className="w-3 h-3" />
+                              <span>WhatsApp</span>
+                            </a>
                           </div>
                         </div>
 

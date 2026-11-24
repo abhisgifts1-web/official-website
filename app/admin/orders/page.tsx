@@ -20,6 +20,7 @@ import {
 } from 'lucide-react';
 import AdminLayout from '@/components/admin/AdminLayout';
 import { Order, OrderStatus } from '@/types';
+import { getAdminOrderNotificationUrl } from '@/lib/whatsapp';
 import { formatSizeWithSqFt } from '@/lib/utils/sizeFormat';
 
 export default function AdminOrdersPage() {
@@ -241,11 +242,7 @@ export default function AdminOrdersPage() {
                   </tr>
                 ) : (
                   filtered.map((order) => {
-                    const waText = encodeURIComponent(
-                      `Hi ${order.customer.fullName}! This is Abhi's Gifts regarding your Order #${order.id}. Current status: ${order.orderStatus}.`
-                    );
-                    const cleanPhone = order.customer.mobile.replace(/[^0-9]/g, '');
-                    const waLink = `https://wa.me/91${cleanPhone.slice(-10)}?text=${waText}`;
+                    const waLink = getAdminOrderNotificationUrl(order);
 
                     return (
                       <tr key={order.id} className="hover:bg-[#1A1A1A] transition-colors">
@@ -346,6 +343,16 @@ export default function AdminOrdersPage() {
                 </div>
                 <div className="flex items-center gap-2">
                   <a
+                    href={getAdminOrderNotificationUrl(selectedOrder)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold transition-all shadow-xs cursor-pointer"
+                    title="Send Full Order Details & Status to Customer on WhatsApp"
+                  >
+                    <MessageCircle className="w-3.5 h-3.5" />
+                    <span>WhatsApp Customer</span>
+                  </a>
+                  <a
                     href={`/invoice/${selectedOrder.id}`}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -443,12 +450,11 @@ export default function AdminOrdersPage() {
                       )}
                     </div>
                     <a
-                      href={`https://wa.me/91${selectedOrder.customer.mobile.replace(/[^0-9]/g, '').slice(-10)}?text=${encodeURIComponent(
-                        `Hi ${selectedOrder.customer.fullName}, update regarding your Abhi's Gifts order #${selectedOrder.id}: Status is ${selectedOrder.orderStatus}.`
-                      )}`}
+                      href={getAdminOrderNotificationUrl(selectedOrder)}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white text-[10px] font-bold transition-colors ml-auto"
+                      className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white text-[10px] font-bold transition-colors ml-auto cursor-pointer"
+                      title="Send Detailed WhatsApp Order Update to Customer"
                     >
                       <MessageCircle className="w-3 h-3" />
                       <span>WhatsApp</span>

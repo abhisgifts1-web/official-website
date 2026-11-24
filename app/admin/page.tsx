@@ -368,7 +368,7 @@ export default function AdminDashboardPage() {
                 const cleanPhone = cust.mobile.replace(/[^0-9]/g, '');
                 const waPhone = cleanPhone.length === 10 ? `91${cleanPhone}` : cleanPhone;
                 const waUrl = `https://wa.me/${waPhone}?text=${encodeURIComponent(
-                  `Hello ${cust.fullName}! Thank you for choosing Abhi's Gifts. Let us know if you need assistance with your order #${cust.lastOrderId}.`
+                  `Namaste ${cust.fullName}! 🙏 This is Abhi's Gifts (Hyderabad) regarding your order #${cust.lastOrderId}. Please let us know if you need any assistance, digital preview approval, or artwork customizations!`
                 )}`;
 
                 return (
