@@ -90,7 +90,7 @@ export default function ProfessionalInvoice({ order, showPrintButton = false }: 
                 </span>
                 <span className="flex items-center gap-1">
                   <Mail className="w-3 h-3 text-stone-500 shrink-0" />
-                  support@abhisgifts.com
+                  abhisgifts@gmail.com
                 </span>
                 <span className="flex items-center gap-1">
                   <Globe className="w-3 h-3 text-stone-500 shrink-0" />

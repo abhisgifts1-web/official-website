@@ -11,7 +11,7 @@ const SettingsSchema = new Schema(
     storeName: { type: String, default: "Abhi's Gifts" },
     tagline: { type: String, default: 'Frame Your Memories • Handcrafted in Hyderabad' },
     supportPhone: { type: String, default: '+91 91219 97791' },
-    supportEmail: { type: String, default: 'support@abhigifts.com' },
+    supportEmail: { type: String, default: 'abhisgifts@gmail.com' },
     whatsappNumber: { type: String, default: '+91 91219 97791' },
     workingHours: { type: String, default: 'Mon - Sun: 10:00 AM - 9:00 PM' },
     announcementText: { type: String, default: '✨ Premium Acrylic Wall Art & LED Backlit Photo Frames • Free Express Delivery in Hyderabad & All India' },

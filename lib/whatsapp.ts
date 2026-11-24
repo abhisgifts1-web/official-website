@@ -280,7 +280,7 @@ export function buildAdminOrderNotificationMessage(order: Order, baseUrl?: strin
   msg += `*Team Abhi's Gifts*\n`;
   msg += `📍 16-11-740/5/A, Gaddiannaram, Dilsukhnagar, Hyderabad, Telangana - 500060\n`;
   msg += `📞 +91 90323 72782\n`;
-  msg += `✉️ support@abhisgifts.com\n`;
+  msg += `✉️ abhisgifts@gmail.com\n`;
   msg += `🌐 ${origin}`;
 
   return msg;

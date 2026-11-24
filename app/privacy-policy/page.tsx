@@ -40,7 +40,7 @@ export default function PrivacyPolicyPage() {
         <section className="space-y-2">
           <h2 className="font-serif font-bold text-xl text-stone-900">4. Contact & Data Access</h2>
           <p>
-            For inquiries regarding your personal data or to request deletion of your account record, email us at <strong>privacy@abhigifts.com</strong>.
+            For inquiries regarding your personal data or to request deletion of your account record, email us at <strong>abhisgifts@gmail.com</strong>.
           </p>
         </section>
       </div>

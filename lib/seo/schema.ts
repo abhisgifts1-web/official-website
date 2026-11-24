@@ -10,7 +10,7 @@ export const BUSINESS_INFO = {
   image: `${SITE_URL}/images/mockups/tirupati-balaji-divine-led-backlit-acrylic-wall-art/primary-square.jpg`,
   telephone: '+91-9032372782',
   whatsapp: '+919032372782',
-  email: 'support@abhigifts.com',
+  email: 'abhisgifts@gmail.com',
   priceRange: '₹₹',
   hasMap: 'https://maps.app.goo.gl/fmGv35KsGabFna9E6?g_st=ac',
   paymentAccepted: 'Cash, UPI, Credit Card, Debit Card, Net Banking',

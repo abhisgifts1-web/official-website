@@ -729,10 +729,10 @@ export default function AboutPage() {
                 <span className="uppercase tracking-wider text-[11px] font-mono">Email</span>
               </div>
               <a
-                href="mailto:support@abhisgifts.com"
+                href="mailto:abhisgifts@gmail.com"
                 className="text-stone-200 hover:text-amber-300 text-sm font-bold block truncate"
               >
-                support@abhisgifts.com
+                abhisgifts@gmail.com
               </a>
               <span className="text-[11px] text-stone-400 block">General &amp; bulk order enquiries</span>
             </div>

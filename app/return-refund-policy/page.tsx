@@ -88,7 +88,7 @@ export default function ReturnRefundPolicyPage() {
                 <strong>Record an Unboxing Video:</strong> When your courier parcel arrives, record a short 30-second video while opening the outer cardboard box and inspecting the frame.
               </li>
               <li>
-                <strong>Contact Support within 48 Hours:</strong> Send your Order ID (e.g. AG-2026-...) along with the unboxing video/photos to our WhatsApp helpline at <strong>+91 86881 74900</strong> or email <strong>support@abhigifts.com</strong>.
+                <strong>Contact Support within 48 Hours:</strong> Send your Order ID (e.g. AG-2026-...) along with the unboxing video/photos to our WhatsApp helpline at <strong>+91 90323 72782</strong> or email <strong>abhisgifts@gmail.com</strong>.
               </li>
               <li>
                 <strong>Fast-Track Dispatch:</strong> Our team will review the claim within 4 hours and dispatch a brand-new replacement at zero additional shipping cost.
@@ -130,8 +130,8 @@ export default function ReturnRefundPolicyPage() {
               We are based right here in Hyderabad! Visit our studio in Dilsukhnagar or reach out to our dedicated support executives:
             </p>
             <div className="bg-stone-50 border border-stone-200 rounded-xl p-4 text-xs sm:text-sm space-y-1 not-prose">
-              <p><strong>Customer Support:</strong> +91 86881 74900</p>
-              <p><strong>Support Email:</strong> support@abhigifts.com</p>
+              <p><strong>Customer Support:</strong> +91 90323 72782</p>
+              <p><strong>Support Email:</strong> abhisgifts@gmail.com</p>
               <p><strong>Workshop & Studio:</strong> Dilsukhnagar, Hyderabad, Telangana - 500060</p>
               <p><strong>Working Hours:</strong> Monday – Saturday: 10:00 AM – 8:30 PM IST</p>
             </div>

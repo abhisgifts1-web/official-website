@@ -49,7 +49,7 @@ export async function GET(req: NextRequest) {
           `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${latitude}&lon=${longitude}`,
           {
             headers: {
-              'User-Agent': 'AbhisGifts-App/1.0 (support@abhisgifts.com)',
+              'User-Agent': 'AbhisGifts-App/1.0 (abhisgifts@gmail.com)',
               'Accept-Language': 'en',
             },
             next: { revalidate: 3600 },

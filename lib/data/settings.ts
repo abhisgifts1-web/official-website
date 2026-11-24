@@ -30,7 +30,7 @@ export const INITIAL_SETTINGS: SiteSettings = {
   storeName: "Abhi's Gifts",
   tagline: 'Frame Your Memories.',
   supportPhone: '+91 90323 72782',
-  supportEmail: 'support@abhisgifts.com',
+  supportEmail: 'abhisgifts@gmail.com',
   whatsappNumber: '+919032372782',
   workingHours: '10:00 AM – 8:00 PM',
   announcementText: '✨ Handcrafted Photo Frames & Custom Art • Dilsukhnagar, Hyderabad Store',

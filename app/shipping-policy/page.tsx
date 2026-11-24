@@ -143,7 +143,7 @@ export default function ShippingPolicyPage() {
               5. Shipping Address Corrections
             </h2>
             <p>
-              If you need to update your delivery address, landmark, or recipient phone number, please contact our support team on WhatsApp at <strong>+91 86881 74900</strong> within 6 hours of placing your order. Once an order is dispatched, address changes may incur courier re-routing delays.
+              If you need to update your delivery address, landmark, or recipient phone number, please contact our support team on WhatsApp at <strong>+91 90323 72782</strong> within 6 hours of placing your order. Once an order is dispatched, address changes may incur courier re-routing delays.
             </p>
           </section>
         </div>
