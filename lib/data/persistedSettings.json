@@ -42,7 +42,7 @@
     "gold": {
       "name": "Rose Gold",
       "inStock": true,
-      "stockCount": 850
+      "stockCount": 100
     },
     "black": {
       "name": "Black",

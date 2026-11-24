@@ -417,6 +417,18 @@ async function initDbSync() {
       if (dbSettings) {
         const { _id, __v, settingKey, ...settings } = dbSettings as any;
         store.settings = { ...store.settings, ...settings };
+        if (store.settings.frameStock) {
+          if (!store.settings.frameStock.gold) {
+            store.settings.frameStock.gold = { name: 'Rose Gold', inStock: true, stockCount: 850 };
+          } else {
+            store.settings.frameStock.gold.name = 'Rose Gold';
+          }
+          if (!store.settings.frameStock.black || (!store.settings.frameStock.black.inStock && (store.settings.frameStock.black.stockCount ?? 0) <= 0)) {
+            store.settings.frameStock.black = { name: 'Black', inStock: true, stockCount: 720 };
+          } else {
+            store.settings.frameStock.black.name = 'Black';
+          }
+        }
         savePersistedSettings(store.settings);
       } else if (store.settings) {
         await SettingsModel.findOneAndUpdate(

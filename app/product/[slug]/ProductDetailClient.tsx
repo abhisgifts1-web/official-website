@@ -1638,14 +1638,14 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                   </span>
                 </div>
 
-                <div className={`grid ${isCategoryBlackAllowed && isCategoryGoldAllowed ? 'grid-cols-2' : 'grid-cols-1'} gap-3 sm:gap-4`}>
+                <div className={`grid ${isCategoryBlackAllowed && isCategoryGoldAllowed ? 'grid-cols-2' : 'grid-cols-1'} gap-2 sm:gap-2.5 max-w-[280px] sm:max-w-[300px]`}>
                   {/* Rose Gold Card */}
                   {isCategoryGoldAllowed && (
                     <button
                       type="button"
                       onClick={() => !isGoldOutOfStock && handleSelectFrame('gold')}
                       disabled={isGoldOutOfStock}
-                      className={`frame-card-hover btn-press-bounce relative group p-3.5 sm:p-4 rounded-2xl text-center transition-all duration-200 flex flex-col items-center justify-center cursor-pointer ${
+                      className={`frame-card-hover btn-press-bounce relative group p-2 sm:p-2.5 rounded-xl text-center transition-all duration-200 flex flex-col items-center justify-center cursor-pointer ${
                         isGoldOutOfStock
                           ? 'border border-stone-200 bg-stone-100/70 text-stone-400 opacity-50 cursor-not-allowed'
                           : selectedFrame === 'gold'
@@ -1653,17 +1653,17 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                           : 'border border-stone-200 bg-white text-stone-900 hover:border-stone-400 hover:shadow-xs'
                       }`}
                     >
-                      <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-xl bg-stone-50 overflow-hidden border border-stone-100 flex items-center justify-center p-1.5 mb-2.5 transition-transform duration-300 group-hover:scale-105">
+                      <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-lg bg-stone-50 overflow-hidden border border-stone-100 flex items-center justify-center p-1 mb-1.5 transition-transform duration-300 group-hover:scale-105">
                         <img
                           src="/images/frames/gold-border-ref.jpg"
                           alt="Rose Gold"
-                          className="w-full h-full object-contain rounded-lg"
+                          className="w-full h-full object-contain rounded-md"
                         />
                       </div>
-                      <span className="font-bold text-xs sm:text-sm text-stone-900 leading-tight">Rose Gold</span>
-                      <span className="text-[11px] sm:text-xs text-stone-500 mt-1 font-normal">Rose Gold</span>
+                      <span className="font-bold text-[11px] sm:text-xs text-stone-900 leading-tight">Rose Gold</span>
+                      <span className="text-[9.5px] sm:text-[10px] text-stone-500 mt-0.5 font-normal leading-tight">Rose Gold</span>
                       {isGoldOutOfStock && (
-                        <span className="mt-1.5 text-[9px] font-bold px-2 py-0.5 rounded-full bg-rose-100 text-rose-700 border border-rose-300">
+                        <span className="mt-1 text-[8px] font-bold px-1.5 py-0.5 rounded-full bg-rose-100 text-rose-700 border border-rose-300">
                           Sold Out
                         </span>
                       )}
@@ -1676,7 +1676,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                       type="button"
                       onClick={() => !isBlackOutOfStock && handleSelectFrame('black')}
                       disabled={isBlackOutOfStock}
-                      className={`frame-card-hover btn-press-bounce relative group p-3.5 sm:p-4 rounded-2xl text-center transition-all duration-200 flex flex-col items-center justify-center cursor-pointer ${
+                      className={`frame-card-hover btn-press-bounce relative group p-2 sm:p-2.5 rounded-xl text-center transition-all duration-200 flex flex-col items-center justify-center cursor-pointer ${
                         isBlackOutOfStock
                           ? 'border border-stone-200 bg-stone-100/70 text-stone-400 opacity-50 cursor-not-allowed'
                           : selectedFrame === 'black'
@@ -1684,17 +1684,17 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                           : 'border border-stone-200 bg-white text-stone-900 hover:border-stone-400 hover:shadow-xs'
                       }`}
                     >
-                      <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-xl bg-stone-50 overflow-hidden border border-stone-100 flex items-center justify-center p-1.5 mb-2.5 transition-transform duration-300 group-hover:scale-105">
+                      <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-lg bg-stone-50 overflow-hidden border border-stone-100 flex items-center justify-center p-1 mb-1.5 transition-transform duration-300 group-hover:scale-105">
                         <img
                           src="/images/frames/black-border-ref.jpg"
                           alt="Black"
-                          className="w-full h-full object-contain rounded-lg"
+                          className="w-full h-full object-contain rounded-md"
                         />
                       </div>
-                      <span className="font-bold text-xs sm:text-sm text-stone-900 leading-tight">Black</span>
-                      <span className="text-[11px] sm:text-xs text-stone-500 mt-1 font-normal">Matte Black</span>
+                      <span className="font-bold text-[11px] sm:text-xs text-stone-900 leading-tight">Black</span>
+                      <span className="text-[9.5px] sm:text-[10px] text-stone-500 mt-0.5 font-normal leading-tight">Matte Black</span>
                       {isBlackOutOfStock && (
-                        <span className="mt-1.5 text-[9px] font-bold px-2 py-0.5 rounded-full bg-rose-100 text-rose-700 border border-rose-300">
+                        <span className="mt-1 text-[8px] font-bold px-1.5 py-0.5 rounded-full bg-rose-100 text-rose-700 border border-rose-300">
                           Sold Out
                         </span>
                       )}

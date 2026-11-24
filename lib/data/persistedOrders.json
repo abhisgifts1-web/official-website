@@ -1,1 +1,102 @@
-[]
+[
+  {
+    "orderId": "AG-2026-20391",
+    "createdAt": "2026-11-23T19:06:30.993Z",
+    "customer": {
+      "fullName": "KBR creations",
+      "mobile": "9032372782",
+      "email": "balrajkumma@gmail.com",
+      "streetAddress": "Malakpet Colony",
+      "apartment": "",
+      "landmark": "",
+      "city": "Hyderabad",
+      "state": "Telangana",
+      "pincode": "500036",
+      "_id": "6b048eb7313fe58a026bb6aa"
+    },
+    "discountAmount": 0,
+    "items": [
+      {
+        "id": "item-1795460710330-9ufiu",
+        "productId": "6b027e6e5093473a07608a10",
+        "slug": "custom-led-backlit-acrylic-photo-frame",
+        "title": "Custom LED Backlit Night-Glow Acrylic Photo Frame",
+        "image": "/images/mockups/custom-led-backlit-acrylic-photo-frame/primary-square.jpg",
+        "variantId": "custom-led-backlit-acrylic-photo-frame-portrait-rosegold-14 x 20 inches",
+        "size": "14 x 20 inches (PORTRAIT)",
+        "finish": "Rose Gold Aluminium Side Frame (Wall Plugs & Screws Included)",
+        "lighting": "Cool White LED Backlighting (Adapter Included)",
+        "unitPrice": 3499,
+        "unitMrp": 5599,
+        "quantity": 1,
+        "customization": {
+          "selectedModel": "M-18",
+          "previewUrl": "/images/mockups/custom-led-backlit-acrylic-photo-frame/primary-square.jpg",
+          "frameType": "gold",
+          "orientation": "vertical",
+          "aspectRatio": "Vertical (2:3)",
+          "specialInstructions": "Shape: PORTRAIT | Finish: Rose Gold Aluminium Side Frame (Wall Plugs & Screws Included) | Size: 14 x 20 inches"
+        },
+        "_id": "6b048eb7313fe58a026bb6ab"
+      }
+    ],
+    "orderStatus": "Pending",
+    "paymentMethod": "Razorpay",
+    "paymentStatus": "Pending",
+    "shippingFee": 0,
+    "subtotal": 3499,
+    "totalAmount": 3499,
+    "updatedAt": "2026-11-23T19:06:30.993Z",
+    "id": "AG-2026-20391"
+  },
+  {
+    "orderId": "AG-2026-82293",
+    "createdAt": "2026-11-23T11:41:42.776Z",
+    "customer": {
+      "fullName": "shahid kouluri",
+      "mobile": "7780269927",
+      "email": "koulurishahid148@gmail.com",
+      "streetAddress": "aaaaaaaaaaaaaaaaaa",
+      "apartment": "",
+      "landmark": "aaaaaaaaaaaa",
+      "city": "aaaaaaaaaa",
+      "state": "aaaaaaaaaaaaaa",
+      "pincode": "123456",
+      "_id": "6b0426769740c9c9b621e3c9"
+    },
+    "discountAmount": 0,
+    "items": [
+      {
+        "id": "item-1795433964599-1q7x1",
+        "productId": "6b027e6e5093473a07608a10",
+        "slug": "custom-led-backlit-acrylic-photo-frame",
+        "title": "Custom LED Backlit Night-Glow Acrylic Photo Frame",
+        "image": "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-foyer.jpg",
+        "variantId": "custom-led-backlit-acrylic-photo-frame-portrait-rosegold-10 x 14 inches",
+        "size": "10 x 14 inches (PORTRAIT)",
+        "finish": "Rose Gold Aluminium Side Frame (Wall Plugs & Screws Included)",
+        "lighting": "Cool White LED Backlighting (Adapter Included)",
+        "unitPrice": 2699,
+        "unitMrp": 4299,
+        "quantity": 1,
+        "customization": {
+          "selectedModel": "M-21",
+          "previewUrl": "/images/mockups/custom-led-backlit-acrylic-photo-frame/mockup-foyer.jpg",
+          "frameType": "gold",
+          "orientation": "vertical",
+          "aspectRatio": "Vertical (2:3)",
+          "specialInstructions": "Shape: PORTRAIT | Finish: Rose Gold Aluminium Side Frame (Wall Plugs & Screws Included) | Size: 10 x 14 inches"
+        },
+        "_id": "6b0426769740c9c9b621e3ca"
+      }
+    ],
+    "orderStatus": "Pending",
+    "paymentMethod": "Razorpay",
+    "paymentStatus": "Pending",
+    "shippingFee": 0,
+    "subtotal": 2699,
+    "totalAmount": 2699,
+    "updatedAt": "2026-11-23T11:41:42.776Z",
+    "id": "AG-2026-82293"
+  }
+]
