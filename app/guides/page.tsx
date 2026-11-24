@@ -163,7 +163,7 @@ export default function GuidesIndexPage() {
 
         <div className="flex items-center gap-3 shrink-0">
           <a
-            href="https://wa.me/919032372782?text=Hi%20Abhi%27s%20Gifts,%20I%20have%20a%20question%20about%20photo%20framing%20sizes"
+            href="https://wa.me/917780269927?text=Hi%20Abhi%27s%20Gifts,%20I%20have%20a%20question%20about%20photo%20framing%20sizes"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-[#FEE815] text-black font-bold text-xs sm:text-sm px-6 py-3 rounded-full hover:bg-[#FFF04B] transition-colors shadow-sm"

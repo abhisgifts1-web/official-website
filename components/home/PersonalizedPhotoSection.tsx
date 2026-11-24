@@ -225,7 +225,7 @@ export default function PersonalizedPhotoSection() {
   const activeImage = userUploadedPhoto || selectedArt.image;
   const activeTitle = userUploadedPhoto ? 'Your Custom Uploaded Photo' : `${selectedArt.name} — ${selectedArt.subtitle}`;
 
-  const whatsappInquiryUrl = `https://wa.me/919032372782?text=${encodeURIComponent(
+  const whatsappInquiryUrl = `https://wa.me/917780269927?text=${encodeURIComponent(
     `Hi Abhi's Gifts! I am exploring your Custom Photo & Sacred Frame Atelier:\n- Frame Style: ${selectedFrame.name} (${selectedFrame.price})\n- Artwork / Photo: ${activeTitle}\n- Dimensions: ${selectedFrame.dimensionsLabel}\n- Lighting: ${isLedOn ? 'LED LED On' : 'Non-Lit'}\nCan you share final pricing, custom sizing options, and a free WhatsApp digital proof?`
   )}`;
 

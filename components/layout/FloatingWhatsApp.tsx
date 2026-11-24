@@ -9,7 +9,7 @@ export default function FloatingWhatsApp() {
   const pathname = usePathname();
   const [showScrollTop, setShowScrollTop] = useState(false);
 
-  const cleanWaNumber = (INITIAL_SETTINGS.whatsappNumber || '919032372782').replace(/[^0-9]/g, '');
+  const cleanWaNumber = (INITIAL_SETTINGS.whatsappNumber || '917780269927').replace(/[^0-9]/g, '');
   const waUrl = `https://wa.me/${cleanWaNumber}?text=${encodeURIComponent(
     "Hello Abhi's Gifts, I have an inquiry regarding custom photo frames and orders."
   )}`;

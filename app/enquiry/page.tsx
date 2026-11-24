@@ -49,7 +49,7 @@ export default function EnquiryPage() {
   const [customerCity, setCustomerCity] = useState('');
   const [message, setMessage] = useState('');
 
-  const cleanWaNumber = (INITIAL_SETTINGS.whatsappNumber || '919032372782').replace(/[^0-9]/g, '');
+  const cleanWaNumber = (INITIAL_SETTINGS.whatsappNumber || '917780269927').replace(/[^0-9]/g, '');
 
   const buildWhatsAppUrl = () => {
     const selectedFrameObj = FRAME_TYPES.find((f) => f.id === frameType);
@@ -289,7 +289,7 @@ export default function EnquiryPage() {
               className="w-full py-4 px-6 rounded-2xl bg-[#25D366] hover:bg-[#20ba59] active:bg-[#1da850] text-stone-950 font-bold text-sm sm:text-base flex items-center justify-center gap-2.5 shadow-lg hover:shadow-xl transition-all cursor-pointer hover:scale-[1.01]"
             >
               <MessageCircle className="w-5 h-5 fill-stone-950 text-[#25D366]" />
-              <span>Send Enquiry via WhatsApp (+91 90323 72782)</span>
+              <span>Send Enquiry via WhatsApp (+91 77802 69927)</span>
               <Send className="w-4 h-4" />
             </a>
 
@@ -305,7 +305,7 @@ export default function EnquiryPage() {
               <div>
                 <strong className="text-stone-900 block font-bold">Direct Phone Consultation</strong>
                 <span>Call our artisan workshop directly at </span>
-                <a href="tel:+919032372782" className="text-amber-800 font-bold underline">+91 90323 72782</a>
+                <a href="tel:+917780269927" className="text-amber-800 font-bold underline">+91 77802 69927</a>
                 <span className="block text-[11px] text-stone-500 mt-0.5">Mon – Sun: 9:00 AM – 9:00 PM IST</span>
               </div>
             </div>

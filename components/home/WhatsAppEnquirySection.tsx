@@ -122,7 +122,7 @@ export default function WhatsAppEnquirySection() {
 
             <p className="text-xs text-stone-400 flex items-center gap-2 pt-1">
               <PhoneCall className="w-3.5 h-3.5 text-amber-400" />
-              <span>Prefer calling? Reach workshop directly at <a href="tel:+919032372782" className="text-amber-300 font-semibold underline underline-offset-2">+91 90323 72782</a></span>
+              <span>Prefer calling? Reach workshop directly at <a href="tel:+917780269927" className="text-amber-300 font-semibold underline underline-offset-2">+91 77802 69927</a></span>
             </p>
           </div>
 
@@ -202,7 +202,7 @@ export default function WhatsAppEnquirySection() {
               className="btn-luxury-whatsapp btn-shimmer-sweep btn-press-bounce group w-full py-3.5 px-5 rounded-2xl text-stone-950 font-black text-xs sm:text-sm flex items-center justify-center gap-2.5 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 cursor-pointer"
             >
               <MessageCircle className="w-4 h-4 fill-stone-950 text-[#25D366]" />
-              <span>Send Enquiry on WhatsApp (+91 90323 72782)</span>
+              <span>Send Enquiry on WhatsApp (+91 77802 69927)</span>
               <Send className="w-4 h-4 group-hover:translate-x-1.5 group-hover:-translate-y-0.5 transition-transform duration-300 shrink-0 icon-bounce-right" />
             </a>
 

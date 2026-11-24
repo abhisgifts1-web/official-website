@@ -251,7 +251,7 @@ export default function ContactPage() {
               Visit Abhi&apos;s Gifts in Dilsukhnagar, Hyderabad
             </h3>
             <p className="text-xs sm:text-sm text-stone-600 mt-1">
-              H.No: 16-11-419, SBI Officers Colony, Moosarambagh, Dilsukhnagar, Hyderabad, Telangana – 500036
+              16-11-740/5/A, Gaddiannaram, Dilsukhnagar, Hyderabad, Telangana - 500060
             </p>
           </div>
           <a

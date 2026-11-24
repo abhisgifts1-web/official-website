@@ -241,7 +241,7 @@ export default function RoomVisualizerSection() {
       ? userUploadedPhoto
       : selectedArtwork.image;
 
-  const whatsappInquiryUrl = `https://wa.me/919032372782?text=${encodeURIComponent(
+  const whatsappInquiryUrl = `https://wa.me/917780269927?text=${encodeURIComponent(
     `Hi Abhi's Gifts! I used the Sacred Space Visualizer on your website. I am interested in:\n- Artwork: ${selectedArtwork.name}\n- Room Environment: ${selectedRoom.name}\n- Size: ${selectedSize.label} (${selectedSize.desc})\n- Finish: ${selectedFinish.name}\n- Lighting: ${isLedOn ? 'LED On' : 'Non-Lit'}\nCan you share final price, WhatsApp digital proof & delivery time to Hyderabad?`
   )}`;
 

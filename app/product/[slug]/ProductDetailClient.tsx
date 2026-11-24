@@ -1165,7 +1165,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
   };
 
   // WhatsApp Custom Size & Consultation
-  const cleanWaNumber = (INITIAL_SETTINGS.whatsappNumber || '919032372782').replace(/[^0-9]/g, '');
+  const cleanWaNumber = (INITIAL_SETTINGS.whatsappNumber || '917780269927').replace(/[^0-9]/g, '');
   const artworkImgRef = product.images?.[0]
     ? product.images[0].startsWith('http')
       ? product.images[0]
