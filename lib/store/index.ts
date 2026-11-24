@@ -379,6 +379,14 @@ async function initDbSync() {
           const { _id, __v, ...c } = doc;
           return { ...c, id: c.id || String(_id) };
         });
+        const gCat = formattedCats.find((c) => c.slug === 'glitter-photo-frames');
+        if (gCat) {
+          gCat.image = '/images/categories/circle-showcase/glitter-photo-frames.jpg';
+          await CategoryModel.findOneAndUpdate(
+            { slug: 'glitter-photo-frames' },
+            { image: '/images/categories/circle-showcase/glitter-photo-frames.jpg' }
+          ).catch(() => {});
+        }
         store.categories = formattedCats;
         savePersistedCategories(formattedCats);
       } else if (store.categories.length > 0) {
