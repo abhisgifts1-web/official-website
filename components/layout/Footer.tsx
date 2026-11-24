@@ -50,7 +50,7 @@ export default function Footer() {
   const youtubeUrl = settings.youtubeUrl || INITIAL_SETTINGS.youtubeUrl || 'https://youtube.com/@abhis_gifts?si=Ap98aZU7b21rJA_8';
 
   return (
-    <footer className="bg-black text-stone-300 border-t border-stone-800 relative overflow-hidden select-none print:hidden">
+    <footer className="bg-black text-stone-300 border-t border-stone-800 relative overflow-hidden select-none print:hidden pb-24 lg:pb-0">
       {/* 1. TOP VALUE PROPOSITION STRIP */}
       <div className="border-b border-stone-800/80 bg-[#0F0F0F] py-4 sm:py-5 px-4 sm:px-6 md:px-8 lg:px-12">
         <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6 lg:gap-8">
@@ -283,8 +283,8 @@ export default function Footer() {
                     </Link>
                   </li>
                   <li>
-                    <Link href="/contact" className="hover:text-amber-300 transition-colors block py-0.5">
-                      Contact Us
+                    <Link href="/contact" className="text-amber-400 hover:text-white font-semibold transition-colors block py-0.5">
+                      📞 Contact Us
                     </Link>
                   </li>
                   <li>
@@ -381,7 +381,11 @@ export default function Footer() {
               FAQs
             </Link>
             <span className="w-1 h-1 rounded-full bg-stone-700" />
-            <Link href="/admin/login" className="text-amber-400 hover:text-white transition-colors py-0.5 font-semibold">
+            <Link href="/contact" className="text-amber-400 hover:text-white transition-colors py-0.5 font-bold">
+              Contact Us
+            </Link>
+            <span className="w-1 h-1 rounded-full bg-stone-700" />
+            <Link href="/admin/login" className="text-stone-400 hover:text-white transition-colors py-0.5 font-semibold">
               Staff
             </Link>
           </div>
@@ -389,9 +393,9 @@ export default function Footer() {
 
         {/* 5. DEVELOPED BY SLRJ DIGITAL BRANDING STRIP */}
         <div
-          className="mt-4 sm:mt-5 pt-3.5 sm:pt-4 border-t border-stone-800/60 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs"
+          className="mt-4 sm:mt-5 pt-3.5 sm:pt-4 border-t border-stone-800/60 flex flex-row items-center justify-between gap-3 text-xs flex-wrap"
           style={{
-            paddingBottom: 'max(0.75rem, env(safe-area-inset-bottom, 0px))',
+            paddingBottom: 'max(1.25rem, env(safe-area-inset-bottom, 0px))',
           }}
         >
           <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2 sm:gap-2.5 text-[11px] text-stone-400">
@@ -424,10 +428,10 @@ export default function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Contact SLRJ Digital for website development"
-            className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-medium text-stone-300 hover:text-white bg-stone-900/90 hover:bg-stone-800 border border-stone-800 hover:border-stone-700 transition-all duration-200 group shadow-2xs hover:scale-[1.02] active:scale-[0.98]"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-semibold text-amber-300 hover:text-white bg-stone-900 border border-amber-500/30 hover:border-amber-400 transition-all duration-200 group shadow-xs hover:scale-[1.02] active:scale-[0.98]"
           >
             <span>Contact Us</span>
-            <ArrowUpRight className="w-3 h-3 text-stone-400 group-hover:text-amber-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
+            <ArrowUpRight className="w-3 h-3 text-amber-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
           </a>
         </div>
       </div>
