@@ -133,7 +133,7 @@ export default function ReturnRefundPolicyPage() {
               <p><strong>Customer Support:</strong> +91 90323 72782</p>
               <p><strong>Support Email:</strong> abhisgifts@gmail.com</p>
               <p><strong>Workshop & Studio:</strong> Dilsukhnagar, Hyderabad, Telangana - 500060</p>
-              <p><strong>Working Hours:</strong> Monday – Saturday: 10:00 AM – 8:30 PM IST</p>
+              <p><strong>Working Hours:</strong> Monday – Sunday: 10:00 AM – 08:00 PM IST</p>
             </div>
           </section>
         </div>

@@ -302,11 +302,17 @@ export default function EnquiryPage() {
           <div className="pt-6 border-t border-stone-200 grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs text-stone-600">
             <div className="flex items-start gap-3 p-4 rounded-2xl bg-stone-50 border border-stone-200">
               <Phone className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
-              <div>
-                <strong className="text-stone-900 block font-bold">Direct Phone Consultation</strong>
-                <span>Call our artisan workshop directly at </span>
-                <a href="tel:+919032372782" className="text-amber-800 font-bold underline">+91 90323 72782</a>
-                <span className="block text-[11px] text-stone-500 mt-0.5">Mon – Sun: 9:00 AM – 9:00 PM IST</span>
+              <div className="min-w-0 flex-1">
+                <strong className="text-stone-900 block font-bold text-sm">Direct Phone Consultation</strong>
+                <p className="text-xs text-stone-600 mt-0.5">
+                  Call our artisan workshop directly at{' '}
+                  <a href="tel:+919032372782" className="text-amber-800 font-bold underline whitespace-nowrap hover:text-amber-900">
+                    +91 90323 72782
+                  </a>
+                </p>
+                <p className="text-[11px] text-stone-500 mt-1 font-medium">
+                  Mon – Sun: 10:00 AM – 08:00 PM IST
+                </p>
               </div>
             </div>
 
@@ -314,7 +320,7 @@ export default function EnquiryPage() {
               <MapPin className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
               <div>
                 <strong className="text-stone-900 block font-bold">Hyderabad Workshop &amp; Studio</strong>
-                <span>Dilsukhnagar, Hyderabad, Telangana – 500036.</span>
+                <span>16-11-740/5/A, Gaddiannaram, Dilsukhnagar, Hyderabad, Telangana – 500060.</span>
                 <a
                   href="https://maps.app.goo.gl/fmGv35KsGabFna9E6?g_st=ac"
                   target="_blank"

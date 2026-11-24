@@ -13,7 +13,7 @@ const SettingsSchema = new Schema(
     supportPhone: { type: String, default: '+91 91219 97791' },
     supportEmail: { type: String, default: 'abhisgifts@gmail.com' },
     whatsappNumber: { type: String, default: '+91 91219 97791' },
-    workingHours: { type: String, default: 'Mon - Sun: 10:00 AM - 9:00 PM' },
+    workingHours: { type: String, default: 'Mon - Sun: 10:00 AM - 08:00 PM' },
     announcementText: { type: String, default: '✨ Premium Acrylic Wall Art & LED Backlit Photo Frames • Free Express Delivery in Hyderabad & All India' },
     freeShippingThreshold: { type: Number, default: 0 },
     defaultShippingFee: { type: Number, default: 0 },
