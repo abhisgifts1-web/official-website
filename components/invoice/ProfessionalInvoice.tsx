@@ -86,7 +86,7 @@ export default function ProfessionalInvoice({ order, showPrintButton = false }: 
               <p className="flex items-center gap-3">
                 <span className="flex items-center gap-1">
                   <Phone className="w-3 h-3 text-stone-500 shrink-0" />
-                  +91 77802 69927
+                  +91 90323 72782
                 </span>
                 <span className="flex items-center gap-1">
                   <Mail className="w-3 h-3 text-stone-500 shrink-0" />
@@ -401,7 +401,7 @@ export default function ProfessionalInvoice({ order, showPrintButton = false }: 
             <ul className="list-disc pl-4 space-y-0.5 leading-snug">
               <li>Certified 100% Handcrafted Premium 5MM/3MM Cast Acrylic with Direct UV Print.</li>
               <li>Every shipment includes 100% Pan-India Transit Insurance against in-transit damage.</li>
-              <li>For any damage claim or queries, WhatsApp us within 48 hours at +91 77802 69927.</li>
+              <li>For any damage claim or queries, WhatsApp us within 48 hours at +91 90323 72782.</li>
               <li>This is a digitally generated tax invoice and does not require physical signature.</li>
             </ul>
           </div>

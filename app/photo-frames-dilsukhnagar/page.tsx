@@ -70,7 +70,7 @@ export default function PhotoFramesDilsukhnagarPage() {
         {
           question: 'How do I search for a "photo frame shop near me" in Dilsukhnagar?',
           answer:
-            'Abhi\'s Gifts is centrally located in Dilsukhnagar. If you are anywhere in Dilsukhnagar, Chaitanyapuri, Kothapet, or Saroornagar, our store is just minutes away. You can also send your photo on WhatsApp to +91 77802 69927 to get an instant digital proof without visiting.',
+            'Abhi\'s Gifts is centrally located in Dilsukhnagar. If you are anywhere in Dilsukhnagar, Chaitanyapuri, Kothapet, or Saroornagar, our store is just minutes away. You can also send your photo on WhatsApp to +91 90323 72782 to get an instant digital proof without visiting.',
         },
         {
           question: 'Do you offer LED photo frames in Dilsukhnagar?',

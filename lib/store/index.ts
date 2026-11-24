@@ -426,9 +426,9 @@ async function initDbSync() {
         const { _id, __v, settingKey, ...settings } = dbSettings as any;
         store.settings = { ...store.settings, ...settings };
         if (store.settings) {
-          store.settings.supportPhone = '+91 77802 69927';
+          store.settings.supportPhone = '+91 90323 72782';
           store.settings.supportEmail = 'support@abhisgifts.com';
-          store.settings.whatsappNumber = '+917780269927';
+          store.settings.whatsappNumber = '+919032372782';
           store.settings.businessAddress = "Abhi's Gifts Workshop & Studio, 16-11-740/5/A, Gaddiannaram, Dilsukhnagar, Hyderabad, Telangana - 500060, India";
         }
         if (store.settings.frameStock) {

@@ -53,7 +53,7 @@ export const HOMEPAGE_FAQS: FaqItem[] = [
     id: 'faq-7',
     category: 'delivery',
     q: 'What happens if my frame is damaged during transit?',
-    a: 'We offer a 100% Zero-Breakage Guarantee. In the rare event of transit damage or acrylic defect, simply share a quick unboxing photo or video on our WhatsApp (+91 77802 69927) within 24 hours of delivery. We will fabricate and dispatch a brand-new replacement immediately at zero extra charge.',
+    a: 'We offer a 100% Zero-Breakage Guarantee. In the rare event of transit damage or acrylic defect, simply share a quick unboxing photo or video on our WhatsApp (+91 90323 72782) within 24 hours of delivery. We will fabricate and dispatch a brand-new replacement immediately at zero extra charge.',
   },
   {
     id: 'faq-8',
@@ -67,7 +67,7 @@ export default function FaqSection() {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
   const [activeFilter, setActiveFilter] = useState<'all' | 'custom' | 'specs' | 'delivery' | 'orders'>('all');
 
-  const cleanWaNumber = (INITIAL_SETTINGS.whatsappNumber || '917780269927').replace(/[^0-9]/g, '');
+  const cleanWaNumber = (INITIAL_SETTINGS.whatsappNumber || '919032372782').replace(/[^0-9]/g, '');
 
   const filteredFaqs =
     activeFilter === 'all'

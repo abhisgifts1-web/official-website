@@ -195,7 +195,7 @@ export default function ManufacturingFilmModal({ isOpen, onClose, defaultScene =
 
   if (!isOpen) return null;
 
-  const whatsappInquiryUrl = `https://wa.me/917780269927?text=${encodeURIComponent(
+  const whatsappInquiryUrl = `https://wa.me/919032372782?text=${encodeURIComponent(
     `Hi Abhi's Gifts! I watched your 4K Manufacturing Film for the Lord Ganesha 3D LED Backlit Frame. The 5-layer craftsmanship and LED lighting look exceptional. Can you share available sizes and pricing?`
   )}`;
 

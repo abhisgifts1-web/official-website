@@ -2,7 +2,7 @@ import { CartItem, ShippingAddress, Order } from '@/types';
 import { INITIAL_SETTINGS } from '@/lib/data/settings';
 
 export function getWhatsAppNumber(): string {
-  const raw = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || INITIAL_SETTINGS.whatsappNumber || '917780269927';
+  const raw = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || INITIAL_SETTINGS.whatsappNumber || '919032372782';
   return raw.replace(/[^0-9]/g, '');
 }
 
@@ -274,12 +274,12 @@ export function buildAdminOrderNotificationMessage(order: Order, baseUrl?: strin
   msg += `${invoiceUrl}\n\n`;
 
   msg += `💬 *Have questions or wish to send high-res photos?*\n`;
-  msg += `Simply reply directly to this chat or call our workshop at *+91 77802 69927*.\n\n`;
+  msg += `Simply reply directly to this chat or call our workshop at *+91 90323 72782*.\n\n`;
 
   msg += `Warm regards,\n`;
   msg += `*Team Abhi's Gifts*\n`;
   msg += `📍 16-11-740/5/A, Gaddiannaram, Dilsukhnagar, Hyderabad, Telangana - 500060\n`;
-  msg += `📞 +91 77802 69927\n`;
+  msg += `📞 +91 90323 72782\n`;
   msg += `✉️ support@abhisgifts.com\n`;
   msg += `🌐 ${origin}`;
 

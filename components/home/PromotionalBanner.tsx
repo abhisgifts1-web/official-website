@@ -37,7 +37,7 @@ export default function PromotionalBanner() {
     return null;
   }
 
-  const cleanWaNumber = (settings.whatsappNumber || '917780269927').replace(/[^0-9]/g, '');
+  const cleanWaNumber = (settings.whatsappNumber || '919032372782').replace(/[^0-9]/g, '');
   const waUrl = `https://wa.me/${cleanWaNumber}?text=${encodeURIComponent(
     offer.whatsappMessage ||
       `Hello Abhi's Gifts, I saw the ${offer.discountBadge || 'special'} offer on your website and would like to place an order!`

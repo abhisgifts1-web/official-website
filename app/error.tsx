@@ -53,7 +53,7 @@ export default function GlobalErrorPage({
           <p className="text-xs text-stone-500">
             Need urgent assistance?{' '}
             <a
-              href="https://wa.me/917780269927?text=Hi%20Abhi%20Gifts%2C%20I%20encountered%20an%20error%20on%20the%20website."
+              href="https://wa.me/919032372782?text=Hi%20Abhi%20Gifts%2C%20I%20encountered%20an%20error%20on%20the%20website."
               target="_blank"
               rel="noopener noreferrer"
               className="text-emerald-700 font-semibold hover:underline inline-flex items-center gap-1"

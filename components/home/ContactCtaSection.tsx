@@ -5,7 +5,7 @@ import { MessageCircle, Phone, MapPin, Clock, ArrowRight } from 'lucide-react';
 import { INITIAL_SETTINGS } from '@/lib/data/settings';
 
 export default function ContactCtaSection() {
-  const cleanWaNumber = (INITIAL_SETTINGS.whatsappNumber || '917780269927').replace(/[^0-9]/g, '');
+  const cleanWaNumber = (INITIAL_SETTINGS.whatsappNumber || '919032372782').replace(/[^0-9]/g, '');
   const waUrl = `https://wa.me/${cleanWaNumber}?text=${encodeURIComponent(
     "Hello Abhi's Gifts, I have a question regarding custom photo frame sizes and orders."
   )}`;
@@ -59,11 +59,11 @@ export default function ContactCtaSection() {
             </a>
 
             <a
-              href={`tel:${INITIAL_SETTINGS.supportPhone || '+917780269927'}`}
+              href={`tel:${INITIAL_SETTINGS.supportPhone || '+919032372782'}`}
               className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-white hover:bg-stone-50 text-stone-900 font-semibold text-xs sm:text-sm border border-stone-300 shadow-2xs transition-colors"
             >
               <Phone className="w-4 h-4 text-amber-700" />
-              <span>Call {INITIAL_SETTINGS.supportPhone || '+91 77802 69927'}</span>
+              <span>Call {INITIAL_SETTINGS.supportPhone || '+91 90323 72782'}</span>
             </a>
           </div>
         </div>

@@ -326,7 +326,7 @@ export default function TrackOrderPage() {
                         Need urgent delivery updates or customized photo changes?
                       </p>
                       <a
-                        href={`https://wa.me/917780269927?text=${whatsappText}`}
+                        href={`https://wa.me/919032372782?text=${whatsappText}`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg text-xs font-medium transition cursor-pointer"
@@ -351,7 +351,7 @@ export default function TrackOrderPage() {
                 </div>
                 <div className="pt-2">
                   <a
-                    href="https://wa.me/917780269927?text=Hi%20Abhi%20Gifts%2C%20I%20need%20help%20finding%20my%20order%20status."
+                    href="https://wa.me/919032372782?text=Hi%20Abhi%20Gifts%2C%20I%20need%20help%20finding%20my%20order%20status."
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 px-5 py-2.5 bg-stone-900 hover:bg-stone-800 text-white text-xs font-semibold rounded-xl transition cursor-pointer"

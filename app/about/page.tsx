@@ -213,7 +213,7 @@ const EXPERIENCE_PILLARS = [
 ];
 
 export default function AboutPage() {
-  const cleanWaNumber = (INITIAL_SETTINGS.whatsappNumber || '917780269927').replace(/[^0-9]/g, '');
+  const cleanWaNumber = (INITIAL_SETTINGS.whatsappNumber || '919032372782').replace(/[^0-9]/g, '');
 
   return (
     <div className="w-full bg-white text-stone-900 font-sans selection:bg-amber-100 selection:text-amber-900">
@@ -305,7 +305,7 @@ export default function AboutPage() {
               className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20ba59] text-stone-950 font-bold text-xs sm:text-sm px-6 py-3.5 rounded-full shadow-md transition-all hover:scale-105 active:scale-95 cursor-pointer"
             >
               <WhatsAppIcon className="w-4 h-4 fill-stone-950 text-stone-950" />
-              <span>Chat on WhatsApp (+91 77802 69927)</span>
+              <span>Chat on WhatsApp (+91 90323 72782)</span>
             </Link>
           </div>
 
@@ -717,7 +717,7 @@ export default function AboutPage() {
                 rel="noopener noreferrer"
                 className="text-stone-200 hover:text-amber-300 text-sm font-bold block"
               >
-                +91 77802 69927
+                +91 90323 72782
               </a>
               <span className="text-[11px] text-stone-400 block">Fast WhatsApp consultation available 7 days</span>
             </div>
