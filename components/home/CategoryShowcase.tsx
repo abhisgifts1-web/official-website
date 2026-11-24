@@ -2,7 +2,7 @@
 
 import React, { useRef } from 'react';
 import Link from 'next/link';
-import { ChevronLeft, ChevronRight, Sparkles } from 'lucide-react';
+import { Sparkles } from 'lucide-react';
 
 export interface EditorialCategory {
   id: string;
@@ -81,12 +81,7 @@ export const EDITORIAL_CATEGORIES: EditorialCategory[] = [
 export default function CategoryShowcase() {
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  const scroll = (direction: 'left' | 'right') => {
-    if (scrollRef.current) {
-      const scrollAmount = direction === 'left' ? -280 : 280;
-      scrollRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-    }
-  };
+
 
   return (
     <section className="w-full max-w-[1760px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 py-8 sm:py-10 lg:py-12 border-b border-stone-200/70 bg-gradient-to-b from-stone-50/50 to-white">
@@ -106,15 +101,7 @@ export default function CategoryShowcase() {
 
       {/* Category Strip Carousel with Left / Right Scroll Controls */}
       <div className="relative group/carousel">
-        {/* Left Arrow Button */}
-        <button
-          type="button"
-          onClick={() => scroll('left')}
-          className="hidden md:flex absolute -left-3 lg:-left-5 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white/95 hover:bg-white text-stone-700 hover:text-amber-800 border border-stone-200 shadow-md items-center justify-center transition-all opacity-0 group-hover/carousel:opacity-100 btn-press-bounce hover:scale-115 active:scale-90 hover:border-[#FEE815] shadow-lg hover:shadow-xl cursor-pointer"
-          aria-label="Scroll left"
-        >
-          <ChevronLeft className="w-5 h-5" />
-        </button>
+
 
         {/* Square Items Container */}
         <div
@@ -165,15 +152,7 @@ export default function CategoryShowcase() {
           ))}
         </div>
 
-        {/* Right Arrow Button */}
-        <button
-          type="button"
-          onClick={() => scroll('right')}
-          className="hidden md:flex absolute -right-3 lg:-right-5 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white/95 hover:bg-white text-stone-700 hover:text-amber-800 border border-stone-200 shadow-md items-center justify-center transition-all opacity-0 group-hover/carousel:opacity-100 btn-press-bounce hover:scale-115 active:scale-90 hover:border-[#FEE815] shadow-lg hover:shadow-xl cursor-pointer"
-          aria-label="Scroll right"
-        >
-          <ChevronRight className="w-5 h-5" />
-        </button>
+
       </div>
     </section>
   );
