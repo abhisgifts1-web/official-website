@@ -3,11 +3,10 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { Heart, Eye, ArrowRight, Sparkles } from 'lucide-react';
+import { Heart, ArrowRight, Sparkles } from 'lucide-react';
 import { Product } from '@/types';
 import { useCart } from '@/context/CartContext';
 import { useWishlist } from '@/context/WishlistContext';
-import QuickViewModal from './QuickViewModal';
 
 interface ProductCardProps {
   product: Product;
@@ -19,7 +18,6 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
   const { addToCart, closeCart } = useCart();
   const { isInWishlist, toggleWishlist } = useWishlist();
 
-  const [isQuickViewOpen, setIsQuickViewOpen] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const [imgError, setImgError] = useState(false);
 
@@ -108,7 +106,6 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
   const displayImage = imgError ? (product.images[0] || '') : currentImage;
 
   return (
-    <>
       <div
         className="card-interactive-transform group relative flex flex-col h-full bg-white rounded-2xl overflow-hidden border border-stone-200 hover:border-[#FEE815] shadow-[0_2px_10px_rgba(0,0,0,0.06)] hover:shadow-[0_16px_36px_-8px_rgba(0,0,0,0.12),0_0_24px_rgba(254,232,21,0.28)] transition-all duration-300 hover:-translate-y-1.5 focus-within:ring-2 focus-within:ring-[#FEE815]/50"
         onMouseEnter={() => setIsHovered(true)}
@@ -179,20 +176,6 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
             <Heart className={`w-3.5 h-3.5 transition-transform ${wishlisted ? 'fill-current scale-110 text-black' : ''}`} />
           </button>
 
-          {/* Desktop Hover Floating Quick Preview Pill */}
-          <button
-            type="button"
-            onClick={(e) => {
-              e.preventDefault();
-              e.stopPropagation();
-              setIsQuickViewOpen(true);
-            }}
-            aria-label={`Quick view ${product.title}`}
-            className="btn-shimmer-sweep btn-press-bounce absolute bottom-2.5 left-1/2 -translate-x-1/2 hidden md:inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/95 hover:bg-[#FEE815] hover:text-black text-stone-900 font-bold text-[11px] shadow-lg backdrop-blur-md opacity-0 group-hover:opacity-100 transition-all duration-300 hover:scale-108 border border-stone-200 z-10 cursor-pointer translate-y-2 group-hover:translate-y-0"
-          >
-            <Eye className="w-3 h-3 text-stone-950" />
-            <span>Quick View</span>
-          </button>
         </div>
 
         {/* Content Details */}
@@ -244,13 +227,5 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
           </div>
         </div>
       </div>
-
-      {/* Quick View Modal */}
-      <QuickViewModal
-        product={product}
-        isOpen={isQuickViewOpen}
-        onClose={() => setIsQuickViewOpen(false)}
-      />
-    </>
   );
 }
