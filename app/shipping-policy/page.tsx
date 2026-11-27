@@ -1,27 +1,33 @@
 import React from 'react';
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { Truck, ShieldCheck, Clock, MapPin, PackageCheck, AlertCircle } from 'lucide-react';
+import { Truck, ShieldCheck, Clock, MapPin, PackageCheck, AlertCircle, CreditCard, MessageCircle } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Shipping & Delivery Policy — Abhi Gifts Hyderabad',
-  description: 'Fast, secure, and damage-proof delivery across Hyderabad, Telangana, and Pan-India for custom acrylic frames, LED gifts, and wall art.',
+  title: "Shipping Policy — Abhi's Gifts Hyderabad",
+  description: "Abhi's Gifts shipping policy — pan-India delivery, order processing timelines, COD availability, tracking, and contact details.",
 };
 
 export default function ShippingPolicyPage() {
   return (
     <div className="w-full max-w-[1760px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 py-10 sm:py-16 space-y-10">
       <div className="max-w-4xl mx-auto space-y-8">
+
         {/* Header */}
         <div className="border-b border-stone-200 pb-5">
           <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-amber-700 mb-2">
             <Truck className="w-4 h-4" />
-            <span>Delivery & Logistics</span>
+            <span>Delivery &amp; Logistics</span>
           </div>
           <h1 className="font-serif font-bold text-3xl sm:text-4xl text-stone-900 tracking-tight">
-            Shipping & Delivery Policy
+            Shipping Policy
           </h1>
-          <p className="text-xs text-stone-500 mt-1">Last Updated: November 2026 • Abhi Gifts Dilsukhnagar, Hyderabad</p>
+          <p className="text-xs text-stone-500 mt-2">
+            Last Updated: November 2026 &nbsp;•&nbsp; Abhi&apos;s Gifts, Hyderabad
+          </p>
+          <p className="text-sm text-stone-600 mt-3 leading-relaxed">
+            At Abhi&apos;s Gifts, we carefully prepare and deliver personalized gifts across India.
+          </p>
         </div>
 
         {/* Highlight Cards */}
@@ -29,123 +35,111 @@ export default function ShippingPolicyPage() {
           <div className="bg-amber-50/60 border border-amber-200/60 rounded-xl p-4 flex items-start gap-3">
             <Clock className="w-5 h-5 text-amber-700 shrink-0 mt-0.5" />
             <div>
-              <h3 className="font-medium text-stone-900 text-sm">2–4 Days in Hyderabad</h3>
-              <p className="text-xs text-stone-600 mt-1">Express local delivery in Hyderabad & Secunderabad.</p>
+              <h3 className="font-medium text-stone-900 text-sm">3–5 Days Production</h3>
+              <p className="text-xs text-stone-600 mt-1">After design approval. Excludes Sundays &amp; public holidays.</p>
             </div>
           </div>
           <div className="bg-emerald-50/60 border border-emerald-200/60 rounded-xl p-4 flex items-start gap-3">
-            <ShieldCheck className="w-5 h-5 text-emerald-700 shrink-0 mt-0.5" />
+            <Truck className="w-5 h-5 text-emerald-700 shrink-0 mt-0.5" />
             <div>
-              <h3 className="font-medium text-stone-900 text-sm">Zero-Risk Transit</h3>
-              <p className="text-xs text-stone-600 mt-1">100% Free replacement if damaged during transit.</p>
+              <h3 className="font-medium text-stone-900 text-sm">Pan-India Delivery</h3>
+              <p className="text-xs text-stone-600 mt-1">3–7 working days after dispatch via trusted couriers.</p>
             </div>
           </div>
           <div className="bg-stone-50 border border-stone-200 rounded-xl p-4 flex items-start gap-3">
-            <PackageCheck className="w-5 h-5 text-stone-700 shrink-0 mt-0.5" />
+            <MessageCircle className="w-5 h-5 text-stone-700 shrink-0 mt-0.5" />
             <div>
-              <h3 className="font-medium text-stone-900 text-sm">Free Shipping &gt; ₹999</h3>
-              <p className="text-xs text-stone-600 mt-1">All orders above ₹999 qualify for free shipping.</p>
+              <h3 className="font-medium text-stone-900 text-sm">WhatsApp Tracking</h3>
+              <p className="text-xs text-stone-600 mt-1">Tracking details shared on WhatsApp after dispatch.</p>
             </div>
           </div>
         </div>
 
-        {/* Detailed Sections */}
-        <div className="prose prose-stone max-w-none text-xs sm:text-sm text-stone-700 leading-relaxed space-y-6">
+        {/* Sections */}
+        <div className="space-y-8 text-sm text-stone-700 leading-relaxed">
+
+          {/* 1. Order Processing */}
           <section className="space-y-3">
             <h2 className="font-serif font-bold text-xl text-stone-900 flex items-center gap-2">
-              <span>1. Order Processing & Crafting Time</span>
+              <PackageCheck className="w-5 h-5 text-amber-700 shrink-0" />
+              1. Order Processing
             </h2>
-            <p>
-              Every customized acrylic frame, LED night plaque, and personalized gift undergoes precision fabrication at our Dilsukhnagar workshop. Because your order is custom-made:
-            </p>
-            <ul className="list-disc pl-5 space-y-1">
-              <li><strong>Design Approval:</strong> Digital mockups for custom photos are verified within 6 to 12 hours.</li>
-              <li><strong>Fabrication & Laser Cutting:</strong> 24 to 48 hours for laser cutting, HD UV printing, and electronic assembly (for LED frames).</li>
-              <li><strong>Quality Inspection:</strong> Each frame is checked under bright studio lighting for crystal clarity and flawless illumination before boxing.</li>
+            <ul className="list-disc pl-6 space-y-2 text-stone-700">
+              <li>Orders are processed after payment and receipt of all required photos and details.</li>
+              <li>Design and production usually take <strong>3–5 working days</strong> after design approval.</li>
+              <li>Production starts <strong>only after customer approval.</strong></li>
+              <li>Sundays and public holidays are excluded from working days.</li>
             </ul>
           </section>
 
+          {/* 2. Shipping & Delivery */}
           <section className="space-y-3">
-            <h2 className="font-serif font-bold text-xl text-stone-900">
-              2. Estimated Delivery Timelines
+            <h2 className="font-serif font-bold text-xl text-stone-900 flex items-center gap-2">
+              <Truck className="w-5 h-5 text-amber-700 shrink-0" />
+              2. Shipping &amp; Delivery
             </h2>
-            <p>Once dispatched from our Hyderabad facility, estimated transit times are:</p>
-            <div className="border border-stone-200 rounded-xl overflow-hidden not-prose">
-              <table className="w-full text-left text-xs sm:text-sm">
-                <thead className="bg-stone-100 border-b border-stone-200 text-stone-900 font-semibold">
-                  <tr>
-                    <th className="p-3">Destination Region</th>
-                    <th className="p-3">Estimated Courier Transit</th>
-                    <th className="p-3">Shipping Partner</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-stone-200">
-                  <tr>
-                    <td className="p-3 font-medium text-stone-900">Hyderabad & Secunderabad</td>
-                    <td className="p-3">1 to 2 business days</td>
-                    <td className="p-3 text-stone-600">Local Express / Porter / DTDC</td>
-                  </tr>
-                  <tr>
-                    <td className="p-3 font-medium text-stone-900">Telangana & Andhra Pradesh</td>
-                    <td className="p-3">2 to 4 business days</td>
-                    <td className="p-3 text-stone-600">Blue Dart, DTDC, Delhivery</td>
-                  </tr>
-                  <tr>
-                    <td className="p-3 font-medium text-stone-900">Metro Cities (Bengaluru, Chennai, Mumbai, Delhi)</td>
-                    <td className="p-3">3 to 5 business days</td>
-                    <td className="p-3 text-stone-600">Blue Dart Express / Air Cargo</td>
-                  </tr>
-                  <tr>
-                    <td className="p-3 font-medium text-stone-900">Rest of India & Remote Areas</td>
-                    <td className="p-3">5 to 7 business days</td>
-                    <td className="p-3 text-stone-600">Delhivery, DTDC, India Post</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+            <ul className="list-disc pl-6 space-y-2 text-stone-700">
+              <li>We deliver across India through trusted courier partners.</li>
+              <li>Estimated delivery time is <strong>3–7 working days</strong> after dispatch.</li>
+              <li>Delivery may take longer for remote locations or due to unforeseen delays.</li>
+            </ul>
           </section>
 
+          {/* 3. Payment & COD */}
           <section className="space-y-3">
-            <h2 className="font-serif font-bold text-xl text-stone-900">
-              3. Packaging & Damage Protection Guarantee
+            <h2 className="font-serif font-bold text-xl text-stone-900 flex items-center gap-2">
+              <CreditCard className="w-5 h-5 text-amber-700 shrink-0" />
+              3. Payment &amp; COD
             </h2>
-            <p>
-              We understand the fragile nature of acrylic and LED frames. Each shipment is secured with our signature 4-stage packaging:
+            <ul className="list-disc pl-6 space-y-2 text-stone-700">
+              <li><strong>Cash on Delivery (COD) is not available.</strong></li>
+              <li>Orders require an advance payment.</li>
+              <li>Remaining balance must be paid before dispatch.</li>
+            </ul>
+          </section>
+
+          {/* 4. Tracking & Address */}
+          <section className="space-y-3">
+            <h2 className="font-serif font-bold text-xl text-stone-900 flex items-center gap-2">
+              <MapPin className="w-5 h-5 text-amber-700 shrink-0" />
+              4. Tracking &amp; Address
+            </h2>
+            <ul className="list-disc pl-6 space-y-2 text-stone-700">
+              <li>Tracking details will be shared through WhatsApp after dispatch.</li>
+              <li>Customers must provide accurate delivery details.</li>
+              <li>Re-shipping charges due to incorrect addresses will be paid by the customer.</li>
+            </ul>
+          </section>
+
+          {/* 5. Delayed or Lost Shipments */}
+          <section className="space-y-3">
+            <h2 className="font-serif font-bold text-xl text-stone-900 flex items-center gap-2">
+              <AlertCircle className="w-5 h-5 text-amber-700 shrink-0" />
+              5. Delayed or Lost Shipments
+            </h2>
+            <p className="text-stone-700">
+              For delayed or lost parcels, contact us. We will coordinate with the courier partner.
             </p>
-            <ol className="list-decimal pl-5 space-y-1">
-              <li><strong>Protective Peel Film:</strong> Scratch-resistant transparent film shielding the high-gloss acrylic surface.</li>
-              <li><strong>High-Density Bubble Cushioning:</strong> 25mm thick shock-absorbing foam on all sides.</li>
-              <li><strong>Corner Protectors:</strong> Rigid corner guards guarding frame edges from transit impacts.</li>
-              <li><strong>Heavy-Duty Corrugated Master Box:</strong> 5-ply export-grade outer cardboard marked with Fragile Glass warnings.</li>
-            </ol>
-            <div className="bg-amber-50/80 border border-amber-300/80 rounded-xl p-4 flex items-start gap-3 mt-3">
-              <AlertCircle className="w-5 h-5 text-amber-700 shrink-0 mt-0.5" />
-              <p className="text-xs text-stone-800">
-                <strong>Transit Assurance:</strong> If your frame arrives damaged or cracked during transit, we replace it completely free of charge. Please record a short 30-second unboxing video and share it with us on WhatsApp within 48 hours of delivery.
+          </section>
+
+          {/* Contact Box */}
+          <div className="bg-amber-50/80 border border-amber-300/80 rounded-xl p-5 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+            <MessageCircle className="w-6 h-6 text-amber-700 shrink-0" />
+            <div>
+              <p className="font-semibold text-stone-900 text-sm">Need Help? Contact Us</p>
+              <p className="text-xs text-stone-600 mt-1">
+                Call or WhatsApp us at{' '}
+                <a
+                  href="tel:+919032372782"
+                  className="font-bold text-amber-800 hover:text-amber-900 underline"
+                >
+                  +91 90323 72782
+                </a>
+                {' '}for shipping queries.
               </p>
             </div>
-          </section>
+          </div>
 
-          <section className="space-y-3">
-            <h2 className="font-serif font-bold text-xl text-stone-900">
-              4. Order Tracking & WhatsApp Updates
-            </h2>
-            <p>
-              Once your parcel is handed over to the courier partner, an automated dispatch notification with your real-time AWB tracking number will be sent to your registered mobile number via WhatsApp and SMS. You can also track your shipment live using our{' '}
-              <Link href="/track-order" className="text-amber-800 font-semibold underline hover:text-amber-900">
-                Live Order Tracker
-              </Link>.
-            </p>
-          </section>
-
-          <section className="space-y-3">
-            <h2 className="font-serif font-bold text-xl text-stone-900">
-              5. Shipping Address Corrections
-            </h2>
-            <p>
-              If you need to update your delivery address, landmark, or recipient phone number, please contact our support team on WhatsApp at <strong>+91 90323 72782</strong> within 6 hours of placing your order. Once an order is dispatched, address changes may incur courier re-routing delays.
-            </p>
-          </section>
         </div>
 
         {/* Back Link */}
@@ -163,6 +157,7 @@ export default function ShippingPolicyPage() {
             Have a Shipping Question? Contact Us →
           </Link>
         </div>
+
       </div>
     </div>
   );
