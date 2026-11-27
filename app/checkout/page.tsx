@@ -979,19 +979,6 @@ export default function CheckoutPage() {
                 )}
               </div>
             </div>
-
-            <div>
-              <label className="text-xs font-semibold text-stone-900 block mb-1">
-                Special Delivery Notes / Inscriptions (Optional)
-              </label>
-              <textarea
-                rows={2}
-                placeholder="e.g. Preferred delivery timing, gift wrap request, or custom inscription notes."
-                value={orderNotes}
-                onChange={(e) => setOrderNotes(e.target.value)}
-                className="w-full px-3.5 py-2 text-xs bg-white border border-stone-300 rounded-xl outline-none focus:border-amber-500 text-stone-900"
-              />
-            </div>
           </div>
 
           {/* 2. Payment & Checkout Method */}
