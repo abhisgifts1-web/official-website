@@ -48,9 +48,9 @@ const LOCAL_SEO_CATEGORY_OVERRIDES: Record<string, { title: string; description:
     h1: 'Glitter Photo Frames in Hyderabad & Dilsukhnagar',
   },
   '360-rotating-photo-lamps': {
-    title: "360° Rotating Photo Lamps in Hyderabad | Motorized LED Memory Lamps — Abhi's Gifts",
-    description: 'Buy motorized 360-degree rotating cylinder LED photo lamps in Hyderabad. Continuous whisper-silent rotation showcasing multiple memories in warm light.',
-    h1: '360° Rotating Photo Lamps in Hyderabad & Dilsukhnagar',
+    title: "Personalized 360° Rotating Photo Lamp — Abhi's Gifts Hyderabad",
+    description: 'Personalized 360° Rotating Photo Lamp with bright white LED light, premium plastic body, built-in power cable, customized with 5 photos.',
+    h1: 'Personalized 360° Rotating Photo Lamp',
   },
   'god-photo-frames': {
     title: "God Photo Frames Hyderabad | Sacred Balaji, Shiva, Ganesha Acrylic Art — Abhi's Gifts",

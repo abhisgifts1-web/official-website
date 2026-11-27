@@ -44,7 +44,7 @@ export const INITIAL_CATEGORIES: Category[] = [
     id: 'cat-360-rotating-photo-lamps',
     name: '360° Rotating Lamps',
     slug: '360-rotating-photo-lamps',
-    description: 'Motorized 360-degree rotating cylinder LED photo lamps with whisper-silent rotation showcasing multiple cherished memories.',
+    description: 'Personalized 360° Rotating Photo Lamp with bright white LED light, premium plastic body, built-in power cable, customized with 5 photos.',
     image: '/images/categories/circle-showcase/360-rotating-photo-lamps.jpg',
     parentType: 'custom-frames',
     group: 'led-backlight',

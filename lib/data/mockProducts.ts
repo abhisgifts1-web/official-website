@@ -783,10 +783,10 @@ export const INITIAL_PRODUCTS: Product[] = [
   },
   {
     "slug": "motorized-360-rotating-led-cylinder-photo-lamp",
-    "title": "Motorized 360° Rotating Cylindrical LED Photo Lamp",
-    "subtitle": "Whisper-Silent Motorized 360° Rotation with Soft Internal LED Glow",
-    "shortDescription": "Motorized 360-degree cylindrical lamps glowing warmly with multiple cherished photographs.",
-    "description": "Watch your treasured memories gently revolve in warm golden light. Our signature motorized 360-degree rotating photo lamp features a continuous whisper-silent micro-gear motor that smoothly rotates a 4-to-5 photograph cylindrical acrylic collage. Emitting a soothing 3000K ambient glow with low-voltage 12V BIS certified power, it serves as an enchanting bedside lamp and a captivating conversation piece for any home.",
+    "title": "Personalized 360° Rotating Photo Lamp",
+    "subtitle": "Make your beautiful memories shine with our Personalized Rotating Photo Lamp!",
+    "shortDescription": "Display your favourite 5 photos with a beautiful 360° rotating design and bright white LED lighting.",
+    "description": "Make your beautiful memories shine with our Personalized Rotating Photo Lamp!\n\nDisplay your favourite 5 photos with a beautiful 360° rotating design and bright white LED lighting.\n\nProduct Features:\n• Premium Plastic Body\n• 360° Automatic Rotation\n• Normal Rotation Speed\n• Bright White LED Light\n• Built-in Power Cable\n• Customized with 5 Photos\n\nPerfect For:\nBirthday Gifts, Anniversary Gifts, Couple Gifts, Wedding Gifts and Special Occasions.\n\nCustomize your memories with Abhi's Gifts – Frame Your Memories!",
     "categorySlug": "360-rotating-photo-lamps",
     "categoryName": "360° Rotating Lamps",
     "artStyle": "Motorized Illuminated Lamp",
@@ -800,10 +800,16 @@ export const INITIAL_PRODUCTS: Product[] = [
       "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/mockup-artistic.jpg"
     ],
     "tags": [
+      "Personalized 360° Rotating Photo Lamp",
       "Rotating Photo Lamp",
       "360 Rotating",
-      "Cylinder Lamp",
-      "LED Memory Lamp"
+      "Photo Lamp",
+      "5 Photos",
+      "Bright White LED",
+      "Birthday Gifts",
+      "Anniversary Gifts",
+      "Couple Gifts",
+      "Wedding Gifts"
     ],
     "isFeatured": true,
     "isBestseller": true,
@@ -857,33 +863,44 @@ export const INITIAL_PRODUCTS: Product[] = [
     ],
     "specifications": [
       {
-        "label": "Rotation Mechanism",
-        "value": "Whisper-Silent 3 RPM 360° Motorized Drive",
+        "label": "Body Material",
+        "value": "Premium Plastic Body",
         "_id": "6ae89187382113ccb9a542ce"
       },
       {
-        "label": "Photo Capacity",
-        "value": "Holds 4 to 5 Continuous Personalized High-Resolution Photos",
+        "label": "Rotation",
+        "value": "360° Automatic Rotation (Normal Speed)",
         "_id": "6ae89187382113ccb9a542cf"
       },
       {
-        "label": "LED System",
-        "value": "3000K Golden Warm Epistar LEDs with 12V BIS Certified Power Adapter",
+        "label": "Lighting",
+        "value": "Bright White LED Light",
         "_id": "6ae89187382113ccb9a542d0"
       },
       {
-        "label": "Base Material",
-        "value": "Handcrafted Teak Texture Base with Touch Control Switch",
+        "label": "Power Connection",
+        "value": "Built-in Power Cable",
         "_id": "6ae89187382113ccb9a542d1"
+      },
+      {
+        "label": "Customization",
+        "value": "Customized with 5 Photos",
+        "_id": "6ae89187382113ccb9a542d2"
+      },
+      {
+        "label": "Perfect For",
+        "value": "Birthday Gifts, Anniversary Gifts, Couple Gifts, Wedding Gifts and Special Occasions",
+        "_id": "6ae89187382113ccb9a542d3"
       }
     ],
     "materialAndCare": [
-      "Includes 12V DC power cord and adapter.",
-      "Gently dust with dry microfiber cloth."
+      "Premium Plastic Body with Bright White LED Light.",
+      "Built-in power cable included for plug-and-play operation.",
+      "Gently wipe with a soft, dry cloth to clean."
     ],
     "shippingHighlights": [
-      "Rigid shockproof packaging with foam mold protection",
-      "Ready to plug and play right out of the box"
+      "Customized with 5 of your favourite photos before dispatch",
+      "Zero-breakage transit packaging with protective foam cushion"
     ],
     "reviews": [],
     "createdAt": "2026-11-01T00:00:00.000Z",

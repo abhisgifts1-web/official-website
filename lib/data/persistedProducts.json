@@ -1161,7 +1161,7 @@
   {
     "slug": "motorized-360-rotating-led-cylinder-photo-lamp",
     "title": "Motorized 360° Rotating Cylindrical LED Photo Lamp",
-    "subtitle": "Whisper-Silent Motorized 360° Rotation with Soft Internal LED Glow",
+    "subtitle": "Handcrafted Museum Grade Cast Acrylic",
     "shortDescription": "Motorized 360-degree cylindrical lamps glowing warmly with multiple cherished photographs.",
     "description": "Watch your treasured memories gently revolve in warm golden light. Our signature motorized 360-degree rotating photo lamp features a continuous whisper-silent micro-gear motor that smoothly rotates a 4-to-5 photograph cylindrical acrylic collage. Emitting a soothing 3000K ambient glow with low-voltage 12V BIS certified power, it serves as an enchanting bedside lamp and a captivating conversation piece for any home.",
     "categorySlug": "360-rotating-photo-lamps",
@@ -1186,86 +1186,185 @@
     "isBestseller": true,
     "isNewArrival": true,
     "hasLedBacklight": true,
-    "basePrice": 1499,
-    "baseMrp": 2999,
+    "basePrice": 2499,
+    "baseMrp": 4999,
     "discountPercentage": 50,
     "rating": 4.9,
     "reviewCount": 48,
     "variants": [
       {
         "id": "var-rot-1",
-        "size": "5 x 8 inches Cylinder",
-        "dimensionsCm": "13 x 20 cm",
+        "size": "4 x 4 inches Cylinder",
+        "dimensionsCm": "0.1 sq.ft",
         "finish": "Acrylic Ultra-Gloss",
-        "lighting": "Warm LED Backlit (12V Adapter)",
+        "lighting": "LED Backlit (12V Adapter)",
         "price": 2499,
         "mrp": 4999,
-        "sku": "AG-ROTLAMP-58",
+        "sku": "AG-MOTORI-1",
         "inStock": true,
         "stockCount": 35,
-        "_id": "6ae89187382113ccb9a542cb"
+        "_id": "6b0937ab99a159bb28e1082d"
       },
       {
         "id": "var-rot-2",
-        "size": "6 x 10 inches Grand Cylinder",
-        "dimensionsCm": "15 x 25 cm",
+        "size": "4 x 6  inches Grand Cylinder",
+        "dimensionsCm": "0.2 sq.ft",
         "finish": "Acrylic Ultra-Gloss",
-        "lighting": "Warm LED Backlit (12V Adapter)",
+        "lighting": "LED Backlit (12V Adapter)",
         "price": 3299,
         "mrp": 6299,
-        "sku": "AG-ROTLAMP-610",
+        "sku": "AG-MOTORI-2",
         "inStock": true,
         "stockCount": 40,
-        "_id": "6ae89187382113ccb9a542cc"
-      },
-      {
-        "id": "var-rot-3",
-        "size": "8 x 12 inches Master Bedroom Cylinder",
-        "dimensionsCm": "20 x 30 cm",
-        "finish": "Acrylic Ultra-Gloss",
-        "lighting": "Warm LED Backlit (12V Adapter)",
-        "price": 4199,
-        "mrp": 7999,
-        "sku": "AG-ROTLAMP-812",
-        "inStock": true,
-        "stockCount": 20,
-        "_id": "6ae89187382113ccb9a542cd"
+        "_id": "6b0937ab99a159bb28e1082e"
       }
     ],
     "specifications": [
       {
-        "label": "Rotation Mechanism",
-        "value": "Whisper-Silent 3 RPM 360° Motorized Drive",
-        "_id": "6ae89187382113ccb9a542ce"
+        "label": "Art Material",
+        "value": "Premium Acrylic with CNC Beveled Edges",
+        "_id": "6b0937ab99a159bb28e1082f"
       },
       {
-        "label": "Photo Capacity",
-        "value": "Holds 4 to 5 Continuous Personalized High-Resolution Photos",
-        "_id": "6ae89187382113ccb9a542cf"
-      },
-      {
-        "label": "LED System",
-        "value": "3000K Golden Warm Epistar LEDs with 12V BIS Certified Power Adapter",
-        "_id": "6ae89187382113ccb9a542d0"
-      },
-      {
-        "label": "Base Material",
-        "value": "Handcrafted Teak Texture Base with Touch Control Switch",
-        "_id": "6ae89187382113ccb9a542d1"
+        "label": "Lighting Technology",
+        "value": "Epistar Ambient Glow LED Perimeter (12V Safe)",
+        "_id": "6b0937ab99a159bb28e10830"
       }
     ],
     "materialAndCare": [
-      "Includes 12V DC power cord and adapter.",
-      "Gently dust with dry microfiber cloth."
+      "Clean gently with dry microfiber cloth",
+      "Keep away from abrasive chemical cleaners"
     ],
     "shippingHighlights": [
-      "Rigid shockproof packaging with foam mold protection",
-      "Ready to plug and play right out of the box"
+      "Safe multi-layer packaging standard",
+      "Zero transit damage guarantee"
     ],
     "reviews": [],
     "createdAt": "2026-11-01T00:00:00.000Z",
-    "updatedAt": "2026-11-22T07:38:06.040Z",
-    "id": "6ae89187382113ccb9a542ca"
+    "updatedAt": "2026-11-27T07:56:27.275Z",
+    "categorySlugs": [
+      "360-rotating-photo-lamps"
+    ],
+    "id": "6ae89187382113ccb9a542ca",
+    "models": [
+      {
+        "id": "M-2",
+        "name": "M-2",
+        "image": "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/mockup-interior.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/mockup-interior.jpg"
+        ],
+        "_id": "6b09376b8a776122c05a9b80"
+      },
+      {
+        "id": "M-3",
+        "name": "M-3",
+        "image": "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/mockup-detail.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/mockup-detail.jpg"
+        ],
+        "_id": "6b09376b8a776122c05a9b81"
+      },
+      {
+        "id": "M-4",
+        "name": "M-4",
+        "image": "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/mockup-artistic.jpg",
+        "isPopular": false,
+        "mockups": [
+          "/images/mockups/motorized-360-rotating-led-cylinder-photo-lamp/mockup-artistic.jpg"
+        ],
+        "_id": "6b09376b8a776122c05a9b82"
+      }
+    ],
+    "orientationVariants": {
+      "portrait": [
+        {
+          "id": "var-rot-1",
+          "size": "4 x 4 inches Cylinder",
+          "dimensionsCm": "0.1 sq.ft",
+          "finish": "Acrylic Ultra-Gloss",
+          "lighting": "LED Backlit (12V Adapter)",
+          "price": 2499,
+          "mrp": 4999,
+          "sku": "AG-MOTORI-1",
+          "inStock": true,
+          "stockCount": 35,
+          "_id": "6b0937ab99a159bb28e10838"
+        },
+        {
+          "id": "var-rot-2",
+          "size": "4 x 6  inches Grand Cylinder",
+          "dimensionsCm": "0.2 sq.ft",
+          "finish": "Acrylic Ultra-Gloss",
+          "lighting": "LED Backlit (12V Adapter)",
+          "price": 3299,
+          "mrp": 6299,
+          "sku": "AG-MOTORI-2",
+          "inStock": true,
+          "stockCount": 40,
+          "_id": "6b0937ab99a159bb28e10839"
+        }
+      ],
+      "landscape": [
+        {
+          "id": "var-rot-1",
+          "size": "4 x 4 inches Cylinder",
+          "dimensionsCm": "0.1 sq.ft",
+          "finish": "Acrylic Ultra-Gloss",
+          "lighting": "LED Backlit (12V Adapter)",
+          "price": 2499,
+          "mrp": 4999,
+          "sku": "AG-MOTORI-1",
+          "inStock": true,
+          "stockCount": 35,
+          "_id": "6b0937ab99a159bb28e10836"
+        },
+        {
+          "id": "var-rot-2",
+          "size": "4 x 6  inches Grand Cylinder",
+          "dimensionsCm": "0.2 sq.ft",
+          "finish": "Acrylic Ultra-Gloss",
+          "lighting": "LED Backlit (12V Adapter)",
+          "price": 3299,
+          "mrp": 6299,
+          "sku": "AG-MOTORI-2",
+          "inStock": true,
+          "stockCount": 40,
+          "_id": "6b0937ab99a159bb28e10837"
+        }
+      ],
+      "square": [
+        {
+          "id": "var-rot-1",
+          "size": "4 x 4 inches Cylinder",
+          "dimensionsCm": "0.1 sq.ft",
+          "finish": "Acrylic Ultra-Gloss",
+          "lighting": "LED Backlit (12V Adapter)",
+          "price": 2499,
+          "mrp": 4999,
+          "sku": "AG-MOTORI-1",
+          "inStock": true,
+          "stockCount": 35,
+          "_id": "6b0937ab99a159bb28e10834"
+        },
+        {
+          "id": "var-rot-2",
+          "size": "4 x 6  inches Grand Cylinder",
+          "dimensionsCm": "0.2 sq.ft",
+          "finish": "Acrylic Ultra-Gloss",
+          "lighting": "LED Backlit (12V Adapter)",
+          "price": 3299,
+          "mrp": 6299,
+          "sku": "AG-MOTORI-2",
+          "inStock": true,
+          "stockCount": 40,
+          "_id": "6b0937ab99a159bb28e10835"
+        }
+      ]
+    },
+    "shape": "portrait"
   },
   {
     "slug": "luxury-beveled-floating-border-acrylic-masterpiece-frame",
