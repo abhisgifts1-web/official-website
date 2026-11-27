@@ -37,7 +37,16 @@ export async function GET(
       return NextResponse.json({ success: false, error: 'Product not found' }, { status: 404 });
     }
 
-    return NextResponse.json({ success: true, product });
+    return NextResponse.json(
+      { success: true, product },
+      {
+        headers: {
+          'Cache-Control': 'no-store, no-cache, must-revalidate, max-age=0',
+          'Pragma': 'no-cache',
+          'Expires': '0',
+        },
+      }
+    );
   } catch (err: any) {
     return NextResponse.json({ success: false, error: err.message }, { status: 500 });
   }
@@ -87,6 +96,10 @@ export async function PUT(
     // 3. Instantly invalidate Next.js caches across all storefront routes
     try {
       revalidatePath(`/product/${params.slug}`);
+      if (updates.slug && updates.slug !== params.slug) {
+        revalidatePath(`/product/${updates.slug}`);
+      }
+      revalidatePath('/', 'layout');
       revalidatePath('/shop');
       revalidatePath('/');
       revalidatePath('/admin/products');
@@ -134,6 +147,7 @@ export async function DELETE(
     // Invalidate Next.js cache
     try {
       revalidatePath(`/product/${params.slug}`);
+      revalidatePath('/', 'layout');
       revalidatePath('/shop');
       revalidatePath('/');
       revalidatePath('/admin/products');

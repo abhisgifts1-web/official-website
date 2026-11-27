@@ -289,7 +289,7 @@ export async function syncProductToDatabase(product: Product) {
     const conn = await connectToDatabase();
     if (conn) {
       const { _id, ...cleanProduct } = product as any;
-      await ProductModel.findOneAndUpdate({ slug: product.slug }, cleanProduct, { upsert: true, new: true });
+      await ProductModel.findOneAndUpdate({ $or: [{ id: product.id }, { slug: product.slug }] }, cleanProduct, { upsert: true, new: true });
     }
   } catch (err) {
     console.warn('MongoDB sync product error:', err);

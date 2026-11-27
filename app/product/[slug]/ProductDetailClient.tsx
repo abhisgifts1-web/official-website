@@ -395,7 +395,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
 
   useEffect(() => {
     let isMounted = true;
-    fetch(`/api/products/${product.slug}`)
+    fetch(`/api/products/${product.slug}?t=${Date.now()}`, { cache: 'no-store' })
       .then((res) => res.json())
       .then((data) => {
         if (isMounted && data.success && data.product) {

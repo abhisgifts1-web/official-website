@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { Sparkles, ArrowLeft, Home } from 'lucide-react';
-import { getAllProducts } from '@/lib/store';
+import { getAllProducts, fetchLiveProducts } from '@/lib/store';
 import ProductGrid from '@/components/product/ProductGrid';
 
 interface Props {
@@ -34,9 +34,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default function CollectionSlugPage({ params }: Props) {
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
+export default async function CollectionSlugPage({ params }: Props) {
   const slug = params.slug;
-  const allProducts = getAllProducts();
+  const allProducts = await fetchLiveProducts();
 
   let filtered = allProducts;
   let title = 'Featured Wall Art Series';

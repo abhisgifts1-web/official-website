@@ -50,7 +50,7 @@ export default function CustomGiftsShowcase() {
   const [productsList, setProductsList] = useState(allCustomGifts);
 
   useEffect(() => {
-    fetch('/api/products')
+    fetch(`/api/products?t=${Date.now()}`, { cache: 'no-store' })
       .then((r) => r.json())
       .then((d) => {
         if (d.success && Array.isArray(d.products)) {

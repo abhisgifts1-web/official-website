@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { revalidatePath } from 'next/cache';
-import { getSiteSettings, updateSiteSettings } from '@/lib/store';
+import { getSiteSettings, updateSiteSettings, fetchLiveSettings } from '@/lib/store';
 import { getAuthenticatedAdmin, ADMIN_COOKIE_NAME, verifyAdminToken } from '@/lib/auth';
 
 export const dynamic = 'force-dynamic';
@@ -8,7 +8,7 @@ export const revalidate = 0;
 
 export async function GET() {
   try {
-    const settings = getSiteSettings();
+    const settings = await fetchLiveSettings();
     return NextResponse.json(
       { success: true, settings },
       {

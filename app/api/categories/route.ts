@@ -61,7 +61,16 @@ export async function GET() {
       categories = [...INITIAL_CATEGORIES];
     }
 
-    return NextResponse.json({ success: true, categories });
+    return NextResponse.json(
+      { success: true, categories },
+      {
+        headers: {
+          'Cache-Control': 'no-store, no-cache, must-revalidate, max-age=0',
+          'Pragma': 'no-cache',
+          'Expires': '0',
+        },
+      }
+    );
   } catch (err: any) {
     return NextResponse.json({ success: false, error: err.message }, { status: 500 });
   }

@@ -117,7 +117,16 @@ export async function GET(req: NextRequest) {
       }
     }
 
-    return NextResponse.json({ success: true, count: filtered.length, products: filtered });
+    return NextResponse.json(
+      { success: true, count: filtered.length, products: filtered },
+      {
+        headers: {
+          'Cache-Control': 'no-store, no-cache, must-revalidate, max-age=0',
+          'Pragma': 'no-cache',
+          'Expires': '0',
+        },
+      }
+    );
   } catch (err: any) {
     return NextResponse.json({ success: false, error: err.message }, { status: 500 });
   }
