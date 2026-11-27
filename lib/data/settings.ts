@@ -38,7 +38,7 @@ export const INITIAL_SETTINGS: SiteSettings = {
   defaultShippingFee: 0,
   codAvailable: false,
   codFee: 0,
-  businessAddress: "Abhi's Gifts Workshop & Studio, 16-11-740/5/A, Gaddiannaram, Dilsukhnagar, Hyderabad, Telangana – 500060, India",
+  businessAddress: "Abhi's Gifts, Near: Old RTA Office Moosarambagh, West Prasanth Nagar, Moosarambagh, Hyderabad, Telangana – 500036, India",
   googleMapsUrl: 'https://maps.app.goo.gl/fmGv35KsGabFna9E6?g_st=ac',
   gstNumber: '36AAAAA0000A1Z5',
   instagramUrl: 'https://www.instagram.com/abhis_gifts_?cplk=MWtkNTJla2s3NTQw',
