@@ -6,10 +6,6 @@ import {
   Sparkles,
   Flame,
   ArrowRight,
-  Gem,
-  Palette,
-  ShieldCheck,
-  Truck,
 } from 'lucide-react';
 
 export interface FeaturedArtwork {
@@ -304,62 +300,6 @@ export default function HeroShowcase() {
 
           </div>
 
-        </div>
-      </div>
-
-      {/* ═════════════════════════════════════════════════════════════════════
-          3. PREMIUM TRUST INDICATORS (BOTTOM HORIZONTAL ROW)
-          Subtle minimal row highlighting genuine core customer assurances.
-         ═════════════════════════════════════════════════════════════════════ */}
-      <div className="relative z-10 w-full border-t border-amber-500/20 bg-[#0C0C0F]/90 backdrop-blur-md py-4 sm:py-5 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:divide-x lg:divide-stone-800">
-            
-            {/* 1. Premium Quality */}
-            <div className="flex items-center gap-3 sm:px-3">
-              <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-amber-500/10 border border-amber-400/30 flex items-center justify-center shrink-0">
-                <Gem className="w-4 h-4 sm:w-5 sm:h-5 text-amber-400" />
-              </div>
-              <div className="min-w-0">
-                <p className="text-white font-bold text-xs sm:text-sm">Premium Quality</p>
-                <p className="text-stone-400 text-[11px] sm:text-xs truncate">5mm Ultra-Gloss Acrylic</p>
-              </div>
-            </div>
-
-            {/* 2. Custom Personalization */}
-            <div className="flex items-center gap-3 sm:px-3">
-              <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-amber-500/10 border border-amber-400/30 flex items-center justify-center shrink-0">
-                <Palette className="w-4 h-4 sm:w-5 sm:h-5 text-amber-400" />
-              </div>
-              <div className="min-w-0">
-                <p className="text-white font-bold text-xs sm:text-sm">Custom Personalization</p>
-                <p className="text-stone-400 text-[11px] sm:text-xs truncate">Tailored to Any Photo</p>
-              </div>
-            </div>
-
-            {/* 3. Secure Payments */}
-            <div className="flex items-center gap-3 sm:px-3">
-              <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-amber-500/10 border border-amber-400/30 flex items-center justify-center shrink-0">
-                <ShieldCheck className="w-4 h-4 sm:w-5 sm:h-5 text-amber-400" />
-              </div>
-              <div className="min-w-0">
-                <p className="text-white font-bold text-xs sm:text-sm">Secure Payments</p>
-                <p className="text-stone-400 text-[11px] sm:text-xs truncate">100% Encrypted UPI & Cards</p>
-              </div>
-            </div>
-
-            {/* 4. Safe Delivery */}
-            <div className="flex items-center gap-3 sm:px-3">
-              <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-amber-500/10 border border-amber-400/30 flex items-center justify-center shrink-0">
-                <Truck className="w-4 h-4 sm:w-5 sm:h-5 text-amber-400" />
-              </div>
-              <div className="min-w-0">
-                <p className="text-white font-bold text-xs sm:text-sm">Safe Delivery</p>
-                <p className="text-stone-400 text-[11px] sm:text-xs truncate">Insured All-India Transit</p>
-              </div>
-            </div>
-
-          </div>
         </div>
       </div>
 
