@@ -36,13 +36,8 @@ export async function GET() {
 export async function POST(req: NextRequest) {
   try {
     const admin = await getAuthenticatedAdmin();
-    const isAuthorized =
-      Boolean(admin) ||
-      process.env.NODE_ENV !== 'production' ||
-      req.headers.get('x-admin-action') === 'true';
-
-    if (!isAuthorized) {
-      return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
+    if (!admin) {
+      return NextResponse.json({ success: false, error: 'Unauthorized: Admin session required.' }, { status: 401 });
     }
 
     const body = await req.json();
@@ -128,13 +123,8 @@ export async function POST(req: NextRequest) {
 export async function PUT(req: NextRequest) {
   try {
     const admin = await getAuthenticatedAdmin();
-    const isAuthorized =
-      Boolean(admin) ||
-      process.env.NODE_ENV !== 'production' ||
-      req.headers.get('x-admin-action') === 'true';
-
-    if (!isAuthorized) {
-      return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
+    if (!admin) {
+      return NextResponse.json({ success: false, error: 'Unauthorized: Admin session required.' }, { status: 401 });
     }
 
     const body = await req.json();
@@ -186,13 +176,8 @@ export async function PUT(req: NextRequest) {
 export async function DELETE(req: NextRequest) {
   try {
     const admin = await getAuthenticatedAdmin();
-    const isAuthorized =
-      Boolean(admin) ||
-      process.env.NODE_ENV !== 'production' ||
-      req.headers.get('x-admin-action') === 'true';
-
-    if (!isAuthorized) {
-      return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
+    if (!admin) {
+      return NextResponse.json({ success: false, error: 'Unauthorized: Admin session required.' }, { status: 401 });
     }
 
     const { searchParams } = new URL(req.url);

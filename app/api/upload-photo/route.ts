@@ -46,6 +46,17 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Empty image buffer' }, { status: 400 });
     }
 
+    // Security & resource bounds: enforce 15MB file ceiling and image MIME whitelist
+    const MAX_PHOTO_BYTES = 15 * 1024 * 1024; // 15MB
+    if (buffer.length > MAX_PHOTO_BYTES) {
+      return NextResponse.json({ error: 'Image exceeds maximum allowed size (15MB).' }, { status: 413 });
+    }
+
+    const ALLOWED_MIME_PREFIXES = ['image/jpeg', 'image/jpg', 'image/png', 'image/webp', 'image/heic', 'image/heif'];
+    if (!ALLOWED_MIME_PREFIXES.some((allowed) => mimeType.toLowerCase().startsWith(allowed))) {
+      return NextResponse.json({ error: 'Unsupported file format. Please upload a valid JPG, PNG, or WEBP image.' }, { status: 415 });
+    }
+
     const ext = mimeType.split('/')[1]?.replace('jpeg', 'jpg').replace('svg+xml', 'svg') || 'jpg';
     const filename = `custom-${Date.now()}-${randomUUID().slice(0, 8)}.${ext}`;
 

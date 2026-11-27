@@ -1,6 +1,6 @@
 import { Product } from '@/types';
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://official-website-drab.vercel.app';
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://abhisgifts.com';
 
 export const BUSINESS_INFO = {
   name: "Abhi's Gifts",

@@ -4,7 +4,7 @@ import { INITIAL_PRODUCTS } from '@/lib/data/mockProducts';
 import { INITIAL_CATEGORIES } from '@/lib/data/categories';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://official-website-drab.vercel.app';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://abhisgifts.com';
 
   const staticRoutes: MetadataRoute.Sitemap = [
     { url: `${baseUrl}`, lastModified: new Date(), changeFrequency: 'daily', priority: 1.0 },

@@ -36,7 +36,29 @@ export async function GET(
     if (!order) {
       return NextResponse.json({ success: false, error: 'Order not found' }, { status: 404 });
     }
-    return NextResponse.json({ success: true, order });
+
+    const admin = await getAuthenticatedAdmin();
+    if (admin) {
+      return NextResponse.json({ success: true, order });
+    }
+
+    // Public / customer lookup: sanitize sensitive customer address & phone numbers
+    const rawMobile = order.customer?.mobile || '';
+    const maskedMobile = rawMobile.length >= 4 ? `******${rawMobile.slice(-4)}` : '******';
+    const sanitizedOrder = {
+      ...order,
+      customer: {
+        fullName: order.customer?.fullName ? `${order.customer.fullName.split(' ')[0]} ***` : 'Customer',
+        mobile: maskedMobile,
+        email: order.customer?.email ? `${order.customer.email.slice(0, 2)}***@***` : '',
+        streetAddress: 'Protected Customer Address',
+        city: order.customer?.city || 'Hyderabad',
+        state: order.customer?.state || 'Telangana',
+        pincode: order.customer?.pincode ? `***${order.customer.pincode.slice(-3)}` : '******',
+      },
+    };
+
+    return NextResponse.json({ success: true, order: sanitizedOrder });
   } catch (err: any) {
     return NextResponse.json({ success: false, error: err.message }, { status: 500 });
   }
