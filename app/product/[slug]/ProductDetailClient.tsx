@@ -1958,14 +1958,14 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
           />
         </div>
 
-{/* Luxury Related Products Section ("Complete Your Divine Space") */}
+{/* Luxury Related Products Section ("You May Also Like") */}
         {relatedProducts.length > 0 && (
           <div className="border-t border-stone-200 pt-12 space-y-6">
             <div className="flex items-center justify-between">
               <div>
-                <span className="text-[11px] font-bold uppercase tracking-wider text-amber-800">Curated Pairings</span>
+                <span className="text-[11px] font-bold uppercase tracking-wider text-amber-800">Curated Recommendations</span>
                 <h3 className="font-serif font-bold text-2xl sm:text-3xl text-stone-900">
-                  Complete Your Divine Space
+                  You May Also Like
                 </h3>
               </div>
               <Link href="/shop" className="text-xs font-bold text-stone-900 hover:text-amber-800 hover:underline flex items-center gap-1 transition-colors">
