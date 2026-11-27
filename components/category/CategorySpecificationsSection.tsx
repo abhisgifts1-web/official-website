@@ -90,9 +90,9 @@ const CATEGORY_PROFILES: Record<string, CategoryProfile> = {
       'UV-curable inks cured instantly using UV light.',
       'No separate paper print or photo sheet required.',
     ],
-    card1Title: 'Precision Square Cut Edges',
+    card1Title: 'Precision Cut Smooth Edges',
     card1Desc:
-      'Every Acrylic Frame features clean, precision square-cut edges, maintaining a sharp and minimal geometric appearance that complements modern interiors.',
+      'Every Acrylic Frame features clean, precision cut smooth edges, maintaining a sharp and minimal geometric appearance that complements modern interiors.',
     card2Title: 'Installation Studs Included',
     card2Points: [
       'Premium Metal Mounting Studs Included.',
@@ -107,26 +107,26 @@ const CATEGORY_PROFILES: Record<string, CategoryProfile> = {
     storyParagraphs: [
       'Upgrade your walls with our Premium 5MM Crystal Clear Acrylic Frames, designed to bring elegance, clarity, and a luxurious gallery appearance to your interiors.',
       'Each frame is crafted using 5MM thick crystal-clear acrylic and advanced Direct UV Printing Technology. The artwork is printed directly onto the acrylic surface, delivering high-definition image quality, vibrant colours, and sharp details.',
-      'The premium glossy finish enhances the depth of the artwork, while precision square-cut edges provide a clean, modern aesthetic.',
+      'The premium glossy finish enhances the depth of the artwork, while precision cut smooth edges provide a clean, modern aesthetic.',
       'Every frame comes with premium metal wall mounting studs included, making wall installation convenient and giving your artwork an elegant floating appearance.',
     ],
-    storyBannerText: 'Premium Quality • Advanced Direct UV Printing • Precision Square-Cut Edges • Metal Studs Included',
+    storyBannerText: 'Premium Quality • Advanced Direct UV Printing • Precision Cut Smooth Edges • Metal Studs Included',
     placementTitle: 'Placement & Interior Styling Guidance',
     placementText:
       'Ideal for installation in living rooms, bedrooms, modern offices, gallery corridors, and pooja rooms to elevate your space with timeless elegance.',
     specs: [
       { label: 'Material', value: 'Premium Crystal Clear Acrylic' },
-      { label: 'Thickness', value: '5MM Premium Acrylic (Rigid & Deep)' },
+      { label: 'Thickness', value: '5MM Premium Acrylic' },
       { label: 'Printing Technology', value: 'Advanced Direct UV Printing' },
-      { label: 'Print Quality', value: 'High-Definition UV Printing (1440 DPI)' },
+      { label: 'Print Quality', value: 'High-Definition UV Printing' },
       { label: 'Print Method', value: 'Direct Printing on Acrylic Surface (No Paper / Peeling)' },
-      { label: 'Colour Quality', value: 'Vibrant Colours & Razor-Sharp Details' },
-      { label: 'Finish', value: 'Diamond Polished Ultra-Glossy Finish' },
-      { label: 'Edges', value: 'Precision Square Cut Minimal Edges' },
+      { label: 'Colour Quality', value: 'Vibrant Colours & Sharp Details' },
+      { label: 'Finish', value: 'Premium Glossy Finish' },
+      { label: 'Edges', value: 'Precision Cut Smooth Edges' },
       { label: 'Mounting Hardware', value: 'Premium Metal Wall Mounting Studs Included' },
-      { label: 'Installation', value: 'Mounting Studs, Plugs & Screws Included with Every Frame' },
-      { label: 'Lighting', value: 'Pure Non-LED Art' },
-      { label: 'Customization', value: 'Custom Sizes 12 to 60 inches Available' },
+      { label: 'Wall Mounting', value: 'Wall Plugs & Screws Included' },
+      { label: 'Lighting', value: 'Non-LED Artwork' },
+      { label: 'Customization', value: 'Multiple Custom Sizes Available' },
       { label: 'Recommended Placement', value: 'Living Room, Bedroom, Office, Home Decor and Pooja Room' },
     ],
     sizing: [
@@ -138,7 +138,7 @@ const CATEGORY_PROFILES: Record<string, CategoryProfile> = {
     craftHighlights: [
       { title: '5MM Premium Acrylic', desc: 'Crafted exclusively with 5MM thick crystal-clear acrylic for rich visual depth and rigidity.' },
       { title: 'Advanced Direct UV Printing', desc: 'High-definition UV-curable inks printed directly onto the acrylic surface with instant curing.' },
-      { title: 'Precision Square Cut Edges', desc: 'Clean, precision square-cut edges maintaining a sharp, minimal geometric design.' },
+      { title: 'Precision Cut Smooth Edges', desc: 'Clean, precision cut smooth edges maintaining a sharp, minimal geometric design.' },
       { title: 'Metal Installation Studs Included', desc: 'Premium metal wall mounting studs and hardware included with every frame for a floating look.' },
     ],
     mountSteps: [

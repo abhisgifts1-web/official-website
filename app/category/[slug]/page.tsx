@@ -253,7 +253,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
             <div className="pt-2 flex flex-wrap gap-2 text-[11px]">
               <span className="px-2.5 py-1 rounded-lg bg-stone-900/90 border border-stone-700 text-stone-200">✓ 5MM Premium Crystal Acrylic</span>
               <span className="px-2.5 py-1 rounded-lg bg-stone-900/90 border border-stone-700 text-stone-200">✓ Advanced Direct UV Printing</span>
-              <span className="px-2.5 py-1 rounded-lg bg-stone-900/90 border border-stone-700 text-stone-200">✓ Precision Square Cut Edges</span>
+              <span className="px-2.5 py-1 rounded-lg bg-stone-900/90 border border-stone-700 text-stone-200">✓ Precision Cut Smooth Edges</span>
               <span className="px-2.5 py-1 rounded-lg bg-stone-900/90 border border-stone-700 text-stone-200">✓ Metal Wall Mounting Studs Included</span>
               <span className="px-2.5 py-1 rounded-lg bg-stone-900/90 border border-stone-700 text-stone-200">✓ Non-LED Product</span>
             </div>
