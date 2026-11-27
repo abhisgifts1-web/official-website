@@ -31,7 +31,7 @@ export const INITIAL_CATEGORIES: Category[] = [
     id: 'cat-glitter-photo-frames',
     name: 'Glitter Photo Frames',
     slug: 'glitter-photo-frames',
-    description: 'Enchanted floating liquid gold & diamond shimmer glitter acrylic photo frames bringing luminous sparkle to special memories.',
+    description: 'Premium Glitter Photo Frames specially crafted using high-quality photo paper, separate glitter sheet lamination and sturdy MDF backing.',
     image: '/images/categories/circle-showcase/glitter-photo-frames.jpg',
     parentType: 'custom-frames',
     group: 'custom-frames',

@@ -582,10 +582,10 @@
   },
   {
     "slug": "enchanted-liquid-gold-glitter-acrylic-photo-frame",
-    "title": "Enchanted Liquid Gold Shimmer Glitter Acrylic Photo Frame",
-    "subtitle": "Floating Liquid Diamond & 24K Gold Shimmer Particles in Crystal Acrylic",
-    "shortDescription": "Luminous sparkle and metallic glitter effects adding celebration radiance to special portraits.",
-    "description": "Infuse your favorite memories with mesmerizing shimmer. Our Enchanted Liquid Gold Glitter Photo Frame suspends fine metallic gold dust and sparkling foil flakes inside dual-sealed, optical-grade 4mm cast acrylic. Every glance catches the light with a gentle, cascading shimmer that turns wedding portraits, couple anniversaries, and festive celebrations into glowing, radiant works of art.",
+    "title": "Premium Glitter Photo Frames",
+    "subtitle": "Make your favourite memories shine with Premium Glitter Photo Frames from Abhi’s Gifts.",
+    "shortDescription": "Specially crafted using high-quality photo paper, a separate glitter sheet lamination and a sturdy MDF backing for a beautiful and attractive finish.",
+    "description": "Make your favourite memories shine with Premium Glitter Photo Frames from Abhi’s Gifts.\n\nOur Glitter Frames are specially crafted using high-quality photo paper, a separate glitter sheet lamination and a sturdy MDF backing for a beautiful and attractive finish.\n\nProduct Features:\n• High-Quality Photo Paper Printing\n• Separate Glitter Sheet Lamination\n• Attractive Colourful Glitter Effect\n• Strong MDF Back Support\n• Premium Moulding Frame Finish\n• Multiple Sizes Available\n• Carefully Prepared for Safe Delivery\n\nManufacturing Process:\n1. Customer photos are printed on photo paper.\n2. A separate glitter sheet is laminated over the printed photo.\n3. The laminated photo is pasted onto an MDF backing sheet.\n4. The finished product is fitted into an available frame moulding.\n\nSpecial Combo Offer:\n2 Glitter Frames – ₹999\n\nPerfect for:\n• Birthday Gifts\n• Anniversary Gifts\n• Wedding Memories\n• Couple Photos\n• Family Photos\n• Home Decoration\n\nMoulding Note: Frames are finished using the moulding designs currently available at Abhi’s Gifts.\n\nAbhi’s Gifts – Frame Your Memories.",
     "categorySlug": "glitter-photo-frames",
     "categoryName": "Glitter Photo Frames",
     "artStyle": "Glitter Shimmer Acrylic",
@@ -599,10 +599,15 @@
       "/images/mockups/enchanted-liquid-gold-glitter-acrylic-photo-frame/mockup-artistic.jpg"
     ],
     "tags": [
+      "Premium Glitter Photo Frames",
       "Glitter Photo Frame",
-      "Liquid Gold",
-      "Floating Shimmer",
-      "Acrylic Keepsake"
+      "Glitter Sheet Lamination",
+      "MDF Backing",
+      "Combo Offer ₹999",
+      "Birthday Gifts",
+      "Anniversary Gifts",
+      "Wedding Memories",
+      "Couple Photos"
     ],
     "isFeatured": true,
     "isBestseller": true,
@@ -669,27 +674,46 @@
     ],
     "specifications": [
       {
-        "label": "Art Material",
-        "value": "Premium Acrylic with CNC Beveled Edges",
-        "_id": "6b01bf9d9c693ef07d9d0549"
+        "label": "Print Medium",
+        "value": "High-Quality Photo Paper Printing"
       },
       {
-        "label": "Lighting Technology",
-        "value": "Non-Lit Museum Art",
-        "_id": "6b01bf9d9c693ef07d9d054a"
+        "label": "Lamination",
+        "value": "Separate Glitter Sheet Lamination"
+      },
+      {
+        "label": "Glitter Effect",
+        "value": "Attractive Colourful Glitter Effect"
+      },
+      {
+        "label": "Back Support",
+        "value": "Strong MDF Back Support"
+      },
+      {
+        "label": "Frame Finish",
+        "value": "Premium Moulding Frame Finish"
+      },
+      {
+        "label": "Special Combo Offer",
+        "value": "2 Glitter Frames – ₹999"
+      },
+      {
+        "label": "Perfect For",
+        "value": "Birthday Gifts, Anniversary Gifts, Wedding Memories, Couple Photos, Family Photos, Home Decoration"
       }
     ],
     "materialAndCare": [
-      "Clean gently with dry microfiber cloth",
-      "Keep away from abrasive chemical cleaners"
+      "High-quality photo paper with separate glitter sheet lamination.",
+      "Sturdy MDF backing fitted with premium frame moulding.",
+      "Clean gently with a dry, soft microfiber cloth."
     ],
     "shippingHighlights": [
-      "Safe multi-layer packaging standard",
-      "Zero transit damage guarantee"
+      "Carefully prepared and padded for safe delivery across India",
+      "Finished using moulding designs currently available at Abhi’s Gifts"
     ],
     "reviews": [],
     "createdAt": "2026-11-01T00:00:00.000Z",
-    "updatedAt": "2026-11-22T07:38:05.375Z",
+    "updatedAt": "2026-11-27T08:17:24.758Z",
     "models": [
       {
         "id": "M-18",

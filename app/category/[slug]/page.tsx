@@ -43,9 +43,9 @@ const LOCAL_SEO_CATEGORY_OVERRIDES: Record<string, { title: string; description:
     h1: 'LED Acrylic Photo Frames in Hyderabad',
   },
   'glitter-photo-frames': {
-    title: "Glitter Photo Frames in Hyderabad | Liquid Gold Sparkle Keepsakes — Abhi's Gifts",
-    description: 'Explore floating liquid gold and diamond shimmer glitter photo frames in Hyderabad. Shimmering depth for weddings, anniversaries, and portraits.',
-    h1: 'Glitter Photo Frames in Hyderabad & Dilsukhnagar',
+    title: "Premium Glitter Photo Frames — Abhi's Gifts Hyderabad",
+    description: 'Make your favourite memories shine with Premium Glitter Photo Frames from Abhi’s Gifts. High-quality photo paper, separate glitter sheet lamination and sturdy MDF backing.',
+    h1: 'Premium Glitter Photo Frames',
   },
   '360-rotating-photo-lamps': {
     title: "Personalized 360° Rotating Photo Lamp — Abhi's Gifts Hyderabad",
