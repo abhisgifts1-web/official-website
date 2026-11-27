@@ -298,23 +298,25 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
         <CategorySpecificationsSection categorySlug={category.slug} categoryName={category.name} />
       </div>
 
-      {/* Customization Callout */}
-      <div className="bg-gradient-to-r from-amber-50/70 via-stone-50 to-amber-50/70 p-6 sm:p-8 rounded-3xl border border-amber-200 flex flex-col sm:flex-row items-center justify-between gap-6 mt-12 shadow-xs">
-        <div className="space-y-1 text-center sm:text-left">
-          <h3 className="font-serif font-bold text-lg text-stone-900">
-            Looking for a specific temple size, custom shape, or gold inscription?
-          </h3>
-          <p className="text-xs text-stone-600">
-            Abhi&apos;s Gifts craft any photo frame or sacred artwork in custom sizes up to 6x4 feet at our Dilsukhnagar workshop.
-          </p>
+      {/* Customization Callout (Frames only) */}
+      {category.slug !== '360-rotating-photo-lamps' && category.slug !== 'rotating-photo-lamps' && (
+        <div className="bg-gradient-to-r from-amber-50/70 via-stone-50 to-amber-50/70 p-6 sm:p-8 rounded-3xl border border-amber-200 flex flex-col sm:flex-row items-center justify-between gap-6 mt-12 shadow-xs">
+          <div className="space-y-1 text-center sm:text-left">
+            <h3 className="font-serif font-bold text-lg text-stone-900">
+              Looking for a specific temple size, custom shape, or gold inscription?
+            </h3>
+            <p className="text-xs text-stone-600">
+              Abhi&apos;s Gifts craft any photo frame or sacred artwork in custom sizes up to 6x4 feet at our Dilsukhnagar workshop.
+            </p>
+          </div>
+          <Link
+            href="/customise"
+            className="bg-stone-900 hover:bg-stone-800 text-white font-semibold text-xs sm:text-sm px-6 py-3 rounded-full shadow-sm transition-colors whitespace-nowrap"
+          >
+            Personalise Custom Frame →
+          </Link>
         </div>
-        <Link
-          href="/customise"
-          className="bg-stone-900 hover:bg-stone-800 text-white font-semibold text-xs sm:text-sm px-6 py-3 rounded-full shadow-sm transition-colors whitespace-nowrap"
-        >
-          Personalise Custom Frame →
-        </Link>
-      </div>
+      )}
     </div>
   );
 }

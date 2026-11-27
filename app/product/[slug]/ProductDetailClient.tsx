@@ -681,6 +681,13 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
   const [quantity, setQuantity] = useState(1);
   const [isCustomizerOpen, setIsCustomizerOpen] = useState(false);
   const [isCustomSize, setIsCustomSize] = useState(false);
+
+// Ensure custom size is disabled for 360 rotating lamps
+  useEffect(() => {
+    if (isRotatingLamp && isCustomSize) {
+      setIsCustomSize(false);
+    }
+  }, [isRotatingLamp, isCustomSize]);
   const [customWidth, setCustomWidth] = useState<number>(24);
   const [customHeight, setCustomHeight] = useState<number>(36);
 
@@ -1588,28 +1595,30 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                 })}
 
                 {/* Custom Size Pill */}
-                <button
-                  type="button"
-                  onClick={() => {
-                    setIsCustomSize(true);
-                    setSelectedSizeId(null);
-                  }}
-                  className={`py-2 px-1 sm:py-2.5 sm:px-1.5 min-h-[50px] rounded-xl sm:rounded-2xl text-xs transition-all flex flex-col items-center justify-center cursor-pointer ${
-                    isCustomSize
-                      ? 'border-2 border-amber-500 text-stone-950 font-bold bg-amber-50 shadow-xs ring-1 ring-amber-400'
-                      : 'border border-amber-400 text-amber-900 bg-amber-50/70 hover:bg-amber-100 font-medium'
-                  }`}
-                  title="Enter custom width & height dimensions (12 to 60 inches)"
-                >
-                  <span className="font-bold flex items-center gap-1 text-[11px] sm:text-xs">
-                    <Ruler className="w-3 h-3 text-amber-700" /> Custom
-                  </span>
-                  <span className="text-[9.5px] text-emerald-700 leading-none mt-1 font-semibold">Quote</span>
-                </button>
+                {!isRotatingLamp && (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setIsCustomSize(true);
+                      setSelectedSizeId(null);
+                    }}
+                    className={`py-2 px-1 sm:py-2.5 sm:px-1.5 min-h-[50px] rounded-xl sm:rounded-2xl text-xs transition-all flex flex-col items-center justify-center cursor-pointer ${
+                      isCustomSize
+                        ? 'border-2 border-amber-500 text-stone-950 font-bold bg-amber-50 shadow-xs ring-1 ring-amber-400'
+                        : 'border border-amber-400 text-amber-900 bg-amber-50/70 hover:bg-amber-100 font-medium'
+                    }`}
+                    title="Enter custom width & height dimensions (12 to 60 inches)"
+                  >
+                    <span className="font-bold flex items-center gap-1 text-[11px] sm:text-xs">
+                      <Ruler className="w-3 h-3 text-amber-700" /> Custom
+                    </span>
+                    <span className="text-[9.5px] text-emerald-700 leading-none mt-1 font-semibold">Quote</span>
+                  </button>
+                )}
               </div>
 
               {/* Interactive Custom Size Input when isCustomSize is active */}
-              {isCustomSize && (
+              {!isRotatingLamp && isCustomSize && (
                 <div className="pt-2">
                   <CustomSizeInput
                     width={customWidth}
@@ -1734,7 +1743,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
                 <div className="w-7 h-7 rounded-xl bg-gradient-to-tr from-[#FFF04B] to-[#FEE815] border border-amber-300 flex items-center justify-center shadow-xs shrink-0 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
                   <Camera className="w-4 h-4 text-stone-950" />
                 </div>
-                <span className="text-stone-950 tracking-tight font-extrabold">Customise: Add Your Photo &amp; Custom Size</span>
+                <span className="text-stone-950 tracking-tight font-extrabold">{isRotatingLamp ? "Customise: Add Your 5 Photos" : isCustomSize ? "Customise: Add Your Photo & Custom Size" : "Customise: Add Your Photo & Size"}</span>
                 <span className="hidden sm:inline-flex items-center gap-1 text-[10px] font-extrabold uppercase px-2 py-0.5 rounded-full bg-[#FEE815] text-stone-950 border border-amber-400 shadow-2xs group-hover:bg-[#FFF04B] transition-colors">
                   <Sparkles className="w-2.5 h-2.5 text-stone-950 animate-pulse" />
                   Live Studio

@@ -111,6 +111,19 @@ export default function AddPhotoModal({
       .catch(() => {});
   }, []);
 
+  const isRotatingLamp = useMemo(() => {
+    const catSlug = product.categorySlug?.toLowerCase();
+    const catSlugs = (product.categorySlugs || []).map((s) => s.toLowerCase());
+    return Boolean(
+      catSlug === '360-rotating-photo-lamps' ||
+      catSlug === 'rotating-photo-lamps' ||
+      catSlugs.includes('360-rotating-photo-lamps') ||
+      catSlugs.includes('rotating-photo-lamps') ||
+      product.slug?.toLowerCase().includes('rotating') ||
+      product.title?.toLowerCase().includes('rotating')
+    );
+  }, [product.categorySlug, product.categorySlugs, product.slug, product.title]);
+
   const isCategoryFrameEnabled = useMemo(() => {
     if (showFrameOptionProp !== undefined) return showFrameOptionProp;
     const catSlug = product.categorySlug;
@@ -177,6 +190,13 @@ export default function AddPhotoModal({
   const [isDragging, setIsDragging] = useState(false);
   const [addedSuccess, setAddedSuccess] = useState(false);
   const [isCustomSize, setIsCustomSize] = useState(false);
+
+// Ensure custom size is disabled for 360 rotating lamps
+  useEffect(() => {
+    if (isRotatingLamp && isCustomSize) {
+      setIsCustomSize(false);
+    }
+  }, [isRotatingLamp, isCustomSize]);
   const [customWidth, setCustomWidth] = useState<number>(24);
   const [customHeight, setCustomHeight] = useState<number>(36);
 
@@ -318,6 +338,7 @@ export default function AddPhotoModal({
   };
 
   const handleToggleCustomSize = (custom: boolean) => {
+    if (isRotatingLamp) return;
     setIsCustomSize(custom);
     if (photos.length > 0) {
       setPhotos((prev) =>
@@ -1086,26 +1107,28 @@ export default function AddPhotoModal({
               })}
 
               {/* Custom Size Option */}
-              <button
-                type="button"
-                onClick={() => handleToggleCustomSize(true)}
-                className={`p-2.5 rounded-xl border text-left transition-all cursor-pointer ${
-                  currentSpecs.isCustomSize
-                    ? 'border-amber-500 bg-amber-50 text-stone-950 ring-2 ring-amber-300 shadow-xs'
-                    : 'border-amber-300 bg-amber-50/50 text-stone-800 hover:border-amber-400'
-                }`}
-              >
-                <div className="font-bold text-xs flex items-center gap-1 text-amber-800">
-                  <Ruler className="w-3.5 h-3.5 text-amber-600" /> Custom Size
-                </div>
-                <div className="text-[11px] text-emerald-700 font-medium mt-0.5">
-                  Calibrated Inches
-                </div>
-              </button>
+              {!isRotatingLamp && (
+                <button
+                  type="button"
+                  onClick={() => handleToggleCustomSize(true)}
+                  className={`p-2.5 rounded-xl border text-left transition-all cursor-pointer ${
+                    currentSpecs.isCustomSize
+                      ? 'border-amber-500 bg-amber-50 text-stone-950 ring-2 ring-amber-300 shadow-xs'
+                      : 'border-amber-300 bg-amber-50/50 text-stone-800 hover:border-amber-400'
+                  }`}
+                >
+                  <div className="font-bold text-xs flex items-center gap-1 text-amber-800">
+                    <Ruler className="w-3.5 h-3.5 text-amber-600" /> Custom Size
+                  </div>
+                  <div className="text-[11px] text-emerald-700 font-medium mt-0.5">
+                    Calibrated Inches
+                  </div>
+                </button>
+              )}
             </div>
 
             {/* Custom Size Interactive Input */}
-            {currentSpecs.isCustomSize && (
+            {!isRotatingLamp && currentSpecs.isCustomSize && (
               <CustomSizeInput
                 width={currentSpecs.customWidth}
                 height={currentSpecs.customHeight}
