@@ -75,6 +75,7 @@ export interface Product {
   isFeatured?: boolean;
   isBestseller?: boolean;
   isNewArrival?: boolean;
+  enableFrameOptions?: boolean; // Control Rose Gold & Black frame options on product page
   hasLedBacklight: boolean;
   basePrice: number;
   baseMrp: number;

@@ -126,6 +126,7 @@ export default function AddPhotoModal({
 
   const isCategoryFrameEnabled = useMemo(() => {
     if (showFrameOptionProp !== undefined) return showFrameOptionProp;
+    if (product?.enableFrameOptions !== undefined) return Boolean(product.enableFrameOptions);
     const catSlug = product.categorySlug;
     const catSlugs = product.categorySlugs || [];
     const visibility = frameStock?.categoryVisibility;

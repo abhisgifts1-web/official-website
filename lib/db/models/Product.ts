@@ -53,6 +53,7 @@ const ProductSchema = new Schema(
     isFeatured: { type: Boolean, default: false },
     isBestseller: { type: Boolean, default: false },
     isNewArrival: { type: Boolean, default: false },
+    enableFrameOptions: { type: Boolean, default: true },
     hasLedBacklight: { type: Boolean, default: false },
     basePrice: { type: Number, required: true },
     baseMrp: { type: Number, required: true },

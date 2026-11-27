@@ -346,8 +346,7 @@ async function initDbSync() {
         .map((doc: any) => {
           const { _id, __v, ...p } = doc;
           return { ...p, id: p.id || String(_id) };
-        })
-        .filter((p) => p.slug !== 'bikkkkee' && p.title !== 'bikekek');
+        });
       store.products = formattedProducts;
       savePersistedProducts(formattedProducts);
     } else if (store.products.length > 0) {
@@ -442,6 +441,15 @@ async function initDbSync() {
           } else {
             store.settings.frameStock.black.name = 'Black';
           }
+          // Ensure all category visibility & configs are populated
+          store.settings.frameStock.categoryVisibility = {
+            ...(INITIAL_SETTINGS.frameStock?.categoryVisibility || {}),
+            ...(store.settings.frameStock.categoryVisibility || {}),
+          };
+          store.settings.frameStock.categoryConfigs = {
+            ...(INITIAL_SETTINGS.frameStock?.categoryConfigs || {}),
+            ...(store.settings.frameStock.categoryConfigs || {}),
+          };
         }
         savePersistedSettings(store.settings);
       } else if (store.settings) {
@@ -656,8 +664,7 @@ export async function fetchLiveProducts(): Promise<Product[]> {
           .map((doc: any) => {
             const { _id, __v, ...p } = doc;
             return { ...p, id: p.id || String(_id) } as Product;
-          })
-          .filter((p) => p.slug !== 'bikkkkee' && p.title !== 'bikekek');
+          });
         store.products = formatted;
         savePersistedProducts(formatted);
         return formatted;

@@ -780,6 +780,7 @@ function AdminProductsContent() {
     basePrice: 2499,
     baseMrp: 4999,
     hasLedBacklight: false,
+    enableFrameOptions: true,
     isFeatured: true,
     isBestseller: false,
     shortDescription: '',
@@ -827,6 +828,7 @@ function AdminProductsContent() {
       categorySlug: catSlug,
       categoryName: catObj ? catObj.name : 'Acrylic Photo Frames',
       categorySlugs: [catSlug],
+      enableFrameOptions: catSlug !== '360-rotating-photo-lamps' && catSlug !== 'glitter-photo-frames',
     });
     setModalOpen(true);
   };
@@ -871,6 +873,7 @@ function AdminProductsContent() {
       basePrice: baseP,
       baseMrp: baseM,
       hasLedBacklight: Boolean(prod.hasLedBacklight),
+      enableFrameOptions: prod.enableFrameOptions !== undefined ? Boolean(prod.enableFrameOptions) : (prod.categorySlug !== '360-rotating-photo-lamps' && prod.categorySlug !== 'glitter-photo-frames'),
       isFeatured: Boolean(prod.isFeatured),
       isBestseller: Boolean(prod.isBestseller),
       shortDescription: prod.shortDescription || '',
@@ -1099,6 +1102,7 @@ function AdminProductsContent() {
         isBestseller: formData.isBestseller,
         isNewArrival: true,
         hasLedBacklight: formData.hasLedBacklight,
+        enableFrameOptions: formData.enableFrameOptions !== false,
         basePrice: primaryBasePrice,
         baseMrp: primaryBaseMrp,
         discountPercentage: Math.round(((primaryBaseMrp - primaryBasePrice) / primaryBaseMrp) * 100),
@@ -2973,6 +2977,16 @@ function AdminProductsContent() {
                         className="rounded text-amber-600 accent-amber-500"
                       />
                       <span className="font-semibold text-stone-900">LED Backlight</span>
+                    </label>
+
+                    <label className="flex items-center gap-2 cursor-pointer text-xs text-stone-800">
+                      <input
+                        type="checkbox"
+                        checked={formData.enableFrameOptions}
+                        onChange={(e) => setFormData({ ...formData, enableFrameOptions: e.target.checked })}
+                        className="rounded text-amber-600 accent-amber-500"
+                      />
+                      <span className="font-semibold text-stone-900">Photo Frame Options (Rose Gold &amp; Black)</span>
                     </label>
 
                     <label className="flex items-center gap-2 cursor-pointer text-xs text-stone-800">

@@ -534,7 +534,7 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
           dimensionsCm: sqFt,
           price: vPrice,
           mrp: vMrp,
-          allowedFrames: (isAcrylicFrame ? ['without'] : isGlitterFrame ? ['without'] : ['gold', 'black', 'without']) as FrameType[],
+          allowedFrames: (isRotatingLamp ? ['without'] : isGlitterFrame ? ['without'] : ['gold', 'black', 'without']) as FrameType[],
           allowedThickness: (isAcrylicFrame ? ['5mm'] : ['3mm', '5mm']) as ThicknessType[],
           mountingHardware: {
             framed: 'Heavy-duty wall mounting brackets included',
@@ -585,21 +585,29 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
 
 
   const [selectedFrame, setSelectedFrame] = useState<FrameType>(() => {
-    if (isLedFrame || product.categorySlug === 'led-acrylic-photo-frames' || product.categorySlugs?.includes('led-acrylic-photo-frames')) {
-      return 'gold';
-    }
-    if (isAcrylicFrame || product.categorySlug === 'acrylic-photo-frames' || product.categorySlugs?.includes('acrylic-photo-frames')) {
+    if (isRotatingLamp || isGlitterFrame || product.categorySlug === 'glitter-photo-frames' || product.categorySlugs?.includes('glitter-photo-frames') || product.slug?.includes('glitter')) {
       return 'without';
     }
-    return (product.categorySlug === 'glitter-photo-frames' || product.categorySlugs?.includes('glitter-photo-frames') || product.slug?.includes('glitter'))
-      ? 'without'
-      : 'gold';
+    return 'gold';
   });
 
   const isCategoryFrameEnabled = useMemo(() => {
+    // 1. If product explicitly has enableFrameOptions configured
+    if (liveProduct?.enableFrameOptions !== undefined) {
+      return Boolean(liveProduct.enableFrameOptions);
+    }
+    if (product?.enableFrameOptions !== undefined) {
+      return Boolean(product.enableFrameOptions);
+    }
+
     const catSlug = liveProduct.categorySlug || product.categorySlug;
     const catSlugs = liveProduct.categorySlugs || product.categorySlugs || [];
 
+    // Rotating lamps and glitter frames never have standard gold/black frame borders
+    if (catSlug === '360-rotating-photo-lamps' || catSlugs.includes('360-rotating-photo-lamps') || isRotatingLamp) return false;
+    if (catSlug === 'glitter-photo-frames' || catSlugs.includes('glitter-photo-frames') || isGlitterFrame) return false;
+
+    // Check category visibility from frameStock
     const visibility = frameStock?.categoryVisibility;
     if (visibility) {
       if (catSlug && visibility[catSlug] !== undefined) return Boolean(visibility[catSlug]);
@@ -616,26 +624,27 @@ export default function ProductDetailClient({ product, relatedProducts }: Props)
       }
     }
 
-    if (catSlug === '360-rotating-photo-lamps' || catSlugs.includes('360-rotating-photo-lamps')) return false;
-    if (catSlug === 'glitter-photo-frames' || catSlugs.includes('glitter-photo-frames')) return false;
+    // Default to true for all newly added products / photo frame categories
     return true;
-  }, [frameStock, liveProduct.categorySlug, liveProduct.categorySlugs, product.categorySlug, product.categorySlugs]);
+  }, [liveProduct?.enableFrameOptions, product?.enableFrameOptions, frameStock, liveProduct.categorySlug, liveProduct.categorySlugs, product.categorySlug, product.categorySlugs, isRotatingLamp, isGlitterFrame]);
 
   const isCategoryGoldAllowed = useMemo(() => {
     if (!isCategoryFrameEnabled) return false;
     const catSlug = liveProduct.categorySlug || product.categorySlug;
-    const config = frameStock?.categoryConfigs?.[catSlug];
+    const catSlugs = liveProduct.categorySlugs || product.categorySlugs || [];
+    const config = (catSlug && frameStock?.categoryConfigs?.[catSlug]) || catSlugs.map((s) => frameStock?.categoryConfigs?.[s]).find(Boolean);
     if (config && config.showGold !== undefined) return Boolean(config.showGold);
     return true;
-  }, [isCategoryFrameEnabled, frameStock, liveProduct.categorySlug, product.categorySlug]);
+  }, [isCategoryFrameEnabled, frameStock, liveProduct.categorySlug, liveProduct.categorySlugs, product.categorySlug, product.categorySlugs]);
 
   const isCategoryBlackAllowed = useMemo(() => {
     if (!isCategoryFrameEnabled) return false;
     const catSlug = liveProduct.categorySlug || product.categorySlug;
-    const config = frameStock?.categoryConfigs?.[catSlug];
+    const catSlugs = liveProduct.categorySlugs || product.categorySlugs || [];
+    const config = (catSlug && frameStock?.categoryConfigs?.[catSlug]) || catSlugs.map((s) => frameStock?.categoryConfigs?.[s]).find(Boolean);
     if (config && config.showBlack !== undefined) return Boolean(config.showBlack);
     return true;
-  }, [isCategoryFrameEnabled, frameStock, liveProduct.categorySlug, product.categorySlug]);
+  }, [isCategoryFrameEnabled, frameStock, liveProduct.categorySlug, liveProduct.categorySlugs, product.categorySlug, product.categorySlugs]);
 
   const isGoldOutOfStock = Boolean(!frameStock.gold?.inStock || (frameStock.gold?.stockCount ?? 0) <= 0);
   const isBlackOutOfStock = Boolean(!frameStock.black?.inStock || (frameStock.black?.stockCount ?? 0) <= 0);
