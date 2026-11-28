@@ -4,12 +4,12 @@ import Image from 'next/image';
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { Lock, Mail, Key, Sparkles } from 'lucide-react';
+import { Lock, Mail, Key } from 'lucide-react';
 
 export default function AdminLoginPage() {
   const router = useRouter();
-  const [email, setEmail] = useState('admin@abhigifts.com');
-  const [password, setPassword] = useState('AbhiGifts@2026!Admin');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -60,19 +60,6 @@ export default function AdminLoginPage() {
           </p>
         </div>
 
-        {/* Demo Credentials Notice */}
-        <div className="bg-amber-50 border border-amber-300 p-3.5 rounded-2xl text-xs space-y-1">
-          <p className="font-bold flex items-center gap-1.5 text-amber-900">
-            <Sparkles className="w-3.5 h-3.5 text-amber-700" /> Staff Authorization Credentials:
-          </p>
-          <p className="font-mono text-[11px] text-stone-700">
-            Email: <strong className="text-stone-900">admin@abhigifts.com</strong>
-          </p>
-          <p className="font-mono text-[11px] text-stone-700">
-            Password: <strong className="text-stone-900">AbhiGifts@2026!Admin</strong>
-          </p>
-        </div>
-
         <form onSubmit={handleLogin} className="space-y-4">
           <div>
             <label className="text-xs font-semibold text-stone-700 block mb-1">
@@ -84,7 +71,8 @@ export default function AdminLoginPage() {
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full pl-9 pr-3 py-2.5 text-xs bg-stone-50 border border-stone-300 rounded-xl outline-none focus:border-amber-500 text-stone-900"
+                placeholder="name@abhigifts.com"
+                className="w-full pl-9 pr-3 py-2.5 text-xs bg-stone-50 border border-stone-300 rounded-xl outline-none focus:border-amber-500 text-stone-900 placeholder:text-stone-400"
               />
               <Mail className="w-4 h-4 text-stone-400 absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" />
             </div>
@@ -100,7 +88,8 @@ export default function AdminLoginPage() {
                 required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full pl-9 pr-3 py-2.5 text-xs bg-stone-50 border border-stone-300 rounded-xl outline-none focus:border-amber-500 text-stone-900 font-mono"
+                placeholder="••••••••••••"
+                className="w-full pl-9 pr-3 py-2.5 text-xs bg-stone-50 border border-stone-300 rounded-xl outline-none focus:border-amber-500 text-stone-900 font-mono placeholder:text-stone-400"
               />
               <Key className="w-4 h-4 text-stone-400 absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" />
             </div>
