@@ -8,6 +8,7 @@ import Header from '@/components/layout/Header';
 import ConditionalFooter from '@/components/layout/ConditionalFooter';
 import CartDrawer from '@/components/cart/CartDrawer';
 import MobileBottomNav from '@/components/layout/MobileBottomNav';
+import SplashScreen from '@/components/layout/SplashScreen';
 import { getLocalBusinessSchema } from '@/lib/seo/schema';
 
 const poppinsFont = Poppins({
@@ -141,6 +142,7 @@ export default function RootLayout({
       <body className="min-h-screen flex flex-col bg-white text-stone-900 antialiased selection:bg-[#FFF04B]/40 selection:text-stone-900">
         <CartProvider>
           <WishlistProvider>
+            <SplashScreen />
             <AnnouncementBar />
             <Header />
             <main className="flex-1 pb-16 lg:pb-0">{children}</main>
